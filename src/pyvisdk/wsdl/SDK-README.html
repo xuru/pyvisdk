@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/tr/1999/REC-html401-19991224/loose.dtd">
+<html><head>
+<title>VMware vSphere Web Services SDK Readme</title>
+<!--
+9-Sept-2008; cleanup the where to find info box
+21-, 20-, 18-Jun-2008; simplify even further. We won't have a landing page on www.vmware.com. Need to refer to Communities.
+18-Mar-2008 kwiseth; New simplified readme. Just point to the landing page. Keep named as SDK-README.html to conform to the download instructions.
+-->
+<meta content="VMware, Inc. All rights reserved." name="copyright"></meta>
+<link rel="stylesheet" type="text/css" href="docresources/template.css"></link>
+<style type="text/css">
+
+h4 {
+	padding: 0;
+	font-size: 12px;
+	font-weight: bold;
+	border-top: 1px solid #dedede;
+	background-color:#E6EDF6;
+}
+
+
+.Parameter {
+	margin: 0 0 7px 0;
+	width: 100%;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.Code
+    {
+	font-size: 11px; font-family: 
+	"Courier New", Courier, monospace; 
+	}
+	
+.Console
+    {
+	font-size: 11px; font-family: 
+	"Courier New", Courier, monospace; 
+	color: #ffffff;
+	font-weight: bold;
+	background: #000000;
+	}
+.Caption {
+	font-size:11px; line-height:12px; text-transform: uppercase; FONT-WEIGHT: bold; COLOR: #000000; TEXT-DECORATION: none
+}
+.Exp {
+	font-size:11px; text-transform: uppercase; FONT-WEIGHT: bold; COLOR: #3366AA;
+}
+.Large { font-size: 16px; FONT-WEIGHT: bold; }
+
+.TableText {
+	FONT-SIZE: 11px;
+}
+
+.TableHead {
+	FONT-SIZE: 10px; font-weight: bold;
+}
+
+.BoldRedText {
+	FONT-WEIGHT: bold; COLOR: #CC0000; TEXT-DECORATION: none
+}
+.BoldBlue {
+	FONT-WEIGHT: bold; COLOR: #3366AA; TEXT-DECORATION: none
+}
+.Miniscule {font-size: 9px;
+           }
+
+.Nav {font-size: 11px; COLOR: #3366AA;
+           }
+.Large { font-size: 16px; FONT-WEIGHT: bold; }
+</style>
+
+
+</head>
+<body>
+	
+<table cellpadding="0" cellspacing="5" id="main-table">
+<tr><td id="main-body" align="left">
+<!-- ///*** start of content area ***/// -->
+<img src="docresources/vmware.gif" alt="VMware logo" width="187" height="72" border="0"></img>
+<h1>VMware vSphere Web Services SDK Readme</h1>
+
+<p class="Nav">
+<img src="docresources/page.gif" alt="Java Samples Readme" width="13" height="16" border="0"></img> &nbsp;<a href="samples/Axis/java/readme_java.html" title="Go to the Readme for the Java samples...">Readme for Java Samples</a></br>
+<img src="docresources/page.gif" alt="C# Samples Readme" width="13" height="16" border="0"></img> &nbsp;<a href="samples/DotNet/readme_dotnet.html" title="Go to the Readme for the C# samples readme...">Readme for C# (.NET) Samples</a></p>
+<hr/>
+<table cellpadding="0" cellspacing="0" width="100%">
+<tr><td width="40%" vAlign="top">
+
+<p>Welcome to the <strong>VMware vSphere Web Services SDK</strong>. This Readme contains these topics:</p>
+  	
+	 <ul>
+	  <li><a href="#packagecontents" target="_top">What&#146;s in the SDK Package?</a></li>
+	  <li><a href="#viapi" target="_top">What is the VMware vSphere API?</a></li>
+	  <li><a href="#samples" target="_top">Samples Listings</a>
+	  <ul>
+	  <li><a href="samples/Axis/java/readme_java.html" title="Readme includes samples listings...">Readme for Java Samples</a></li>
+	  <li><a href="samples/DotNet/readme_dotnet.html" title="Readme includes samples listings...">Readme for C# Samples</a></li>
+	  </ul>
+	  </li>
+	  <li><a href="#pubs" target="_top">Documentation</a></li>
+	  <li><a href="#checklist">Checklist of Setup Tasks</a></li>
+	  <li><a href="#resources" target="_top">VMware Resources</a></li>
+	 </ul>
+	 
+</td><td vAlign="top" align="right">
+
+<!--caveat about state of document -->
+<table cellpadding="5" cellspacing="0" width="450" border="0">
+<tr><td colspan="2" align="left"><span class="Exp">Note:&nbsp;&nbsp;</span> Information in this document may not be current. For up-to-date information, check these VMware Web sites:</td></tr>
+<tr><td colspan="2" align="left"><table cellpadding="5" cellspacing="0" width="100%" border="1" class="light-blue-shade">
+<tr><td vAlign="top" colspan="2" align="left"></td></tr>
+<tr class="Caps"><td vAlign="top" width="45%" class="Caption" align="left">Beta or Pre-release Products</td>
+
+<td vAlign="top"><a href="http://communities.vmware.com/community/beta">VMware Beta Community</a></td></tr>
+
+<tr class="Caps"><td class="Caption">Released SDK Products</td><td vAlign="top"><a href="http://www.vmware.com/support/developer/vc-sdk/index.html">VMware vSphere Web Services SDK</a>
+</td></tr></table>
+</td></tr></table>
+<!--conclude caveat about state of links -->
+
+</td></tr></table>
+	 
+	<a name="packagecontents"></a>    
+	  <h2><strong>What&#146;s in the SDK Package?</strong></h2>
+	  <p>The vSphere Web Services SDK is a zip file that provides:
+	  </p>
+	 <ul>
+<li>Sample code that demonstrates common tasks involved in using the vSphere API to manage the virtual infrastructure.
+The sample code includes compiled and ready-to-run Java class files, as well as 
+<a href="samples/Axis/java/readme_java.html" title="See the Java Samples Readme for more information...">Java</a> and
+<a href="samples/DotNet/readme_dotnet.html" title="See the C# Samples Readme for more information">C#</a> source code files.  See the respective Readmes (<a href="samples/Axis/java/readme_java.html" title="See the Java Samples Readme for more information...">readme_java.html</a>, <a href="samples/DotNet/readme_dotnet.html" title="See the C# Samples Readme for more information">readme_dotnet.html</a>) for information about building and using the samples.</br></br>
+</li>
+<li>Web Services Definition Language (WSDL) definitions that describe the API for accessing vSphere servers,
+such as ESX, ESXi, and vCenter Server systems. The WSDL is divided into two separate files:
+<ul>
+<li>vim.wsdl</li>
+<li>vimService.wsdl (imports the vim.wsdl. Use the vimService.wsdl file to generate stubs.)</li>
+</ul>
+</li>
+<li>Batch files and shell scripts to automate the process of generating client-side stubs, and for re-building the sample applications. </br>
+<ul>
+<li>
+For Java developers, compiled client-side libraries (vim.jar, vim25.jar, apputils.jar, samples.jar) are available for testing and development purposes.</li>
+<li>
+For C# developers, the Microsoft Visual Studio project files (.sln) have been included.
+</li>
+</ul>
+</br></li>
+<li>Reference documentation (<a href="doc/ReferenceGuide/index.html">VMware vSphere API ReferenceGuide</a>) that provides language-neutral
+descriptive information (object type definitions, properties, and method signatures, for example) for
+the VMware vSphere API.</br></br></li>
+
+
+</ul>
+
+<p>The vSphere Web Services SDK zip file contains these top-level directories and 
+sub-directories. For more information about the content within each sub-directory (in particular,
+the Java samples sub-directory and the C# samples sub-directory), see the appropriate readme file. </p>
+
+<h3>Directory structure (under \SDK): </h3>
+
+<table cellpadding="5" cellspacing="0" border="1" width="90%" class="TableText">
+<tr class="TableHead">
+<td vAlign="top">Directory or filename</td>
+<td vAlign="top">Description</td>
+</tr>
+<tr>
+<td vAlign="top">\doc</td>
+<td vAlign="top">Directory that contains the SDK Terms and Conditions document. User guides
+(Developer&#146;s Setup Guide and Programming Guide) are available at
+<a href="http://www.vmware.com/support/developer/vc-sdk/index.html">http://www.vmware.com/support/developer/vc-sdk/index.html</a></td>
+</tr>
+<tr>
+<td vAlign="top">\doc\ReferenceGuide</td>
+<td vAlign="top">Directory that contains the VMware vSphere API Reference files.
+Use a web browser to open index.html. </td>
+</tr>
+<tr>
+<td vAlign="top">\samples</td>
+<td vAlign="top">Top-level directory that contains the language-specific versions of the sample client
+applications, one for Java, one for C#. </td>
+</tr>
+<tr>
+<td vAlign="top">\samples\Axis\java</td>
+<td vAlign="top">Directory that contains batch files, Java source code (in package hierarchy),
+compiled bytecodes, Java stub classes for the samples, and a vim.jar file that contains
+the client-side stubs built using the vim.wsdl. </td>
+</tr>
+<tr>
+<td vAlign="top">\samples\Axis\java\java\com\vmware</td>
+<td vAlign="top">Directory that contains Java samples.
+See the <a href="samples/Axis/java/readme_java.html">Readme for Java samples</a> for details.</td>
+</tr>
+<tr>
+<td vAlign="top">\samples\DotNet\cs</td>
+<td vAlign="top">Directory that contains batch files, plus several other sub-directories containing
+Windows C# sample applications (in the appropriate namespace structure), the Microsoft Visual Studio
+project files (.sln files). </td>
+</tr>
+<tr>
+<td vAlign="top">\sms</td>
+<td vAlign="top">Directory that contains the Storage Management Server SDK. The Storage Management Service (SMS)
+is installed by default on vCenter Server systems. The services provide an experimental Web-services-based API
+(SMS API) that provides centralized access to all storage information, across an entire datacenter.  Obtaining
+information at this level of granularity is much simpler using the SMS API than using the general-purpose vSphere
+API. See the <a href="sms/SMS-SDK-README.html">SMS SDK Readme</a> for more information. </td>
+</tr>
+<tr>
+<td vAlign="top">\wsdl\vim\vim.wsdl</td>
+<td vAlign="top">WSDL file that contains the VMware vSphere API definitions. </td>
+</tr>
+<tr>
+<td vAlign="top">\wsdl\vim\vimService.wsdl</td>
+<td vAlign="top">WSDL file that defines the Web services endpoint. Your client
+application uses this endpoint to access vSphere services.
+The vimService.wsdl file references the vim.wsdl with an import statement;
+specify the vimService.wsdl file (rather than vim.wsdl directly) when you use a generation tool.</td>
+</tr>
+<tr>
+<td vAlign="top">\wsdl\vim25\vim.wsdl</td>
+<td vAlign="top">WSDL file that contains the VMware vSphere API definitions.
+Includes support for new features of the vSphere object model.</td>
+</tr>
+<tr>
+<td vAlign="top">\wsdl\vim25\vimService.wsdl</td>
+<td vAlign="top">WSDL file defining the Web services endpoint. Your client application
+uses this endpoint to access vSphere services.
+The vimService.wsdl file references the vim.wsdl with an import statement;
+specify the vimService.wsdl file (rather than vim.wsdl directly) when you use a generation tool.
+</td>
+</tr>
+</table>
+
+
+<a name="viapi"></a>
+<h2><strong>What is the VMware vSphere API?</strong></h2>
+<p>The VMware vSphere API (vSphere API) provides language-neutral interfaces to the vSphere management framework. In much the same way that JMX (Java 
+Management Extension) provides an infrastructure for managing and monitoring Java applications, the VMware vSphere API lets you do the same for VMware vSphere 
+components (for example, virtual machines, host systems) and services (such as performance manager). 
+</p>
+<p>The API provides industry-standard Web services that are hosted on VMware vSphere systems, including ESX, ESXi, and vCenter systems. The API complies with the Web Services Interoperability Organization (WS-I) Basic Profile 1.0, 
+which includes XML Schema 1.0, SOAP 1.1, WSDL 1.1. For more information about the WS-I Basic Profile 1.0, 
+see: 
+</p>
+<p><a href="http://www.ws-i.org/Profiles/BasicProfile-1.0-2004-04-16.html">
+http://www.ws-i.org/Profiles/BasicProfile-1.0-2004-04-16.html 
+</a>
+</p>
+<p>The Web services provide life-cycle operations and operations for managing 
+vSphere components&#151;compute resources, virtual machines, networks, storage, and the like.
+</p>
+
+<h3>Accessing VMware vSphere Web Servers</h3>
+
+<p>By default, a VMware vSphere Server listens on port 443, the well-known port for Secure HTTP (HTTPS), which uses SSL (secure sockets layer) to encrypt communications between client application and server. To access a server, use the URN from a web-services client application, as in:</p>
+<p class="Code">
+https://<em>FQDN_Server_or_IP_Address</em>/sdk</p>
+<p>The certificate of the target server must reside on the client machine.
+See &#147;Obtaining Server Certificates&#148; in Appendix A (&#147;Server Certificates Reference&#148;) of the 
+<a href="http://www.vmware.com/support/developer/vc-sdk/visdk25pubs/visdk25setupguide.pdf">Developer&#146;s Setup Guide</a>.
+</p>
+<p>To configure the server to support HTTP (rather than HTTPS), see 
+&#147;Modifying the Server Configuration to Support HTTP&#148; in Appendix A (&#147;Server Certificates Reference&#148;)
+of the <a href="http://www.vmware.com/support/developer/vc-sdk/visdk25pubs/visdk25setupguide.pdf">Developer&#146;s Setup Guide</a>.
+</p>
+
+
+<a name="samples"></a><h2><strong>Samples Listing</strong></h2>
+<p>
+The vSphere Web Services SDK includes samples for Java and Microsoft .NET (C#). </p>
+
+<table cellpadding="5" cellspacing="0" border="1" width="500" class="TableText">
+<tr>
+<td width="50%" class="TableHead"><strong>Java Samples</strong></td>
+<td width="50%" class="TableHead"><strong>C# Samples</strong></td>
+</tr>
+
+<tr><td vAlign="top">
+<a href="samples/Axis/java/readme_java.html">Readme for Java Samples</a></td>
+<td vAlign="top"><a href="samples/DotNet/readme_dotnet.html">Readme for DotNet Samples</a></td>
+</tr>
+</table>
+
+<a name="pubs"></a><h2><strong>Documentation</strong></h2>
+<p>The <a href="doc/ReferenceGuide/index.html" target="doc/ReferenceGuide/index.html">API ReferenceGuide</a> is included in the vSphere Web Services SDK package, located in the <a href="doc/ReferenceGuide/index.html" target="doc/ReferenceGuide/index.html">/doc</a> sub-directory of the SDK package. Other current documentation, such as Release Notes, Developer&#146;s Setup Guide, and Programming Guide, is located online only.</p>
+<ul>
+<li>For <strong>beta and other pre-release</strong> product information and documentation, visit the <a href="http://www.vmware.com/communities/content/">VMware Communities portal</a>.<br/><br/>
+</li>
+
+<li>
+For <strong>released product information</strong>, including known issues, see the <a href="http://www.vmware.com/support/developer/vc-sdk/index.html">
+VMware Infrastructure SDK 
+</a>page.
+</li>
+</ul>
+<p>Be sure to read the Release Notes for late-breaking and updated information.</p>
+
+<a name="checklist"></a>
+<h2><strong>Checklist of Setup Tasks</strong></h2>
+
+<p>Setting up your workstation for developing client applications using the vSphere Web Services SDK involves several steps. Assuming you are already developing applications of one kind or another, some of the steps below may be unnecessary. Modify the details of the process as appropriate for the specifics of your system. See the <a href="http://www.vmware.com/support/developer/vc-sdk/visdk25pubs/visdk25setupguide.pdf">Developer&#146;s Setup Guide</a> for complete details. Also see the appropriate readme for your development platform (readme_java.html, readme_dotnet.html).</p>
+	  <p><strong>To get started with the vSphere Web Services SDK</strong>:</p>
+	  <ol>
+	  <li>Choose a development language (Java or C#) to use for Web-services client application development.</br></br></li>
+	  <li>Identify the target server (or servers) that you&#146;ll use during development. (&#147;Target servers&#148; refers to the vCenter, ESX, or ESXi systems that will be the targets of the client applications that you develop.)</br></br></li>
+
+<li>Verify network access to each server by launching a browser and connect to its URL:</br></br>
+
+<strong>https://<em>esx-server-name-or-virtual-center-server-name</em></strong></br></br>
+
+ <table width="100%"  border="0" cellpadding="0" cellspacing="0">
+    	<tr>
+      	<td class="features">
+<p>
+
+Note that ESX and vCenter default configurations use SSL (secure sockets layer) to encrypt communications, thus the default protocol used is HTTPS (as shown above). However, target servers can be configured to use HTTP (rather than HTTPS). See &#147;Modifying the Server Configuration to Support HTTP&#148; in the <a href="http://www.vmware.com/support/developer/vc-sdk/visdk25pubs/visdk25setupguide.pdf">Developer&#146;s Setup Guide</a> for details.</p>
+
+<p>
+If a target server is configured for HTTPS, you must import its server-certificates as described in
+&#147;Obtaining Server Certificates&#148; in the
+<a href="http://www.vmware.com/support/developer/vc-sdk/visdk25pubs/visdk25setupguide.pdf">Developer&#146;s Setup Guide</a>.
+</p>
+
+<!-- snippet for table comprising a Note, Caveat, or Warning. Has Blue background -->
+<table cellpadding="0" cellspacing="0" border="1" width ="100%" class="light-blue-shade">
+<tr><td vAlign="top" colspan="2">
+<table cellpadding="0" cellspacing="5" border="0" width ="100%" class="light-blue-shade">
+<tr><td width="50" vAlign="top" align="left">
+<strong>Note</strong>:</td>
+
+<td vAlign="top" align="left">
+
+
+<p>Java developers can circumvent the server-certificate verification (by the client, which occurs during the SSL handshake) in their code by using the SunFakeTrustSocketFactory class (available in the Axis client libraries (org.apache.axis.components.net package). The Java samples included with the SDK use this technique (via an optional command-line argument, <strong>--ignorecert</strong>). 
+</p>
+
+<p>
+If you plan to use the --ignorecert option, or use this technique in your own code, you do not need to obtain the server certificates. However, you must still set the <a href="samples/Axis/java/readme_java.html#vmkeystore">VMKEYSTORE</a> environment variable (as discussed in the <a href="samples/Axis/java/readme_java.html">Readme for Java Samples</a>) to use the Run script (run.bat, run.sh).
+
+</p>	
+
+</td></tr></table>
+</td></tr></table>
+<p></p>
+<!-- snippet for table ends here -->
+
+
+
+</td></tr></table>
+</li>
+
+<li> 
+Install the development environment appropriate for your programming language.</br></br>
+
+<ul>
+<li><strong>For C#</strong>, use one of the Microsoft development environments,
+such as Microsoft Visual Studio 2008 or 2005, Microsoft Visual Studio .NET 2003, or Microsoft Visual C#. 
+(VMware recommends using Microsoft Visual Studio 2008 or 2005; both include the required .NET Framework.)
+For more information, visit:</br>
+<a href="http://msdn2.microsoft.com">http://msdn2.microsoft.com</a></br></br>
+</li>
+
+<li><strong>For Java</strong>, use the JDK. VMware recommends JDK 6; you can use JDK 5.0,
+Update 8 or later.  For more information, visit:</br>
+<a href="http://java.sun.com/javase/downloads/">http://java.sun.com/javase/downloads/</a></br></br>
+</li>
+</ul>
+
+</li>
+
+<li>Obtain the appropriate Web-services client tools (XML parser, WSDL-to-proxy-code generation tools, runtime) for your programming language:</br></br>
+<ul>
+<li>
+<strong>For C#</strong>, use Microsoft .NET Framework 2.0 or Microsoft .NET Framework 1.1.
+If you have been using Microsoft development tools for any length of time, it's likely you already
+have what's needed. You can obtain Microsoft .NET Framework from Microsoft, at:</br>
+<a href="http://msdn2.microsoft.com/en-us/netframework/default.aspx">http://msdn2.microsoft.com/en-us/netframework/default.aspx</a></br></br></br>
+
+You will also need the Microsoft .NET 2.0 Software Development Kit, which includes the WSDL-to-stub
+generation tool (wsdl.exe) and the command-line version of the C# compiler (csc.exe), both of which are
+called from the Build2005.cmd. You can obtain the Microsoft .NET 2.0 Sofware Development Kit from:</br>
+
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=FE6F2099-B7B4-4F47-A244-C96D69C35DEC&displaylang=en">http://www.microsoft.com/downloads/details.aspx?FamilyID=FE6F2099-B7B4-4F47-A244-C96D69C35DEC&displaylang=en</a>
+</br></br></li>
+
+<li><strong>For Java</strong>, use Apache Axis 1.4 or Apache Axis 1.2.1 client-side Web services libraries.
+(However, you can only use Apache Axis 1.4 for any of the Java samples that ship with the vSphere Web Services
+SDK.) For more information, visit:
+</br>
+
+<a href="http://ws.apache.org/axis/java/releases.html">http://ws.apache.org/axis/java/releases.html</a></br></br>
+</li>
+</ul>
+</li>
+
+<li>
+Configure environment and other settings on the workstation (as described in the appropriate language-specific 
+sections in the <a href="http://www.vmware.com/support/developer/vc-sdk/visdk25pubs/visdk25setupguide.pdf">Developer&#146;s Setup Guide</a>), 
+or in the respective readme files (<a href="samples/Axis/java/readme_java.html" title="Go to the Readme for the Java samples...">readme_java.html</a>, 
+<a href="samples/DotNet/readme_dotnet.html" title="Go to the Readme for C# Samples...">readme_dotnet.html</a>) for the samples.
+</li>
+</ul>
+</ol>
+
+
+	 <a name="resources"></a><h2><strong>VMware Resources</strong></h2>
+	    <ul>
+		<li><a href="http://www.vmware.com/communities/content/developer/">Developer Center</a></li>
+		<li><a href="http://kb.vmware.com/">Knowledge Base</a></li>
+        <li><a href="http://www.vmware.com/communities/content/vmug/index.html">User Groups</a> </li>
+        <li><a href="http://communities.vmware.com">VMware Communities</a> </li>
+
+
+	 </ul>
+<p>
+Copyright &copy; 2010 VMware, Inc.  All rights not expressly granted herein 
+are reserved. 
+</p>
+ <p class="Miniscule">Last updated: 05Mar2010&nbsp;|&nbsp; VMware vSphere Web Services SDK</p>
+
+
+</td></tr></table>
+
+
+
+
+</body></html>
