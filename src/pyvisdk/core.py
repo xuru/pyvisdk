@@ -15,6 +15,13 @@ import time
 class VisdkTaskError(Exception):
     pass
 
+class VisdkInvalidState(Exception):
+    pass
+
+logging.basicConfig(level=logging.INFO)
+log = logging.getLogger(__name__)
+log.setLevel(logging.DEBUG)
+
 class VimBase(object):
     '''
     Base class to hold the nuts and bolts for the web services grunt work.
@@ -30,7 +37,6 @@ class VimBase(object):
         self.connected = False
          
         # setup logging...
-        logging.basicConfig(level=logging.INFO)
         logging.getLogger('suds.client').setLevel(logging.INFO)
         logging.getLogger('suds.wsdl').setLevel(logging.INFO)
         logging.getLogger('suds.transport').setLevel(logging.INFO)
@@ -46,10 +52,11 @@ class VimBase(object):
         if self.connected:
             return
         self.url = "https://" + self.server + '/sdk'
-        wsdl_dir = os.path.dirname(__file__)
+        wsdl_dir = os.path.abspath(os.path.dirname(__file__))
       
         # create the soap client
         self.client = suds.client.Client("file://"+os.path.join(wsdl_dir, 'wsdl', 'vimService.wsdl'))
+        self.client.set_options(faults=True)
         self.client.set_options(location=self.url)
 
         # create the Service Instance managed object
@@ -245,9 +252,7 @@ class VimBase(object):
         collector = ManagedObjectRef(consts.serviceTypes['propertyCollector'], propCol.value)
         
         if self.verbose > 5:
-            print "="*80
-            print collector
-            print "="*80
+            log.debug(str(collector))
       
         pSpec = self.PropertyFilterSpec(
                 propSet=[
@@ -273,7 +278,7 @@ class VimBase(object):
                 status[x.name] = x.op
         return status
 
-    def waitForTask(self, objmor, wait_time=2):
+    def waitForTask(self, objmor):
         version = ""
 
         objmor = ManagedObjectRef("Task", objmor.value)
@@ -290,34 +295,34 @@ class VimBase(object):
         
         status = self._parseTaskResponse(updateset)
         while status['info.state'] in [ TaskInfoState.running, TaskInfoState.queued ]:
-            print "Waiting for task to complete...  sleeping for %d seconds" % wait_time
-            time.sleep(wait_time)
+            log.debug("Waiting for task to complete...")
             version = updateset.version
             updateset = self.client.service.WaitForUpdates(self.managers["propertyCollector"], version)
             status = self._parseTaskResponse(updateset)
         
-        print "Finished task..."
+        log.debug("Finished task...")
         # Destroy the filter when we are done.
         self.client.service.DestroyPropertyFilter(filterSpecRef)
         
         if status['info.state'] == TaskInfoState.error:
-            fault = objmor.info.getError()
-            error = "Error Occured"
-            if fault:
-                error += ": " + fault.fault.reason + " code: " + str(fault.fault.code)
-            raise VisdkTaskError(error)
+            error = status['info.error']
+            raise VisdkTaskError(error.localizedMessage)
+        return status['info.state']
 
     def update(self, objmor, properties=[], version="", wait_time=2):
         myObjSpec = self.ObjectSpec(objmor)
+        if not hasattr(objmor, "_type") and hasattr(objmor, "obj"):
+            objmor = objmor.obj
         myPropSpec = self.PropertySpec(_type=objmor._type, pathSet=properties)
         pSpec = self.PropertyFilterSpec(propSet=[myPropSpec], objectSet=[myObjSpec])
 
         filterSpecRef = self.client.service.CreateFilter(self.managers["propertyCollector"], pSpec, False)
         filterSpecRef = ManagedObjectRef("PropertyFilter", filterSpecRef.value)
         
+        log.debug("Calling CheckForUpdates with version: %s" % version)
         changeData = self.client.service.CheckForUpdates(self.managers["propertyCollector"], version)
         
-        print "Finished update..."
+        log.debug("Finished update...")
         # Destroy the filter when we are done.
         self.client.service.DestroyPropertyFilter(filterSpecRef)
         

@@ -39,12 +39,7 @@ serviceTypes = {
     'vmProvisioningChecker'     : 'VirtualMachineProvisioningChecker',
 }
 
-class TaskInfoState(object):
-    success = "success"
-    running = "running"
-    error = "error"
-    queued = "queued"
-    
+
 # managed entities
 ManagedEntity = "ManagedEntity" 
 ComputeResource = "ComputeResource"
@@ -55,6 +50,7 @@ HostSystem = "HostSystem"
 ResourcePool = "ResourcePool"
 VirtualMachine = "VirtualMachine"
 VirtualMachineSnapshot = "VirtualMachineSnapshot"
+
 
 # compute resources
 ComputeResource = "ComputeResource"

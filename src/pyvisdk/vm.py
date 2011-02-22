@@ -4,11 +4,16 @@ Created on Feb 17, 2011
 @author: eplaster
 '''
 from pyvisdk import consts
-from pyvisdk.consts import ManagedObjectRef
+from pyvisdk.consts import ManagedObjectRef, TaskInfoState
+from pyvisdk.core import VisdkInvalidState
 from random import randrange
+from suds import WebFault
 from types import StringType
+import logging
 import string
-import types
+
+log = logging.getLogger(__name__)
+log.setLevel(logging.DEBUG)
 
 class VisdkTaskError(Exception):
     pass
@@ -19,7 +24,7 @@ class VirtualMachine(object):
         self.core = core
         self.client = core.client
         self.service = core.client.service
-        self.pathSet = [ "capability", "parent", "name", "summary.config", "snapshot", "config" ] 
+        self.props = [ "capability", "parent", "name", "summary.config", "snapshot", "config", "runtime"] 
         
         self.capability = None
         self.parent = None
@@ -27,33 +32,33 @@ class VirtualMachine(object):
         self.config = None
         self.name = name
         self.snapshots = {}
+        self.poweredOn = False
         
         self.version = ""
         self.ref = None
         self.devices = {}
         
-        if mo:
-            self.ref = mo
-            self.update()
-        else:
-            self.initialize()
+        self.initialize()
     
     def initialize(self):
-        objectContent = self.core.getDecendentsByName(_type=consts.VirtualMachine, pathSet=self.pathSet, name=self.name)
-        self.ref = ManagedObjectRef(consts.VirtualMachine, objectContent.obj.value)
+        objectContent = self.core.getDecendentsByName(_type=consts.VirtualMachine, pathSet=self.props, name=self.name)
+        for x in objectContent:
+            self.ref = ManagedObjectRef(consts.VirtualMachine, x.obj.value)
+            self._updateProperties(x.propset)
             
-        for prop in objectContent.propSet:
-            self.updateProperty(prop)
+    def update(self, props=[]):
+        if not props:
+            props = self.props
             
-    def update(self):
-        propset, self.version = self.core.update(self.ref, self.pathSet, version=self.version)
-        for prop in propset:
-            print
-            print "[%s] %s %s %s" % (prop.op, prop.name, prop.__class__.__name__, getattr(prop, 'val', "").__class__.__name__)
-            print "="*80
-            self.updateProperty(prop)
+        propset, self.version = self.core.update(self.ref, self.props, version=self.version)
+        self._updateProperties(propset)
 
-    def updateProperty(self, prop):
+    def _updateProperties(self, propset):
+        for prop in propset:
+            log.debug("[%s] %s %s %s" % (prop.op, prop.name, prop.__class__.__name__, getattr(prop, 'val', "").__class__.__name__))
+            self._updateProperty(prop)
+            
+    def _updateProperty(self, prop):
         try:
             if prop.name == "config.hardware.device":
                 for device in prop.val[0]:
@@ -69,37 +74,39 @@ class VirtualMachine(object):
                 self.name = prop.val
                 
             elif prop.name == "config":
-                print prop.val
+                self.config = prop.val
                 
             elif prop.name == "parent":
                 self.parent = prop.val
                 
             elif prop.name == "capability":
-                print prop.val
                 self.capability = prop.val
                 
             elif prop.name == "snapshot":
                 if prop.op == 'add':
-                    print " -> Adding snapshot"
                     for snap in prop.val.rootSnapshotList:
                         self._appendSnapshot(snap)
                 elif prop.op == 'assign':
-                    print " -> Assigning snapshot"
                     self.snapshots = {}
                     if hasattr(prop, 'val'):
                         for snap in prop.val.rootSnapshotList:
                             self._appendSnapshot(snap)
                 elif prop.op in ['remove', 'indirectRemove']:
-                    print " -> Removing snapshot"
                     for snap in prop.val.rootSnapshotList:
                         if snap.name in self.snapshots.keys():
                             del self.snapshots[snap.name]
                 
             elif prop.name == "summary.config":
-                print prop.val
                 self.summary_config = prop.val
+                
+            elif prop.name == "runtime":
+                self.host = ManagedObjectRef(consts.HostSystem, prop.val.host.value)
+                self.poweredOn = (prop.val.powerState == "poweredOn")
+                
+            else:
+                log.debug("unknown vm property: [%s] %s" % (prop.name, prop.val))
         except AttributeError, e:
-            print "[WARNING] %s" % e, prop.__class__.__name__
+            log.warning("[WARNING] [%s] %s" %  prop.__class__.__name__)
     
     def createSnapshot(self, name=None, description=None, memory_files=False, quisce_filesystem=True):
         if not name:
@@ -124,12 +131,77 @@ class VirtualMachine(object):
         self.update()
     
     def enableChangedBlockTracking(self, truth=True):
-        spec = self.VirtualMachineConfigSpec()
-        spec.changeTrackingEnabled = truth
-        rv = self.service.ReconfigVM_Task(self.ref, spec)
-        self.core.waitForTask(rv)
-        self.update()
+        if self.capability.changeTrackingSupported:
+            if self.config.changeTrackingEnabled:
+                # log message
+                return
+            
+            if self.poweredOn:
+                raise VisdkInvalidState("Virtual machine must be powered off in order to enable CBT")
+            
+            spec = self.VirtualMachineConfigSpec()
+            spec.changeTrackingEnabled = truth
+            rv = self.service.ReconfigVM_Task(self.ref, spec)
+            self.core.waitForTask(rv)
+            self.update(["config"])
         
+    def powerOn(self):
+        rv = self.service.PowerOnVM_Task(self.ref)
+        status = self.core.waitForTask(rv)
+        if status == TaskInfoState.error:
+            raise VisdkTaskError("Unable to power on the virtual machine: " + self.name)
+        log.debug("successfully powered on the virtual machine: " + self.name)
+        self.update()
+    
+    def powerOff(self):
+        rv = self.service.PowerOffVM_Task(self.ref)
+        status = self.core.waitForTask(rv)
+        if status == TaskInfoState.error:
+            raise VisdkTaskError("Unable to power off the virtual machine: " + self.name)
+        log.debug("successfully powered off the virtual machine: " + self.name)
+        self.update()
+    
+    def reset(self):
+        rv = self.service.ResetVM_Task(self.ref)
+        status = self.core.waitForTask(rv)
+        if status == TaskInfoState.error:
+            raise VisdkTaskError("Unable to reset the virtual machine: " + self.name)
+        log.debug("successfully reset the virtual machine: " + self.name)
+        self.update()
+    
+    def suspend(self):
+        rv = self.service.SuspendVM_Task(self.ref)
+        status = self.core.waitForTask(rv)
+        if status == TaskInfoState.error:
+            raise VisdkTaskError("Unable to suspend the virtual machine: " + self.name)
+        log.debug("successfully suspended the virtual machine: " + self.name)
+        self.update()
+    
+    def reboot(self):
+        try:
+            self.service.RebootGuest(self.ref)
+        except WebFault, e:
+            raise VisdkTaskError("Unable to reboot the virtual machine: " + self.name, e)
+        log.debug("successfully rebooted the virtual machine: " + self.name)
+        self.update()
+    
+    def shutdown(self):
+        try:
+            self.service.ShutdownGuest(self.ref)
+        except WebFault, e:
+            raise VisdkTaskError("Unable to shutdown the virtual machine: " + self.name, e)
+        log.debug("successfully shutdown the virtual machine: " + self.name)
+        self.update()
+    
+    def standby(self):
+        try:
+            self.service.StandbyGuest(self.ref)
+        except WebFault, e:
+            raise VisdkTaskError("Unable to standby the virtual machine: " + self.name, e)
+        log.debug("successfully standby the virtual machine: " + self.name)
+        self.update()
+    
+    
     """ Factory Objects """
     def VirtualMachineConfigSpec(self):
         spec = self.client.factory.create('ns0:VirtualMachineConfigSpec')

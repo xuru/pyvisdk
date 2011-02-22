@@ -1,16 +1,17 @@
 #!/usr/bin/env python
 from pyvisdk import consts
-from pyvisdk.core import VimBase
+import pyvisdk.core
 from pyvisdk.vm import VirtualMachine
-import time
+import logging
 
 """
 Assumptions:  Must connect to the vSphere vCenter
               Must be version 4.0 or greater
 
 """
+log = logging.getLogger(__name__)
 
-class Vim(VimBase):
+class Vim(pyvisdk.core.VimBase):
     def __init__(self, server, connect=True, verbose=3):
         super(Vim, self).__init__(server, connect, verbose)
         
@@ -23,7 +24,7 @@ class Vim(VimBase):
 
         self.client.service.Login(self.managers['sessionManager'], self.username, self.password)
         if self.verbose > 2:
-            print "Successfully logged into %s" % self.url
+            log.info("Successfully logged into %s" % self.url)
 
     def logout(self):
         self.client.service.Logout(self.managers['sessionManager'])
@@ -45,14 +46,16 @@ class Vim(VimBase):
         return VirtualMachine(self, name)
         
     def getAllVirtualMachines(self):
-        typeinfo = [ 
-            self.PropertySpec(_type=consts.VirtualMachine, pathSet=[
-                        "parent","name","summary.config","snapshot","config.hardware.device"]) 
-        ]
+        #typeinfo = [ 
+        #    self.PropertySpec(_type=consts.VirtualMachine, pathSet=[
+        #                "parent","name","summary.config","snapshot","config.hardware.device"]) 
+        #]
         
-        refs = self.getContentsRecursively(root=self.root, props=typeinfo, recurse=True)
+        #refs = self.getContentsRecursively(root=self.root, props=typeinfo, recurse=True)
+        refs = self.getContentsByName(_type=consts.VirtualMachine)
         out = []
         for ref in refs:
+            print ref
             out.append( VirtualMachine(self, mo=ref) )
         return out
 
@@ -96,14 +99,15 @@ if __name__ == '__main__':
     vim = Vim(options.server, verbose=3)
     vim.login(options.username, options.password)
     
-    name = "puppetTestAppServer"
-    
-    print "Getting Virtual Machine: " + name
-    vm = vim.getVirtualMachine(name)
-    print vm
-    
-    vm.enableChangedBlockTracking(True)
-    
+    #name = "puppetTestAppServer"
+    #print "Getting Virtual Machine: " + name
+    #vm = vim.getVirtualMachine(name)
+    #print vm
+    vms = vim.getAllVirtualMachines()
+    print vms
+    for vm in vms:
+        print vm
+
     
     vim.logout()
 
