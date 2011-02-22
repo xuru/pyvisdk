@@ -46,13 +46,12 @@ class Vim(pyvisdk.core.VimBase):
         return VirtualMachine(self, name)
         
     def getAllVirtualMachines(self):
-        #typeinfo = [ 
-        #    self.PropertySpec(_type=consts.VirtualMachine, pathSet=[
-        #                "parent","name","summary.config","snapshot","config.hardware.device"]) 
-        #]
+        typeinfo = [ 
+            self.PropertySpec(_type=consts.VirtualMachine, pathSet=[
+                        "parent","name","summary.config","snapshot","config.hardware.device", "config","runtime"]) 
+        ]
         
-        #refs = self.getContentsRecursively(root=self.root, props=typeinfo, recurse=True)
-        refs = self.getContentsByName(_type=consts.VirtualMachine)
+        refs = self.getContentsRecursively(root=self.root, props=typeinfo, recurse=True)
         out = []
         for ref in refs:
             print ref
