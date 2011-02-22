@@ -8,7 +8,6 @@ from pyvisdk.consts import ManagedObjectRef, TaskInfoState
 from pyvisdk.core import VisdkInvalidState
 from random import randrange
 from suds import WebFault
-from types import StringType
 import logging
 import string
 
