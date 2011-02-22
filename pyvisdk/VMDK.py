@@ -82,7 +82,8 @@ class __ENUM(type(c_uint)):
 				index += 1
 			cls._traits_ = _traits_
 
-class _ENUM(c_uint, metaclass = __ENUM):
+class _ENUM(c_uint):
+	__metaclass__ = __ENUM
 	def __init__(self, value = 0):
 		if isinstance(value, _ENUM):
 			value = value.value
@@ -388,10 +389,7 @@ _IMPORT = [
 try:
 	vixDiskLib = None
 	import platform
-	if platform.system() == 'Windows':
-		ctypes.windll.kernel32.SetDllDirectoryW(r'C:\Program Files\VMware\VMware Virtual Disk Development Kit\bin')
-		vixDiskLib = ctypes.CDLL('vixDiskLib')
-	elif platform.system() == 'Linux':
+	if platform.system() == 'Linux':
 		vixDiskLib = ctypes.CDLL('/usr/lib/vmware-vix-disklib/lib32/libvixDiskLib.so')
 	for entry in _IMPORT:
 		thunk = vixDiskLib[entry[0]]
@@ -489,7 +487,7 @@ def PyVixDiskLib_Write(diskHandle, startSector, numSectors, content):
 	_VIXDISKLIB_CHECKED(VixDiskLib_Write(diskHandle, startSector, numSectors, content))
 
 def _default_callback(progress, *args):
-	print(progress, *args)
+	print progress, args
 	return True
 
 class PyVMDK:
