@@ -45,17 +45,19 @@ class Vim(pyvisdk.core.VimBase):
     def getVirtualMachine(self, name):
         return VirtualMachine(self, name)
         
-    def getAllVirtualMachines(self):
-        typeinfo = [ 
-            self.PropertySpec(_type=consts.VirtualMachine, pathSet=[
-                        "parent","name","summary.config","snapshot","config.hardware.device", "config","runtime"]) 
-        ]
+    def getAllVirtualMachineRefs(self, attrs=["name", "runtime.powerState"]):
+        pSpec = self.PropertySpec(consts.VirtualMachine, pathSet=attrs)
+        refs = self.getContentsRecursively(root=self.root, props=pSpec, recurse=True)
+        return refs
+    
+    def getAllVirtualMachines(self, attrs=["name", "runtime.powerState"]):
         
-        refs = self.getContentsRecursively(root=self.root, props=typeinfo, recurse=True)
+        pSpec = self.PropertySpec(consts.VirtualMachine, pathSet=attrs)
+        
+        refs = self.getContentsRecursively(root=self.root, props=pSpec, recurse=True)
         out = []
         for ref in refs:
-            print ref
-            out.append( VirtualMachine(self, mo=ref) )
+            out.append( VirtualMachine(self, name=ref.propSet[0].val) )
         return out
 
     def getHostSystem(self, name):
@@ -69,7 +71,7 @@ class Vim(pyvisdk.core.VimBase):
 if __name__ == '__main__':
     from optparse import OptionParser
     import sys
-    
+
     # Some command line argument parsing gorp to make the script a little more
     # user friendly.
     usage = '''Usage: %prog [options]
@@ -98,15 +100,19 @@ if __name__ == '__main__':
     vim = Vim(options.server, verbose=3)
     vim.login(options.username, options.password)
     
-    #name = "puppetTestAppServer"
-    #print "Getting Virtual Machine: " + name
-    #vm = vim.getVirtualMachine(name)
-    #print vm
-    vms = vim.getAllVirtualMachines()
-    print vms
-    for vm in vms:
-        print vm
-
+    vms = vim.getAllVirtualMachineRefs()
+    for ref in vms:
+        name = ref.propSet[0].val
+        power = ref.propSet[1].val
+        print "%-20s %s" % (name, power)
+            
+        vm = vim.getVirtualMachine(name)
+        sname = vm.createSnapshot()
+        print sname
+        
+        snap = vm.getSnapshotByName(sname)
+        print snap
+        break
     
     vim.logout()
 
