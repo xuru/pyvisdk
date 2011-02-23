@@ -8,6 +8,7 @@ from pyvisdk.consts import ManagedObjectRef, TaskInfoState
 from pyvisdk.core import VisdkInvalidState
 from random import randrange
 from suds import WebFault
+from datetime import datetime
 import logging
 import string
 
@@ -23,7 +24,7 @@ class VirtualMachine(object):
         self.core = core
         self.client = core.client
         self.service = core.client.service
-        self.props = [ "capability", "parent", "name", "summary.config", "snapshot", "config", "runtime"] 
+        self.props = [ "parent", "capability", "name", "summary.config", "snapshot", "runtime", "config.hardware.device"] 
         
         self.capability = None
         self.parent = None
@@ -40,10 +41,10 @@ class VirtualMachine(object):
         self.initialize()
     
     def initialize(self):
+        log.debug("Initializing " + self.name)
         objectContent = self.core.getDecendentsByName(_type=consts.VirtualMachine, pathSet=self.props, name=self.name)
-        for x in objectContent:
-            self.ref = ManagedObjectRef(consts.VirtualMachine, x.obj.value)
-            self._updateProperties(x.propset)
+        self.ref = ManagedObjectRef(consts.VirtualMachine, objectContent.obj.value)
+        self._updateProperties(objectContent.propSet)
             
     def update(self, props=[]):
         if not props:
@@ -54,7 +55,8 @@ class VirtualMachine(object):
 
     def _updateProperties(self, propset):
         for prop in propset:
-            log.debug("[%s] %s %s %s" % (prop.op, prop.name, prop.__class__.__name__, getattr(prop, 'val', "").__class__.__name__))
+            log.debug("[%s] %s %s %s" % (getattr(prop, "op", "  "), prop.name, prop.__class__.__name__, getattr(prop, 'val', "").__class__.__name__))
+                      
             self._updateProperty(prop)
             
     def _updateProperty(self, prop):
@@ -105,20 +107,26 @@ class VirtualMachine(object):
             else:
                 log.debug("unknown vm property: [%s] %s" % (prop.name, prop.val))
         except AttributeError, e:
-            log.warning("[WARNING] [%s] %s" %  prop.__class__.__name__)
+            log.warning("[WARNING] [%s] %s" %  (prop.__class__.__name__, e))
     
     def createSnapshot(self, name=None, description=None, memory_files=False, quisce_filesystem=True):
         if not name:
             name = self.name + "-" + "".join([string.digits[randrange(10)] for x in range(10)])
+        if not description:
+            description = "pyvisdk %s" % datetime.now().strftime('%d%b%Y')
         rv = self.service.CreateSnapshot_Task(self.ref, name, description, memory_files, quisce_filesystem)
         self.core.waitForTask(rv)
         self.update()
+        return name
                 
+    def getSnapshotByName(self, name):
+        if self.snapshots.has_key(name):
+            return self.snapshots[name]
+        
     def removeSnapshotByName(self, name):
         self.removeSnapshot(self.snapshots[name])
         
     def removeSnapshot(self, obj):
-        print obj
         mo = ManagedObjectRef(consts.VirtualMachineSnapshot, obj.snapshot.value)
         rv = self.service.RemoveSnapshot_Task(mo, False)
         self.core.waitForTask(rv)
