@@ -23,7 +23,7 @@
 
 ## Authors
 
-  * TJ Holowaychuk
+  * Eric Plaster
 
 
 ## License 
