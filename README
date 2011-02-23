@@ -1,0 +1,4 @@
+
+# pyvisdk - vSphere SDK  for Python
+
+  [pyvisdk](http://xuru.github.com/pyvisdk) is a pure python library to access the [VMware vSphere web services API](http://www.vmware.com/support/developer/vc-sdk/).
