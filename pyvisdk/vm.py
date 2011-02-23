@@ -117,7 +117,7 @@ class VirtualMachine(object):
         rv = self.service.CreateSnapshot_Task(self.ref, name, description, memory_files, quisce_filesystem)
         self.core.waitForTask(rv)
         self.update()
-        return name
+        return self.snapshots[name]
                 
     def getSnapshotByName(self, name):
         if self.snapshots.has_key(name):
