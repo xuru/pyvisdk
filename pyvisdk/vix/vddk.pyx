@@ -26,17 +26,17 @@ cdef extern from "vixDiskLib.h":
         VIXDISKLIB_ADAPTER_SCSI_LSILOGIC          = 3,
         VIXDISKLIB_ADAPTER_UNKNOWN                = 256
 
-    struct VixDiskLibCreateParams:
+    ctypedef struct VixDiskLibCreateParams:
         VixDiskLibDiskType           diskType
         VixDiskLibAdapterType        adapterType
         uint16                       hwVersion
         VixDiskLibSectorType         capacity
 
-    struct VixDiskLibUidPasswdCreds:
+    ctypedef struct VixDiskLibUidPasswdCreds:
          char *userName # User id and password on the
          char *password # VC/ESX host.
 
-    struct VixDiskLibSessionIdCreds:
+    ctypedef struct VixDiskLibSessionIdCreds:
         char *cookie
         char *userName
         char *key
@@ -54,19 +54,19 @@ cdef extern from "vixDiskLib.h":
         VixDiskLibSessionIdCreds sessionId
         VixDiskLibTicketIdCreds *ticketId
 
-    struct VixDiskLibConnectParams:
+    ctypedef struct VixDiskLibConnectParams:
         char *vmxSpec     # URL like spec of the VM.
         char *serverName  # Name or IP address of VC / ESX.
         VixDiskLibCredType credType
         VixDiskLibCreds creds
         uint32 port
 
-    struct VixDiskLibGeometry:
+    ctypedef struct VixDiskLibGeometry:
         uint32 cylinders
         uint32 heads
         uint32 sectors
 
-    struct VixDiskLibInfo:
+    ctypedef struct VixDiskLibInfo:
         VixDiskLibGeometry   biosGeo      # BIOS geometry for booting and partitioning
         VixDiskLibGeometry   physGeo      # physical geometry
         VixDiskLibSectorType capacity     # total capacity in sectors
