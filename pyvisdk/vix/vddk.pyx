@@ -1,13 +1,11 @@
 # cython: profile=True
 
-cdef extern from "vixDiskLib.h":
-    ctypedef long long uint64
-    ctypedef long uint32
-    ctypedef int uint16
+from common cimport malloc, free, uint16, uint32, uint64, va_list, strdup, Bool
 
+cdef extern from "vixDiskLib.h":
     ctypedef uint64 VixDiskLibSectorType
     ctypedef uint64 VixError
-
+    
     enum VixDiskLibDiskType:
         VIXDISKLIB_DISK_MONOLITHIC_SPARSE         = 1,   # monolithic file, sparse
         VIXDISKLIB_DISK_MONOLITHIC_FLAT           = 2,   # monolithic file,
@@ -49,16 +47,17 @@ cdef extern from "vixDiskLib.h":
         VIXDISKLIB_CRED_TICKETID                 = 3, # vim ticket id
         VIXDISKLIB_CRED_SSPI                     = 4, # Windows only - use current thread credentials.
         VIXDISKLIB_CRED_UNKNOWN                  = 256
-
+        
+    ctypedef struct VixDiskLibTicketIdCreds
     union VixDiskLibCreds:
         VixDiskLibUidPasswdCreds uid
         VixDiskLibSessionIdCreds sessionId
+        VixDiskLibTicketIdCreds *ticketId
 
     struct VixDiskLibConnectParams:
         char *vmxSpec     # URL like spec of the VM.
         char *serverName  # Name or IP address of VC / ESX.
         VixDiskLibCredType credType
-
         VixDiskLibCreds creds
         uint32 port
 
@@ -74,23 +73,72 @@ cdef extern from "vixDiskLib.h":
         VixDiskLibAdapterType adapterType # adapter type
         int numLinks                      # number of links (i.e. base disk + redo logs)
         char *parentFileNameHint          # parent file for a redo log
+        
+    ctypedef struct VixDiskLibHandleStruct
+    ctypedef VixDiskLibHandleStruct *VixDiskLibHandle
 
+    ctypedef struct VixDiskLibConnectParam
+    ctypedef VixDiskLibConnectParam *VixDiskLibConnection
+
+    # callbacks 
+    ctypedef void (*VixDiskLibGenericLogFunc)(char *fmt, va_list args)
+    ctypedef Bool (*VixDiskLibProgressFunc)(void *progressData, int percentCompleted)
+
+    # initialize the library
     VixError VixDiskLib_InitEx(uint32 majorVersion, uint32 minorVersion, VixDiskLibGenericLogFunc *log,
                   VixDiskLibGenericLogFunc *warn, VixDiskLibGenericLogFunc *panic, char* libDir,
                   char* configFile)
     VixError VixDiskLib_Init(uint32 majorVersion, uint32 minorVersion, VixDiskLibGenericLogFunc *log,
                 VixDiskLibGenericLogFunc *warn, VixDiskLibGenericLogFunc *panic, char* libDir)
+    void VixDiskLib_Exit()
+    
+    # connect
+    VixError VixDiskLib_ConnectEx(VixDiskLibConnectParams *connectParams,
+             Bool readOnly, char *snapshotRef, char *transportModes, VixDiskLibConnection *connection)
+    VixError VixDiskLib_Connect(VixDiskLibConnectParams *connectParams, VixDiskLibConnection *connection)
+    void VixDiskLib_FreeConnectParams(VixDiskLibConnectParams* connectParams)
 
-def connect(char *server, char *username, char *password):
-    print "Connecting to %s as %s" % (server, username)
+    # get info
+    VixError VixDiskLib_GetInfo(VixDiskLibHandle diskHandle, VixDiskLibInfo **info)
+    void VixDiskLib_FreeInfo(VixDiskLibInfo *info)
+    
+    # error text
+    char * VixDiskLib_GetErrorText(VixError err, char *locale)
+    void VixDiskLib_FreeErrorText(char* errMsg)
 
-    VixDiskLibConnectParams connectParams
-    VixDiskLibConnection srcConnection
 
-    connectParams.serverName = server
-    connectParams.creds.uid.userName = username
-    connectParams.creds.uid.password = password
-    connectParams.port = 902;
 
-    vixError = VixDiskLib_Init(1, 0, NULL, NULL, NULL, NULL);
-    vixError = VixDiskLib_Connect(&connectParams, &srcConnection);
+cdef class VDDK(object):
+    cdef char *hostname
+    cdef VixDiskLibConnectParams connectParams
+    cdef VixDiskLibConnection srcConnection
+    
+    def __init__(self, hostname):
+        self.hostname = strdup(hostname)
+        
+    def __dealloc__(self):
+        if self.hostname != NULL:
+            free(self.hostname)
+
+    def connect(self, char *username, char *password):
+        print "Connecting to %s as %s" % (self.hostname, username)
+    
+        self.connectParams.serverName = self.hostname
+        self.connectParams.creds.uid.userName = username
+        self.connectParams.creds.uid.password = password
+        self.connectParams.port = 902
+    
+        vixError = VixDiskLib_Init(1, 0, NULL, NULL, NULL, NULL)
+        vixError = VixDiskLib_Connect(&(self.connectParams), &(self.srcConnection))
+    
+    def close(self):
+        VixDiskLib_FreeConnectParams(&self.connectParams)
+        VixDiskLib_Exit()
+    
+# ----------------------------------------------------------------------
+# vim: set filetype=python expandtab shiftwidth=4:
+# [X]Emacs local variables declaration - place us into python mode
+# Local Variables:
+# mode:python
+# py-indent-offset:4
+# End:
