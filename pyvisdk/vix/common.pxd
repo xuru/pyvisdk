@@ -17,9 +17,11 @@ cdef extern from "errno.h":
 cdef extern from "string.h":
     char *strerror(int errnum)
     char *strcpy(char *restrict, char *restrict)
+    char *strncpy(char *restrict, char *restrict, size_t num)
     void* memset(void*,int,size_t)
     void* memcpy(void*,void*,size_t)
     char* strdup(char*)
+    size_t strlen(char *)
 
 cdef extern from "stdlib.h":
     void free(void *ptr)
@@ -69,6 +71,20 @@ cdef extern from "Python.h":
 
 cdef extern from "Python.h":
     FILE *PySys_GetFile(char *name, FILE *default)
+    
+cdef extern from "stdio.h":
+    int printf (char * format, ... )
+    int vprintf (char * format, va_list arg )
+    int vsprintf (char * str, char * format, va_list arg )
+    
+    FILE * fopen ( char * filename, char * mode )
+    int fclose(FILE *a_file)
+    int feof ( FILE * stream )
+    int ferror ( FILE * stream )
+    void perror ( char * str )
+    
+    size_t fread ( void * ptr, size_t size, size_t count, FILE * stream )
+    size_t fwrite ( void * ptr, size_t size, size_t count, FILE * stream )
 
 cdef extern from "stdint.h":
     ctypedef unsigned char      uint8
