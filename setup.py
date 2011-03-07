@@ -26,8 +26,7 @@ pyvisdk - vSphere SDK  for Python
 '''
 
 from distutils.core import setup
-from distutils.extension import Extension
-from Cython.Distutils import build_ext
+from Cython.Distutils import extension, build_ext
 import subprocess, os, time
 from pyvisdk import Version
 from glob import glob
@@ -72,8 +71,9 @@ def pkgconfig(*packages, **kw):
 kw = pkgconfig('vix-disklib')
 # we need to make sure that we include the vixDiskLibVim library
 kw['libraries'].append('vixDiskLibVim')
+kw['pyrex_gdb'] = True  # enable debugging
 print "kw: ", kw
-vddk_module = Extension('pyvisdk.vix.vddk', ['pyvisdk/vix/vddk.pyx'], **kw)
+vddk_module = extension.Extension('pyvisdk.vix.vixDiskLib', ['pyvisdk/vix/vixDiskLib.pyx'], **kw)
 
 # include the WSDL
 data_files = glob('pyvisdk/wsdl/*')
