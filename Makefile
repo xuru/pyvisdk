@@ -6,10 +6,13 @@ all: inplace
 
 # Build in-place
 inplace:
-	PYTHONPATH=. $(PYTHON) setup.py $(SETUPFLAGS) build_ext -i
+	PYTHONPATH=. $(PYTHON) setup.py $(SETUPFLAGS) build_ext --inplace
 
 build:
 	PYTHONPATH=. $(PYTHON) setup.py $(SETUPFLAGS) build
+
+debug:
+	PYTHONPATH=. $(PYTHON) setup.py $(SETUPFLAGS) build_ext --pyrex-gdb --inplace
 
 test:
 	PYTHONPATH=. $(PYTHON) $(TESTRUNNER) test
