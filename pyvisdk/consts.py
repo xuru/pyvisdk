@@ -4,6 +4,20 @@ Created on Feb 15, 2011
 @author: eplaster
 '''
 import suds
+import types
+
+class ManagedObjectReference(suds.sudsobject.Property):
+    """Custom class to replace the suds generated class, which lacks _type."""
+    def __init__(self, _type, value):
+        suds.sudsobject.Property.__init__(self, value)
+        self._type = _type
+        
+# enums
+class TaskInfoState(object):
+    success = "success"
+    running = "running"
+    error = "error"
+    queued = "queued"
 
 serviceTypes = {
     'alarmManager'              : 'AlarmManager',
@@ -38,15 +52,23 @@ serviceTypes = {
     'vmCompatibilityChecker'    : 'VirtualMachineCompatibilityChecker',
     'vmProvisioningChecker'     : 'VirtualMachineProvisioningChecker',
 }
-
-class TaskInfoState(object):
-    success = "success"
-    running = "running"
-    error = "error"
-    queued = "queued"
+    
     
 # managed entities
-ManagedEntity = "ManagedEntity" 
+ManagedEntities = {
+    "ManagedEntity": lambda x: ManagedObjectReference("ManagedEntity", x),
+    "ComputeResource": lambda x: ManagedObjectReference("ComputeResource", x),
+    "ClusterComputeResource": lambda x: ManagedObjectReference("ClusterComputeResource", x),
+    "Datacenter": lambda x: ManagedObjectReference("Datacenter", x),
+    "Folder": lambda x: ManagedObjectReference("Folder", x),
+    "HostSystem": lambda x: ManagedObjectReference("HostSystem", x),
+    "ResourcePool": lambda x: ManagedObjectReference("ResourcePool", x),
+    "VirtualMachine": lambda x: ManagedObjectReference("VirtualMachine", x),
+    "VirtualMachineSnapshot": lambda x: ManagedObjectReference("VirtualMachineSnapshot", x),
+    "Datastore": lambda x: ManagedObjectReference("Datastore", x),
+}
+
+ManagedEntity = "ManagedEntity"
 ComputeResource = "ComputeResource"
 ClusterComputeResource = "ClusterComputeResource"
 Datacenter = "Datacenter"
@@ -55,19 +77,21 @@ HostSystem = "HostSystem"
 ResourcePool = "ResourcePool"
 VirtualMachine = "VirtualMachine"
 VirtualMachineSnapshot = "VirtualMachineSnapshot"
+Datastore = "Datastore"
 
 # compute resources
-ComputeResource = "ComputeResource"
-ClusterComputeResource = "ClusterComputeResource"
+ComputeResources = {
+    "ComputeResource": lambda x: ManagedObjectReference("ComputeResource", x),
+    "ClusterComputeResource": lambda x: ManagedObjectReference("ClusterComputeResource", x),
+}
 
 # Collectors
-HistoryCollector = "HistoryCollector",
-EventHistoryCollector = "EventHistoryCollector",
-TaskHistoryCollector = "TaskHistoryCollector"
+HistoryCollectors = {
+    "HistoryCollector": lambda x: ManagedObjectReference("HistoryCollector", x),
+    "EventHistoryCollector": lambda x: ManagedObjectReference("EventHistoryCollector", x),
+    "TaskHistoryCollector": lambda x: ManagedObjectReference("TaskHistoryCollector", x),
+}
 
-class ManagedObjectRef(suds.sudsobject.Property):
-    """Custom class to replace the suds generated class, which lacks _type."""
-    def __init__(self, _type, value):
-        suds.sudsobject.Property.__init__(self, value)
-        self._type = _type
-        
+ManagedEntityList = ManagedEntities.keys()
+ComputeResourceList = ComputeResources.keys()
+HistoryCollectorList = HistoryCollectors.keys()
