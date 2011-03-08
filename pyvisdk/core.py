@@ -3,14 +3,13 @@ Created on Feb 15, 2011
 
 @author: eplaster
 '''
+import xml.etree.cElementTree as etree
 from pyvisdk import consts
-from pyvisdk.consts import ManagedObjectRef, TaskInfoState
+from pyvisdk.client import Client
+from pyvisdk.consts import ManagedObjectReference, TaskInfoState
 from suds.sudsobject import Property
 import logging
-import os
-import os.path
-import suds
-import time
+import urllib2
 
 class VisdkTaskError(Exception):
     pass
@@ -18,9 +17,11 @@ class VisdkTaskError(Exception):
 class VisdkInvalidState(Exception):
     pass
 
-logging.basicConfig(level=logging.INFO)
+fmt = "[%(asctime)s][%(levelname)-8s] %(module)s.%(funcName)s:%(lineno)d %(message)s"
+logging.basicConfig(level=logging.INFO, format=fmt)
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
+
 
 class VimBase(object):
     '''
@@ -35,6 +36,10 @@ class VimBase(object):
         self.server = server
         self.verbose = verbose
         self.connected = False
+        
+        self.listeners = {}
+        for me in consts.ManagedEntityList:
+            self.listeners[me] = []
          
         # setup logging...
         logging.getLogger('suds.client').setLevel(logging.INFO)
@@ -44,6 +49,7 @@ class VimBase(object):
        
         if self.verbose > 5:
             logging.getLogger('suds.client').setLevel(logging.DEBUG)
+            logging.getLogger('suds.transport').setLevel(logging.DEBUG)
         
         if connect:
             self.connect()
@@ -51,31 +57,43 @@ class VimBase(object):
     def connect(self):
         if self.connected:
             return
-        self.url = "https://" + self.server + '/sdk'
-        wsdl_dir = os.path.abspath(os.path.dirname(__file__))
-      
-        # create the soap client
-        self.client = suds.client.Client("file://"+os.path.join(wsdl_dir, 'wsdl', 'vimService.wsdl'))
-        self.client.set_options(faults=True)
-        self.client.set_options(location=self.url)
-
+        
+        self.client = Client(self.server)
+        
         # create the Service Instance managed object
         self.service_instance = Property('ServiceInstance')
         self.service_instance._type = 'ServiceInstance'
 
         # get the service content
-        self.service_content = self.client.service.RetrieveServiceContent(self.service_instance)
+        self.service_content = self.client.RetrieveServiceContent(self.service_instance)
         self.managers = {}
         
         # bundle up all the managed objects that we need
         for name, _type in consts.serviceTypes.items():
             try:
-                self.managers[name] = ManagedObjectRef(_type, eval("self.service_content.%s.value" % name))
+                self.managers[name] = ManagedObjectReference(_type, eval("self.service_content.%s.value" % name))
             except AttributeError, e:
                 pass  # it may not support all the listed services
 
         self.root = self.managers['rootFolder']
         self.connected = True
+    
+    def getVersions(self):
+        versions = []
+        
+        def get_namespace_name(elem):
+            for child in list(elem):
+                if child.tag == "name":
+                    return child.text
+            
+        url = urllib2.urlopen("https://"+self.server+"/sdk/vimServiceVersions.xml")
+        root = etree.fromstring(url.read())
+        names = root.findall(".//namespace")
+        for namesp in names:
+            if "urn:vim25" in get_namespace_name(namesp):
+                versions = [x.text for x in namesp.findall(".//version")]
+                log.debug("versions found: " + str(versions))
+        return versions
         
     def callRetrievePropertiesEx(self, maxObjects=0):
         myPropSpec = self.PropertySpec(all=False, _type=consts.VirtualMachine, pathSet=["name"])
@@ -86,7 +104,7 @@ class VimBase(object):
        
         rOptions = self.RetrieveOptions(int(maxObjects))
       
-        retrieveResult = self.client.service.RetrievePropertiesEx(self.managers["propertyCollector"], [pSpec], rOptions)      
+        retrieveResult = self.client.RetrievePropertiesEx(self.managers["propertyCollector"], [pSpec], rOptions)      
       
         #objContentArrayList = Arrays.asList(retrieveResult.getObjects())
         #if(retrieveResult.getToken() != null && maxObjects == null) {
@@ -98,75 +116,112 @@ class VimBase(object):
         #}
         return retrieveResult
 
+    def getObjectProperties(self, mobj, properties, collector=None):
+        """
+        * Retrieve contents for a single object based on the property collector
+        * registered with the service.
+        *
+        * @param collector Property collector registered with service
+        * @param mobj Managed Object Reference to get contents for
+        * @param properties names of properties of object to retrieve
+        *
+        * @return retrieved object contents
+        """
+        if not collector:
+            collector = self.managers["propertyCollector"]
         
-    """
-     * Get the ManagedObjectReference for an item under the specified root
-     * folder that has the type and name specified.
-     * 
-     * @param root
-     *            a root folder if available, or null for default
-     * @param type
-     *            type of the managed object
-     * @param name
-     *            name to match
-     * 
-     * @return First ManagedObjectReference of the type / name pair found
-    """
-    def getDecendentsByName(self, _type, pathSet=["name"], name=None, root=None):
+        all = False
+        if not properties:
+            all = True
+        
+        pspec = self.PropertySpec(all=all, _type=mobj._type, pathSet=properties)
+        ospec = self.ObjectSpec(obj=ManagedObjectReference(mobj._type, mobj.value), skip=False)
+        spec = self.PropertyFilterSpec(propSet=[pspec], objectSet=[ospec])
+        
+        return self.client.RetrieveProperties(collector, [spec])
 
-        typeinfo = [ self.PropertySpec(_type=_type, pathSet=pathSet) ]
 
-        ocary = self.getContentsRecursively(root=root, props=typeinfo, recurse=True)
+    def getDynamicProperty(self, mo, property):
+        value = None
+        objContent = self.getObjectProperties(mo, [property])
+        rv = {}
+        if objContent:
+            props = objContent[0].propSet
+            for prop in props:
+                value = prop.val
+                name = value.__class__.__name__
+                if "ArrayOf" in name:
+                    methodname = name[7:]
+                    value = eval("value.%s" % methodname)
+                rv[prop.name] = value
+        return rv
+    
+    def getDecendentMoRef(self, root, _type, name):
+        """
+        * Get the ManagedObjectReference for an item under the
+        * specified root folder that has the type and name specified.
+        *
+        * @param root a root folder if available, or null for default
+        * @param _type type of the managed object
+        * @param name name to match
+        *
+        * @return First ManagedObjectReference of the type / name pair found
+        """
+       
+        if not name:
+            return
+
+        typeinfo = [ type,  "name" ]
+
+        ocary = self.getContentsRecursively(_type=_type, props=[typeinfo], root=root )
 
         if not ocary:
             return
 
-        if not name:
-            return ocary
-        
-        for vm in ocary:
-            found = False
-            if vm.propSet:
-                for prop in vm.propSet:
-                    if prop.name == "name" and prop.val == name:
-                        found = True
-                        break
-            if found:
-                return vm
-        return None
-
-    """
-    * Retrieve all the ManagedObjectReferences of the type specified.
-    *
-    * @param root a root folder if available, or null for default
-    * @param type type of container refs to retrieve
-    *
-    * @return List of MORefs
-    """
-    def getDecendentsByFilter(self, type, filters=[], root=None):
-        props = [ self.PropertySpec(type, pathSet=["name"]) ]
-        ocary = self.getContentsRecursively(collector=root, props=props, recurse=True)
-        refs = []
-        if ocary == None or len(ocary) == 0:
-            return refs
-        
-        for oc in ocary:
-            refs.append(oc.obj)
+        mor = None
+        for oci in ocary:
+            mor = oci.obj
+            propary = oci.propSet
             
-        if filters:
-            filtered = []
-            for ref in refs:
-                rejected = False
-                for filter in filters:
-                    if hasattr(ref, filter):
-                        rejected = True
-                        break
-                if not rejected:
-                    filtered.append(ref)
-            return filtered
-        else:
-            return refs
-   
+            if mor._type and self.client.typeIsA(_type, mor._type):
+                value = propary[0].val
+                if value == name:
+                    return mor
+        return
+
+    def getDecendentsByName(self, _type, properties=["name"], name=None, root=None):
+        """
+         * Get the ManagedObjectReference for an item under the specified root
+         * folder that has the type and name specified.
+         * 
+         * @param _type
+         *            type of the managed object
+         * @param properties 
+         *            names of properties of object to retrieve
+         * @param name
+         *            name to match
+         * @param root
+         *            a root folder if available, or null for default
+         * 
+         * @return First ManagedObjectReference of the type / name pair found
+        """
+        if not "name" in properties:
+            properties += ["name"]
+        ocary = self.getContentsRecursively(_type=_type, props=properties, root=root)
+
+        if ocary:
+            if not name:
+                return ocary
+            
+            for vm in ocary:
+                found = False
+                if vm.propSet:
+                    for prop in vm.propSet:
+                        if prop.name == "name" and prop.val == name:
+                            found = True
+                            break
+                if found:
+                    return vm
 
     """
      * Retrieve Container contents for all containers recursively from root
@@ -174,35 +229,35 @@ class VimBase(object):
      * @return retrieved object contents
     """
     def getAllContainerContents(self):
-        ocary = self.getContentsRecursively(recurse=True)
+        ocary = self.getContentsRecursively()
         return ocary
    
-    def getContentsRecursively(self, collector=None, root=None, props=[], recurse=True):
-        usecoll = collector
-        if not usecoll:
-            usecoll = self.managers["propertyCollector"]
-           
-        useroot = root
-        if not useroot:
-            useroot = self.root
         
-        if not props:
-            props = [ self.PropertySpec(_type=consts.ManagedEntity) ]
+    def getContentsRecursively(self, props=[], _type=None, collector=None, root=None, recurse=True):
+        if not collector: collector = self.managers["propertyCollector"]
+        if not root: root = self.root
+        if not _type: _type = consts.ManagedEntity
             
+        typeinfo = [ self.PropertySpec(_type=_type, pathSet=props) ]
+
         selectionSpecs = []
         if recurse:
             selectionSpecs = self.buildFullTraversal()
          
-        spec = self.PropertyFilterSpec(propSet=props, objectSet=[ self.ObjectSpec(useroot, selectSet=selectionSpecs) ])
-        return self.client.service.RetrieveProperties(usecoll, [ spec ])
+        spec = self.PropertyFilterSpec(propSet=typeinfo, objectSet=[ self.ObjectSpec(root, selectSet=selectionSpecs) ])
+        return self.client.RetrieveProperties(collector, [ spec ])
+    
+    def collectProperties(self):
+        pass
+        
    
-    """
-     * This method creates a SelectionSpec[] to traverses the entire inventory
-     * tree starting at a Folder
-     * 
-     * @return The SelectionSpec[]
-    """
     def buildFullTraversal(self):
+        """
+         * This method creates a SelectionSpec[] to traverses the entire inventory
+         * tree starting at a Folder
+         * 
+         * @return The SelectionSpec[]
+        """
         # Recurse through all ResourcePools
         rpToRp = self.TraversalSpec(name="rpToRp", _type=consts.ResourcePool, path="resourcePool",
                         selectSet=[ self.SelectionSpec("rpToRp"), self.SelectionSpec("rpToVm") ])
@@ -248,8 +303,8 @@ class VimBase(object):
     * while a large updatyed being monitored by another.
     """
     def callCreatePropertyCollectorEx(self):
-        propCol = self.client.service.CreatePropertyCollector( self.managers['propertyCollector'] )
-        collector = ManagedObjectRef(consts.serviceTypes['propertyCollector'], propCol.value)
+        propCol = self.client.CreatePropertyCollector(self.managers['propertyCollector'])
+        collector = ManagedObjectReference(consts.serviceTypes['propertyCollector'], propCol.value)
         
         if self.verbose > 5:
             log.debug(str(collector))
@@ -257,16 +312,16 @@ class VimBase(object):
         pSpec = self.PropertyFilterSpec(
                 propSet=[
                     self.PropertySpec(_type=consts.VirtualMachine, all=False, pathSet=["name"])
-                ], 
+                ],
                 objectSet=[
-                    self.ObjectSpec(self.root, 
-                                    selectSet = self.buildFullTraversal())
+                    self.ObjectSpec(self.root,
+                                    selectSet=self.buildFullTraversal())
                 ])
          
         rOptions = self.RetrieveOptions()     
         
-        retrieveResult = self.client.service.RetrievePropertiesEx( collector, pSpec, rOptions)      
-        self.client.service.DestroyPropertyCollector(collector)
+        retrieveResult = self.client.RetrievePropertiesEx(collector, pSpec, rOptions)      
+        self.client.DestroyPropertyCollector(collector)
         return retrieveResult
     
     def _parseTaskResponse(self, response):
@@ -281,50 +336,50 @@ class VimBase(object):
     def waitForTask(self, objmor):
         version = ""
 
-        objmor = ManagedObjectRef("Task", objmor.value)
+        objmor = ManagedObjectReference("Task", objmor.value)
 
         myObjSpec = self.ObjectSpec(objmor)
         myPropSpec = self.PropertySpec(_type=objmor._type, pathSet=["info.state", "info.error"])
         pSpec = self.PropertyFilterSpec(propSet=[myPropSpec], objectSet=[myObjSpec])
 
-        filterSpecRef = self.client.service.CreateFilter(self.managers["propertyCollector"], pSpec, True)
-        filterSpecRef = ManagedObjectRef("PropertyFilter", filterSpecRef.value)
+        filterSpecRef = self.client.CreateFilter(self.managers["propertyCollector"], pSpec, True)
+        filterSpecRef = ManagedObjectReference("PropertyFilter", filterSpecRef.value)
         
         
-        updateset = self.client.service.WaitForUpdates(self.managers["propertyCollector"], version)
+        updateset = self.client.WaitForUpdates(self.managers["propertyCollector"], version)
         
         status = self._parseTaskResponse(updateset)
         while status['info.state'] in [ TaskInfoState.running, TaskInfoState.queued ]:
             log.debug("Waiting for task to complete...")
             version = updateset.version
-            updateset = self.client.service.WaitForUpdates(self.managers["propertyCollector"], version)
+            updateset = self.client.WaitForUpdates(self.managers["propertyCollector"], version)
             status = self._parseTaskResponse(updateset)
         
         log.debug("Finished task...")
         # Destroy the filter when we are done.
-        self.client.service.DestroyPropertyFilter(filterSpecRef)
+        self.client.DestroyPropertyFilter(filterSpecRef)
         
         if status['info.state'] == TaskInfoState.error:
             error = status['info.error']
             raise VisdkTaskError(error.localizedMessage)
         return status['info.state']
 
-    def update(self, objmor, properties=[], version="", wait_time=2):
-        myObjSpec = self.ObjectSpec(objmor)
-        if not hasattr(objmor, "_type") and hasattr(objmor, "obj"):
-            objmor = objmor.obj
-        myPropSpec = self.PropertySpec(_type=objmor._type, pathSet=properties)
+    def update(self, _type="", root=None, properties=[], version="", wait_time=2):
+        if not root: root = self.root
+        
+        myObjSpec = self.ObjectSpec(root)
+        myPropSpec = self.PropertySpec(_type=_type, pathSet=properties)
         pSpec = self.PropertyFilterSpec(propSet=[myPropSpec], objectSet=[myObjSpec])
 
-        filterSpecRef = self.client.service.CreateFilter(self.managers["propertyCollector"], pSpec, False)
-        filterSpecRef = ManagedObjectRef("PropertyFilter", filterSpecRef.value)
+        filterSpecRef = self.client.CreateFilter(self.managers["propertyCollector"], pSpec, False)
+        filterSpecRef = ManagedObjectReference("PropertyFilter", filterSpecRef.value)
         
         log.debug("Calling CheckForUpdates with version: %s" % version)
-        changeData = self.client.service.CheckForUpdates(self.managers["propertyCollector"], version)
+        changeData = self.client.CheckForUpdates(self.managers["propertyCollector"], version)
         
         log.debug("Finished update...")
         # Destroy the filter when we are done.
-        self.client.service.DestroyPropertyFilter(filterSpecRef)
+        self.client.DestroyPropertyFilter(filterSpecRef)
         
         if hasattr(changeData, "filterSet"):
             changeData = changeData.filterSet[0].objectSet[0]
@@ -342,9 +397,13 @@ class VimBase(object):
         return spec
         
     # ObjectSpec factory
-    def ObjectSpec(self, view, skip=False, selectSet=[]):
+    def ObjectSpec(self, obj, skip=False, selectSet=[]):
+        """
+        Identifies the starting object for property collection. An ObjectSpec also identifies 
+          additional objects for collection.
+        """
         spec = self.client.factory.create('ns0:ObjectSpec')
-        spec.obj = view
+        spec.obj = obj
         spec.skip = skip
         if selectSet:
             spec.selectSet = selectSet
@@ -352,6 +411,10 @@ class VimBase(object):
     
     # TraversalSpec factory
     def TraversalSpec(self, name, _type, path, skip=False, selectSet=[]):
+        """
+        Identifies the type of object for property collection. It also provides one or more paths 
+              for inventory traversal.
+        """
         spec = self.client.factory.create('ns0:TraversalSpec')
         spec.name = name
         spec.path = path
@@ -363,6 +426,9 @@ class VimBase(object):
 
     # PropertySpec factory
     def PropertySpec(self, _type, all=False, pathSet=[]):
+        """
+        Identifies properties for collection.
+        """
         spec = self.client.factory.create('ns0:PropertySpec')
         spec.type = _type
         spec.all = all
@@ -371,6 +437,10 @@ class VimBase(object):
 
     # PropertyFilterSpec factory
     def PropertyFilterSpec(self, propSet=[], objectSet=[]):
+        """
+        Provides access to object and property selection data. A PropertyFilterSpec must 
+          have at least one ObjectSpec and one PropertySpec
+        """
         spec = self.client.factory.create('ns0:PropertyFilterSpec')
         spec.objectSet = objectSet
         spec.propSet = propSet
@@ -378,6 +448,9 @@ class VimBase(object):
 
     # SelectionSpec factory
     def SelectionSpec(self, name):
+        """
+        Acts as a placeholder reference to a TraversalSpec.
+        """
         spec = self.client.factory.create('ns0:SelectionSpec')
         spec.name = name
         return spec
