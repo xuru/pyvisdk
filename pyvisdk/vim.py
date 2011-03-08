@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 from pyvisdk import consts
-import pyvisdk.core
-from pyvisdk.vm import VirtualMachine
+from pyvisdk.consts import ManagedObjectReference
+from pyvisdk.vm import VirtualMachine, Datastore, HostSystem
 import logging
+import pyvisdk.core
+import types
 
 """
 Assumptions:  Must connect to the vSphere vCenter
@@ -24,7 +26,7 @@ class Vim(pyvisdk.core.VimBase):
 
         self.client.service.Login(self.managers['sessionManager'], self.username, self.password)
         if self.verbose > 2:
-            log.info("Successfully logged into %s" % self.url)
+            log.info("Successfully logged into %s" % self.client.url)
 
     def logout(self):
         self.client.service.Logout(self.managers['sessionManager'])
@@ -60,13 +62,26 @@ class Vim(pyvisdk.core.VimBase):
             out.append( VirtualMachine(self, name=ref.propSet[0].val) )
         return out
 
-    def getHostSystem(self, name):
-        mo = self.getDecendentsByName(_type=consts.HostSystem, name=name)
-        return mo
+    def getHostSystem(self, name=None):
+        mo = self.getDecendentsByName(_type=consts.HostSystem, properties=["name"], name=name)
+        if type(mo) == types.ListType:
+            return [HostSystem(self, ref=x.obj) for x in mo]
+        return HostSystem(self, ref=mo.obj)
+    
+    def getDatacenter(self, name=None, mo=None):
+        mo = self.getDecendentsByName(_type=consts.Datacenter, properties=["name"], name=name)
+        return [ManagedObjectReference(consts.Datacenter, x.obj.value) for x in mo]
 
-    def getDatacenter(self, name):
-        mo = self.getDecendentsByName(_type=consts.Datacenter, name=name)
-        return mo
+    def getDatastores(self, host, name=None):
+        datastores = self.getDynamicProperty(host.ref, "datastore")
+        if len(datastores):
+            rv = []
+            for ds in datastores:
+                rv.append(Datastore(self, ref=ds))
+        else:
+            # only a single datastore...
+            rv = Datastore(self, ref=datastores)
+        return rv
         
 if __name__ == '__main__':
     from optparse import OptionParser
