@@ -29,9 +29,6 @@ from distutils.core import setup
 from pyvisdk import Version
 from glob import glob
 
-# include the WSDL
-data_files = glob('pyvisdk/wsdl/*')
-
 # we need to make sure we have these to python modules in our path
 install_requires = ["suds"]
 
@@ -45,7 +42,8 @@ setup( name = 'pyvisdk',
     license = "MIT",
     requires = install_requires,
     packages = ["pyvisdk", "pyvisdk.managedObjects"],
-    data_files = [('pyvisdk/wsdl', data_files)],
+    package_data = {'pyvisdk': ['wsdl/*']},
+    
     classifiers = ['Development Status :: 4 - Beta',
                    'Framework :: VMWare',
                    'Intended Audience :: Developers',
