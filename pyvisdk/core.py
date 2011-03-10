@@ -20,7 +20,7 @@ class VisdkInvalidState(Exception):
 fmt = "[%(asctime)s][%(levelname)-8s] %(module)s.%(funcName)s:%(lineno)d %(message)s"
 logging.basicConfig(level=logging.INFO, format=fmt)
 log = logging.getLogger(__name__)
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 
 class VimBase(object):
@@ -142,52 +142,22 @@ class VimBase(object):
 
 
     def getDynamicProperty(self, mo, property):
+        log.debug("Getting properties for: %s" % property)
         value = None
         objContent = self.getObjectProperties(mo, [property])
         rv = {}
         if objContent:
-            props = objContent[0].propSet
-            for prop in props:
-                value = prop.val
-                name = value.__class__.__name__
-                if "ArrayOf" in name:
-                    methodname = name[7:]
-                    value = eval("value.%s" % methodname)
-                rv[prop.name] = value
+            if hasattr(objContent[0], 'propSet'):
+                props = objContent[0].propSet
+                for prop in props:
+                    value = prop.val
+                    name = value.__class__.__name__
+                    if "ArrayOf" in name:
+                        methodname = name[7:]
+                        value = eval("value.%s" % methodname)
+                    rv[prop.name] = value
         return rv
     
-    def getDecendentMoRef(self, root, _type, name):
-        """
-        * Get the ManagedObjectReference for an item under the
-        * specified root folder that has the type and name specified.
-        *
-        * @param root a root folder if available, or null for default
-        * @param _type type of the managed object
-        * @param name name to match
-        *
-        * @return First ManagedObjectReference of the type / name pair found
-        """
-       
-        if not name:
-            return
-
-        typeinfo = [ type,  "name" ]
-
-        ocary = self.getContentsRecursively(_type=_type, props=[typeinfo], root=root )
-
-        if not ocary:
-            return
-
-        mor = None
-        for oci in ocary:
-            mor = oci.obj
-            propary = oci.propSet
-            
-            if mor._type and self.client.typeIsA(_type, mor._type):
-                value = propary[0].val
-                if value == name:
-                    return mor
-        return
 
     def getDecendentsByName(self, _type, properties=["name"], name=None, root=None):
         """
@@ -444,6 +414,7 @@ class VimBase(object):
         spec = self.client.factory.create('ns0:PropertyFilterSpec')
         spec.objectSet = objectSet
         spec.propSet = propSet
+        spec.reportMissingObjectsInResults = True
         return spec
 
     # SelectionSpec factory

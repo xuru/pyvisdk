@@ -1,7 +1,9 @@
 #!/usr/bin/env python
+from mangagedObjects.datastore import Datastore
+from mangagedObjects.host import HostSystem
+from mangagedObjects.vm import VirtualMachine
 from pyvisdk import consts
 from pyvisdk.consts import ManagedObjectReference
-from pyvisdk.vm import VirtualMachine, Datastore, HostSystem
 import logging
 import pyvisdk.core
 import types
@@ -48,15 +50,16 @@ class Vim(pyvisdk.core.VimBase):
         return VirtualMachine(self, name)
         
     def getAllVirtualMachineRefs(self, attrs=["name", "runtime.powerState"]):
-        pSpec = self.PropertySpec(consts.VirtualMachine, pathSet=attrs)
-        refs = self.getContentsRecursively(root=self.root, props=pSpec, recurse=True)
+        refs = self.getDecendentsByName(_type=consts.VirtualMachine, properties=["name"])
         return refs
-    
+         
+    def getAllVirtualMachinesIter(self):
+        refs = self.getAllVirtualMachineRefs()
+        for ref in refs:
+            yield VirtualMachine(self, name=ref.propSet[0].val, ref=ref.obj)
+   
     def getAllVirtualMachines(self, attrs=["name", "runtime.powerState"]):
-        
-        pSpec = self.PropertySpec(consts.VirtualMachine, pathSet=attrs)
-        
-        refs = self.getContentsRecursively(root=self.root, props=pSpec, recurse=True)
+        refs = self.getAllVirtualMachineRefs(attrs)
         out = []
         for ref in refs:
             out.append( VirtualMachine(self, name=ref.propSet[0].val) )

@@ -4,7 +4,7 @@ import logging
 from vixDiskLib import *
 
 log = logging.getLogger(__name__)
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 class VDDKError(Exception):
     pass

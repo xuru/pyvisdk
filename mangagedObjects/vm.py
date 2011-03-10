@@ -3,17 +3,20 @@ Created on Feb 17, 2011
 
 @author: eplaster
 '''
+from datetime import datetime
+from mangagedObjects.managedentity import ManagedEntity
+from mangagedObjects.snapshot import VirtualMachineSnapshot
 from pyvisdk import consts
 from pyvisdk.consts import ManagedObjectReference, TaskInfoState
 from pyvisdk.core import VisdkInvalidState
 from random import randrange
 from suds import WebFault
-from datetime import datetime
 import logging
 import string
+import types
 
 log = logging.getLogger(__name__)
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 class VisdkTaskError(Exception):
     pass
@@ -21,52 +24,12 @@ class VisdkTaskError(Exception):
 class VisdkError(Exception):
     pass
 
-class ManagedEntity(object):
-    def __init__(self, core, props, name=None, ref=None):
-        self.core = core
-        self.client = core.client
-        self.service = core.client.service
-        self.type = consts.ManagedEntity
-        self.props = ["configIssue", "configStatus", "name", "parent"] + props
-        if ref:
-            self.ref = ManagedObjectReference(consts.ManagedEntity, ref.value)
-        self.name = name
-        
-        self.parent = None
-        self.issues = None
-        self.status = None
-        
-    def parse(self):
-        for prop in self.props:
-            data = self.core.getDynamicProperty(self.ref, prop)
-            self.update(data)
-        
-    def update(self, propset):
-        log.debug("*********** base update **************")
-        for name, value in propset.items():
-            try:
-                if name == "name":
-                    log.debug("[%s] %s" % (name, value.__class__.__name__))
-                    self.name = value
-            
-                elif name == "parent":
-                    log.debug("[%s] %s" % (name, value.__class__.__name__))
-                    self.parent = value
-            
-                elif name == "configIssue":
-                    log.debug("[%s] %s" % (name, value.__class__.__name__))
-                    self.issues = value
-            
-                elif name == "configStatus":
-                    log.debug("[%s] %s" % (name, value.__class__.__name__))
-                    self.status = value
-            except AttributeError, e:
-                log.warning("[WARNING] [%s] %s" %  (name, e))
-       
+class VisdkAttributes(object):
+    pass
             
 class VirtualMachine(ManagedEntity):
     def __init__(self, core, name=None, ref=None):
-        props = [ "parent","capability", "summary.config", "snapshot", "runtime", "config.hardware.device"] 
+        props = [ "parent","capability", "config", "summary.config", "snapshot", "runtime"] 
         super(VirtualMachine, self).__init__(core, props, name, ref)
         
         # MUST define these
@@ -93,30 +56,35 @@ class VirtualMachine(ManagedEntity):
             raise VisdkError("Unable to get managed object reference for: [%s] %s" % (name, ref))
         self.parse()
     
-    def parse(self):
-        for prop in self.props:
+    def parse(self, prop=None):
+        if prop:
             changeData = self.core.getDynamicProperty(self.ref, prop)
             self.update(changeData)
-
+        else:
+            for prop in self.props:
+                self.parse(prop)
+        
     def update(self, prop):
         super(VirtualMachine, self).update(prop)
         
-        log.debug("*********** %s update **************" % self.__class__.__name__)
         for name, value in prop.items():
-            if name == "config.hardware.device":
-                for device in value:
+            log.debug("[%-20s] %s" % (name, value.__class__.__name__))
+                
+            if name == "config":
+                self.config = value
+                
+                # setup the devices...
+                for device in value.hardware.device:
+                    log.debug("[%-20s] %s" % (name, device.__class__.__name__))
                     name = device.__class__.__name__
                     if name == "VirtualDisk":
-                        self.disks.append(VirtualDisk(self.core, device))
+                        self.disks.append(VirtualDisk(self, device))
                         continue
                         
                     if not self.devices.has_key(name):
                         self.devices[name] = []
                     self.devices[name].append(device)
-                
-            elif name == "config":
-                self.config = value
-                
+               
             elif name == "capability":
                 self.capability = value
                 
@@ -141,8 +109,7 @@ class VirtualMachine(ManagedEntity):
         self.core.waitForTask(rv)
         
         # signal an update
-        self.sync(['snapshot'])
-        return self.snapshots[name]
+        self.parse('snapshot')
                 
     def hasSnapshots(self):
         return len(self.snapshots.keys()) > 0
@@ -157,16 +124,15 @@ class VirtualMachine(ManagedEntity):
     def removeSnapshotByName(self, name):
         self.removeSnapshot(self.snapshots[name])
         
-    def removeSnapshot(self, obj):
-        ref = ManagedObjectReference(consts.VirtualMachineSnapshot, obj.snapshot.value)
-        rv = self.service.RemoveSnapshot_Task(ref, False)
+    def removeSnapshot(self, snapshot):
+        rv = self.service.RemoveSnapshot_Task(snapshot.ref, False)
         self.core.waitForTask(rv)
-        self.sync(['snapshot'])
+        self.parse('snapshot')
         
     def removeAllSnapshots(self):
         rv = self.service.RemoveAllSnapshots_Task(self.ref)
         self.core.waitForTask(rv)
-        self.sync(['snapshot'])
+        self.parse('snapshot')
     
     def enableChangedBlockTracking(self, truth=True):
         if self.capability.changeTrackingSupported:
@@ -181,7 +147,10 @@ class VirtualMachine(ManagedEntity):
             spec.changeTrackingEnabled = truth
             rv = self.service.ReconfigVM_Task(self.ref, spec)
             self.core.waitForTask(rv)
-            self.sync(["config"])
+            self.parse("config")
+            
+            if self.config.changeTrackingEnabled != truth:
+                self.enableChangedBlockTracking(truth)
         
     def powerOn(self):
         rv = self.service.PowerOnVM_Task(self.ref)
@@ -189,7 +158,7 @@ class VirtualMachine(ManagedEntity):
         if status == TaskInfoState.error:
             raise VisdkTaskError("Unable to power on the virtual machine: " + self.name)
         log.debug("successfully powered on the virtual machine: " + self.name)
-        self.sync(['runtime'])
+        self.parse('runtime')
     
     def powerOff(self):
         rv = self.service.PowerOffVM_Task(self.ref)
@@ -197,7 +166,7 @@ class VirtualMachine(ManagedEntity):
         if status == TaskInfoState.error:
             raise VisdkTaskError("Unable to power off the virtual machine: " + self.name)
         log.debug("successfully powered off the virtual machine: " + self.name)
-        self.sync(['runtime'])
+        self.parse('runtime')
     
     def reset(self):
         rv = self.service.ResetVM_Task(self.ref)
@@ -205,7 +174,7 @@ class VirtualMachine(ManagedEntity):
         if status == TaskInfoState.error:
             raise VisdkTaskError("Unable to reset the virtual machine: " + self.name)
         log.debug("successfully reset the virtual machine: " + self.name)
-        self.sync(['runtime'])
+        self.parse('runtime')
     
     def suspend(self):
         rv = self.service.SuspendVM_Task(self.ref)
@@ -213,7 +182,7 @@ class VirtualMachine(ManagedEntity):
         if status == TaskInfoState.error:
             raise VisdkTaskError("Unable to suspend the virtual machine: " + self.name)
         log.debug("successfully suspended the virtual machine: " + self.name)
-        self.sync(['runtime'])
+        self.parse('runtime')
     
     def reboot(self):
         try:
@@ -221,7 +190,7 @@ class VirtualMachine(ManagedEntity):
         except WebFault, e:
             raise VisdkTaskError("Unable to reboot the virtual machine: " + self.name, e)
         log.debug("successfully rebooted the virtual machine: " + self.name)
-        self.sync(['runtime'])
+        self.parse('runtime')
     
     def shutdown(self):
         try:
@@ -229,7 +198,7 @@ class VirtualMachine(ManagedEntity):
         except WebFault, e:
             raise VisdkTaskError("Unable to shutdown the virtual machine: " + self.name, e)
         log.debug("successfully shutdown the virtual machine: " + self.name)
-        self.sync(['runtime'])
+        self.parse('runtime')
     
     def standby(self):
         try:
@@ -237,7 +206,7 @@ class VirtualMachine(ManagedEntity):
         except WebFault, e:
             raise VisdkTaskError("Unable to standby the virtual machine: " + self.name, e)
         log.debug("successfully standby the virtual machine: " + self.name)
-        self.sync(['runtime'])
+        self.parse('runtime')
     
     
     """ Factory Objects """
@@ -247,7 +216,7 @@ class VirtualMachine(ManagedEntity):
 
     def _appendSnapshot(self, snap):
         """ Internal: recursive method to add a snapshot MO ref from a VirtualMachineSnapshotTree """
-        self.snapshots[snap.name] = snap
+        self.snapshots[snap.name] = VirtualMachineSnapshot(self, ref=snap)
         if hasattr(snap, "childSnapshotList"):
             for x in snap.childSnapshotList:
                 self._appendSnapshot(x)
@@ -262,96 +231,32 @@ class VirtualDisk(object):
     
     NOTE: This class is special in that it's not an managed object, but part of the VirtualMachine MOR
     """
-    def __init__(self, core, data):
-        self.core = core
+    def __init__(self, vm, data):
+        self.vm = vm
+        self.core = vm.core
         self.update(data)
         
     def update(self, device):
-        log.debug("*********** %s update **************" % self.__class__.__name__)
         """ only parse out the information that we need..."""
+        self.key = device.key
         self.name = device.deviceInfo.label
-        self.backing = device.backing.__class__.__name__
+        self.backingType = device.backing.__class__.__name__
+        self.backing = device.backing
         self.thin = device.backing.thinProvisioned
         self.uuid = device.backing.uuid
         self.filename = device.backing.fileName
         self.datastore = device.backing.datastore
         self.capacity = device.capacityInKB
+        self.changeId = getattr(device.backing, 'changeId', '*')
             
+    def queryChangedDiskAreas(self, snapshot, offset, changeID):
+        if self.vm.config.changeTrackingEnabled:
+            return self.core.client.QueryChangedDiskAreas(self.vm.ref, snapshot.ref, self.key, offset, changeID)
+        else:
+            raise VisdkError("Unable to query ChangedDiskArea when CBT is unsupported.  Please enable CBT to call this method.")
+
     def __str__(self):
         capacity = (self.capacity/1024)/1024
         out = "<VirtualDisk> name: %s, %-0.2fGB filename: %s" % (self.name, capacity, self.filename)
         return out
 
-class HostSystem(ManagedEntity):
-    def __init__(self, core, name=None, ref=None):
-            # MUST define these
-        props = [ "name", "datastore"]
-        super(HostSystem, self).__init__(core, props, name, ref)
-        
-        self.datastores = {}
-        self.type = consts.HostSystem
-        self.name = name
-        if ref:
-            self.ref = ManagedObjectReference(consts.HostSystem, ref.value)
-        self.parse()
-    
-    def update(self, prop):
-        super(HostSystem, self).update(prop)
-        
-        log.debug("*********** %s update **************" % self.__class__.__name__)
-        for name, value in prop.items():
-            if name == 'datastore':
-                for dsmor in value:
-                    ds = Datastore(self.core, ref=dsmor)
-                    self.datastores[ds.name] = ds
-        
-    def parse(self):
-        for prop in self.props:
-            info = self.core.getDynamicProperty(self.ref, prop)
-            self.update(info)
-    
-    def __str__(self):
-        return "<%s> %s" % (self.type, self.name)
-
-class Datastore(ManagedEntity):
-    def __init__(self, core, name=None, ref=None):
-        # MUST define these
-        props = [ "browser", "info", "summary", "capability"]
-        super(Datastore, self).__init__(core, props, name, ref)
-        
-        self.type = consts.Datastore # type used to get to the virtual disks
-        
-        self.name = name
-        self.ref = ref
-        if ref:
-            self.ref = ManagedObjectReference(consts.Datastore, ref.value)
-        self.parse()
-        
-    def update(self, prop):
-        super(Datastore, self).update(prop)
-        
-        log.debug("*********** %s update **************" % self.__class__.__name__)
-        for name, value in prop.items():
-            if name == 'info':
-                log.debug("[%s] %s" % (name, value.__class__.__name__))
-                # VmfsDatastoreInfo
-                self.info = value
-            
-            elif name == 'summary':
-                log.debug("[%s] %s" % (name, value.__class__.__name__))
-                self.summary = value
-            
-            elif name == 'capability':
-                log.debug("[%s] %s" % (name, value.__class__.__name__))
-                self.capability = value
-            
-            elif name == 'browser':
-                log.debug("[%s] %s" % (name, value.__class__.__name__))
-                self.browser = value
-            
-    def parse(self):
-        info = self.core.getDynamicProperty(self.ref, self.props)
-        self.update(info)
-        
-    def __str__(self):
-        return "<%s> %s" % (self.type, self.name)
