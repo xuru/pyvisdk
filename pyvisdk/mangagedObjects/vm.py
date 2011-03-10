@@ -4,11 +4,11 @@ Created on Feb 17, 2011
 @author: eplaster
 '''
 from datetime import datetime
-from mangagedObjects.managedentity import ManagedEntity
-from mangagedObjects.snapshot import VirtualMachineSnapshot
 from pyvisdk import consts
 from pyvisdk.consts import ManagedObjectReference, TaskInfoState
 from pyvisdk.core import VisdkInvalidState
+from pyvisdk.mangagedObjects.managedentity import ManagedEntity
+from pyvisdk.mangagedObjects.snapshot import VirtualMachineSnapshot
 from random import randrange
 from suds import WebFault
 import logging

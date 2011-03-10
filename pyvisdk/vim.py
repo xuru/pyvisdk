@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-from mangagedObjects.datastore import Datastore
-from mangagedObjects.host import HostSystem
-from mangagedObjects.vm import VirtualMachine
 from pyvisdk import consts
 from pyvisdk.consts import ManagedObjectReference
+from pyvisdk.mangagedObjects.datastore import Datastore
+from pyvisdk.mangagedObjects.host import HostSystem
+from pyvisdk.mangagedObjects.vm import VirtualMachine
 import logging
 import pyvisdk.core
 import types

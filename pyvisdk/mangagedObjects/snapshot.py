@@ -4,9 +4,9 @@ Created on Mar 8, 2011
 @author: eplaster
 '''
 
-from mangagedObjects.managedentity import ManagedEntity
 from pyvisdk import consts
 from pyvisdk.consts import ManagedObjectReference
+from pyvisdk.mangagedObjects.managedentity import ManagedEntity
 import logging
 
 log = logging.getLogger(__name__)
