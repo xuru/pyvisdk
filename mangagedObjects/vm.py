@@ -72,6 +72,7 @@ class VirtualMachine(ManagedEntity):
                 
             if name == "config":
                 self.config = value
+                self.disks = []
                 
                 # setup the devices...
                 for device in value.hardware.device:
