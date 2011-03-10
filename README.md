@@ -14,12 +14,22 @@
   Simple and clean interface.
 
 ## Example
-    vim = Vim("vcenter.company.com")
-    vim.login(username, password)
+    vim = Vim(self.options.server)
+    vim.login(self.options.username, self.options.password)
 
-    machine = vim.getVirtualMachineByName("MyTestMachine")
-    snapshot = machine.createSnapshot()
+    vm = self.vim.getVirtualMachine("Linux network test")
+    
+    # enable Changed Block Tracking.  Need a stun cycle after this (i.e. a snapshot)
+    vm.enableChangedBlockTracking()
+    
+    snapshot = vm.createSnapshot()
     print "Created snapshot: %s" % snapshot.name
+    
+    # take a look at what we have for drives...
+    for disk in vm.disks:
+        log.info("%-15s (%s) %s" % (disk.name, disk.backingType, disk.filename))
+    
+    vm.removeSnapshot(snapshot)
 
 ## Authors
 
