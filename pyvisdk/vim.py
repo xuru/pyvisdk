@@ -1,13 +1,11 @@
 #!/usr/bin/env python
-from pyvisdk import consts
-from pyvisdk.consts import ManagedObjectReference
-from pyvisdk.managedObjects.datastore import Datastore
+from pyvisdk.consts import ManagedEntityTypes
+from pyvisdk.managedObjects.datacenter import Datacenter
 from pyvisdk.managedObjects.host import HostSystem
 from pyvisdk.managedObjects.vm import VirtualMachine
 import logging
 import pyvisdk.core
 import types
-
 """
 Assumptions:  Must connect to the vSphere vCenter
               Must be version 4.0 or greater
@@ -18,6 +16,7 @@ log = logging.getLogger(__name__)
 class Vim(pyvisdk.core.VimBase):
     def __init__(self, server, connect=True, verbose=3):
         super(Vim, self).__init__(server, connect, verbose)
+        self.loggedin = False
         
     def login(self, username, password):
         self.username = username
@@ -29,12 +28,13 @@ class Vim(pyvisdk.core.VimBase):
         self.client.service.Login(self.managers['sessionManager'], self.username, self.password)
         if self.verbose > 2:
             log.info("Successfully logged into %s" % self.client.url)
+        self.loggedin = True
 
     def logout(self):
         self.client.service.Logout(self.managers['sessionManager'])
+        self.loggedin = False
 
     def displayAbout(self):
-        print dir(self.service_content.about)
         print "=" * 40
         print "Connected to %s" % self.server
         print "  %s" % self.service_content.about.fullName
@@ -42,50 +42,58 @@ class Vim(pyvisdk.core.VimBase):
         print "  License: %s %s" % (
                 self.service_content.about.licenseProductName, self.service_content.about.licenseProductVersion)
         print "=" * 40
-
+        
     def getApiType(self):
         return self.service_content.about.apiType
 
-    def getVirtualMachine(self, name):
-        return VirtualMachine(self, name)
-        
-    def getAllVirtualMachineRefs(self, attrs=["name", "runtime.powerState"]):
-        refs = self.getDecendentsByName(_type=consts.VirtualMachine, properties=["name"])
-        return refs
-         
-    def getAllVirtualMachinesIter(self):
-        refs = self.getAllVirtualMachineRefs()
-        for ref in refs:
-            yield VirtualMachine(self, name=ref.propSet[0].val, ref=ref.obj)
-   
-    def getAllVirtualMachines(self, attrs=["name", "runtime.powerState"]):
-        refs = self.getAllVirtualMachineRefs(attrs)
-        out = []
-        for ref in refs:
-            out.append( VirtualMachine(self, name=ref.propSet[0].val) )
-        return out
-
+    #------------------------------------------------------------
+    # Hosts
+    #------------------------------------------------------------
+    def getHosts(self):
+        return self.getHostSystem()
+    
     def getHostSystem(self, name=None):
-        mo = self.getDecendentsByName(_type=consts.HostSystem, properties=["name"], name=name)
+        mo = self.getDecendentsByName(_type=ManagedEntityTypes.HostSystem, properties=["name"], name=name)
         if type(mo) == types.ListType:
             return [HostSystem(self, ref=x.obj) for x in mo]
-        return HostSystem(self, ref=mo.obj)
+        return HostSystem(self, name=mo[0].propSet[0].val, ref=mo.obj)
     
-    def getDatacenter(self, name=None, mo=None):
-        mo = self.getDecendentsByName(_type=consts.Datacenter, properties=["name"], name=name)
-        return [ManagedObjectReference(consts.Datacenter, x.obj.value) for x in mo]
+    #------------------------------------------------------------
+    # Datacenters
+    #------------------------------------------------------------
+    def getDatacenters(self):
+        mo = self.getDecendentsByName(_type=ManagedEntityTypes.Datacenter, properties=["name"], name=name)
+        return [Datacenter(self, name=mo[0].propSet[0].val, ref=x.obj) for x in mo]
+    
+    def getDatacenter(self, name):
+        mo = self.getDecendentsByName(_type=ManagedEntityTypes.Datacenter, properties=["name"], name=name)
+        return Datacenter(self, name=mo[0].propSet[0].val, ref=mo[0].obj)
 
-    def getDatastores(self, host, name=None):
-        datastores = self.getDynamicProperty(host.ref, "datastore")
-        if len(datastores):
-            rv = []
-            for ds in datastores:
-                rv.append(Datastore(self, ref=ds))
-        else:
-            # only a single datastore...
-            rv = Datastore(self, ref=datastores)
-        return rv
+    #------------------------------------------------------------
+    # Virtual Machines
+    #------------------------------------------------------------
+    def getVirtualMachine(self, name):
+        mo = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"], name=name)
+        print mo
+        return VirtualMachine(self, name=mo.propSet[0].val, ref=mo.obj)
         
+    def getVirtualMachines(self):
+        mo = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"])
+        return [VirtualMachine(self, name=mo[0].propSet[0].val, ref=x.obj) for x in mo]
+   
+    def getVirtualMachinesIter(self):
+        refs = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"])
+        for ref in refs:
+            yield VirtualMachine(self, name=ref.propSet[0].val, ref=ref.obj)
+    
+    #------------------------------------------------------------
+    # Hierarchy
+    #------------------------------------------------------------
+    def getHierarchy(self):
+        mo = self.getContentsRecursively(props=["configIssue", "configStatus", "name", "parent"])
+        return mo
+    
+       
 if __name__ == '__main__':
     from optparse import OptionParser
     import sys

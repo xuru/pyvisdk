@@ -3,8 +3,7 @@ Created on Mar 8, 2011
 
 @author: eplaster
 '''
-from pyvisdk import consts
-from pyvisdk.consts import ManagedObjectReference
+from pyvisdk.consts import ManagedEntityTypes
 from pyvisdk.managedObjects.managedentity import ManagedEntity
 import logging
 
@@ -14,42 +13,12 @@ log.setLevel(logging.INFO)
 class Datastore(ManagedEntity):
     def __init__(self, core, name=None, ref=None):
         # MUST define these
-        props = [ "browser", "info", "summary", "capability"]
-        super(Datastore, self).__init__(core, props, name, ref)
+        self.type = ManagedEntityTypes.Datastore
         
-        self.type = consts.Datastore # type used to get to the virtual disks
+        props = [ "browser", "info", "summary", "capability", "vm"]
         
-        self.name = name
-        self.ref = ref
-        if ref:
-            self.ref = ManagedObjectReference(consts.Datastore, ref.value)
-        self.parse()
+        methods = ["DestroyDatastore", "RefreshDatastore", "RefreshDatastoreStorageInfo", "RenameDatastore",
+                             "UpdateVirtualMachineFiles_Task"]
         
-    def update(self, prop):
-        super(Datastore, self).update(prop)
+        super(Datastore, self).__init__(core, methods, props, name, ref)
         
-        log.debug("*********** %s update **************" % self.__class__.__name__)
-        for name, value in prop.items():
-            if name == 'info':
-                log.debug("[%s] %s" % (name, value.__class__.__name__))
-                # VmfsDatastoreInfo
-                self.info = value
-            
-            elif name == 'summary':
-                log.debug("[%s] %s" % (name, value.__class__.__name__))
-                self.summary = value
-            
-            elif name == 'capability':
-                log.debug("[%s] %s" % (name, value.__class__.__name__))
-                self.capability = value
-            
-            elif name == 'browser':
-                log.debug("[%s] %s" % (name, value.__class__.__name__))
-                self.browser = value
-            
-    def parse(self):
-        info = self.core.getDynamicProperty(self.ref, self.props)
-        self.update(info)
-        
-    def __str__(self):
-        return "<%s> %s" % (self.type, self.name)

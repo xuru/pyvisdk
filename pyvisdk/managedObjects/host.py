@@ -3,9 +3,7 @@ Created on Mar 8, 2011
 
 @author: eplaster
 '''
-from pyvisdk import consts
-from pyvisdk.consts import ManagedObjectReference
-from pyvisdk.managedObjects.datastore import Datastore
+from pyvisdk.consts import ManagedEntityTypes
 from pyvisdk.managedObjects.managedentity import ManagedEntity
 import logging
 
@@ -14,31 +12,16 @@ log.setLevel(logging.INFO)
 
 class HostSystem(ManagedEntity):
     def __init__(self, core, name=None, ref=None):
-            # MUST define these
-        props = [ "name", "datastore"]
-        super(HostSystem, self).__init__(core, props, name, ref)
+        # MUST define these
+        self.type = ManagedEntityTypes.HostSystem
+        props = [ "name", "datastore", "capability", "config.dateTimeInfo", "config.fileSystemVolume", 
+                "config.multipathState", "config.network", "hardware.systemInfo", "hardware.cpuInfo", "summary"]
         
-        self.datastores = {}
-        self.type = consts.HostSystem
-        self.name = name
-        if ref:
-            self.ref = ManagedObjectReference(consts.HostSystem, ref.value)
-        self.parse()
-    
-    def update(self, prop):
-        super(HostSystem, self).update(prop)
+        methods = ["AcquireCimServicesTicket", "DisconnectHost_Task", "EnterLockdownMode", 
+            "EnterMaintenanceMode_Task", "ExitLockdownMode", "ExitMaintenanceMode_Task", "PowerDownHostToStandBy_Task", 
+            "PowerUpHostFromStandBy_Task", "QueryHostConnectionInfo", "QueryMemoryOverhead", "QueryMemoryOverheadEx", 
+            "RebootHost_Task", "ReconfigureHostForDAS_Task", "ReconnectHost_Task", "RetrieveHardwareUptime", 
+            "ShutdownHost_Task", "UpdateFlags", "UpdateIpmi", "UpdateSystemResources"]
+                            
+        super(HostSystem, self).__init__(core, methods, props, name, ref)
         
-        log.debug("*********** %s update **************" % self.__class__.__name__)
-        for name, value in prop.items():
-            if name == 'datastore':
-                for dsmor in value:
-                    ds = Datastore(self.core, ref=dsmor)
-                    self.datastores[ds.name] = ds
-        
-    def parse(self):
-        for prop in self.props:
-            info = self.core.getDynamicProperty(self.ref, prop)
-            self.update(info)
-    
-    def __str__(self):
-        return "<%s> %s" % (self.type, self.name)

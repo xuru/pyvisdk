@@ -28,17 +28,13 @@ class Test(unittest.TestCase):
     def testAbout(self):
         vim = Vim(server, verbose=0)
         vim.displayAbout()
-    
 
     def testLogin(self):
         vim = Vim(server, verbose=0)
         vim.login(username, password)
+        assert(vim.loggedin == True)
+        vim.logout()
 
-    def testFullTraversal(self):
-        vim = Vim(server, verbose=0)
-        vim.login(username, password)
-        vim.getAllContainerContents()
-    
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()

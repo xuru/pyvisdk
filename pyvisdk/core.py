@@ -3,13 +3,15 @@ Created on Feb 15, 2011
 
 @author: eplaster
 '''
-import xml.etree.cElementTree as etree
 from pyvisdk import consts
 from pyvisdk.client import Client
-from pyvisdk.consts import ManagedObjectReference, TaskInfoState
+from pyvisdk.consts import TaskInfoState, ManagedEntityTypes
 from suds.sudsobject import Property
 import logging
+import suds
 import urllib2
+import xml.etree.cElementTree as etree
+        
 
 class VisdkTaskError(Exception):
     pass
@@ -22,7 +24,14 @@ logging.basicConfig(level=logging.INFO, format=fmt)
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
 
+class ManagedObjectReference(suds.sudsobject.Property):
+    """Custom class to replace the suds generated class, which lacks _type."""
+    def __init__(self, _type, value):
+        suds.sudsobject.Property.__init__(self, value)
+        self._type = _type
+        
 
+        
 class VimBase(object):
     '''
     Base class to hold the nuts and bolts for the web services grunt work.
@@ -38,7 +47,7 @@ class VimBase(object):
         self.connected = False
         
         self.listeners = {}
-        for me in consts.ManagedEntityList:
+        for me in consts.ManagedEntityTypes:
             self.listeners[me] = []
          
         # setup logging...
@@ -96,7 +105,7 @@ class VimBase(object):
         return versions
         
     def callRetrievePropertiesEx(self, maxObjects=0):
-        myPropSpec = self.PropertySpec(all=False, _type=consts.VirtualMachine, pathSet=["name"])
+        myPropSpec = self.PropertySpec(all=False, _type=ManagedEntityTypes.VirtualMachine, pathSet=["name"])
        
         myObjSpec = self.ObjectSpec(self.root, selectSet=self.buildFullTraversal())
        
@@ -154,6 +163,11 @@ class VimBase(object):
                     name = value.__class__.__name__
                     if "ArrayOf" in name:
                         methodname = name[7:]
+                        
+                        # special cases...
+                        if methodname == 'String':
+                            methodname = 'string'
+                            
                         value = eval("value.%s" % methodname)
                     rv[prop.name] = value
         return rv
@@ -178,6 +192,7 @@ class VimBase(object):
         if not "name" in properties:
             properties += ["name"]
         ocary = self.getContentsRecursively(_type=_type, props=properties, root=root)
+        log.debug("ocary: %s" % ocary)
 
         if ocary:
             if not name:
@@ -193,20 +208,10 @@ class VimBase(object):
                 if found:
                     return vm
 
-    """
-     * Retrieve Container contents for all containers recursively from root
-     *
-     * @return retrieved object contents
-    """
-    def getAllContainerContents(self):
-        ocary = self.getContentsRecursively()
-        return ocary
-   
-        
     def getContentsRecursively(self, props=[], _type=None, collector=None, root=None, recurse=True):
         if not collector: collector = self.managers["propertyCollector"]
         if not root: root = self.root
-        if not _type: _type = consts.ManagedEntity
+        if not _type: _type = ManagedEntityTypes.ManagedEntity
             
         typeinfo = [ self.PropertySpec(_type=_type, pathSet=props) ]
 
@@ -229,33 +234,33 @@ class VimBase(object):
          * @return The SelectionSpec[]
         """
         # Recurse through all ResourcePools
-        rpToRp = self.TraversalSpec(name="rpToRp", _type=consts.ResourcePool, path="resourcePool",
+        rpToRp = self.TraversalSpec(name="rpToRp", _type=ManagedEntityTypes.ResourcePool, path="resourcePool",
                         selectSet=[ self.SelectionSpec("rpToRp"), self.SelectionSpec("rpToVm") ])
 
         # Recurse through all ResourcePools
-        rpToVm = self.TraversalSpec(name="rpToVm", _type=consts.ResourcePool, path="vm")
+        rpToVm = self.TraversalSpec(name="rpToVm", _type=ManagedEntityTypes.ResourcePool, path="vm")
 
         # Traversal through ResourcePool branch
-        crToRp = self.TraversalSpec(name="crToRp", _type=consts.ComputeResource, path="resourcePool",
+        crToRp = self.TraversalSpec(name="crToRp", _type=ManagedEntityTypes.ComputeResource, path="resourcePool",
                         selectSet=[ self.SelectionSpec("rpToRp"), self.SelectionSpec("rpToVm") ])
 
         # Traversal through host branch
-        crToH = self.TraversalSpec(name="crToH", _type=consts.ComputeResource, path="host")
+        crToH = self.TraversalSpec(name="crToH", _type=ManagedEntityTypes.ComputeResource, path="host")
         
         # Traversal through hostFolder branch
-        dcToHf = self.TraversalSpec(name="dcToHf", _type=consts.Datacenter, path="hostFolder",
+        dcToHf = self.TraversalSpec(name="dcToHf", _type=ManagedEntityTypes.Datacenter, path="hostFolder",
                         selectSet=[self.SelectionSpec("visitFolders")])
 
         # Traversal through vmFolder branch
-        dcToVmf = self.TraversalSpec(name="dcToVmf", _type=consts.Datacenter, path="vmFolder",
+        dcToVmf = self.TraversalSpec(name="dcToVmf", _type=ManagedEntityTypes.Datacenter, path="vmFolder",
                         selectSet=[self.SelectionSpec("visitFolders")])
 
         # Recurse through all Hosts
-        HToVm = self.TraversalSpec(name="HToVm", _type=consts.HostSystem, path="vm",
+        HToVm = self.TraversalSpec(name="HToVm", _type=ManagedEntityTypes.HostSystem, path="vm",
                         selectSet=[self.SelectionSpec("visitFolders")])
         
         # Recurse through the folders
-        visitFolders = self.TraversalSpec(name="visitFolders", _type=consts.Folder, path="childEntity",
+        visitFolders = self.TraversalSpec(name="visitFolders", _type=ManagedEntityTypes.Folder, path="childEntity",
                         selectSet=[ self.SelectionSpec("visitFolders"),
                                      self.SelectionSpec("dcToHf"),
                                      self.SelectionSpec("dcToVmf"),
@@ -281,14 +286,13 @@ class VimBase(object):
       
         pSpec = self.PropertyFilterSpec(
                 propSet=[
-                    self.PropertySpec(_type=consts.VirtualMachine, all=False, pathSet=["name"])
+                    self.PropertySpec(_type=ManagedEntityTypes.VirtualMachine, all=False, pathSet=["configIssue", "configStatus", "name", "parent"])
                 ],
                 objectSet=[
-                    self.ObjectSpec(self.root,
-                                    selectSet=self.buildFullTraversal())
+                    self.ObjectSpec(self.root, selectSet=self.buildFullTraversal())
                 ])
          
-        rOptions = self.RetrieveOptions()     
+        rOptions = self.RetrieveOptions()
         
         retrieveResult = self.client.RetrievePropertiesEx(collector, pSpec, rOptions)      
         self.client.DestroyPropertyCollector(collector)
@@ -426,9 +430,6 @@ class VimBase(object):
         spec.name = name
         return spec
 
-        
-        
-        
         
         
         

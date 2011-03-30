@@ -4,11 +4,15 @@ Created on Mar 6, 2011
 @author: eplaster
 '''
 from pyvisdk import consts
-from pyvisdk.consts import ManagedObjectReference
+from pyvisdk.managedObjects import ManagedEntities
 from suds import MethodNotFound
+import logging
 import os.path
 import suds
 import types
+
+log = logging.getLogger(__name__)
+log.setLevel(logging.DEBUG)
 
 class Delegate:
     """ delegates to the real method, and cleans up the return value """
@@ -19,6 +23,7 @@ class Delegate:
         
     def __call__(self, *args, **kwargs):
         """ calls original method """
+        log.debug("Calling %s" % self.__target.method.name)
         rv = self.clean(self.__target(*args, **kwargs))
         #self.dump(rv)
         return rv
@@ -30,7 +35,11 @@ class Delegate:
                 out.append(self.clean(x))
             return out
         elif objectContent.__class__.__name__ == "ObjectContent":
-            objectContent.obj = ManagedObjectReference(objectContent.obj._type, objectContent.obj.value)
+            obj = objectContent.obj
+            print obj._type
+            if obj._type in consts.ManagedEntityTypes:
+                print obj._type
+                return ManagedEntities[obj._type](self, objectContent)
         return objectContent
             
     def dump(self, rv):
@@ -97,15 +106,15 @@ class Client(object):
         if searchType == foundType:
             return True
         elif searchType == "ManagedEntity":
-            for me in consts.ManagedEntityList:
+            for me in consts.ManagedEntityTypes:
                 if me == foundType:
                     return True
         elif searchType == "ComputeResource":
-            for me in consts.ComputeResourceList:
+            for me in consts.ComputeResourcesTypes:
                 if me == foundType:
                     return True
         elif searchType == "HistoryCollector":
-            for me in consts.HistoryCollectorList:
+            for me in consts.HistoryCollectorTypes:
                 if me == foundType:
                     return True
         return False
@@ -116,11 +125,11 @@ class Client(object):
     #def __setattr__(self, name, value):
     #    setattr(object.__getattribute__(self, "service"), name, value)
     
-    def __nonzero__(self):
-        return bool(object.__getattribute__(self, "service"))
+    #def __nonzero__(self):
+    #    return bool(object.__getattribute__(self, "service"))
     
-    def __str__(self):
-        return str(object.__getattribute__(self, "service"))
+    #def __str__(self):
+    #    return str(object.__getattribute__(self, "service"))
     
-    def __repr__(self):
-        return repr(object.__getattribute__(self, "service"))
+    #def __repr__(self):
+    #    return repr(object.__getattribute__(self, "service"))

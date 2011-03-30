@@ -4,8 +4,7 @@ Created on Feb 17, 2011
 @author: eplaster
 '''
 from datetime import datetime
-from pyvisdk import consts
-from pyvisdk.consts import ManagedObjectReference, TaskInfoState
+from pyvisdk.consts import TaskInfoState, ManagedEntityTypes
 from pyvisdk.core import VisdkInvalidState
 from pyvisdk.managedObjects.managedentity import ManagedEntity
 from pyvisdk.managedObjects.snapshot import VirtualMachineSnapshot
@@ -13,7 +12,6 @@ from random import randrange
 from suds import WebFault
 import logging
 import string
-import types
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
@@ -26,80 +24,32 @@ class VisdkError(Exception):
 
 class VisdkAttributes(object):
     pass
-            
+
 class VirtualMachine(ManagedEntity):
     def __init__(self, core, name=None, ref=None):
-        props = [ "parent","capability", "config", "summary.config", "snapshot", "runtime"] 
-        super(VirtualMachine, self).__init__(core, props, name, ref)
+        # MUST define these first
+        self.type = ManagedEntityTypes.VirtualMachine
+       
+        props = [ "capability", "config", "datastore", "environmentBrowser", "guest", 
+                 "guestHeartbeatStatus", "layout", "layoutEx", "network", "parentVApp", 
+                 "resourceConfig", "resourcePool", "rootSnapshot", "runtime",
+                 "snapshot", "storage", "summary"]
         
-        # MUST define these
-        self.type = consts.VirtualMachine
+        methods = [
+            "AcquireMksTicket", "AcquireTicket", "AnswerVM", "CheckCustomizationSpec", "CloneVM_Task", 
+            "CreateScreenshot_Task", "CreateSecondaryVM_Task", "CreateSnapshot_Task", "CustomizeVM_Task", 
+            "DefragmentAllDisks", "DisableSecondaryVM_Task", "EnableSecondaryVM_Task", "ExportVm", "ExtractOvfEnvironment", 
+            "MakePrimaryVM_Task", "MarkAsTemplate", "MarkAsVirtualMachine", "MigrateVM_Task", "MountToolsInstaller", 
+            "PowerOffVM_Task", "PowerOnVM_Task", "PromoteDisks_Task", "QueryChangedDiskAreas", "QueryFaultToleranceCompatibility", 
+            "QueryUnownedFiles", "RebootGuest", "ReconfigVM_Task", "RefreshStorageInfo", "reloadVirtualMachineFromPath_Task", 
+            "RelocateVM_Task", "RemoveAllSnapshots_Task", "ResetGuestInformation", "ResetVM_Task", "RevertToCurrentSnapshot_Task", 
+            "SetDisplayTopology", "SetScreenResolution", "ShutdownGuest", "StandbyGuest", "StartRecording_Task", 
+            "StartReplaying_Task", "StopRecording_Task", "StopReplaying_Task", "SuspendVM_Task", "TerminateFaultTolerantVM_Task", 
+            "TurnOffFaultToleranceForVM_Task", "UnmountToolsInstaller", "UnregisterVM", "UpgradeTools_Task", "UpgradeVM_Task" ]
         
-        # properties to get updated
-        self.capability = None
-        self.summary_config = None
-        self.config = None
-        self.snapshots = {}
-        self.poweredOn = False
+        super(VirtualMachine, self).__init__(core, methods, props, name, ref)
         
-        self.version = ""
-        self.devices = {}
-        self.disks = []
         
-        self.ref = ref
-        if ref == None and name != None:
-            ref = self.core.getDecendentsByName(consts.VirtualMachine, name=self.name).obj
-            
-        if ref:
-            self.ref = ManagedObjectReference(consts.VirtualMachine, ref.value)
-        else:
-            raise VisdkError("Unable to get managed object reference for: [%s] %s" % (name, ref))
-        self.parse()
-    
-    def parse(self, prop=None):
-        if prop:
-            changeData = self.core.getDynamicProperty(self.ref, prop)
-            self.update(changeData)
-        else:
-            for prop in self.props:
-                self.parse(prop)
-        
-    def update(self, prop):
-        super(VirtualMachine, self).update(prop)
-        
-        for name, value in prop.items():
-            log.debug("[%-20s] %s" % (name, value.__class__.__name__))
-                
-            if name == "config":
-                self.config = value
-                self.disks = []
-                
-                # setup the devices...
-                for device in value.hardware.device:
-                    log.debug("[%-20s] %s" % (name, device.__class__.__name__))
-                    name = device.__class__.__name__
-                    if name == "VirtualDisk":
-                        self.disks.append(VirtualDisk(self, device))
-                        continue
-                        
-                    if not self.devices.has_key(name):
-                        self.devices[name] = []
-                    self.devices[name].append(device)
-               
-            elif name == "capability":
-                self.capability = value
-                
-            elif name == "snapshot":
-                for snap in value.rootSnapshotList:
-                    self._appendSnapshot(snap)
-                
-            elif name == "summary.config":
-                self.summary_config = value
-                
-            elif name == "runtime":
-                self.host = ManagedObjectReference(consts.HostSystem, value.host.value)
-                self.poweredOn = (value.powerState == "poweredOn")
-
     def createSnapshot(self, name=None, description=None, memory_files=False, quisce_filesystem=True):
         if not name:
             name = self.name + "-" + "".join([string.digits[randrange(10)] for x in range(10)])
@@ -110,31 +60,24 @@ class VirtualMachine(ManagedEntity):
         self.core.waitForTask(rv)
         
         # signal an update
-        self.parse('snapshot')
+        self.update('snapshot')
                 
     def hasSnapshots(self):
+        if not self.snapshot:
+            self.update('snapshot')
         return len(self.snapshots.keys()) > 0
     
     def getSnapshotByName(self, name):
+        if not self.snapshot:
+            self.update('snapshot')
         if self.snapshots.has_key(name):
             return self.snapshots[name]
     
     def getSnapshots(self):
+        if not self.snapshot:
+            self.update('snapshot')
         return self.snapshots.values()
         
-    def removeSnapshotByName(self, name):
-        self.removeSnapshot(self.snapshots[name])
-        
-    def removeSnapshot(self, snapshot):
-        rv = self.service.RemoveSnapshot_Task(snapshot.ref, False)
-        self.core.waitForTask(rv)
-        self.parse('snapshot')
-        
-    def removeAllSnapshots(self):
-        rv = self.service.RemoveAllSnapshots_Task(self.ref)
-        self.core.waitForTask(rv)
-        self.parse('snapshot')
-    
     def enableChangedBlockTracking(self, truth=True):
         if self.capability.changeTrackingSupported:
             if self.config.changeTrackingEnabled:
@@ -148,67 +91,11 @@ class VirtualMachine(ManagedEntity):
             spec.changeTrackingEnabled = truth
             rv = self.service.ReconfigVM_Task(self.ref, spec)
             self.core.waitForTask(rv)
-            self.parse("config")
+            self.update("config")
             
             if self.config.changeTrackingEnabled != truth:
                 self.enableChangedBlockTracking(truth)
         
-    def powerOn(self):
-        rv = self.service.PowerOnVM_Task(self.ref)
-        status = self.core.waitForTask(rv)
-        if status == TaskInfoState.error:
-            raise VisdkTaskError("Unable to power on the virtual machine: " + self.name)
-        log.debug("successfully powered on the virtual machine: " + self.name)
-        self.parse('runtime')
-    
-    def powerOff(self):
-        rv = self.service.PowerOffVM_Task(self.ref)
-        status = self.core.waitForTask(rv)
-        if status == TaskInfoState.error:
-            raise VisdkTaskError("Unable to power off the virtual machine: " + self.name)
-        log.debug("successfully powered off the virtual machine: " + self.name)
-        self.parse('runtime')
-    
-    def reset(self):
-        rv = self.service.ResetVM_Task(self.ref)
-        status = self.core.waitForTask(rv)
-        if status == TaskInfoState.error:
-            raise VisdkTaskError("Unable to reset the virtual machine: " + self.name)
-        log.debug("successfully reset the virtual machine: " + self.name)
-        self.parse('runtime')
-    
-    def suspend(self):
-        rv = self.service.SuspendVM_Task(self.ref)
-        status = self.core.waitForTask(rv)
-        if status == TaskInfoState.error:
-            raise VisdkTaskError("Unable to suspend the virtual machine: " + self.name)
-        log.debug("successfully suspended the virtual machine: " + self.name)
-        self.parse('runtime')
-    
-    def reboot(self):
-        try:
-            self.service.RebootGuest(self.ref)
-        except WebFault, e:
-            raise VisdkTaskError("Unable to reboot the virtual machine: " + self.name, e)
-        log.debug("successfully rebooted the virtual machine: " + self.name)
-        self.parse('runtime')
-    
-    def shutdown(self):
-        try:
-            self.service.ShutdownGuest(self.ref)
-        except WebFault, e:
-            raise VisdkTaskError("Unable to shutdown the virtual machine: " + self.name, e)
-        log.debug("successfully shutdown the virtual machine: " + self.name)
-        self.parse('runtime')
-    
-    def standby(self):
-        try:
-            self.service.StandbyGuest(self.ref)
-        except WebFault, e:
-            raise VisdkTaskError("Unable to standby the virtual machine: " + self.name, e)
-        log.debug("successfully standby the virtual machine: " + self.name)
-        self.parse('runtime')
-    
     
     """ Factory Objects """
     def VirtualMachineConfigSpec(self):
@@ -222,10 +109,6 @@ class VirtualMachine(ManagedEntity):
             for x in snap.childSnapshotList:
                 self._appendSnapshot(x)
         
-    def __str__(self):
-        out = "<%s> %d snapshots" % (self.name, len(self.snapshots.keys()))
-        return out
-    
 class VirtualDisk(object):
     """
     VirtualDisk

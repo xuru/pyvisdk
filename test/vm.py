@@ -3,19 +3,23 @@ Created on Feb 11, 2011
 
 @author: eplaster
 '''
-import sys
 import os.path
+import sys
 
 here = os.path.expanduser(os.path.dirname(__file__))
-sys.path.insert(0, os.path.join("..", "src"))
+sys.path.insert(0, os.path.join(here, ".."))
 
 from pyvisdk import Vim
-from pyvisdk.vm import VirtualMachine
+from pyvisdk.managedObjects.vm import VirtualMachine
 
-ident = open("ident.cnf").readlines()
-server = ident[0].strip()
-username = ident[1].strip()
-password = ident[2].strip()
+
+filename = os.path.abspath(os.path.expanduser("~/.visdkrc.ksvcenter"))
+
+credentials = {}
+ident = open(filename).readlines()
+for line in ident:
+    name, value = [x.strip() for x in line.split("=")]
+    credentials[name] = value
 
 vim = None
 
@@ -24,8 +28,8 @@ class TestVirtualMachines(object):
     def setup_class(klass):
         global vim
         print "setup_class: %s" % klass
-        vim = Vim(server)
-        vim.login(username, password)
+        vim = Vim(credentials["VI_SERVER"])
+        vim.login(credentials["VI_USERNAME"], credentials["VI_PASSWORD"])
         
         
     @classmethod
@@ -36,40 +40,19 @@ class TestVirtualMachines(object):
         
     def testGetAll(self):
         global vim
-        vms = vim.getAllVirtualMachines()
+        vms = vim.getVirtualMachines()
         assert(vms and len(vms)>0)
         for vm in vms:
             assert(isinstance(vm, VirtualMachine))
         
     def testGetVirtualMachine(self):
         global vim
+        
         name = 'test'
         vm = vim.getVirtualMachine(name)
         assert(vm != None)
         assert(isinstance(vm, VirtualMachine))
         
-    def testClone(self):
-        pass
-
-    def testCreate(self):
-        pass
-
-    def testGetSnapshots(self):
-        name = 'test'
-        vm = vim.getVirtualMachine(name)
-        snapshots = vm.getSnapshots()
-        
-    def testCreateSnapshot(self):
-        name = 'test'
-        vm = vim.getVirtualMachine(name)
-        vm.createSnapshot(vm.name + "000001")
-
-    def testRemoveSnapshot(self):
-        pass
-
-    def testReconfigure(self):
-        pass
-
 
 if __name__ == "__main__":
     import nose
