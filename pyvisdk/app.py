@@ -4,7 +4,10 @@ Created on Feb 25, 2011
 @author: eplaster
 '''
 from optparse import OptionParser
-import sys
+import sys, logging
+
+log = logging.getLogger(__name__)
+log.setLevel(logging.INFO)
 
 class PyvisdkApp(object):
     '''
@@ -44,4 +47,4 @@ class PyvisdkApp(object):
             elif 'VI_PASSWORD' in name:
                 self.options.password = value.strip()
             else:
-                print "[WARN] unknown option: " + line
+                log.warning("[WARN] unknown option: " + line)
