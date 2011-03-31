@@ -11,18 +11,17 @@ import logging
 import suds
 import urllib2
 import xml.etree.cElementTree as etree
-        
+
+fmt = "[%(asctime)s][%(levelname)-8s] %(module)s.%(funcName)s:%(lineno)d %(message)s"
+logging.basicConfig(level=logging.INFO, format=fmt)
+log = logging.getLogger(__name__)
+log.setLevel(logging.DEBUG)
 
 class VisdkTaskError(Exception):
     pass
 
 class VisdkInvalidState(Exception):
     pass
-
-fmt = "[%(asctime)s][%(levelname)-8s] %(module)s.%(funcName)s:%(lineno)d %(message)s"
-logging.basicConfig(level=logging.INFO, format=fmt)
-log = logging.getLogger(__name__)
-log.setLevel(logging.INFO)
 
 class ManagedObjectReference(suds.sudsobject.Property):
     """Custom class to replace the suds generated class, which lacks _type."""
@@ -323,11 +322,13 @@ class VimBase(object):
         updateset = self.client.WaitForUpdates(self.managers["propertyCollector"], version)
         
         status = self._parseTaskResponse(updateset)
-        while status['info.state'] in [ TaskInfoState.running, TaskInfoState.queued ]:
+        while status['info.state'] == TaskInfoState.running or status['info.state'] == TaskInfoState.queued:
             log.debug("Waiting for task to complete...")
+            
             version = updateset.version
             updateset = self.client.WaitForUpdates(self.managers["propertyCollector"], version)
             status = self._parseTaskResponse(updateset)
+            log.debug("**** status: %s" % status)
         
         log.debug("Finished task...")
         # Destroy the filter when we are done.
