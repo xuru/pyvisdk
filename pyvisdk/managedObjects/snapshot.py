@@ -12,16 +12,15 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
 
 class VirtualMachineSnapshot(ManagedEntity):
-    def __init__(self, vm, name=None, ref=None):
+    def __init__(self, core, name=None, ref=None):
         """ 
         VirtualMachineSnapshot
         """
         # MUST define these
         self.type = ManagedEntityTypes.VirtualMachineSnapshot
-        self.vm = vm
         
         props = [ "childSnapshot", "config" ]
         
         methods = ["RemoveSnapshot_Task", "RenameSnapshot", "RevertToSnapshot_Task"]
         
-        super(VirtualMachineSnapshot, self).__init__(vm.core, methods, props, name, ref)
+        super(VirtualMachineSnapshot, self).__init__(core, methods, props, name, ref)
