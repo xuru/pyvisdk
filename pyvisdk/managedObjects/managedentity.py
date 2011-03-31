@@ -6,10 +6,11 @@ Created on Mar 8, 2011
 from pyvisdk.consts import ManagedEntityTypes
 from pyvisdk.core import ManagedObjectReference
 import logging
+import time
 import types
 
 log = logging.getLogger(__name__)
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 
 class TaskDelegate:
@@ -25,7 +26,6 @@ class TaskDelegate:
     def __call__(self, *args, **kwargs):
         """ calls original method """
         log.debug("Calling %s" % self.__target.method.name)
-        print "args: %s" % str(args)
         if len(args):
             args = list(args)
             args.insert(0, self.mo)
@@ -33,6 +33,7 @@ class TaskDelegate:
             args = (self.mo, )
         rv = self.__target(*args, **kwargs)
         if self.name[-5:] == '_Task':
+            print "Waiting for task to Complete"
             self.core.waitForTask(rv)
         return rv
     
@@ -80,8 +81,14 @@ class ManagedEntity(object):
         """
         try:
             return object.__getattribute__(self, _name)
-        except:
-            if _name in self.props:
-                self.update(_name)
-                return object.__getattribute__(self, _name)
+        except AttributeError:
+            try:
+                return object.__getattribute__(self, _name+"_Task")
+            except AttributeError:
+                if _name in self.props:
+                    self.update(_name)
+                    time.sleep(1)
+                    return object.__getattribute__(self, _name)
+                else:
+                    raise
 
