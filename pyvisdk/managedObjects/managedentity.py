@@ -19,7 +19,7 @@ class TaskDelegate:
     def __init__(self, cls, name):
         """ Initializes the delagate with the method to proxy """
         self.__target = getattr(cls.service, name)
-        self.mo = cls.ref
+        self.ref = cls.ref
         self.name = name
         self.core = cls.core
         
@@ -28,9 +28,9 @@ class TaskDelegate:
         log.debug("Calling %s" % self.__target.method.name)
         if len(args):
             args = list(args)
-            args.insert(0, self.mo)
+            args.insert(0, self.ref)
         else:
-            args = (self.mo, )
+            args = (self.ref, )
         rv = self.__target(*args, **kwargs)
         if self.name[-5:] == '_Task':
             print "Waiting for task to Complete"
@@ -39,6 +39,7 @@ class TaskDelegate:
     
 class ManagedEntity(object):
     def __init__(self, core, methods=[], props=[], name=None, ref=None):
+        self.ref = ref
         self.core = core
         self.client = core.client
         self.service = core.client.service
