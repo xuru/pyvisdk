@@ -12,7 +12,7 @@ import suds
 import types
 
 log = logging.getLogger(__name__)
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 class Delegate:
     """ delegates to the real method, and cleans up the return value """
@@ -24,9 +24,8 @@ class Delegate:
     def __call__(self, *args, **kwargs):
         """ calls original method """
         log.debug("Calling %s" % self.__target.method.name)
-        rv = self.clean(self.__target(*args, **kwargs))
-        #self.dump(rv)
-        return rv
+        
+        return self.clean(self.__target(*args, **kwargs))
 
     def clean(self, objectContent):
         if type(objectContent) == types.ListType:
@@ -36,28 +35,10 @@ class Delegate:
             return out
         elif objectContent.__class__.__name__ == "ObjectContent":
             obj = objectContent.obj
-            print obj._type
             if obj._type in consts.ManagedEntityTypes:
-                print obj._type
                 return ManagedEntities[obj._type](self, objectContent)
         return objectContent
             
-    def dump(self, rv):
-        print "Classname: " + rv.__class__.__name__
-        if rv.__class__.__name__ == "ServiceContent":
-            return
-        
-        if type(rv) == types.ListType:
-            for x in rv:
-                self.dump(x)
-        
-        if rv.__class__.__name__ == "ObjectContent":
-            print "="*80
-            print rv
-            print
-                
-        
-## end of http://code.activestate.com/recipes/496860/ }}}
 
 class Client(object):
     '''
@@ -88,7 +69,8 @@ class Client(object):
         try:
             _attr = getattr(service, attr)
             if _attr.__class__ == suds.client.Method:
-                return Delegate(_attr)
+                #return Delegate(_attr)
+                return _attr
             else:
                 return _attr
         except (AttributeError, MethodNotFound):
