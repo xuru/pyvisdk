@@ -74,7 +74,6 @@ class Vim(pyvisdk.core.VimBase):
     #------------------------------------------------------------
     def getVirtualMachine(self, name):
         mo = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"], name=name)
-        print mo
         return VirtualMachine(self, name=mo.propSet[0].val, ref=mo.obj)
         
     def getVirtualMachines(self):
