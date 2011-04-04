@@ -15,7 +15,7 @@ class PyvisdkApp(object):
     '''
 
 
-    def __init__(self, usage):
+    def __init__(self, usage=None):
         '''
         Constructor
         '''
