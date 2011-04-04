@@ -62,7 +62,7 @@ class Vim(pyvisdk.core.VimBase):
     # Datacenters
     #------------------------------------------------------------
     def getDatacenters(self):
-        mo = self.getDecendentsByName(_type=ManagedEntityTypes.Datacenter, properties=["name"], name=name)
+        mo = self.getDecendentsByName(_type=ManagedEntityTypes.Datacenter, properties=["name"])
         return [Datacenter(self, name=mo[0].propSet[0].val, ref=x.obj) for x in mo]
     
     def getDatacenter(self, name):
@@ -78,7 +78,7 @@ class Vim(pyvisdk.core.VimBase):
         
     def getVirtualMachines(self):
         mo = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"])
-        return [VirtualMachine(self, name=mo[0].propSet[0].val, ref=x.obj) for x in mo]
+        return [VirtualMachine(self, name=x.propSet[0].val, ref=x.obj) for x in mo]
    
     def getVirtualMachinesIter(self):
         refs = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"])
