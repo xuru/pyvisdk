@@ -5,8 +5,12 @@ log.setLevel(logging.DEBUG)
 
 def MOFactory(core, ref):
     log.debug("REF: %s" % ref)
-    _class = eval("%s" % ref.obj._type)
-    return _class(core,  name=ref.propSet[0].val, ref=ref.obj)
+    if hasattr(ref, 'obj'):
+        _class = eval("%s" % ref.obj._type)
+        return _class(core,  name=ref.propSet[0].val, ref=ref.obj)
+    elif ref.__class__.__name__ == 'ManagedObjectReference':
+        _class = eval("%s" % ref._type)
+        return _class(core,  ref=ref)
 
 # managed entities
 ManagedEntities = {
