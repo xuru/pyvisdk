@@ -34,6 +34,10 @@ class Vim(pyvisdk.core.VimBase):
         self.client.service.Logout(self.managers['sessionManager'])
         self.loggedin = False
 
+    def relogin(self):
+        if self.username and self.password:
+            self.login(self.username, self.password)
+        
     def displayAbout(self):
         print "=" * 40
         print "Connected to %s" % self.server
