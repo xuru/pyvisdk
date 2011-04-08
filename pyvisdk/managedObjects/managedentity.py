@@ -95,11 +95,11 @@ class ManagedEntity(object):
         return objectContent
     
     def __getattr__(self, _name):
-        if _name in self.props:
-            self.update(_name)
         try:
             return object.__getattribute__(self, _name)
         except AttributeError, e:
+            if _name in self.props:
+                self.update(_name)
             # try it with _Task on the end...
             return object.__getattribute__(self, _name + "_Task")
             
