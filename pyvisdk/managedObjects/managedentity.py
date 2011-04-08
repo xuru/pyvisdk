@@ -102,6 +102,7 @@ class ManagedEntity(object):
         except AttributeError, e:
             if _name in self.props:
                 self.update(_name)
+                return object.__getattribute__(self, _name)
             try:
                 # try it with _Task on the end...
                 return object.__getattribute__(self, _name + "_Task")
