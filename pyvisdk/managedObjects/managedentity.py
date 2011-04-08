@@ -70,6 +70,8 @@ class ManagedEntity(object):
                 self.update(x)
                 
         data = self.core.getDynamicProperty(self.ref, prop)
+        if not data:
+            self.__dict__[prop] = None
         for name, value in data.items():
             try:
                 if name in self.props:
@@ -100,8 +102,11 @@ class ManagedEntity(object):
         except AttributeError, e:
             if _name in self.props:
                 self.update(_name)
-            # try it with _Task on the end...
-            return object.__getattribute__(self, _name + "_Task")
+            try:
+                # try it with _Task on the end...
+                return object.__getattribute__(self, _name + "_Task")
+            except AttributeError, e2:
+                raise e
             
 
 
