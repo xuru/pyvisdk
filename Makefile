@@ -18,6 +18,10 @@ debug:
 test:
 	PYTHONPATH=. $(PYTHON) $(TESTRUNNER) test
 
+install:
+	PYTHONPATH=. $(PYTHON) setup.py $(SETUPFLAGS) install
+
+
 clean:
 	-find . \( -name '*.o' -o -name '*.so' -o -name '*.py[cod]' -o -name '*.dll' \) -exec rm -f {} \;
 	-rm -rf build dist
