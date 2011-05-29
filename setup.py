@@ -27,7 +27,6 @@ pyvisdk - vSphere SDK  for Python
 
 from distutils.core import setup
 from pyvisdk import Version
-from glob import glob
 
 # we need to make sure we have these to python modules in our path
 install_requires = ["suds"]
