@@ -28,7 +28,7 @@ class PyvisdkApp(object):
         self.parser.add_option("-c", "--config", dest="config", help="Configuration file that follows the convention outlined in vSphere Command-Line Interface Installation and Scripting Guide")
         
     def parse(self):
-        (self.options, args) = self.parser.parse_args(sys.argv[1:])
+        (self.options, _) = self.parser.parse_args(sys.argv[1:]) # IGNORE W0201
         if self.options.config:
             self._parse_config()
         else:
