@@ -13,7 +13,7 @@ log.setLevel(logging.INFO)
 class Datacenter(ManagedEntity):
     def __init__(self, core, name=None, ref=None):
         # MUST define these
-        self.type = ManagedEntityTypes.Datacenter
+        self.type = ManagedEntityTypes.Datacenter #IGNORE E1101
         
         # properties for this managed object
         props = [ "datastore", "hostFolder", "network", "networkFolder", 'vmFolder']
