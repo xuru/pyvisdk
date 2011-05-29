@@ -13,9 +13,9 @@ log.setLevel(logging.INFO)
 class HostSystem(ManagedEntity):
     def __init__(self, core, name=None, ref=None):
         # MUST define these
-        self.type = ManagedEntityTypes.HostSystem
-        props = [ "name", "datastore", "capability", "config.dateTimeInfo", "config.fileSystemVolume", 
-                "config.multipathState", "config.network", "hardware.systemInfo", "hardware.cpuInfo", "summary"]
+        self.type = ManagedEntityTypes.HostSystem # IGNORE E1101
+        props = [ "capability", "config", "configManager", "datastore", "datastoreBrowser", "hardware", 
+                 "network", "runtime", "summary", "systemResources", "vm"]
         
         methods = ["AcquireCimServicesTicket", "DisconnectHost_Task", "EnterLockdownMode", 
             "EnterMaintenanceMode_Task", "ExitLockdownMode", "ExitMaintenanceMode_Task", "PowerDownHostToStandBy_Task", 
