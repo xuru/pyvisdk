@@ -67,6 +67,7 @@ class VimBase(object):
             return
         
         self.client = Client(self.server)
+        self.client.set_options(timeout=600) # set the timeout to 10 mins...
         
         # create the Service Instance managed object
         self.service_instance = Property('ServiceInstance')
