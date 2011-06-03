@@ -35,6 +35,11 @@ class Vim(pyvisdk.core.VimBase):
         self.loggedin = False
 
     def relogin(self):
+        try:
+            self.logout()
+        except:
+            pass
+            
         if self.username and self.password:
             self.login(self.username, self.password)
         
