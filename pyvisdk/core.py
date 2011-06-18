@@ -62,7 +62,7 @@ class VimBase(object):
         if connect:
             self.connect()
         
-    def connect(self, timeout=600):
+    def connect(self, timeout=1800):
         if self.connected:
             return
         
