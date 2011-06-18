@@ -45,7 +45,7 @@ class Client(object):
     The Client class acts as a proxy to the suds.client.Client class, in that it fixes the
     ManagedObjectReference objects and provides a more streamline interface specific to VISDK
     '''
-    def __init__(self, server):
+    def __init__(self, server, timeout=90):
         '''
         Constructor
         '''
@@ -54,6 +54,7 @@ class Client(object):
         client = suds.client.Client("file://" + os.path.join(wsdl_dir, 'wsdl', 'vimService.wsdl'))
         client.set_options(faults=True)
         client.set_options(location=url)
+        client.set_options(timeout=timeout)
         self.service = client.service
         self.url = url
         self.client = client

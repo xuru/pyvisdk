@@ -66,8 +66,7 @@ class VimBase(object):
         if self.connected:
             return
         
-        self.client = Client(self.server)
-        self.client.set_options(timeout=timeout) # set the timeout
+        self.client = Client(self.server, timeout=timeout)
         
         # create the Service Instance managed object
         self.service_instance = Property('ServiceInstance')
