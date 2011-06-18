@@ -62,12 +62,12 @@ class VimBase(object):
         if connect:
             self.connect()
         
-    def connect(self):
+    def connect(self, timeout=600):
         if self.connected:
             return
         
         self.client = Client(self.server)
-        self.client.set_options(timeout=600) # set the timeout to 10 mins...
+        self.client.set_options(timeout=timeout) # set the timeout
         
         # create the Service Instance managed object
         self.service_instance = Property('ServiceInstance')
