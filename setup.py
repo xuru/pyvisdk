@@ -31,7 +31,8 @@ from pyvisdk import Version
 # we need to make sure we have these to python modules in our path
 install_requires = ["suds"]
 
-setup( name = 'pyvisdk',
+setup( 
+    name = 'pyvisdk',
     description = "vSphere SDK for Python",
     long_description = "vSphere SDK for Python",
     author = "Eric Plaster",
@@ -39,7 +40,7 @@ setup( name = 'pyvisdk',
     version = Version,
     url = "https://github.com/xuru/pyvisdk",
     license = "MIT",
-    requires = install_requires,
+    install_requires = install_requires,
     packages = ["pyvisdk", "pyvisdk.managedObjects"],
     package_data = {'pyvisdk': ['wsdl/*']},
     
