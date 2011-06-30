@@ -4,12 +4,11 @@ Created on Feb 17, 2011
 @author: eplaster
 '''
 from datetime import datetime
-from pyvisdk.consts import TaskInfoState, ManagedEntityTypes
+from pyvisdk.consts import ManagedEntityTypes
 from pyvisdk.core import VisdkInvalidState
 from pyvisdk.managedObjects.managedentity import ManagedEntity
 from pyvisdk.managedObjects.snapshot import VirtualMachineSnapshot
 from random import randrange
-from suds import WebFault
 import logging
 import string
 
@@ -48,11 +47,13 @@ class VirtualMachine(ManagedEntity):
             "TurnOffFaultToleranceForVM_Task", "UnmountToolsInstaller", "UnregisterVM", "UpgradeTools_Task", "UpgradeVM_Task" ]
         
         super(VirtualMachine, self).__init__(core, methods, props, name, ref)
+        self.snapshots = []
+        self._updateSnapshots()
         
         
     def createSnapshot(self, name=None, description=None, memory_files=False, quisce_filesystem=True):
         if not name:
-            name = self.name + "-" + "".join([string.digits[randrange(10)] for x in range(10)])
+            name = self.name + "-" + "".join([string.digits[randrange(10)] for _ in range(10)])
         if not description:
             description = "pyvisdk %s" % datetime.now().strftime('%d%b%Y')
             
@@ -63,19 +64,13 @@ class VirtualMachine(ManagedEntity):
         self.update('snapshot')
                 
     def hasSnapshots(self):
-        if not self.snapshot:
-            self.update('snapshot')
-        return len(self.snapshots.keys()) > 0
+        return self.snapshots != []
     
     def getSnapshotByName(self, name):
-        if not self.snapshot:
-            self.update('snapshot')
         if self.snapshots.has_key(name):
             return self.snapshots[name]
     
     def getSnapshots(self):
-        if not self.snapshot:
-            self.update('snapshot')
         return self.snapshots.values()
         
     def enableChangedBlockTracking(self, truth=True):
@@ -97,10 +92,16 @@ class VirtualMachine(ManagedEntity):
                 self.enableChangedBlockTracking(truth)
         
     
-    """ Factory Objects """
+    # Factory Objects
     def VirtualMachineConfigSpec(self):
         spec = self.client.factory.create('ns0:VirtualMachineConfigSpec')
         return spec
+
+    def _updateSnapshots(self):
+        self.update('snapshot')
+        if self.snapshot:
+            for x in self.snapshot.rootSnapshotList:
+                self._appendSnapshot(x)
 
     def _appendSnapshot(self, snap):
         """ Internal: recursive method to add a snapshot MO ref from a VirtualMachineSnapshotTree """
