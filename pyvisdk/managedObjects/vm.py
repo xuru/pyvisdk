@@ -47,7 +47,7 @@ class VirtualMachine(ManagedEntity):
             "TurnOffFaultToleranceForVM_Task", "UnmountToolsInstaller", "UnregisterVM", "UpgradeTools_Task", "UpgradeVM_Task" ]
         
         super(VirtualMachine, self).__init__(core, methods, props, name, ref)
-        self.snapshots = []
+        self.snapshots = {}
         self._updateSnapshots()
         
         
@@ -103,11 +103,11 @@ class VirtualMachine(ManagedEntity):
             for x in self.snapshot.rootSnapshotList:
                 self._appendSnapshot(x)
 
-    def _appendSnapshot(self, snap):
+    def _appendSnapshot(self, tree):
         """ Internal: recursive method to add a snapshot MO ref from a VirtualMachineSnapshotTree """
-        self.snapshots[snap.name] = VirtualMachineSnapshot(self, ref=snap)
-        if hasattr(snap, "childSnapshotList"):
-            for x in snap.childSnapshotList:
+        self.snapshots[tree.name] = VirtualMachineSnapshot(self, ref=tree.snapshot)
+        if hasattr(tree, "childSnapshotList"):
+            for x in tree.childSnapshotList:
                 self._appendSnapshot(x)
         
 class VirtualDisk(object):
