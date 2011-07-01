@@ -40,14 +40,16 @@ class TaskDelegate(object):
    
 class ManagedEntity(object):
     __slots__ = ['props']
-    def __init__(self, core, methods=[], props=[], name=None, ref=None):
+    def __init__(self, core, methods=[], props=[], name=None, ref=None, skip_default_props=False):
         self.ref = ref
         self.core = core
         self.client = core.client
         self.service = core.client.service
         if name:
             self.name = name
-        self.props = ["configIssue", "configStatus", "name", "parent"] + props
+        
+        if not skip_default_props:
+            self.props = ["configIssue", "configStatus", "name", "parent"] + props
         
         if not getattr(self, 'type'):
             self.type = ManagedEntityTypes.ManagedEntity
@@ -55,8 +57,11 @@ class ManagedEntity(object):
         if ref:
             self.ref = ManagedObjectReference(self.type, ref.value)
             
+            # we have a ref, so we can get the name from it...
+            self.name = ref.value
+            
         if not methods:
-            methods = ["Destroy_Task", "Reload, Rename_Task"]
+            methods = ["Destroy_Task", "Reload", "Rename_Task"]
             
         for method in methods:
             try:

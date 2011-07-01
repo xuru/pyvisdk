@@ -23,4 +23,8 @@ class VirtualMachineSnapshot(ManagedEntity):
         
         methods = ["RemoveSnapshot_Task", "RenameSnapshot", "RevertToSnapshot_Task"]
         
-        super(VirtualMachineSnapshot, self).__init__(core, methods, props, name, ref)
+        # we don't have the normal default props, so don't try it in the base class
+        super(VirtualMachineSnapshot, self).__init__(core, methods, props, name, ref, skip_default_props=True)
+
+        if ref:
+            self.name = ref.value
