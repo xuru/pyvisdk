@@ -60,19 +60,19 @@ class VirtualMachine(ManagedEntity):
         rv = self.service.CreateSnapshot_Task(self.ref, name, description, memory_files, quisce_filesystem)
         self.core.waitForTask(rv)
         
-        self.updateSnapshots()
+        self._updateSnapshots()
                 
     def hasSnapshots(self):
-        self.updateSnapshots()
+        self._updateSnapshots()
         return self.snapshots != []
     
     def getSnapshotByName(self, name):
-        self.updateSnapshots()
+        self._updateSnapshots()
         if self.snapshots.has_key(name):
             return self.snapshots[name]
     
     def getSnapshots(self):
-        self.updateSnapshots()
+        self._updateSnapshots()
         return self.snapshots.values()
         
     def enableChangedBlockTracking(self, truth=True):
