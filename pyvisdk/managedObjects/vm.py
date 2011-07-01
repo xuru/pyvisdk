@@ -64,7 +64,7 @@ class VirtualMachine(ManagedEntity):
                 
     def hasSnapshots(self):
         self._updateSnapshots()
-        return self.snapshots != []
+        return self.snapshots != {}
     
     def getSnapshotByName(self, name):
         self._updateSnapshots()
