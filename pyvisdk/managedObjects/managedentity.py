@@ -50,6 +50,8 @@ class ManagedEntity(object):
         
         if not skip_default_props:
             self.props = ["configIssue", "configStatus", "name", "parent"] + props
+        else:
+            self.props = props
         
         if not getattr(self, 'type'):
             self.type = ManagedEntityTypes.ManagedEntity
@@ -68,6 +70,9 @@ class ManagedEntity(object):
                 self.__dict__[method] = TaskDelegate(self, method)
             except Exception, e:
                 log.error("%s" % e)
+                
+    def addprop(self, prop, value):
+        self.__dict__[prop] = value
         
     def update(self, prop):
         if type(prop) == types.ListType:
