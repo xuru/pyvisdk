@@ -107,7 +107,7 @@ class VirtualMachine(ManagedEntity):
 
     def _appendSnapshot(self, tree):
         """ Internal: recursive method to add a snapshot MO ref from a VirtualMachineSnapshotTree """
-        self.snapshots[tree.name] = VirtualMachineSnapshot(self, ref=tree.snapshot)
+        self.snapshots[tree.name] = VirtualMachineSnapshot(self.core, ref=tree.snapshot)
         if hasattr(tree, "childSnapshotList"):
             for x in tree.childSnapshotList:
                 self._appendSnapshot(x)
