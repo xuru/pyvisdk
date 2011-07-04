@@ -20,8 +20,8 @@ class TaskDelegate(object):
     def __init__(self, cls, name):
         """ Initializes the delagate with the method to proxy """
         self.__target = getattr(cls.service, name)
-        self.ref = cls.ref
         self.name = name
+        self.ref = cls.ref
         self.core = cls.core
         
     def __call__(self, *args, **kwargs):
@@ -45,13 +45,15 @@ class ManagedEntity(object):
         self.core = core
         self.client = core.client
         self.service = core.client.service
+        self.name = None
+        self.props = props
+        self.ref = None
+        
         if name:
             self.name = name
         
         if not skip_default_props:
             self.props = ["configIssue", "configStatus", "name", "parent"] + props
-        else:
-            self.props = props
         
         if not getattr(self, 'type'):
             self.type = ManagedEntityTypes.ManagedEntity
