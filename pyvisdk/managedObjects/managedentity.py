@@ -45,12 +45,9 @@ class ManagedEntity(object):
         self.core = core
         self.client = core.client
         self.service = core.client.service
-        self.name = None
         self.props = props
         self.ref = None
-        
-        if name:
-            self.name = name
+        self.name = name
         
         if not skip_default_props:
             self.props = ["configIssue", "configStatus", "name", "parent"] + props
