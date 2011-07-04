@@ -59,8 +59,9 @@ class ManagedEntity(object):
         if ref:
             self.ref = ManagedObjectReference(self.type, ref.value)
             
-            # we have a ref, so we can get the name from it...
-            self.name = ref.value
+            # we have a ref, AND we don't already have a name, we can get the name from it...
+            if not self.name:
+                self.name = ref.value
             
         if not methods:
             methods = ["Destroy_Task", "Reload", "Rename_Task"]
