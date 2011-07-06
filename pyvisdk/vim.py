@@ -17,6 +17,8 @@ class Vim(pyvisdk.core.VimBase):
     def __init__(self, server, connect=True, verbose=3):
         super(Vim, self).__init__(server, connect, verbose)
         self.loggedin = False
+        self.username = None
+        self.password = None
         
     def login(self, username, password):
         self.username = username
@@ -37,7 +39,7 @@ class Vim(pyvisdk.core.VimBase):
     def relogin(self):
         try:
             self.logout()
-        except:
+        except Exception:
             pass
             
         if self.username and self.password:
@@ -61,8 +63,8 @@ class Vim(pyvisdk.core.VimBase):
     def getHosts(self):
         return self.getHostSystem()
     
-    def getHostSystem(self, name=None):
-        mo = self.getDecendentsByName(_type=ManagedEntityTypes.HostSystem, properties=["name"], name=name)
+    def getHostSystem(self, _name=None):
+        mo = self.getDecendentsByName(_type=ManagedEntityTypes.HostSystem, properties=["name"], name=_name)
         if type(mo) == types.ListType:
             return [HostSystem(self, ref=x.obj) for x in mo]
         return HostSystem(self, name=mo[0].propSet[0].val, ref=mo.obj)
@@ -74,15 +76,15 @@ class Vim(pyvisdk.core.VimBase):
         mo = self.getDecendentsByName(_type=ManagedEntityTypes.Datacenter, properties=["name"])
         return [Datacenter(self, name=mo[0].propSet[0].val, ref=x.obj) for x in mo]
     
-    def getDatacenter(self, name):
-        mo = self.getDecendentsByName(_type=ManagedEntityTypes.Datacenter, properties=["name"], name=name)
-        return Datacenter(self, name=mo[0].propSet[0].val, ref=mo[0].obj)
+    def getDatacenter(self, _name):
+        mo = self.getDecendentsByName(_type=ManagedEntityTypes.Datacenter, properties=["name"], name=_name)
+        return Datacenter(self, name=mo.propSet[0].val, ref=mo.obj)
 
     #------------------------------------------------------------
     # Virtual Machines
     #------------------------------------------------------------
-    def getVirtualMachine(self, name):
-        mo = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"], name=name)
+    def getVirtualMachine(self, _name):
+        mo = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"], name=_name)
         return VirtualMachine(self, name=mo.propSet[0].val, ref=mo.obj)
         
     def getVirtualMachines(self):
@@ -91,8 +93,8 @@ class Vim(pyvisdk.core.VimBase):
    
     def getVirtualMachinesIter(self):
         refs = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"])
-        for ref in refs:
-            yield VirtualMachine(self, name=ref.propSet[0].val, ref=ref.obj)
+        for _ref in refs:
+            yield VirtualMachine(self, name=_ref.propSet[0].val, ref=_ref.obj)
     
     #------------------------------------------------------------
     # Hierarchy
