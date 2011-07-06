@@ -63,7 +63,9 @@ class ManagedEntity(object):
                 self.name = ref.value
             
         if not methods:
-            methods = ["Destroy_Task", "Reload", "Rename_Task"]
+            self.methods = ["Destroy_Task", "Reload", "Rename_Task"]
+        else:
+            self.methods = methods
             
         for method in methods:
             try:
