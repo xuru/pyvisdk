@@ -4,6 +4,7 @@ Created on Jul 6, 2011
 @author: eplaster
 '''
 from os.path import expanduser, expandvars, exists
+import unittest
 
 class TestOptions(dict):
     """
@@ -43,37 +44,30 @@ class TestOptions(dict):
 class TestError(Exception):
     pass
 
-class TestBase(object):
+def get_options(config_path="~/.visdkrc.vcenter"):
     '''
-    Base class for all unit tests
+    Returns an options object, populated from name value pairs in the .visdkrc files
     '''
-
-    def __init__(self, config_path="~/.visdkrc.vcenter"):
-        '''
-        Constructor.  This loads up the test parameters or throws an exception if it doesn't exist.
-        '''
-        self.config = expanduser(expandvars(config_path)) 
-        self.options = TestOptions()
-        
-        if exists(self.config):
-            self._parse_config()
-        else:
-            raise TestError("Configuration file %s does not exist." % self.config)
-        
-    def _parse_config(self): 
-        lines = open(self.config).readlines()
+    
+    config = expanduser(expandvars(config_path)) 
+    options = TestOptions()
+    
+    if exists(config):
+        lines = open(config).readlines()
         for line in lines:
             name, value = line.split("=")
             
             if 'VI_SERVER' == name.strip():
-                self.options.server = value.strip()
+                options.server = value.strip()
                 
             elif 'VI_USERNAME' in name:
-                self.options.username = value.strip()
+                options.username = value.strip()
                 
             elif 'VI_PASSWORD' in name:
-                self.options.password = value.strip()
-                
+                options.password = value.strip()
+    else:
+        raise TestError("Configuration file %s does not exist." % config)
+    return options
                 
                 
                 
