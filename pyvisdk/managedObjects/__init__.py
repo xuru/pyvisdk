@@ -3,14 +3,25 @@ import logging
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
+class PyVisdkError(Exception):
+    pass
+
 def MOFactory(core, ref):
     log.debug("REF: %s" % ref)
+    
+    # if we have an obj, then obj is the managed object reference
     if hasattr(ref, 'obj'):
         _class = eval("%s" % ref.obj._type)
         return _class(core,  name=ref.propSet[0].val, ref=ref.obj)
-    elif ref.__class__.__name__ == 'ManagedObjectReference':
+    
+    # check if ref are the managed object reference
+    elif (hasattr(ref, '_type') and hasattr(ref, 'value')) or ref.__class__.__name__ == 'ManagedObjectReference':
         _class = eval("%s" % ref._type)
         return _class(core,  ref=ref)
+    
+    # make sure we catch anything else...
+    else:
+        raise PyVisdkError("Unknown managed object reference: %s" % ref)
 
 # managed entities
 ManagedEntities = {
@@ -43,6 +54,7 @@ HistoryCollectors = {
 from datacenter import *
 from datastore import *
 from host import *
+from folder import *
 from pyvisdk.core import ManagedObjectReference
 from snapshot import *
 from vm import *

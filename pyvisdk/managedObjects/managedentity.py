@@ -96,12 +96,15 @@ class ManagedEntity(object):
             for x in objectContent:
                 out.append(self._clean(x))
             return out
+        
         elif objectContent.__class__.__name__ == "ObjectContent":
             obj = objectContent.obj
             if obj._type in consts.ManagedEntityTypes:
                 return ManagedEntities[obj._type](self, objectContent)
-        elif objectContent.__class__.__name__ == "ManagedObjectReference" and objectContent._type in ManagedEntityTypes:
+            
+        elif hasattr(objectContent, '_type') and objectContent._type in ManagedEntityTypes:
             return ManagedEntities[objectContent._type](self.core, objectContent)
+        
         else:
             log.debug("Unable to clean: %s" % objectContent)
         return objectContent
