@@ -61,13 +61,12 @@ class Vim(pyvisdk.core.VimBase):
     # Hosts
     #------------------------------------------------------------
     def getHosts(self):
-        return self.getHostSystem()
+        mo = self.getDecendentsByName(_type=ManagedEntityTypes.HostSystem, properties=["name"])
+        return [HostSystem(self, name=mo[0].propSet[0].val, ref=x.obj) for x in mo]
     
     def getHostSystem(self, _name=None):
         mo = self.getDecendentsByName(_type=ManagedEntityTypes.HostSystem, properties=["name"], name=_name)
-        if type(mo) == types.ListType:
-            return [HostSystem(self, ref=x.obj) for x in mo]
-        return HostSystem(self, name=mo[0].propSet[0].val, ref=mo.obj)
+        return HostSystem(self, name=mo.propSet[0].val, ref=mo.obj)
     
     #------------------------------------------------------------
     # Datacenters
