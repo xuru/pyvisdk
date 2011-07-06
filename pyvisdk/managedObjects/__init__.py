@@ -55,8 +55,10 @@ from datacenter import *
 from datastore import *
 from host import *
 from folder import *
-from pyvisdk.core import ManagedObjectReference
+from clusterComputeResource import *
+from resourcePool import *
 from snapshot import *
 from vm import *
+from pyvisdk.core import ManagedObjectReference
 
 
