@@ -5,12 +5,12 @@ from pyvisdk.managedObjects.host import HostSystem
 from pyvisdk.managedObjects.vm import VirtualMachine
 import logging
 import pyvisdk.core
-import types
-"""
-Assumptions:  Must connect to the vSphere vCenter
-              Must be version 4.0 or greater
 
-"""
+#
+# Assumptions:  Must connect to the vSphere vCenter
+#               Must be version 4.0 or greater
+# 
+
 log = logging.getLogger(__name__)
 
 class Vim(pyvisdk.core.VimBase):
