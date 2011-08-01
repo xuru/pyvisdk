@@ -5,6 +5,7 @@ Created on Feb 25, 2011
 '''
 from optparse import OptionParser
 import sys, logging
+from options import Options
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
@@ -19,6 +20,7 @@ class PyvisdkApp(object):
         '''
         Constructor
         '''
+        self.options = Options()
         if not usage:
             usage = "usage: %prog [options]"
         self.parser = OptionParser(usage=usage)
@@ -28,23 +30,19 @@ class PyvisdkApp(object):
         self.parser.add_option("-c", "--config", dest="config", help="Configuration file that follows the convention outlined in vSphere Command-Line Interface Installation and Scripting Guide")
         
     def parse(self):
-        (self.options, _) = self.parser.parse_args(sys.argv[1:]) # IGNORE W0201
-        if self.options.config:
-            self._parse_config()
+        (cmd_opts, _) = self.parser.parse_args(sys.argv[1:]) # IGNORE W0201
+        
+        keys = ["server","username","password","config"]
+        
+        for key in keys:
+            self.options.update({key:eval("cmd_opts.%s" % key)})
+        
+        if cmd_opts.config:
+            self.options.load(cmd_opts.config)
         else:
-            # need to have server, username, and password or fail
-            if not (self.options.username and self.options.password and self.options.server):
-                raise RuntimeError("Must have the --config argument OR --username, --password and --server")
+            self.options.load()
+        
+        # need to have server, username, and password or fail
+        if not (self.options.username and self.options.password and self.options.server):
+            raise RuntimeError("Must have the --config argument OR --username, --password and --server")
 
-    def _parse_config(self): 
-        lines = open(self.options.config).readlines()
-        for line in lines:
-            name, value = line.split("=")
-            if 'VI_SERVER' in name:
-                self.options.server = value.strip()
-            elif 'VI_USERNAME' in name:
-                self.options.username = value.strip()
-            elif 'VI_PASSWORD' in name:
-                self.options.password = value.strip()
-            else:
-                log.warning("[WARN] unknown option: " + line)
