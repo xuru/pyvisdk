@@ -5,8 +5,8 @@ Created on Jul 6, 2011
 '''
 import unittest
 from pyvisdk import Vim
-from pyvisdk.managedObjects.datacenter import Datacenter
-from pyvisdk.managedObjects.folder import Folder
+from pyvisdk.mo.datacenter import Datacenter
+from pyvisdk.mo.folder import Folder
 from tests.common import get_options
 
 

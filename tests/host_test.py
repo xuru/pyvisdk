@@ -5,10 +5,10 @@ Created on Jul 6, 2011
 '''
 import unittest,types
 from pyvisdk import Vim
-from pyvisdk.managedObjects.host import HostSystem
-from pyvisdk.managedObjects.folder import Folder
-from pyvisdk.managedObjects.datastore import Datastore
-from pyvisdk.managedObjects.clusterComputeResource import ClusterComputeResource
+from pyvisdk.mo.host_system import HostSystem
+from pyvisdk.mo.folder import Folder
+from pyvisdk.mo.datastore import Datastore
+from pyvisdk.mo.cluster_compute_resource import ClusterComputeResource
 from tests.common import get_options
 
 
@@ -33,14 +33,6 @@ class TestHosts(unittest.TestCase):
         host = self.vim.getHostSystem(hosts[0].name)
         self.assertIsNotNone(host, "Couldn't get host: %s" % host.name)
         self.assertEqual(host.type, "HostSystem", "Host's type isn't HostSystem...")
-        
-    def testMethods(self):
-        hosts = self.vim.getHosts()
-        host = self.vim.getHostSystem(hosts[0].name)
-        
-        self.assertIsInstance(host.methods, list, "Host.methods is not a list")
-        for method in host.methods:
-            self.assertTrue(hasattr(host, method), "Host doesn't have method %s" % method)
         
     def testProps(self):
         hosts = self.vim.getHosts()
@@ -73,10 +65,6 @@ class TestHosts(unittest.TestCase):
                 elif prop in ["capability", "config", "configManager", "datastoreBrowser", "hardware", \
                               "network", "runtime", "summary", "systemResources", "vm"]:
                     self.assertIsNotNone(eval("host.%s" % prop), "%s is None" % prop)
-                    
-                else:
-                    print "---- "+prop+" "+"-"*70
-                    print eval("host.%s" % prop)
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testHosts']

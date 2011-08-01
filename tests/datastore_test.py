@@ -5,8 +5,8 @@ Created on Jul 6, 2011
 '''
 import unittest, types
 from pyvisdk import Vim
-from pyvisdk.managedObjects.datastore import Datastore
-from pyvisdk.managedObjects.folder import Folder
+from pyvisdk.mo.datastore import Datastore
+from pyvisdk.mo.folder import Folder
 from tests.common import get_options
 
 

@@ -5,8 +5,8 @@ Created on Feb 11, 2011
 '''
 import unittest
 from pyvisdk import Vim
-from pyvisdk.managedObjects.vm import VirtualMachine
-from pyvisdk.managedObjects.folder import Folder
+from pyvisdk.mo.virtual_machine import VirtualMachine
+from pyvisdk.mo.folder import Folder
 from tests.common import get_options
 
 
@@ -34,14 +34,6 @@ class TestVirtualMachines(unittest.TestCase):
         self.assertIsNotNone(vm, "Couldn't get VM: %s" % _name)
         self.assertEqual(vm.type, 'VirtualMachine', "Virtual machine's type isn't VirtualMachine...")
         
-    def testMethods(self):
-        vms = self.vim.getVirtualMachines()
-        vm = self.vim.getVirtualMachine(vms[0].name)
-        
-        self.assertIsInstance(vm.methods, list, "VirtualMachine.methods is not a list")
-        for method in vm.methods:
-            self.assertTrue(hasattr(vm, method), "VirtualMachine doesn't have method %s" % method)
-        
     def testProps(self):
         vms = self.vim.getVirtualMachines()
         for vm in vms:
@@ -63,22 +55,8 @@ class TestVirtualMachines(unittest.TestCase):
                      'rootSnapshot', 'runtime', 'storage', 'summary']:
                     self.assertIsNotNone(eval("vm.%s" % prop), "%s is None" % prop)
 
-                else:
-                    print "Untested prop: %s" % prop
-
-    def testHasSnapShots(self):
-        vm = self.vim.getVirtualMachines()[0]
-        self.assertIsNotNone(vm.hasSnapshots(), "vm.hassnapshots() returned None...")
-        
-    def testGetSnapshots(self):
-        vm = self.vim.getVirtualMachines()[0]
-        self.assertIsInstance(vm.getSnapshots(), list, "vm.getSnapshots() returned something other then a list")
-        
-        
         
 if __name__ == "__main__":
-    import nose
-    argv = ["", '--verbosity=3', '--detailed-errors', '--nologcapture']
-    nose.runmodule(argv=argv)
-
+    #import sys;sys.argv = ['', 'Test.testSnapshot']
+    unittest.main()
     
