@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-from pyvisdk.consts import ManagedEntityTypes
-from pyvisdk.managedObjects.datacenter import Datacenter
-from pyvisdk.managedObjects.host import HostSystem
-from pyvisdk.managedObjects.vm import VirtualMachine
+from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.mo.datacenter import Datacenter
+from pyvisdk.mo.host_system import HostSystem
+from pyvisdk.mo.virtual_machine import VirtualMachine
 import logging
 import pyvisdk.core
 
@@ -21,22 +21,31 @@ class Vim(pyvisdk.core.VimBase):
         self.password = None
         
     def login(self, username, password):
+        """
+        Log into the vmware server.
+        """
         self.username = username
         self.password = password
         
         if self.verbose > 5:
             self.displayAbout()
 
-        self.client.service.Login(self.managers['sessionManager'], self.username, self.password)
+        self.client.service.Login(self.service_content.sessionManager, self.username, self.password)
         if self.verbose > 2:
             log.info("Successfully logged into %s" % self.client.url)
         self.loggedin = True
 
     def logout(self):
-        self.client.service.Logout(self.managers['sessionManager'])
+        """
+        Log out of the vmware server.
+        """
+        self.client.service.Logout(self.service_content.sessionManager)
         self.loggedin = False
 
     def relogin(self):
+        """
+        Re-logs in to the vmware server.
+        """
         try:
             self.logout()
         except Exception:
@@ -46,6 +55,9 @@ class Vim(pyvisdk.core.VimBase):
             self.login(self.username, self.password)
         
     def displayAbout(self):
+        """
+        Display version information about the vmware server and library
+        """
         print "=" * 40
         print "Connected to %s" % self.server
         print "  %s" % self.service_content.about.fullName
@@ -55,16 +67,32 @@ class Vim(pyvisdk.core.VimBase):
         print "=" * 40
         
     def getApiType(self):
+        """
+        Get the API type
+        
+        :returns: Indicates whether or not the service instance represents a standalone host. If the service instance represents a standalone host, then the physical inventory for that service instance is fixed to that single host. VirtualCenter server provides additional features over single hosts. For example, VirtualCenter offers multi-host management. 
+        :rtype: xsd:string
+        """
         return self.service_content.about.apiType
 
     #------------------------------------------------------------
     # Hosts
     #------------------------------------------------------------
     def getHosts(self):
+        """
+        Get all the hosts on the server
+        
+        :rtype: :py:class:`HostSystem`
+        """
         mo = self.getDecendentsByName(_type=ManagedEntityTypes.HostSystem, properties=["name"])
         return [HostSystem(self, name=mo[0].propSet[0].val, ref=x.obj) for x in mo]
     
     def getHostSystem(self, _name=None):
+        """
+        Get the host system by name
+        
+        :rtype: :py:class:`HostSystem`
+        """
         mo = self.getDecendentsByName(_type=ManagedEntityTypes.HostSystem, properties=["name"], name=_name)
         return HostSystem(self, name=mo.propSet[0].val, ref=mo.obj)
     
@@ -72,10 +100,20 @@ class Vim(pyvisdk.core.VimBase):
     # Datacenters
     #------------------------------------------------------------
     def getDatacenters(self):
+        """
+        Get all the data centers on the server
+        
+        :rtype: :py:class:`Datacenter`
+        """
         mo = self.getDecendentsByName(_type=ManagedEntityTypes.Datacenter, properties=["name"])
         return [Datacenter(self, name=mo[0].propSet[0].val, ref=x.obj) for x in mo]
     
     def getDatacenter(self, _name):
+        """
+        Get the data center by name
+        
+        :rtype: :py:class:`Datacenter`
+        """
         mo = self.getDecendentsByName(_type=ManagedEntityTypes.Datacenter, properties=["name"], name=_name)
         return Datacenter(self, name=mo.propSet[0].val, ref=mo.obj)
 
@@ -83,14 +121,29 @@ class Vim(pyvisdk.core.VimBase):
     # Virtual Machines
     #------------------------------------------------------------
     def getVirtualMachine(self, _name):
+        """
+        Get the virtual machine by name
+        
+        :rtype: :py:class:`VirtualMachine`
+        """
         mo = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"], name=_name)
         return VirtualMachine(self, name=mo.propSet[0].val, ref=mo.obj)
         
     def getVirtualMachines(self):
+        """
+        Get all the virtual machines on the server
+        
+        :rtype: :py:class:`VirtualMachine`
+        """
         mo = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"])
         return [VirtualMachine(self, name=x.propSet[0].val, ref=x.obj) for x in mo]
    
     def getVirtualMachinesIter(self):
+        """
+        Get all the virtual machines on the server
+        
+        :rtype: :py:class:`VirtualMachine`
+        """
         refs = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"])
         for _ref in refs:
             yield VirtualMachine(self, name=_ref.propSet[0].val, ref=_ref.obj)
@@ -98,7 +151,7 @@ class Vim(pyvisdk.core.VimBase):
     #------------------------------------------------------------
     # Hierarchy
     #------------------------------------------------------------
-    def getHierarchy(self):
+    def _getHierarchy(self):
         mo = self.getContentsRecursively(props=["configIssue", "configStatus", "name", "parent"])
         return mo
     
