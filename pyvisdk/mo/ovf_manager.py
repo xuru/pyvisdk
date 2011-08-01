@@ -1,0 +1,97 @@
+
+from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.mo.base_entity import BaseEntity
+import logging
+
+########################################
+# Automatically generated, do not edit.
+########################################
+
+log = logging.getLogger(__name__)
+
+class OvfManager(BaseEntity):
+    '''Service interface to parse and generate OVF descriptors.
+    '''
+    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.OvfManager):
+        # MUST define these
+        super(OvfManager, self).__init__(core, name=name, ref=ref, type=type)
+    
+    
+
+    def ValidateHost(self, ovfDescriptor, vhp):
+        '''Validate that the given OVF can be imported on the host.More specifically, this
+        means whether or not the host supports the virtual hardware required by
+        the OVF descriptor.
+
+        :param ovfDescriptor: The OVF descriptor to examine.
+
+        :param vhp: Additional parameters for validateHost, wrapped in a ValidateHostParams instance.
+
+
+        :rtype: OvfValidateHostResult 
+
+        '''
+        
+        return self.delegate("ValidateHost")(ovfDescriptor,vhp)
+        
+
+    def ParseDescriptor(self, ovfDescriptor, pdp):
+        '''Parse the OVF descriptor and return as much information about it as possible
+        without knowing the host on which it will be imported.Typically, this
+        method is called once without a deploymentOption parameter to obtain the
+        values for the default deployment option. Part of the result is the list
+        of possible deployment options. To obtain the values for a particular
+        deployment option, call this method again, specifying that option.
+
+        :param ovfDescriptor: The OVF descriptor to examine.
+
+        :param pdp: Additional parameters for parseDescriptor, wrapped in an instance of ParseDescriptorParams.
+
+
+        :rtype: OvfParseDescriptorResult 
+
+        '''
+        
+        return self.delegate("ParseDescriptor")(ovfDescriptor,pdp)
+        
+
+    def CreateImportSpec(self, ovfDescriptor, cisp):
+        '''Validate the OVF descriptor against the hardware supported by the host system. If
+        the validation succeeds, return a result containing:
+
+        :param ovfDescriptor: The OVF descriptor of the entity.
+
+        :param cisp: Additional parameters to the method, bundled in an instance of CreateImportSpecParams.
+
+
+        :rtype: OvfCreateImportSpecResult 
+
+        '''
+        
+        return self.delegate("CreateImportSpec")(ovfDescriptor,cisp)
+        
+
+    def CreateDescriptor(self, cdp):
+        '''Create an OVF descriptor for the specified ManagedEntity, which may be a
+        VirtualMachine or a VirtualApp.To create the complete OVF descriptor, the
+        client must already have downloaded the files that are part of the entity,
+        because information about these files (compression, chunking, filename
+        etc.) is part of the descriptor.However, these downloads can be quite
+        time-consuming, so if the descriptor for some reason cannot be generated,
+        the client will want to know this before downloading the files.For this
+        reason, the client may do an initial "dry run" with the ovfFiles parameter
+        unset. Default filenames will then be used in the descriptor, and the
+        client can examine any warnings and/or errors before downloading the
+        files.After the final call to this method, client must release the lock on
+        the entity given to it by VirtualMachine.exportVm or
+        VirtualApp.exportVApp.
+
+        :param cdp: Parameters to the method, bundled in an instance of CreateDescriptorParams.
+
+
+        :rtype: OvfCreateDescriptorResult 
+
+        '''
+        
+        return self.delegate("CreateDescriptor")(cdp)
+        
