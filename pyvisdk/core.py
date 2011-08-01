@@ -3,12 +3,14 @@ Created on Feb 15, 2011
 
 @author: eplaster
 '''
-from pyvisdk import consts
 from pyvisdk.client import Client
-from pyvisdk.consts import TaskInfoState, ManagedEntityTypes
+from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.consts import TaskInfoState, serviceTypes
+from pyvisdk.exceptions import VisdkTaskError
+from pyvisdk.mo.service_instance import ServiceInstance
+from pyvisdk.mo.base_entity import ManagedObjectReference
 from suds.sudsobject import Property
 import logging
-import suds
 import urllib2
 import xml.etree.cElementTree as etree
 
@@ -17,20 +19,7 @@ logging.basicConfig(level=logging.INFO, format=fmt)
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
 
-class VisdkTaskError(Exception):
-    pass
 
-class VisdkInvalidState(Exception):
-    pass
-
-class ManagedObjectReference(suds.sudsobject.Property):
-    """Custom class to replace the suds generated class, which lacks _type."""
-    def __init__(self, _type, value):
-        suds.sudsobject.Property.__init__(self, value)
-        self._type = _type
-        
-
-        
 class VimBase(object):
     '''
     Base class to hold the nuts and bolts for the web services grunt work.
@@ -46,7 +35,7 @@ class VimBase(object):
         self.connected = False
         
         self.listeners = {}
-        for me in consts.ManagedEntityTypes:
+        for me in ManagedEntityTypes:
             self.listeners[me] = []
          
         # setup logging...
@@ -69,21 +58,24 @@ class VimBase(object):
         self.client = Client(self.server, timeout=timeout)
         
         # create the Service Instance managed object
-        self.service_instance = Property('ServiceInstance')
-        self.service_instance._type = 'ServiceInstance'
+        ref = Property('ServiceInstance')
+        ref._type = 'ServiceInstance'
+        self.service_instance = ServiceInstance(self, name='ServiceInstance', ref=ref)
 
         # get the service content
-        self.service_content = self.client.RetrieveServiceContent(self.service_instance)
-        self.managers = {}
+        #self.service_content = self.client.RetrieveServiceContent(self.service_instance)
+        self.service_content = self.service_instance.RetrieveServiceContent()
+        self.property_collector = self.service_content.propertyCollector
+        #self.managers = {}
         
         # bundle up all the managed objects that we need
-        for name, _type in consts.serviceTypes.items():
-            try:
-                self.managers[name] = ManagedObjectReference(_type, eval("self.service_content.%s.value" % name))
-            except AttributeError, e:
-                pass  # it may not support all the listed services
+        #for name, _type in serviceTypes.items():
+        #    try:
+        #        self.managers[name] = ManagedObjectReference(_type, eval("self.service_content.%s.value" % name))
+        #    except AttributeError, e:
+        #        pass  # it may not support all the listed services
 
-        self.root = self.managers['rootFolder']
+        self.root = self.service_content.rootFolder
         self.connected = True
     
     def getVersions(self):
@@ -112,7 +104,7 @@ class VimBase(object):
        
         rOptions = self.RetrieveOptions(int(maxObjects))
       
-        retrieveResult = self.client.RetrievePropertiesEx(self.managers["propertyCollector"], [pSpec], rOptions)      
+        retrieveResult = self.client.RetrievePropertiesEx([self.property_collector], [pSpec], rOptions)      
       
         #objContentArrayList = Arrays.asList(retrieveResult.getObjects())
         #if(retrieveResult.getToken() != null && maxObjects == null) {
@@ -136,7 +128,7 @@ class VimBase(object):
         * @return retrieved object contents
         """
         if not collector:
-            collector = self.managers["propertyCollector"]
+            collector = self.property_collector
         
         all = False
         if not properties:
@@ -208,7 +200,7 @@ class VimBase(object):
                     return vm
 
     def getContentsRecursively(self, props=[], _type=None, collector=None, root=None, recurse=True):
-        if not collector: collector = self.managers["propertyCollector"]
+        if not collector: collector = self.property_collector
         if not root: root = self.root
         if not _type: _type = ManagedEntityTypes.ManagedEntity
             
@@ -277,8 +269,8 @@ class VimBase(object):
     * while a large updatyed being monitored by another.
     """
     def callCreatePropertyCollectorEx(self):
-        propCol = self.client.CreatePropertyCollector(self.managers['propertyCollector'])
-        collector = ManagedObjectReference(consts.serviceTypes['propertyCollector'], propCol.value)
+        propCol = self.client.CreatePropertyCollector(self.property_collector)
+        collector = ManagedObjectReference(serviceTypes['propertyCollector'], propCol.value)
         
         if self.verbose > 5:
             log.debug(str(collector))
@@ -315,18 +307,18 @@ class VimBase(object):
         myPropSpec = self.PropertySpec(_type=objmor._type, pathSet=["info.state", "info.error"])
         pSpec = self.PropertyFilterSpec(propSet=[myPropSpec], objectSet=[myObjSpec])
 
-        filterSpecRef = self.client.CreateFilter(self.managers["propertyCollector"], pSpec, True)
+        filterSpecRef = self.client.CreateFilter(self.property_collector, pSpec, True)
         filterSpecRef = ManagedObjectReference("PropertyFilter", filterSpecRef.value)
         
         
-        updateset = self.client.WaitForUpdates(self.managers["propertyCollector"], version)
+        updateset = self.client.WaitForUpdates(self.property_collector, version)
         
         status = self._parseTaskResponse(updateset)
         while status['info.state'] == TaskInfoState.running or status['info.state'] == TaskInfoState.queued:
             log.debug("Waiting for task to complete...")
             
             version = updateset.version
-            updateset = self.client.WaitForUpdates(self.managers["propertyCollector"], version)
+            updateset = self.client.WaitForUpdates(self.property_collector, version)
             status = self._parseTaskResponse(updateset)
             log.debug("**** status: %s" % status)
         
@@ -346,11 +338,11 @@ class VimBase(object):
         myPropSpec = self.PropertySpec(_type=_type, pathSet=properties)
         pSpec = self.PropertyFilterSpec(propSet=[myPropSpec], objectSet=[myObjSpec])
 
-        filterSpecRef = self.client.CreateFilter(self.managers["propertyCollector"], pSpec, False)
+        filterSpecRef = self.client.CreateFilter(self.property_collector, pSpec, False)
         filterSpecRef = ManagedObjectReference("PropertyFilter", filterSpecRef.value)
         
         log.debug("Calling CheckForUpdates with version: %s" % version)
-        changeData = self.client.CheckForUpdates(self.managers["propertyCollector"], version)
+        changeData = self.client.CheckForUpdates(self.property_collector, version)
         
         log.debug("Finished update...")
         # Destroy the filter when we are done.
