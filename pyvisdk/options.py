@@ -3,10 +3,9 @@ Created on Jul 22, 2011
 
 @author: eplaster
 '''
-import os.path, exceptions
-from ConfigParser import ConfigParser, DEFAULTSECT
+import os.path
 
-class Options(ConfigParser):
+class Options(object):
     '''
     Options for pyvisdk that will read in the .visdkrc files
     '''
@@ -17,7 +16,7 @@ class Options(ConfigParser):
         'VI_URL': 'https://localhost/sdk',
     }
     
-    def __init__(self, defaults = None):
+    def __init__(self, **kw):
         '''
         Constructor
         '''
@@ -25,10 +24,9 @@ class Options(ConfigParser):
         self.filename = os.path.expanduser("~/.visdkrc.vcenter")
         
         self.def_vals = Options._defaults
-        if defaults:
-            self.def_vals = defaults
+        if kw:
+            self.update(kw)
         self.changed = False
-        ConfigParser.__init__(self)
         
     def __del__(self):
         if self.changed:
@@ -47,23 +45,43 @@ class Options(ConfigParser):
         return self.__getattr__(attr)
 
     def __setitem__(self, attr, val):
-        self.set(DEFAULTSECT, attr, str(val))
+        self.def_vals[attr] = str(val)
         self.changed = True
-    
+        
+    def update(self, d):
+        self.def_vals.update(d)
+        
     def load(self, filename=None):
         if not filename:
             if os.path.exists(self.filename):
-                self.read(self.filename)
+                self._read()
             else:
-                raise exceptions.IOError("File not found: %s" % self.filename)
+                raise IOError("File not found: %s" % self.filename)
         else:
-            self.filename = filename
-            self.read(self.filename)
+            self.filename = os.path.expanduser(filename)
+            self._read()
+    
+    def _read(self):
+        for line in open(self.filename).readlines():
+            if line[0] == '#':
+                continue
+            name, value = line.split("=")
+            self.def_vals[name.strip()] = value.strip()
             
     def save(self):
         if self.changed:
             outfile = open(self.filename, 'w')
-            self.write(outfile)
+            for n,v in self.def_vals.items():
+                outfile.writeline("%s=%s" % (n,v))
             outfile.close()
             
+    def __str__(self):
+        return str(self.def_vals)
+        
+        
+        
+        
+        
+        
+        
             
