@@ -8,3 +8,8 @@
 /test.py
 /old.py
 /login.py
+/parts
+/eggs
+/develop-eggs
+/bin
+/.installed.cfg
