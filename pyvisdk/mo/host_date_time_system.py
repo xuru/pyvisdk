@@ -20,6 +20,13 @@ class HostDateTimeSystem(BaseEntity):
         super(HostDateTimeSystem, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def dateTimeInfo(self):
+        '''
+        The DateTime configuration of the host.
+        '''
+        return self.update('dateTimeInfo')
+
 
     def RefreshDateTimeSystem(self):
         '''Refresh the DateTime related settings to pick up any changes that might have

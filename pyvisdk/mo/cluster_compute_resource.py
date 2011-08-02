@@ -21,6 +21,58 @@ class ClusterComputeResource(ComputeResource):
         super(ClusterComputeResource, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def actionHistory(self):
+        '''
+        The set of actions that have been performed recently.
+        '''
+        return self.update('actionHistory')
+
+    @property
+    def configuration(self):
+        '''
+        Configuration of the cluster.
+        '''
+        return self.update('configuration')
+
+    @property
+    def drsFault(self):
+        '''
+        A collection of the DRS faults generated in the last DRS invocation. Each element
+        of the collection is the set of faults generated in one recommendation.
+        DRS faults are generated when DRS tries to make recommendations for rule
+        enforcement, power management, etc., and indexed in a tree structure with
+        reason for recommendations and VM to migrate (optional) as the index keys.
+        '''
+        return self.update('drsFault')
+
+    @property
+    def drsRecommendation(self):
+        '''
+        If DRS is enabled, this returns the set of recommended migrations from the DRS
+        module. The current set of recommendations may be empty, since there may
+        be no recommended migrations at this time, or it is possible that DRS is
+        not enabled.
+        '''
+        return self.update('drsRecommendation')
+
+    @property
+    def migrationHistory(self):
+        '''
+        The set of migration decisions that have recently been performed.
+        '''
+        return self.update('migrationHistory')
+
+    @property
+    def recommendation(self):
+        '''
+        List of recommended actions for the cluster. It is possible that the current set
+        of recommendations may be empty, either due to not having any running
+        dynamic recommendation generation module, or since there may be no
+        recommended actions at this time.
+        '''
+        return self.update('recommendation')
+
 
     def RefreshRecommendation(self):
         '''Make DRS invoke again and return a new list of recommendations. Concurrent

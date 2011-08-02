@@ -20,17 +20,6 @@ class Folder(ManagedEntity):
         super(Folder, self).__init__(core, name=name, ref=ref, type=type)
     
     
-    @property
-    def childType(self):
-        '''
-        Specifies the object types a folder may contain. When you create a folder, it
-        inherits its childType from the parent folder in which it is created.
-        childType is an array of strings. Each array entry identifies a set of
-        object types - Folder and one or more managed object types. The following
-        list shows childType values for the different folders:
-        '''
-        return self.update('childType')
-
 
     def CreateVM_Task(self, config):
         '''Creates a new virtual machine in the current folder and attaches it to the
@@ -191,7 +180,10 @@ class Folder(ManagedEntity):
         Host.Inventory.AddStandaloneHost on the target Folder.Otherwise, the
         privilege required for this operation varies depending on this folder's
         type and is checked against the source container, destination container,
-        and the object:
+        and the object:If the object is a HostSystem, the privileges required are
+        Host.Inventory.AddStandaloneHost on the folder, Host.Inventory.MoveHost on
+        the HostSystem, and Host.Inventory.EditCluster on the host's original
+        ComputeResource.
 
         :rtype: ManagedObjectReference to a Task 
 

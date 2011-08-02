@@ -22,6 +22,29 @@ class HostStorageSystem(ExtensibleManagedObject):
     
     
     @property
+    def fileSystemVolumeInfo(self):
+        '''
+        File system volume information for the host. See the FileSystemVolumeInfo data
+        object type for more information.
+        '''
+        return self.update('fileSystemVolumeInfo')
+
+    @property
+    def multipathStateInfo(self):
+        '''
+        Runtime information about the state of a multipath path. A null value will be
+        returned if path state information is not available for this system.
+        '''
+        return self.update('multipathStateInfo')
+
+    @property
+    def storageDeviceInfo(self):
+        '''
+        Host storage information up to the device level.
+        '''
+        return self.update('storageDeviceInfo')
+
+    @property
     def systemFile(self):
         '''
         Datastore paths of files used by the host system on mounted volumes, for instance,

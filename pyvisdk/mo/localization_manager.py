@@ -18,3 +18,11 @@ class LocalizationManager(BaseEntity):
         super(LocalizationManager, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def catalog(self):
+        '''
+        Fetches the descriptions of all the client-side localization message catalogs
+        available for the current session locale.
+        '''
+        return self.update('catalog')
+

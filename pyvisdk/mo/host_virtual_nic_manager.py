@@ -18,6 +18,13 @@ class HostVirtualNicManager(ExtensibleManagedObject):
         super(HostVirtualNicManager, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def info(self):
+        '''
+        Network configuration.
+        '''
+        return self.update('info')
+
 
     def QueryNetConfig(self, nicType):
         '''Get the NetConfig for the specified nicType

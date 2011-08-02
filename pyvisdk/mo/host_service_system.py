@@ -19,6 +19,13 @@ class HostServiceSystem(ExtensibleManagedObject):
         super(HostServiceSystem, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def serviceInfo(self):
+        '''
+        Service configuration.
+        '''
+        return self.update('serviceInfo')
+
 
     def RefreshServices(self):
         '''Refresh the service information and settings to pick up any changes made directly

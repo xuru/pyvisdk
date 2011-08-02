@@ -17,6 +17,20 @@ class HostVMotionSystem(ExtensibleManagedObject):
         super(HostVMotionSystem, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def ipConfig(self):
+        '''
+        IP configuration of the VMotion VirtualNic.
+        '''
+        return self.update('ipConfig')
+
+    @property
+    def netConfig(self):
+        '''
+        VMotion network configuration.
+        '''
+        return self.update('netConfig')
+
 
     def DeselectVnic(self):
         '''Indicate that no VirtualNic should be used for VMotion.

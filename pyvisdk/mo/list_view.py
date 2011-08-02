@@ -11,9 +11,7 @@ log = logging.getLogger(__name__)
 
 class ListView(ManagedObjectView):
     '''The ListView managed object provides access to updates on a specific set of
-        objects. You can use a ListView with a PropertyCollector method to
-        retrieve data or receive notification of changes. For information about
-        using views with the ViewManager.
+        objects. You can use a ListView with a ViewManager.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ListView):
         # MUST define these

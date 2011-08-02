@@ -25,6 +25,27 @@ class PerformanceManager(BaseEntity):
         super(PerformanceManager, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def description(self):
+        '''
+        The static description strings.
+        '''
+        return self.update('description')
+
+    @property
+    def historicalInterval(self):
+        '''
+        A list of intervals configured on the system.
+        '''
+        return self.update('historicalInterval')
+
+    @property
+    def perfCounter(self):
+        '''
+        A list of all supported performance counters in the system.
+        '''
+        return self.update('perfCounter')
+
 
     def QueryAvailablePerfMetric(self, entity):
         '''Retrieves all performance counters for the specified managed object generated

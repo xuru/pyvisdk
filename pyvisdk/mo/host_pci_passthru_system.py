@@ -17,6 +17,13 @@ class HostPciPassthruSystem(ExtensibleManagedObject):
         super(HostPciPassthruSystem, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def pciPassthruInfo(self):
+        '''
+        Array of PciPassthru information
+        '''
+        return self.update('pciPassthruInfo')
+
 
     def UpdatePassthruConfig(self, config):
         '''Updates the PciPassthru configuration, this will get called for the dependent

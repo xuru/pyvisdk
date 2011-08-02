@@ -17,6 +17,13 @@ class ProfileManager(BaseEntity):
         super(ProfileManager, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def profile(self):
+        '''
+        A list of profiles known to this ProfileManager.
+        '''
+        return self.update('profile')
+
 
     def QueryPolicyMetadata(self):
         '''Get the Metadata information for the policyNames. PolicyNames are available with

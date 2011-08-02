@@ -20,6 +20,54 @@ class Datacenter(ManagedEntity):
         super(Datacenter, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def datastore(self):
+        '''
+        A collection of references to the datastore objects available in this datacenter.
+        '''
+        return self.update('datastore')
+
+    @property
+    def datastoreFolder(self):
+        '''
+        A reference to the folder hierarchy that contains the datastores for this
+        datacenter.
+        '''
+        return self.update('datastoreFolder')
+
+    @property
+    def hostFolder(self):
+        '''
+        A reference to the folder hierarchy that contains the compute resources, including
+        hosts and clusters, for this datacenter.
+        '''
+        return self.update('hostFolder')
+
+    @property
+    def network(self):
+        '''
+        A collection of references to the network objects available in this datacenter.
+        '''
+        return self.update('network')
+
+    @property
+    def networkFolder(self):
+        '''
+        A reference to the folder hierarchy that contains the network entities for this
+        datacenter. The folder can include Network, DistributedVirtualSwitch, and
+        DistributedVirtualPortgroup objects.
+        '''
+        return self.update('networkFolder')
+
+    @property
+    def vmFolder(self):
+        '''
+        A reference to the folder hierarchy that contains VirtualMachine virtual machine
+        templates (identified by the template property, and VirtualApp objects for
+        this datacenter.
+        '''
+        return self.update('vmFolder')
+
 
     def QueryConnectionInfo(self, username, password, hostname, port):
         '''This method provides a way of getting basic information about a host without

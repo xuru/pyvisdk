@@ -22,12 +22,35 @@ class HttpNfcLease(BaseEntity):
     
     
     @property
+    def error(self):
+        '''
+        If the lease is in the error state, this property contains the error that caused
+        the lease to be aborted.
+        '''
+        return self.update('error')
+
+    @property
+    def info(self):
+        '''
+        Provides information on the objects contained in this lease. The info property is
+        only valid when the lease is in the ready state.
+        '''
+        return self.update('info')
+
+    @property
     def initializeProgress(self):
         '''
         Provides progress information (0-100 percent) for the initializing state of the
         lease. Clients can use this to track overall progress.
         '''
         return self.update('initializeProgress')
+
+    @property
+    def state(self):
+        '''
+        The current state of the lease.
+        '''
+        return self.update('state')
 
 
     def HttpNfcLeaseProgress(self, percent):

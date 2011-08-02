@@ -18,6 +18,88 @@ class HostSystem(ManagedEntity):
         super(HostSystem, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def capability(self):
+        '''
+        Host capabilities. This might not be available for a disconnected host.
+        '''
+        return self.update('capability')
+
+    @property
+    def config(self):
+        '''
+        Host configuration information. This might not be available for a disconnected
+        host.
+        '''
+        return self.update('config')
+
+    @property
+    def configManager(self):
+        '''
+        Host configuration systems.
+        '''
+        return self.update('configManager')
+
+    @property
+    def datastore(self):
+        '''
+        A collection of references to the subset of datastore objects in the datacenter
+        that are available in this HostSystem.
+        '''
+        return self.update('datastore')
+
+    @property
+    def datastoreBrowser(self):
+        '''
+        DatastoreBrowser to browse datastores for this host.
+        '''
+        return self.update('datastoreBrowser')
+
+    @property
+    def hardware(self):
+        '''
+        Hardware configuration of the host. This might not be available for a disconnected
+        host.
+        '''
+        return self.update('hardware')
+
+    @property
+    def network(self):
+        '''
+        A collection of references to the subset of network objects in the datacenter that
+        are available in this HostSystem.
+        '''
+        return self.update('network')
+
+    @property
+    def runtime(self):
+        '''
+        Runtime state information about the host such as connection state.
+        '''
+        return self.update('runtime')
+
+    @property
+    def summary(self):
+        '''
+        Basic information about the host, including connection state.
+        '''
+        return self.update('summary')
+
+    @property
+    def systemResources(self):
+        '''
+        Reference for the system resource hierarchy, used for configuring the set of
+        resources reserved to the system and unavailable to virtual machines.
+        '''
+        return self.update('systemResources')
+
+    @property
+    def vm(self):
+        '''
+        List of virtual machines associated with this host.
+        '''
+        return self.update('vm')
+
 
     def ShutdownHost_Task(self, force):
         '''Shuts down a host. If the command is successful, then the host has been shut down.

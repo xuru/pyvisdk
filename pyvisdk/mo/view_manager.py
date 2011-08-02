@@ -20,6 +20,14 @@ class ViewManager(BaseEntity):
         super(ViewManager, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def viewList(self):
+        '''
+        An array of view references. Each array entry is a managed object reference to a
+        view created by this ViewManager.
+        '''
+        return self.update('viewList')
+
 
     def CreateInventoryView(self):
         '''Create a new InventoryView managed object for this session.

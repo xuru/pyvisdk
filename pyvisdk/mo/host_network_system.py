@@ -18,6 +18,62 @@ class HostNetworkSystem(ExtensibleManagedObject):
         super(HostNetworkSystem, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def capabilities(self):
+        '''
+        Capability vector indicating the available product features.
+        '''
+        return self.update('capabilities')
+
+    @property
+    def consoleIpRouteConfig(self):
+        '''
+        IP route configuration for the service console. The IP route configuration is
+        global to the entire host. This property is set only if IP routing can be
+        configured for the service console.
+        '''
+        return self.update('consoleIpRouteConfig')
+
+    @property
+    def dnsConfig(self):
+        '''
+        Client-side DNS configuration for the host. The DNS configuration is global to the
+        entire host. This is set only if DNS can be configured for the host.
+        '''
+        return self.update('dnsConfig')
+
+    @property
+    def ipRouteConfig(self):
+        '''
+        The IP route configuration for the host. The IP route configuration is global to
+        the entire host. This property is set only if IP routing can be configured
+        for the host.
+        '''
+        return self.update('ipRouteConfig')
+
+    @property
+    def networkConfig(self):
+        '''
+        Network configuration information. This information can be applied using the
+        updateNetworkConfig() method. The information is a strict subset of the
+        information available in NetworkInfo.
+        '''
+        return self.update('networkConfig')
+
+    @property
+    def networkInfo(self):
+        '''
+        The network configuration and runtime information.
+        '''
+        return self.update('networkInfo')
+
+    @property
+    def offloadCapabilities(self):
+        '''
+        The offload capabilities available on this server.
+        '''
+        return self.update('offloadCapabilities')
+
 
     def UpdatePhysicalNicLinkSpeed(self):
         '''Configures link speed and duplexity. If linkSpeed is not specified, physical

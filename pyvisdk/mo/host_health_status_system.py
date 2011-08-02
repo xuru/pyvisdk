@@ -17,6 +17,13 @@ class HostHealthStatusSystem(BaseEntity):
         super(HostHealthStatusSystem, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def runtime(self):
+        '''
+        
+        '''
+        return self.update('runtime')
+
 
     def RefreshHealthStatusSystem(self):
         '''Refresh the available runtime hardware health information.

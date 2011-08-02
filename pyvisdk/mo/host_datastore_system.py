@@ -17,6 +17,20 @@ class HostDatastoreSystem(BaseEntity):
         super(HostDatastoreSystem, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def capabilities(self):
+        '''
+        Capability vector indicating the available product features.
+        '''
+        return self.update('capabilities')
+
+    @property
+    def datastore(self):
+        '''
+        List of datastores on this host.
+        '''
+        return self.update('datastore')
+
 
     def ConfigureDatastorePrincipal(self, userName):
         '''Configures datastore principal user for the host.All virtual machine-related file

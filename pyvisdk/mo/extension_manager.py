@@ -18,6 +18,13 @@ class ExtensionManager(BaseEntity):
         super(ExtensionManager, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def extensionList(self):
+        '''
+        The list of currently registered extensions.
+        '''
+        return self.update('extensionList')
+
 
     def UpdateExtension(self, extension):
         '''If the key specified in the extension exists, the existing record is updated.If

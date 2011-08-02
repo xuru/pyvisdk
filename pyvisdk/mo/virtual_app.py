@@ -21,12 +21,59 @@ class VirtualApp(ResourcePool):
         super(VirtualApp, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def childLink(self):
+        '''
+        List of linked children
+        '''
+        return self.update('childLink')
+
+    @property
+    def datastore(self):
+        '''
+        A collection of references to the subset of datastore objects used by this vApp.
+        '''
+        return self.update('datastore')
+
+    @property
+    def network(self):
+        '''
+        A collection of references to the subset of network objects that is used by this
+        virtual machine.
+        '''
+        return self.update('network')
+
+    @property
+    def parentFolder(self):
+        '''
+        A reference to the parent folder in the VM and Template folder hierarchy. This can
+        be null if the vApp is not associated with a VM & Template folder. A child
+        vApp can never be associated with a folder, but it is also not a
+        requirement that a root vApp is linked into the VM and Template view.
+        '''
+        return self.update('parentFolder')
+
+    @property
+    def parentVApp(self):
+        '''
+        Reference to the parent vApp.
+        '''
+        return self.update('parentVApp')
+
+    @property
+    def vAppConfig(self):
+        '''
+        Configuration of this package.
+        '''
+        return self.update('vAppConfig')
+
 
     def CloneVApp_Task(self, name, spec):
         '''Creates a clone of this vApp.Any % (percent) character used in this name parameter
         must be escaped, unless it is used to start an escape sequence. Clients
         may also escape any other characters in this name parameter.When invoking
-        this method, the following privilege checks occur:
+        this method, the following privilege checks occur:Additional privileges
+        are required by the clone spec provided. See VAppCloneSpec for details.
 
         :param name: The name of the new vApp.
 
@@ -139,7 +186,13 @@ class VirtualApp(ResourcePool):
         linked to itself.The removeSet must refer to managed entities that are
         currently linked children. Otherwise, an InvalidArgument exception is
         thrown.For each entity being linked, the operation is subject to the
-        following privilege checks:
+        following privilege checks:Privilege checks for each entity in the
+        removeSet are similar to the entities in the addChangeSet, except that
+        there is no target vApp.This operation is only transactional with respect
+        to each individual link change. The changes are processed sequentially and
+        committed one at a time. The addChangeSet is processed first, followed by
+        the removeSet. If a failure is detected, then the method terminates with
+        an exception.
         '''
         
         return self.delegate("UpdateLinkedChildren")()

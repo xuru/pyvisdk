@@ -24,6 +24,21 @@ class ServiceInstance(BaseEntity):
     
     
     @property
+    def capability(self):
+        '''
+        API-wide capabilities.
+        '''
+        return self.update('capability')
+
+    @property
+    def content(self):
+        '''
+        The properties of the ServiceInstance managed object. The content property is
+        identical to the return value from the RetrieveServiceContent method.
+        '''
+        return self.update('content')
+
+    @property
     def serverClock(self):
         '''
         Contains the time most recently obtained from the server. The time is not

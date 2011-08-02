@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class Profile(BaseEntity):
-    '''Properties
+    '''
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.Profile):
         # MUST define these
@@ -29,6 +29,13 @@ class Profile(BaseEntity):
         return self.update('complianceStatus')
 
     @property
+    def config(self):
+        '''
+        Configuration of the profile
+        '''
+        return self.update('config')
+
+    @property
     def createdTime(self):
         '''
         Time at which the profile was created
@@ -36,18 +43,25 @@ class Profile(BaseEntity):
         return self.update('createdTime')
 
     @property
+    def description(self):
+        '''
+        Localizeable Description of the Profile
+        '''
+        return self.update('description')
+
+    @property
+    def entity(self):
+        '''
+        List of ManagedEntities associated with the Profile
+        '''
+        return self.update('entity')
+
+    @property
     def modifiedTime(self):
         '''
         Time at which the profile was last modified
         '''
         return self.update('modifiedTime')
-
-    @property
-    def name(self):
-        '''
-        Name of the Profile
-        '''
-        return self.update('name')
 
 
     def DissociateProfile(self):

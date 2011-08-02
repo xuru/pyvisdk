@@ -23,3 +23,19 @@ class ExtensibleManagedObject(BaseEntity):
         super(ExtensibleManagedObject, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def availableField(self):
+        '''
+        List of custom field definitions that are valid for the object's type. The fields
+        are sorted by name.
+        '''
+        return self.update('availableField')
+
+    @property
+    def value(self):
+        '''
+        List of custom field values. Each value uses a key to associate an instance of a
+        CustomFieldStringValue with a custom field definition.
+        '''
+        return self.update('value')
+

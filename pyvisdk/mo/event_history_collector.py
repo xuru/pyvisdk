@@ -18,6 +18,16 @@ class EventHistoryCollector(HistoryCollector):
         super(EventHistoryCollector, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def latestPage(self):
+        '''
+        The items in 'viewable latest page'. As new items are added to the collector, they
+        are appended at the end of the page. The oldest item is removed from the
+        collector whenever there are more items in the collector than the maximum
+        established by setLatestPageSize.
+        '''
+        return self.update('latestPage')
+
 
     def ReadNextEvents(self, maxCount):
         '''Reads the 'scrollable view' from the current position. The scrollable position is

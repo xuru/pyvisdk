@@ -20,6 +20,24 @@ class HostDatastoreBrowser(BaseEntity):
         super(HostDatastoreBrowser, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def datastore(self):
+        '''
+        Set of datastores that can be searched on this DatastoreBrowser.
+        '''
+        return self.update('datastore')
+
+    @property
+    def supportedType(self):
+        '''
+        The list of supported file types. The supported file types are represented as
+        items in this list. For each supported file type, there is an object in
+        the list whose dynamic type is one of the types derived from the FileQuery
+        data object type. In general, the properties in this query type are not
+        set.
+        '''
+        return self.update('supportedType')
+
 
     def SearchDatastoreSubFolders_Task(self, datastorePath):
         '''Returns the information for the files that match the given search criteria as a

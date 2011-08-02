@@ -18,6 +18,20 @@ class HostSnmpSystem(BaseEntity):
         super(HostSnmpSystem, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def configuration(self):
+        '''
+        VI API 2.5
+        '''
+        return self.update('configuration')
+
+    @property
+    def limits(self):
+        '''
+        VI API 2.5
+        '''
+        return self.update('limits')
+
 
     def SendTestNotification(self):
         '''

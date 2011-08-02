@@ -18,3 +18,10 @@ class HostAuthenticationStore(BaseEntity):
         super(HostAuthenticationStore, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def info(self):
+        '''
+        Information about the authentication store.
+        '''
+        return self.update('info')
+

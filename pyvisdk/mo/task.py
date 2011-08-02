@@ -17,6 +17,13 @@ class Task(ExtensibleManagedObject):
         super(Task, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def info(self):
+        '''
+        Detailed information about this task.
+        '''
+        return self.update('info')
+
 
     def UpdateProgress(self, percentDone):
         '''Sets percentage done for this task and recalculates overall percentage done. If a

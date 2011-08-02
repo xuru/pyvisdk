@@ -17,6 +17,20 @@ class ScheduledTaskManager(BaseEntity):
         super(ScheduledTaskManager, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def description(self):
+        '''
+        Static descriptive strings used in scheduled tasks.
+        '''
+        return self.update('description')
+
+    @property
+    def scheduledTask(self):
+        '''
+        All available scheduled tasks.
+        '''
+        return self.update('scheduledTask')
+
 
     def CreateScheduledTask(self, spec):
         '''Creates a scheduled task.

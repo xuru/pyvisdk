@@ -20,3 +20,10 @@ class ManagedObjectView(View):
         super(ManagedObjectView, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def view(self):
+        '''
+        The list of references to objects mapped by this view.
+        '''
+        return self.update('view')
+

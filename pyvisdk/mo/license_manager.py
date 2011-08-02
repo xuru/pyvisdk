@@ -21,6 +21,34 @@ class LicenseManager(BaseEntity):
     
     
     @property
+    def diagnostics(self):
+        '''
+        Return current diagnostic information.
+        '''
+        return self.update('diagnostics')
+
+    @property
+    def evaluation(self):
+        '''
+        vSphere API 4.0
+        '''
+        return self.update('evaluation')
+
+    @property
+    def featureInfo(self):
+        '''
+        The list of features that can be licensed.
+        '''
+        return self.update('featureInfo')
+
+    @property
+    def licenseAssignmentManager(self):
+        '''
+        License Assignment Manager
+        '''
+        return self.update('licenseAssignmentManager')
+
+    @property
     def licensedEdition(self):
         '''
         The product's license edition. The edition defines which product license the
@@ -30,6 +58,20 @@ class LicenseManager(BaseEntity):
         the edition use SetLicenseEdition.
         '''
         return self.update('licensedEdition')
+
+    @property
+    def licenses(self):
+        '''
+        Get information about all the licenses avaiable.
+        '''
+        return self.update('licenses')
+
+    @property
+    def source(self):
+        '''
+        Set or return a data object type of LocalLicense or LicenseServer.
+        '''
+        return self.update('source')
 
     @property
     def sourceAvailable(self):

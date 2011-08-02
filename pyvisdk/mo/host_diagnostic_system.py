@@ -19,6 +19,13 @@ class HostDiagnosticSystem(BaseEntity):
         super(HostDiagnosticSystem, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def activePartition(self):
+        '''
+        The currently active diagnostic partition.
+        '''
+        return self.update('activePartition')
+
 
     def QueryPartitionCreateOptions(self, storageType, diagnosticType):
         '''Retrieves a list of disks that can be used to contain a diagnostic partition. This

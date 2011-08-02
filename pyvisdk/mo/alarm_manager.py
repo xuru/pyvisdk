@@ -18,6 +18,21 @@ class AlarmManager(BaseEntity):
         super(AlarmManager, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def defaultExpression(self):
+        '''
+        The default setting for each alarm expression, used to populate the initial client
+        wizard screen.
+        '''
+        return self.update('defaultExpression')
+
+    @property
+    def description(self):
+        '''
+        The static descriptive strings used in alarms.
+        '''
+        return self.update('description')
+
 
     def AcknowledgeAlarm(self):
         '''Acknowledge the alarm on a managed entity. The actions associated with the alarm

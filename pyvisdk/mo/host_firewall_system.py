@@ -18,6 +18,13 @@ class HostFirewallSystem(ExtensibleManagedObject):
         super(HostFirewallSystem, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def firewallInfo(self):
+        '''
+        Firewall configuration.
+        '''
+        return self.update('firewallInfo')
+
 
     def DisableRuleset(self, id):
         '''Blocks the firewall ports belonging to the specified ruleset. If the ruleset has a

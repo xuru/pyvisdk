@@ -20,6 +20,14 @@ class SessionManager(BaseEntity):
     
     
     @property
+    def currentSession(self):
+        '''
+        This property contains information about the client's current session. If the
+        client is not logged on, the value is null.
+        '''
+        return self.update('currentSession')
+
+    @property
     def defaultLocale(self):
         '''
         This is the default server locale.
@@ -39,6 +47,13 @@ class SessionManager(BaseEntity):
         Provides the list of locales for which the server has localized messages.
         '''
         return self.update('messageLocaleList')
+
+    @property
+    def sessionList(self):
+        '''
+        The list of currently active sessions.
+        '''
+        return self.update('sessionList')
 
     @property
     def supportedLocaleList(self):

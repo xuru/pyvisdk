@@ -20,6 +20,58 @@ class ResourcePool(ManagedEntity):
         super(ResourcePool, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def childConfiguration(self):
+        '''
+        The resource configuration of all direct children (VirtualMachine and
+        ResourcePool) of this resource group.
+        '''
+        return self.update('childConfiguration')
+
+    @property
+    def config(self):
+        '''
+        Configuration of this resource pool.
+        '''
+        return self.update('config')
+
+    @property
+    def owner(self):
+        '''
+        The ComputeResource to which this set of one or more nested resource pools belong.
+        '''
+        return self.update('owner')
+
+    @property
+    def resourcePool(self):
+        '''
+        The set of child resource pools.
+        '''
+        return self.update('resourcePool')
+
+    @property
+    def runtime(self):
+        '''
+        Runtime information about a resource pool. The ResourcePoolResourceUsage
+        information within ResourcePoolRuntimeInfo can be transiently stale. Use
+        RefreshRuntime method to update the information.
+        '''
+        return self.update('runtime')
+
+    @property
+    def summary(self):
+        '''
+        Basic information about a resource pool.
+        '''
+        return self.update('summary')
+
+    @property
+    def vm(self):
+        '''
+        The set of virtual machines associated with this resource pool.
+        '''
+        return self.update('vm')
+
 
     def QueryResourceConfigOption(self):
         '''Get a value range and default values for ResourceConfigSpec.
@@ -178,7 +230,13 @@ class ResourcePool(ManagedEntity):
         '''Moves a set of resource pools, vApps or virtual machines into this pool. The
         pools, vApps and virtual machines must be part of the cluster or
         standalone host that contains this pool.For each entity being moved, the
-        move is subject to the following privilege checks:
+        move is subject to the following privilege checks:This operation is
+        typically used by clients when they implement a drag-and-drop interface to
+        move a set of objects into a folder.This operation is only transactional
+        with respect to each individual entity. The set of entities is moved
+        sequentially, as specified in the list, and committed one at a time. If a
+        failure is detected, then the method terminates with an exception.The root
+        resource pool cannot be moved.
         '''
         
         return self.delegate("MoveIntoResourcePool")()

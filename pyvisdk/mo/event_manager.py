@@ -20,6 +20,20 @@ class EventManager(BaseEntity):
     
     
     @property
+    def description(self):
+        '''
+        Static descriptive strings used in events.
+        '''
+        return self.update('description')
+
+    @property
+    def latestEvent(self):
+        '''
+        The latest event that happened on the VirtualCenter server.
+        '''
+        return self.update('latestEvent')
+
+    @property
     def maxCollector(self):
         '''
         For each client, the maximum number of event collectors that can exist

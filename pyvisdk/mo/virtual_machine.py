@@ -20,6 +20,147 @@ class VirtualMachine(ManagedEntity):
         super(VirtualMachine, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def capability(self):
+        '''
+        Information about the runtime capabilities of this virtual machine.
+        '''
+        return self.update('capability')
+
+    @property
+    def config(self):
+        '''
+        Configuration of this virtual machine, including the name and UUID.
+        '''
+        return self.update('config')
+
+    @property
+    def datastore(self):
+        '''
+        A collection of references to the subset of datastore objects in the datacenter
+        that is used by this virtual machine.
+        '''
+        return self.update('datastore')
+
+    @property
+    def environmentBrowser(self):
+        '''
+        The current virtual machine's environment browser object. This contains
+        information on all the configurations that can be used on the virtual
+        machine. This is identical to the environment browser on the
+        ComputeResource to which this virtual machine belongs.
+        '''
+        return self.update('environmentBrowser')
+
+    @property
+    def guest(self):
+        '''
+        Information about VMware Tools and about the virtual machine from the perspective
+        of VMware Tools. Information about the guest operating system is available
+        in VirtualCenter. Guest operating system information reflects the last
+        known state of the virtual machine. For powered on machines, this is
+        current information. For powered off machines, this is the last recorded
+        state before the virtual machine was powered off.
+        '''
+        return self.update('guest')
+
+    @property
+    def guestHeartbeatStatus(self):
+        '''
+        The guest heartbeat. The heartbeat status is classified as: * gray - VMware Tools
+        are not installed or not running. * red - No heartbeat. Guest operating
+        system may have stopped responding. * yellow - Intermittent heartbeat. May
+        be due to guest load. * green - Guest operating system is responding
+        normally. The guest heartbeat is a statistics metric. Alarms can be
+        configured on this metric to trigger emails or other actions.
+        '''
+        return self.update('guestHeartbeatStatus')
+
+    @property
+    def layout(self):
+        '''
+        Detailed information about the files that comprise this virtual machine.
+        '''
+        return self.update('layout')
+
+    @property
+    def layoutEx(self):
+        '''
+        Detailed information about the files that comprise this virtual machine.
+        '''
+        return self.update('layoutEx')
+
+    @property
+    def network(self):
+        '''
+        A collection of references to the subset of network objects in the datacenter that
+        is used by this virtual machine.
+        '''
+        return self.update('network')
+
+    @property
+    def parentVApp(self):
+        '''
+        Reference to the parent vApp.
+        '''
+        return self.update('parentVApp')
+
+    @property
+    def resourceConfig(self):
+        '''
+        The resource configuration for a virtual machine. The shares in this specification
+        are evaluated relative to the resource pool to which it is assigned. This
+        will return null if the product the virtual machine is registered on does
+        not support resource configuration.
+        '''
+        return self.update('resourceConfig')
+
+    @property
+    def resourcePool(self):
+        '''
+        The current resource pool that specifies resource allocation for this virtual
+        machine.
+        '''
+        return self.update('resourcePool')
+
+    @property
+    def rootSnapshot(self):
+        '''
+        The roots of all snapshot trees for the virtual machine.
+        '''
+        return self.update('rootSnapshot')
+
+    @property
+    def runtime(self):
+        '''
+        Execution state and history for this virtual machine.
+        '''
+        return self.update('runtime')
+
+    @property
+    def snapshot(self):
+        '''
+        Current snapshot and tree. The property is valid if snapshots have been created
+        for this virtual machine.
+        '''
+        return self.update('snapshot')
+
+    @property
+    def storage(self):
+        '''
+        Storage space used by the virtual machine, split by datastore. Can be explicitly
+        refreshed by the RefreshStorageInfo operation.
+        '''
+        return self.update('storage')
+
+    @property
+    def summary(self):
+        '''
+        Basic information about this virtual machine. This includes: * runtimeInfo * guest
+        * basic configuration * alarms * performance information
+        '''
+        return self.update('summary')
+
 
     def StandbyGuest(self):
         '''Issues a command to the guest operating system asking it to prepare for a suspend
@@ -270,7 +411,13 @@ class VirtualMachine(ManagedEntity):
         character used in this name parameter must be escaped, unless it is used
         to start an escape sequence. Clients may also escape any other characters
         in this name parameter.The privilege required on the source virtual
-        machine depends on the source and destination types:
+        machine depends on the source and destination types:If customization is
+        requested in the CloneSpec, then the VirtualMachine.Provisioning.Customize
+        privilege must also be held on the source virtual machine.The
+        Resource.AssignVMToPool privilege is also required for the resource pool
+        specified in the CloneSpec, if the destination is not a template. The
+        Datastore.AllocateSpace privilege is required on all datastores where the
+        clone is created.
 
         :param name: The name of the new virtual machine.
 
@@ -324,7 +471,9 @@ class VirtualMachine(ManagedEntity):
         '''Reconfigures this virtual machine. All the changes in the given configuration are
         applied to the virtual machine as an atomic operation.Reconfiguring the
         virtual machine may require any of the following privileges depending on
-        what is being changed:
+        what is being changed:Creating a virtual machine may require the following
+        privileges:In addition, this operation may require the following
+        privileges:
 
         :param spec: The new configuration values.
 

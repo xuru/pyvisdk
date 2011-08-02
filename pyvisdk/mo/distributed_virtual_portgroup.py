@@ -20,6 +20,13 @@ class DistributedVirtualPortgroup(Network):
     
     
     @property
+    def config(self):
+        '''
+        The configuration of the portgroup.
+        '''
+        return self.update('config')
+
+    @property
     def key(self):
         '''
         The generated UUID of the portgroup.

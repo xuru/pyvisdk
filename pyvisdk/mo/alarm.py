@@ -19,6 +19,13 @@ class Alarm(ExtensibleManagedObject):
         super(Alarm, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def info(self):
+        '''
+        Information about this alarm.
+        '''
+        return self.update('info')
+
 
     def RemoveAlarm(self):
         '''Removes the alarm.

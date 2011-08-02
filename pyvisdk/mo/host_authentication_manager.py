@@ -20,3 +20,18 @@ class HostAuthenticationManager(BaseEntity):
         super(HostAuthenticationManager, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def info(self):
+        '''
+        Information about Active Directory membership.
+        '''
+        return self.update('info')
+
+    @property
+    def supportedStore(self):
+        '''
+        An array that can contain managed object references to local and Active Directory
+        authentication managed objects.
+        '''
+        return self.update('supportedStore')
+

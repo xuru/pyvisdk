@@ -18,6 +18,13 @@ class CustomFieldsManager(BaseEntity):
         super(CustomFieldsManager, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def field(self):
+        '''
+        List of custom fields defined on this server. The fields are sorted by name.
+        '''
+        return self.update('field')
+
 
     def AddCustomFieldDef(self, name):
         '''Creates a new custom field. If the moType is specified, the field will only be

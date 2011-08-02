@@ -18,6 +18,13 @@ class EnvironmentBrowser(BaseEntity):
         super(EnvironmentBrowser, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def datastoreBrowser(self):
+        '''
+        DatastoreBrowser to browse datastores that are available on this entity.
+        '''
+        return self.update('datastoreBrowser')
+
 
     def QueryConfigTarget(self):
         '''Queries for information about a specific target, a "physical" device that can be

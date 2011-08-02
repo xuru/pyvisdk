@@ -19,6 +19,24 @@ class HostMemorySystem(ExtensibleManagedObject):
         super(HostMemorySystem, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def consoleReservationInfo(self):
+        '''
+        Service console reservation information for the memory manager. The existence of
+        this data object indicates if the service console memory reservation must
+        be configured for this host.
+        '''
+        return self.update('consoleReservationInfo')
+
+    @property
+    def virtualMachineReservationInfo(self):
+        '''
+        Virtual machine reservation information for the memory manager. The existence of
+        this data object indicates if the virtual machine memory reservation must
+        be configured for this host.
+        '''
+        return self.update('virtualMachineReservationInfo')
+
 
     def ReconfigureServiceConsoleReservation(self, cfgBytes):
         '''Sets the configured service console memory reservation. This change affects only

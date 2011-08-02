@@ -17,3 +17,17 @@ class HostPowerSystem(BaseEntity):
         super(HostPowerSystem, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def capability(self):
+        '''
+        Power system capabilities object.
+        '''
+        return self.update('capability')
+
+    @property
+    def info(self):
+        '''
+        Power system state info object.
+        '''
+        return self.update('info')
+

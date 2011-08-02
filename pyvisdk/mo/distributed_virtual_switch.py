@@ -18,6 +18,42 @@ class DistributedVirtualSwitch(ManagedEntity):
     
     
     @property
+    def capability(self):
+        '''
+        The capability of the switch. Queried against hosts, the property should always
+        return configModificationSupported as false.
+        '''
+        return self.update('capability')
+
+    @property
+    def config(self):
+        '''
+        The configuration of the switch.
+        '''
+        return self.update('config')
+
+    @property
+    def networkResourcePool(self):
+        '''
+        The network resource pool information for the switch.
+        '''
+        return self.update('networkResourcePool')
+
+    @property
+    def portgroup(self):
+        '''
+        The portgroups that are defined on the switch.
+        '''
+        return self.update('portgroup')
+
+    @property
+    def summary(self):
+        '''
+        The summary of the switch.
+        '''
+        return self.update('summary')
+
+    @property
     def uuid(self):
         '''
         The generated UUID of the switch. Unique across vCenter Server inventory and

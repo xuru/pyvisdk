@@ -17,6 +17,27 @@ class AuthorizationManager(BaseEntity):
         super(AuthorizationManager, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def description(self):
+        '''
+        Static, descriptive strings for system roles and privileges.
+        '''
+        return self.update('description')
+
+    @property
+    def privilegeList(self):
+        '''
+        The list of system-defined privileges.
+        '''
+        return self.update('privilegeList')
+
+    @property
+    def roleList(self):
+        '''
+        The currently defined roles in the system, including static system-defined roles.
+        '''
+        return self.update('roleList')
+
 
     def AddAuthorizationRole(self, name):
         '''Adds a new role. This method will add a user-defined role with given list of

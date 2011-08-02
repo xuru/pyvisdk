@@ -19,6 +19,57 @@ class Datastore(ManagedEntity):
         super(Datastore, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def browser(self):
+        '''
+        DatastoreBrowser used to browse this datastore.
+        '''
+        return self.update('browser')
+
+    @property
+    def capability(self):
+        '''
+        Capabilities of this datastore.
+        '''
+        return self.update('capability')
+
+    @property
+    def host(self):
+        '''
+        Hosts attached to this datastore.
+        '''
+        return self.update('host')
+
+    @property
+    def info(self):
+        '''
+        Specific information about the datastore.
+        '''
+        return self.update('info')
+
+    @property
+    def iormConfiguration(self):
+        '''
+        Configuration of storage I/O resource management for the datastore. Currently we
+        only support storage I/O resource management on VMFS volumes of a
+        datastore.
+        '''
+        return self.update('iormConfiguration')
+
+    @property
+    def summary(self):
+        '''
+        Global properties of the datastore.
+        '''
+        return self.update('summary')
+
+    @property
+    def vm(self):
+        '''
+        Virtual machines stored on this datastore.
+        '''
+        return self.update('vm')
+
 
     def DestroyDatastore(self):
         '''Deprecated. As of VI API 2.5 do not use this method. This method throws

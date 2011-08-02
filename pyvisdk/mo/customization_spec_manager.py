@@ -26,6 +26,13 @@ class CustomizationSpecManager(BaseEntity):
         '''
         return self.update('encryptionKey')
 
+    @property
+    def info(self):
+        '''
+        Gets a list of information on available specifications.
+        '''
+        return self.update('info')
+
 
     def CustomizationSpecItemToXml(self, item):
         '''Converts a specification item to XML text

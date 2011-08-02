@@ -17,6 +17,13 @@ class HostProfile(Profile):
         super(HostProfile, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def referenceHost(self):
+        '''
+        Reference host in use for this HostProfile
+        '''
+        return self.update('referenceHost')
+
 
     def UpdateReferenceHost(self):
         '''Update the reference host in use by the HostProfile.

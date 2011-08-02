@@ -21,12 +21,27 @@ class TaskManager(BaseEntity):
     
     
     @property
+    def description(self):
+        '''
+        Locale-specific, static strings that describe Task information to users.
+        '''
+        return self.update('description')
+
+    @property
     def maxCollector(self):
         '''
         Maximum number of TaskHistoryCollector data objects that can exist concurrently,
         per client.
         '''
         return self.update('maxCollector')
+
+    @property
+    def recentTask(self):
+        '''
+        A list of Task managed objects that completed recently, that are currently
+        running, or that are queued to run.
+        '''
+        return self.update('recentTask')
 
 
     def CreateTask(self, cancelable, taskTypeId, obj):

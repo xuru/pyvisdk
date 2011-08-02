@@ -19,6 +19,15 @@ class HostCpuSchedulerSystem(ExtensibleManagedObject):
         super(HostCpuSchedulerSystem, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def hyperthreadInfo(self):
+        '''
+        The hyperthread configuration for the CpuSchedulerSystem. The existence of this
+        data object type indicates if the CPU scheduler is capable of scheduling
+        hyperthreads as resources.
+        '''
+        return self.update('hyperthreadInfo')
+
 
     def EnableHyperThreading(self):
         '''Treat hyperthreads as schedulable resources the next time the CPU scheduler

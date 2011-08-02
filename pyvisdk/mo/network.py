@@ -19,9 +19,23 @@ class Network(ManagedEntity):
     
     
     @property
-    def name(self):
+    def host(self):
         '''
-        Name of this network.
+        Hosts attached to this network.
         '''
-        return self.update('name')
+        return self.update('host')
+
+    @property
+    def summary(self):
+        '''
+        Properties of a network.
+        '''
+        return self.update('summary')
+
+    @property
+    def vm(self):
+        '''
+        Virtual machines using this network.
+        '''
+        return self.update('vm')
 

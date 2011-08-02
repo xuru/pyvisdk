@@ -22,6 +22,13 @@ class HostAutoStartManager(BaseEntity):
         super(HostAutoStartManager, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def config(self):
+        '''
+        
+        '''
+        return self.update('config')
+
 
     def AutoStartPowerOff(self):
         '''Powers-off virtual machines according to the current AutoStart configuration.See

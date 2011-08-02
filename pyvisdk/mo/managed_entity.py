@@ -29,6 +29,48 @@ class ManagedEntity(ExtensibleManagedObject):
         return self.update('alarmActionsEnabled')
 
     @property
+    def configIssue(self):
+        '''
+        Current configuration issues that have been detected for this entity. Typically,
+        these issues have already been logged as events. The entity stores these
+        events as long as they are still current. The configStatus property
+        provides an overall status based on these events.
+        '''
+        return self.update('configIssue')
+
+    @property
+    def configStatus(self):
+        '''
+        The configStatus indicates whether or not the system has detected a configuration
+        issue involving this entity. For example, it might have detected a
+        duplicate IP address or MAC address, or a host in a cluster might be out
+        of compliance. The meanings of the configStatus values are: * red: A
+        problem has been detected involving the entity. * yellow: A problem is
+        about to occur or a transient condition has occurred (For example,
+        reconfigure fail-over policy). * green: No configuration issues have been
+        detected. * gray: The configuration status of the entity is not being
+        monitored. A green status indicates only that a problem has not been
+        detected; it is not a guarantee that the entity is problem-free.
+        '''
+        return self.update('configStatus')
+
+    @property
+    def customValue(self):
+        '''
+        Custom field values.
+        '''
+        return self.update('customValue')
+
+    @property
+    def declaredAlarmState(self):
+        '''
+        A set of alarm states for alarms that apply to this managed entity. The set
+        includes alarms defined on this entity and alarms inherited from the
+        parent entity, or from any ancestors in the inventory hierarchy.
+        '''
+        return self.update('declaredAlarmState')
+
+    @property
     def disabledMethod(self):
         '''
         List of operations that are disabled, given the current runtime state of the
@@ -46,11 +88,50 @@ class ManagedEntity(ExtensibleManagedObject):
         return self.update('effectiveRole')
 
     @property
-    def name(self):
+    def overallStatus(self):
         '''
-        Name of this entity, unique relative to its parent.
+        General health of this managed entity. The value combines the status of all the
+        alarms attached to a managed entity.
         '''
-        return self.update('name')
+        return self.update('overallStatus')
+
+    @property
+    def parent(self):
+        '''
+        Parent of this entity.
+        '''
+        return self.update('parent')
+
+    @property
+    def permission(self):
+        '''
+        List of permissions defined for this entity.
+        '''
+        return self.update('permission')
+
+    @property
+    def recentTask(self):
+        '''
+        The set of recent tasks operating on this managed entity. This is a subset of
+        recentTask belong to this entity. A task in this list could be in one of
+        the four states: pending, running, success or error.
+        '''
+        return self.update('recentTask')
+
+    @property
+    def tag(self):
+        '''
+        The set of tags associated with this managed entity. Experimental. Subject to
+        change.
+        '''
+        return self.update('tag')
+
+    @property
+    def triggeredAlarmState(self):
+        '''
+        A set of alarm states for alarms triggered by this entity or by its descendants.
+        '''
+        return self.update('triggeredAlarmState')
 
 
     def Reload(self):

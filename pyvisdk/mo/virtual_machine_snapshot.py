@@ -19,6 +19,21 @@ class VirtualMachineSnapshot(ExtensibleManagedObject):
         super(VirtualMachineSnapshot, self).__init__(core, name=name, ref=ref, type=type)
     
     
+    @property
+    def childSnapshot(self):
+        '''
+        All snapshots for which this snapshot is the parent.
+        '''
+        return self.update('childSnapshot')
+
+    @property
+    def config(self):
+        '''
+        Information about the configuration of this virtual machine when this snapshot was
+        taken.
+        '''
+        return self.update('config')
+
 
     def RemoveSnapshot_Task(self, removeChildren):
         '''Removes this snapshot and deletes any associated storage.
