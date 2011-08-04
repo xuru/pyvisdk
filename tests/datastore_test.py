@@ -33,37 +33,22 @@ class TestDatastore(unittest.TestCase):
         self.assertIsNotNone(datastore, "Couldn't get datastore: %s" % datastore.name)
         self.assertEqual(datastore.type, "Datastore", "Datastore's type isn't Datastore...")
         
-    def testMethods(self):
-        datastores = self.datacenter.datastore
-        datastore = datastores[0]
-        
-        self.assertIsInstance(datastore.methods, list, "Datastore.methods is not a list")
-        for method in datastore.methods:
-            self.assertTrue(hasattr(datastore, method), "Datastore doesn't have method %s" % method)
-        
     def testProps(self):
         datastores = self.datacenter.datastore
         for datastore in datastores:
             self.assertIsInstance(datastore, Datastore, "Not an Datastore instance: %s" % datastore)
-            self.assertIsNotNone(datastore.props, "props is None")
             
-            # test each possible prop for the right object type
-            for prop in datastore.props:
-                # first three are common props
-                if prop in ["configIssue", "configStatus"]:
-                    self.assertIsNotNone(eval("datastore.%s" % prop), "Prop %s is None." % prop)
-                elif prop == "name":
-                    self.assertGreaterEqual(len(datastore.name), 1, "Name has no length...")
-                elif prop == "parent":
-                    self.assertIsInstance(datastore.parent, Folder, "parent prop is not a Folder instance")
-                
-                elif prop in ["browser", "info", "summary", "capability", "vm"]:
-                    self.assertIsNotNone(eval("datastore.%s" % prop), "%s is None" % prop)
-                    
-                else:
-                    print "---- "+prop+" "+"-"*70
-                    print eval("datastore.%s" % prop)
-
+            self.assertTrue(hasattr('browser'), "Datacenter instance does not have a browser property")
+            self.assertTrue(hasattr('capability'), "Datacenter instance does not have a capability property")
+            self.assertTrue(hasattr('host'), "Datacenter instance does not have a host property")
+            self.assertTrue(hasattr('info'), "Datacenter instance does not have a info property")
+            self.assertTrue(hasattr('iormConfiguration'), "Datacenter instance does not have a iormConfiguration property")
+            self.assertTrue(hasattr('summary'), "Datacenter instance does not have a summary property")
+            self.assertTrue(hasattr('vm'), "Datacenter instance does not have a vm property")
+            self.assertTrue(hasattr('browser'), "Datacenter instance does not have a browser property")
+            self.assertTrue(hasattr('browser'), "Datacenter instance does not have a browser property")
+            self.assertTrue(hasattr('browser'), "Datacenter instance does not have a browser property")
+            
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testDatastore']
     unittest.main()

@@ -34,44 +34,17 @@ class TestDatacenter(unittest.TestCase):
         self.assertIsNotNone(dc, "Couldn't get DC: %s" % _name)
         self.assertEqual(dc.type, 'Datacenter', "Datacenter's type isn't Datacenter...")
         
-    def testMethods(self):
-        dcs = self.vim.getDatacenters()
-        dc = self.vim.getDatacenter(dcs[0].name)
-        
-        self.assertIsInstance(dc.methods, list, "Datacenter.methods is not a list")
-        for method in dc.methods:
-            self.assertTrue(hasattr(dc, method), "Datacenter doesn't have method %s" % method)
-        
     def testProps(self):
         dcs = self.vim.getDatacenters()
         for dc in dcs:
             self.assertIsInstance(dc, Datacenter, "Not an Datacenter instance")
-            self.assertIsNotNone(dc.props, "props is None")
             
-            # test each possible prop for the right object type
-            for prop in dc.props:
-                if prop == "name":
-                    self.assertGreaterEqual(len(dc.name), 1, "Name has no length...")
-                
-                elif prop in ["vmFolder", "parent", "networkFolder", "hostFolder"]:
-                    self.assertIsInstance(eval("dc.%s" % prop), Folder, "%s prop is not a Folder instance" % prop)
-                
-                elif prop == "datastore":
-                    if type(dc.datastore) == types.ListType:
-                        for ds in dc.datastore:
-                            self.assertIsInstance(ds, Datastore, "%s is not type Datastore" % ds)
-                    else:
-                        self.assertIsInstance(ds, Datastore, "%s is not type Datastore" % ds)
-                        
-                elif prop == "network":
-                    pass  # currently doesn't have a class defined
-                
-                elif prop in ["configIssue", "configStatus"]:
-                    self.assertIsNotNone(eval("dc.%s" % prop), "Prop %s is None." % prop)
-                    
-                else:
-                    print "---- "+prop+" "+"-"*70
-                    print eval("dc.%s" % prop)
+            self.assertTrue(hasattr('datastore'), "Datacenter instance does not have a datastore property")
+            self.assertTrue(hasattr('datastoreFolder'), "Datacenter instance does not have a datastoreFolder property")
+            self.assertTrue(hasattr('hostFolder'), "Datacenter instance does not have a hostFolder property")
+            self.assertTrue(hasattr('network'), "Datacenter instance does not have a network property")
+            self.assertTrue(hasattr('networkFolder'), "Datacenter instance does not have a networkFolder property")
+            self.assertTrue(hasattr('vmFolder'), "Datacenter instance does not have a vmFolder property")
 
 
 if __name__ == "__main__":
