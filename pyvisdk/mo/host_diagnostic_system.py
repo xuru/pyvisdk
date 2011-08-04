@@ -10,9 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostDiagnosticSystem(BaseEntity):
-    '''The DiagnosticSystem managed object is used to configure the diagnostic mechanisms
-        specific to the host. The DiagnosticSystem interface supports the
-        following concepts:
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostDiagnosticSystem):
         # MUST define these
@@ -21,55 +19,20 @@ class HostDiagnosticSystem(BaseEntity):
     
     @property
     def activePartition(self):
-        '''
-        The currently active diagnostic partition.
+        '''The currently active diagnostic partition.
         '''
         return self.update('activePartition')
 
 
-    def QueryPartitionCreateOptions(self, storageType, diagnosticType):
-        '''Retrieves a list of disks that can be used to contain a diagnostic partition. This
-        list will contain disks that have sufficient space to contain a diagnostic
-        partition of the specific type.The choices will be returned in the order
-        that is most preferable as determined by the system.
-
-        :param storageType: 
-
-        :param diagnosticType: 
-
-
-        :rtype: HostDiagnosticPartitionCreateOption[] 
-
-        '''
-        
-        return self.delegate("QueryPartitionCreateOptions")(storageType,diagnosticType)
-        
-
-    def CreateDiagnosticPartition(self, spec):
+    def CreateDiagnosticPartition(self):
         '''Creates a diagnostic partition according to the provided create specification. On
         success, this method will create the partition and make the partition the
         active diagnostic partition if specified. On failure, the diagnostic
         partition may exist but may not be active if the partition was supposed to
         be made active.
-
-        :param spec: 
-
         '''
         
-        return self.delegate("CreateDiagnosticPartition")(spec)
-        
-
-    def QueryPartitionCreateDesc(self):
-        '''For a disk, query for the diagnostic partition creation description. The
-        description details how the diagnostic partition will be created on the
-        disk and provides a creation specification that is needed to invoke the
-        create operation. See HostScsiDisk See uuid
-
-        :rtype: HostDiagnosticPartitionCreateDescription 
-
-        '''
-        
-        return self.delegate("QueryPartitionCreateDesc")()
+        return self.delegate("CreateDiagnosticPartition")()
         
 
     def QueryAvailablePartition(self):
@@ -84,6 +47,37 @@ class HostDiagnosticSystem(BaseEntity):
         '''
         
         return self.delegate("QueryAvailablePartition")()
+        
+
+    def QueryPartitionCreateDesc(self, diskUuid, diagnosticType):
+        '''For a disk, query for the diagnostic partition creation description. The
+        description details how the diagnostic partition will be created on the
+        disk and provides a creation specification that is needed to invoke the
+        create operation. See HostScsiDisk See uuid
+
+        :param diskUuid: See HostScsiDisk See uuid
+
+        :param diagnosticType: See HostScsiDisk See uuid
+
+
+        :rtype: HostDiagnosticPartitionCreateDescription 
+
+        '''
+        
+        return self.delegate("QueryPartitionCreateDesc")(diskUuid,diagnosticType)
+        
+
+    def QueryPartitionCreateOptions(self):
+        '''Retrieves a list of disks that can be used to contain a diagnostic partition. This
+        list will contain disks that have sufficient space to contain a diagnostic
+        partition of the specific type.The choices will be returned in the order
+        that is most preferable as determined by the system.
+
+        :rtype: HostDiagnosticPartitionCreateOption[] 
+
+        '''
+        
+        return self.delegate("QueryPartitionCreateOptions")()
         
 
     def SelectActivePartition(self):

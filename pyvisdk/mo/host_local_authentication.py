@@ -10,8 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostLocalAuthentication(HostAuthenticationStore):
-    '''The HostLocalAuthentication managed object represents local authentication for
-        user accounts on an ESX host.
+    '''Methods
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostLocalAuthentication):
         # MUST define these

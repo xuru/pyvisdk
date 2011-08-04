@@ -10,9 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostServiceSystem(ExtensibleManagedObject):
-    '''The ServiceSystem managed object describes the configuration of host services.
-        This managed object operates in conjunction with the HostFirewallSystem
-        managed object.
+    '''Methods
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostServiceSystem):
         # MUST define these
@@ -21,8 +19,7 @@ class HostServiceSystem(ExtensibleManagedObject):
     
     @property
     def serviceInfo(self):
-        '''
-        Service configuration.
+        '''Service configuration.
         '''
         return self.update('serviceInfo')
 
@@ -35,55 +32,38 @@ class HostServiceSystem(ExtensibleManagedObject):
         return self.delegate("RefreshServices")()
         
 
-    def UninstallService(self, id):
+    def RestartService(self):
+        '''Restarts the service.
+        '''
+        
+        return self.delegate("RestartService")()
+        
+
+    def StartService(self):
+        '''Starts the service.
+        '''
+        
+        return self.delegate("StartService")()
+        
+
+    def StopService(self):
+        '''Stops the service.
+        '''
+        
+        return self.delegate("StopService")()
+        
+
+    def UninstallService(self):
         '''Uninstalls the service. If the service is running, it is stopped before being
         uninstalled.
-
-        :param id: 
-
         '''
         
-        return self.delegate("UninstallService")(id)
+        return self.delegate("UninstallService")()
         
 
-    def StopService(self, id):
-        '''Stops the service.
-
-        :param id: 
-
-        '''
-        
-        return self.delegate("StopService")(id)
-        
-
-    def RestartService(self, id):
-        '''Restarts the service.
-
-        :param id: 
-
-        '''
-        
-        return self.delegate("RestartService")(id)
-        
-
-    def StartService(self, id):
-        '''Starts the service.
-
-        :param id: 
-
-        '''
-        
-        return self.delegate("StartService")(id)
-        
-
-    def UpdateServicePolicy(self, policy, id):
+    def UpdateServicePolicy(self):
         '''Updates the activation policy (HostServicePolicy) of the service.
-
-        :param policy: 
-
-        :param id: 
-
         '''
         
-        return self.delegate("UpdateServicePolicy")(policy,id)
+        return self.delegate("UpdateServicePolicy")()
         

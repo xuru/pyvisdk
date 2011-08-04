@@ -10,8 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class EventHistoryCollector(HistoryCollector):
-    '''EventHistoryCollector provides a mechanism for retrieving historical data and
-        updates when the server appends new events.
+    '''
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.EventHistoryCollector):
         # MUST define these
@@ -20,8 +19,7 @@ class EventHistoryCollector(HistoryCollector):
     
     @property
     def latestPage(self):
-        '''
-        The items in 'viewable latest page'. As new items are added to the collector, they
+        '''The items in 'viewable latest page'. As new items are added to the collector, they
         are appended at the end of the page. The oldest item is removed from the
         collector whenever there are more items in the collector than the maximum
         established by setLatestPageSize.

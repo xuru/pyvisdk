@@ -10,8 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class VmwareDistributedVirtualSwitch(DistributedVirtualSwitch):
-    '''The interface to the VMware implementation of the switch. The functionality listed
-        here is for VMware DistributedVirtualSwitch only.
+    '''Methods
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.VmwareDistributedVirtualSwitch):
         # MUST define these

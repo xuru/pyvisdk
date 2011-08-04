@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostDirectoryStore(HostAuthenticationStore):
-    '''HostDirectoryStore is a base class for directory-based authentication stores.
+    '''Methods
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostDirectoryStore):
         # MUST define these

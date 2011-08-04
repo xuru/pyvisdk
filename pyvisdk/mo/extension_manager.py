@@ -10,8 +10,9 @@ import logging
 log = logging.getLogger(__name__)
 
 class ExtensionManager(BaseEntity):
-    '''This managed object type provides directory and basic management services for all
-        registered extensions.
+    '''While several authentication methods are available for extension servers to use
+        (see SessionManager), only one authentication method is valid for an
+        extension at any given time.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ExtensionManager):
         # MUST define these
@@ -20,40 +21,22 @@ class ExtensionManager(BaseEntity):
     
     @property
     def extensionList(self):
-        '''
-        The list of currently registered extensions.
+        '''The list of currently registered extensions.
         '''
         return self.update('extensionList')
 
 
-    def UpdateExtension(self, extension):
-        '''If the key specified in the extension exists, the existing record is updated.If
-        the "subjectName" property of the Extension object has a value, and it is
-        different from the existing value, this method will unset any public key
-        or certificate associated with the extension.
+    def FindExtension(self, extensionKey):
+        '''Returns extension with the given key, if any.
 
-        :param extension: Updated extension description.
+        :param extensionKey: Key to search for.
 
-        '''
-        
-        return self.delegate("UpdateExtension")(extension)
-        
 
-    def SetExtensionCertificate(self, extensionKey):
-        '''Update the stored authentication certificate for a specified extension. Updates
-        the registration of the specified extension with the thumbprint of the
-        X.509 client certificate provided over SSL handshake, or by the
-        "certificatePem"argument. The thumbprint will be used to authenticate the
-        extension during invocations of LoginExtensionByCertificate.NOTE: No
-        verification is performed on the received certificate, such as expiry or
-        revocation.This method will unset any public key or subject name
-        associated with the extension.
-
-        :param extensionKey: Key of extension to update.
+        :rtype: Extension 
 
         '''
         
-        return self.delegate("SetExtensionCertificate")(extensionKey)
+        return self.delegate("FindExtension")(extensionKey)
         
 
     def GetPublicKey(self):
@@ -76,6 +59,26 @@ class ExtensionManager(BaseEntity):
         '''
         
         return self.delegate("RegisterExtension")(extension)
+        
+
+    def SetExtensionCertificate(self, extensionKey, certificatePem):
+        '''Update the stored authentication certificate for a specified extension. Updates
+        the registration of the specified extension with the thumbprint of the
+        X.509 client certificate provided over SSL handshake, or by the
+        "certificatePem"argument. The thumbprint will be used to authenticate the
+        extension during invocations of LoginExtensionByCertificate.NOTE: No
+        verification is performed on the received certificate, such as expiry or
+        revocation.This method will unset any public key or subject name
+        associated with the extension.
+
+        :param extensionKey: Key of extension to update.
+
+        :param certificatePem: PEM encoded certificate. If not specified, the certificate passed over SSL
+        handshake is used.
+
+        '''
+        
+        return self.delegate("SetExtensionCertificate")(extensionKey,certificatePem)
         
 
     def SetPublicKey(self, extensionKey, publicKey):
@@ -102,15 +105,15 @@ class ExtensionManager(BaseEntity):
         return self.delegate("UnregisterExtension")(extensionKey)
         
 
-    def FindExtension(self, extensionKey):
-        '''Returns extension with the given key, if any.
+    def UpdateExtension(self, extension):
+        '''If the key specified in the extension exists, the existing record is updated.If
+        the "subjectName" property of the Extension object has a value, and it is
+        different from the existing value, this method will unset any public key
+        or certificate associated with the extension.
 
-        :param extensionKey: Key to search for.
-
-
-        :rtype: Extension 
+        :param extension: Updated extension description.
 
         '''
         
-        return self.delegate("FindExtension")(extensionKey)
+        return self.delegate("UpdateExtension")(extension)
         

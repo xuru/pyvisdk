@@ -10,9 +10,11 @@ import logging
 log = logging.getLogger(__name__)
 
 class Datastore(ManagedEntity):
-    '''Represents a storage location for virtual machine files. A storage location can be
-        a VMFS volume, a directory on Network Attached Storage, or a local file
-        system path.
+    '''Any reference to a virtual machine or file accessed by any host within the
+        datacenter must use a datastore path. A datastore path has the form
+        "[<datastore>] <path>", where <datastore> is the datastore name, and
+        <path> is a slash-delimited path from the root of the datastore. An
+        example datastore path is "[storage] path/to/config.vmx".
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.Datastore):
         # MUST define these
@@ -21,36 +23,31 @@ class Datastore(ManagedEntity):
     
     @property
     def browser(self):
-        '''
-        DatastoreBrowser used to browse this datastore.
+        '''DatastoreBrowser used to browse this datastore.
         '''
         return self.update('browser')
 
     @property
     def capability(self):
-        '''
-        Capabilities of this datastore.
+        '''Capabilities of this datastore.
         '''
         return self.update('capability')
 
     @property
     def host(self):
-        '''
-        Hosts attached to this datastore.
+        '''Hosts attached to this datastore.
         '''
         return self.update('host')
 
     @property
     def info(self):
-        '''
-        Specific information about the datastore.
+        '''Specific information about the datastore.
         '''
         return self.update('info')
 
     @property
     def iormConfiguration(self):
-        '''
-        Configuration of storage I/O resource management for the datastore. Currently we
+        '''Configuration of storage I/O resource management for the datastore. Currently we
         only support storage I/O resource management on VMFS volumes of a
         datastore.
         '''
@@ -58,15 +55,13 @@ class Datastore(ManagedEntity):
 
     @property
     def summary(self):
-        '''
-        Global properties of the datastore.
+        '''Global properties of the datastore.
         '''
         return self.update('summary')
 
     @property
     def vm(self):
-        '''
-        Virtual machines stored on this datastore.
+        '''Virtual machines stored on this datastore.
         '''
         return self.update('vm')
 
@@ -79,6 +74,32 @@ class Datastore(ManagedEntity):
         '''
         
         return self.delegate("DestroyDatastore")()
+        
+
+    def RefreshDatastore(self):
+        '''Explicitly refreshes free-space and capacity values in summary and info.
+        '''
+        
+        return self.delegate("RefreshDatastore")()
+        
+
+    def RefreshDatastoreStorageInfo(self):
+        '''Refreshes all storage related information including free-space, capacity, and
+        detailed usage of virtual machines. Updated values are available in
+        summary and info.
+        '''
+        
+        return self.delegate("RefreshDatastoreStorageInfo")()
+        
+
+    def RenameDatastore(self, newName):
+        '''Deprecated. As of vSphere API 4.0, use Rename_Task. Renames a datastore.
+
+        :param newName: The new name to assign to the datastore.
+
+        '''
+        
+        return self.delegate("RenameDatastore")(newName)
         
 
     def UpdateVirtualMachineFiles_Task(self, mountPathDatastoreMapping):
@@ -107,30 +128,4 @@ class Datastore(ManagedEntity):
         '''
         
         return self.delegate("UpdateVirtualMachineFiles_Task")(mountPathDatastoreMapping)
-        
-
-    def RefreshDatastore(self):
-        '''Explicitly refreshes free-space and capacity values in summary and info.
-        '''
-        
-        return self.delegate("RefreshDatastore")()
-        
-
-    def RenameDatastore(self, newName):
-        '''Deprecated. As of vSphere API 4.0, use Rename_Task. Renames a datastore.
-
-        :param newName: The new name to assign to the datastore.
-
-        '''
-        
-        return self.delegate("RenameDatastore")(newName)
-        
-
-    def RefreshDatastoreStorageInfo(self):
-        '''Refreshes all storage related information including free-space, capacity, and
-        detailed usage of virtual machines. Updated values are available in
-        summary and info.
-        '''
-        
-        return self.delegate("RefreshDatastoreStorageInfo")()
         

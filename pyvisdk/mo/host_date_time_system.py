@@ -10,10 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostDateTimeSystem(BaseEntity):
-    '''This managed object provides for NTP and date/time related configuration on a
-        host. Information regarding the running status of the NTP daemon and
-        functionality to start and stop the daemon is provided by the
-        HostServiceSystem object.
+    '''
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostDateTimeSystem):
         # MUST define these
@@ -22,11 +19,31 @@ class HostDateTimeSystem(BaseEntity):
     
     @property
     def dateTimeInfo(self):
-        '''
-        The DateTime configuration of the host.
+        '''The DateTime configuration of the host.
         '''
         return self.update('dateTimeInfo')
 
+
+    def QueryAvailableTimeZones(self):
+        '''Retrieves the list of available timezones on the host. The API works off the
+        public domain 'tz' timezone database.
+
+        :rtype: HostDateTimeSystemTimeZone[] 
+
+        '''
+        
+        return self.delegate("QueryAvailableTimeZones")()
+        
+
+    def QueryDateTime(self):
+        '''Get the current DateTime on the host.
+
+        :rtype: xsd:dateTime 
+
+        '''
+        
+        return self.delegate("QueryDateTime")()
+        
 
     def RefreshDateTimeSystem(self):
         '''Refresh the DateTime related settings to pick up any changes that might have
@@ -47,17 +64,6 @@ class HostDateTimeSystem(BaseEntity):
         return self.delegate("UpdateDateTime")(dateTime)
         
 
-    def QueryAvailableTimeZones(self):
-        '''Retrieves the list of available timezones on the host. The API works off the
-        public domain 'tz' timezone database.
-
-        :rtype: HostDateTimeSystemTimeZone[] 
-
-        '''
-        
-        return self.delegate("QueryAvailableTimeZones")()
-        
-
     def UpdateDateTimeConfig(self, config):
         '''Update the DateTime configuration of the host.
 
@@ -66,14 +72,4 @@ class HostDateTimeSystem(BaseEntity):
         '''
         
         return self.delegate("UpdateDateTimeConfig")(config)
-        
-
-    def QueryDateTime(self):
-        '''Get the current DateTime on the host.
-
-        :rtype: xsd:dateTime 
-
-        '''
-        
-        return self.delegate("QueryDateTime")()
         

@@ -10,9 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostCpuSchedulerSystem(ExtensibleManagedObject):
-    '''This managed object provides an interface through which you can gather and
-        configure the host CPU scheduler policies that affect the performance of
-        running virtual machines.
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostCpuSchedulerSystem):
         # MUST define these
@@ -21,13 +19,20 @@ class HostCpuSchedulerSystem(ExtensibleManagedObject):
     
     @property
     def hyperthreadInfo(self):
-        '''
-        The hyperthread configuration for the CpuSchedulerSystem. The existence of this
+        '''The hyperthread configuration for the CpuSchedulerSystem. The existence of this
         data object type indicates if the CPU scheduler is capable of scheduling
         hyperthreads as resources.
         '''
         return self.update('hyperthreadInfo')
 
+
+    def DisableHyperThreading(self):
+        '''Don't treat hyperthreads as schedulable resources the next time the CPU scheduler
+        starts. If successful, this operation will change the configured setting.
+        '''
+        
+        return self.delegate("DisableHyperThreading")()
+        
 
     def EnableHyperThreading(self):
         '''Treat hyperthreads as schedulable resources the next time the CPU scheduler
@@ -36,12 +41,4 @@ class HostCpuSchedulerSystem(ExtensibleManagedObject):
         '''
         
         return self.delegate("EnableHyperThreading")()
-        
-
-    def DisableHyperThreading(self):
-        '''Don't treat hyperthreads as schedulable resources the next time the CPU scheduler
-        starts. If successful, this operation will change the configured setting.
-        '''
-        
-        return self.delegate("DisableHyperThreading")()
         

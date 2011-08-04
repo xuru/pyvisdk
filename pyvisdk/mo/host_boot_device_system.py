@@ -10,8 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostBootDeviceSystem(BaseEntity):
-    '''The HostBootDeviceSystem managed object provides methods to query and update a
-        host boot device configuration.
+    '''Methods
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostBootDeviceSystem):
         # MUST define these

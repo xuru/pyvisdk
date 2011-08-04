@@ -10,7 +10,9 @@ import logging
 log = logging.getLogger(__name__)
 
 class ComputeResource(ManagedEntity):
-    '''Represents a set of physical compute resources for a set of virtual machines.
+    '''A ComputeResource always has a root ResourcePool associated with it. Certain types
+        of clusters such as those with VMware DRS enabled and standalone hosts
+        (ESX Server 3) support the creation of ResourcePool hierarchies.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ComputeResource):
         # MUST define these
@@ -19,8 +21,7 @@ class ComputeResource(ManagedEntity):
     
     @property
     def configurationEx(self):
-        '''
-        Configuration of the compute resource; applies to both standalone hosts and
+        '''Configuration of the compute resource; applies to both standalone hosts and
         clusters. For a cluster this property will return a ClusterConfigInfoEx
         object.
         '''
@@ -28,47 +29,41 @@ class ComputeResource(ManagedEntity):
 
     @property
     def datastore(self):
-        '''
-        The datastore property is the subset of datastore objects in the datacenter
+        '''The datastore property is the subset of datastore objects in the datacenter
         available in this ComputeResource.
         '''
         return self.update('datastore')
 
     @property
     def environmentBrowser(self):
-        '''
-        The environment browser object that identifies the environments that are supported
+        '''The environment browser object that identifies the environments that are supported
         on this compute resource.
         '''
         return self.update('environmentBrowser')
 
     @property
     def host(self):
-        '''
-        List of hosts that are part of this compute resource. If the compute resource is a
+        '''List of hosts that are part of this compute resource. If the compute resource is a
         standalone type, then this list contains just one element.
         '''
         return self.update('host')
 
     @property
     def network(self):
-        '''
-        The subset of network objects available in the datacenter that is available in
+        '''The subset of network objects available in the datacenter that is available in
         this ComputeResource.
         '''
         return self.update('network')
 
     @property
     def resourcePool(self):
-        '''
-        Reference to root resource pool.
+        '''Reference to root resource pool.
         '''
         return self.update('resourcePool')
 
     @property
     def summary(self):
-        '''
-        Basic runtime information about a compute resource. This information is used on
+        '''Basic runtime information about a compute resource. This information is used on
         summary screens and in list views.
         '''
         return self.update('summary')

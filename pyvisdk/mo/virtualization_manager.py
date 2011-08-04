@@ -10,8 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class VirtualizationManager(BaseEntity):
-    '''The VirtualizationManager is the interface for discover and consolidate host and
-        services from physical environment to virtualization environment.
+    '''Methods
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.VirtualizationManager):
         # MUST define these

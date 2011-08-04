@@ -10,8 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostKernelModuleSystem(BaseEntity):
-    '''The KernelModuleSystem managed object controls the configuration of kernel modules
-        on the host.
+    '''Methods
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostKernelModuleSystem):
         # MUST define these

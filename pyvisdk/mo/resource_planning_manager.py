@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class ResourcePlanningManager(BaseEntity):
-    '''
+    '''Estimates the database size required to store VirtualCenter data.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ResourcePlanningManager):
         # MUST define these

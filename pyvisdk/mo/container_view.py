@@ -10,9 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class ContainerView(ManagedObjectView):
-    '''The ContainerView managed object provides a means of monitoring the contents of a
-        single container and, optionally, other containers. You can use a
-        ContainerView with a ViewManager.
+    '''* Folder * Datacenter * ComputeResource * ResourcePool * HostSystem
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ContainerView):
         # MUST define these
@@ -21,16 +19,14 @@ class ContainerView(ManagedObjectView):
     
     @property
     def container(self):
-        '''
-        The Folder, Datacenter, ComputeResource, ResourcePool, or HostSystem instance that
+        '''The Folder, Datacenter, ComputeResource, ResourcePool, or HostSystem instance that
         provides the objects that the view presents.
         '''
         return self.update('container')
 
     @property
     def recursive(self):
-        '''
-        Whether to include only the immediate children of the container instance, or to
+        '''Whether to include only the immediate children of the container instance, or to
         include additional objects by following the paths beyond the immediate
         children.
         '''
@@ -38,8 +34,7 @@ class ContainerView(ManagedObjectView):
 
     @property
     def type(self):
-        '''
-        An optional list of types to be applied to the set of objects in the view. The
+        '''An optional list of types to be applied to the set of objects in the view. The
         list of types indicates objects that are included in the view. If empty,
         all types are included.
         '''

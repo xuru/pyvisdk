@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostVMotionSystem(ExtensibleManagedObject):
-    '''The VMotionSystem managed object describes the VMotion configuration of the host.
+    '''
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostVMotionSystem):
         # MUST define these
@@ -19,15 +19,13 @@ class HostVMotionSystem(ExtensibleManagedObject):
     
     @property
     def ipConfig(self):
-        '''
-        IP configuration of the VMotion VirtualNic.
+        '''IP configuration of the VMotion VirtualNic.
         '''
         return self.update('ipConfig')
 
     @property
     def netConfig(self):
-        '''
-        VMotion network configuration.
+        '''VMotion network configuration.
         '''
         return self.update('netConfig')
 
@@ -39,16 +37,6 @@ class HostVMotionSystem(ExtensibleManagedObject):
         return self.delegate("DeselectVnic")()
         
 
-    def UpdateIpConfig(self, ipConfig):
-        '''Update the IP configuration of VMotion VirtualNic.
-
-        :param ipConfig: 
-
-        '''
-        
-        return self.delegate("UpdateIpConfig")(ipConfig)
-        
-
     def SelectVnic(self, device):
         '''Select the VirtualNic to be used for VMotion.
 
@@ -57,4 +45,11 @@ class HostVMotionSystem(ExtensibleManagedObject):
         '''
         
         return self.delegate("SelectVnic")(device)
+        
+
+    def UpdateIpConfig(self):
+        '''Update the IP configuration of VMotion VirtualNic.
+        '''
+        
+        return self.delegate("UpdateIpConfig")()
         

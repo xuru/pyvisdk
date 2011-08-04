@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class ScheduledTask(ExtensibleManagedObject):
-    '''The scheduled task object.
+    '''Methods
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ScheduledTask):
         # MUST define these
@@ -19,8 +19,7 @@ class ScheduledTask(ExtensibleManagedObject):
     
     @property
     def info(self):
-        '''
-        Information about the current scheduled task.
+        '''Information about the current scheduled task.
         '''
         return self.update('info')
 

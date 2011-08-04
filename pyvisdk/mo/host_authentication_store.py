@@ -10,8 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostAuthenticationStore(BaseEntity):
-    '''The HostAuthenticationStore base class represents both local user and host Active
-        Directory authentication for an ESX host.
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostAuthenticationStore):
         # MUST define these
@@ -20,8 +19,7 @@ class HostAuthenticationStore(BaseEntity):
     
     @property
     def info(self):
-        '''
-        Information about the authentication store.
+        '''Information about the authentication store.
         '''
         return self.update('info')
 

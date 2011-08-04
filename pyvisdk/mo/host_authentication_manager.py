@@ -10,10 +10,8 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostAuthenticationManager(BaseEntity):
-    '''The HostAuthenticationManager managed object provides access to Active Directory
-        configuration information for an ESX host. It also provides access to
-        methods for adding a host to or removing a host from an Active Directory
-        domain.
+    '''There are two approaches that you can use to add an ESX host to or remove a host
+        from an Active Directory domain.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostAuthenticationManager):
         # MUST define these
@@ -22,15 +20,13 @@ class HostAuthenticationManager(BaseEntity):
     
     @property
     def info(self):
-        '''
-        Information about Active Directory membership.
+        '''Information about Active Directory membership.
         '''
         return self.update('info')
 
     @property
     def supportedStore(self):
-        '''
-        An array that can contain managed object references to local and Active Directory
+        '''An array that can contain managed object references to local and Active Directory
         authentication managed objects.
         '''
         return self.update('supportedStore')

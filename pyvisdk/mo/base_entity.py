@@ -3,11 +3,12 @@ Created on Mar 8, 2011
 
 @author: eplaster
 '''
+import suds, logging, types
+from dataflake.cache.timeout import TimeoutCache
+
 from pyvisdk.mo.consts import ManagedEntityTypes
 from pyvisdk.exceptions import PyVisdkError
-import suds
-import logging
-import types
+import pyvisdk.mo
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
@@ -17,12 +18,12 @@ def MOFactory(core, ref):
     
     # if we have an obj, then obj is the managed object reference
     if hasattr(ref, 'obj'):
-        _class = eval("%s" % ref.obj._type)
+        _class = eval("pyvisdk.mo.%s" % ref.obj._type)
         return _class(core,  name=ref.propSet[0].val, ref=ref.obj)
     
     # check if ref is the managed object reference
     elif (hasattr(ref, '_type') and hasattr(ref, 'value')) or ref.__class__.__name__ == 'ManagedObjectReference':
-        _class = eval("%s" % ref._type)
+        _class = eval("pyvisdk.mo.%s" % ref._type)
         return _class(core,  ref=ref)
     
     # make sure we catch anything else...
@@ -62,13 +63,14 @@ class TaskDelegate(object):
         return rv
    
 class BaseEntity(object):
-    __slots__ = ['props']
     def __init__(self, core, name=None, ref=None, type=None):
         self.core = core
         self.name = name
         self.ref = ref
         self.type = type
-        self.props = {}
+        
+        self.cache = TimeoutCache()
+        self.cache.setTimeout(60) # timeout to one minute
         
         self.client = core.client
         self.service = core.client.service
@@ -80,27 +82,24 @@ class BaseEntity(object):
             if not self.name:
                 self.name = self.ref.value
             
-    def addprop(self, prop):
-        self.props[prop] = None
-        
     def update(self, prop):
+        rv = None
         if type(prop) == types.ListType:
             for x in prop:
                 self.update(x)
                 
-        data = self.core.getDynamicProperty(self.ref, prop)
+        data = self.cache.get(prop, default=None)
         if not data:
-            self.props[prop] = None
+            self.cache.set(prop, self.core.getDynamicProperty(self.ref, prop))
+            data = self.cache.get(prop)
+            
+        if not data:
             return None
             
         for name, value in data.items():
-            try:
-                if name in self.props.keys():
-                    log.debug("[%s] %s" % (name, value.__class__.__name__))
-                    self.props[name] = self._clean(value)
-            except AttributeError, e:
-                log.warning("[WARNING] [%s] %s" %  (name, e))
-        return self.props[prop]
+            if name == prop:
+                rv = self._clean(value)
+        return rv
                 
     def _clean(self, objectContent):
         if type(objectContent) == types.ListType:

@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class LicenseAssignmentManager(BaseEntity):
-    '''
+    '''Get information about all the licenses associated with an entity
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.LicenseAssignmentManager):
         # MUST define these
@@ -18,14 +18,17 @@ class LicenseAssignmentManager(BaseEntity):
     
     
 
-    def QueryAssignedLicenses(self):
+    def QueryAssignedLicenses(self, entityId):
         '''Get information about all the licenses associated with an entity
+
+        :param entityId: ID of the entity. E.g. HostSystem.
+
 
         :rtype: LicenseAssignmentManagerLicenseAssignment[] 
 
         '''
         
-        return self.delegate("QueryAssignedLicenses")()
+        return self.delegate("QueryAssignedLicenses")(entityId)
         
 
     def RemoveAssignedLicense(self, entityId):
@@ -38,17 +41,19 @@ class LicenseAssignmentManager(BaseEntity):
         return self.delegate("RemoveAssignedLicense")(entityId)
         
 
-    def UpdateAssignedLicense(self, licenseKey, entity):
+    def UpdateAssignedLicense(self, entity, licenseKey, entityDisplayName):
         '''Update the license associated with an entity
+
+        :param entity: ID of the entity. E.g. HostSystem.
 
         :param licenseKey: A license.
 
-        :param entity: ID of the entity. E.g. HostSystem.
+        :param entityDisplayName: Display name for the entity
 
 
         :rtype: LicenseManagerLicenseInfo 
 
         '''
         
-        return self.delegate("UpdateAssignedLicense")(licenseKey,entity)
+        return self.delegate("UpdateAssignedLicense")(entity,licenseKey,entityDisplayName)
         

@@ -10,10 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class Folder(ManagedEntity):
-    '''The Folder managed object is a container for storing and organizing inventory
-        objects. Folders can contain folders and other objects. The childType
-        property identifies a folder's type and determines the types of folders
-        and objects the folder can contain.
+    '''
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.Folder):
         # MUST define these
@@ -21,59 +18,48 @@ class Folder(ManagedEntity):
     
     
 
-    def CreateVM_Task(self, config):
-        '''Creates a new virtual machine in the current folder and attaches it to the
-        specified resource pool. This operation creates a virtual machine, instead
-        of cloning a virtual machine from an existing one.The server does not
-        support creating templates using this method. Instead, you should create
-        templates by marking existing virtual machines as templates, or by cloning
-        an existing virtual machine or template.This operation only works if the
-        folder's childType includes VirtualMachine. In addition to the
-        VirtualMachine.Inventory.Create privilege, may also require any of the
-        following privileges depending on the properties of the virtual machine
-        bring created:
+    def AddStandaloneHost_Task(self, spec, compResSpec, addConnected, license):
+        '''Creates a new single-host compute resource. The name provided can be an IP
+        address, such as 192.168.0.120, or a string, such as esx120. If a name is
+        specified, a DNS lookup is used to resolve it to a fully-qualified name,
+        such as esx120.vmware.com. If the DNS lookup fails, the string is stored
+        as specified.Licenses for the host are allocated when making the first
+        connection to the host. This is because the license needed typically
+        depends on the type of host and the number of CPUs.
 
-        :param config: The configuration of the virtual machine hardware.
+        :param spec: The host name, port, and passwords for the host to be added.
 
+        :param compResSpec: Optionally specify the configuration for the compute resource that will be created
+        to contain the host.VI API 2.5
 
-        :rtype: ManagedObjectReference to a Task 
+        :param addConnected: Flag to specify whether or not the host should be connected as soon as it is
+        added. The creation operation fails if a connection attempt is made and
+        fails.
 
-        '''
-        
-        return self.delegate("CreateVM_Task")(config)
-        
-
-    def RegisterVM_Task(self, path, asTemplate):
-        '''Adds an existing virtual machine to the folder.Any % (percent) character used in
-        this name parameter must be escaped, unless it is used to start an escape
-        sequence. Clients may also escape any other characters in this name
-        parameter.This operation only works if the folder's type is
-        VirtualMachine.
-
-        :param path: A datastore path to the virtual machine.
-
-        :param asTemplate: Flag to specify whether or not the virtual machine should be marked as a template.
+        :param license: Provide a licenseKey or licenseKeyType. See LicenseManagervSphere API 4.0
 
 
         :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("RegisterVM_Task")(path,asTemplate)
+        return self.delegate("AddStandaloneHost_Task")(spec,compResSpec,addConnected,license)
         
 
-    def CreateDVS_Task(self, spec):
-        '''Create a Distributed Virtual Switch in the folder according to the specified
-        (@link vim.DistributedVirtualSwitch.CreateSpec).
+    def CreateCluster(self, name, spec):
+        '''Deprecated. As of VI API 2.5, use CreateClusterEx. Creates a new cluster compute
+        resource in this folder.
 
-        :param spec: The (@link vim.DistributedVirtualSwitch.CreateSpec) to create the Distributed Virtual Switch.
+        :param name: Name for the new cluster.
+
+        :param spec: Specification for the cluster.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: ManagedObjectReference to a ClusterComputeResource 
 
         '''
         
-        return self.delegate("CreateDVS_Task")(spec)
+        return self.delegate("CreateCluster")(name,spec)
         
 
     def CreateClusterEx(self, name, spec):
@@ -94,20 +80,37 @@ class Folder(ManagedEntity):
         return self.delegate("CreateClusterEx")(name,spec)
         
 
-    def CreateCluster(self, name, spec):
-        '''Deprecated. As of VI API 2.5, use CreateClusterEx. Creates a new cluster compute
-        resource in this folder.
+    def CreateDatacenter(self, name):
+        '''Creates a new datacenter with the given name.Any % (percent) character used in
+        this name parameter must be escaped, unless it is used to start an escape
+        sequence. Clients may also escape any other characters in this name
+        parameter.
 
-        :param name: Name for the new cluster.
+        :param name: Name for the new datacenter. An entity name must be a non-empty string of less
+        than 80 characters. The slash (/), backslash (\) and percent (%) will be
+        escaped using the URL syntax. For example, %2F.
 
-        :param spec: Specification for the cluster.
 
-
-        :rtype: ManagedObjectReference to a ClusterComputeResource 
+        :rtype: ManagedObjectReference to a Datacenter 
 
         '''
         
-        return self.delegate("CreateCluster")(name,spec)
+        return self.delegate("CreateDatacenter")(name)
+        
+
+    def CreateDVS_Task(self, spec):
+        '''Create a Distributed Virtual Switch in the folder according to the specified
+        (@link vim.DistributedVirtualSwitch.CreateSpec).
+
+        :param spec: The (@link vim.DistributedVirtualSwitch.CreateSpec) to create the Distributed
+        Virtual Switch.
+
+
+        :rtype: ManagedObjectReference to a Task 
+
+        '''
+        
+        return self.delegate("CreateDVS_Task")(spec)
         
 
     def CreateFolder(self, name):
@@ -117,7 +120,9 @@ class Folder(ManagedEntity):
         it is used to start an escape sequence. Clients may also escape any other
         characters in this name parameter.
 
-        :param name: The name to be given the new folder. An entity name must be a non-empty string of less than 80 characters. The slash (/), backslash (\) and percent (%) will be escaped using the URL syntax. For example, %2F.
+        :param name: The name to be given the new folder. An entity name must be a non-empty string of
+        less than 80 characters. The slash (/), backslash (\) and percent (%) will
+        be escaped using the URL syntax. For example, %2F.
 
 
         :rtype: ManagedObjectReference to a Folder 
@@ -127,28 +132,36 @@ class Folder(ManagedEntity):
         return self.delegate("CreateFolder")(name)
         
 
-    def AddStandaloneHost_Task(self, spec, addConnected):
-        '''Creates a new single-host compute resource. The name provided can be an IP
-        address, such as 192.168.0.120, or a string, such as esx120. If a name is
-        specified, a DNS lookup is used to resolve it to a fully-qualified name,
-        such as esx120.vmware.com. If the DNS lookup fails, the string is stored
-        as specified.Licenses for the host are allocated when making the first
-        connection to the host. This is because the license needed typically
-        depends on the type of host and the number of CPUs.
+    def CreateVM_Task(self, config, pool, host):
+        '''Creates a new virtual machine in the current folder and attaches it to the
+        specified resource pool. This operation creates a virtual machine, instead
+        of cloning a virtual machine from an existing one.The server does not
+        support creating templates using this method. Instead, you should create
+        templates by marking existing virtual machines as templates, or by cloning
+        an existing virtual machine or template.This operation only works if the
+        folder's childType includes VirtualMachine. In addition to the
+        VirtualMachine.Inventory.Create privilege, may also require any of the
+        following privileges depending on the properties of the virtual machine
+        bring created:
 
-        :param spec: The host name, port, and passwords for the host to be added.
+        :param config: The configuration of the virtual machine hardware.
 
-        :param addConnected: Flag to specify whether or not the host should be connected as soon as it is added. The creation operation fails if a connection attempt is made and fails.
+        :param pool: The resource pool to which the virtual machine will be attached.
+
+        :param host: The target host on which the virtual machine will run. This must specify a host
+        that is a member of the ComputeResource indirectly specified by the pool.
+        For a stand-alone host or a cluster with DRS, host can be omitted, and the
+        system selects a default.
 
 
         :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("AddStandaloneHost_Task")(spec,addConnected)
+        return self.delegate("CreateVM_Task")(config,pool,host)
         
 
-    def MoveIntoFolder_Task(self):
+    def MoveIntoFolder_Task(self, list):
         '''Moves a set of managed entities into this folder.This operation is typically used
         by clients when they implement a drag-and-drop interface to move a set of
         objects into a folder.This operation is transactional only with respect to
@@ -185,27 +198,47 @@ class Folder(ManagedEntity):
         the HostSystem, and Host.Inventory.EditCluster on the host's original
         ComputeResource.
 
+        :param list: The list of objects to be moved into the folder.
+
+
         :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("MoveIntoFolder_Task")()
+        return self.delegate("MoveIntoFolder_Task")(list)
         
 
-    def CreateDatacenter(self, name):
-        '''Creates a new datacenter with the given name.Any % (percent) character used in
+    def RegisterVM_Task(self, path, name, asTemplate, pool, host):
+        '''Adds an existing virtual machine to the folder.Any % (percent) character used in
         this name parameter must be escaped, unless it is used to start an escape
         sequence. Clients may also escape any other characters in this name
-        parameter.
+        parameter.This operation only works if the folder's type is
+        VirtualMachine.
 
-        :param name: Name for the new datacenter. An entity name must be a non-empty string of less than 80 characters. The slash (/), backslash (\) and percent (%) will be escaped using the URL syntax. For example, %2F.
+        :param path: A datastore path to the virtual machine.
+
+        :param name: The name to be assigned to the virtual machine. If this parameter is not set, the
+        displayName configuration parameter of the virtual machine is used. An
+        entity name must be a non-empty string of less than 80 characters. The
+        slash (/), backslash (\) and percent (%) will be escaped using the URL
+        syntax. For example, %2F.
+
+        :param asTemplate: Flag to specify whether or not the virtual machine should be marked as a template.
+
+        :param pool: The resource pool to which the virtual machine should be attached. If imported as
+        a template, this parameter is not set.
+
+        :param host: The target host on which the virtual machine will run. This parameter must specify
+        a host that is a member of the ComputeResource indirectly specified by the
+        pool. For a stand-alone host or a cluster with DRS, the parameter can be
+        omitted, and the system selects a default.
 
 
-        :rtype: ManagedObjectReference to a Datacenter 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("CreateDatacenter")(name)
+        return self.delegate("RegisterVM_Task")(path,name,asTemplate,pool,host)
         
 
     def UnregisterAndDestroy_Task(self):

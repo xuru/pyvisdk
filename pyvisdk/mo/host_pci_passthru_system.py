@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostPciPassthruSystem(ExtensibleManagedObject):
-    '''This managed object manages the PciPassthru state of the host.
+    '''
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostPciPassthruSystem):
         # MUST define these
@@ -19,11 +19,17 @@ class HostPciPassthruSystem(ExtensibleManagedObject):
     
     @property
     def pciPassthruInfo(self):
-        '''
-        Array of PciPassthru information
+        '''Array of PciPassthru information
         '''
         return self.update('pciPassthruInfo')
 
+
+    def Refresh(self):
+        '''Refresh the available PciPassthru information.
+        '''
+        
+        return self.delegate("Refresh")()
+        
 
     def UpdatePassthruConfig(self, config):
         '''Updates the PciPassthru configuration, this will get called for the dependent
@@ -34,11 +40,4 @@ class HostPciPassthruSystem(ExtensibleManagedObject):
         '''
         
         return self.delegate("UpdatePassthruConfig")(config)
-        
-
-    def Refresh(self):
-        '''Refresh the available PciPassthru information.
-        '''
-        
-        return self.delegate("Refresh")()
         

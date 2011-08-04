@@ -10,7 +10,9 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostDatastoreSystem(BaseEntity):
-    '''This managed object creates and removes datastores from the host.
+    '''Datastores are never automatically removed because transient storage connection
+        outages may occur. They must be removed from the host using this
+        interface. See Datastore
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostDatastoreSystem):
         # MUST define these
@@ -19,20 +21,18 @@ class HostDatastoreSystem(BaseEntity):
     
     @property
     def capabilities(self):
-        '''
-        Capability vector indicating the available product features.
+        '''Capability vector indicating the available product features.
         '''
         return self.update('capabilities')
 
     @property
     def datastore(self):
-        '''
-        List of datastores on this host.
+        '''List of datastores on this host.
         '''
         return self.update('datastore')
 
 
-    def ConfigureDatastorePrincipal(self, userName):
+    def ConfigureDatastorePrincipal(self, userName, password):
         '''Configures datastore principal user for the host.All virtual machine-related file
         I/O is performed under this user. Configuring datastore principal user
         will result in all virtual machine files (configuration, disk, and so on)
@@ -51,41 +51,26 @@ class HostDatastoreSystem(BaseEntity):
 
         :param userName: Datastore principal user name.
 
-        '''
-        
-        return self.delegate("ConfigureDatastorePrincipal")(userName)
-        
-
-    def QueryVmfsDatastoreCreateOptions(self):
-        '''Queries options for creating a new VMFS datastore for a disk. See devicePath
-
-        :rtype: VmfsDatastoreOption[] 
+        :param password: Optional password for systems that require password for user impersonation.
 
         '''
         
-        return self.delegate("QueryVmfsDatastoreCreateOptions")()
+        return self.delegate("ConfigureDatastorePrincipal")(userName,password)
         
 
-    def UpdateLocalSwapDatastore(self):
-        '''Choose the localSwapDatastore for this host. Any change to this setting will
-        affect virtual machines that subsequently power on or resume from a
-        suspended state at this host, or that migrate to this host while powered
-        on; virtual machines that are currently powered on at this host will not
-        yet be affected.
-        '''
-        
-        return self.delegate("UpdateLocalSwapDatastore")()
-        
+    def CreateLocalDatastore(self, name, path):
+        '''Creates a new local datastore.
 
-    def QueryVmfsDatastoreExtendOptions(self):
-        '''Queries for options for increasing the capacity of an existing VMFS datastore by
-        adding new extents using space from the specified disk. See devicePath
+        :param name: The name of a datastore to create on the local host.
 
-        :rtype: VmfsDatastoreOption[] 
+        :param path: The file path for a directory in which the virtual machine data will be stored.
+
+
+        :rtype: ManagedObjectReference to a Datastore 
 
         '''
         
-        return self.delegate("QueryVmfsDatastoreExtendOptions")()
+        return self.delegate("CreateLocalDatastore")(name,path)
         
 
     def CreateNasDatastore(self, spec):
@@ -101,20 +86,6 @@ class HostDatastoreSystem(BaseEntity):
         return self.delegate("CreateNasDatastore")(spec)
         
 
-    def ExtendVmfsDatastore(self, spec):
-        '''Increases the capacity of an existing VMFS datastore by adding new extents to the
-        datastore.
-
-        :param spec: The specification describing what extents to add to a VMFS datastore.
-
-
-        :rtype: ManagedObjectReference to a Datastore 
-
-        '''
-        
-        return self.delegate("ExtendVmfsDatastore")(spec)
-        
-
     def CreateVmfsDatastore(self, spec):
         '''Creates a new VMFS datastore.
 
@@ -128,22 +99,39 @@ class HostDatastoreSystem(BaseEntity):
         return self.delegate("CreateVmfsDatastore")(spec)
         
 
-    def CreateLocalDatastore(self, path, name):
-        '''Creates a new local datastore.
+    def ExpandVmfsDatastore(self, datastore, spec):
+        '''Increases the capacity of an existing VMFS datastore by expanding (increasing the
+        size of) an existing extent of the datastore.
 
-        :param path: The file path for a directory in which the virtual machine data will be stored.
+        :param datastore: The datastore whose capacity should be increased.
 
-        :param name: The name of a datastore to create on the local host.
+        :param spec: The specification describing which extent of the VMFS datastore to expand.
 
 
         :rtype: ManagedObjectReference to a Datastore 
 
         '''
         
-        return self.delegate("CreateLocalDatastore")(path,name)
+        return self.delegate("ExpandVmfsDatastore")(datastore,spec)
         
 
-    def QueryAvailableDisksForVmfs(self):
+    def ExtendVmfsDatastore(self, datastore, spec):
+        '''Increases the capacity of an existing VMFS datastore by adding new extents to the
+        datastore.
+
+        :param datastore: The datastore whose capacity should be increased.
+
+        :param spec: The specification describing what extents to add to a VMFS datastore.
+
+
+        :rtype: ManagedObjectReference to a Datastore 
+
+        '''
+        
+        return self.delegate("ExtendVmfsDatastore")(datastore,spec)
+        
+
+    def QueryAvailableDisksForVmfs(self, datastore):
         '''Query to list disks that can be used to contain VMFS datastore extents. If the
         optional parameter name is supplied, queries for disks that can be used to
         contain extents for a VMFS datastore identified by the supplied name.
@@ -157,43 +145,88 @@ class HostDatastoreSystem(BaseEntity):
         backend uses an RDM that is referencing a disk LUN, the disk LUN becomes
         ineligible for use by a VMFS datastore.
 
+        :param datastore: The managed object reference of the VMFS datastore you want extents for.
+
+
         :rtype: HostScsiDisk[] 
 
         '''
         
-        return self.delegate("QueryAvailableDisksForVmfs")()
+        return self.delegate("QueryAvailableDisksForVmfs")(datastore)
         
 
-    def ExpandVmfsDatastore(self, spec):
-        '''Increases the capacity of an existing VMFS datastore by expanding (increasing the
-        size of) an existing extent of the datastore.
+    def QueryUnresolvedVmfsVolumes(self):
+        '''Get the list of unbound VMFS volumes. For sharing a volume across hosts, a VMFS
+        volume is bound to its underlying block device storage. When a low level
+        block copy is performed to copy or move the VMFS volume, the copied volume
+        will be unbound.
 
-        :param spec: The specification describing which extent of the VMFS datastore to expand.
-
-
-        :rtype: ManagedObjectReference to a Datastore 
+        :rtype: HostUnresolvedVmfsVolume[] 
 
         '''
         
-        return self.delegate("ExpandVmfsDatastore")(spec)
+        return self.delegate("QueryUnresolvedVmfsVolumes")()
         
 
-    def RemoveDatastore(self):
-        '''Removes a datastore from a host.
-        '''
-        
-        return self.delegate("RemoveDatastore")()
-        
+    def QueryVmfsDatastoreCreateOptions(self, devicePath):
+        '''Queries options for creating a new VMFS datastore for a disk. See devicePath
 
-    def QueryVmfsDatastoreExpandOptions(self):
-        '''Queries for options for increasing the capacity of an existing VMFS datastore by
-        expanding (increasing the size of) an existing extent of the datastore.
+        :param devicePath: The devicePath of the disk on which datastore creation options are generated. See
+        devicePath
+
 
         :rtype: VmfsDatastoreOption[] 
 
         '''
         
-        return self.delegate("QueryVmfsDatastoreExpandOptions")()
+        return self.delegate("QueryVmfsDatastoreCreateOptions")(devicePath)
+        
+
+    def QueryVmfsDatastoreExpandOptions(self, datastore):
+        '''Queries for options for increasing the capacity of an existing VMFS datastore by
+        expanding (increasing the size of) an existing extent of the datastore.
+
+        :param datastore: The datastore to be expanded.
+
+
+        :rtype: VmfsDatastoreOption[] 
+
+        '''
+        
+        return self.delegate("QueryVmfsDatastoreExpandOptions")(datastore)
+        
+
+    def QueryVmfsDatastoreExtendOptions(self, datastore, devicePath, suppressExpandCandidates):
+        '''Queries for options for increasing the capacity of an existing VMFS datastore by
+        adding new extents using space from the specified disk. See devicePath
+
+        :param datastore: The datastore to be extended. See devicePath
+
+        :param devicePath: The devicePath of the disk on which datastore extension options are generated. See
+        devicePath
+
+        :param suppressExpandCandidates: Indicates whether to exclude options that can be used for extent expansion also.
+        Free space can be used for adding an extent or expanding an existing
+        extent. If this parameter is set to true, the list of options returned
+        will not include free space that can be used for expansion. See
+        devicePathvSphere API 4.0
+
+
+        :rtype: VmfsDatastoreOption[] 
+
+        '''
+        
+        return self.delegate("QueryVmfsDatastoreExtendOptions")(datastore,devicePath,suppressExpandCandidates)
+        
+
+    def RemoveDatastore(self, datastore):
+        '''Removes a datastore from a host.
+
+        :param datastore: The datastore to be removed.
+
+        '''
+        
+        return self.delegate("RemoveDatastore")(datastore)
         
 
     def ResignatureUnresolvedVmfsVolume_Task(self, resolutionSpec):
@@ -209,7 +242,8 @@ class HostDatastoreSystem(BaseEntity):
         host. Users can specify a list of hosts on which the volume will be auto-
         mounted.
 
-        :param resolutionSpec: A data object that describes what the disk extents to be used for creating the new VMFS volume.
+        :param resolutionSpec: A data object that describes what the disk extents to be used for creating the new
+        VMFS volume.
 
 
         :rtype: ManagedObjectReference to a Task 
@@ -219,15 +253,18 @@ class HostDatastoreSystem(BaseEntity):
         return self.delegate("ResignatureUnresolvedVmfsVolume_Task")(resolutionSpec)
         
 
-    def QueryUnresolvedVmfsVolumes(self):
-        '''Get the list of unbound VMFS volumes. For sharing a volume across hosts, a VMFS
-        volume is bound to its underlying block device storage. When a low level
-        block copy is performed to copy or move the VMFS volume, the copied volume
-        will be unbound.
+    def UpdateLocalSwapDatastore(self, datastore):
+        '''Choose the localSwapDatastore for this host. Any change to this setting will
+        affect virtual machines that subsequently power on or resume from a
+        suspended state at this host, or that migrate to this host while powered
+        on; virtual machines that are currently powered on at this host will not
+        yet be affected.
 
-        :rtype: HostUnresolvedVmfsVolume[] 
+        :param datastore: The selected datastore. If this argument is unset, then the localSwapDatastore
+        property becomes unset. Otherwise, the host must have read/write access to
+        the indicated datastore.
 
         '''
         
-        return self.delegate("QueryUnresolvedVmfsVolumes")()
+        return self.delegate("UpdateLocalSwapDatastore")(datastore)
         

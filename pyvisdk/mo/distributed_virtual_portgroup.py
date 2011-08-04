@@ -10,9 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class DistributedVirtualPortgroup(Network):
-    '''The interface to the distributed virtual portgroup objects. This type represents
-        both a group of ports that share the common network setting and a Network
-        entity in the datacenter.
+    '''
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.DistributedVirtualPortgroup):
         # MUST define these
@@ -21,22 +19,19 @@ class DistributedVirtualPortgroup(Network):
     
     @property
     def config(self):
-        '''
-        The configuration of the portgroup.
+        '''The configuration of the portgroup.
         '''
         return self.update('config')
 
     @property
     def key(self):
-        '''
-        The generated UUID of the portgroup.
+        '''The generated UUID of the portgroup.
         '''
         return self.update('key')
 
     @property
     def portKeys(self):
-        '''
-        The port keys of those ports in the portgroup.
+        '''The port keys of those ports in the portgroup.
         '''
         return self.update('portKeys')
 
