@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class ClusterComputeResource(ComputeResource):
-    '''Properties
+    '''Use the Folder.CreateClusterEx method to create an instance of this object.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ClusterComputeResource):
         # MUST define these
@@ -88,7 +88,7 @@ class ClusterComputeResource(ComputeResource):
         :param license: Provide a licenseKey or licenseKeyType. See LicenseManagervSphere API 4.0
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -141,7 +141,7 @@ class ClusterComputeResource(ComputeResource):
         argument has no effect if the host is part of a cluster.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -171,7 +171,7 @@ class ClusterComputeResource(ComputeResource):
         :param host: The list of hosts to move into the cluster.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -217,7 +217,7 @@ class ClusterComputeResource(ComputeResource):
         default portions of the configuration.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

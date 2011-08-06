@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class VmwareDistributedVirtualSwitch(DistributedVirtualSwitch):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.VmwareDistributedVirtualSwitch):
         # MUST define these

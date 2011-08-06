@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostProfileManager(ProfileManager):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostProfileManager):
         # MUST define these
@@ -28,7 +28,7 @@ class HostProfileManager(ProfileManager):
         :param configSpec: Set of configuration changes that need to be applied to the host.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

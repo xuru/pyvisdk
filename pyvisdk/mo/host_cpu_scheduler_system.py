@@ -10,7 +10,8 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostCpuSchedulerSystem(ExtensibleManagedObject):
-    '''Properties
+    ''': This managed object is useful only on platforms where resource management
+        controls are available to optimize the running of virtual machines.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostCpuSchedulerSystem):
         # MUST define these

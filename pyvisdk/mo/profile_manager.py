@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class ProfileManager(BaseEntity):
-    '''
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ProfileManager):
         # MUST define these
@@ -31,7 +31,7 @@ class ProfileManager(BaseEntity):
         can be used to create the Profile.
 
 
-        :rtype: ManagedObjectReference to a Profile 
+        :rtype: Profile 
 
         '''
         
@@ -45,7 +45,7 @@ class ProfileManager(BaseEntity):
         :param entity: Entity for which profile is being looked up.
 
 
-        :rtype: ManagedObjectReference[] to a Profile[] 
+        :rtype: Profile[] 
 
         '''
         

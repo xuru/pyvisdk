@@ -10,9 +10,10 @@ import logging
 log = logging.getLogger(__name__)
 
 class OvfManager(BaseEntity):
-    '''This interface only converts between OVF and VI types. To actually import and
-        export entities, use ResourcePool.importVApp, VirtualMachine.exportVm and
-        VirtualApp.exportVApp.
+    '''The purpose of this interface is to make it easier for callers to import VMs and
+        vApps from OVF packages and to export VI packages to OVF. In the following
+        description, the term "client" is used to mean any caller of the
+        interface.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.OvfManager):
         # MUST define these
@@ -49,9 +50,7 @@ class OvfManager(BaseEntity):
 
     def CreateImportSpec(self, ovfDescriptor, resourcePool, datastore, cisp):
         '''Validate the OVF descriptor against the hardware supported by the host system. If
-        the validation succeeds, return a result containing:* An ImportSpec to use
-        when importing the entity. * A list of items to upload (for example disk
-        backing files, ISO images etc.)
+        the validation succeeds, return a result containing:
 
         :param ovfDescriptor: The OVF descriptor of the entity.
 

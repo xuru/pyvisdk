@@ -10,23 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class EnvironmentBrowser(BaseEntity):
-    '''* The virtual machine configuration options. Each vim.vm.ConfigOption describes
-        the execution environment for a virtual machine, the particular set of
-        virtual hardware that is supported. A ComputeResource might support
-        multiple sets. Access is provided through the configOptionDescriptor
-        property and the QueryConfigOption operation. * The supported device
-        targets. Each virtual device specified in the virtual machine needs to be
-        hooked up to a "physical" counterpart. For networks, this means choosing a
-        network name; for a virtual CD-rom this might be an ISO image, etc. The
-        environment browser provides access to the device targets through the
-        QueryConfigTarget operation. * Storage locations and files. A selection of
-        locations where the virtual machine files can be stored, and the
-        possibility to browse for existing virtual disks and ISO images. The
-        datastore browser, provided by the datastoreBrowser property, provides
-        access to the contents of one or more datastores. The items in a datastore
-        are files that contain configuration, virtual disk, and the other data
-        associated with a virtual machine. * The capabilities supported by the
-        ComputeResource to which the virtual machine belongs.
+    '''The environment consists of three main components:
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.EnvironmentBrowser):
         # MUST define these

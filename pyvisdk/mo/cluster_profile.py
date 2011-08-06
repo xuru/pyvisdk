@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class ClusterProfile(Profile):
-    '''Update the ClusterProfile with the specified config.
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ClusterProfile):
         # MUST define these

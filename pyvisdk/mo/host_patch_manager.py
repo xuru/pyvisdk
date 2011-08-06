@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostPatchManager(BaseEntity):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostPatchManager):
         # MUST define these
@@ -28,7 +28,7 @@ class HostPatchManager(BaseEntity):
         :param bundleUrls: a list of urls pointing to an "offline" bundle.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -55,7 +55,7 @@ class HostPatchManager(BaseEntity):
         overwriting the already installed update.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -75,7 +75,7 @@ class HostPatchManager(BaseEntity):
         :param vibUrls: The urls of update binary files to be installed.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -85,7 +85,7 @@ class HostPatchManager(BaseEntity):
     def QueryHostPatch_Task(self):
         '''Query the host for installed bulletins.
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -110,7 +110,7 @@ class HostPatchManager(BaseEntity):
         updates available in the repository will be scanned.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -127,7 +127,7 @@ class HostPatchManager(BaseEntity):
         :param bundleUrls: a list of urls pointing to an "offline" bundle.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -144,7 +144,7 @@ class HostPatchManager(BaseEntity):
         :param vibUrls: The urls of update binary files to be staged.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -157,7 +157,7 @@ class HostPatchManager(BaseEntity):
         :param bulletinIds: A list of bulletin IDs to be removed.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

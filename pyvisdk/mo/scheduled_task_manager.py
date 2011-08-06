@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class ScheduledTaskManager(BaseEntity):
-    '''
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ScheduledTaskManager):
         # MUST define these
@@ -39,7 +39,7 @@ class ScheduledTaskManager(BaseEntity):
         :param spec: The specification for the new scheduled task.
 
 
-        :rtype: ManagedObjectReference to a ScheduledTask 
+        :rtype: ScheduledTask 
 
         '''
         
@@ -59,7 +59,7 @@ class ScheduledTaskManager(BaseEntity):
         :param spec: The specification for the new scheduled task.
 
 
-        :rtype: ManagedObjectReference to a ScheduledTask 
+        :rtype: ScheduledTask 
 
         '''
         
@@ -72,7 +72,7 @@ class ScheduledTaskManager(BaseEntity):
         :param entity: The entity. If null, all scheduled tasks are returned for visible entities.
 
 
-        :rtype: ManagedObjectReference[] to a ScheduledTask[] 
+        :rtype: ScheduledTask[] 
 
         '''
         
@@ -86,7 +86,7 @@ class ScheduledTaskManager(BaseEntity):
         entities and visible ManagedObjects.
 
 
-        :rtype: ManagedObjectReference[] to a ScheduledTask[] 
+        :rtype: ScheduledTask[] 
 
         '''
         

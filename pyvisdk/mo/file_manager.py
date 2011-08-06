@@ -10,7 +10,9 @@ import logging
 log = logging.getLogger(__name__)
 
 class FileManager(BaseEntity):
-    '''A URL has the form
+    '''This managed object type provides a way to manage and manipulate files and folders
+        on datastores. The source and the destination names are in the form of a
+        URL or a datastore path.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.FileManager):
         # MUST define these
@@ -65,7 +67,7 @@ class FileManager(BaseEntity):
         specified, it is assumed to be false.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -92,7 +94,7 @@ class FileManager(BaseEntity):
         be a URL.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -163,7 +165,7 @@ class FileManager(BaseEntity):
         specified, it is assumed to be false.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

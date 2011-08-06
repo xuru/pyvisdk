@@ -10,7 +10,9 @@ import logging
 log = logging.getLogger(__name__)
 
 class ContainerView(ManagedObjectView):
-    '''* Folder * Datacenter * ComputeResource * ResourcePool * HostSystem
+    '''When you invoke the CreateContainerView method, you specify a managed object
+        instance that provides the starting point for object selection. You can
+        use the following managed objects as the basis of a container view:
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ContainerView):
         # MUST define these

@@ -10,9 +10,8 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostDatastoreSystem(BaseEntity):
-    '''Datastores are never automatically removed because transient storage connection
-        outages may occur. They must be removed from the host using this
-        interface. See Datastore
+    '''To a host, a datastore is a storage abstraction that is backed by one of several
+        types of storage volumes:
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostDatastoreSystem):
         # MUST define these
@@ -66,7 +65,7 @@ class HostDatastoreSystem(BaseEntity):
         :param path: The file path for a directory in which the virtual machine data will be stored.
 
 
-        :rtype: ManagedObjectReference to a Datastore 
+        :rtype: Datastore 
 
         '''
         
@@ -79,7 +78,7 @@ class HostDatastoreSystem(BaseEntity):
         :param spec: The specification for creating a network-attached storage volume.
 
 
-        :rtype: ManagedObjectReference to a Datastore 
+        :rtype: Datastore 
 
         '''
         
@@ -92,7 +91,7 @@ class HostDatastoreSystem(BaseEntity):
         :param spec: The specification for creating a datastore backed by a VMFS.
 
 
-        :rtype: ManagedObjectReference to a Datastore 
+        :rtype: Datastore 
 
         '''
         
@@ -108,7 +107,7 @@ class HostDatastoreSystem(BaseEntity):
         :param spec: The specification describing which extent of the VMFS datastore to expand.
 
 
-        :rtype: ManagedObjectReference to a Datastore 
+        :rtype: Datastore 
 
         '''
         
@@ -124,7 +123,7 @@ class HostDatastoreSystem(BaseEntity):
         :param spec: The specification describing what extents to add to a VMFS datastore.
 
 
-        :rtype: ManagedObjectReference to a Datastore 
+        :rtype: Datastore 
 
         '''
         
@@ -169,9 +168,9 @@ class HostDatastoreSystem(BaseEntity):
         
 
     def QueryVmfsDatastoreCreateOptions(self, devicePath):
-        '''Queries options for creating a new VMFS datastore for a disk. See devicePath
+        '''Queries options for creating a new VMFS datastore for a disk.See devicePath
 
-        :param devicePath: The devicePath of the disk on which datastore creation options are generated. See
+        :param devicePath: The devicePath of the disk on which datastore creation options are generated.See
         devicePath
 
 
@@ -198,17 +197,17 @@ class HostDatastoreSystem(BaseEntity):
 
     def QueryVmfsDatastoreExtendOptions(self, datastore, devicePath, suppressExpandCandidates):
         '''Queries for options for increasing the capacity of an existing VMFS datastore by
-        adding new extents using space from the specified disk. See devicePath
+        adding new extents using space from the specified disk.See devicePath
 
-        :param datastore: The datastore to be extended. See devicePath
+        :param datastore: The datastore to be extended.See devicePath
 
-        :param devicePath: The devicePath of the disk on which datastore extension options are generated. See
+        :param devicePath: The devicePath of the disk on which datastore extension options are generated.See
         devicePath
 
         :param suppressExpandCandidates: Indicates whether to exclude options that can be used for extent expansion also.
         Free space can be used for adding an extent or expanding an existing
         extent. If this parameter is set to true, the list of options returned
-        will not include free space that can be used for expansion. See
+        will not include free space that can be used for expansion.See
         devicePathvSphere API 4.0
 
 
@@ -246,7 +245,7 @@ class HostDatastoreSystem(BaseEntity):
         VMFS volume.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

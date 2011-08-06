@@ -10,7 +10,13 @@ import logging
 log = logging.getLogger(__name__)
 
 class ViewManager(BaseEntity):
-    '''The ViewManager supports the following views:
+    '''A View is a mechanism that supports selection of objects on the server and
+        subsequently, access to those objects. Views can simplify the task of
+        retrieving data from the server. When you use a view, you can use a single
+        invocation of a PropertyCollector method to retrieve data or receive
+        notification of changes instead of multiple invocations involving multiple
+        filter specifications. A view exists until you destroy it or until the end
+        of the session.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ViewManager):
         # MUST define these
@@ -72,7 +78,7 @@ class ViewManager(BaseEntity):
         affect this behavior.
 
 
-        :rtype: ManagedObjectReference to a ContainerView 
+        :rtype: ContainerView 
 
         '''
         
@@ -82,7 +88,7 @@ class ViewManager(BaseEntity):
     def CreateInventoryView(self):
         '''Create a new InventoryView managed object for this session.
 
-        :rtype: ManagedObjectReference to a InventoryView 
+        :rtype: InventoryView 
 
         '''
         
@@ -98,7 +104,7 @@ class ViewManager(BaseEntity):
         :param obj: The initial list of objects in the view.
 
 
-        :rtype: ManagedObjectReference to a ListView 
+        :rtype: ListView 
 
         '''
         
@@ -112,7 +118,7 @@ class ViewManager(BaseEntity):
         :param view: The view that will provide the object list for the new ListView object.
 
 
-        :rtype: ManagedObjectReference to a ListView 
+        :rtype: ListView 
 
         '''
         

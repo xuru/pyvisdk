@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class VirtualMachineProvisioningChecker(BaseEntity):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.VirtualMachineProvisioningChecker):
         # MUST define these
@@ -42,7 +42,7 @@ class VirtualMachineProvisioningChecker(BaseEntity):
         :param testType: The set of tests to run. If this argument is not set, all tests will be run.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -58,7 +58,7 @@ class VirtualMachineProvisioningChecker(BaseEntity):
         would automatically select a host, all potential hosts are tested against.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -77,7 +77,7 @@ class VirtualMachineProvisioningChecker(BaseEntity):
         connected and not in maintenence mode for the purposes of this operation.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class DiagnosticManager(BaseEntity):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.DiagnosticManager):
         # MUST define these
@@ -58,7 +58,7 @@ class DiagnosticManager(BaseEntity):
         called directly on a host, then this parameter must be empty.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

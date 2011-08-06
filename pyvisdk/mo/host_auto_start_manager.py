@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostAutoStartManager(BaseEntity):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostAutoStartManager):
         # MUST define these

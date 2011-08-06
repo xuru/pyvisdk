@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class Profile(BaseEntity):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.Profile):
         # MUST define these
@@ -80,7 +80,7 @@ class Profile(BaseEntity):
         profile.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

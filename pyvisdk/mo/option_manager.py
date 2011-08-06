@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class OptionManager(BaseEntity):
-    '''Properties
+    '''
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.OptionManager):
         # MUST define these
@@ -33,11 +33,7 @@ class OptionManager(BaseEntity):
     def QueryOptions(self):
         '''Returns a specific node or nodes in the option hierarchy.This method might require
         any of the following privileges depending on where the property fits in
-        the inventory tree.* System.View on the root folder, if this is used to
-        read settings in the "client" subtree. * System.Read on the root folder,
-        if this is used to read all settings or any settings beside those in the
-        "client" subtree. * System.Read on the host, if this is used to read the
-        advanced options for a host configuration.
+        the inventory tree.
 
         :rtype: OptionValue[] 
 
@@ -51,10 +47,7 @@ class OptionManager(BaseEntity):
         all are applied or none are.A nested option setting can be named using a
         dot notation; for example, system.cacheSize.This method might require any
         of the following privileges depending on where the property fits in the
-        inventory tree.* Global.Settings on the root folder, if this is used to
-        modify the settings in the service node. * Host.Config.AdvancedConfig on
-        the host, if this is used to set the advanced options in the host
-        configuration.
+        inventory tree.
         '''
         
         return self.delegate("UpdateOptions")()

@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class TaskManager(BaseEntity):
-    '''
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.TaskManager):
         # MUST define these
@@ -46,7 +46,7 @@ class TaskManager(BaseEntity):
         :param filter: The specification for the task query filter.
 
 
-        :rtype: ManagedObjectReference to a TaskHistoryCollector 
+        :rtype: TaskHistoryCollector 
 
         '''
         

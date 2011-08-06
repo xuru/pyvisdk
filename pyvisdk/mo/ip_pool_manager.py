@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class IpPoolManager(BaseEntity):
-    '''Properties
+    '''IP Pools are used to allocate IPv4 and IPv6 addresses to vApps.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.IpPoolManager):
         # MUST define these

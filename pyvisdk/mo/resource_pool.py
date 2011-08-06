@@ -10,7 +10,8 @@ import logging
 log = logging.getLogger(__name__)
 
 class ResourcePool(ManagedEntity):
-    '''Configuration
+    '''In a parent/child hierarchy of resource pools and virtual machines, the single
+        resource pool that has no parent pool is known as the .
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ResourcePool):
         # MUST define these
@@ -84,7 +85,7 @@ class ResourcePool(ManagedEntity):
         system selects a default.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -98,7 +99,7 @@ class ResourcePool(ManagedEntity):
         is used to start an escape sequence. Clients may also escape any other
         characters in this name parameter.
 
-        :rtype: ManagedObjectReference to a ResourcePool 
+        :rtype: ResourcePool 
 
         '''
         
@@ -120,7 +121,7 @@ class ResourcePool(ManagedEntity):
         :param vmFolder: The parent folder for the vApp. This must be null if this is a child vApp.
 
 
-        :rtype: ManagedObjectReference to a VirtualApp 
+        :rtype: VirtualApp 
 
         '''
         
@@ -131,13 +132,7 @@ class ResourcePool(ManagedEntity):
         '''Removes all child resource pools recursively. All virtual machines and vApps
         associated with the child resource pools get associated with this resource
         pool.Note that resource pools contained in child vApps are not
-        affected.The privilege checks performed are the following.*
-        Resource.DeletePool privilege must be held on this object and each of it's
-        immediate children to be destroyed. * If VMs are being moved, the
-        privilege Resource.AssignVMToPool must be held on this resource pool as
-        well as on any virtual machines being moved. * If vApps are being moved,
-        the privilege Resource.AssignVAppToPool must be held on this resource pool
-        as well as on any vApps being moved.
+        affected.The privilege checks performed are the following.
         '''
         
         return self.delegate("DestroyChildren")()
@@ -157,7 +152,7 @@ class ResourcePool(ManagedEntity):
         system selects a default.
 
 
-        :rtype: ManagedObjectReference to a HttpNfcLease 
+        :rtype: HttpNfcLease 
 
         '''
         
@@ -168,25 +163,13 @@ class ResourcePool(ManagedEntity):
         '''Moves a set of resource pools, vApps or virtual machines into this pool. The
         pools, vApps and virtual machines must be part of the cluster or
         standalone host that contains this pool.For each entity being moved, the
-        move is subject to the following privilege checks:* If the object being
-        moved is a ResourcePool, then Resource.MovePool must be held on the pool
-        being moved and it's former parent pool or vApp. If the target is a vApp,
-        the privilege VApp.AssignResourcePool must be held on it. If the target is
-        a ResourcePool, Resource.MovePool must be held on it. * If the object
-        being moved is a VirtualApp, VApp.Move must be held on the vApp being
-        moved and it's former parent pool or vApp. If the target entity is a
-        resource pool, Resource.AssignVAppToPool must be held on the target. If
-        the target is a vApp, the privilege VApp.AssignVApp must be held on the
-        target vApp. * If the object being moved is a VirtualMachine, then if the
-        target is a ResourcePool, Resource.AssignVMToPool is required on the
-        VirtualMachine and the target pool. If the target is a vApp, VApp.AssignVM
-        is required on both the VirtualMachine and the target pool.This operation
-        is typically used by clients when they implement a drag-and-drop interface
-        to move a set of objects into a folder.This operation is only
-        transactional with respect to each individual entity. The set of entities
-        is moved sequentially, as specified in the list, and committed one at a
-        time. If a failure is detected, then the method terminates with an
-        exception.The root resource pool cannot be moved.
+        move is subject to the following privilege checks:This operation is
+        typically used by clients when they implement a drag-and-drop interface to
+        move a set of objects into a folder.This operation is only transactional
+        with respect to each individual entity. The set of entities is moved
+        sequentially, as specified in the list, and committed one at a time. If a
+        failure is detected, then the method terminates with an exception.The root
+        resource pool cannot be moved.
 
         :param list: A list of ResourcePool and VirtualMachine objects.
 
@@ -240,7 +223,7 @@ class ResourcePool(ManagedEntity):
         be omitted, and the system selects a default.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -256,11 +239,7 @@ class ResourcePool(ManagedEntity):
         at least one and as many as all of the changes are not applied.A set can
         include a subset of the resources. Children that are not mentioned in the
         list are not changed.For each ResourceConfigSpec, the following privilege
-        checks apply:* If the ResourceConfigSpec refers to a child resource pool
-        or a child vApp, the privileges required are the same as would be required
-        for calling UpdateConfig on that entity. * If the ResourceConfigSpec
-        refers to a virtual machine, VirtualMachine.Config.Resource must be held
-        on the virtual machine.
+        checks apply:
         '''
         
         return self.delegate("UpdateChildResourceConfiguration")()
@@ -270,10 +249,7 @@ class ResourcePool(ManagedEntity):
         '''Updates the configuration of the resource pool.Any % (percent) character used in
         this name parameter must be escaped, unless it is used to start an escape
         sequence. Clients may also escape any other characters in this name
-        parameter.The privilege checks for this operation are as follows:* If this
-        is a resource pool, the privilege Resource.EditPool is required on this
-        and on the parent pool or vApp. * If this is a vApp, the privilege
-        VApp.ResourceConfig is required on this and on the parent pool or vApp.
+        parameter.The privilege checks for this operation are as follows:
 
         :param name: If set, then the new name of the resource pool.
 

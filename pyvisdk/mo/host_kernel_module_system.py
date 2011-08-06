@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostKernelModuleSystem(BaseEntity):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostKernelModuleSystem):
         # MUST define these

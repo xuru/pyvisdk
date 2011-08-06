@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class EventManager(BaseEntity):
-    '''
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.EventManager):
         # MUST define these
@@ -45,7 +45,7 @@ class EventManager(BaseEntity):
         :param filter: The event query filter.
 
 
-        :rtype: ManagedObjectReference to a EventHistoryCollector 
+        :rtype: EventHistoryCollector 
 
         '''
         

@@ -10,8 +10,10 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostDatastoreBrowser(BaseEntity):
-    '''The intent is to provide functionality analogous to a file chooser in a user
-        interface.
+    '''Although datastores may often be implemented using a traditional file system, a
+        full interface to a file system is not provided here. Instead, specialized
+        access for virtual machine files is provided. A datastore implementation
+        may completely hide the file directory structure.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostDatastoreBrowser):
         # MUST define these
@@ -50,7 +52,7 @@ class HostDatastoreBrowser(BaseEntity):
         path. The Datastore.Browse privilege must be held on the datastore
         identified by the datastore path.
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -63,7 +65,7 @@ class HostDatastoreBrowser(BaseEntity):
         path and all subfolders. The Datastore.Browse privilege must be held on
         the datastore identified by the datastore path.
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

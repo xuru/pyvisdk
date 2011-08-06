@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostDiagnosticSystem(BaseEntity):
-    '''Properties
+    '''
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostDiagnosticSystem):
         # MUST define these
@@ -53,11 +53,11 @@ class HostDiagnosticSystem(BaseEntity):
         '''For a disk, query for the diagnostic partition creation description. The
         description details how the diagnostic partition will be created on the
         disk and provides a creation specification that is needed to invoke the
-        create operation. See HostScsiDisk See uuid
+        create operation.See HostScsiDiskSee uuid
 
-        :param diskUuid: See HostScsiDisk See uuid
+        :param diskUuid: See HostScsiDiskSee uuid
 
-        :param diagnosticType: See HostScsiDisk See uuid
+        :param diagnosticType: See HostScsiDiskSee uuid
 
 
         :rtype: HostDiagnosticPartitionCreateDescription 

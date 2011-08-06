@@ -10,9 +10,10 @@ import logging
 log = logging.getLogger(__name__)
 
 class ServiceInstance(BaseEntity):
-    '''When you create managed objects, the server adds them to the inventory. The
-        inventory of managed objects includes instances the following object
-        types:
+    '''A vSphere API client application begins by connecting to a server and obtaining a
+        reference to the ServiceInstance. The client can then use the
+        RetrieveServiceContent method to gain access to the various vSphere
+        manager entities and to the root folder of the inventory.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ServiceInstance):
         # MUST define these

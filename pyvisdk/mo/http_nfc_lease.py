@@ -10,8 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HttpNfcLease(BaseEntity):
-    '''The import/export task corresponding to the lease continues running while the
-        lease is held.
+    '''A lease is in one of four states:
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HttpNfcLease):
         # MUST define these

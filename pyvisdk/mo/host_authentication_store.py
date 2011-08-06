@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostAuthenticationStore(BaseEntity):
-    '''Properties
+    '''
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostAuthenticationStore):
         # MUST define these

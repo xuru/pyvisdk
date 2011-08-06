@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class AlarmManager(BaseEntity):
-    '''
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.AlarmManager):
         # MUST define these
@@ -69,7 +69,7 @@ class AlarmManager(BaseEntity):
         :param spec: The specification for the new alarm.
 
 
-        :rtype: ManagedObjectReference to a Alarm 
+        :rtype: Alarm 
 
         '''
         
@@ -95,7 +95,7 @@ class AlarmManager(BaseEntity):
         :param entity: The entity. If not set, alarms are returned for all visible entities.
 
 
-        :rtype: ManagedObjectReference[] to a Alarm[] 
+        :rtype: Alarm[] 
 
         '''
         

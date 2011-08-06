@@ -10,7 +10,9 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostFirmwareSystem(BaseEntity):
-    '''Properties
+    '''The FirmwareSystem managed object type provides access to the firmware of an
+        embedded ESX host. It provides operations to backup/restore/reset the
+        configuration of an embedded ESX host.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostFirmwareSystem):
         # MUST define these

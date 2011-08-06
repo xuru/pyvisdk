@@ -10,9 +10,10 @@ import logging
 log = logging.getLogger(__name__)
 
 class ComputeResource(ManagedEntity):
-    '''A ComputeResource always has a root ResourcePool associated with it. Certain types
-        of clusters such as those with VMware DRS enabled and standalone hosts
-        (ESX Server 3) support the creation of ResourcePool hierarchies.
+    '''The base type ComputeResource, when instantiated by calling
+        AddStandaloneHost_Task, represents a single host. The subclass
+        ClusterComputeResource represents a cluster of hosts and adds distributed
+        management features such as availability and resource scheduling.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ComputeResource):
         # MUST define these

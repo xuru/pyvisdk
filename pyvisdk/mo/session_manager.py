@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class SessionManager(BaseEntity):
-    '''
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.SessionManager):
         # MUST define these
@@ -70,7 +70,7 @@ class SessionManager(BaseEntity):
         it.This sequence of operations is conceptually similar to the
         functionality provided by AcquireLocalTicket, however the methods can be
         used by remote clients and do not require a shared filesystem for
-        transport. See CloneSession
+        transport.See CloneSession
 
         :rtype: xsd:string 
 
@@ -109,9 +109,9 @@ class SessionManager(BaseEntity):
         '''Clone the session specified by the clone ticket and associate it with the current
         connection. The current session will take on the identity and
         authorization level of the UserSession associated with the specified
-        cloning ticket. See AcquireCloneTicket
+        cloning ticket.See AcquireCloneTicket
 
-        :param cloneTicket: ticket string acquired via AcquireCloneTicket. See AcquireCloneTicket
+        :param cloneTicket: ticket string acquired via AcquireCloneTicket.See AcquireCloneTicket
 
 
         :rtype: UserSession 

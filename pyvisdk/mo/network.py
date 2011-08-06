@@ -10,9 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class Network(ManagedEntity):
-    '''* explicitly when configuring a host. * automatically when adding a host to
-        VirtualCenter. * automatically when adding a new virtual machine to a host
-        or to VirtualCenter.
+    '''Networks are created:
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.Network):
         # MUST define these

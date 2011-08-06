@@ -10,10 +10,8 @@ import logging
 log = logging.getLogger(__name__)
 
 class Datacenter(ManagedEntity):
-    '''* A folder for VirtualMachine, template, and VirtualApp objects. * A folder for a
-        ComputeResource hierarchy. * A folder for Network,
-        DistributedVirtualSwitch, and DistributedVirtualPortgroup objects. * A
-        folder for Datastore objects.
+    '''Every Datacenter has the following set of dedicated folders. These folders are
+        empty until you create entities for the Datacenter.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.Datacenter):
         # MUST define these
@@ -85,7 +83,7 @@ class Datacenter(ManagedEntity):
         the options are defined in ClusterPowerOnVmOption.vSphere API 4.1
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

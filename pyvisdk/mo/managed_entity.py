@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class ManagedEntity(ExtensibleManagedObject):
-    '''Properties
+    '''Most Virtual Infrastructure managed object types extend this type.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ManagedEntity):
         # MUST define these
@@ -126,7 +126,7 @@ class ManagedEntity(ExtensibleManagedObject):
         entity that is being removed. See comments for each entity for more
         information on destroy behavior.
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -155,7 +155,7 @@ class ManagedEntity(ExtensibleManagedObject):
         :param newName: See name
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

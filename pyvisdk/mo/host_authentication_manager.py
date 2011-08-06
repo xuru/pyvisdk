@@ -10,8 +10,12 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostAuthenticationManager(BaseEntity):
-    '''There are two approaches that you can use to add an ESX host to or remove a host
-        from an Active Directory domain.
+    '''The vSphere API supports Microsoft Active Directory management of authentication
+        for ESX hosts. To integrate an ESX host into an Active Directory
+        environment, you use an Active Directory account that has the authority to
+        add a computer to a domain. The ESX Server locates the Active Directory
+        domain controller. When you add a host to a domain, you only need to
+        specify the domain and the account user name and password.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostAuthenticationManager):
         # MUST define these

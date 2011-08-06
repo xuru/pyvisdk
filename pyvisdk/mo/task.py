@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class Task(ExtensibleManagedObject):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.Task):
         # MUST define these

@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class ProfileComplianceManager(BaseEntity):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ProfileComplianceManager):
         # MUST define these
@@ -30,7 +30,7 @@ class ProfileComplianceManager(BaseEntity):
         :param entity: If specified, the compliance check is done against this entity.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class LicenseAssignmentManager(BaseEntity):
-    '''Get information about all the licenses associated with an entity
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.LicenseAssignmentManager):
         # MUST define these

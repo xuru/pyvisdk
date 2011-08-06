@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostStorageSystem(ExtensibleManagedObject):
-    '''
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostStorageSystem):
         # MUST define these
@@ -87,12 +87,12 @@ class HostStorageSystem(ExtensibleManagedObject):
     def ComputeDiskPartitionInfo(self, devicePath, layout):
         '''Computes the disk partition information given the desired disk layout. The server
         computes a new partition information object for a specific disk
-        representing the desired layout. See HostDiskPartitionInfoPartitionFormat
+        representing the desired layout.See HostDiskPartitionInfoPartitionFormat
 
-        :param devicePath: The name of the device path for the specific disk. See
+        :param devicePath: The name of the device path for the specific disk.See
         HostDiskPartitionInfoPartitionFormat
 
-        :param layout: A data object that describes the disk partition layout. See
+        :param layout: A data object that describes the disk partition layout.See
         HostDiskPartitionInfoPartitionFormat
 
 
@@ -105,12 +105,12 @@ class HostStorageSystem(ExtensibleManagedObject):
 
     def ComputeDiskPartitionInfoForResize(self, partition, blockRange):
         '''Computes the disk partition information for the purpose of resizing a given
-        partition. See HostDiskPartitionInfoPartitionFormat
+        partition.See HostDiskPartitionInfoPartitionFormat
 
-        :param partition: The disk partition to resize. See HostDiskPartitionInfoPartitionFormat
+        :param partition: The disk partition to resize.See HostDiskPartitionInfoPartitionFormat
 
         :param blockRange: Specifies the desired block range for the resized partition. The start of the
-        block range specified should match that of the current partition. See
+        block range specified should match that of the current partition.See
         HostDiskPartitionInfoPartitionFormat
 
 

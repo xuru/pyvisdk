@@ -10,12 +10,10 @@ import logging
 log = logging.getLogger(__name__)
 
 class InventoryView(ManagedObjectView):
-    '''InventoryView provides methods to open and close folders in the inventory. Use
-        these methods to add and subtract objects from the view list. Use the
-        InventoryView together with the OpenInventoryViewFolder and
-        CloseInventoryViewFolder methods. By using the PropertyCollector, you have
-        access to the modifications to the view, rather than processing the entire
-        view list.
+    '''InventoryView maintains the view list of managed object references to inventory
+        objects. When you create an inventory view (CreateInventoryView), the
+        server initializes the view's object list with a single folder - the root
+        folder.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.InventoryView):
         # MUST define these
@@ -36,7 +34,7 @@ class InventoryView(ManagedObjectView):
         entity to collapse.
 
 
-        :rtype: ManagedObjectReference[] to a ManagedEntity[] 
+        :rtype: ManagedEntity[] 
 
         '''
         
@@ -57,7 +55,7 @@ class InventoryView(ManagedObjectView):
         not in the current view, expands the view as needed.
 
 
-        :rtype: ManagedObjectReference[] to a ManagedEntity[] 
+        :rtype: ManagedEntity[] 
 
         '''
         

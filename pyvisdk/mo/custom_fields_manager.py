@@ -10,7 +10,10 @@ import logging
 log = logging.getLogger(__name__)
 
 class CustomFieldsManager(BaseEntity):
-    '''This functionality is only available through VirtualCenter.
+    '''The custom fields values set on managed entities are available through the
+        customValue property and through the summary objects for VirtualMachine
+        and HostSystem. They are not available directly through this managed
+        object.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.CustomFieldsManager):
         # MUST define these

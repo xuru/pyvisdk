@@ -10,7 +10,14 @@ import logging
 log = logging.getLogger(__name__)
 
 class PerformanceManager(BaseEntity):
-    '''* * * * * * * Storage Capacity: * * Storage I/O: * * * * * * *
+    '''Each performance providerthe instrumented device or entityhas its own set of
+        counters that provides metadata about its available metrics. Each counter
+        has a unique key, referred to as the counterId. The actual performance
+        metrics generated at runtime are identified by this counterId. Counters
+        are organized by groups of finite system resources, such as group. Each
+        page contains a table that includes data extracted from instances of the
+        PerfCounterInfo data object, including the counter name, its Label, Unit,
+        StatsType, RollupType, and Level:
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.PerformanceManager):
         # MUST define these

@@ -10,11 +10,10 @@ import logging
 log = logging.getLogger(__name__)
 
 class Datastore(ManagedEntity):
-    '''Any reference to a virtual machine or file accessed by any host within the
-        datacenter must use a datastore path. A datastore path has the form
-        "[<datastore>] <path>", where <datastore> is the datastore name, and
-        <path> is a slash-delimited path from the root of the datastore. An
-        example datastore path is "[storage] path/to/config.vmx".
+    '''A datastore is platform-independent and host-independent. Therefore, datastores do
+        not change when the virtual machines they contain are moved between hosts.
+        The scope of a datastore is a datacenter; the datastore is uniquely named
+        within the datacenter.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.Datastore):
         # MUST define these
@@ -123,7 +122,7 @@ class Datastore(ManagedEntity):
         :param mountPathDatastoreMapping: Old mount path to datastore mapping.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

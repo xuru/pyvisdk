@@ -39,7 +39,7 @@ class Folder(ManagedEntity):
         :param license: Provide a licenseKey or licenseKeyType. See LicenseManagervSphere API 4.0
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -55,7 +55,7 @@ class Folder(ManagedEntity):
         :param spec: Specification for the cluster.
 
 
-        :rtype: ManagedObjectReference to a ClusterComputeResource 
+        :rtype: ClusterComputeResource 
 
         '''
         
@@ -73,7 +73,7 @@ class Folder(ManagedEntity):
         :param spec: Specification for the cluster.
 
 
-        :rtype: ManagedObjectReference to a ClusterComputeResource 
+        :rtype: ClusterComputeResource 
 
         '''
         
@@ -91,7 +91,7 @@ class Folder(ManagedEntity):
         escaped using the URL syntax. For example, %2F.
 
 
-        :rtype: ManagedObjectReference to a Datacenter 
+        :rtype: Datacenter 
 
         '''
         
@@ -106,7 +106,7 @@ class Folder(ManagedEntity):
         Virtual Switch.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -125,7 +125,7 @@ class Folder(ManagedEntity):
         be escaped using the URL syntax. For example, %2F.
 
 
-        :rtype: ManagedObjectReference to a Folder 
+        :rtype: Folder 
 
         '''
         
@@ -154,7 +154,7 @@ class Folder(ManagedEntity):
         system selects a default.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -201,7 +201,7 @@ class Folder(ManagedEntity):
         :param list: The list of objects to be moved into the folder.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -234,7 +234,7 @@ class Folder(ManagedEntity):
         omitted, and the system selects a default.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -263,7 +263,7 @@ class Folder(ManagedEntity):
         the VApp.Delete privilege on all of the virtual applications to be
         unregistered, and on their parent folders.
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

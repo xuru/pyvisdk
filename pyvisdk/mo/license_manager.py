@@ -10,14 +10,11 @@ import logging
 log = logging.getLogger(__name__)
 
 class LicenseManager(BaseEntity):
-    '''Which edition a given VMware platform uses can be defined at any time. Generally
-        this is done right after first install and boot as installation software
-        may not set it. For editions that are similar in nature, any future
-        changes to edition type will only impact future requests for
-        functionality. Current functionality is left unaffected. The same is true
-        for optional functions enabled/disabled after some period of time. For
-        dissimilar editions, such transitions may require entering maintenance
-        mode first else an exception of InvalidState will be thrown.
+    '''Entitlements are identified by a short string 'key'. Keys can represent either a
+        particular edition (Full, Starter) or a particular feature/function
+        (featureKey) (backup, nas). An edition implies zero one or more functions
+        which are express, denied or optional. For example a 'Full' edition
+        includes 'iscsi' function but a Starter edition might disallow it.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.LicenseManager):
         # MUST define these

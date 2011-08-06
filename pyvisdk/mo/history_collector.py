@@ -10,8 +10,10 @@ import logging
 log = logging.getLogger(__name__)
 
 class HistoryCollector(BaseEntity):
-    '''The items in a collector are always ordered by date and time of creation. Item
-        properties normally include this time stamp.
+    '''Typically, a client creates a history collector by using a filter on a potentially
+        large set, such as all the events in a datacenter. The collector provides
+        access to the items that match the filter, which could also be a
+        relatively large set.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HistoryCollector):
         # MUST define these

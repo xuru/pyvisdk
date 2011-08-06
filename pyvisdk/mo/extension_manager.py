@@ -10,9 +10,8 @@ import logging
 log = logging.getLogger(__name__)
 
 class ExtensionManager(BaseEntity):
-    '''While several authentication methods are available for extension servers to use
-        (see SessionManager), only one authentication method is valid for an
-        extension at any given time.
+    '''Clients use the ExtensionManager, available in ServiceInstance, to access
+        extension objects.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ExtensionManager):
         # MUST define these

@@ -10,7 +10,9 @@ import logging
 log = logging.getLogger(__name__)
 
 class VirtualDiskManager(BaseEntity):
-    '''A URL has the form
+    '''This managed object type provides a way to manage and manipulate virtual disks on
+        datastores. The source and the destination names are in the form of a URL
+        or a datastore path.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.VirtualDiskManager):
         # MUST define these
@@ -45,7 +47,7 @@ class VirtualDiskManager(BaseEntity):
         specified, it is assumed to be false
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -67,7 +69,7 @@ class VirtualDiskManager(BaseEntity):
         :param spec: The specification of the virtual disk to be created.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -90,7 +92,7 @@ class VirtualDiskManager(BaseEntity):
         be a URL.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -111,7 +113,7 @@ class VirtualDiskManager(BaseEntity):
         be a URL.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -134,7 +136,7 @@ class VirtualDiskManager(BaseEntity):
         be a URL.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -167,7 +169,7 @@ class VirtualDiskManager(BaseEntity):
         zeroes.vSphere API 4.0
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -189,7 +191,7 @@ class VirtualDiskManager(BaseEntity):
         be a URL.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -219,7 +221,7 @@ class VirtualDiskManager(BaseEntity):
         specified, it is assumed to be false
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -331,7 +333,7 @@ class VirtualDiskManager(BaseEntity):
         place mode.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -352,7 +354,7 @@ class VirtualDiskManager(BaseEntity):
         be a URL.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

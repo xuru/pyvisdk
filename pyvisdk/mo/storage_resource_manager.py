@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class StorageResourceManager(BaseEntity):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.StorageResourceManager):
         # MUST define these
@@ -31,7 +31,7 @@ class StorageResourceManager(BaseEntity):
         :param spec: The configuration spec.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

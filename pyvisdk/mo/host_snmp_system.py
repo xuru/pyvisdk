@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostSnmpSystem(BaseEntity):
-    '''
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostSnmpSystem):
         # MUST define these

@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class DistributedVirtualSwitchManager(BaseEntity):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.DistributedVirtualSwitchManager):
         # MUST define these
@@ -47,7 +47,7 @@ class DistributedVirtualSwitchManager(BaseEntity):
         DistributedVirtualSwitchProductSpec.
 
 
-        :rtype: ManagedObjectReference[] to a HostSystem[] 
+        :rtype: HostSystem[] 
 
         '''
         
@@ -69,7 +69,7 @@ class DistributedVirtualSwitchManager(BaseEntity):
         default one used for DistributedVirtualSwitch creation.
 
 
-        :rtype: ManagedObjectReference[] to a HostSystem[] 
+        :rtype: HostSystem[] 
 
         '''
         
@@ -79,7 +79,7 @@ class DistributedVirtualSwitchManager(BaseEntity):
     def QueryDvsByUuid(self):
         '''This operation returns a DistributedVirtualSwitch given a UUID.
 
-        :rtype: ManagedObjectReference to a DistributedVirtualSwitch 
+        :rtype: DistributedVirtualSwitch 
 
         '''
         
@@ -94,14 +94,7 @@ class DistributedVirtualSwitchManager(BaseEntity):
         intersection of hosts against which compatibility is checked. If caller
         did not have view privileges on the host entity in an element of the
         CompatibilityResult array, then that entire element would be removed from
-        the CompatibilityResult array. Typical uses:* For the createDVS situation,
-        hostFilterSpec is of type HostDvsFilterSpec and DvsProductSpec will have
-        newSwitchProductSpec set. * For the Add-Host-To-DVS situation, you can use
-        either HostDvsFilterSpec or HostDvsMembershipFilter with inclusive being
-        false, and pass the DVS in DvsProductSpec. * For the Upgrade-DVS
-        situation, you can use either HostDvsFilterSpec or HostDvsMembershipFilter
-        with inclusive being true, and pass the new desired ProductSpec for DVS in
-        newSwitchProductSpec.
+        the CompatibilityResult array. Typical uses:
 
         :param hostContainer: The container of hosts on which we check the compatibility. This container can be
         a datacenter, folder, or computeResource. We can also include all the

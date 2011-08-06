@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class SearchIndex(BaseEntity):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.SearchIndex):
         # MUST define these
@@ -30,7 +30,7 @@ class SearchIndex(BaseEntity):
         :param vmSearch: If true, search for virtual machines, otherwise search for hosts.
 
 
-        :rtype: ManagedObjectReference[] to a ManagedEntity[] 
+        :rtype: ManagedEntity[] 
 
         '''
         
@@ -50,7 +50,7 @@ class SearchIndex(BaseEntity):
         :param vmSearch: If true, search for virtual machines, otherwise search for hosts.
 
 
-        :rtype: ManagedObjectReference[] to a ManagedEntity[] 
+        :rtype: ManagedEntity[] 
 
         '''
         
@@ -73,7 +73,7 @@ class SearchIndex(BaseEntity):
         virtual machines whose BIOS UUID matches the given uuid.
 
 
-        :rtype: ManagedObjectReference[] to a ManagedEntity[] 
+        :rtype: ManagedEntity[] 
 
         '''
         
@@ -88,7 +88,7 @@ class SearchIndex(BaseEntity):
         :param path: A datastore path to the .vmx file for the virtual machine.
 
 
-        :rtype: ManagedObjectReference to a VirtualMachine 
+        :rtype: VirtualMachine 
 
         '''
         
@@ -107,7 +107,7 @@ class SearchIndex(BaseEntity):
         :param vmSearch: if true, search for virtual machines, otherwise search for hosts.
 
 
-        :rtype: ManagedObjectReference to a ManagedEntity 
+        :rtype: ManagedEntity 
 
         '''
         
@@ -127,7 +127,7 @@ class SearchIndex(BaseEntity):
         :param inventoryPath: The path to the entity.
 
 
-        :rtype: ManagedObjectReference to a ManagedEntity 
+        :rtype: ManagedEntity 
 
         '''
         
@@ -147,7 +147,7 @@ class SearchIndex(BaseEntity):
         :param vmSearch: if true, search for virtual machines, otherwise search for hosts.
 
 
-        :rtype: ManagedObjectReference to a ManagedEntity 
+        :rtype: ManagedEntity 
 
         '''
         
@@ -170,7 +170,7 @@ class SearchIndex(BaseEntity):
         virtual machines whose BIOS UUID matches the given uuid.vSphere API 4.0
 
 
-        :rtype: ManagedObjectReference to a ManagedEntity 
+        :rtype: ManagedEntity 
 
         '''
         
@@ -188,7 +188,7 @@ class SearchIndex(BaseEntity):
         :param name: The name of the child object.
 
 
-        :rtype: ManagedObjectReference to a ManagedEntity 
+        :rtype: ManagedEntity 
 
         '''
         

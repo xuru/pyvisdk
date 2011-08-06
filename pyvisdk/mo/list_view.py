@@ -10,7 +10,9 @@ import logging
 log = logging.getLogger(__name__)
 
 class ListView(ManagedObjectView):
-    '''Properties
+    '''When you invoke the CreateListView method, you specify a list of objects. The view
+        list always represents the current configuration of the virtual
+        environment and reflects any subsequent changes that occur.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ListView):
         # MUST define these

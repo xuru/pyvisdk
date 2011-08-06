@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class VirtualMachineSnapshot(ExtensibleManagedObject):
-    '''
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.VirtualMachineSnapshot):
         # MUST define these
@@ -37,7 +37,7 @@ class VirtualMachineSnapshot(ExtensibleManagedObject):
         :param removeChildren: Flag to specify removal of the entire snapshot subtree.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -68,7 +68,7 @@ class VirtualMachineSnapshot(ExtensibleManagedObject):
         API 4.0
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

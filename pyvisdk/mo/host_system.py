@@ -10,7 +10,11 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostSystem(ManagedEntity):
-    '''Properties
+    '''Invoking destroy on a HostSystem of standalone type throws a NotSupported fault. A
+        standalone HostSystem can be destroyed only by invoking destroy on its
+        parent ComputeResource. Invoking destroy on a failover host throws a
+        DisallowedOperationOnFailoverHost fault. See
+        ClusterFailoverHostAdmissionControlPolicy.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostSystem):
         # MUST define these
@@ -104,7 +108,7 @@ class HostSystem(ManagedEntity):
     def DisconnectHost_Task(self):
         '''Disconnects from a host and instructs the server to stop sending heartbeats.
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -118,7 +122,7 @@ class HostSystem(ManagedEntity):
         connected to the host is blocked. Access though other services running on
         the host is also blocked.If the operation is successful, adminDisabled
         will be set to true. This API is not supported on the host, If invoked
-        directly on a host, a NotSupported fault will be thrown. See
+        directly on a host, a NotSupported fault will be thrown.See
         AuthorizationManager
         '''
         
@@ -158,7 +162,7 @@ class HostSystem(ManagedEntity):
         machines do not need to be moved.VI API 2.5
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -170,7 +174,7 @@ class HostSystem(ManagedEntity):
         host that was removed by prior call to EnterLockdownMode. If the operation
         is successful, adminDisabled will be set to false. This API is not
         supported on the host. If invoked directly on a host, a NotSupported fault
-        will be thrown. See AuthorizationManager
+        will be thrown.See AuthorizationManager
         '''
         
         return self.delegate("ExitLockdownMode")()
@@ -185,7 +189,7 @@ class HostSystem(ManagedEntity):
         is less than or equal to zero, there is no timeout.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -226,7 +230,7 @@ class HostSystem(ManagedEntity):
         virtual machine.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -248,7 +252,7 @@ class HostSystem(ManagedEntity):
         seconds, the host is declared timedout, and the task is assumed failed.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -317,7 +321,7 @@ class HostSystem(ManagedEntity):
         are virtual machines running or other operations in progress.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -331,7 +335,7 @@ class HostSystem(ManagedEntity):
         configuration system task fails. Automatic HA configuration may fail for a
         variety of reasons. For example, the host is configured incorrectly.
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -357,7 +361,7 @@ class HostSystem(ManagedEntity):
         connection parameters is used.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -387,7 +391,7 @@ class HostSystem(ManagedEntity):
         are virtual machines running or other operations in progress.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         

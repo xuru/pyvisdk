@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostVirtualNicManager(ExtensibleManagedObject):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostVirtualNicManager):
         # MUST define these

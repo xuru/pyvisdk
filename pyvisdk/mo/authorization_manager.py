@@ -10,9 +10,10 @@ import logging
 log = logging.getLogger(__name__)
 
 class AuthorizationManager(BaseEntity):
-    '''are aggregations of privileges, used for convenience. For user-defined roles, the
-        system-defined privileges, "System.Anonymous", "System.View", and
-        "System.Read" are always present.
+    '''are the basic individual rights required to perform operations. They are
+        statically defined and never change for a single version of a product.
+        Examples of privileges are "Power on a virtual machine" or "Configure a
+        host."
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.AuthorizationManager):
         # MUST define these

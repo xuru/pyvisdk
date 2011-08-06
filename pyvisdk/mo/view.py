@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class View(BaseEntity):
-    '''* ContainerView * ListView * InventoryView
+    '''There are three types of views:
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.View):
         # MUST define these

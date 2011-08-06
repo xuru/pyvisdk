@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostActiveDirectoryAuthentication(HostDirectoryStore):
-    '''Methods
+    '''Properties
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostActiveDirectoryAuthentication):
         # MUST define these
@@ -33,7 +33,7 @@ class HostActiveDirectoryAuthentication(HostDirectoryStore):
         :param password: Password for theaccount.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
@@ -47,7 +47,7 @@ class HostActiveDirectoryAuthentication(HostDirectoryStore):
         be deleted. Ifand such permissions exist, the operation will fail.
 
 
-        :rtype: ManagedObjectReference to a Task 
+        :rtype: Task 
 
         '''
         
