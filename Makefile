@@ -32,6 +32,6 @@ help:
 
 docs: 
 	rm -rf $(API_DOC_DIR)
-	./bin/sphinx-build -b html docs docs/html
+	./bin/sphinx-build -b html docs/source docs/html
 
 .PHONY: help all build test clean docs
