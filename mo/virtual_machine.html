@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.87. VirtualMachine &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.88. VirtualMachineCompatibilityChecker" href="virtual_machine_compatibility_checker.html" />
@@ -87,13 +87,13 @@
 
 <dl class="class">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.virtual_machine.</tt><tt class="descname">VirtualMachine</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='VirtualMachine'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.virtual_machine.</tt><tt class="descname">VirtualMachine</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='VirtualMachine'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine" title="Permalink to this definition">¶</a></dt>
 <dd><p>VirtualMachine extends the ManagedEntity type because virtual machines are part of
 a virtual infrastructure inventory. The parent of a virtual machine must
 be a folder, and a virtual machine has no children.</p>
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.AcquireMksTicket">
-<tt class="descname">AcquireMksTicket</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.AcquireMksTicket"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.AcquireMksTicket" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">AcquireMksTicket</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.AcquireMksTicket"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.AcquireMksTicket" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deprecated. As of vSphere API 4.1, use AcquireTicket instead. Creates and returns
 a one-time credential used in establishing a remote mouse-keyboard-screen
 connection to this virtual machine. The correct function of this method
@@ -114,7 +114,7 @@ both TCP-based connections.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.AcquireTicket">
-<tt class="descname">AcquireTicket</tt><big>(</big><em>ticketType</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.AcquireTicket"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.AcquireTicket" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">AcquireTicket</tt><big>(</big><em>ticketType</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.AcquireTicket"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.AcquireTicket" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates and returns a one-time credential used in establishing a specific
 connection to this virtual machine, for example, a ticket type of mks can
 be used to establish a remote mouse-keyboard-screen connection.A client
@@ -144,7 +144,7 @@ different privileges depending on the types of ticket:</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.AnswerVM">
-<tt class="descname">AnswerVM</tt><big>(</big><em>questionId</em>, <em>answerChoice</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.AnswerVM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.AnswerVM" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">AnswerVM</tt><big>(</big><em>questionId</em>, <em>answerChoice</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.AnswerVM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.AnswerVM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Responds to a question that is blocking this virtual machine.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -163,7 +163,7 @@ different privileges depending on the types of ticket:</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.CheckCustomizationSpec">
-<tt class="descname">CheckCustomizationSpec</tt><big>(</big><em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.CheckCustomizationSpec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.CheckCustomizationSpec" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CheckCustomizationSpec</tt><big>(</big><em>spec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.CheckCustomizationSpec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.CheckCustomizationSpec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks the customization specification against the virtual machine configuration.
 For example, this is used on a source virtual machine before a clone
 operation to catch customization failure before the disk copy. This checks
@@ -181,7 +181,7 @@ this virtual machine&#8217;s configuration.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.CloneVM_Task">
-<tt class="descname">CloneVM_Task</tt><big>(</big><em>folder</em>, <em>name</em>, <em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.CloneVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.CloneVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CloneVM_Task</tt><big>(</big><em>folder</em>, <em>name</em>, <em>spec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.CloneVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.CloneVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a clone of this virtual machine. If the virtual machine is used as a
 template, this method corresponds to the deploy command.Any % (percent)
 character used in this name parameter must be escaped, unless it is used
@@ -214,7 +214,7 @@ clone is created.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.CreateScreenshot_Task">
-<tt class="descname">CreateScreenshot_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.CreateScreenshot_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.CreateScreenshot_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CreateScreenshot_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.CreateScreenshot_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.CreateScreenshot_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a screen shot of a virtual machine.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -228,7 +228,7 @@ clone is created.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.CreateSecondaryVM_Task">
-<tt class="descname">CreateSecondaryVM_Task</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.CreateSecondaryVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.CreateSecondaryVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CreateSecondaryVM_Task</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.CreateSecondaryVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.CreateSecondaryVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a secondary virtual machine to be part of this fault tolerant group.If a
 host is specified, the secondary virtual machine will be created on it.
 Otherwise, a host will be selected by the system.If the primary virtual
@@ -265,7 +265,7 @@ suitable, the secondary will not be created and a fault will be returned.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.CreateSnapshot_Task">
-<tt class="descname">CreateSnapshot_Task</tt><big>(</big><em>name</em>, <em>description</em>, <em>memory</em>, <em>quiesce</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.CreateSnapshot_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.CreateSnapshot_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CreateSnapshot_Task</tt><big>(</big><em>name</em>, <em>description</em>, <em>memory</em>, <em>quiesce</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.CreateSnapshot_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.CreateSnapshot_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new snapshot of this virtual machine. As a side effect, this updates the
 current snapshot.Snapshots are not supported for Fault Tolerance primary
 and secondary virtual machines.Any % (percent) character used in this name
@@ -319,7 +319,7 @@ not available, the quiesce flag is ignored.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.CustomizeVM_Task">
-<tt class="descname">CustomizeVM_Task</tt><big>(</big><em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.CustomizeVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.CustomizeVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CustomizeVM_Task</tt><big>(</big><em>spec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.CustomizeVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.CustomizeVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Customizes a virtual machine&#8217;s guest operating system.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -335,7 +335,7 @@ not available, the quiesce flag is ignored.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.DefragmentAllDisks">
-<tt class="descname">DefragmentAllDisks</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.DefragmentAllDisks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.DefragmentAllDisks" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">DefragmentAllDisks</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.DefragmentAllDisks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.DefragmentAllDisks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defragment all virtual disks attached to this virtual machine.</p>
 </dd></dl>
 
@@ -360,7 +360,7 @@ information on destroy behavior.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.DisableSecondaryVM_Task">
-<tt class="descname">DisableSecondaryVM_Task</tt><big>(</big><em>vm</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.DisableSecondaryVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.DisableSecondaryVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">DisableSecondaryVM_Task</tt><big>(</big><em>vm</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.DisableSecondaryVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.DisableSecondaryVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Disables the specified secondary virtual machine in this fault tolerant group. The
 specified secondary will not be automatically started on a subsequent
 power-on of the primary virtual machine. This operation could leave the
@@ -388,7 +388,7 @@ from the primary virtual machine in the group.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.EnableSecondaryVM_Task">
-<tt class="descname">EnableSecondaryVM_Task</tt><big>(</big><em>vm</em>, <em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.EnableSecondaryVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.EnableSecondaryVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">EnableSecondaryVM_Task</tt><big>(</big><em>vm</em>, <em>host</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.EnableSecondaryVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.EnableSecondaryVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Enables the specified secondary virtual machine in this fault tolerant group.This
 operation is used to enable a secondary virtual machine that was
 previously disabled by the DisableSecondaryVM_Task call. The specified
@@ -438,7 +438,7 @@ returned.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.ExportVm">
-<tt class="descname">ExportVm</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.ExportVm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.ExportVm" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ExportVm</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.ExportVm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.ExportVm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtains an export lease on this virtual machine. The export lease contains a list
 of URLs for the virtual disks for this virtual machine, as well as a
 ticket giving access to the URLs.See HttpNfcLease for information on how
@@ -455,7 +455,7 @@ to use the lease.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.ExtractOvfEnvironment">
-<tt class="descname">ExtractOvfEnvironment</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.ExtractOvfEnvironment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.ExtractOvfEnvironment" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ExtractOvfEnvironment</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.ExtractOvfEnvironment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.ExtractOvfEnvironment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the OVF environment for a virtual machine. If the virtual machine has no
 vApp configuration, an empty string is returned. Also, sensitive
 information is omitted, so this method is not guaranteed to return the
@@ -472,7 +472,7 @@ complete OVF environment.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.MakePrimaryVM_Task">
-<tt class="descname">MakePrimaryVM_Task</tt><big>(</big><em>vm</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.MakePrimaryVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.MakePrimaryVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">MakePrimaryVM_Task</tt><big>(</big><em>vm</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.MakePrimaryVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.MakePrimaryVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes the specified secondary virtual machine from this fault tolerant group as
 the primary virtual machine.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -499,14 +499,14 @@ group.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.MarkAsTemplate">
-<tt class="descname">MarkAsTemplate</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.MarkAsTemplate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.MarkAsTemplate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">MarkAsTemplate</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.MarkAsTemplate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.MarkAsTemplate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Marks a VirtualMachine object as being used as a template. Note: A VirtualMachine
 marked as a template cannot be powered on.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.MarkAsVirtualMachine">
-<tt class="descname">MarkAsVirtualMachine</tt><big>(</big><em>pool</em>, <em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.MarkAsVirtualMachine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.MarkAsVirtualMachine" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">MarkAsVirtualMachine</tt><big>(</big><em>pool</em>, <em>host</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.MarkAsVirtualMachine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.MarkAsVirtualMachine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears the &#8216;isTemplate&#8217; flag and reassociates the virtual machine with a resource
 pool and host.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -528,7 +528,7 @@ DRS, it can be omitted and the system selects a default.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.MigrateVM_Task">
-<tt class="descname">MigrateVM_Task</tt><big>(</big><em>pool</em>, <em>host</em>, <em>priority</em>, <em>state</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.MigrateVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.MigrateVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">MigrateVM_Task</tt><big>(</big><em>pool</em>, <em>host</em>, <em>priority</em>, <em>state</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.MigrateVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.MigrateVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Migrates a virtual machine&#8217;s execution to a specific resource pool or
 host.Requires Resource.HotMigrate privilege if the virtual machine is
 powered on or Resource.ColdMigrate privilege if the virtual machine is
@@ -579,7 +579,7 @@ case, the DRS system selects an appropriate target host from the cluster.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.MountToolsInstaller">
-<tt class="descname">MountToolsInstaller</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.MountToolsInstaller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.MountToolsInstaller" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">MountToolsInstaller</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.MountToolsInstaller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.MountToolsInstaller" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mounts the VMware Tools CD installer as a CD-ROM for the guest operating system.
 To monitor the status of the tools install, clients should check the tools
 status, toolsVersionStatus and toolsRunningStatus</p>
@@ -587,7 +587,7 @@ status, toolsVersionStatus and toolsRunningStatus</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.PowerOffVM_Task">
-<tt class="descname">PowerOffVM_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.PowerOffVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.PowerOffVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">PowerOffVM_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.PowerOffVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.PowerOffVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Powers off this virtual machine. If this virtual machine is a fault tolerant
 primary virtual machine, this will result in the secondary virtual
 machine(s) getting powered off as well.</p>
@@ -603,7 +603,7 @@ machine(s) getting powered off as well.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.PowerOnVM_Task">
-<tt class="descname">PowerOnVM_Task</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.PowerOnVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.PowerOnVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">PowerOnVM_Task</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.PowerOnVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.PowerOnVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Powers on this virtual machine. If the virtual machine is suspended, this method
 resumes execution from the suspend point.When powering on a virtual
 machine in a cluster, the system might implicitly or due to the host
@@ -643,7 +643,7 @@ host association is used.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.PromoteDisks_Task">
-<tt class="descname">PromoteDisks_Task</tt><big>(</big><em>unlink</em>, <em>disks</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.PromoteDisks_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.PromoteDisks_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">PromoteDisks_Task</tt><big>(</big><em>unlink</em>, <em>disks</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.PromoteDisks_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.PromoteDisks_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Promotes disks on this virtual machine that have delta disk backings.A delta disk
 backing is a way to preserve a virtual disk backing at some point in time.
 A delta disk backing is a file backing which in turn points to the
@@ -676,7 +676,7 @@ does two things</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.QueryChangedDiskAreas">
-<tt class="descname">QueryChangedDiskAreas</tt><big>(</big><em>snapshot</em>, <em>deviceKey</em>, <em>startOffset</em>, <em>changeId</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.QueryChangedDiskAreas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.QueryChangedDiskAreas" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryChangedDiskAreas</tt><big>(</big><em>snapshot</em>, <em>deviceKey</em>, <em>startOffset</em>, <em>changeId</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.QueryChangedDiskAreas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.QueryChangedDiskAreas" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a list of areas of a virtual disk belonging to this VM that have been modified
 since a well-defined point in the past. The beginning of the change
 interval is identified by &#8220;changeId&#8221;, while the end of the change interval
@@ -736,7 +736,7 @@ obtain a list of changed areas on disk.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.QueryFaultToleranceCompatibility">
-<tt class="descname">QueryFaultToleranceCompatibility</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.QueryFaultToleranceCompatibility"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.QueryFaultToleranceCompatibility" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryFaultToleranceCompatibility</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.QueryFaultToleranceCompatibility"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.QueryFaultToleranceCompatibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>This API can be invoked to determine whether a virtual machine is compatible for
 Fault Tolerance. The API only checks for VM-specific factors that impact
 compatibility for Fault Tolerance. Other requirements for Fault Tolerance
@@ -757,7 +757,7 @@ will be empty.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.QueryUnownedFiles">
-<tt class="descname">QueryUnownedFiles</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.QueryUnownedFiles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.QueryUnownedFiles" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryUnownedFiles</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.QueryUnownedFiles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.QueryUnownedFiles" title="Permalink to this definition">¶</a></dt>
 <dd><p>For all files that belong to the vm, check that the file owner is set to the
 current datastore principal user, as set by
 HostDatastoreSystem.ConfigureDatastorePrincipal</p>
@@ -773,7 +773,7 @@ HostDatastoreSystem.ConfigureDatastorePrincipal</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.RebootGuest">
-<tt class="descname">RebootGuest</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.RebootGuest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.RebootGuest" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">RebootGuest</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.RebootGuest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.RebootGuest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Issues a command to the guest operating system asking it to perform a reboot.
 Returns immediately and does not wait for the guest operating system to
 complete the operation.</p>
@@ -781,7 +781,7 @@ complete the operation.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.ReconfigVM_Task">
-<tt class="descname">ReconfigVM_Task</tt><big>(</big><em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.ReconfigVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.ReconfigVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ReconfigVM_Task</tt><big>(</big><em>spec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.ReconfigVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.ReconfigVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconfigures this virtual machine. All the changes in the given configuration are
 applied to the virtual machine as an atomic operation.Reconfiguring the
 virtual machine may require any of the following privileges depending on
@@ -802,7 +802,7 @@ privileges:</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.RefreshStorageInfo">
-<tt class="descname">RefreshStorageInfo</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.RefreshStorageInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.RefreshStorageInfo" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">RefreshStorageInfo</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.RefreshStorageInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.RefreshStorageInfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Explicitly refreshes the storage information of this virtual machine, updating
 properties storage, layoutEx and storage.</p>
 </dd></dl>
@@ -822,7 +822,7 @@ service and its clients have current data for the virtual machine.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.RelocateVM_Task">
-<tt class="descname">RelocateVM_Task</tt><big>(</big><em>spec</em>, <em>priority</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.RelocateVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.RelocateVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">RelocateVM_Task</tt><big>(</big><em>spec</em>, <em>priority</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.RelocateVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.RelocateVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relocates a virtual machine&#8217;s virtual disks to a specific location; optionally
 moves the virtual machine to a different host as well.Additionally
 requires the Resource.HotMigrate privilege if the virtual machine is
@@ -849,7 +849,7 @@ Resource.AssignVMToPool privilege held on the specified pool.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.RemoveAllSnapshots_Task">
-<tt class="descname">RemoveAllSnapshots_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.RemoveAllSnapshots_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.RemoveAllSnapshots_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">RemoveAllSnapshots_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.RemoveAllSnapshots_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.RemoveAllSnapshots_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove all the snapshots associated with this virtual machine. If the virtual
 machine does not have any snapshots, then this operation simply returns
 successfully.</p>
@@ -883,7 +883,7 @@ may also escape any other characters in this name parameter.See name</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.ResetGuestInformation">
-<tt class="descname">ResetGuestInformation</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.ResetGuestInformation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.ResetGuestInformation" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ResetGuestInformation</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.ResetGuestInformation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.ResetGuestInformation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears cached guest information. Guest information can be cleared only if the
 virtual machine is powered off.This method can be useful if stale
 information is cached, preventing an IP address or MAC address from being
@@ -892,7 +892,7 @@ reused.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.ResetVM_Task">
-<tt class="descname">ResetVM_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.ResetVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.ResetVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ResetVM_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.ResetVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.ResetVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resets power on this virtual machine. If the current state is poweredOn, then this
 method first performs powerOff(hard). Once the power state is poweredOff,
 then this method performs powerOn(option).Although this method functions
@@ -911,7 +911,7 @@ performed until the reset method completes.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.RevertToCurrentSnapshot_Task">
-<tt class="descname">RevertToCurrentSnapshot_Task</tt><big>(</big><em>host</em>, <em>suppressPowerOn</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.RevertToCurrentSnapshot_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.RevertToCurrentSnapshot_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">RevertToCurrentSnapshot_Task</tt><big>(</big><em>host</em>, <em>suppressPowerOn</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.RevertToCurrentSnapshot_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.RevertToCurrentSnapshot_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reverts the virtual machine to the current snapshot. This is equivalent to doing
 snapshot.currentSnapshot.revert.If no snapshot exists, then the operation
 does nothing, and the virtual machine state remains unchanged.</p>
@@ -946,7 +946,7 @@ false.vSphere API 4.0</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.SetDisplayTopology">
-<tt class="descname">SetDisplayTopology</tt><big>(</big><em>displays</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.SetDisplayTopology"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.SetDisplayTopology" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">SetDisplayTopology</tt><big>(</big><em>displays</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.SetDisplayTopology"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.SetDisplayTopology" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the console window&#8217;s display topology as specified.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -960,7 +960,7 @@ false.vSphere API 4.0</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.SetScreenResolution">
-<tt class="descname">SetScreenResolution</tt><big>(</big><em>width</em>, <em>height</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.SetScreenResolution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.SetScreenResolution" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">SetScreenResolution</tt><big>(</big><em>width</em>, <em>height</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.SetScreenResolution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.SetScreenResolution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the console window&#8217;s resolution as specified.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -978,7 +978,7 @@ false.vSphere API 4.0</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.ShutdownGuest">
-<tt class="descname">ShutdownGuest</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.ShutdownGuest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.ShutdownGuest" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ShutdownGuest</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.ShutdownGuest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.ShutdownGuest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Issues a command to the guest operating system asking it to perform a clean
 shutdown of all services. Returns immediately and does not wait for the
 guest operating system to complete the operation.</p>
@@ -986,7 +986,7 @@ guest operating system to complete the operation.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.StandbyGuest">
-<tt class="descname">StandbyGuest</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.StandbyGuest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.StandbyGuest" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">StandbyGuest</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.StandbyGuest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.StandbyGuest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Issues a command to the guest operating system asking it to prepare for a suspend
 operation. Returns immediately and does not wait for the guest operating
 system to complete the operation.</p>
@@ -994,7 +994,7 @@ system to complete the operation.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.StartRecording_Task">
-<tt class="descname">StartRecording_Task</tt><big>(</big><em>name</em>, <em>description</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.StartRecording_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.StartRecording_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">StartRecording_Task</tt><big>(</big><em>name</em>, <em>description</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.StartRecording_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.StartRecording_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initiates a recording session on this virtual machine. As a side effect, this
 operation creates a snapshot on the virtual machine, which in turn becomes
 the current snapshot.This is an experimental interface that is not
@@ -1029,7 +1029,7 @@ intended for use in production code.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.StartReplaying_Task">
-<tt class="descname">StartReplaying_Task</tt><big>(</big><em>replaySnapshot</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.StartReplaying_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.StartReplaying_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">StartReplaying_Task</tt><big>(</big><em>replaySnapshot</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.StartReplaying_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.StartReplaying_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts a replay session on this virtual machine. As a side effect, this operation
 updates the current snapshot of the virtual machine.This is an
 experimental interface that is not intended for use in production code.</p>
@@ -1054,7 +1054,7 @@ experimental interface that is not intended for use in production code.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.StopRecording_Task">
-<tt class="descname">StopRecording_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.StopRecording_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.StopRecording_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">StopRecording_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.StopRecording_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.StopRecording_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stops a currently active recording session on this virtual machine.This is an
 experimental interface that is not intended for use in production code.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1069,7 +1069,7 @@ experimental interface that is not intended for use in production code.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.StopReplaying_Task">
-<tt class="descname">StopReplaying_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.StopReplaying_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.StopReplaying_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">StopReplaying_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.StopReplaying_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.StopReplaying_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stops a replay session on this virtual machine.This is an experimental interface
 that is not intended for use in production code.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1084,7 +1084,7 @@ that is not intended for use in production code.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.SuspendVM_Task">
-<tt class="descname">SuspendVM_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.SuspendVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.SuspendVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">SuspendVM_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.SuspendVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.SuspendVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Suspends execution in this virtual machine.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1098,7 +1098,7 @@ that is not intended for use in production code.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.TerminateFaultTolerantVM_Task">
-<tt class="descname">TerminateFaultTolerantVM_Task</tt><big>(</big><em>vm</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.TerminateFaultTolerantVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.TerminateFaultTolerantVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">TerminateFaultTolerantVM_Task</tt><big>(</big><em>vm</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.TerminateFaultTolerantVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.TerminateFaultTolerantVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Terminates the specified secondary virtual machine in a fault tolerant group. This
 can be used to test fault tolerance on a given virtual machine, and should
 be used with care.</p>
@@ -1132,7 +1132,7 @@ respawned on a potentially different host.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.TurnOffFaultToleranceForVM_Task">
-<tt class="descname">TurnOffFaultToleranceForVM_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.TurnOffFaultToleranceForVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.TurnOffFaultToleranceForVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">TurnOffFaultToleranceForVM_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.TurnOffFaultToleranceForVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.TurnOffFaultToleranceForVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes all secondary virtual machines associated with the fault tolerant group
 and turns off protection for this virtual machine. This operation can only
 be invoked from the primary virtual machine in the group.</p>
@@ -1148,13 +1148,13 @@ be invoked from the primary virtual machine in the group.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.UnmountToolsInstaller">
-<tt class="descname">UnmountToolsInstaller</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.UnmountToolsInstaller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.UnmountToolsInstaller" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">UnmountToolsInstaller</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.UnmountToolsInstaller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.UnmountToolsInstaller" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unmounts VMware Tools installer CD.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.UnregisterVM">
-<tt class="descname">UnregisterVM</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.UnregisterVM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.UnregisterVM" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">UnregisterVM</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.UnregisterVM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.UnregisterVM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes this virtual machine from the inventory without removing any of the
 virtual machine&#8217;s files on disk. All high-level information stored with
 the management server (ESX Server or VirtualCenter) is removed, including
@@ -1168,7 +1168,7 @@ of permissions.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.UpgradeTools_Task">
-<tt class="descname">UpgradeTools_Task</tt><big>(</big><em>installerOptions</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.UpgradeTools_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.UpgradeTools_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">UpgradeTools_Task</tt><big>(</big><em>installerOptions</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.UpgradeTools_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.UpgradeTools_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Begins the tools upgrade process. To monitor the status of the tools install,
 clients should check the tools status, toolsVersionStatus and
 toolsRunningStatus.</p>
@@ -1193,7 +1193,7 @@ toolsRunningStatus.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.UpgradeVM_Task">
-<tt class="descname">UpgradeVM_Task</tt><big>(</big><em>version</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.UpgradeVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.UpgradeVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">UpgradeVM_Task</tt><big>(</big><em>version</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.UpgradeVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.UpgradeVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upgrades this virtual machine&#8217;s virtual hardware to the latest revision that is
 supported by the virtual machine&#8217;s current host.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1231,13 +1231,13 @@ are sorted by name.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.capability">
-<tt class="descname">capability</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.capability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.capability" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">capability</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.capability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.capability" title="Permalink to this definition">¶</a></dt>
 <dd><p>Information about the runtime capabilities of this virtual machine.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.config">
-<tt class="descname">config</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.config" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">config</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configuration of this virtual machine, including the name and UUID.</p>
 </dd></dl>
 
@@ -1273,7 +1273,7 @@ detected; it is not a guarantee that the entity is problem-free.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.datastore">
-<tt class="descname">datastore</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.datastore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.datastore" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">datastore</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.datastore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.datastore" title="Permalink to this definition">¶</a></dt>
 <dd><p>A collection of references to the subset of datastore objects in the datacenter
 that is used by this virtual machine.</p>
 </dd></dl>
@@ -1303,7 +1303,7 @@ or disable operations in a graphical user interface.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.environmentBrowser">
-<tt class="descname">environmentBrowser</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.environmentBrowser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.environmentBrowser" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">environmentBrowser</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.environmentBrowser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.environmentBrowser" title="Permalink to this definition">¶</a></dt>
 <dd><p>The current virtual machine&#8217;s environment browser object. This contains
 information on all the configurations that can be used on the virtual
 machine. This is identical to the environment browser on the
@@ -1312,7 +1312,7 @@ ComputeResource to which this virtual machine belongs.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.guest">
-<tt class="descname">guest</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.guest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.guest" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">guest</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.guest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.guest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Information about VMware Tools and about the virtual machine from the perspective
 of VMware Tools. Information about the guest operating system is available
 in VirtualCenter. Guest operating system information reflects the last
@@ -1323,7 +1323,7 @@ state before the virtual machine was powered off.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.guestHeartbeatStatus">
-<tt class="descname">guestHeartbeatStatus</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.guestHeartbeatStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.guestHeartbeatStatus" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">guestHeartbeatStatus</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.guestHeartbeatStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.guestHeartbeatStatus" title="Permalink to this definition">¶</a></dt>
 <dd><p>The guest heartbeat. The heartbeat status is classified as: * gray - VMware Tools
 are not installed or not running. * red - No heartbeat. Guest operating
 system may have stopped responding. * yellow - Intermittent heartbeat. May
@@ -1334,19 +1334,19 @@ configured on this metric to trigger emails or other actions.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.layout">
-<tt class="descname">layout</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.layout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.layout" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">layout</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.layout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.layout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detailed information about the files that comprise this virtual machine.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.layoutEx">
-<tt class="descname">layoutEx</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.layoutEx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.layoutEx" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">layoutEx</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.layoutEx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.layoutEx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detailed information about the files that comprise this virtual machine.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.network">
-<tt class="descname">network</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.network"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.network" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">network</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.network"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.network" title="Permalink to this definition">¶</a></dt>
 <dd><p>A collection of references to the subset of network objects in the datacenter that
 is used by this virtual machine.</p>
 </dd></dl>
@@ -1366,7 +1366,7 @@ alarms attached to a managed entity.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.parentVApp">
-<tt class="descname">parentVApp</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.parentVApp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.parentVApp" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">parentVApp</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.parentVApp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.parentVApp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference to the parent vApp.</p>
 </dd></dl>
 
@@ -1386,7 +1386,7 @@ the four states: pending, running, success or error.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.reloadVirtualMachineFromPath_Task">
-<tt class="descname">reloadVirtualMachineFromPath_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.reloadVirtualMachineFromPath_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.reloadVirtualMachineFromPath_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">reloadVirtualMachineFromPath_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.reloadVirtualMachineFromPath_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.reloadVirtualMachineFromPath_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reloads the configuration for this virtual machine from a given datastore path.
 This is equivalent to unregistering and registering the virtual machine
 from a different path. The virtual machine&#8217;s hardware configuration,
@@ -1410,7 +1410,7 @@ virtual machine object may be lost.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.resourceConfig">
-<tt class="descname">resourceConfig</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.resourceConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.resourceConfig" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">resourceConfig</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.resourceConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.resourceConfig" title="Permalink to this definition">¶</a></dt>
 <dd><p>The resource configuration for a virtual machine. The shares in this specification
 are evaluated relative to the resource pool to which it is assigned. This
 will return null if the product the virtual machine is registered on does
@@ -1419,40 +1419,40 @@ not support resource configuration.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.resourcePool">
-<tt class="descname">resourcePool</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.resourcePool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.resourcePool" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">resourcePool</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.resourcePool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.resourcePool" title="Permalink to this definition">¶</a></dt>
 <dd><p>The current resource pool that specifies resource allocation for this virtual
 machine.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.rootSnapshot">
-<tt class="descname">rootSnapshot</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.rootSnapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.rootSnapshot" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">rootSnapshot</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.rootSnapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.rootSnapshot" title="Permalink to this definition">¶</a></dt>
 <dd><p>The roots of all snapshot trees for the virtual machine.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.runtime">
-<tt class="descname">runtime</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.runtime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.runtime" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">runtime</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.runtime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.runtime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execution state and history for this virtual machine.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.snapshot">
-<tt class="descname">snapshot</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.snapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.snapshot" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">snapshot</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.snapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.snapshot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Current snapshot and tree. The property is valid if snapshots have been created
 for this virtual machine.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.storage">
-<tt class="descname">storage</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.storage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.storage" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">storage</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.storage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.storage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Storage space used by the virtual machine, split by datastore. Can be explicitly
 refreshed by the RefreshStorageInfo operation.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_machine.VirtualMachine.summary">
-<tt class="descname">summary</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">summary</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine.html#VirtualMachine.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine.VirtualMachine.summary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Basic information about this virtual machine. This includes: * runtimeInfo * guest
 * basic configuration * alarms * performance information</p>
 </dd></dl>
@@ -1495,7 +1495,7 @@ CustomFieldStringValue with a custom field definition.</p>
                         title="next chapter">3.88. VirtualMachineCompatibilityChecker</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/mo/virtual_machine.txt"
+    <li><a href="../sources/mo/virtual_machine.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

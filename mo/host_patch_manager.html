@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.44. HostPatchManager &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.45. HostPciPassthruSystem" href="host_pci_passthru_system.html" />
@@ -75,11 +75,11 @@
 
 <dl class="class">
 <dt id="pyvisdk.mo.host_patch_manager.HostPatchManager">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.host_patch_manager.</tt><tt class="descname">HostPatchManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='HostPatchManager'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.host_patch_manager.</tt><tt class="descname">HostPatchManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='HostPatchManager'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Properties</p>
 <dl class="method">
 <dt id="pyvisdk.mo.host_patch_manager.HostPatchManager.CheckHostPatch_Task">
-<tt class="descname">CheckHostPatch_Task</tt><big>(</big><em>metaUrls</em>, <em>bundleUrls</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.CheckHostPatch_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.CheckHostPatch_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CheckHostPatch_Task</tt><big>(</big><em>metaUrls</em>, <em>bundleUrls</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.CheckHostPatch_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.CheckHostPatch_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check the list of metadata and returns the dependency, obsolete and conflict
 information The operation is cancelable through the returned Task object.
 No integrity checks are performed on the metadata.</p>
@@ -102,7 +102,7 @@ No integrity checks are performed on the metadata.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.host_patch_manager.HostPatchManager.InstallHostPatchV2_Task">
-<tt class="descname">InstallHostPatchV2_Task</tt><big>(</big><em>metaUrls</em>, <em>bundleUrls</em>, <em>vibUrls</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.InstallHostPatchV2_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.InstallHostPatchV2_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">InstallHostPatchV2_Task</tt><big>(</big><em>metaUrls</em>, <em>bundleUrls</em>, <em>vibUrls</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.InstallHostPatchV2_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.InstallHostPatchV2_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Patch the host. The operation is not cancelable. If the patch installation failed,
 an atomic rollback of the installation will be attempted. Manual rollback
 is required if the atomic rollback failed, see PatchInstallFailed for
@@ -127,7 +127,7 @@ details.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.host_patch_manager.HostPatchManager.InstallHostPatch_Task">
-<tt class="descname">InstallHostPatch_Task</tt><big>(</big><em>repository</em>, <em>updateID</em>, <em>force</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.InstallHostPatch_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.InstallHostPatch_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">InstallHostPatch_Task</tt><big>(</big><em>repository</em>, <em>updateID</em>, <em>force</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.InstallHostPatch_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.InstallHostPatch_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deprecated. Method is deprecated, use InstallHostPatchV2_Task instead. Patch the
 host. The operation is not cancelable. If the patch installation failed,
 an atomic rollback of the installation will be attempted. Manual rollback
@@ -171,7 +171,7 @@ overwriting the already installed update.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.host_patch_manager.HostPatchManager.QueryHostPatch_Task">
-<tt class="descname">QueryHostPatch_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.QueryHostPatch_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.QueryHostPatch_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryHostPatch_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.QueryHostPatch_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.QueryHostPatch_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the host for installed bulletins.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -185,7 +185,7 @@ overwriting the already installed update.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.host_patch_manager.HostPatchManager.ScanHostPatchV2_Task">
-<tt class="descname">ScanHostPatchV2_Task</tt><big>(</big><em>metaUrls</em>, <em>bundleUrls</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.ScanHostPatchV2_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.ScanHostPatchV2_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ScanHostPatchV2_Task</tt><big>(</big><em>metaUrls</em>, <em>bundleUrls</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.ScanHostPatchV2_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.ScanHostPatchV2_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scan the host for the patch status. The operation is cancelable through the
 returned Task object. Integrity checks are performed on the metadata only
 during the scan operation.</p>
@@ -208,7 +208,7 @@ during the scan operation.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.host_patch_manager.HostPatchManager.ScanHostPatch_Task">
-<tt class="descname">ScanHostPatch_Task</tt><big>(</big><em>repository</em>, <em>updateID</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.ScanHostPatch_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.ScanHostPatch_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ScanHostPatch_Task</tt><big>(</big><em>repository</em>, <em>updateID</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.ScanHostPatch_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.ScanHostPatch_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deprecated. As of VI API 4.0, use ScanHostPatchV2_Task. Scan the host for the
 patch status. The operation is cancelable through the returned Task
 object. Integrity checks are performed on the metadata only during the
@@ -248,7 +248,7 @@ updates available in the repository will be scanned.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.host_patch_manager.HostPatchManager.StageHostPatch_Task">
-<tt class="descname">StageHostPatch_Task</tt><big>(</big><em>metaUrls</em>, <em>bundleUrls</em>, <em>vibUrls</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.StageHostPatch_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.StageHostPatch_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">StageHostPatch_Task</tt><big>(</big><em>metaUrls</em>, <em>bundleUrls</em>, <em>vibUrls</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.StageHostPatch_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.StageHostPatch_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stage the vib files to esx local location and possibly do some run time check.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -270,7 +270,7 @@ updates available in the repository will be scanned.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.host_patch_manager.HostPatchManager.UninstallHostPatch_Task">
-<tt class="descname">UninstallHostPatch_Task</tt><big>(</big><em>bulletinIds</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.UninstallHostPatch_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.UninstallHostPatch_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">UninstallHostPatch_Task</tt><big>(</big><em>bulletinIds</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_patch_manager.html#HostPatchManager.UninstallHostPatch_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_patch_manager.HostPatchManager.UninstallHostPatch_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uninstall patch from the host. The operation is not cancelable.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -302,7 +302,7 @@ updates available in the repository will be scanned.</p>
                         title="next chapter">3.45. HostPciPassthruSystem</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/mo/host_patch_manager.txt"
+    <li><a href="../sources/mo/host_patch_manager.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

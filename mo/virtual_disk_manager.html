@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.86. VirtualDiskManager &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.87. VirtualMachine" href="virtual_machine.html" />
@@ -75,13 +75,13 @@
 
 <dl class="class">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.virtual_disk_manager.</tt><tt class="descname">VirtualDiskManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='VirtualDiskManager'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.virtual_disk_manager.</tt><tt class="descname">VirtualDiskManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='VirtualDiskManager'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>This managed object type provides a way to manage and manipulate virtual disks on
 datastores. The source and the destination names are in the form of a URL
 or a datastore path.</p>
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.CopyVirtualDisk_Task">
-<tt class="descname">CopyVirtualDisk_Task</tt><big>(</big><em>sourceName</em>, <em>sourceDatacenter</em>, <em>destName</em>, <em>destDatacenter</em>, <em>destSpec</em>, <em>force</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.CopyVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.CopyVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CopyVirtualDisk_Task</tt><big>(</big><em>sourceName</em>, <em>sourceDatacenter</em>, <em>destName</em>, <em>destDatacenter</em>, <em>destSpec</em>, <em>force</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.CopyVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.CopyVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy a virtual disk, performing conversions as specified in the spec.If source (or
 destination) name is specified as a URL, then the corresponding datacenter
 parameter may be omitted.Requires Datastore.FileManagement privilege on
@@ -154,7 +154,7 @@ is assumed that the destination path belongs to the source datacenter.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.CreateVirtualDisk_Task">
-<tt class="descname">CreateVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em>, <em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.CreateVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.CreateVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CreateVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em>, <em>spec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.CreateVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.CreateVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a virtual disk.The datacenter parameter may be omitted if a URL is used to
 name the disk.Requires Datastore.FileManagement privilege on the datastore
 where the virtual disk is created.Experimental. Subject to change</p>
@@ -191,7 +191,7 @@ be a URL.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.DefragmentVirtualDisk_Task">
-<tt class="descname">DefragmentVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.DefragmentVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.DefragmentVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">DefragmentVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.DefragmentVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.DefragmentVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defragment a sparse virtual disk. This is defragmentation of the virtual disk
 file(s) in the host operating system, not defragmentation of the guest
 operating system filesystem inside the virtual disk.The datacenter
@@ -229,7 +229,7 @@ be a URL.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.DeleteVirtualDisk_Task">
-<tt class="descname">DeleteVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.DeleteVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.DeleteVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">DeleteVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.DeleteVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.DeleteVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete a virtual disk. All files relating to the disk will be deleted.The
 datacenter parameter may be omitted if a URL is used to name the
 disk.Requires Datastore.FileManagement privilege on the datastore where
@@ -265,7 +265,7 @@ be a URL.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.EagerZeroVirtualDisk_Task">
-<tt class="descname">EagerZeroVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.EagerZeroVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.EagerZeroVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">EagerZeroVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.EagerZeroVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.EagerZeroVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Explicitly zero out unaccessed parts zeroedthick disk. Effectively a no-op if the
 disk is already eagerZeroedThick. Unlike zeroFillVirtualDisk, which wipes
 the entire disk, this operation only affects previously unaccessed parts
@@ -303,7 +303,7 @@ be a URL.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ExtendVirtualDisk_Task">
-<tt class="descname">ExtendVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em>, <em>newCapacityKb</em>, <em>eagerZero</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.ExtendVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ExtendVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ExtendVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em>, <em>newCapacityKb</em>, <em>eagerZero</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.ExtendVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ExtendVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Expand the capacity of a virtual disk to the new capacity. If the eagerZero flag
 is not specified, - the extended disk region of a zerothick disk will be
 zeroedthick - the extended disk region of a eagerzerothick disk will be
@@ -359,7 +359,7 @@ be a URL.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.InflateVirtualDisk_Task">
-<tt class="descname">InflateVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.InflateVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.InflateVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">InflateVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.InflateVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.InflateVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inflate a sparse or thin-provisioned virtual disk up to the full size. Additional
 space allocated to the disk as a result of this operation will be filled
 with zeroes.The datacenter parameter may be omitted if a URL is used to
@@ -396,7 +396,7 @@ be a URL.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.MoveVirtualDisk_Task">
-<tt class="descname">MoveVirtualDisk_Task</tt><big>(</big><em>sourceName</em>, <em>sourceDatacenter</em>, <em>destName</em>, <em>destDatacenter</em>, <em>force</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.MoveVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.MoveVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">MoveVirtualDisk_Task</tt><big>(</big><em>sourceName</em>, <em>sourceDatacenter</em>, <em>destName</em>, <em>destDatacenter</em>, <em>force</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.MoveVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.MoveVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move a virtual disk and all related files from the source location specified by
 sourceName and sourceDatacenter to the destination location specified by
 destName and destDatacenter.</p>
@@ -459,7 +459,7 @@ is assumed that the destination path belongs to the source datacenter.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskFragmentation">
-<tt class="descname">QueryVirtualDiskFragmentation</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.QueryVirtualDiskFragmentation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskFragmentation" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryVirtualDiskFragmentation</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.QueryVirtualDiskFragmentation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskFragmentation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the percentage of fragmentation of the sparse virtual disk. This is the
 fragmentation of virtual disk file(s) in the host operating system, not
 the fragmentation of the guest operating systemS filesystem inside the
@@ -497,7 +497,7 @@ be a URL.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskGeometry">
-<tt class="descname">QueryVirtualDiskGeometry</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.QueryVirtualDiskGeometry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskGeometry" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryVirtualDiskGeometry</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.QueryVirtualDiskGeometry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskGeometry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the disk geometry information for the virtual disk.The datacenter parameter
 may be omitted if a URL is used to name the disk.Requires
 Datastore.FileManagement privilege on the datastore where the virtual disk
@@ -533,7 +533,7 @@ be a URL.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskUuid">
-<tt class="descname">QueryVirtualDiskUuid</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.QueryVirtualDiskUuid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskUuid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryVirtualDiskUuid</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.QueryVirtualDiskUuid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskUuid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the virtual disk SCSI inquiry page 0x83 data.The datacenter parameter may be
 omitted if a URL is used to name the disk.Requires
 Datastore.FileManagement privilege on the datastore where the virtual disk
@@ -569,7 +569,7 @@ be a URL.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.SetVirtualDiskUuid">
-<tt class="descname">SetVirtualDiskUuid</tt><big>(</big><em>name</em>, <em>datacenter</em>, <em>uuid</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.SetVirtualDiskUuid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.SetVirtualDiskUuid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">SetVirtualDiskUuid</tt><big>(</big><em>name</em>, <em>datacenter</em>, <em>uuid</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.SetVirtualDiskUuid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.SetVirtualDiskUuid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the virtual disk SCSI inquiry page 0x83 data.The datacenter parameter may be
 omitted if a URL is used to name the disk.Requires
 Datastore.FileManagement privilege on the datastore where the virtual disk
@@ -605,7 +605,7 @@ be a URL.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ShrinkVirtualDisk_Task">
-<tt class="descname">ShrinkVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em>, <em>copy</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.ShrinkVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ShrinkVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ShrinkVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em>, <em>copy</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.ShrinkVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ShrinkVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shrink a sparse virtual disk.The datacenter parameter may be omitted if a URL is
 used to name the disk.The optional parameter copy specifies whether to
 shrink the disk in copy-shrink mode or in-place mode. In copy-shrink mode,
@@ -653,7 +653,7 @@ be a URL.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ZeroFillVirtualDisk_Task">
-<tt class="descname">ZeroFillVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.ZeroFillVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ZeroFillVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ZeroFillVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.ZeroFillVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ZeroFillVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Overwrite all blocks of the virtual disk with zeros. All data will be lost.The
 datacenter parameter may be omitted if a URL is used to name the
 disk.Requires Datastore.FileManagement privilege on the datastore where
@@ -705,7 +705,7 @@ be a URL.</p>
                         title="next chapter">3.87. VirtualMachine</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/mo/virtual_disk_manager.txt"
+    <li><a href="../sources/mo/virtual_disk_manager.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.23. Folder &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.24. HistoryCollector" href="history_collector.html" />
@@ -87,10 +87,10 @@
 
 <dl class="class">
 <dt id="pyvisdk.mo.folder.Folder">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.folder.</tt><tt class="descname">Folder</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='Folder'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/folder.html#Folder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.folder.</tt><tt class="descname">Folder</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='Folder'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/folder.html#Folder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="pyvisdk.mo.folder.Folder.AddStandaloneHost_Task">
-<tt class="descname">AddStandaloneHost_Task</tt><big>(</big><em>spec</em>, <em>compResSpec</em>, <em>addConnected</em>, <em>license</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/folder.html#Folder.AddStandaloneHost_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.AddStandaloneHost_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">AddStandaloneHost_Task</tt><big>(</big><em>spec</em>, <em>compResSpec</em>, <em>addConnected</em>, <em>license</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/folder.html#Folder.AddStandaloneHost_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.AddStandaloneHost_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new single-host compute resource. The name provided can be an IP
 address, such as 192.168.0.120, or a string, such as esx120. If a name is
 specified, a DNS lookup is used to resolve it to a fully-qualified name,
@@ -135,7 +135,7 @@ fails.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.folder.Folder.CreateCluster">
-<tt class="descname">CreateCluster</tt><big>(</big><em>name</em>, <em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/folder.html#Folder.CreateCluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.CreateCluster" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CreateCluster</tt><big>(</big><em>name</em>, <em>spec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/folder.html#Folder.CreateCluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.CreateCluster" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deprecated. As of VI API 2.5, use CreateClusterEx. Creates a new cluster compute
 resource in this folder.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -157,7 +157,7 @@ resource in this folder.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.folder.Folder.CreateClusterEx">
-<tt class="descname">CreateClusterEx</tt><big>(</big><em>name</em>, <em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/folder.html#Folder.CreateClusterEx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.CreateClusterEx" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CreateClusterEx</tt><big>(</big><em>name</em>, <em>spec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/folder.html#Folder.CreateClusterEx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.CreateClusterEx" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new cluster compute resource in this folder.Any % (percent) character
 used in this name parameter must be escaped, unless it is used to start an
 escape sequence. Clients may also escape any other characters in this name
@@ -181,7 +181,7 @@ parameter.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.folder.Folder.CreateDVS_Task">
-<tt class="descname">CreateDVS_Task</tt><big>(</big><em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/folder.html#Folder.CreateDVS_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.CreateDVS_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CreateDVS_Task</tt><big>(</big><em>spec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/folder.html#Folder.CreateDVS_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.CreateDVS_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a Distributed Virtual Switch in the folder according to the specified
 (&#64;link vim.DistributedVirtualSwitch.CreateSpec).</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -205,7 +205,7 @@ parameter.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.folder.Folder.CreateDatacenter">
-<tt class="descname">CreateDatacenter</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/folder.html#Folder.CreateDatacenter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.CreateDatacenter" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CreateDatacenter</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/folder.html#Folder.CreateDatacenter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.CreateDatacenter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new datacenter with the given name.Any % (percent) character used in
 this name parameter must be escaped, unless it is used to start an escape
 sequence. Clients may also escape any other characters in this name
@@ -232,7 +232,7 @@ escaped using the URL syntax. For example, %2F.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.folder.Folder.CreateFolder">
-<tt class="descname">CreateFolder</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/folder.html#Folder.CreateFolder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.CreateFolder" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CreateFolder</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/folder.html#Folder.CreateFolder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.CreateFolder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new sub-folder with the specified name. The childType property of the
 new folder is the same as the childType property of the current folder.Any
 % (percent) character used in this name parameter must be escaped, unless
@@ -260,7 +260,7 @@ be escaped using the URL syntax. For example, %2F.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.folder.Folder.CreateVM_Task">
-<tt class="descname">CreateVM_Task</tt><big>(</big><em>config</em>, <em>pool</em>, <em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/folder.html#Folder.CreateVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.CreateVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CreateVM_Task</tt><big>(</big><em>config</em>, <em>pool</em>, <em>host</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/folder.html#Folder.CreateVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.CreateVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new virtual machine in the current folder and attaches it to the
 specified resource pool. This operation creates a virtual machine, instead
 of cloning a virtual machine from an existing one.The server does not
@@ -318,7 +318,7 @@ information on destroy behavior.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.folder.Folder.MoveIntoFolder_Task">
-<tt class="descname">MoveIntoFolder_Task</tt><big>(</big><em>list</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/folder.html#Folder.MoveIntoFolder_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.MoveIntoFolder_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">MoveIntoFolder_Task</tt><big>(</big><em>list</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/folder.html#Folder.MoveIntoFolder_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.MoveIntoFolder_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Moves a set of managed entities into this folder.This operation is typically used
 by clients when they implement a drag-and-drop interface to move a set of
 objects into a folder.This operation is transactional only with respect to
@@ -368,7 +368,7 @@ ComputeResource.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.folder.Folder.RegisterVM_Task">
-<tt class="descname">RegisterVM_Task</tt><big>(</big><em>path</em>, <em>name</em>, <em>asTemplate</em>, <em>pool</em>, <em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/folder.html#Folder.RegisterVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.RegisterVM_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">RegisterVM_Task</tt><big>(</big><em>path</em>, <em>name</em>, <em>asTemplate</em>, <em>pool</em>, <em>host</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/folder.html#Folder.RegisterVM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.RegisterVM_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds an existing virtual machine to the folder.Any % (percent) character used in
 this name parameter must be escaped, unless it is used to start an escape
 sequence. Clients may also escape any other characters in this name
@@ -457,7 +457,7 @@ may also escape any other characters in this name parameter.See name</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.folder.Folder.UnregisterAndDestroy_Task">
-<tt class="descname">UnregisterAndDestroy_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/folder.html#Folder.UnregisterAndDestroy_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.UnregisterAndDestroy_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">UnregisterAndDestroy_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/folder.html#Folder.UnregisterAndDestroy_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.folder.Folder.UnregisterAndDestroy_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recursively unregisters all virtual machines and vApps, and destroys all child
 virtual machine folders. This is similar to the Destroy_Task method, but
 this method calls UnregisterAndDestroy_Task on each virtual machine object
@@ -620,7 +620,7 @@ CustomFieldStringValue with a custom field definition.</p>
                         title="next chapter">3.24. HistoryCollector</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/mo/folder.txt"
+    <li><a href="../sources/mo/folder.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

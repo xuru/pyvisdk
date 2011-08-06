@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.81. TaskManager &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.82. UserDirectory" href="user_directory.html" />
@@ -69,11 +69,11 @@
 
 <dl class="class">
 <dt id="pyvisdk.mo.task_manager.TaskManager">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.task_manager.</tt><tt class="descname">TaskManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='TaskManager'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/task_manager.html#TaskManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.task_manager.TaskManager" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.task_manager.</tt><tt class="descname">TaskManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='TaskManager'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/task_manager.html#TaskManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.task_manager.TaskManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Properties</p>
 <dl class="method">
 <dt id="pyvisdk.mo.task_manager.TaskManager.CreateCollectorForTasks">
-<tt class="descname">CreateCollectorForTasks</tt><big>(</big><em>filter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/task_manager.html#TaskManager.CreateCollectorForTasks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.task_manager.TaskManager.CreateCollectorForTasks" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CreateCollectorForTasks</tt><big>(</big><em>filter</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/task_manager.html#TaskManager.CreateCollectorForTasks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.task_manager.TaskManager.CreateCollectorForTasks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a TaskHistoryCollector, a specialized HistoryCollector that gathers
 TaskInfo data objects.A TaskHistoryCollector does not persist beyond the
 current client session.</p>
@@ -91,7 +91,7 @@ current client session.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.task_manager.TaskManager.CreateTask">
-<tt class="descname">CreateTask</tt><big>(</big><em>obj</em>, <em>taskTypeId</em>, <em>initiatedBy</em>, <em>cancelable</em>, <em>parentTaskKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/task_manager.html#TaskManager.CreateTask"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.task_manager.TaskManager.CreateTask" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CreateTask</tt><big>(</big><em>obj</em>, <em>taskTypeId</em>, <em>initiatedBy</em>, <em>cancelable</em>, <em>parentTaskKey</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/task_manager.html#TaskManager.CreateTask"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.task_manager.TaskManager.CreateTask" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new Task, specifying the object with which the Task is associated, the
 type of task, and whether the task is cancelable. Use this operation in
 conjunction with the ExtensionManager.</p>
@@ -117,20 +117,20 @@ conjunction with the ExtensionManager.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.task_manager.TaskManager.description">
-<tt class="descname">description</tt><a class="reference internal" href="../_modules/pyvisdk/mo/task_manager.html#TaskManager.description"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.task_manager.TaskManager.description" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">description</tt><a class="reference internal" href="../modules/pyvisdk/mo/task_manager.html#TaskManager.description"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.task_manager.TaskManager.description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Locale-specific, static strings that describe Task information to users.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.task_manager.TaskManager.maxCollector">
-<tt class="descname">maxCollector</tt><a class="reference internal" href="../_modules/pyvisdk/mo/task_manager.html#TaskManager.maxCollector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.task_manager.TaskManager.maxCollector" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">maxCollector</tt><a class="reference internal" href="../modules/pyvisdk/mo/task_manager.html#TaskManager.maxCollector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.task_manager.TaskManager.maxCollector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum number of TaskHistoryCollector data objects that can exist concurrently,
 per client.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.task_manager.TaskManager.recentTask">
-<tt class="descname">recentTask</tt><a class="reference internal" href="../_modules/pyvisdk/mo/task_manager.html#TaskManager.recentTask"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.task_manager.TaskManager.recentTask" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">recentTask</tt><a class="reference internal" href="../modules/pyvisdk/mo/task_manager.html#TaskManager.recentTask"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.task_manager.TaskManager.recentTask" title="Permalink to this definition">¶</a></dt>
 <dd><p>A list of Task managed objects that completed recently, that are currently
 running, or that are queued to run.</p>
 </dd></dl>
@@ -153,7 +153,7 @@ running, or that are queued to run.</p>
                         title="next chapter">3.82. UserDirectory</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/mo/task_manager.txt"
+    <li><a href="../sources/mo/task_manager.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

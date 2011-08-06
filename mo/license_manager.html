@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.59. LicenseManager &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.60. ListView" href="list_view.html" />
@@ -69,7 +69,7 @@
 
 <dl class="class">
 <dt id="pyvisdk.mo.license_manager.LicenseManager">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.license_manager.</tt><tt class="descname">LicenseManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='LicenseManager'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.license_manager.</tt><tt class="descname">LicenseManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='LicenseManager'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Entitlements are identified by a short string &#8216;key&#8217;. Keys can represent either a
 particular edition (Full, Starter) or a particular feature/function
 (featureKey) (backup, nas). An edition implies zero one or more functions
@@ -77,7 +77,7 @@ which are express, denied or optional. For example a &#8216;Full&#8217; edition
 includes &#8216;iscsi&#8217; function but a Starter edition might disallow it.</p>
 <dl class="method">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.AddLicense">
-<tt class="descname">AddLicense</tt><big>(</big><em>licenseKey</em>, <em>labels</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.AddLicense"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.AddLicense" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">AddLicense</tt><big>(</big><em>licenseKey</em>, <em>labels</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.AddLicense"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.AddLicense" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a license to the inventory of available licenses.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -98,7 +98,7 @@ includes &#8216;iscsi&#8217; function but a Starter edition might disallow it.</
 
 <dl class="method">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.CheckLicenseFeature">
-<tt class="descname">CheckLicenseFeature</tt><big>(</big><em>host</em>, <em>featureKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.CheckLicenseFeature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.CheckLicenseFeature" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CheckLicenseFeature</tt><big>(</big><em>host</em>, <em>featureKey</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.CheckLicenseFeature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.CheckLicenseFeature" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Returns
 whether or not a given feature is enabled.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -120,7 +120,7 @@ whether or not a given feature is enabled.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.ConfigureLicenseSource">
-<tt class="descname">ConfigureLicenseSource</tt><big>(</big><em>host</em>, <em>licenseSource</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.ConfigureLicenseSource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.ConfigureLicenseSource" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ConfigureLicenseSource</tt><big>(</big><em>host</em>, <em>licenseSource</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.ConfigureLicenseSource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.ConfigureLicenseSource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deprecated. As of vSphere API 4.0, use UpdateLicense instead. Allows for
 reconfiguration of the License Manager license source.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -139,7 +139,7 @@ reconfiguration of the License Manager license source.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.DecodeLicense">
-<tt class="descname">DecodeLicense</tt><big>(</big><em>licenseKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.DecodeLicense"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.DecodeLicense" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">DecodeLicense</tt><big>(</big><em>licenseKey</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.DecodeLicense"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.DecodeLicense" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decodes licensing information on the license specified.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -155,7 +155,7 @@ reconfiguration of the License Manager license source.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.DisableFeature">
-<tt class="descname">DisableFeature</tt><big>(</big><em>host</em>, <em>featureKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.DisableFeature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.DisableFeature" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">DisableFeature</tt><big>(</big><em>host</em>, <em>featureKey</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.DisableFeature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.DisableFeature" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deprecated. As of vSphere API 4.0, use RemoveAssignedLicense instead. Release
 licenses for an optional feature.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -177,7 +177,7 @@ licenses for an optional feature.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.EnableFeature">
-<tt class="descname">EnableFeature</tt><big>(</big><em>host</em>, <em>featureKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.EnableFeature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.EnableFeature" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">EnableFeature</tt><big>(</big><em>host</em>, <em>featureKey</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.EnableFeature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.EnableFeature" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deprecated. As of vSphere API 4.0, use UpdateAssignedLicense instead. Enable a
 feature that has an optional state.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -199,7 +199,7 @@ feature that has an optional state.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.QueryLicenseSourceAvailability">
-<tt class="descname">QueryLicenseSourceAvailability</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.QueryLicenseSourceAvailability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.QueryLicenseSourceAvailability" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryLicenseSourceAvailability</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.QueryLicenseSourceAvailability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.QueryLicenseSourceAvailability" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Queries the
 current license source for total and available licenses available for each
 feature known to this system.</p>
@@ -217,7 +217,7 @@ feature known to this system.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.QueryLicenseUsage">
-<tt class="descname">QueryLicenseUsage</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.QueryLicenseUsage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.QueryLicenseUsage" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryLicenseUsage</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.QueryLicenseUsage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.QueryLicenseUsage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Returns the
 license usage. The license usage is a list of supported features and the
 number of licenses that have been reserved.</p>
@@ -235,7 +235,7 @@ number of licenses that have been reserved.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.QuerySupportedFeatures">
-<tt class="descname">QuerySupportedFeatures</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.QuerySupportedFeatures"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.QuerySupportedFeatures" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QuerySupportedFeatures</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.QuerySupportedFeatures"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.QuerySupportedFeatures" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Queries the
 current license source for a list of available licenses that can be
 licensed from this system.</p>
@@ -253,7 +253,7 @@ licensed from this system.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.RemoveLicense">
-<tt class="descname">RemoveLicense</tt><big>(</big><em>licenseKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.RemoveLicense"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.RemoveLicense" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">RemoveLicense</tt><big>(</big><em>licenseKey</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.RemoveLicense"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.RemoveLicense" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove license from the available set.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -267,7 +267,7 @@ licensed from this system.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.RemoveLicenseLabel">
-<tt class="descname">RemoveLicenseLabel</tt><big>(</big><em>licenseKey</em>, <em>labelKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.RemoveLicenseLabel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.RemoveLicenseLabel" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">RemoveLicenseLabel</tt><big>(</big><em>licenseKey</em>, <em>labelKey</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.RemoveLicenseLabel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.RemoveLicenseLabel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removed a license&#8217;s label.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -285,7 +285,7 @@ licensed from this system.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.SetLicenseEdition">
-<tt class="descname">SetLicenseEdition</tt><big>(</big><em>host</em>, <em>featureKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.SetLicenseEdition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.SetLicenseEdition" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">SetLicenseEdition</tt><big>(</big><em>host</em>, <em>featureKey</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.SetLicenseEdition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.SetLicenseEdition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Defines the
 product&#8217;s license edition. The edition defines which product license the
 server requires. This, in turn, determines the core set of functionality
@@ -307,7 +307,7 @@ provided by the product and the additional features that can be licensed.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.UpdateLicense">
-<tt class="descname">UpdateLicense</tt><big>(</big><em>licenseKey</em>, <em>labels</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.UpdateLicense"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.UpdateLicense" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">UpdateLicense</tt><big>(</big><em>licenseKey</em>, <em>labels</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.UpdateLicense"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.UpdateLicense" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates the available licenses to the one provided in licenseKey. This is the same
 as removing all the licenses using RemoveLicense and adding licenseKey
 using AddLicense If the optional parameter labels is specify this is the
@@ -332,7 +332,7 @@ updateLabel for each pair in the labels array.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.UpdateLicenseLabel">
-<tt class="descname">UpdateLicenseLabel</tt><big>(</big><em>licenseKey</em>, <em>labelKey</em>, <em>labelValue</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.UpdateLicenseLabel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.UpdateLicenseLabel" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">UpdateLicenseLabel</tt><big>(</big><em>licenseKey</em>, <em>labelKey</em>, <em>labelValue</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.UpdateLicenseLabel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.UpdateLicenseLabel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update a license&#8217;s label. It creates a label entry if the labelKey doesn&#8217;t already
 exist</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -352,31 +352,31 @@ exist</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.diagnostics">
-<tt class="descname">diagnostics</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.diagnostics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.diagnostics" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">diagnostics</tt><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.diagnostics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.diagnostics" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return current diagnostic information.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.evaluation">
-<tt class="descname">evaluation</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.evaluation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.evaluation" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">evaluation</tt><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.evaluation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.evaluation" title="Permalink to this definition">¶</a></dt>
 <dd><p>vSphere API 4.0</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.featureInfo">
-<tt class="descname">featureInfo</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.featureInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.featureInfo" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">featureInfo</tt><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.featureInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.featureInfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>The list of features that can be licensed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.licenseAssignmentManager">
-<tt class="descname">licenseAssignmentManager</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.licenseAssignmentManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.licenseAssignmentManager" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">licenseAssignmentManager</tt><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.licenseAssignmentManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.licenseAssignmentManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>License Assignment Manager</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.licensedEdition">
-<tt class="descname">licensedEdition</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.licensedEdition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.licensedEdition" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">licensedEdition</tt><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.licensedEdition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.licensedEdition" title="Permalink to this definition">¶</a></dt>
 <dd><p>The product&#8217;s license edition. The edition defines which product license the
 server requires. This, in turn, determines the core set of functionalities
 provided by the product and the additional features that can be licensed.
@@ -386,19 +386,19 @@ the edition use SetLicenseEdition.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.licenses">
-<tt class="descname">licenses</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.licenses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.licenses" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">licenses</tt><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.licenses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.licenses" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get information about all the licenses avaiable.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.source">
-<tt class="descname">source</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.source"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.source" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">source</tt><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.source"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.source" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set or return a data object type of LocalLicense or LicenseServer.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.license_manager.LicenseManager.sourceAvailable">
-<tt class="descname">sourceAvailable</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.sourceAvailable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.sourceAvailable" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">sourceAvailable</tt><a class="reference internal" href="../modules/pyvisdk/mo/license_manager.html#LicenseManager.sourceAvailable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.sourceAvailable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Current state of the license source. License sources that are LocalSource are
 always available.</p>
 </dd></dl>
@@ -421,7 +421,7 @@ always available.</p>
                         title="next chapter">3.60. ListView</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/mo/license_manager.txt"
+    <li><a href="../sources/mo/license_manager.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

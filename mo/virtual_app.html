@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.85. VirtualApp &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.86. VirtualDiskManager" href="virtual_disk_manager.html" />
@@ -81,12 +81,12 @@
 
 <dl class="class">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.virtual_app.</tt><tt class="descname">VirtualApp</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='VirtualApp'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.virtual_app.</tt><tt class="descname">VirtualApp</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='VirtualApp'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp" title="Permalink to this definition">¶</a></dt>
 <dd><p>From a technical perspective, a vApp container is a specialized resource pool that
 has been extended with the following capabilities:</p>
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp.CloneVApp_Task">
-<tt class="descname">CloneVApp_Task</tt><big>(</big><em>name</em>, <em>target</em>, <em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.CloneVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.CloneVApp_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">CloneVApp_Task</tt><big>(</big><em>name</em>, <em>target</em>, <em>spec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp.CloneVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.CloneVApp_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a clone of this vApp.Any % (percent) character used in this name parameter
 must be escaped, unless it is used to start an escape sequence. Clients
 may also escape any other characters in this name parameter.When invoking
@@ -233,7 +233,7 @@ information on destroy behavior.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp.ExportVApp">
-<tt class="descname">ExportVApp</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.ExportVApp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.ExportVApp" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ExportVApp</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp.ExportVApp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.ExportVApp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtains an export lease on this vApp. The export lease contains a list of URLs for
 the disks of the virtual machines in this vApp, as well as a ticket that
 gives access to these URLs.See HttpNfcLease for information on how to use
@@ -304,7 +304,7 @@ resource pool cannot be moved.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp.PowerOffVApp_Task">
-<tt class="descname">PowerOffVApp_Task</tt><big>(</big><em>force</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.PowerOffVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.PowerOffVApp_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">PowerOffVApp_Task</tt><big>(</big><em>force</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp.PowerOffVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.PowerOffVApp_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stops this vApp.The virtual machines (or child vApps) will be stopped in the order
 specified in the vApp configuration, if force is false. If force is set to
 true, all virtual machines are powered-off (in no specific order and
@@ -333,7 +333,7 @@ TaskInProgress.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp.PowerOnVApp_Task">
-<tt class="descname">PowerOnVApp_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.PowerOnVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.PowerOnVApp_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">PowerOnVApp_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp.PowerOnVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.PowerOnVApp_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts this vApp.The virtual machines (or sub vApps) will be started in the order
 specified in the vApp configuration. If the vApp is suspended (&#64;see
 vim.VirtualApp.Summary.suspended), all suspended virtual machines will be
@@ -462,7 +462,7 @@ may also escape any other characters in this name parameter.See name</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp.SuspendVApp_Task">
-<tt class="descname">SuspendVApp_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.SuspendVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.SuspendVApp_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">SuspendVApp_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp.SuspendVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.SuspendVApp_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Suspends this vApp.Suspends all powered-on virtual machines in a vApp, including
 virtual machines in child vApps. The virtual machines are suspended in the
 same order as used for a power-off operation (reverse power-on
@@ -516,7 +516,7 @@ parameter.The privilege checks for this operation are as follows:</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp.UpdateLinkedChildren">
-<tt class="descname">UpdateLinkedChildren</tt><big>(</big><em>addChangeSet</em>, <em>removeSet</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.UpdateLinkedChildren"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.UpdateLinkedChildren" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">UpdateLinkedChildren</tt><big>(</big><em>addChangeSet</em>, <em>removeSet</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp.UpdateLinkedChildren"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.UpdateLinkedChildren" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconfigure the set of linked children.A VirtualMachine and vApp can be added as a
 linked child as long as it is not a direct child of another vApp. In case
 it is a linked child, the existing link is removed and replaced with the
@@ -549,7 +549,7 @@ an exception.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp.UpdateVAppConfig">
-<tt class="descname">UpdateVAppConfig</tt><big>(</big><em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.UpdateVAppConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.UpdateVAppConfig" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">UpdateVAppConfig</tt><big>(</big><em>spec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp.UpdateVAppConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.UpdateVAppConfig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates the vApp configuration.Updates in different areas require different
 privileges. See VAppConfigSpec for a full description.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -586,7 +586,7 @@ ResourcePool) of this resource group.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp.childLink">
-<tt class="descname">childLink</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.childLink"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.childLink" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">childLink</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp.childLink"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.childLink" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of linked children</p>
 </dd></dl>
 
@@ -628,7 +628,7 @@ detected; it is not a guarantee that the entity is problem-free.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp.datastore">
-<tt class="descname">datastore</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.datastore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.datastore" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">datastore</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp.datastore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.datastore" title="Permalink to this definition">¶</a></dt>
 <dd><p>A collection of references to the subset of datastore objects used by this vApp.</p>
 </dd></dl>
 
@@ -657,7 +657,7 @@ or disable operations in a graphical user interface.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp.network">
-<tt class="descname">network</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.network"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.network" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">network</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp.network"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.network" title="Permalink to this definition">¶</a></dt>
 <dd><p>A collection of references to the subset of network objects that is used by this
 virtual machine.</p>
 </dd></dl>
@@ -683,7 +683,7 @@ alarms attached to a managed entity.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp.parentFolder">
-<tt class="descname">parentFolder</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.parentFolder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.parentFolder" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">parentFolder</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp.parentFolder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.parentFolder" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference to the parent folder in the VM and Template folder hierarchy. This can
 be null if the vApp is not associated with a VM &amp; Template folder. A child
 vApp can never be associated with a folder, but it is also not a
@@ -692,7 +692,7 @@ requirement that a root vApp is linked into the VM and Template view.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp.parentVApp">
-<tt class="descname">parentVApp</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.parentVApp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.parentVApp" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">parentVApp</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp.parentVApp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.parentVApp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference to the parent vApp.</p>
 </dd></dl>
 
@@ -745,7 +745,7 @@ change.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp.unregisterVApp_Task">
-<tt class="descname">unregisterVApp_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.unregisterVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.unregisterVApp_Task" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">unregisterVApp_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp.unregisterVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.unregisterVApp_Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes this vApp from the inventory without removing any of the virtual machine&#8217;s
 files on disk. All high-level information stored with the management
 server (ESX Server or VirtualCenter) is removed, including information
@@ -762,7 +762,7 @@ such as vApp configuration, statistics, permissions, and alarms.</p>
 
 <dl class="attribute">
 <dt id="pyvisdk.mo.virtual_app.VirtualApp.vAppConfig">
-<tt class="descname">vAppConfig</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.vAppConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.vAppConfig" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">vAppConfig</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_app.html#VirtualApp.vAppConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.vAppConfig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configuration of this package.</p>
 </dd></dl>
 
@@ -797,7 +797,7 @@ CustomFieldStringValue with a custom field definition.</p>
                         title="next chapter">3.86. VirtualDiskManager</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/mo/virtual_app.txt"
+    <li><a href="../sources/mo/virtual_app.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

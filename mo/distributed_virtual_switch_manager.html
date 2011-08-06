@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.16. DistributedVirtualSwitchManager &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.17. EnvironmentBrowser" href="environment_browser.html" />
@@ -75,11 +75,11 @@
 
 <dl class="class">
 <dt id="pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.distributed_virtual_switch_manager.</tt><tt class="descname">DistributedVirtualSwitchManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='DistributedVirtualSwitchManager'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.distributed_virtual_switch_manager.</tt><tt class="descname">DistributedVirtualSwitchManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='DistributedVirtualSwitchManager'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Properties</p>
 <dl class="method">
 <dt id="pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryAvailableDvsSpec">
-<tt class="descname">QueryAvailableDvsSpec</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryAvailableDvsSpec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryAvailableDvsSpec" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryAvailableDvsSpec</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryAvailableDvsSpec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryAvailableDvsSpec" title="Permalink to this definition">¶</a></dt>
 <dd><p>This operation returns a list of switch product specifications that are supported
 by the vCenter Server.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -94,7 +94,7 @@ by the vCenter Server.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryCompatibleHostForExistingDvs">
-<tt class="descname">QueryCompatibleHostForExistingDvs</tt><big>(</big><em>container</em>, <em>recursive</em>, <em>dvs</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryCompatibleHostForExistingDvs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryCompatibleHostForExistingDvs" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryCompatibleHostForExistingDvs</tt><big>(</big><em>container</em>, <em>recursive</em>, <em>dvs</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryCompatibleHostForExistingDvs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryCompatibleHostForExistingDvs" title="Permalink to this definition">¶</a></dt>
 <dd><p>This operation returns a list of hosts that are compatible with the given
 DistributedVirtualSwitch product specification.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -140,7 +140,7 @@ DistributedVirtualSwitchProductSpec.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryCompatibleHostForNewDvs">
-<tt class="descname">QueryCompatibleHostForNewDvs</tt><big>(</big><em>container</em>, <em>recursive</em>, <em>switchProductSpec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryCompatibleHostForNewDvs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryCompatibleHostForNewDvs" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryCompatibleHostForNewDvs</tt><big>(</big><em>container</em>, <em>recursive</em>, <em>switchProductSpec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryCompatibleHostForNewDvs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryCompatibleHostForNewDvs" title="Permalink to this definition">¶</a></dt>
 <dd><p>This operation returns a list of hosts that are compatible with the given
 DistributedVirtualSwitch product specification.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -183,7 +183,7 @@ HostFolder.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsByUuid">
-<tt class="descname">QueryDvsByUuid</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryDvsByUuid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsByUuid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryDvsByUuid</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryDvsByUuid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsByUuid" title="Permalink to this definition">¶</a></dt>
 <dd><p>This operation returns a DistributedVirtualSwitch given a UUID.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -197,7 +197,7 @@ HostFolder.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsCheckCompatibility">
-<tt class="descname">QueryDvsCheckCompatibility</tt><big>(</big><em>hostContainer</em>, <em>dvsProductSpec</em>, <em>hostFilterSpec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryDvsCheckCompatibility"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsCheckCompatibility" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryDvsCheckCompatibility</tt><big>(</big><em>hostContainer</em>, <em>dvsProductSpec</em>, <em>hostFilterSpec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryDvsCheckCompatibility"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsCheckCompatibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>This operation returns a list of compatibility results. Each compatibility result
 is an object that has a host property and optionally a fault which would
 be populated only if that host is not compatible with a given
@@ -249,7 +249,7 @@ DVS member.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsCompatibleHostSpec">
-<tt class="descname">QueryDvsCompatibleHostSpec</tt><big>(</big><em>switchProductSpec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryDvsCompatibleHostSpec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsCompatibleHostSpec" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryDvsCompatibleHostSpec</tt><big>(</big><em>switchProductSpec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryDvsCompatibleHostSpec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsCompatibleHostSpec" title="Permalink to this definition">¶</a></dt>
 <dd><p>This operation returns a list of host product specifications that are compatible
 with the given DistributedVirtualSwitch product specification.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -273,7 +273,7 @@ with the given DistributedVirtualSwitch product specification.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsConfigTarget">
-<tt class="descname">QueryDvsConfigTarget</tt><big>(</big><em>host</em>, <em>dvs</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryDvsConfigTarget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsConfigTarget" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryDvsConfigTarget</tt><big>(</big><em>host</em>, <em>dvs</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryDvsConfigTarget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsConfigTarget" title="Permalink to this definition">¶</a></dt>
 <dd><p>This operation returns the DistributedVirtualSwitch or DistributedVirtualPortgroup
 config target on a host.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -307,7 +307,7 @@ available on the host.</p>
 
 <dl class="method">
 <dt id="pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsFeatureCapability">
-<tt class="descname">QueryDvsFeatureCapability</tt><big>(</big><em>switchProductSpec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryDvsFeatureCapability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsFeatureCapability" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">QueryDvsFeatureCapability</tt><big>(</big><em>switchProductSpec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch_manager.html#DistributedVirtualSwitchManager.QueryDvsFeatureCapability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsFeatureCapability" title="Permalink to this definition">¶</a></dt>
 <dd><p>This operation indicates which version-specific DVS features are available for the
 given DistributedVirtualSwitch product specification.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -347,7 +347,7 @@ given DistributedVirtualSwitch product specification.</p>
                         title="next chapter">3.17. EnvironmentBrowser</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/mo/distributed_virtual_switch_manager.txt"
+    <li><a href="../sources/mo/distributed_virtual_switch_manager.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
