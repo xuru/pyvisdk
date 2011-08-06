@@ -1,0 +1,198 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.25. HostActiveDirectoryAuthentication &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.26. HostAuthenticationManager" href="host_authentication_manager.html" />
+    <link rel="prev" title="3.24. HistoryCollector" href="history_collector.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_authentication_manager.html" title="3.26. HostAuthenticationManager"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="history_collector.html" title="3.24. HistoryCollector"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hostactivedirectoryauthentication">
+<h1>3.25. HostActiveDirectoryAuthentication<a class="headerlink" href="#hostactivedirectoryauthentication" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.1</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><a class="reference internal" href="host_directory_store.html#pyvisdk.mo.host_directory_store.HostDirectoryStore" title="pyvisdk.mo.host_directory_store.HostDirectoryStore"><tt class="xref py py-class docutils literal"><span class="pre">HostDirectoryStore</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.host_active_directory_authentication.HostActiveDirectoryAuthentication">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.host_active_directory_authentication.</tt><tt class="descname">HostActiveDirectoryAuthentication</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='HostActiveDirectoryAuthentication'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_active_directory_authentication.html#HostActiveDirectoryAuthentication"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_active_directory_authentication.HostActiveDirectoryAuthentication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Properties</p>
+<dl class="method">
+<dt id="pyvisdk.mo.host_active_directory_authentication.HostActiveDirectoryAuthentication.JoinDomain_Task">
+<tt class="descname">JoinDomain_Task</tt><big>(</big><em>domainName</em>, <em>userName</em>, <em>password</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_active_directory_authentication.html#HostActiveDirectoryAuthentication.JoinDomain_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_active_directory_authentication.HostActiveDirectoryAuthentication.JoinDomain_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the host to an Active Directory domain.If the
+HostAuthenticationStoreInfo.enabled property is True (accessed through the
+info property), the host has joined a domain. The vSphere API will throw
+the InvalidState fault if you try to add a host to a domain when the host
+has already joined a domain.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>domainName</strong> &#8211; Name of the domain to be joined.</li>
+<li><strong>userName</strong> &#8211; Name for an Active Directory account that has the authority to add hosts to the</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>domain.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>password</strong> &#8211; Password for theaccount.</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_active_directory_authentication.HostActiveDirectoryAuthentication.LeaveCurrentDomain_Task">
+<tt class="descname">LeaveCurrentDomain_Task</tt><big>(</big><em>force</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_active_directory_authentication.html#HostActiveDirectoryAuthentication.LeaveCurrentDomain_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_active_directory_authentication.HostActiveDirectoryAuthentication.LeaveCurrentDomain_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the host from the Active Directory domain to which it belongs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>force</strong> &#8211; If, any existing permissions on managed entities for Active Directory users will</td>
+</tr>
+</tbody>
+</table>
+<p>be deleted. Ifand such permissions exist, the operation will fail.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.host_active_directory_authentication.HostActiveDirectoryAuthentication.info">
+<tt class="descname">info</tt><a class="headerlink" href="#pyvisdk.mo.host_active_directory_authentication.HostActiveDirectoryAuthentication.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information about the authentication store.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="history_collector.html"
+                        title="previous chapter">3.24. HistoryCollector</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_authentication_manager.html"
+                        title="next chapter">3.26. HostAuthenticationManager</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/host_active_directory_authentication.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_authentication_manager.html" title="3.26. HostAuthenticationManager"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="history_collector.html" title="3.24. HistoryCollector"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.59. LicenseManager &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.60. ListView" href="list_view.html" />
+    <link rel="prev" title="3.58. LicenseAssignmentManager" href="license_assignment_manager.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="list_view.html" title="3.60. ListView"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="license_assignment_manager.html" title="3.58. LicenseAssignmentManager"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="licensemanager">
+<h1>3.59. LicenseManager<a class="headerlink" href="#licensemanager" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostConfigManager</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ServiceContent</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="host_system.html#pyvisdk.mo.host_system.HostSystem" title="pyvisdk.mo.host_system.HostSystem"><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">KeyValue</span></tt>, <a class="reference internal" href="license_assignment_manager.html#pyvisdk.mo.license_assignment_manager.LicenseAssignmentManager" title="pyvisdk.mo.license_assignment_manager.LicenseAssignmentManager"><tt class="xref py py-class docutils literal"><span class="pre">LicenseAssignmentManager</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">LicenseAvailabilityInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">LicenseDiagnostics</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">LicenseFeatureInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">LicenseManagerEvaluationInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">LicenseManagerLicenseInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">LicenseSource</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">LicenseUsageInfo</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.license_manager.LicenseManager">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.license_manager.</tt><tt class="descname">LicenseManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='LicenseManager'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entitlements are identified by a short string &#8216;key&#8217;. Keys can represent either a
+particular edition (Full, Starter) or a particular feature/function
+(featureKey) (backup, nas). An edition implies zero one or more functions
+which are express, denied or optional. For example a &#8216;Full&#8217; edition
+includes &#8216;iscsi&#8217; function but a Starter edition might disallow it.</p>
+<dl class="method">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.AddLicense">
+<tt class="descname">AddLicense</tt><big>(</big><em>licenseKey</em>, <em>labels</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.AddLicense"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.AddLicense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a license to the inventory of available licenses.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>licenseKey</strong> &#8211; A license. E.g. a serial license.</li>
+<li><strong>labels</strong> &#8211; array of key-value labels. Ignored by ESX Server.</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">LicenseManagerLicenseInfo</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.CheckLicenseFeature">
+<tt class="descname">CheckLicenseFeature</tt><big>(</big><em>host</em>, <em>featureKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.CheckLicenseFeature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.CheckLicenseFeature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Returns
+whether or not a given feature is enabled.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>host</strong> &#8211; Host to act on if LicenseManager is not on a host.</li>
+<li><strong>featureKey</strong> &#8211; Name of the feature to enable.</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">xsd:boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.ConfigureLicenseSource">
+<tt class="descname">ConfigureLicenseSource</tt><big>(</big><em>host</em>, <em>licenseSource</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.ConfigureLicenseSource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.ConfigureLicenseSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated. As of vSphere API 4.0, use UpdateLicense instead. Allows for
+reconfiguration of the License Manager license source.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>host</strong> &#8211; Host for which the license manager should be reconfigured.</li>
+<li><strong>licenseSource</strong> &#8211; ServedSource or LocalSource.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.DecodeLicense">
+<tt class="descname">DecodeLicense</tt><big>(</big><em>licenseKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.DecodeLicense"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.DecodeLicense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes licensing information on the license specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>licenseKey</strong> &#8211; A license. E.g. a serial license.</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">LicenseManagerLicenseInfo</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.DisableFeature">
+<tt class="descname">DisableFeature</tt><big>(</big><em>host</em>, <em>featureKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.DisableFeature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.DisableFeature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated. As of vSphere API 4.0, use RemoveAssignedLicense instead. Release
+licenses for an optional feature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>host</strong> &#8211; Host to act on if LicenseManager is not on a host.</li>
+<li><strong>featureKey</strong> &#8211; key of the feature to disable.</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">xsd:boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.EnableFeature">
+<tt class="descname">EnableFeature</tt><big>(</big><em>host</em>, <em>featureKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.EnableFeature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.EnableFeature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated. As of vSphere API 4.0, use UpdateAssignedLicense instead. Enable a
+feature that has an optional state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>host</strong> &#8211; Host to act on if LicenseManager is not on a host.</li>
+<li><strong>featureKey</strong> &#8211; Name of the feature to enable.</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">xsd:boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.QueryLicenseSourceAvailability">
+<tt class="descname">QueryLicenseSourceAvailability</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.QueryLicenseSourceAvailability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.QueryLicenseSourceAvailability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Queries the
+current license source for total and available licenses available for each
+feature known to this system.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>host</strong> &#8211; Use the license source of the specified host.</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">LicenseAvailabilityInfo[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.QueryLicenseUsage">
+<tt class="descname">QueryLicenseUsage</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.QueryLicenseUsage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.QueryLicenseUsage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Returns the
+license usage. The license usage is a list of supported features and the
+number of licenses that have been reserved.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>host</strong> &#8211; Host to query for usage. If missing, query the server the LicenseManager is on.</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">LicenseUsageInfo</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.QuerySupportedFeatures">
+<tt class="descname">QuerySupportedFeatures</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.QuerySupportedFeatures"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.QuerySupportedFeatures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Queries the
+current license source for a list of available licenses that can be
+licensed from this system.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>host</strong> &#8211; Use the license source of the specified host.</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">LicenseFeatureInfo[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.RemoveLicense">
+<tt class="descname">RemoveLicense</tt><big>(</big><em>licenseKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.RemoveLicense"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.RemoveLicense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove license from the available set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>licenseKey</strong> &#8211; A licenses. E.g. a serial license.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.RemoveLicenseLabel">
+<tt class="descname">RemoveLicenseLabel</tt><big>(</big><em>licenseKey</em>, <em>labelKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.RemoveLicenseLabel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.RemoveLicenseLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removed a license&#8217;s label.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>licenseKey</strong> &#8211; A license.</li>
+<li><strong>labelKey</strong> &#8211; A label key.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.SetLicenseEdition">
+<tt class="descname">SetLicenseEdition</tt><big>(</big><em>host</em>, <em>featureKey</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.SetLicenseEdition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.SetLicenseEdition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Defines the
+product&#8217;s license edition. The edition defines which product license the
+server requires. This, in turn, determines the core set of functionality
+provided by the product and the additional features that can be licensed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>host</strong> &#8211; Host to act on if LicenseManager is not on a host.</li>
+<li><strong>featureKey</strong> &#8211; Name of edition feature to select. If featureKey is not set or set to empty</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>string, the product becomes unlicensed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.UpdateLicense">
+<tt class="descname">UpdateLicense</tt><big>(</big><em>licenseKey</em>, <em>labels</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.UpdateLicense"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.UpdateLicense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the available licenses to the one provided in licenseKey. This is the same
+as removing all the licenses using RemoveLicense and adding licenseKey
+using AddLicense If the optional parameter labels is specify this is the
+same as calling updateLicense without the optioal parameter and calling
+updateLabel for each pair in the labels array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>licenseKey</strong> &#8211; A license. E.g. a serial license.</li>
+<li><strong>labels</strong> &#8211; array of key-value labels.</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">LicenseManagerLicenseInfo</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.UpdateLicenseLabel">
+<tt class="descname">UpdateLicenseLabel</tt><big>(</big><em>licenseKey</em>, <em>labelKey</em>, <em>labelValue</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.UpdateLicenseLabel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.UpdateLicenseLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a license&#8217;s label. It creates a label entry if the labelKey doesn&#8217;t already
+exist</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>licenseKey</strong> &#8211; A license.</li>
+<li><strong>labelKey</strong> &#8211; A label key.</li>
+<li><strong>labelValue</strong> &#8211; Value for the label.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.diagnostics">
+<tt class="descname">diagnostics</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.diagnostics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.diagnostics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return current diagnostic information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.evaluation">
+<tt class="descname">evaluation</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.evaluation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.evaluation" title="Permalink to this definition">¶</a></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.featureInfo">
+<tt class="descname">featureInfo</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.featureInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.featureInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of features that can be licensed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.licenseAssignmentManager">
+<tt class="descname">licenseAssignmentManager</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.licenseAssignmentManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.licenseAssignmentManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>License Assignment Manager</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.licensedEdition">
+<tt class="descname">licensedEdition</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.licensedEdition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.licensedEdition" title="Permalink to this definition">¶</a></dt>
+<dd><p>The product&#8217;s license edition. The edition defines which product license the
+server requires. This, in turn, determines the core set of functionalities
+provided by the product and the additional features that can be licensed.
+If no edition is set the property is set to the empty string (&#8220;&#8221;). To set
+the edition use SetLicenseEdition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.licenses">
+<tt class="descname">licenses</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.licenses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.licenses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get information about all the licenses avaiable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.source">
+<tt class="descname">source</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.source"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set or return a data object type of LocalLicense or LicenseServer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.license_manager.LicenseManager.sourceAvailable">
+<tt class="descname">sourceAvailable</tt><a class="reference internal" href="../_modules/pyvisdk/mo/license_manager.html#LicenseManager.sourceAvailable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.license_manager.LicenseManager.sourceAvailable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current state of the license source. License sources that are LocalSource are
+always available.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="license_assignment_manager.html"
+                        title="previous chapter">3.58. LicenseAssignmentManager</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="list_view.html"
+                        title="next chapter">3.60. ListView</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/license_manager.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="list_view.html" title="3.60. ListView"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="license_assignment_manager.html" title="3.58. LicenseAssignmentManager"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

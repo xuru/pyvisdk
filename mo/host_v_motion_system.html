@@ -1,0 +1,194 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.53. HostVMotionSystem &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.54. HostVirtualNicManager" href="host_virtual_nic_manager.html" />
+    <link rel="prev" title="3.52. HostSystem" href="host_system.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_virtual_nic_manager.html" title="3.54. HostVirtualNicManager"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_system.html" title="3.52. HostSystem"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hostvmotionsystem">
+<h1>3.53. HostVMotionSystem<a class="headerlink" href="#hostvmotionsystem" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostConfigManager</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostIpConfig</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostVMotionNetConfig</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><a class="reference internal" href="extensible_managed_object.html#pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject" title="pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject"><tt class="xref py py-class docutils literal"><span class="pre">ExtensibleManagedObject</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.host_v_motion_system.HostVMotionSystem">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.host_v_motion_system.</tt><tt class="descname">HostVMotionSystem</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='HostVMotionSystem'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_v_motion_system.html#HostVMotionSystem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_v_motion_system.HostVMotionSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Properties</p>
+<dl class="method">
+<dt id="pyvisdk.mo.host_v_motion_system.HostVMotionSystem.DeselectVnic">
+<tt class="descname">DeselectVnic</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_v_motion_system.html#HostVMotionSystem.DeselectVnic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_v_motion_system.HostVMotionSystem.DeselectVnic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate that no VirtualNic should be used for VMotion.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_v_motion_system.HostVMotionSystem.SelectVnic">
+<tt class="descname">SelectVnic</tt><big>(</big><em>device</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_v_motion_system.html#HostVMotionSystem.SelectVnic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_v_motion_system.HostVMotionSystem.SelectVnic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the VirtualNic to be used for VMotion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device</strong> &#8211; The device that uniquely identifies the VirtualNic.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_v_motion_system.HostVMotionSystem.UpdateIpConfig">
+<tt class="descname">UpdateIpConfig</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_v_motion_system.html#HostVMotionSystem.UpdateIpConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_v_motion_system.HostVMotionSystem.UpdateIpConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the IP configuration of VMotion VirtualNic.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.host_v_motion_system.HostVMotionSystem.availableField">
+<tt class="descname">availableField</tt><a class="headerlink" href="#pyvisdk.mo.host_v_motion_system.HostVMotionSystem.availableField" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of custom field definitions that are valid for the object&#8217;s type. The fields
+are sorted by name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.host_v_motion_system.HostVMotionSystem.ipConfig">
+<tt class="descname">ipConfig</tt><a class="reference internal" href="../_modules/pyvisdk/mo/host_v_motion_system.html#HostVMotionSystem.ipConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_v_motion_system.HostVMotionSystem.ipConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>IP configuration of the VMotion VirtualNic.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.host_v_motion_system.HostVMotionSystem.netConfig">
+<tt class="descname">netConfig</tt><a class="reference internal" href="../_modules/pyvisdk/mo/host_v_motion_system.html#HostVMotionSystem.netConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_v_motion_system.HostVMotionSystem.netConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>VMotion network configuration.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.host_v_motion_system.HostVMotionSystem.value">
+<tt class="descname">value</tt><a class="headerlink" href="#pyvisdk.mo.host_v_motion_system.HostVMotionSystem.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of custom field values. Each value uses a key to associate an instance of a
+CustomFieldStringValue with a custom field definition.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_system.html"
+                        title="previous chapter">3.52. HostSystem</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_virtual_nic_manager.html"
+                        title="next chapter">3.54. HostVirtualNicManager</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/host_v_motion_system.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_virtual_nic_manager.html" title="3.54. HostVirtualNicManager"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_system.html" title="3.52. HostSystem"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

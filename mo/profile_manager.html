@@ -1,0 +1,212 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.70. ProfileManager &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.71. ResourcePlanningManager" href="resource_planning_manager.html" />
+    <link rel="prev" title="3.69. ProfileComplianceManager" href="profile_compliance_manager.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="resource_planning_manager.html" title="3.71. ResourcePlanningManager"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="profile_compliance_manager.html" title="3.69. ProfileComplianceManager"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="profilemanager">
+<h1>3.70. ProfileManager<a class="headerlink" href="#profilemanager" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Extended by</tt></dt>
+<dd><p>ClusterProfileManager, HostProfileManager</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity" title="pyvisdk.mo.managed_entity.ManagedEntity"><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt></a>, <a class="reference internal" href="profile.html#pyvisdk.mo.profile.Profile" title="pyvisdk.mo.profile.Profile"><tt class="xref py py-class docutils literal"><span class="pre">Profile</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">ProfileCreateSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ProfilePolicyMetadata</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.profile_manager.ProfileManager">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.profile_manager.</tt><tt class="descname">ProfileManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='ProfileManager'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/profile_manager.html#ProfileManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.profile_manager.ProfileManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Properties</p>
+<dl class="method">
+<dt id="pyvisdk.mo.profile_manager.ProfileManager.CreateProfile">
+<tt class="descname">CreateProfile</tt><big>(</big><em>createSpec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/profile_manager.html#ProfileManager.CreateProfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.profile_manager.ProfileManager.CreateProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a profile from the specified CreateSpec.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>createSpec</strong> &#8211; Specification for the profile being created. Usually a derived class CreateSpec</td>
+</tr>
+</tbody>
+</table>
+<p>can be used to create the Profile.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Profile</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.profile_manager.ProfileManager.FindAssociatedProfile">
+<tt class="descname">FindAssociatedProfile</tt><big>(</big><em>entity</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/profile_manager.html#ProfileManager.FindAssociatedProfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.profile_manager.ProfileManager.FindAssociatedProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the profile(s) to which this entity is associated. The list of profiles will
+only include profiles known to this profileManager.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; Entity for which profile is being looked up.</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Profile[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.profile_manager.ProfileManager.QueryPolicyMetadata">
+<tt class="descname">QueryPolicyMetadata</tt><big>(</big><em>policyName</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/profile_manager.html#ProfileManager.QueryPolicyMetadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.profile_manager.ProfileManager.QueryPolicyMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Metadata information for the policyNames. PolicyNames are available with
+the defaultProfile obtained by invoking the method createDefaultProfile.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>policyName</strong> &#8211; Retrieve metadata for the specified policyNames. If policyName is not specified,</td>
+</tr>
+</tbody>
+</table>
+<p>metadata for all policies will be returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">ProfilePolicyMetadata[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.profile_manager.ProfileManager.profile">
+<tt class="descname">profile</tt><a class="reference internal" href="../_modules/pyvisdk/mo/profile_manager.html#ProfileManager.profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.profile_manager.ProfileManager.profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of profiles known to this ProfileManager.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="profile_compliance_manager.html"
+                        title="previous chapter">3.69. ProfileComplianceManager</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="resource_planning_manager.html"
+                        title="next chapter">3.71. ResourcePlanningManager</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/profile_manager.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="resource_planning_manager.html" title="3.71. ResourcePlanningManager"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="profile_compliance_manager.html" title="3.69. ProfileComplianceManager"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

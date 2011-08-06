@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.77. SessionManager &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.78. StorageResourceManager" href="storage_resource_manager.html" />
+    <link rel="prev" title="3.76. ServiceInstance" href="service_instance.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="storage_resource_manager.html" title="3.78. StorageResourceManager"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="service_instance.html" title="3.76. ServiceInstance"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="sessionmanager">
+<h1>3.77. SessionManager<a class="headerlink" href="#sessionmanager" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ServiceContent</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">SessionManagerLocalTicket</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">UserSession</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.session_manager.SessionManager">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.session_manager.</tt><tt class="descname">SessionManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='SessionManager'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Properties</p>
+<dl class="method">
+<dt id="pyvisdk.mo.session_manager.SessionManager.AcquireCloneTicket">
+<tt class="descname">AcquireCloneTicket</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.AcquireCloneTicket"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.AcquireCloneTicket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Acquire a session-specific ticket string which can be used to clone the current
+session. The caller of this operation can pass the ticket value to another
+entity on the client. The recipient can then call CloneSession with the
+ticket string on an unauthenticated session and avoid having to re-enter
+credentials.The ticket may only be used once and becomes invalid after
+use. The ticket is also invalidated when the corresponding session is
+closed or expires. The ticket is only valid on the server which issued
+it.This sequence of operations is conceptually similar to the
+functionality provided by AcquireLocalTicket, however the methods can be
+used by remote clients and do not require a shared filesystem for
+transport.See CloneSession</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">xsd:string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.session_manager.SessionManager.AcquireLocalTicket">
+<tt class="descname">AcquireLocalTicket</tt><big>(</big><em>userName</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.AcquireLocalTicket"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.AcquireLocalTicket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Acquires a one-time ticket for mutual authentication between a server and
+client.The caller of this operation can use the user name and file content
+of the returned object as the userName and password arguments for login
+operation. The local ticket that is returned becomes invalid either after
+it is used or after a server-determined ticket expiration time passes.
+This operation can be used by servers and clients to avoid re-entering
+user credentials after authentication by the operating system has already
+happened.For example, service console utilities that connect to a host
+agent should not require users to re-enter their passwords every time the
+utilities run. Since the one-time password file is readable only by the
+given user, the identity of the one-time password user is protected by the
+operating system file permission.Only local clients are allowed to call
+this operation. Remote clients receive an InvalidRequest fault upon
+calling this operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>userName</strong> &#8211; User requesting one-time password.</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">SessionManagerLocalTicket</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.session_manager.SessionManager.CloneSession">
+<tt class="descname">CloneSession</tt><big>(</big><em>cloneTicket</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.CloneSession"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.CloneSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clone the session specified by the clone ticket and associate it with the current
+connection. The current session will take on the identity and
+authorization level of the UserSession associated with the specified
+cloning ticket.See AcquireCloneTicket</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cloneTicket</strong> &#8211; ticket string acquired via AcquireCloneTicket.See AcquireCloneTicket</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">UserSession</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.session_manager.SessionManager.ImpersonateUser">
+<tt class="descname">ImpersonateUser</tt><big>(</big><em>userName</em>, <em>locale</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.ImpersonateUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.ImpersonateUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts current session to impersonate the specified user. The current session
+will take on the identity and authorization level of the user. That user
+must have a currently-active session. If the given userName is an
+extension key and this key does not overlap with a user name of any
+currently-active session, it will take on the identity and authorization
+level of that extension provided the current session has the same
+authorization level of that extension.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>userName</strong> &#8211; The user or extension key to impersonate.</li>
+<li><strong>locale</strong> &#8211; A two-character ISO-639 language ID (like &#8220;en&#8221;) optionally followed by an</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>underscore and a two-character ISO 3166 country ID (like &#8220;US&#8221;).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">UserSession</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.session_manager.SessionManager.Login">
+<tt class="descname">Login</tt><big>(</big><em>userName</em>, <em>password</em>, <em>locale</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.Login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.Login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log on to the server. This method fails if the user name and password are
+incorrect, or if the user is valid but has no permissions granted.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>userName</strong> &#8211; The ID of the user who is logging on to the server.</li>
+<li><strong>password</strong> &#8211; The password of the user who is logging on to the server.</li>
+<li><strong>locale</strong> &#8211; A two-character ISO-639 language ID (like &#8220;en&#8221;) optionally followed by an</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>underscore and a two-character ISO 3166 country ID (like &#8220;US&#8221;).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">UserSession</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.session_manager.SessionManager.LoginBySSPI">
+<tt class="descname">LoginBySSPI</tt><big>(</big><em>base64Token</em>, <em>locale</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.LoginBySSPI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.LoginBySSPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log on to the server using SSPI pass-through authentication.This method provides
+support for passing credentials of the calling process to the server
+without using a password, by leveraging the Windows Security Support
+Provider Interface (SSPI) library.If the function is not supported, this
+throws a NotSupported fault.The client first calls
+AcquireCredentialsHandle(). If Kerberos is used, this should include the
+desired credential to pass. The client then calls
+InitializeSecurityContext(). The resulting partially-formed context is
+passed in Base-64 encoded form to this method.If the context has been
+successfully formed, the server proceeds with login and behaves like
+Login. If further negotiation is needed, the server throws an
+SSPIChallenge fault with a challenge token, which the client should again
+pass to InitializeSecurityContext(), followed by calling this method
+again.For more information, see the MSDN documentation on SSPI.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>base64Token</strong> &#8211; The partially formed context returned from InitializeSecurityContext().</li>
+<li><strong>locale</strong> &#8211; A two-character ISO-639 language ID (like &#8220;en&#8221;) optionally followed by an</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>underscore and a two-character ISO 3166 country ID (like &#8220;US&#8221;).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">UserSession</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.session_manager.SessionManager.LoginExtensionByCertificate">
+<tt class="descname">LoginExtensionByCertificate</tt><big>(</big><em>extensionKey</em>, <em>locale</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.LoginExtensionByCertificate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.LoginExtensionByCertificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a special privileged session that includes the Sessions.ImpersonateUser
+privilege. Requires that the client connect over SSL and provide an X.509
+certificate for which they hold the private key. The certificate must
+match the certificate used in an earlier call to
+SetExtensionCertificate.NOTE: Verification of the received certificate
+(such as expiry, revocation, and trust chain) is not required for
+successful authentication using this method. If certificate verification
+is desired, use the LoginExtensionBySubjectName method instead.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>extensionKey</strong> &#8211; Key of extension that is logging in.</li>
+<li><strong>locale</strong> &#8211; A two-character ISO-639 language ID (like &#8220;en&#8221;) optionally followed by an</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>underscore and a two-character ISO 3166 country ID (like &#8220;US&#8221;).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">UserSession</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.session_manager.SessionManager.LoginExtensionBySubjectName">
+<tt class="descname">LoginExtensionBySubjectName</tt><big>(</big><em>extensionKey</em>, <em>locale</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.LoginExtensionBySubjectName"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.LoginExtensionBySubjectName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a special privileged session that includes the Sessions.ImpersonateUser
+privilege. Requires that the extension connected using SSL, with a
+certificate that has a subject name that matches the subject name
+registered for the extension.As of vSphere API 4.0, the NotFound fault is
+no longer thrown. Instead, InvalidLogin is thrown if the specified
+extension is not registered.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>extensionKey</strong> &#8211; Key of extension that is logging in.</li>
+<li><strong>locale</strong> &#8211; A two-character ISO-639 language ID (like &#8220;en&#8221;) optionally followed by an</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>underscore and a two-character ISO 3166 country ID (like &#8220;US&#8221;).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">UserSession</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.session_manager.SessionManager.Logout">
+<tt class="descname">Logout</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.Logout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.Logout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log out and terminate the current session.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.session_manager.SessionManager.SessionIsActive">
+<tt class="descname">SessionIsActive</tt><big>(</big><em>sessionID</em>, <em>userName</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.SessionIsActive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.SessionIsActive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates that a currently-active session exists with the specified sessionID and
+userName associated with it. Returns true if session exists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sessionID</strong> &#8211; Session ID to validate.</li>
+<li><strong>userName</strong> &#8211; User name to validate.</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">xsd:boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.session_manager.SessionManager.SetLocale">
+<tt class="descname">SetLocale</tt><big>(</big><em>locale</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.SetLocale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.SetLocale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the session locale.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locale</strong> &#8211; A two-character ISO-639 language ID (like &#8220;en&#8221;) optionally followed by an</td>
+</tr>
+</tbody>
+</table>
+<p>underscore and a two-character ISO 3166 country ID (like &#8220;US&#8221;).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.session_manager.SessionManager.TerminateSession">
+<tt class="descname">TerminateSession</tt><big>(</big><em>sessionId</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.TerminateSession"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.TerminateSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log off and terminate the provided list of sessions.This method is only
+transactional for each session ID. The set of sessions are terminated
+sequentially, as specified in the list. If a failure occurs, for example,
+because of an unknown sessionID, the method aborts with an exception. When
+the method aborts, any sessions that have not yet been terminated are left
+in their unterminated state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sessionId</strong> &#8211; A list of sessions to terminate.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.session_manager.SessionManager.UpdateServiceMessage">
+<tt class="descname">UpdateServiceMessage</tt><big>(</big><em>message</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.UpdateServiceMessage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.UpdateServiceMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the system global message. If not blank, the message is immediately
+displayed to currently logged-on users. When set, the message is shown by
+new clients upon logging in.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> &#8211; The message to send. Newline characters may be included.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.session_manager.SessionManager.currentSession">
+<tt class="descname">currentSession</tt><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.currentSession"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.currentSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>This property contains information about the client&#8217;s current session. If the
+client is not logged on, the value is null.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.session_manager.SessionManager.defaultLocale">
+<tt class="descname">defaultLocale</tt><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.defaultLocale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.defaultLocale" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the default server locale.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.session_manager.SessionManager.message">
+<tt class="descname">message</tt><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.message" title="Permalink to this definition">¶</a></dt>
+<dd><p>The system global message from the server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.session_manager.SessionManager.messageLocaleList">
+<tt class="descname">messageLocaleList</tt><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.messageLocaleList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.messageLocaleList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the list of locales for which the server has localized messages.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.session_manager.SessionManager.sessionList">
+<tt class="descname">sessionList</tt><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.sessionList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.sessionList" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of currently active sessions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.session_manager.SessionManager.supportedLocaleList">
+<tt class="descname">supportedLocaleList</tt><a class="reference internal" href="../_modules/pyvisdk/mo/session_manager.html#SessionManager.supportedLocaleList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.session_manager.SessionManager.supportedLocaleList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the list of locales that the server supports. Listing a locale ensures
+that some standardized information such as dates appear in the appropriate
+format. Other localized information, such as error messages, are
+displayed, if available. If localized information is not available, the
+message is returned using the system locale.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="service_instance.html"
+                        title="previous chapter">3.76. ServiceInstance</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="storage_resource_manager.html"
+                        title="next chapter">3.78. StorageResourceManager</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/session_manager.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="storage_resource_manager.html" title="3.78. StorageResourceManager"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="service_instance.html" title="3.76. ServiceInstance"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

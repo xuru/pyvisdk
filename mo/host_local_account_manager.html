@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.40. HostLocalAccountManager &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.41. HostLocalAuthentication" href="host_local_authentication.html" />
+    <link rel="prev" title="3.39. HostKernelModuleSystem" href="host_kernel_module_system.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_local_authentication.html" title="3.41. HostLocalAuthentication"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_kernel_module_system.html" title="3.39. HostKernelModuleSystem"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hostlocalaccountmanager">
+<h1>3.40. HostLocalAccountManager<a class="headerlink" href="#hostlocalaccountmanager" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ServiceContent</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostAccountSpec</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.host_local_account_manager.HostLocalAccountManager">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.host_local_account_manager.</tt><tt class="descname">HostLocalAccountManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='HostLocalAccountManager'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_local_account_manager.html#HostLocalAccountManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_local_account_manager.HostLocalAccountManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Properties</p>
+<dl class="method">
+<dt id="pyvisdk.mo.host_local_account_manager.HostLocalAccountManager.AssignUserToGroup">
+<tt class="descname">AssignUserToGroup</tt><big>(</big><em>user</em>, <em>group</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_local_account_manager.html#HostLocalAccountManager.AssignUserToGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_local_account_manager.HostLocalAccountManager.AssignUserToGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns a user to a group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>user</strong> &#8211; User ID of the account whose group membership is being assigned.</li>
+<li><strong>group</strong> &#8211; Destination group account to which the user is being assigned.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_local_account_manager.HostLocalAccountManager.CreateGroup">
+<tt class="descname">CreateGroup</tt><big>(</big><em>group</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_local_account_manager.html#HostLocalAccountManager.CreateGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_local_account_manager.HostLocalAccountManager.CreateGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a local group account using the parameters defined in the
+HostLocalAccountManagerAccountSpecification data object type. For POSIX
+hosts, passing the HostLocalAccountManagerPosixAccountSpecification data
+object type allows you to control the group ID format of the group account
+being created.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>group</strong> &#8211; Specification of group being created.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_local_account_manager.HostLocalAccountManager.CreateUser">
+<tt class="descname">CreateUser</tt><big>(</big><em>user</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_local_account_manager.html#HostLocalAccountManager.CreateUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_local_account_manager.HostLocalAccountManager.CreateUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a local user account using the parameters defined in the
+HostLocalAccountManagerAccountSpecification data object type. For POSIX
+hosts, passing HostLocalAccountManagerPosixAccountSpecification data
+object type allows you to control the format of the user ID of the user
+account being created.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> &#8211; Specification of user being created.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_local_account_manager.HostLocalAccountManager.RemoveGroup">
+<tt class="descname">RemoveGroup</tt><big>(</big><em>groupName</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_local_account_manager.html#HostLocalAccountManager.RemoveGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_local_account_manager.HostLocalAccountManager.RemoveGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a local group account.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>groupName</strong> &#8211; Group ID of the group account being removed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_local_account_manager.HostLocalAccountManager.RemoveUser">
+<tt class="descname">RemoveUser</tt><big>(</big><em>userName</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_local_account_manager.html#HostLocalAccountManager.RemoveUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_local_account_manager.HostLocalAccountManager.RemoveUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a local user account.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>userName</strong> &#8211; User ID of the user account being removed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_local_account_manager.HostLocalAccountManager.UnassignUserFromGroup">
+<tt class="descname">UnassignUserFromGroup</tt><big>(</big><em>user</em>, <em>group</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_local_account_manager.html#HostLocalAccountManager.UnassignUserFromGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_local_account_manager.HostLocalAccountManager.UnassignUserFromGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unassigns a user from a group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>user</strong> &#8211; User being unassigned from group.</li>
+<li><strong>group</strong> &#8211; Group from which the user is being removed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_local_account_manager.HostLocalAccountManager.UpdateUser">
+<tt class="descname">UpdateUser</tt><big>(</big><em>user</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_local_account_manager.html#HostLocalAccountManager.UpdateUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_local_account_manager.HostLocalAccountManager.UpdateUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates a local user account using the parameters defined in the
+HostLocalAccountManagerAccountSpecification data object type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> &#8211; Specification of user being updated.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_kernel_module_system.html"
+                        title="previous chapter">3.39. HostKernelModuleSystem</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_local_authentication.html"
+                        title="next chapter">3.41. HostLocalAuthentication</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/host_local_account_manager.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_local_authentication.html" title="3.41. HostLocalAuthentication"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_kernel_module_system.html" title="3.39. HostKernelModuleSystem"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

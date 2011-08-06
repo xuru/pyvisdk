@@ -1,0 +1,208 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.datacenter &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.datacenter</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.consts</span> <span class="kn">import</span> <span class="n">ManagedEntityTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.managed_entity</span> <span class="kn">import</span> <span class="n">ManagedEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Datacenter</span><span class="p">(</span><span class="n">ManagedEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="Datacenter"><a class="viewcode-back" href="../../../mo/datacenter.html#pyvisdk.mo.datacenter.Datacenter">[docs]</a>    <span class="sd">&#39;&#39;&#39;Every Datacenter has the following set of dedicated folders. These folders are</span>
+<span class="sd">        empty until you create entities for the Datacenter.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedEntityTypes</span><span class="o">.</span><span class="n">Datacenter</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Datacenter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">datastore</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Datacenter.datastore"><a class="viewcode-back" href="../../../mo/datacenter.html#pyvisdk.mo.datacenter.Datacenter.datastore">[docs]</a>        <span class="sd">&#39;&#39;&#39;A collection of references to the datastore objects available in this datacenter.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;datastore&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">datastoreFolder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Datacenter.datastoreFolder"><a class="viewcode-back" href="../../../mo/datacenter.html#pyvisdk.mo.datacenter.Datacenter.datastoreFolder">[docs]</a>        <span class="sd">&#39;&#39;&#39;A reference to the folder hierarchy that contains the datastores for this</span>
+<span class="sd">        datacenter.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;datastoreFolder&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">hostFolder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Datacenter.hostFolder"><a class="viewcode-back" href="../../../mo/datacenter.html#pyvisdk.mo.datacenter.Datacenter.hostFolder">[docs]</a>        <span class="sd">&#39;&#39;&#39;A reference to the folder hierarchy that contains the compute resources, including</span>
+<span class="sd">        hosts and clusters, for this datacenter.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;hostFolder&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">network</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Datacenter.network"><a class="viewcode-back" href="../../../mo/datacenter.html#pyvisdk.mo.datacenter.Datacenter.network">[docs]</a>        <span class="sd">&#39;&#39;&#39;A collection of references to the network objects available in this datacenter.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;network&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">networkFolder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Datacenter.networkFolder"><a class="viewcode-back" href="../../../mo/datacenter.html#pyvisdk.mo.datacenter.Datacenter.networkFolder">[docs]</a>        <span class="sd">&#39;&#39;&#39;A reference to the folder hierarchy that contains the network entities for this</span>
+<span class="sd">        datacenter. The folder can include Network, DistributedVirtualSwitch, and</span>
+<span class="sd">        DistributedVirtualPortgroup objects.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;networkFolder&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">vmFolder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Datacenter.vmFolder"><a class="viewcode-back" href="../../../mo/datacenter.html#pyvisdk.mo.datacenter.Datacenter.vmFolder">[docs]</a>        <span class="sd">&#39;&#39;&#39;A reference to the folder hierarchy that contains VirtualMachine virtual machine</span>
+<span class="sd">        templates (identified by the template property, and VirtualApp objects for</span>
+<span class="sd">        this datacenter.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;vmFolder&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">PowerOnMultiVM_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="p">,</span> <span class="n">option</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Datacenter.PowerOnMultiVM_Task"><a class="viewcode-back" href="../../../mo/datacenter.html#pyvisdk.mo.datacenter.Datacenter.PowerOnMultiVM_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Powers on multiple virtual machines in a data center. If the virtual machines are</span>
+<span class="sd">        suspended, this method resumes execution from the suspend point. The</span>
+<span class="sd">        virtual machines can belong to different clusters in the data center.If</span>
+<span class="sd">        any virtual machine in the list is manually managed by DRS, or DRS has to</span>
+<span class="sd">        migrate any manually managed virtual machine or power on any manually</span>
+<span class="sd">        managed host in order to power on these virtual machines, a DRS</span>
+<span class="sd">        recommendation will be generated, and the users need to manually apply the</span>
+<span class="sd">        recommendation for actually powering on these virtual machines. Otherwise,</span>
+<span class="sd">        all the virtual machine will be automatically powered on. The virtual</span>
+<span class="sd">        machines on stand alone hosts or DRS disabled will be powered-on on the</span>
+<span class="sd">        current host. The DRS automatically managed virtual machines will be</span>
+<span class="sd">        powered-on on the recommended hosts.When powering on a virtual machine in</span>
+<span class="sd">        a cluster, the system might do an implicit relocation of the virtual</span>
+<span class="sd">        machine to another host.</span>
+
+<span class="sd">        :param vm: The virtual machines to power on.</span>
+
+<span class="sd">        :param option: An array of OptionValue options for this power-on session. The names and values of</span>
+<span class="sd">        the options are defined in ClusterPowerOnVmOption.vSphere API 4.1</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;PowerOnMultiVM_Task&quot;</span><span class="p">)(</span><span class="n">vm</span><span class="p">,</span><span class="n">option</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryConnectionInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">sslThumbprint</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Datacenter.QueryConnectionInfo"><a class="viewcode-back" href="../../../mo/datacenter.html#pyvisdk.mo.datacenter.Datacenter.QueryConnectionInfo">[docs]</a>        <span class="sd">&#39;&#39;&#39;This method provides a way of getting basic information about a host without</span>
+<span class="sd">        adding it to a datacenter. Connection wizards typically use this method to</span>
+<span class="sd">        show information about a host so a user can confirm a set of changes</span>
+<span class="sd">        before applying them.</span>
+
+<span class="sd">        :param hostname: The target of the query.</span>
+
+<span class="sd">        :param port: The port number of the target host. For ESX 2.x this is the authd port (902 by</span>
+<span class="sd">        default). For ESX 3.x and above and for VMware Server hosts this is the</span>
+<span class="sd">        https port (443 by default). You can specify -1 to have the vCenter Server</span>
+<span class="sd">        try the default ports.</span>
+
+<span class="sd">        :param username: The name of the user.</span>
+
+<span class="sd">        :param password: The password of the user.</span>
+
+<span class="sd">        :param sslThumbprint: The expected SSL thumbprint of the host&#39;s certificateVI API 2.5</span>
+
+
+<span class="sd">        :rtype: HostConnectInfo </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryConnectionInfo&quot;</span><span class="p">)(</span><span class="n">hostname</span><span class="p">,</span><span class="n">port</span><span class="p">,</span><span class="n">username</span><span class="p">,</span><span class="n">password</span><span class="p">,</span><span class="n">sslThumbprint</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

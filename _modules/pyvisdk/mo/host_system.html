@@ -1,0 +1,510 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.host_system &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.host_system</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.consts</span> <span class="kn">import</span> <span class="n">ManagedEntityTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.managed_entity</span> <span class="kn">import</span> <span class="n">ManagedEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">HostSystem</span><span class="p">(</span><span class="n">ManagedEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="HostSystem"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem">[docs]</a>    <span class="sd">&#39;&#39;&#39;Invoking destroy on a HostSystem of standalone type throws a NotSupported fault. A</span>
+<span class="sd">        standalone HostSystem can be destroyed only by invoking destroy on its</span>
+<span class="sd">        parent ComputeResource. Invoking destroy on a failover host throws a</span>
+<span class="sd">        DisallowedOperationOnFailoverHost fault. See</span>
+<span class="sd">        ClusterFailoverHostAdmissionControlPolicy.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedEntityTypes</span><span class="o">.</span><span class="n">HostSystem</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">HostSystem</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">capability</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostSystem.capability"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.capability">[docs]</a>        <span class="sd">&#39;&#39;&#39;Host capabilities. This might not be available for a disconnected host.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;capability&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostSystem.config"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.config">[docs]</a>        <span class="sd">&#39;&#39;&#39;Host configuration information. This might not be available for a disconnected</span>
+<span class="sd">        host.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;config&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">configManager</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostSystem.configManager"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.configManager">[docs]</a>        <span class="sd">&#39;&#39;&#39;Host configuration systems.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;configManager&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">datastore</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostSystem.datastore"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.datastore">[docs]</a>        <span class="sd">&#39;&#39;&#39;A collection of references to the subset of datastore objects in the datacenter</span>
+<span class="sd">        that are available in this HostSystem.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;datastore&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">datastoreBrowser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostSystem.datastoreBrowser"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.datastoreBrowser">[docs]</a>        <span class="sd">&#39;&#39;&#39;DatastoreBrowser to browse datastores for this host.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;datastoreBrowser&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">hardware</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostSystem.hardware"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.hardware">[docs]</a>        <span class="sd">&#39;&#39;&#39;Hardware configuration of the host. This might not be available for a disconnected</span>
+<span class="sd">        host.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;hardware&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">network</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostSystem.network"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.network">[docs]</a>        <span class="sd">&#39;&#39;&#39;A collection of references to the subset of network objects in the datacenter that</span>
+<span class="sd">        are available in this HostSystem.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;network&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">runtime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostSystem.runtime"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.runtime">[docs]</a>        <span class="sd">&#39;&#39;&#39;Runtime state information about the host such as connection state.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;runtime&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostSystem.summary"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.summary">[docs]</a>        <span class="sd">&#39;&#39;&#39;Basic information about the host, including connection state.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;summary&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">systemResources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostSystem.systemResources"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.systemResources">[docs]</a>        <span class="sd">&#39;&#39;&#39;Reference for the system resource hierarchy, used for configuring the set of</span>
+<span class="sd">        resources reserved to the system and unavailable to virtual machines.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;systemResources&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">vm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostSystem.vm"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.vm">[docs]</a>        <span class="sd">&#39;&#39;&#39;List of virtual machines associated with this host.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;vm&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">AcquireCimServicesTicket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.AcquireCimServicesTicket"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.AcquireCimServicesTicket">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates and returns a one-time credential used to establish a remote connection to</span>
+<span class="sd">        a CIM interface. The port to connect to is the standard well known port</span>
+<span class="sd">        for the service.</span>
+
+<span class="sd">        :rtype: HostServiceTicket </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;AcquireCimServicesTicket&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">DisconnectHost_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.DisconnectHost_Task"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.DisconnectHost_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Disconnects from a host and instructs the server to stop sending heartbeats.</span>
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;DisconnectHost_Task&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">EnterLockdownMode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.EnterLockdownMode"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.EnterLockdownMode">[docs]</a>        <span class="sd">&#39;&#39;&#39;Modifies the permissions on the host, so that it will only be accessible through</span>
+<span class="sd">        local console or an authorized centralized management application. Any</span>
+<span class="sd">        user defined permissions found on the host are lost.Access via a VI client</span>
+<span class="sd">        connected to the host is blocked. Access though other services running on</span>
+<span class="sd">        the host is also blocked.If the operation is successful, adminDisabled</span>
+<span class="sd">        will be set to true. This API is not supported on the host, If invoked</span>
+<span class="sd">        directly on a host, a NotSupported fault will be thrown.See</span>
+<span class="sd">        AuthorizationManager</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;EnterLockdownMode&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">EnterMaintenanceMode_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="n">evacuatePoweredOffVms</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.EnterMaintenanceMode_Task"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.EnterMaintenanceMode_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Puts the host in maintenance mode. While this task is running and when the host is</span>
+<span class="sd">        in maintenance mode, no virtual machines can be powered on and no</span>
+<span class="sd">        provisioning operations can be performed on the host. Once the call</span>
+<span class="sd">        completes, it is safe to turn off a host without disrupting any virtual</span>
+<span class="sd">        machines.The task completes once there are no powered-on virtual machines</span>
+<span class="sd">        on the host and no provisioning operations in progress on the host. The</span>
+<span class="sd">        operation does not directly initiate any operations to evacuate or power-</span>
+<span class="sd">        down powered-on virtual machines. However, if the host is part of a</span>
+<span class="sd">        cluster with VMware DRS enabled, DRS provides migration recommendations to</span>
+<span class="sd">        evacuate the powered-on virtual machines. If DRS is in fully-automatic</span>
+<span class="sd">        mode, these are automatically scheduled.If the host is part of a cluster</span>
+<span class="sd">        and the task is issued through VirtualCenter with evacuatePoweredOffVms</span>
+<span class="sd">        set to true, the task will not succeed unless all the powered-off virtual</span>
+<span class="sd">        machines are reregistered to other hosts. If VMware DRS is enabled, VC</span>
+<span class="sd">        will automatically evacuate powered-off virtual machines. The task is</span>
+<span class="sd">        cancellable.</span>
+
+<span class="sd">        :param timeout: The task completes when the host successfully enters maintenance mode or the</span>
+<span class="sd">        timeout expires, and in the latter case the task contains a Timeout fault.</span>
+<span class="sd">        If the timeout is less than or equal to zero, there is no timeout. The</span>
+<span class="sd">        timeout is specified in seconds.</span>
+
+<span class="sd">        :param evacuatePoweredOffVms: This is a parameter only supported by VirtualCenter. If set to true, for a DRS</span>
+<span class="sd">        disabled cluster, the task will not succeed unless all powered-off virtual</span>
+<span class="sd">        machines have been manually reregistered; for a DRS enabled cluster,</span>
+<span class="sd">        VirtualCenter will automatically reregister powered-off virtual machines</span>
+<span class="sd">        and a powered-off virtual machine may remain at the host only for two</span>
+<span class="sd">        reasons: (a) no compatible host found for reregistration, (b) DRS is</span>
+<span class="sd">        disabled for the virtual machine. If set to false, powered-off virtual</span>
+<span class="sd">        machines do not need to be moved.VI API 2.5</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;EnterMaintenanceMode_Task&quot;</span><span class="p">)(</span><span class="n">timeout</span><span class="p">,</span><span class="n">evacuatePoweredOffVms</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">ExitLockdownMode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.ExitLockdownMode"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.ExitLockdownMode">[docs]</a>        <span class="sd">&#39;&#39;&#39;Restores Administrator permission for the local administrative account for the</span>
+<span class="sd">        host that was removed by prior call to EnterLockdownMode. If the operation</span>
+<span class="sd">        is successful, adminDisabled will be set to false. This API is not</span>
+<span class="sd">        supported on the host. If invoked directly on a host, a NotSupported fault</span>
+<span class="sd">        will be thrown.See AuthorizationManager</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ExitLockdownMode&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">ExitMaintenanceMode_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.ExitMaintenanceMode_Task"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.ExitMaintenanceMode_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Takes the host out of maintenance mode. This blocks if any concurrent running</span>
+<span class="sd">        maintenance-only host configurations operations are being performed. For</span>
+<span class="sd">        example, if VMFS volumes are being upgraded.The task is cancellable.</span>
+
+<span class="sd">        :param timeout: Number of seconds to wait for the exit maintenance mode to succeed. If the timeout</span>
+<span class="sd">        is less than or equal to zero, there is no timeout.</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ExitMaintenanceMode_Task&quot;</span><span class="p">)(</span><span class="n">timeout</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">PowerDownHostToStandBy_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeoutSec</span><span class="p">,</span> <span class="n">evacuatePoweredOffVms</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.PowerDownHostToStandBy_Task"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.PowerDownHostToStandBy_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Puts the host in standby mode, a mode in which the host is in a standby state from</span>
+<span class="sd">        which it can be powered up remotely. While this task is running, no</span>
+<span class="sd">        virtual machines can be powered on and no provisioning operations can be</span>
+<span class="sd">        performed on the host.The task completes only if there are no powered-on</span>
+<span class="sd">        virtual machines on the host, no provisioning operations in progress on</span>
+<span class="sd">        the host, and the host stopped responding. The operation does not directly</span>
+<span class="sd">        initiate any operations to evacuate or power-down powered-on virtual</span>
+<span class="sd">        machines. However, if a dynamic recommendation generation module is</span>
+<span class="sd">        running, if possible, it will provide, and depending on the automation</span>
+<span class="sd">        level, it will execute migrations of powered-on virtual machine.</span>
+<span class="sd">        Furthermore, VMware power management module may evacute and put a host in</span>
+<span class="sd">        standby mode to save power. If the host is part of a cluster and the task</span>
+<span class="sd">        is issued through VirtualCenter with evacuatePoweredOffVms set to true,</span>
+<span class="sd">        the task will not succeed unless all the powered-off virtual machines are</span>
+<span class="sd">        reregistered to other hosts. If VMware DRS is enabled, VC will</span>
+<span class="sd">        automatically evacuate powered-off virtual machines.The task is</span>
+<span class="sd">        cancellable.This command is not supported on all hosts. Check the host</span>
+<span class="sd">        capability standbySupported.</span>
+
+<span class="sd">        :param timeoutSec: The task completes when the host successfully enters standby mode and stops</span>
+<span class="sd">        sending heartbeat signals. If heartbeats are still coming after</span>
+<span class="sd">        timeoutSecs seconds, the host is declared timedout, and the task is</span>
+<span class="sd">        assumed failed.</span>
+
+<span class="sd">        :param evacuatePoweredOffVms: This is a parameter used only by VirtualCenter. If set to true, for a DRS disabled</span>
+<span class="sd">        cluster, the task will not succeed unless all powered-off virtual machines</span>
+<span class="sd">        have been manually reregistered; for a DRS enabled cluster, VirtualCenter</span>
+<span class="sd">        will automatically reregister powered-off virtual machines and a powered-</span>
+<span class="sd">        off virtual machine may remain at the host only for two reasons: (a) no</span>
+<span class="sd">        compatible host found for reregistration, (b) DRS is disabled for the</span>
+<span class="sd">        virtual machine.</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;PowerDownHostToStandBy_Task&quot;</span><span class="p">)(</span><span class="n">timeoutSec</span><span class="p">,</span><span class="n">evacuatePoweredOffVms</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">PowerUpHostFromStandBy_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeoutSec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.PowerUpHostFromStandBy_Task"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.PowerUpHostFromStandBy_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Takes the host out of standby mode. If the command is successful, the host wakes</span>
+<span class="sd">        up and starts sending heartbeats. This method may be called automatically</span>
+<span class="sd">        by a dynamic recommendation generation module to add capacity to a</span>
+<span class="sd">        cluster, if the host is not in maintenance mode.Note that, depending on</span>
+<span class="sd">        the implementation of the wakeup method, the client may never receive an</span>
+<span class="sd">        indicator of success in the returned task. In some cases, it is not even</span>
+<span class="sd">        possible to ensure that the wakeup request has made it to the host.The</span>
+<span class="sd">        task is cancellable.</span>
+
+<span class="sd">        :param timeoutSec: The task completes when the host successfully exits standby state and sends a</span>
+<span class="sd">        heartbeat signal. If nothing is received from the host for timeoutSec</span>
+<span class="sd">        seconds, the host is declared timedout, and the task is assumed failed.</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;PowerUpHostFromStandBy_Task&quot;</span><span class="p">)(</span><span class="n">timeoutSec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryHostConnectionInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.QueryHostConnectionInfo"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.QueryHostConnectionInfo">[docs]</a>        <span class="sd">&#39;&#39;&#39;Connection-oriented information about a host.</span>
+
+<span class="sd">        :rtype: HostConnectInfo </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryHostConnectionInfo&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryMemoryOverhead</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">memorySize</span><span class="p">,</span> <span class="n">videoRamSize</span><span class="p">,</span> <span class="n">numVcpus</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.QueryMemoryOverhead"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.QueryMemoryOverhead">[docs]</a>        <span class="sd">&#39;&#39;&#39;Deprecated. As of VI API 2.5, use QueryMemoryOverheadEx. Determines the amount of</span>
+<span class="sd">        memory overhead necessary to power on a virtual machine with the specified</span>
+<span class="sd">        characteristics.</span>
+
+<span class="sd">        :param memorySize: The amount of virtual system RAM, in bytes. For an existing virtual machine, this</span>
+<span class="sd">        value can be found (in megabytes) as the memoryMB property of the</span>
+<span class="sd">        VirtualHardware.</span>
+
+<span class="sd">        :param videoRamSize: The amount of virtual video RAM, in bytes. For an existing virtual machine on a</span>
+<span class="sd">        host that supports advertising this property, this value can be found (in</span>
+<span class="sd">        kilobytes) as the videoRamSizeInKB property of the</span>
+<span class="sd">        VirtualMachineVideoCard. If this parameter is left unset, the default</span>
+<span class="sd">        video RAM size for virtual machines on this host is assumed.</span>
+
+<span class="sd">        :param numVcpus: The number of virtual CPUs. For an existing virtual machine, this value can be</span>
+<span class="sd">        found as the numCPU property of the VirtualHardware.</span>
+
+
+<span class="sd">        :rtype: xsd:long </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryMemoryOverhead&quot;</span><span class="p">)(</span><span class="n">memorySize</span><span class="p">,</span><span class="n">videoRamSize</span><span class="p">,</span><span class="n">numVcpus</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryMemoryOverheadEx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmConfigInfo</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.QueryMemoryOverheadEx"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.QueryMemoryOverheadEx">[docs]</a>        <span class="sd">&#39;&#39;&#39;Determines the amount of memory overhead necessary to power on a virtual machine</span>
+<span class="sd">        with the specified characteristics.</span>
+
+<span class="sd">        :param vmConfigInfo: The configuration of the virtual machine.</span>
+
+
+<span class="sd">        :rtype: xsd:long </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryMemoryOverheadEx&quot;</span><span class="p">)(</span><span class="n">vmConfigInfo</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RebootHost_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.RebootHost_Task"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.RebootHost_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Reboots a host. If the command is successful, then the host has been rebooted. If</span>
+<span class="sd">        connected directly to the host, the client never receives an indicator of</span>
+<span class="sd">        success in the returned task but simply loses connection to the host, upon</span>
+<span class="sd">        success.This command is not supported on all hosts. Check the host</span>
+<span class="sd">        capability vim.host.Capability.rebootSupported.</span>
+
+<span class="sd">        :param force: Flag to specify whether or not the host should be rebooted regardless of whether</span>
+<span class="sd">        it is in maintenance mode. If true, the host is rebooted, even if there</span>
+<span class="sd">        are virtual machines running or other operations in progress.</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RebootHost_Task&quot;</span><span class="p">)(</span><span class="n">force</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">ReconfigureHostForDAS_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.ReconfigureHostForDAS_Task"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.ReconfigureHostForDAS_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Reconfigures the host for VMware HA.If the host is part of a HA cluster, this</span>
+<span class="sd">        operation reconfigures the host for HA. For example, this operation may be</span>
+<span class="sd">        used if a host is added to a HA enabled cluster and the automatic HA</span>
+<span class="sd">        configuration system task fails. Automatic HA configuration may fail for a</span>
+<span class="sd">        variety of reasons. For example, the host is configured incorrectly.</span>
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ReconfigureHostForDAS_Task&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">ReconnectHost_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cnxSpec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.ReconnectHost_Task"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.ReconnectHost_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Reconnects to a host. This process reinstalls agents and reconfigures the host, if</span>
+<span class="sd">        it has gotten out of date with VirtualCenter. The reconnection process</span>
+<span class="sd">        goes through many of the same steps as addHost: ensuring the correct set</span>
+<span class="sd">        of licenses for the number of CPUs on the host, ensuring the correct set</span>
+<span class="sd">        of agents is installed, and ensuring that networks and datastores are</span>
+<span class="sd">        discovered and registered with VirtualCenter.The client can change the IP</span>
+<span class="sd">        address and port of the host when doing a reconnect operation. This can be</span>
+<span class="sd">        useful if the client wants to preserve existing metadata, even though the</span>
+<span class="sd">        host is changing its IP address. For example, clients could preserve</span>
+<span class="sd">        existing statistics, alarms, and privileges.This method can also be used</span>
+<span class="sd">        to change the SSL thumbprint of a connected host without disconnecting</span>
+<span class="sd">        it.This method is only supported through VirtualCenter.</span>
+
+<span class="sd">        :param cnxSpec: Includes the parameters to use, including user name and password, when</span>
+<span class="sd">        reconnecting to the host. If this parameter is not specified, the default</span>
+<span class="sd">        connection parameters is used.</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ReconnectHost_Task&quot;</span><span class="p">)(</span><span class="n">cnxSpec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RetrieveHardwareUptime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.RetrieveHardwareUptime"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.RetrieveHardwareUptime">[docs]</a>        <span class="sd">&#39;&#39;&#39;Return the hardware uptime of the host in seconds. The harware uptime of a host is</span>
+<span class="sd">        not affected by NTP and changes to its wall clock time and can be used by</span>
+<span class="sd">        clients to provide a common time reference for all hosts.</span>
+
+<span class="sd">        :rtype: xsd:long </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RetrieveHardwareUptime&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">ShutdownHost_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.ShutdownHost_Task"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.ShutdownHost_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Shuts down a host. If the command is successful, then the host has been shut down.</span>
+<span class="sd">        Thus, the client never receives an indicator of success in the returned</span>
+<span class="sd">        task if connected directly to the host.This command is not supported on</span>
+<span class="sd">        all hosts. Check the host capability shutdownSupported.</span>
+
+<span class="sd">        :param force: Flag to specify whether or not the host should be shut down regardless of whether</span>
+<span class="sd">        it is in maintenance mode. If true, the host is shut down, even if there</span>
+<span class="sd">        are virtual machines running or other operations in progress.</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ShutdownHost_Task&quot;</span><span class="p">)(</span><span class="n">force</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateFlags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.UpdateFlags"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.UpdateFlags">[docs]</a>        <span class="sd">&#39;&#39;&#39;Update flags that are part of the HostFlagInfo object.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateFlags&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateIpmi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.UpdateIpmi"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.UpdateIpmi">[docs]</a>        <span class="sd">&#39;&#39;&#39;Update fields that are part of the HostIpmiInfo object.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateIpmi&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateSystemResources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostSystem.UpdateSystemResources"><a class="viewcode-back" href="../../../mo/host_system.html#pyvisdk.mo.host_system.HostSystem.UpdateSystemResources">[docs]</a>        <span class="sd">&#39;&#39;&#39;Update the configuration of the system resource hierarchy.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateSystemResources&quot;</span><span class="p">)()</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

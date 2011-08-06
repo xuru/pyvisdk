@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.60. ListView &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.61. LocalizationManager" href="localization_manager.html" />
+    <link rel="prev" title="3.59. LicenseManager" href="license_manager.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="localization_manager.html" title="3.61. LocalizationManager"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="license_manager.html" title="3.59. LicenseManager"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="listview">
+<h1>3.60. ListView<a class="headerlink" href="#listview" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="view.html#pyvisdk.mo.view.View" title="pyvisdk.mo.view.View"><tt class="xref py py-class docutils literal"><span class="pre">View</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>VI API 2.5</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><a class="reference internal" href="managed_object_view.html#pyvisdk.mo.managed_object_view.ManagedObjectView" title="pyvisdk.mo.managed_object_view.ManagedObjectView"><tt class="xref py py-class docutils literal"><span class="pre">ManagedObjectView</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p>CreateListView, CreateListViewFromView</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.list_view.ListView">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.list_view.</tt><tt class="descname">ListView</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='ListView'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/list_view.html#ListView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.list_view.ListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>When you invoke the CreateListView method, you specify a list of objects. The view
+list always represents the current configuration of the virtual
+environment and reflects any subsequent changes that occur.</p>
+<dl class="method">
+<dt id="pyvisdk.mo.list_view.ListView.ModifyListView">
+<tt class="descname">ModifyListView</tt><big>(</big><em>add</em>, <em>remove</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/list_view.html#ListView.ModifyListView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.list_view.ListView.ModifyListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify the list by giving a delta of entities to add and entities to remove.May
+partially succeed if some objects could not be resolved. The operation
+will still succeed for all objects which could be resolved, and the list
+of those which failed is returned as the result.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>add</strong> &#8211; Optional list of objects to add to the view.</li>
+<li><strong>remove</strong> &#8211; Optional list of objects to remove from the view.</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ManagedObjectReference[]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.list_view.ListView.ResetListView">
+<tt class="descname">ResetListView</tt><big>(</big><em>obj</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/list_view.html#ListView.ResetListView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.list_view.ListView.ResetListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces the list with an entirely new set of objects. If the entire set is
+changing, this is less data to send than a delta.May partially succeed if
+some objects could not be resolved. The operation will still succeed for
+all objects which could be resolved, and the list of those which failed is
+as the result.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> &#8211; The new list of objects.</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">ManagedObjectReference[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.list_view.ListView.ResetListViewFromView">
+<tt class="descname">ResetListViewFromView</tt><big>(</big><em>view</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/list_view.html#ListView.ResetListViewFromView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.list_view.ListView.ResetListViewFromView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces the list with the set of objects in a given view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>view</strong> &#8211; The view to copy objects from.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.list_view.ListView.view">
+<tt class="descname">view</tt><a class="headerlink" href="#pyvisdk.mo.list_view.ListView.view" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of references to objects mapped by this view.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="license_manager.html"
+                        title="previous chapter">3.59. LicenseManager</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="localization_manager.html"
+                        title="next chapter">3.61. LocalizationManager</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/list_view.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="localization_manager.html" title="3.61. LocalizationManager"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="license_manager.html" title="3.59. LicenseManager"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

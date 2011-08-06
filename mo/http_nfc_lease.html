@@ -1,0 +1,235 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.55. HttpNfcLease &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.56. InventoryView" href="inventory_view.html" />
+    <link rel="prev" title="3.54. HostVirtualNicManager" href="host_virtual_nic_manager.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="inventory_view.html" title="3.56. InventoryView"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_virtual_nic_manager.html" title="3.54. HostVirtualNicManager"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="httpnfclease">
+<h1>3.55. HttpNfcLease<a class="headerlink" href="#httpnfclease" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HttpNfcLeaseInfo</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HttpNfcLeaseInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HttpNfcLeaseManifestEntry</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HttpNfcLeaseState</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">LocalizedMethodFault</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">MethodFault</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p>ExportVApp, ExportVm, ImportVApp</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.http_nfc_lease.HttpNfcLease">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.http_nfc_lease.</tt><tt class="descname">HttpNfcLease</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='HttpNfcLease'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/http_nfc_lease.html#HttpNfcLease"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.http_nfc_lease.HttpNfcLease" title="Permalink to this definition">¶</a></dt>
+<dd><p>A lease is in one of four states:</p>
+<dl class="method">
+<dt id="pyvisdk.mo.http_nfc_lease.HttpNfcLease.HttpNfcLeaseAbort">
+<tt class="descname">HttpNfcLeaseAbort</tt><big>(</big><em>fault</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/http_nfc_lease.html#HttpNfcLease.HttpNfcLeaseAbort"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.http_nfc_lease.HttpNfcLease.HttpNfcLeaseAbort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aborts the import/export and releases this lease. Operations on the objects
+contained in this lease will no longer be blocked. After calling this
+method, this lease will no longer be valid.Clients should call this method
+if an error occurs while accessing the disks, or if the operation is
+cancelled. The client can report the cause of the abort to other clients
+listening on the task with the fault parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fault</strong> &#8211; [in] The fault that caused the abort, if any.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.http_nfc_lease.HttpNfcLease.HttpNfcLeaseComplete">
+<tt class="descname">HttpNfcLeaseComplete</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/http_nfc_lease.html#HttpNfcLease.HttpNfcLeaseComplete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.http_nfc_lease.HttpNfcLease.HttpNfcLeaseComplete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Completes the import/export and releases this lease. Operations on the objects
+contained in this lease will no longer be blocked. After calling this
+method, this lease will no longer be valid.Clients should call this method
+when they are done accessing the disks for the VirtualMachines in this
+lease. The status of the corresponding task will be set to success.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.http_nfc_lease.HttpNfcLease.HttpNfcLeaseGetManifest">
+<tt class="descname">HttpNfcLeaseGetManifest</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/http_nfc_lease.html#HttpNfcLease.HttpNfcLeaseGetManifest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.http_nfc_lease.HttpNfcLease.HttpNfcLeaseGetManifest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the download manifest for this lease.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">HttpNfcLeaseManifestEntry[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.http_nfc_lease.HttpNfcLease.HttpNfcLeaseProgress">
+<tt class="descname">HttpNfcLeaseProgress</tt><big>(</big><em>percent</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/http_nfc_lease.html#HttpNfcLease.HttpNfcLeaseProgress"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.http_nfc_lease.HttpNfcLease.HttpNfcLeaseProgress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the disk up/download progress, and renews this lease. A lease will time out
+automatically after a while. If the client wishes to continue using it,
+for example if it is not done accessing the disks, this method must be
+called periodically.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>percent</strong> &#8211; [in] Completion status represented as an integer in the 0-100 range.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.http_nfc_lease.HttpNfcLease.error">
+<tt class="descname">error</tt><a class="reference internal" href="../_modules/pyvisdk/mo/http_nfc_lease.html#HttpNfcLease.error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.http_nfc_lease.HttpNfcLease.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the lease is in the error state, this property contains the error that caused
+the lease to be aborted.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.http_nfc_lease.HttpNfcLease.info">
+<tt class="descname">info</tt><a class="reference internal" href="../_modules/pyvisdk/mo/http_nfc_lease.html#HttpNfcLease.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.http_nfc_lease.HttpNfcLease.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides information on the objects contained in this lease. The info property is
+only valid when the lease is in the ready state.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.http_nfc_lease.HttpNfcLease.initializeProgress">
+<tt class="descname">initializeProgress</tt><a class="reference internal" href="../_modules/pyvisdk/mo/http_nfc_lease.html#HttpNfcLease.initializeProgress"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.http_nfc_lease.HttpNfcLease.initializeProgress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides progress information (0-100 percent) for the initializing state of the
+lease. Clients can use this to track overall progress.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.http_nfc_lease.HttpNfcLease.state">
+<tt class="descname">state</tt><a class="reference internal" href="../_modules/pyvisdk/mo/http_nfc_lease.html#HttpNfcLease.state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.http_nfc_lease.HttpNfcLease.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current state of the lease.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_virtual_nic_manager.html"
+                        title="previous chapter">3.54. HostVirtualNicManager</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="inventory_view.html"
+                        title="next chapter">3.56. InventoryView</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/http_nfc_lease.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="inventory_view.html" title="3.56. InventoryView"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_virtual_nic_manager.html" title="3.54. HostVirtualNicManager"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.89. VirtualMachineProvisioningChecker &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.90. VirtualMachineSnapshot" href="virtual_machine_snapshot.html" />
+    <link rel="prev" title="3.88. VirtualMachineCompatibilityChecker" href="virtual_machine_compatibility_checker.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_snapshot.html" title="3.90. VirtualMachineSnapshot"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_compatibility_checker.html" title="3.88. VirtualMachineCompatibilityChecker"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualmachineprovisioningchecker">
+<h1>3.89. VirtualMachineProvisioningChecker<a class="headerlink" href="#virtualmachineprovisioningchecker" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ServiceContent</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">CheckResult</span></tt>, <a class="reference internal" href="host_system.html#pyvisdk.mo.host_system.HostSystem" title="pyvisdk.mo.host_system.HostSystem"><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt></a>, <a class="reference internal" href="resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool" title="pyvisdk.mo.resource_pool.ResourcePool"><tt class="xref py py-class docutils literal"><span class="pre">ResourcePool</span></tt></a>, <a class="reference internal" href="virtual_machine.html#pyvisdk.mo.virtual_machine.VirtualMachine" title="pyvisdk.mo.virtual_machine.VirtualMachine"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualMachinePowerState</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineRelocateSpec</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.virtual_machine_provisioning_checker.VirtualMachineProvisioningChecker">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.virtual_machine_provisioning_checker.</tt><tt class="descname">VirtualMachineProvisioningChecker</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='VirtualMachineProvisioningChecker'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine_provisioning_checker.html#VirtualMachineProvisioningChecker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine_provisioning_checker.VirtualMachineProvisioningChecker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Properties</p>
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_machine_provisioning_checker.VirtualMachineProvisioningChecker.CheckMigrate_Task">
+<tt class="descname">CheckMigrate_Task</tt><big>(</big><em>vm</em>, <em>host</em>, <em>pool</em>, <em>state</em>, <em>testType</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine_provisioning_checker.html#VirtualMachineProvisioningChecker.CheckMigrate_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine_provisioning_checker.VirtualMachineProvisioningChecker.CheckMigrate_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests the feasibility of a proposed MigrateVM_Task operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vm</strong> &#8211; The virtual machine we propose to migrate.</li>
+<li><strong>host</strong> &#8211; The target host on which the virtual machines will run. The host parameter may be</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>left unset if the compute resource associated with the target pool
+represents a stand-alone host or a DRS-enabled cluster. In the former case
+the stand-alone host is used as the target host. In the latter case, each
+connected host in the cluster that is not in maintenance mode is tested as
+a target host. If the virtual machine is a template then either this
+parameter or the pool parameter must be set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pool</strong> &#8211; The target resource pool for the virtual machines. If the pool parameter is left</td>
+</tr>
+</tbody>
+</table>
+<p>unset, the target pool for each particular virtual machine&#8217;s migration
+will be that virtual machine&#8217;s current pool. If the virtual machine is a
+template then either this parameter or the host parameter must be set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state</strong> &#8211; The power state that the virtual machines must have. If this argument is not set,</td>
+</tr>
+</tbody>
+</table>
+<p>each virtual machine is evaluated according to its current power state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>testType</strong> &#8211; The set of tests to run. If this argument is not set, all tests will be run.</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_machine_provisioning_checker.VirtualMachineProvisioningChecker.CheckRelocate_Task">
+<tt class="descname">CheckRelocate_Task</tt><big>(</big><em>vm</em>, <em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine_provisioning_checker.html#VirtualMachineProvisioningChecker.CheckRelocate_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine_provisioning_checker.VirtualMachineProvisioningChecker.CheckRelocate_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests the feasibility of a proposed RelocateVM_Task operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vm</strong> &#8211; The virtual machine we propose to relocate.</li>
+<li><strong>spec</strong> &#8211; The specification of where to relocate the virtual machine. In cases where DRS</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>would automatically select a host, all potential hosts are tested against.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_machine_provisioning_checker.VirtualMachineProvisioningChecker.QueryVMotionCompatibilityEx_Task">
+<tt class="descname">QueryVMotionCompatibilityEx_Task</tt><big>(</big><em>vm</em>, <em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_machine_provisioning_checker.html#VirtualMachineProvisioningChecker.QueryVMotionCompatibilityEx_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine_provisioning_checker.VirtualMachineProvisioningChecker.QueryVMotionCompatibilityEx_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Investigates the general VMotion compatibility of a set of virtual machines with a
+set of hosts. The virtual machine may be in any power state. Hosts may be
+in any connection state and also may be in maintenance mode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>vm</strong> &#8211; The set of virtual machines to analyze for compatibility. All virtual machines are</td>
+</tr>
+</tbody>
+</table>
+<p>assumed to be powered-on for the purposes of this operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>host</strong> &#8211; The set of hosts to analyze for compatibility. All hosts are assumed to be</td>
+</tr>
+</tbody>
+</table>
+<p>connected and not in maintenence mode for the purposes of this operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_machine_compatibility_checker.html"
+                        title="previous chapter">3.88. VirtualMachineCompatibilityChecker</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_machine_snapshot.html"
+                        title="next chapter">3.90. VirtualMachineSnapshot</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/virtual_machine_provisioning_checker.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_snapshot.html" title="3.90. VirtualMachineSnapshot"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_compatibility_checker.html" title="3.88. VirtualMachineCompatibilityChecker"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

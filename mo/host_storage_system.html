@@ -1,0 +1,807 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.51. HostStorageSystem &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.52. HostSystem" href="host_system.html" />
+    <link rel="prev" title="3.50. HostSnmpSystem" href="host_snmp_system.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_system.html" title="3.52. HostSystem"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_snmp_system.html" title="3.50. HostSnmpSystem"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hoststoragesystem">
+<h1>3.51. HostStorageSystem<a class="headerlink" href="#hoststoragesystem" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostConfigManager</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostDiskPartitionBlockRange</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostDiskPartitionInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostDiskPartitionLayout</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostDiskPartitionSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostFileSystemVolumeInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostInternetScsiHbaAuthenticationProperties</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostInternetScsiHbaDigestProperties</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostInternetScsiHbaDiscoveryProperties</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostInternetScsiHbaIPProperties</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostInternetScsiHbaParamValue</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostInternetScsiHbaSendTarget</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostInternetScsiHbaStaticTarget</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostInternetScsiHbaTargetSet</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostMultipathInfoLogicalUnitPolicy</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostMultipathStateInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostPathSelectionPolicyOption</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostScsiDiskPartition</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostStorageArrayTypePolicyOption</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostStorageDeviceInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostUnresolvedVmfsResolutionResult</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostUnresolvedVmfsResolutionSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostUnresolvedVmfsVolume</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostVmfsSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostVmfsVolume</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><a class="reference internal" href="extensible_managed_object.html#pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject" title="pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject"><tt class="xref py py-class docutils literal"><span class="pre">ExtensibleManagedObject</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.host_storage_system.</tt><tt class="descname">HostStorageSystem</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='HostStorageSystem'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Properties</p>
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.AddInternetScsiSendTargets">
+<tt class="descname">AddInternetScsiSendTargets</tt><big>(</big><em>iScsiHbaDevice</em>, <em>targets</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.AddInternetScsiSendTargets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.AddInternetScsiSendTargets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds Send Target entries to the host bus adapter discovery list. The
+DiscoveryProperties.sendTargetsDiscoveryEnabled flag must be set to true.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iScsiHbaDevice</strong> &#8211; The device of the Internet SCSI HBA adapter.</li>
+<li><strong>targets</strong> &#8211; An array of iSCSI send targets.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.AddInternetScsiStaticTargets">
+<tt class="descname">AddInternetScsiStaticTargets</tt><big>(</big><em>iScsiHbaDevice</em>, <em>targets</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.AddInternetScsiStaticTargets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.AddInternetScsiStaticTargets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds Static Target entries to the host bus adapter discovery list. The
+DiscoveryProperty.staticTargetDiscoveryEnabled must be set to true.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iScsiHbaDevice</strong> &#8211; The device of the Internet SCSI HBA adapter.</li>
+<li><strong>targets</strong> &#8211; An array of iSCSI static targets to add.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.AttachVmfsExtent">
+<tt class="descname">AttachVmfsExtent</tt><big>(</big><em>vmfsPath</em>, <em>extent</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.AttachVmfsExtent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.AttachVmfsExtent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extends a VMFS by attaching a disk partition as an extent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vmfsPath</strong> &#8211; The path of the VMFS to extend. See FileSystemMountInfo.</li>
+<li><strong>extent</strong> &#8211; A data object that describes the specification of a Disk partition.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.ComputeDiskPartitionInfo">
+<tt class="descname">ComputeDiskPartitionInfo</tt><big>(</big><em>devicePath</em>, <em>layout</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.ComputeDiskPartitionInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.ComputeDiskPartitionInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the disk partition information given the desired disk layout. The server
+computes a new partition information object for a specific disk
+representing the desired layout.See HostDiskPartitionInfoPartitionFormat</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>devicePath</strong> &#8211; The name of the device path for the specific disk.See</td>
+</tr>
+</tbody>
+</table>
+<p>HostDiskPartitionInfoPartitionFormat</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>layout</strong> &#8211; A data object that describes the disk partition layout.See</td>
+</tr>
+</tbody>
+</table>
+<p>HostDiskPartitionInfoPartitionFormat</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">HostDiskPartitionInfo</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.ComputeDiskPartitionInfoForResize">
+<tt class="descname">ComputeDiskPartitionInfoForResize</tt><big>(</big><em>partition</em>, <em>blockRange</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.ComputeDiskPartitionInfoForResize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.ComputeDiskPartitionInfoForResize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the disk partition information for the purpose of resizing a given
+partition.See HostDiskPartitionInfoPartitionFormat</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>partition</strong> &#8211; The disk partition to resize.See HostDiskPartitionInfoPartitionFormat</li>
+<li><strong>blockRange</strong> &#8211; Specifies the desired block range for the resized partition. The start of the</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>block range specified should match that of the current partition.See
+HostDiskPartitionInfoPartitionFormat</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">HostDiskPartitionInfo</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.DisableMultipathPath">
+<tt class="descname">DisableMultipathPath</tt><big>(</big><em>pathName</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.DisableMultipathPath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.DisableMultipathPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disables an enabled path for a Logical Unit. Use the path name from
+HostMultipathStateInfoPath or HostMultipathInfoPath.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pathName</strong> &#8211; The name of the path to disable.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.EnableMultipathPath">
+<tt class="descname">EnableMultipathPath</tt><big>(</big><em>pathName</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.EnableMultipathPath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.EnableMultipathPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables a disabled path for a Logical Unit. Use the path name from
+HostMultipathStateInfoPath or HostMultipathInfoPath.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pathName</strong> &#8211; The name of the path to enable.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.ExpandVmfsExtent">
+<tt class="descname">ExpandVmfsExtent</tt><big>(</big><em>vmfsPath</em>, <em>extent</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.ExpandVmfsExtent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.ExpandVmfsExtent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expands a VMFS extent as specified by the Disk partition specification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vmfsPath</strong> &#8211; The path of the VMFS to expand. See FileSystemMountInfo.</li>
+<li><strong>extent</strong> &#8211; The disk partition corresponding to the extent to be expanded.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.FormatVmfs">
+<tt class="descname">FormatVmfs</tt><big>(</big><em>createSpec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.FormatVmfs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.FormatVmfs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Formats a new VMFS on a disk partition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>createSpec</strong> &#8211; A data object that describes the VMware File System (VMFS) creation specification.</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">HostVmfsVolume</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.QueryPathSelectionPolicyOptions">
+<tt class="descname">QueryPathSelectionPolicyOptions</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.QueryPathSelectionPolicyOptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.QueryPathSelectionPolicyOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries the set of path selection policy options. The set of policy options
+indicates what path selection policies can be used by a device managed by
+native multipathing. Devices managed through native multipathing are
+described in the HostMultipathInfo data object.Filtering capabilities are
+not currently present but may be added in the future.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">HostPathSelectionPolicyOption[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.QueryStorageArrayTypePolicyOptions">
+<tt class="descname">QueryStorageArrayTypePolicyOptions</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.QueryStorageArrayTypePolicyOptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.QueryStorageArrayTypePolicyOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries the set of storage array type policy options. The set of policy options
+indicates what storage array type policies can be used by a device managed
+by native multipathing. Devices managed through native multipathing are
+described in the HostMultipathInfo data object.Filtering capabilities are
+not currently present but may be added in the future.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">HostStorageArrayTypePolicyOption[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.QueryUnresolvedVmfsVolume">
+<tt class="descname">QueryUnresolvedVmfsVolume</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.QueryUnresolvedVmfsVolume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.QueryUnresolvedVmfsVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of unbound VMFS volumes. For sharing a volume across hosts, a VMFS
+volume is bound to its underlying block device storage. When a low level
+block copy is performed to copy or move the VMFS volume, the copied volume
+will be unbound.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">HostUnresolvedVmfsVolume[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.RefreshStorageSystem">
+<tt class="descname">RefreshStorageSystem</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.RefreshStorageSystem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.RefreshStorageSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refresh the storage information and settings to pick up any changes that might
+have occurred.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.RemoveInternetScsiSendTargets">
+<tt class="descname">RemoveInternetScsiSendTargets</tt><big>(</big><em>iScsiHbaDevice</em>, <em>targets</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.RemoveInternetScsiSendTargets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.RemoveInternetScsiSendTargets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes Send Target entries from the host bus adapter discovery list. The
+DiscoveryProperty.sendTargetsDiscoveryEnabled must be set to true. If any
+of the targets provided as parameters are not found in the existing list,
+the other targets are removed and an exception is thrown.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iScsiHbaDevice</strong> &#8211; The device of the Internet SCSI HBA adapter.</li>
+<li><strong>targets</strong> &#8211; An array of iSCSI send targets to remove.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.RemoveInternetScsiStaticTargets">
+<tt class="descname">RemoveInternetScsiStaticTargets</tt><big>(</big><em>iScsiHbaDevice</em>, <em>targets</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.RemoveInternetScsiStaticTargets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.RemoveInternetScsiStaticTargets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes static target entries from the host bus adapter discovery list. The
+DiscoveryProperty.staticTargetDiscoveryEnabled must be set to true. If any
+of the targets provided as parameters are not found in the existing list,
+the other targets are removed and an exception is thrown.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iScsiHbaDevice</strong> &#8211; The device of the Internet SCSI HBA adapter.</li>
+<li><strong>targets</strong> &#8211; An array of iSCSI static targets to remove.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.RescanAllHba">
+<tt class="descname">RescanAllHba</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.RescanAllHba"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.RescanAllHba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Issues a request to rescan all host bus adapters for new storage devices.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.RescanHba">
+<tt class="descname">RescanHba</tt><big>(</big><em>hbaDevice</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.RescanHba"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.RescanHba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Issues a request to rescan a specific host bus adapter for new storage devices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>hbaDevice</strong> &#8211; The device of the host bus adapter.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.RescanVmfs">
+<tt class="descname">RescanVmfs</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.RescanVmfs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.RescanVmfs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rescans for new VMFSs that might have been added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.ResolveMultipleUnresolvedVmfsVolumes">
+<tt class="descname">ResolveMultipleUnresolvedVmfsVolumes</tt><big>(</big><em>resolutionSpec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.ResolveMultipleUnresolvedVmfsVolumes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.ResolveMultipleUnresolvedVmfsVolumes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resignature or &#8216;Force Mount&#8217; list of unbound VMFS volumes. To safely enable
+sharing of the volume across hosts, a VMFS volume is bound to its
+underlying block device storage. When a low level block copy is performed
+to copy or move the VMFS volume, the copied volume will be unbound. In
+order for the VMFS volume to be usable, a resolution operation is needed
+to determine whether the VMFS volume should be treated as a new volume or
+not and what extents compose that volume in the event there is more than
+one unbound volume.Resignature results in a new VMFS volume on the host.
+Operations performed at the StorageSystem interface apply only to a
+specific host. Hence, callers of this method are responsible for issuing
+rescan operations to detect the new VMFS volume on other hosts.
+Alternatively, callers that want VirtualCenter to handle rescanning the
+necessary hosts should use the DatastoreSystem interface.When user wants
+to keep the original Vmfs Uuid and mount it on the host, set the
+&#8216;resolutionSpec.uuidResolution&#8217; to &#8216;forceMounted&#8217; This is per-host
+operation. It will return an array of ResolutionResult describing success
+or failure associated with each specification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resolutionSpec</strong> &#8211; List of data object that describes what the disk extents to be used for creating</td>
+</tr>
+</tbody>
+</table>
+<p>the new VMFS volume.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">HostUnresolvedVmfsResolutionResult[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.RetrieveDiskPartitionInfo">
+<tt class="descname">RetrieveDiskPartitionInfo</tt><big>(</big><em>devicePath</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.RetrieveDiskPartitionInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.RetrieveDiskPartitionInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the partition information for the disks named by the device names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>devicePath</strong> &#8211; An array of device path names that identify disks. See ScsiDisk.</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">HostDiskPartitionInfo[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.SetMultipathLunPolicy">
+<tt class="descname">SetMultipathLunPolicy</tt><big>(</big><em>lunId</em>, <em>policy</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.SetMultipathLunPolicy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.SetMultipathLunPolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the path selection policy for a Logical Unit. Use the LUN uuid from
+HostMultipathInfoLogicalUnit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lunId</strong> &#8211; The logical unit ID</li>
+<li><strong>policy</strong> &#8211; A data object that describes a path selection policy for the logical unit.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.UnmountForceMountedVmfsVolume">
+<tt class="descname">UnmountForceMountedVmfsVolume</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.UnmountForceMountedVmfsVolume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.UnmountForceMountedVmfsVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unmount the &#8216;forceMounted&#8217; Vmfs volume. When a low level block copy is performed
+to copy or move the VMFS volume, the copied volume is unresolved. For the
+VMFS volume to be usable, a resolution operation is applied. As part of
+resolution operation, user may decide to keep the original VMFS Uuid. Once
+the resolution is applied, the VMFS volume is mounted on the host for its
+use. User can unmount the VMFS volume if it is not being used by any
+registered VMs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateDiskPartitions">
+<tt class="descname">UpdateDiskPartitions</tt><big>(</big><em>devicePath</em>, <em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.UpdateDiskPartitions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateDiskPartitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the partitions on the disk by supplying a partition specification and the
+device name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>devicePath</strong> &#8211; The name of the device path for the specific disk.</li>
+<li><strong>spec</strong> &#8211; A data object that describes the disk partition table specification used to</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>configure the partitions on a disk.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiAdvancedOptions">
+<tt class="descname">UpdateInternetScsiAdvancedOptions</tt><big>(</big><em>iScsiHbaDevice</em>, <em>targetSet</em>, <em>options</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.UpdateInternetScsiAdvancedOptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiAdvancedOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the advanced options the iSCSI host bus adapter or the discovery addresses
+and targets associated with it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iScsiHbaDevice</strong> &#8211; The device of the Internet SCSI HBA adapter.</li>
+<li><strong>targetSet</strong> &#8211; The set the targets to configure. If not provided, the settings will be applied to</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>the host bus adapter itself.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>options</strong> &#8211; The list of options to set.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiAlias">
+<tt class="descname">UpdateInternetScsiAlias</tt><big>(</big><em>iScsiHbaDevice</em>, <em>iScsiAlias</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.UpdateInternetScsiAlias"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiAlias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the alias of an iSCSI host bus adapter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iScsiHbaDevice</strong> &#8211; The device of the Internet SCSI HBA adapter.</li>
+<li><strong>iScsiAlias</strong> &#8211; The new value for the alias of the adapter.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiAuthenticationProperties">
+<tt class="descname">UpdateInternetScsiAuthenticationProperties</tt><big>(</big><em>iScsiHbaDevice</em>, <em>authenticationProperties</em>, <em>targetSet</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.UpdateInternetScsiAuthenticationProperties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiAuthenticationProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the authentication properties for one or more targets or discovery
+addresses associated with an iSCSI host bus adapter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iScsiHbaDevice</strong> &#8211; The device of the Internet SCSI HBA adapter. associated with the target.</li>
+<li><strong>authenticationProperties</strong> &#8211; The data object that represents the authentication settings to set.</li>
+<li><strong>targetSet</strong> &#8211; The set the targets to configure. Optional, when obmitted will configura the</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>authentication properties for the adapter instead.vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiDigestProperties">
+<tt class="descname">UpdateInternetScsiDigestProperties</tt><big>(</big><em>iScsiHbaDevice</em>, <em>targetSet</em>, <em>digestProperties</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.UpdateInternetScsiDigestProperties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiDigestProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the digest properties for the iSCSI host bus adapter or the discovery
+addresses and targets associated with it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iScsiHbaDevice</strong> &#8211; The device of the Internet SCSI HBA adapter.</li>
+<li><strong>targetSet</strong> &#8211; The set the targets to configure. If not provided, the settings will be applied to</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>the host bus adapter itself.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>digestProperties</strong> &#8211; The data object that represents the digest settings to set.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiDiscoveryProperties">
+<tt class="descname">UpdateInternetScsiDiscoveryProperties</tt><big>(</big><em>iScsiHbaDevice</em>, <em>discoveryProperties</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.UpdateInternetScsiDiscoveryProperties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiDiscoveryProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the Discovery properties for an iSCSI host bus adapter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iScsiHbaDevice</strong> &#8211; The device of the Internet SCSI HBA adapter.</li>
+<li><strong>discoveryProperties</strong> &#8211; The discovery settings for this host bus adapter.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiIPProperties">
+<tt class="descname">UpdateInternetScsiIPProperties</tt><big>(</big><em>iScsiHbaDevice</em>, <em>ipProperties</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.UpdateInternetScsiIPProperties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiIPProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the IP properties for an iSCSI host bus adapter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iScsiHbaDevice</strong> &#8211; The device of the Internet SCSI HBA adapter.</li>
+<li><strong>ipProperties</strong> &#8211; A data object representing the IP properties for the host bus adapter</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiName">
+<tt class="descname">UpdateInternetScsiName</tt><big>(</big><em>iScsiHbaDevice</em>, <em>iScsiName</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.UpdateInternetScsiName"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the name of an iSCSI host bus adapter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iScsiHbaDevice</strong> &#8211; The current name of the Internet SCSI HBA adapter.</li>
+<li><strong>iScsiName</strong> &#8211; The new name for the Internet SCSI HBA adapter</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateScsiLunDisplayName">
+<tt class="descname">UpdateScsiLunDisplayName</tt><big>(</big><em>lunUuid</em>, <em>displayName</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.UpdateScsiLunDisplayName"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateScsiLunDisplayName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the mutable display name associated with a ScsiLun. The ScsiLun to be
+updated is identified using the specified uuid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lunUuid</strong> &#8211; The uuid of the ScsiLun to update.</li>
+<li><strong>displayName</strong> &#8211; The new name to assign to the ScsiLun object.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateSoftwareInternetScsiEnabled">
+<tt class="descname">UpdateSoftwareInternetScsiEnabled</tt><big>(</big><em>enabled</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.UpdateSoftwareInternetScsiEnabled"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateSoftwareInternetScsiEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables or disables Software iSCSI.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enabled</strong> &#8211; True to enable the iSCSI; false to disable it</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.UpgradeVmLayout">
+<tt class="descname">UpgradeVmLayout</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.UpgradeVmLayout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.UpgradeVmLayout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterates over all registered virtual machines. For each VM which .vmx file is
+located on the service console and all disks are available on VMFS3 or
+NAS, it will relocate the disks into directories if stored in the ROOT,
+and relocate the VMX file into the directory too. Events are logged for
+each virtual machine that is relocated.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.UpgradeVmfs">
+<tt class="descname">UpgradeVmfs</tt><big>(</big><em>vmfsPath</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.UpgradeVmfs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.UpgradeVmfs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upgrades the VMFS to the current VMFS version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>vmfsPath</strong> &#8211; The path of the VMFS.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.availableField">
+<tt class="descname">availableField</tt><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.availableField" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of custom field definitions that are valid for the object&#8217;s type. The fields
+are sorted by name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.fileSystemVolumeInfo">
+<tt class="descname">fileSystemVolumeInfo</tt><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.fileSystemVolumeInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.fileSystemVolumeInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>File system volume information for the host. See the FileSystemVolumeInfo data
+object type for more information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.multipathStateInfo">
+<tt class="descname">multipathStateInfo</tt><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.multipathStateInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.multipathStateInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runtime information about the state of a multipath path. A null value will be
+returned if path state information is not available for this system.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.storageDeviceInfo">
+<tt class="descname">storageDeviceInfo</tt><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.storageDeviceInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.storageDeviceInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Host storage information up to the device level.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.systemFile">
+<tt class="descname">systemFile</tt><a class="reference internal" href="../_modules/pyvisdk/mo/host_storage_system.html#HostStorageSystem.systemFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.systemFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Datastore paths of files used by the host system on mounted volumes, for instance,
+the COS vmdk file of the host. For information on datastore paths, see
+Datastore.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.host_storage_system.HostStorageSystem.value">
+<tt class="descname">value</tt><a class="headerlink" href="#pyvisdk.mo.host_storage_system.HostStorageSystem.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of custom field values. Each value uses a key to associate an instance of a
+CustomFieldStringValue with a custom field definition.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_snmp_system.html"
+                        title="previous chapter">3.50. HostSnmpSystem</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_system.html"
+                        title="next chapter">3.52. HostSystem</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/host_storage_system.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_system.html" title="3.52. HostSystem"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_snmp_system.html" title="3.50. HostSnmpSystem"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

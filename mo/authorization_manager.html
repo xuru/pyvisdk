@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.3. AuthorizationManager &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.4. ClusterComputeResource" href="cluster_compute_resource.html" />
+    <link rel="prev" title="3.2. AlarmManager" href="alarm_manager.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cluster_compute_resource.html" title="3.4. ClusterComputeResource"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="alarm_manager.html" title="3.2. AlarmManager"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="authorizationmanager">
+<h1>3.3. AuthorizationManager<a class="headerlink" href="#authorizationmanager" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ServiceContent</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">AuthorizationDescription</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">AuthorizationPrivilege</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">AuthorizationRole</span></tt>, <a class="reference internal" href="managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity" title="pyvisdk.mo.managed_entity.ManagedEntity"><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">Permission</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.authorization_manager.AuthorizationManager">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.authorization_manager.</tt><tt class="descname">AuthorizationManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='AuthorizationManager'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/authorization_manager.html#AuthorizationManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.authorization_manager.AuthorizationManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>are the basic individual rights required to perform operations. They are
+statically defined and never change for a single version of a product.
+Examples of privileges are &#8220;Power on a virtual machine&#8221; or &#8220;Configure a
+host.&#8221;</p>
+<dl class="method">
+<dt id="pyvisdk.mo.authorization_manager.AuthorizationManager.AddAuthorizationRole">
+<tt class="descname">AddAuthorizationRole</tt><big>(</big><em>name</em>, <em>privIds</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/authorization_manager.html#AuthorizationManager.AddAuthorizationRole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.authorization_manager.AuthorizationManager.AddAuthorizationRole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a new role. This method will add a user-defined role with given list of
+privileges and three system-defined privileges, &#8220;System.Anonymous&#8221;,
+&#8220;System.View&#8221;, and &#8220;System.Read&#8221;.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> &#8211; Name of the new role.</li>
+<li><strong>privIds</strong> &#8211; List of privileges to assign to the role.</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">xsd:int</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.authorization_manager.AuthorizationManager.MergePermissions">
+<tt class="descname">MergePermissions</tt><big>(</big><em>srcRoleId</em>, <em>dstRoleId</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/authorization_manager.html#AuthorizationManager.MergePermissions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.authorization_manager.AuthorizationManager.MergePermissions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reassigns all permissions of a role to another role.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>srcRoleId</strong> &#8211; The ID of the source role providing the permissions which are changing.</li>
+<li><strong>dstRoleId</strong> &#8211; The ID of the destination role to which the permissions are reassigned.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.authorization_manager.AuthorizationManager.RemoveAuthorizationRole">
+<tt class="descname">RemoveAuthorizationRole</tt><big>(</big><em>failIfUsed</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/authorization_manager.html#AuthorizationManager.RemoveAuthorizationRole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.authorization_manager.AuthorizationManager.RemoveAuthorizationRole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a role.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>failIfUsed</strong> &#8211; If true, prevents the role from being removed if any permissions are using it.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.authorization_manager.AuthorizationManager.RemoveEntityPermission">
+<tt class="descname">RemoveEntityPermission</tt><big>(</big><em>entity</em>, <em>user</em>, <em>isGroup</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/authorization_manager.html#AuthorizationManager.RemoveEntityPermission"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.authorization_manager.AuthorizationManager.RemoveEntityPermission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a permission rule from an entity.This will fail with an InvalidArgument
+fault if called on: the direct child folders of a datacenter managed
+object, the root resource pool of a ComputeResource or
+ClusterComputeResource, or a HostSystem that is part of a ComputeResource
+(Stand-alone Host). These objects always have the same permissions as
+their parent.This will fail with an InvalidArgument fault if called on a
+fault-tolerance (FT) secondary VirtualMachine. Such a VirtualMachine
+always has the same permissions as its FT primary VirtualMachine.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>entity</strong> &#8211; Entity on which a permission is removed.</li>
+<li><strong>user</strong> &#8211; User or group for which the permission is defined.</li>
+<li><strong>isGroup</strong> &#8211; True, if user refers to a group name; false, for a user name.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.authorization_manager.AuthorizationManager.ResetEntityPermissions">
+<tt class="descname">ResetEntityPermissions</tt><big>(</big><em>entity</em>, <em>permission</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/authorization_manager.html#AuthorizationManager.ResetEntityPermissions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.authorization_manager.AuthorizationManager.ResetEntityPermissions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the entire set of permissions defined on an entity. Any existing
+permissions on the entity are removed and replaced with the provided
+set.If a permission is specified multiple times for the same user or
+group, the last permission specified takes effect.The operation is
+transactional per permission and could partially fail. The updates are
+performed in the order of the permission array argument. The first failed
+update will abort the operation and throw the appropriate exception. When
+the operation aborts, any permissions that have not yet been removed are
+left in their original state.After updates are applied, original
+permissions that are not in the new set are removed. A failure to remove a
+permission, such as a violation of the minimum administrator permission
+rule, will abort the operation and could leave remaining original
+permissions still effective on the entity.This will fail with an
+InvalidArgument fault if called on: the direct child folders of a
+datacenter managed object, the root resource pool of a ComputeResource or
+ClusterComputeResource, or a HostSystem that is part of a ComputeResource
+(Stand-alone Host). These objects always have the same permissions as
+their parent.This will fail with an InvalidArgument fault if called on a
+fault-tolerance (FT) secondary VirtualMachine. Such a VirtualMachine
+always has the same permissions as its FT primary VirtualMachine.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>entity</strong> &#8211; The entity on which permissions are updated.</li>
+<li><strong>permission</strong> &#8211; The list of Permission objects that define the new rules for access to the entity</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>and potentially entities below it. If the list is empty, all permissions
+on the entity are removed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.authorization_manager.AuthorizationManager.RetrieveAllPermissions">
+<tt class="descname">RetrieveAllPermissions</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/authorization_manager.html#AuthorizationManager.RetrieveAllPermissions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.authorization_manager.AuthorizationManager.RetrieveAllPermissions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds all permissions defined in the system. The result is restricted to the
+managed entities visible to the user making the call.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Permission[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.authorization_manager.AuthorizationManager.RetrieveEntityPermissions">
+<tt class="descname">RetrieveEntityPermissions</tt><big>(</big><em>inherited</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/authorization_manager.html#AuthorizationManager.RetrieveEntityPermissions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.authorization_manager.AuthorizationManager.RetrieveEntityPermissions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets permissions defined on or effective on a managed entity. This returns the
+actual permission objects defined in the system for all users and groups
+relative to the managed entity. The inherited flag specifies whether or
+not to include permissions defined by the parents of this entity that
+propagate to this entity.For complex entities, the entity reported as
+defining the permission may be either the parent or a child entity
+belonging to the complex entity.The purpose of this method is to discover
+permissions for administration purposes, not to determine the current
+permissions. The current user&#8217;s permissions are found on the effectiveRole
+property of the user&#8217;s ManagedEntity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>inherited</strong> &#8211; Whether or not to include propagating permissions defined by parent entities.</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Permission[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.authorization_manager.AuthorizationManager.RetrieveRolePermissions">
+<tt class="descname">RetrieveRolePermissions</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/authorization_manager.html#AuthorizationManager.RetrieveRolePermissions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.authorization_manager.AuthorizationManager.RetrieveRolePermissions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds all the permissions that use a particular role. The result is restricted to
+managed entities that are visible to the user making the call.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Permission[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.authorization_manager.AuthorizationManager.SetEntityPermissions">
+<tt class="descname">SetEntityPermissions</tt><big>(</big><em>entity</em>, <em>permission</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/authorization_manager.html#AuthorizationManager.SetEntityPermissions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.authorization_manager.AuthorizationManager.SetEntityPermissions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines one or more permission rules on an entity or updates rules if already
+present for the given user or group on the entity.If a permission is
+specified multiple times for the same user or group, then the last
+permission specified takes effect.The operation is applied transactionally
+per permission and is applied to the entity following the order of the
+elements in the permission array argument. This means that if a failure
+occurs, the method terminates at that point in the permission array with
+an exception, leaving at least one and as many as all permissions
+unapplied.This will fail with an InvalidArgument fault if called on: the
+direct child folders of a datacenter managed object, the root resource
+pool of a ComputeResource or ClusterComputeResource, or a HostSystem that
+is part of a ComputeResource (Stand-alone Host). These objects always have
+the same permissions as their parent.This will fail with an
+InvalidArgument fault if called on a fault-tolerance (FT) secondary
+VirtualMachine. Such a VirtualMachine always has the same permissions as
+its FT primary VirtualMachine.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>entity</strong> &#8211; The entity on which to set permissions.</li>
+<li><strong>permission</strong> &#8211; An array of specifications for permissions on the entity.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.authorization_manager.AuthorizationManager.UpdateAuthorizationRole">
+<tt class="descname">UpdateAuthorizationRole</tt><big>(</big><em>roleId</em>, <em>newName</em>, <em>privIds</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/authorization_manager.html#AuthorizationManager.UpdateAuthorizationRole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.authorization_manager.AuthorizationManager.UpdateAuthorizationRole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates a role&#8217;s name or privileges. If the new set of privileges are assigned to
+the role, the system-defined privileges, &#8220;System.Anonymous&#8221;,
+&#8220;System.View&#8221;, and &#8220;System.Read&#8221; will be assigned to the role too.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>roleId</strong> &#8211; The ID of the role that is updated.</li>
+<li><strong>newName</strong> &#8211; The new name for the role.</li>
+<li><strong>privIds</strong> &#8211; The new set of privileges to assign to the role.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.authorization_manager.AuthorizationManager.description">
+<tt class="descname">description</tt><a class="reference internal" href="../_modules/pyvisdk/mo/authorization_manager.html#AuthorizationManager.description"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.authorization_manager.AuthorizationManager.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Static, descriptive strings for system roles and privileges.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.authorization_manager.AuthorizationManager.privilegeList">
+<tt class="descname">privilegeList</tt><a class="reference internal" href="../_modules/pyvisdk/mo/authorization_manager.html#AuthorizationManager.privilegeList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.authorization_manager.AuthorizationManager.privilegeList" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of system-defined privileges.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.authorization_manager.AuthorizationManager.roleList">
+<tt class="descname">roleList</tt><a class="reference internal" href="../_modules/pyvisdk/mo/authorization_manager.html#AuthorizationManager.roleList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.authorization_manager.AuthorizationManager.roleList" title="Permalink to this definition">¶</a></dt>
+<dd><p>The currently defined roles in the system, including static system-defined roles.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="alarm_manager.html"
+                        title="previous chapter">3.2. AlarmManager</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cluster_compute_resource.html"
+                        title="next chapter">3.4. ClusterComputeResource</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/authorization_manager.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cluster_compute_resource.html" title="3.4. ClusterComputeResource"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="alarm_manager.html" title="3.2. AlarmManager"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

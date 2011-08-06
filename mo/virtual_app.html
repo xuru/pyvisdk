@@ -1,0 +1,844 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.85. VirtualApp &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.86. VirtualDiskManager" href="virtual_disk_manager.html" />
+    <link rel="prev" title="3.84. ViewManager" href="view_manager.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_disk_manager.html" title="3.86. VirtualDiskManager"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="view_manager.html" title="3.84. ViewManager"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualapp">
+<h1>3.85. VirtualApp<a class="headerlink" href="#virtualapp" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="datastore.html#pyvisdk.mo.datastore.Datastore" title="pyvisdk.mo.datastore.Datastore"><tt class="xref py py-class docutils literal"><span class="pre">Datastore</span></tt></a>, <a class="reference internal" href="folder.html#pyvisdk.mo.folder.Folder" title="pyvisdk.mo.folder.Folder"><tt class="xref py py-class docutils literal"><span class="pre">Folder</span></tt></a>, <a class="reference internal" href="http_nfc_lease.html#pyvisdk.mo.http_nfc_lease.HttpNfcLease" title="pyvisdk.mo.http_nfc_lease.HttpNfcLease"><tt class="xref py py-class docutils literal"><span class="pre">HttpNfcLease</span></tt></a>, <a class="reference internal" href="managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity" title="pyvisdk.mo.managed_entity.ManagedEntity"><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt></a>, <a class="reference internal" href="network.html#pyvisdk.mo.network.Network" title="pyvisdk.mo.network.Network"><tt class="xref py py-class docutils literal"><span class="pre">Network</span></tt></a>, <a class="reference internal" href="resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool" title="pyvisdk.mo.resource_pool.ResourcePool"><tt class="xref py py-class docutils literal"><span class="pre">ResourcePool</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">VAppCloneSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VAppConfigInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VAppConfigSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualAppLinkInfo</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><a class="reference internal" href="resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool" title="pyvisdk.mo.resource_pool.ResourcePool"><tt class="xref py py-class docutils literal"><span class="pre">ResourcePool</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p>CloneVApp_Task, CreateVApp</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.virtual_app.</tt><tt class="descname">VirtualApp</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='VirtualApp'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>From a technical perspective, a vApp container is a specialized resource pool that
+has been extended with the following capabilities:</p>
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.CloneVApp_Task">
+<tt class="descname">CloneVApp_Task</tt><big>(</big><em>name</em>, <em>target</em>, <em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.CloneVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.CloneVApp_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a clone of this vApp.Any % (percent) character used in this name parameter
+must be escaped, unless it is used to start an escape sequence. Clients
+may also escape any other characters in this name parameter.When invoking
+this method, the following privilege checks occur:Additional privileges
+are required by the clone spec provided. See VAppCloneSpec for details.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> &#8211; The name of the new vApp.</li>
+<li><strong>target</strong> &#8211; The parent entity of the new vApp. Must be of type ResourcePool or VirtualApp.</li>
+<li><strong>spec</strong> &#8211; Specifies how to clone the vApp.</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Task</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.CreateChildVM_Task">
+<tt class="descname">CreateChildVM_Task</tt><big>(</big><em>config</em>, <em>host</em><big>)</big><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.CreateChildVM_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new virtual machine in a vApp container.This method supports creating a
+virtual machine directly in a vApp. A virtual machine in a vApp is not
+associated with a VM folder and therefore cannot be created using the
+method on a Folder.This method can only be called directly on a vApp or on
+a resource pool that is a child of a vApp.The privilege
+VirtualMachine.Inventory.Create is required on this entity. Further, if
+this is a resource pool, the privilege Resource.AssignVMToPool is
+required. If this is a vApp, the privilege VApp.AssignVM is
+required.Depending on the properties of the virtual machine bring created,
+additional privileges may be required. See CreateVM_Task for a description
+of these privileges.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>config</strong> &#8211; The configuration of the virtual machine hardware.</li>
+<li><strong>host</strong> &#8211; The target host on which the virtual machine will run. This must specify a host</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>that is a member of the ComputeResource indirectly specified by the pool.
+For a stand-alone host or a cluster with DRS, host can be omitted, and the
+system selects a default.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.CreateResourcePool">
+<tt class="descname">CreateResourcePool</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.CreateResourcePool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new resource pool.In the ResourceConfigSpec, all values in
+ResourceAllocationInfo must be supplied; they are not optional.Any %
+(percent) character used in this name parameter must be escaped, unless it
+is used to start an escape sequence. Clients may also escape any other
+characters in this name parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">ResourcePool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.CreateVApp">
+<tt class="descname">CreateVApp</tt><big>(</big><em>name</em>, <em>resSpec</em>, <em>configSpec</em>, <em>vmFolder</em><big>)</big><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.CreateVApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new vApp container.Any % (percent) character used in this name parameter
+must be escaped, unless it is used to start an escape sequence. Clients
+may also escape any other characters in this name parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; The name of the vApp container in the inventory</li>
+<li><strong>resSpec</strong> &#8211; The resource configuration for the vApp container (same as for a regular resource</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>pool).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>configSpec</strong> &#8211; The specification of the vApp specific meta-data.</li>
+<li><strong>vmFolder</strong> &#8211; The parent folder for the vApp. This must be null if this is a child vApp.</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">VirtualApp</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.DestroyChildren">
+<tt class="descname">DestroyChildren</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.DestroyChildren" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes all child resource pools recursively. All virtual machines and vApps
+associated with the child resource pools get associated with this resource
+pool.Note that resource pools contained in child vApps are not
+affected.The privilege checks performed are the following.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.Destroy_Task">
+<tt class="descname">Destroy_Task</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.Destroy_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys this object, deleting its contents and removing it from its parent folder
+(if any).NOTE: The appropriate privilege must be held on the parent of the
+destroyed entity as well as the entity itself.This method can throw one of
+several exceptions. The exact set of exceptions depends on the kind of
+entity that is being removed. See comments for each entity for more
+information on destroy behavior.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.ExportVApp">
+<tt class="descname">ExportVApp</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.ExportVApp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.ExportVApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtains an export lease on this vApp. The export lease contains a list of URLs for
+the disks of the virtual machines in this vApp, as well as a ticket that
+gives access to these URLs.See HttpNfcLease for information on how to use
+the lease.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">HttpNfcLease</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.ImportVApp">
+<tt class="descname">ImportVApp</tt><big>(</big><em>spec</em>, <em>folder</em>, <em>host</em><big>)</big><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.ImportVApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new entity in this resource pool. The import process consists of two
+steps:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>spec</strong> &#8211; An ImportSpec describing what to import.</li>
+<li><strong>folder</strong> &#8211; The folder to which the entity will be attached.</li>
+<li><strong>host</strong> &#8211; The target host on which the entity will run. This must specify a host that is a</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>member of the ComputeResource indirectly specified by the pool. For a
+stand-alone host or a cluster with DRS, host can be omitted, and the
+system selects a default.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">HttpNfcLease</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.MoveIntoResourcePool">
+<tt class="descname">MoveIntoResourcePool</tt><big>(</big><em>list</em><big>)</big><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.MoveIntoResourcePool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves a set of resource pools, vApps or virtual machines into this pool. The
+pools, vApps and virtual machines must be part of the cluster or
+standalone host that contains this pool.For each entity being moved, the
+move is subject to the following privilege checks:This operation is
+typically used by clients when they implement a drag-and-drop interface to
+move a set of objects into a folder.This operation is only transactional
+with respect to each individual entity. The set of entities is moved
+sequentially, as specified in the list, and committed one at a time. If a
+failure is detected, then the method terminates with an exception.The root
+resource pool cannot be moved.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>list</strong> &#8211; A list of ResourcePool and VirtualMachine objects.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.PowerOffVApp_Task">
+<tt class="descname">PowerOffVApp_Task</tt><big>(</big><em>force</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.PowerOffVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.PowerOffVApp_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops this vApp.The virtual machines (or child vApps) will be stopped in the order
+specified in the vApp configuration, if force is false. If force is set to
+true, all virtual machines are powered-off (in no specific order and
+possibly in parallel) regardless of the vApp auto-start
+configuration.While a vApp is stopping, all power operations performed on
+sub entities are disabled through the VIM API. They will throw
+TaskInProgress.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>force</strong> &#8211; If force is false, the shutdown order in the vApp is executed. If force is true,</td>
+</tr>
+</tbody>
+</table>
+<p>all virtual machines are powered-off (regardless of shutdown order).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.PowerOnVApp_Task">
+<tt class="descname">PowerOnVApp_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.PowerOnVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.PowerOnVApp_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts this vApp.The virtual machines (or sub vApps) will be started in the order
+specified in the vApp configuration. If the vApp is suspended (&#64;see
+vim.VirtualApp.Summary.suspended), all suspended virtual machines will be
+powered-on based on the defined start-up order.While a vApp is starting,
+all power operations performed on sub entities are disabled through the
+VIM API. They will throw TaskInProgress.In case of a failure to power-on a
+virtual machine, the exception from the virtual machine power on is
+returned, and the power-on sequence will be terminated. In case of a
+failure, virtual machines that are already started will remain powered-on.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.QueryResourceConfigOption">
+<tt class="descname">QueryResourceConfigOption</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.QueryResourceConfigOption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a value range and default values for ResourceConfigSpec.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">ResourceConfigOption</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.RefreshRuntime">
+<tt class="descname">RefreshRuntime</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.RefreshRuntime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refreshes the resource usage data that is available in ResourcePoolRuntimeInfo.
+The latest runtime resource usage of this resource pool may not be
+available immediately after operations that alter resource usage, such as
+powering on a virtual machine. Invoke this method when resource usage may
+have recently changed, and the most up-to-date value in the
+ResourcePoolRuntimeInfo is needed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.RegisterChildVM_Task">
+<tt class="descname">RegisterChildVM_Task</tt><big>(</big><em>path</em>, <em>name</em>, <em>host</em><big>)</big><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.RegisterChildVM_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds an existing virtual machine to this resource pool or vApp.This operation only
+works for vApps or resource pools that are children of vApps. To register
+a VM in a folder, see RegisterVM_Task.Any % (percent) character used in
+this name parameter must be escaped, unless it is used to start an escape
+sequence. Clients may also escape any other characters in this name
+parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> &#8211; A datastore path to the virtual machine. If the path ends with &#8221;.vmtx&#8221;, indicating</td>
+</tr>
+</tbody>
+</table>
+<p>that it refers to a VM template, an InvalidArgument fault is thrown.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name to be assigned to the virtual machine. If this parameter is not set, the</td>
+</tr>
+</tbody>
+</table>
+<p>displayName configuration parameter of the virtual machine is used. An
+entity name must be a non-empty string of less than 80 characters. The
+slash (/), backslash () and percent (%) will be escaped using the URL
+syntax. For example, %2F.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>host</strong> &#8211; The target host on which the virtual machine will run. This parameter must specify</td>
+</tr>
+</tbody>
+</table>
+<p>a host that is a member of the ComputeResource to which this resource pool
+belongs. For a stand-alone host or a cluster with DRS, the parameter can
+be omitted, and the system selects a default.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.Reload">
+<tt class="descname">Reload</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.Reload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reload the entity state. Clients only need to call this method if they changed
+some external state that affects the service without using the Web service
+interface to perform the change. For example, hand-editing a virtual
+machine configuration file affects the configuration of the associated
+virtual machine but the service managing the virtual machine might not
+monitor the file for changes. In this case, after such an edit, a client
+would call &#8220;reload&#8221; on the associated virtual machine to ensure the
+service and its clients have current data for the virtual machine.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.Rename_Task">
+<tt class="descname">Rename_Task</tt><big>(</big><em>newName</em><big>)</big><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.Rename_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renames this managed entity.Any % (percent) character used in this name parameter
+must be escaped, unless it is used to start an escape sequence. Clients
+may also escape any other characters in this name parameter.See name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newName</strong> &#8211; See name</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.SuspendVApp_Task">
+<tt class="descname">SuspendVApp_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.SuspendVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.SuspendVApp_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suspends this vApp.Suspends all powered-on virtual machines in a vApp, including
+virtual machines in child vApps. The virtual machines are suspended in the
+same order as used for a power-off operation (reverse power-on
+sequence).While a vApp is being suspended, all power operations performed
+on sub entities are disabled through the VIM API. They will throw
+TaskInProgress.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.UpdateChildResourceConfiguration">
+<tt class="descname">UpdateChildResourceConfiguration</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.UpdateChildResourceConfiguration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes resource configuration of a set of children of this resource pool. The
+method allows bulk modifications of the set of the direct children
+(virtual machines and resource pools).Bulk modifications are not
+transactional. Each modification is made individually. If a failure is
+encountered while applying the changes, then the processing stops, meaning
+at least one and as many as all of the changes are not applied.A set can
+include a subset of the resources. Children that are not mentioned in the
+list are not changed.For each ResourceConfigSpec, the following privilege
+checks apply:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.UpdateConfig">
+<tt class="descname">UpdateConfig</tt><big>(</big><em>name</em>, <em>config</em><big>)</big><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.UpdateConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the configuration of the resource pool.Any % (percent) character used in
+this name parameter must be escaped, unless it is used to start an escape
+sequence. Clients may also escape any other characters in this name
+parameter.The privilege checks for this operation are as follows:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; If set, then the new name of the resource pool.</li>
+<li><strong>config</strong> &#8211; If set, then the new resource allocation for this resource pool.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.UpdateLinkedChildren">
+<tt class="descname">UpdateLinkedChildren</tt><big>(</big><em>addChangeSet</em>, <em>removeSet</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.UpdateLinkedChildren"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.UpdateLinkedChildren" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconfigure the set of linked children.A VirtualMachine and vApp can be added as a
+linked child as long as it is not a direct child of another vApp. In case
+it is a linked child, the existing link is removed and replaced with the
+new link specified in this call.An InvalidArgument fault is thrown if a
+link target is a direct child of another vApp, or if the addition of the
+link will result in a vApp with a cycle. For example, a vApp cannot be
+linked to itself.The removeSet must refer to managed entities that are
+currently linked children. Otherwise, an InvalidArgument exception is
+thrown.For each entity being linked, the operation is subject to the
+following privilege checks:Privilege checks for each entity in the
+removeSet are similar to the entities in the addChangeSet, except that
+there is no target vApp.This operation is only transactional with respect
+to each individual link change. The changes are processed sequentially and
+committed one at a time. The addChangeSet is processed first, followed by
+the removeSet. If a failure is detected, then the method terminates with
+an exception.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>addChangeSet</strong> &#8211; a set of LinkInfo objects that either add a new link or modify an exisiting link.</li>
+<li><strong>removeSet</strong> &#8211; a set of entities that should no longer link to this vApp.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.UpdateVAppConfig">
+<tt class="descname">UpdateVAppConfig</tt><big>(</big><em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.UpdateVAppConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.UpdateVAppConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the vApp configuration.Updates in different areas require different
+privileges. See VAppConfigSpec for a full description.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>spec</strong> &#8211; contains the updates to the current configuration. Any set element, is changed.</td>
+</tr>
+</tbody>
+</table>
+<p>All values in the spec that is left unset, will not be modified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.alarmActionsEnabled">
+<tt class="descname">alarmActionsEnabled</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.alarmActionsEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether alarm actions are enabled for this entity. True if enabled; false
+otherwise.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.availableField">
+<tt class="descname">availableField</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.availableField" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of custom field definitions that are valid for the object&#8217;s type. The fields
+are sorted by name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.childConfiguration">
+<tt class="descname">childConfiguration</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.childConfiguration" title="Permalink to this definition">¶</a></dt>
+<dd><p>The resource configuration of all direct children (VirtualMachine and
+ResourcePool) of this resource group.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.childLink">
+<tt class="descname">childLink</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.childLink"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.childLink" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of linked children</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.config">
+<tt class="descname">config</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration of this resource pool.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.configIssue">
+<tt class="descname">configIssue</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.configIssue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current configuration issues that have been detected for this entity. Typically,
+these issues have already been logged as events. The entity stores these
+events as long as they are still current. The configStatus property
+provides an overall status based on these events.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.configStatus">
+<tt class="descname">configStatus</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.configStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>The configStatus indicates whether or not the system has detected a configuration
+issue involving this entity. For example, it might have detected a
+duplicate IP address or MAC address, or a host in a cluster might be out
+of compliance. The meanings of the configStatus values are: * red: A
+problem has been detected involving the entity. * yellow: A problem is
+about to occur or a transient condition has occurred (For example,
+reconfigure fail-over policy). * green: No configuration issues have been
+detected. * gray: The configuration status of the entity is not being
+monitored. A green status indicates only that a problem has not been
+detected; it is not a guarantee that the entity is problem-free.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.customValue">
+<tt class="descname">customValue</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.customValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom field values.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.datastore">
+<tt class="descname">datastore</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.datastore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>A collection of references to the subset of datastore objects used by this vApp.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.declaredAlarmState">
+<tt class="descname">declaredAlarmState</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.declaredAlarmState" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of alarm states for alarms that apply to this managed entity. The set
+includes alarms defined on this entity and alarms inherited from the
+parent entity, or from any ancestors in the inventory hierarchy.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.disabledMethod">
+<tt class="descname">disabledMethod</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.disabledMethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of operations that are disabled, given the current runtime state of the
+entity. For example, a power-on operation always fails if a virtual
+machine is already powered on. This list can be used by clients to enable
+or disable operations in a graphical user interface.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.effectiveRole">
+<tt class="descname">effectiveRole</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.effectiveRole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access rights the current session has to this entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.network">
+<tt class="descname">network</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.network"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.network" title="Permalink to this definition">¶</a></dt>
+<dd><p>A collection of references to the subset of network objects that is used by this
+virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.overallStatus">
+<tt class="descname">overallStatus</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.overallStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>General health of this managed entity. The value combines the status of all the
+alarms attached to a managed entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.owner">
+<tt class="descname">owner</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.owner" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ComputeResource to which this set of one or more nested resource pools belong.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.parent">
+<tt class="descname">parent</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parent of this entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.parentFolder">
+<tt class="descname">parentFolder</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.parentFolder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.parentFolder" title="Permalink to this definition">¶</a></dt>
+<dd><p>A reference to the parent folder in the VM and Template folder hierarchy. This can
+be null if the vApp is not associated with a VM &amp; Template folder. A child
+vApp can never be associated with a folder, but it is also not a
+requirement that a root vApp is linked into the VM and Template view.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.parentVApp">
+<tt class="descname">parentVApp</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.parentVApp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.parentVApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference to the parent vApp.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.permission">
+<tt class="descname">permission</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.permission" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of permissions defined for this entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.recentTask">
+<tt class="descname">recentTask</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.recentTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of recent tasks operating on this managed entity. This is a subset of
+recentTask belong to this entity. A task in this list could be in one of
+the four states: pending, running, success or error.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.resourcePool">
+<tt class="descname">resourcePool</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.resourcePool" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of child resource pools.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.runtime">
+<tt class="descname">runtime</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.runtime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runtime information about a resource pool. The ResourcePoolResourceUsage
+information within ResourcePoolRuntimeInfo can be transiently stale. Use
+RefreshRuntime method to update the information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.summary">
+<tt class="descname">summary</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic information about a resource pool.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.tag">
+<tt class="descname">tag</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of tags associated with this managed entity. Experimental. Subject to
+change.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.triggeredAlarmState">
+<tt class="descname">triggeredAlarmState</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.triggeredAlarmState" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of alarm states for alarms triggered by this entity or by its descendants.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.unregisterVApp_Task">
+<tt class="descname">unregisterVApp_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.unregisterVApp_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.unregisterVApp_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes this vApp from the inventory without removing any of the virtual machine&#8217;s
+files on disk. All high-level information stored with the management
+server (ESX Server or VirtualCenter) is removed, including information
+such as vApp configuration, statistics, permissions, and alarms.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.vAppConfig">
+<tt class="descname">vAppConfig</tt><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_app.html#VirtualApp.vAppConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.vAppConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration of this package.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.value">
+<tt class="descname">value</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of custom field values. Each value uses a key to associate an instance of a
+CustomFieldStringValue with a custom field definition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.virtual_app.VirtualApp.vm">
+<tt class="descname">vm</tt><a class="headerlink" href="#pyvisdk.mo.virtual_app.VirtualApp.vm" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of virtual machines associated with this resource pool.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="view_manager.html"
+                        title="previous chapter">3.84. ViewManager</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_disk_manager.html"
+                        title="next chapter">3.86. VirtualDiskManager</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/virtual_app.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_disk_manager.html" title="3.86. VirtualDiskManager"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="view_manager.html" title="3.84. ViewManager"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,752 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.86. VirtualDiskManager &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.87. VirtualMachine" href="virtual_machine.html" />
+    <link rel="prev" title="3.85. VirtualApp" href="virtual_app.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine.html" title="3.87. VirtualMachine"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_app.html" title="3.85. VirtualApp"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualdiskmanager">
+<h1>3.86. VirtualDiskManager<a class="headerlink" href="#virtualdiskmanager" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ServiceContent</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="datacenter.html#pyvisdk.mo.datacenter.Datacenter" title="pyvisdk.mo.datacenter.Datacenter"><tt class="xref py py-class docutils literal"><span class="pre">Datacenter</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">HostDiskDimensionsChs</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualDiskSpec</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>VI API 2.5</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.virtual_disk_manager.</tt><tt class="descname">VirtualDiskManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='VirtualDiskManager'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>This managed object type provides a way to manage and manipulate virtual disks on
+datastores. The source and the destination names are in the form of a URL
+or a datastore path.</p>
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.CopyVirtualDisk_Task">
+<tt class="descname">CopyVirtualDisk_Task</tt><big>(</big><em>sourceName</em>, <em>sourceDatacenter</em>, <em>destName</em>, <em>destDatacenter</em>, <em>destSpec</em>, <em>force</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.CopyVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.CopyVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy a virtual disk, performing conversions as specified in the spec.If source (or
+destination) name is specified as a URL, then the corresponding datacenter
+parameter may be omitted.Requires Datastore.FileManagement privilege on
+both source and destination datastores.Experimental. Subject to change</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sourceName</strong> &#8211; The name of the source, either a datastore path or a URL referring to the virtual</td>
+</tr>
+</tbody>
+</table>
+<p>disk to be copied.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sourceDatacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
+be a URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>destName</strong> &#8211; The name of the destination, either a datastore path or a URL referring to the</td>
+</tr>
+</tbody>
+</table>
+<p>virtual disk to be created.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>destDatacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter, it
+is assumed that the destination path belongs to the source datacenter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>destSpec</strong> &#8211; The specification of the virtual disk to be created. If not specified, a</td>
+</tr>
+</tbody>
+</table>
+<p>preallocated format and busLogic adapter type is assumed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>force</strong> &#8211; If true, overwrite any indentically named disk at the destination. If not</td>
+</tr>
+</tbody>
+</table>
+<p>specified, it is assumed to be false</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.CreateVirtualDisk_Task">
+<tt class="descname">CreateVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em>, <em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.CreateVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.CreateVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a virtual disk.The datacenter parameter may be omitted if a URL is used to
+name the disk.Requires Datastore.FileManagement privilege on the datastore
+where the virtual disk is created.Experimental. Subject to change</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the disk, either a datastore path or a URL referring to the virtual</td>
+</tr>
+</tbody>
+</table>
+<p>disk to be created.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
+be a URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>spec</strong> &#8211; The specification of the virtual disk to be created.</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.DefragmentVirtualDisk_Task">
+<tt class="descname">DefragmentVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.DefragmentVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.DefragmentVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defragment a sparse virtual disk. This is defragmentation of the virtual disk
+file(s) in the host operating system, not defragmentation of the guest
+operating system filesystem inside the virtual disk.The datacenter
+parameter may be omitted if a URL is used to name the disk.Requires
+Datastore.FileManagement privilege on the datastore where the virtual disk
+resides.Experimental. Subject to change</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the disk, either a datastore path or a URL referring to the virtual</td>
+</tr>
+</tbody>
+</table>
+<p>disk that should be defragmented.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
+be a URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.DeleteVirtualDisk_Task">
+<tt class="descname">DeleteVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.DeleteVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.DeleteVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a virtual disk. All files relating to the disk will be deleted.The
+datacenter parameter may be omitted if a URL is used to name the
+disk.Requires Datastore.FileManagement privilege on the datastore where
+the virtual disk is removed.Experimental. Subject to change</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the disk, either a datastore path or a URL referring to the virtual</td>
+</tr>
+</tbody>
+</table>
+<p>disk to be deleted.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
+be a URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.EagerZeroVirtualDisk_Task">
+<tt class="descname">EagerZeroVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.EagerZeroVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.EagerZeroVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Explicitly zero out unaccessed parts zeroedthick disk. Effectively a no-op if the
+disk is already eagerZeroedThick. Unlike zeroFillVirtualDisk, which wipes
+the entire disk, this operation only affects previously unaccessed parts
+of the disk.The datacenter parameter may be omitted if a URL is used to
+name the disk.Requires Datastore.FileManagement privilege on the datastore
+where the virtual disk resides.Experimental. Subject to change</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the disk, either a datastore path or a URL referring to the virtual</td>
+</tr>
+</tbody>
+</table>
+<p>disk that should be inflated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
+be a URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ExtendVirtualDisk_Task">
+<tt class="descname">ExtendVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em>, <em>newCapacityKb</em>, <em>eagerZero</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.ExtendVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ExtendVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expand the capacity of a virtual disk to the new capacity. If the eagerZero flag
+is not specified, - the extended disk region of a zerothick disk will be
+zeroedthick - the extended disk region of a eagerzerothick disk will be
+eagerzeroedthick - a thin-provisioned disk will always be extended as a
+thin-provisioned disk. If the eagerZero flag TRUE, the extended region of
+the disk will always be eagerly zeroed. If the eagerZero flag FALSE, the
+extended region of a zeroedthick or eagerzeroedthick the disk will not be
+eagerly zeroed. This condition has no effect on a thin source disk.The
+datacenter parameter may be omitted if a URL is used to name the
+disk.Requires Datastore.FileManagement privilege on the datastore where
+the virtual disk resides.Experimental. Subject to change</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the disk, either a datastore path or a URL referring to the virtual</td>
+</tr>
+</tbody>
+</table>
+<p>disk whose capacity should be expanded.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
+be a URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>newCapacityKb</strong> &#8211; The new capacty of the virtual disk in Kb.</li>
+<li><strong>eagerZero</strong> &#8211; If true, the extended part of the disk will be explicitly filled with</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>zeroes.vSphere API 4.0</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.InflateVirtualDisk_Task">
+<tt class="descname">InflateVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.InflateVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.InflateVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inflate a sparse or thin-provisioned virtual disk up to the full size. Additional
+space allocated to the disk as a result of this operation will be filled
+with zeroes.The datacenter parameter may be omitted if a URL is used to
+name the disk.Requires Datastore.FileManagement privilege on the datastore
+where the virtual disk resides.Experimental. Subject to change</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the disk, either a datastore path or a URL referring to the virtual</td>
+</tr>
+</tbody>
+</table>
+<p>disk that should be inflated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
+be a URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.MoveVirtualDisk_Task">
+<tt class="descname">MoveVirtualDisk_Task</tt><big>(</big><em>sourceName</em>, <em>sourceDatacenter</em>, <em>destName</em>, <em>destDatacenter</em>, <em>force</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.MoveVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.MoveVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move a virtual disk and all related files from the source location specified by
+sourceName and sourceDatacenter to the destination location specified by
+destName and destDatacenter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sourceName</strong> &#8211; The name of the source, either a datastore path or a URL referring to the virtual</td>
+</tr>
+</tbody>
+</table>
+<p>disk to be moved.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sourceDatacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
+be a URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>destName</strong> &#8211; The name of the destination, either a datastore path or a URL referring to the</td>
+</tr>
+</tbody>
+</table>
+<p>destination virtual disk.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>destDatacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter, it
+is assumed that the destination path belongs to the source datacenter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>force</strong> &#8211; If true, overwrite any indentically named disk at the destination. If not</td>
+</tr>
+</tbody>
+</table>
+<p>specified, it is assumed to be false</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskFragmentation">
+<tt class="descname">QueryVirtualDiskFragmentation</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.QueryVirtualDiskFragmentation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskFragmentation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the percentage of fragmentation of the sparse virtual disk. This is the
+fragmentation of virtual disk file(s) in the host operating system, not
+the fragmentation of the guest operating systemS filesystem inside the
+virtual disk.The datacenter parameter may be omitted if a URL is used to
+name the disk.Requires Datastore.FileManagement privilege on the datastore
+where the virtual disk resides.Experimental. Subject to change</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the disk, either a datastore path or a URL referring to the virtual</td>
+</tr>
+</tbody>
+</table>
+<p>disk for which to return the percentage of fragmentation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
+be a URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">xsd:int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskGeometry">
+<tt class="descname">QueryVirtualDiskGeometry</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.QueryVirtualDiskGeometry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the disk geometry information for the virtual disk.The datacenter parameter
+may be omitted if a URL is used to name the disk.Requires
+Datastore.FileManagement privilege on the datastore where the virtual disk
+resides.Experimental. Subject to change</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the disk, either a datastore path or a URL referring to the virtual</td>
+</tr>
+</tbody>
+</table>
+<p>disk from which to get geometry information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
+be a URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">HostDiskDimensionsChs</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskUuid">
+<tt class="descname">QueryVirtualDiskUuid</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.QueryVirtualDiskUuid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.QueryVirtualDiskUuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the virtual disk SCSI inquiry page 0x83 data.The datacenter parameter may be
+omitted if a URL is used to name the disk.Requires
+Datastore.FileManagement privilege on the datastore where the virtual disk
+resides.Experimental. Subject to change</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the disk, either a datastore path or a URL referring to the virtual</td>
+</tr>
+</tbody>
+</table>
+<p>disk from which to get SCSI inquiry page 0x83 data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
+be a URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">xsd:string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.SetVirtualDiskUuid">
+<tt class="descname">SetVirtualDiskUuid</tt><big>(</big><em>name</em>, <em>datacenter</em>, <em>uuid</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.SetVirtualDiskUuid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.SetVirtualDiskUuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the virtual disk SCSI inquiry page 0x83 data.The datacenter parameter may be
+omitted if a URL is used to name the disk.Requires
+Datastore.FileManagement privilege on the datastore where the virtual disk
+resides.Experimental. Subject to change</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the disk, either a datastore path or a URL referring to the virtual</td>
+</tr>
+</tbody>
+</table>
+<p>disk whose SCSI inquiry page 0x83 data should be set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
+be a URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>uuid</strong> &#8211; The hex representation of the unique ID for this virtual disk.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ShrinkVirtualDisk_Task">
+<tt class="descname">ShrinkVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em>, <em>copy</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.ShrinkVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ShrinkVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shrink a sparse virtual disk.The datacenter parameter may be omitted if a URL is
+used to name the disk.The optional parameter copy specifies whether to
+shrink the disk in copy-shrink mode or in-place mode. In copy-shrink mode,
+additional space is required, but will result in a shrunk disk that is
+also defragmented. In-place shrink does not require additional space, but
+will increase fragmentation. The default behavior is to perform copy-
+shrink if the parameter is not specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the disk, either a datastore path or a URL referring to the virtual</td>
+</tr>
+</tbody>
+</table>
+<p>disk that should be shrink.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
+be a URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>copy</strong> &#8211; If true or omitted, performs shrink in copy-shrink mode, otherwise shrink in in-</td>
+</tr>
+</tbody>
+</table>
+<p>place mode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ZeroFillVirtualDisk_Task">
+<tt class="descname">ZeroFillVirtualDisk_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/virtual_disk_manager.html#VirtualDiskManager.ZeroFillVirtualDisk_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_disk_manager.VirtualDiskManager.ZeroFillVirtualDisk_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overwrite all blocks of the virtual disk with zeros. All data will be lost.The
+datacenter parameter may be omitted if a URL is used to name the
+disk.Requires Datastore.FileManagement privilege on the datastore where
+the virtual disk resides.Experimental. Subject to change</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the disk, either a datastore path or a URL referring to the virtual</td>
+</tr>
+</tbody>
+</table>
+<p>disk whose blocks should be overwritten with zeroes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
+</tr>
+</tbody>
+</table>
+<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
+be a URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_app.html"
+                        title="previous chapter">3.85. VirtualApp</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_machine.html"
+                        title="next chapter">3.87. VirtualMachine</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/virtual_disk_manager.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine.html" title="3.87. VirtualMachine"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_app.html" title="3.85. VirtualApp"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

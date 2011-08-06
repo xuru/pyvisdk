@@ -1,0 +1,645 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.4. ClusterComputeResource &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.5. ClusterProfile" href="cluster_profile.html" />
+    <link rel="prev" title="3.3. AuthorizationManager" href="authorization_manager.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cluster_profile.html" title="3.5. ClusterProfile"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="authorization_manager.html" title="3.3. AuthorizationManager"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="clustercomputeresource">
+<h1>3.4. ClusterComputeResource<a class="headerlink" href="#clustercomputeresource" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ClusterActionHistory</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ClusterConfigInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ClusterConfigSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ClusterDasAdvancedRuntimeInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ClusterDrsFaults</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ClusterDrsMigration</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ClusterDrsRecommendation</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ClusterHostRecommendation</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ClusterRecommendation</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostConnectSpec</span></tt>, <a class="reference internal" href="host_system.html#pyvisdk.mo.host_system.HostSystem" title="pyvisdk.mo.host_system.HostSystem"><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt></a>, <a class="reference internal" href="resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool" title="pyvisdk.mo.resource_pool.ResourcePool"><tt class="xref py py-class docutils literal"><span class="pre">ResourcePool</span></tt></a>, <a class="reference internal" href="virtual_machine.html#pyvisdk.mo.virtual_machine.VirtualMachine" title="pyvisdk.mo.virtual_machine.VirtualMachine"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><a class="reference internal" href="compute_resource.html#pyvisdk.mo.compute_resource.ComputeResource" title="pyvisdk.mo.compute_resource.ComputeResource"><tt class="xref py py-class docutils literal"><span class="pre">ComputeResource</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p>CreateCluster, CreateClusterEx</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.cluster_compute_resource.</tt><tt class="descname">ClusterComputeResource</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='ClusterComputeResource'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the Folder.CreateClusterEx method to create an instance of this object.</p>
+<dl class="method">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.AddHost_Task">
+<tt class="descname">AddHost_Task</tt><big>(</big><em>spec</em>, <em>asConnected</em>, <em>resourcePool</em>, <em>license</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.AddHost_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.AddHost_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a host to the cluster. The hostname must be either an IP address, such as
+192.168.0.1, or a DNS resolvable name. DNS names may be fully qualified
+names, such as host1.domain1.com, or a short name such as host1, providing
+host1 resolves to host1.domain1.com. The system uses DNS to resolve short
+names to fully qualified names. If the cluster supports nested resource
+pools and the user specifies the optional ResourcePool argument, then the
+host&#8217;s root resource pool becomes the specified resource pool. The stand-
+alone host resource hierarchy is imported into the new nested resource
+pool.If the cluster does not support nested resource pools, then the
+stand-alone host resource hierarchy is discarded and all virtual machines
+on the host are put under the cluster&#8217;s root resource pool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>spec</strong> &#8211; Specifies the host name, port, and password for the host to be added.</li>
+<li><strong>asConnected</strong> &#8211; Flag to specify whether or not the host should be connected immediately after it</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>is added. If the host is to be connected immediately after it is added,
+but the connection fails, then an exception is thrown.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>resourcePool</strong> &#8211; the resource pool for the root resource pool from the host.</li>
+<li><strong>license</strong> &#8211; Provide a licenseKey or licenseKeyType. See LicenseManagervSphere API 4.0</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Task</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.ApplyRecommendation">
+<tt class="descname">ApplyRecommendation</tt><big>(</big><em>key</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.ApplyRecommendation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.ApplyRecommendation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a recommendation from the drsRecommendation or the recommendation list.
+Each recommendation can be applied only once.resource.applyRecommendation
+privilege is required if the recommendation is DRS migration or power
+management recommendations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> &#8211; The key field of the DrsRecommendation or Recommendation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.CancelRecommendation">
+<tt class="descname">CancelRecommendation</tt><big>(</big><em>key</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.CancelRecommendation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.CancelRecommendation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancels a recommendation. Currently only initial placement recommendations can be
+cancelled. Migration or power management recommendations cannot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> &#8211; The key field of the Recommendation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.Destroy_Task">
+<tt class="descname">Destroy_Task</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.Destroy_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys this object, deleting its contents and removing it from its parent folder
+(if any).NOTE: The appropriate privilege must be held on the parent of the
+destroyed entity as well as the entity itself.This method can throw one of
+several exceptions. The exact set of exceptions depends on the kind of
+entity that is being removed. See comments for each entity for more
+information on destroy behavior.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.MoveHostInto_Task">
+<tt class="descname">MoveHostInto_Task</tt><big>(</big><em>host</em>, <em>resourcePool</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.MoveHostInto_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.MoveHostInto_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves an existing host into a cluster. The host must be part of the same
+datacenter, and if the host is part of a cluster, the host must be in
+maintenance mode.If the host is a stand-alone host, the stand-alone
+ComputeResource is removed as part of this operation.All virtual machines
+associated with the host, regardless of whether or not they are running,
+are moved with the host into the cluster. If there are virtual machines
+that should not be moved, then migrate those virtual machines off the host
+before initiating this operation.If the host is a stand-alone host, the
+cluster supports nested resource pools, and the user specifies the
+optional resourcePool argument, then the stand-alone host&#8217;s root resource
+pool becomes the specified resource pool and the stand-alone host resource
+hierarchy is imported into the new nested resource pool. If the cluster
+does not support nested resource pools or the resourcePool argument is not
+specified, then the stand-alone host resource hierarchy is ignored.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>host</strong> &#8211; The list of hosts to move into the cluster.</li>
+<li><strong>resourcePool</strong> &#8211; The resource pool to match the root resource pool of stand-alone hosts. This</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>argument has no effect if the host is part of a cluster.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.MoveInto_Task">
+<tt class="descname">MoveInto_Task</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.MoveInto_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.MoveInto_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves an existing host into a cluster. The host must be part of the same
+datacenter, and if the host is part of a cluster, the host must be in
+maintenance mode.If the host is part of a stand-alone ComputeResource,
+then the stand-alone ComputeResource is removed as part of this
+operation.All virtual machines associated with a host, regardless of
+whether or not they are running, are moved with the host into the cluster.
+If there are virtual machines that should not be moved, then migrate those
+virtual machines off the host before initiating this operation.For stand-
+alone hosts, the host resource pool hierarchy is discarded in this call.
+To preserve a host resource pools from a stand-alone host, call
+moveHostInt, specifying an optional resource pool. This operation is
+transactional only with respect to each individual host. Hosts in the set
+are moved sequentially and are committed, one at a time. If a failure is
+detected, then the method terminates with an exception. Since hosts are
+moved one at a time, if this operation fails while in the process of
+moving multiple hosts, some hosts are left unmoved.In addition to the
+privileges mentioned, the user must also hold Host.Inventory.EditCluster
+on the host&#8217;s source ComputeResource object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>host</strong> &#8211; The list of hosts to move into the cluster.</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.RecommendHostsForVm">
+<tt class="descname">RecommendHostsForVm</tt><big>(</big><em>vm</em>, <em>pool</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.RecommendHostsForVm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.RecommendHostsForVm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated. As of VI API 2.5, use PowerOnMultiVM_Task. RecommendHostsForVm cannot
+make any recommendations if DRS cannot find the specified host in the
+cluster. With PowerOnMultiVM_Task, DRS attempts to migrate virtual
+machines and power on hosts in standby mode, given the same
+conditions.Gets a recommendation for where to power on, resume, revert
+from powered-off state to powered on state, or to migrate a specific
+virtual machine. If no host is found, an empty list is returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vm</strong> &#8211; Specifies the virtual machine for which the user is requesting a recommendations.</li>
+<li><strong>pool</strong> &#8211; Specifies the ResourcePool into which the virtual machine is to be migrated. If</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>the virtual machine is powered-on, this argument must be specified and it
+is relevant only when the virtual machine is powered-on. This ResourcePool
+cannot be in the same cluster as the virtual machine.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">ClusterHostRecommendation[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.ReconfigureCluster_Task">
+<tt class="descname">ReconfigureCluster_Task</tt><big>(</big><em>spec</em>, <em>modify</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.ReconfigureCluster_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.ReconfigureCluster_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated. As of VI API 2.5, use ReconfigureComputeResource_Task. Reconfigures a
+cluster.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>spec</strong> &#8211; A set of configuration changes to apply to the cluster. The specification can be a</td>
+</tr>
+</tbody>
+</table>
+<p>complete set of changes or a partial set of changes, applied
+incrementally.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>modify</strong> &#8211; Flag to specify whether the specification (&#8220;spec&#8221;) should be applied</td>
+</tr>
+</tbody>
+</table>
+<p>incrementally. If &#8220;modify&#8221; is false and the operation succeeds, then the
+configuration of the cluster matches the specification exactly; in this
+case any unset portions of the specification will result in unset or
+default portions of the configuration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.RefreshRecommendation">
+<tt class="descname">RefreshRecommendation</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.RefreshRecommendation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.RefreshRecommendation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make DRS invoke again and return a new list of recommendations. Concurrent
+&#8220;refresh&#8221; requests may be combined together and trigger only one DRS
+invocation.The recommendations generated is stored at recommendation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.Reload">
+<tt class="descname">Reload</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.Reload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reload the entity state. Clients only need to call this method if they changed
+some external state that affects the service without using the Web service
+interface to perform the change. For example, hand-editing a virtual
+machine configuration file affects the configuration of the associated
+virtual machine but the service managing the virtual machine might not
+monitor the file for changes. In this case, after such an edit, a client
+would call &#8220;reload&#8221; on the associated virtual machine to ensure the
+service and its clients have current data for the virtual machine.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.Rename_Task">
+<tt class="descname">Rename_Task</tt><big>(</big><em>newName</em><big>)</big><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.Rename_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renames this managed entity.Any % (percent) character used in this name parameter
+must be escaped, unless it is used to start an escape sequence. Clients
+may also escape any other characters in this name parameter.See name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newName</strong> &#8211; See name</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.RetrieveDasAdvancedRuntimeInfo">
+<tt class="descname">RetrieveDasAdvancedRuntimeInfo</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.RetrieveDasAdvancedRuntimeInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.RetrieveDasAdvancedRuntimeInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve DAS advanced runtime info for this cluster.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">ClusterDasAdvancedRuntimeInfo</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.actionHistory">
+<tt class="descname">actionHistory</tt><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.actionHistory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.actionHistory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of actions that have been performed recently.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.alarmActionsEnabled">
+<tt class="descname">alarmActionsEnabled</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.alarmActionsEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether alarm actions are enabled for this entity. True if enabled; false
+otherwise.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.availableField">
+<tt class="descname">availableField</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.availableField" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of custom field definitions that are valid for the object&#8217;s type. The fields
+are sorted by name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.configIssue">
+<tt class="descname">configIssue</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.configIssue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current configuration issues that have been detected for this entity. Typically,
+these issues have already been logged as events. The entity stores these
+events as long as they are still current. The configStatus property
+provides an overall status based on these events.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.configStatus">
+<tt class="descname">configStatus</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.configStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>The configStatus indicates whether or not the system has detected a configuration
+issue involving this entity. For example, it might have detected a
+duplicate IP address or MAC address, or a host in a cluster might be out
+of compliance. The meanings of the configStatus values are: * red: A
+problem has been detected involving the entity. * yellow: A problem is
+about to occur or a transient condition has occurred (For example,
+reconfigure fail-over policy). * green: No configuration issues have been
+detected. * gray: The configuration status of the entity is not being
+monitored. A green status indicates only that a problem has not been
+detected; it is not a guarantee that the entity is problem-free.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.configuration">
+<tt class="descname">configuration</tt><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.configuration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration of the cluster.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.configurationEx">
+<tt class="descname">configurationEx</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.configurationEx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration of the compute resource; applies to both standalone hosts and
+clusters. For a cluster this property will return a ClusterConfigInfoEx
+object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.customValue">
+<tt class="descname">customValue</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.customValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom field values.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.datastore">
+<tt class="descname">datastore</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>The datastore property is the subset of datastore objects in the datacenter
+available in this ComputeResource.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.declaredAlarmState">
+<tt class="descname">declaredAlarmState</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.declaredAlarmState" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of alarm states for alarms that apply to this managed entity. The set
+includes alarms defined on this entity and alarms inherited from the
+parent entity, or from any ancestors in the inventory hierarchy.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.disabledMethod">
+<tt class="descname">disabledMethod</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.disabledMethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of operations that are disabled, given the current runtime state of the
+entity. For example, a power-on operation always fails if a virtual
+machine is already powered on. This list can be used by clients to enable
+or disable operations in a graphical user interface.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.drsFault">
+<tt class="descname">drsFault</tt><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.drsFault"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.drsFault" title="Permalink to this definition">¶</a></dt>
+<dd><p>A collection of the DRS faults generated in the last DRS invocation. Each element
+of the collection is the set of faults generated in one recommendation.
+DRS faults are generated when DRS tries to make recommendations for rule
+enforcement, power management, etc., and indexed in a tree structure with
+reason for recommendations and VM to migrate (optional) as the index keys.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.drsRecommendation">
+<tt class="descname">drsRecommendation</tt><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.drsRecommendation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.drsRecommendation" title="Permalink to this definition">¶</a></dt>
+<dd><p>If DRS is enabled, this returns the set of recommended migrations from the DRS
+module. The current set of recommendations may be empty, since there may
+be no recommended migrations at this time, or it is possible that DRS is
+not enabled.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.effectiveRole">
+<tt class="descname">effectiveRole</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.effectiveRole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access rights the current session has to this entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.environmentBrowser">
+<tt class="descname">environmentBrowser</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.environmentBrowser" title="Permalink to this definition">¶</a></dt>
+<dd><p>The environment browser object that identifies the environments that are supported
+on this compute resource.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.host">
+<tt class="descname">host</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.host" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of hosts that are part of this compute resource. If the compute resource is a
+standalone type, then this list contains just one element.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.migrationHistory">
+<tt class="descname">migrationHistory</tt><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.migrationHistory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.migrationHistory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of migration decisions that have recently been performed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.network">
+<tt class="descname">network</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.network" title="Permalink to this definition">¶</a></dt>
+<dd><p>The subset of network objects available in the datacenter that is available in
+this ComputeResource.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.overallStatus">
+<tt class="descname">overallStatus</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.overallStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>General health of this managed entity. The value combines the status of all the
+alarms attached to a managed entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.parent">
+<tt class="descname">parent</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parent of this entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.permission">
+<tt class="descname">permission</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.permission" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of permissions defined for this entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.recentTask">
+<tt class="descname">recentTask</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.recentTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of recent tasks operating on this managed entity. This is a subset of
+recentTask belong to this entity. A task in this list could be in one of
+the four states: pending, running, success or error.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.recommendation">
+<tt class="descname">recommendation</tt><a class="reference internal" href="../_modules/pyvisdk/mo/cluster_compute_resource.html#ClusterComputeResource.recommendation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.recommendation" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of recommended actions for the cluster. It is possible that the current set
+of recommendations may be empty, either due to not having any running
+dynamic recommendation generation module, or since there may be no
+recommended actions at this time.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.resourcePool">
+<tt class="descname">resourcePool</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.resourcePool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference to root resource pool.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.summary">
+<tt class="descname">summary</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic runtime information about a compute resource. This information is used on
+summary screens and in list views.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.tag">
+<tt class="descname">tag</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of tags associated with this managed entity. Experimental. Subject to
+change.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.triggeredAlarmState">
+<tt class="descname">triggeredAlarmState</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.triggeredAlarmState" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of alarm states for alarms triggered by this entity or by its descendants.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.value">
+<tt class="descname">value</tt><a class="headerlink" href="#pyvisdk.mo.cluster_compute_resource.ClusterComputeResource.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of custom field values. Each value uses a key to associate an instance of a
+CustomFieldStringValue with a custom field definition.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="authorization_manager.html"
+                        title="previous chapter">3.3. AuthorizationManager</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cluster_profile.html"
+                        title="next chapter">3.5. ClusterProfile</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/cluster_compute_resource.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cluster_profile.html" title="3.5. ClusterProfile"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="authorization_manager.html" title="3.3. AuthorizationManager"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,220 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.datastore &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.datastore</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.consts</span> <span class="kn">import</span> <span class="n">ManagedEntityTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.managed_entity</span> <span class="kn">import</span> <span class="n">ManagedEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Datastore</span><span class="p">(</span><span class="n">ManagedEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="Datastore"><a class="viewcode-back" href="../../../mo/datastore.html#pyvisdk.mo.datastore.Datastore">[docs]</a>    <span class="sd">&#39;&#39;&#39;A datastore is platform-independent and host-independent. Therefore, datastores do</span>
+<span class="sd">        not change when the virtual machines they contain are moved between hosts.</span>
+<span class="sd">        The scope of a datastore is a datacenter; the datastore is uniquely named</span>
+<span class="sd">        within the datacenter.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedEntityTypes</span><span class="o">.</span><span class="n">Datastore</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Datastore</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">browser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Datastore.browser"><a class="viewcode-back" href="../../../mo/datastore.html#pyvisdk.mo.datastore.Datastore.browser">[docs]</a>        <span class="sd">&#39;&#39;&#39;DatastoreBrowser used to browse this datastore.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;browser&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">capability</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Datastore.capability"><a class="viewcode-back" href="../../../mo/datastore.html#pyvisdk.mo.datastore.Datastore.capability">[docs]</a>        <span class="sd">&#39;&#39;&#39;Capabilities of this datastore.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;capability&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">host</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Datastore.host"><a class="viewcode-back" href="../../../mo/datastore.html#pyvisdk.mo.datastore.Datastore.host">[docs]</a>        <span class="sd">&#39;&#39;&#39;Hosts attached to this datastore.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;host&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Datastore.info"><a class="viewcode-back" href="../../../mo/datastore.html#pyvisdk.mo.datastore.Datastore.info">[docs]</a>        <span class="sd">&#39;&#39;&#39;Specific information about the datastore.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;info&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">iormConfiguration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Datastore.iormConfiguration"><a class="viewcode-back" href="../../../mo/datastore.html#pyvisdk.mo.datastore.Datastore.iormConfiguration">[docs]</a>        <span class="sd">&#39;&#39;&#39;Configuration of storage I/O resource management for the datastore. Currently we</span>
+<span class="sd">        only support storage I/O resource management on VMFS volumes of a</span>
+<span class="sd">        datastore.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;iormConfiguration&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Datastore.summary"><a class="viewcode-back" href="../../../mo/datastore.html#pyvisdk.mo.datastore.Datastore.summary">[docs]</a>        <span class="sd">&#39;&#39;&#39;Global properties of the datastore.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;summary&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">vm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Datastore.vm"><a class="viewcode-back" href="../../../mo/datastore.html#pyvisdk.mo.datastore.Datastore.vm">[docs]</a>        <span class="sd">&#39;&#39;&#39;Virtual machines stored on this datastore.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;vm&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">DestroyDatastore</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Datastore.DestroyDatastore"><a class="viewcode-back" href="../../../mo/datastore.html#pyvisdk.mo.datastore.Datastore.DestroyDatastore">[docs]</a>        <span class="sd">&#39;&#39;&#39;Deprecated. As of VI API 2.5 do not use this method. This method throws</span>
+<span class="sd">        ResourceInUse. Datastores are automatically removed when no longer in use,</span>
+<span class="sd">        so this method is unnecessary. Removes a datastore. A datastore can be</span>
+<span class="sd">        removed only if it is not currently used by any host or virtual machine.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;DestroyDatastore&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">RefreshDatastore</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Datastore.RefreshDatastore"><a class="viewcode-back" href="../../../mo/datastore.html#pyvisdk.mo.datastore.Datastore.RefreshDatastore">[docs]</a>        <span class="sd">&#39;&#39;&#39;Explicitly refreshes free-space and capacity values in summary and info.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RefreshDatastore&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">RefreshDatastoreStorageInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Datastore.RefreshDatastoreStorageInfo"><a class="viewcode-back" href="../../../mo/datastore.html#pyvisdk.mo.datastore.Datastore.RefreshDatastoreStorageInfo">[docs]</a>        <span class="sd">&#39;&#39;&#39;Refreshes all storage related information including free-space, capacity, and</span>
+<span class="sd">        detailed usage of virtual machines. Updated values are available in</span>
+<span class="sd">        summary and info.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RefreshDatastoreStorageInfo&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">RenameDatastore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newName</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Datastore.RenameDatastore"><a class="viewcode-back" href="../../../mo/datastore.html#pyvisdk.mo.datastore.Datastore.RenameDatastore">[docs]</a>        <span class="sd">&#39;&#39;&#39;Deprecated. As of vSphere API 4.0, use Rename_Task. Renames a datastore.</span>
+
+<span class="sd">        :param newName: The new name to assign to the datastore.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RenameDatastore&quot;</span><span class="p">)(</span><span class="n">newName</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateVirtualMachineFiles_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mountPathDatastoreMapping</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Datastore.UpdateVirtualMachineFiles_Task"><a class="viewcode-back" href="../../../mo/datastore.html#pyvisdk.mo.datastore.Datastore.UpdateVirtualMachineFiles_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Update file paths embedded in virtual machine files on the datastore. This can be</span>
+<span class="sd">        called after the file system corresponding to the datastore has been</span>
+<span class="sd">        resignatured or remounted.This method is only supported by vCenter</span>
+<span class="sd">        server.While this operation is in progress, it is important that users do</span>
+<span class="sd">        not initiate any operations that might read or write to any files on the</span>
+<span class="sd">        datastore, such as registering a virtual machine with files residing on</span>
+<span class="sd">        the datastore, or performing any virtual disk operations on any files in</span>
+<span class="sd">        the datastore. These operations can potentially cause spurious file update</span>
+<span class="sd">        failures, while at the same time they can prevent virtual machine files</span>
+<span class="sd">        from being updated correctly.If users intend to update multiple datastores</span>
+<span class="sd">        using this method, it is strongly advised that the users do not initiate</span>
+<span class="sd">        any operations that might read or write to files on any of the datastores,</span>
+<span class="sd">        until all of them have been updated. The files of a single virtual machine</span>
+<span class="sd">        can reside on multiple datastores, and thus all the involved datastores</span>
+<span class="sd">        should be updated, before the virtual machine is considered updated</span>
+<span class="sd">        completely.</span>
+
+<span class="sd">        :param mountPathDatastoreMapping: Old mount path to datastore mapping.</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateVirtualMachineFiles_Task&quot;</span><span class="p">)(</span><span class="n">mountPathDatastoreMapping</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

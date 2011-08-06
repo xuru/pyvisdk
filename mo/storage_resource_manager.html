@@ -1,0 +1,191 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3.78. StorageResourceManager &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="3. Managed Objects" href="../mo.html" />
+    <link rel="next" title="3.79. Task" href="task.html" />
+    <link rel="prev" title="3.77. SessionManager" href="session_manager.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="task.html" title="3.79. Task"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="session_manager.html" title="3.77. SessionManager"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="storageresourcemanager">
+<h1>3.78. StorageResourceManager<a class="headerlink" href="#storageresourcemanager" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ServiceContent</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="datastore.html#pyvisdk.mo.datastore.Datastore" title="pyvisdk.mo.datastore.Datastore"><tt class="xref py py-class docutils literal"><span class="pre">Datastore</span></tt></a>, <a class="reference internal" href="host_system.html#pyvisdk.mo.host_system.HostSystem" title="pyvisdk.mo.host_system.HostSystem"><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">StorageIORMConfigOption</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">StorageIORMConfigSpec</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.1</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.mo.storage_resource_manager.StorageResourceManager">
+<em class="property">class </em><tt class="descclassname">pyvisdk.mo.storage_resource_manager.</tt><tt class="descname">StorageResourceManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='StorageResourceManager'</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/storage_resource_manager.html#StorageResourceManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.storage_resource_manager.StorageResourceManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Properties</p>
+<dl class="method">
+<dt id="pyvisdk.mo.storage_resource_manager.StorageResourceManager.ConfigureDatastoreIORM_Task">
+<tt class="descname">ConfigureDatastoreIORM_Task</tt><big>(</big><em>datastore</em>, <em>spec</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/storage_resource_manager.html#StorageResourceManager.ConfigureDatastoreIORM_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.storage_resource_manager.StorageResourceManager.ConfigureDatastoreIORM_Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes configuration of storage I/O resource management for a given datastore.
+The changes are applied to all the backing storage devices for the
+datastore. Currently we only support storage I/O resource management on
+VMFS volumes. In order to enable storage I/O resource management on a
+datstore, we require that all the hosts that are attached to the datastore
+support this feature.This method is only supported by vCenter server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>datastore</strong> &#8211; The datastore to be configured.</li>
+<li><strong>spec</strong> &#8211; The configuration spec.</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Task</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyvisdk.mo.storage_resource_manager.StorageResourceManager.QueryIORMConfigOption">
+<tt class="descname">QueryIORMConfigOption</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../_modules/pyvisdk/mo/storage_resource_manager.html#StorageResourceManager.QueryIORMConfigOption"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.storage_resource_manager.StorageResourceManager.QueryIORMConfigOption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query configuration options for storage I/O resource management.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>host</strong> &#8211; [in] - The host VC will forward the query to. This parameter is ignored by host if</td>
+</tr>
+</tbody>
+</table>
+<p>this method is called on a host directly.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">StorageIORMConfigOption</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="session_manager.html"
+                        title="previous chapter">3.77. SessionManager</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="task.html"
+                        title="next chapter">3.79. Task</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mo/storage_resource_manager.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="task.html" title="3.79. Task"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="session_manager.html" title="3.77. SessionManager"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
