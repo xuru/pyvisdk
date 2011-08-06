@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.service_instance &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.service_instance</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.consts</span> <span class="kn">import</span> <span class="n">ManagedEntityTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.base_entity</span> <span class="kn">import</span> <span class="n">BaseEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">ServiceInstance</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="ServiceInstance"><a class="viewcode-back" href="../../../mo/service_instance.html#pyvisdk.mo.service_instance.ServiceInstance">[docs]</a>    <span class="sd">&#39;&#39;&#39;A vSphere API client application begins by connecting to a server and obtaining a</span>
+<span class="sd">        reference to the ServiceInstance. The client can then use the</span>
+<span class="sd">        RetrieveServiceContent method to gain access to the various vSphere</span>
+<span class="sd">        manager entities and to the root folder of the inventory.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedEntityTypes</span><span class="o">.</span><span class="n">ServiceInstance</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ServiceInstance</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">capability</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ServiceInstance.capability"><a class="viewcode-back" href="../../../mo/service_instance.html#pyvisdk.mo.service_instance.ServiceInstance.capability">[docs]</a>        <span class="sd">&#39;&#39;&#39;API-wide capabilities.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;capability&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">content</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ServiceInstance.content"><a class="viewcode-back" href="../../../mo/service_instance.html#pyvisdk.mo.service_instance.ServiceInstance.content">[docs]</a>        <span class="sd">&#39;&#39;&#39;The properties of the ServiceInstance managed object. The content property is</span>
+<span class="sd">        identical to the return value from the RetrieveServiceContent method.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;content&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">serverClock</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ServiceInstance.serverClock"><a class="viewcode-back" href="../../../mo/service_instance.html#pyvisdk.mo.service_instance.ServiceInstance.serverClock">[docs]</a>        <span class="sd">&#39;&#39;&#39;Contains the time most recently obtained from the server. The time is not</span>
+<span class="sd">        necessarily current. This property is intended for use with the</span>
+<span class="sd">        PropertyCollector WaitForUpdates method. The PropertyCollector will</span>
+<span class="sd">        provide notification if some event occurs that changes the server clock</span>
+<span class="sd">        time in a non-linear fashion.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;serverClock&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">CurrentTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ServiceInstance.CurrentTime"><a class="viewcode-back" href="../../../mo/service_instance.html#pyvisdk.mo.service_instance.ServiceInstance.CurrentTime">[docs]</a>        <span class="sd">&#39;&#39;&#39;Returns the current time on the server. To monitor non-linear time changes, use</span>
+<span class="sd">        the serverClock property.</span>
+
+<span class="sd">        :rtype: xsd:dateTime </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CurrentTime&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryVMotionCompatibility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">compatibility</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ServiceInstance.QueryVMotionCompatibility"><a class="viewcode-back" href="../../../mo/service_instance.html#pyvisdk.mo.service_instance.ServiceInstance.QueryVMotionCompatibility">[docs]</a>        <span class="sd">&#39;&#39;&#39;Deprecated. As of vSphere API 4.0, use QueryVMotionCompatibilityEx_Task instead.</span>
+<span class="sd">        Investigates the general VMotion compatibility of a virtual machine with a</span>
+<span class="sd">        set of hosts. The virtual machine may be in any power state. Hosts may be</span>
+<span class="sd">        in any connection state and also may be in maintenance mode.</span>
+
+<span class="sd">        :param vm: The virtual machine that is the designated VMotion candidate.</span>
+
+<span class="sd">        :param host: The group of hosts to analyze for compatibility.</span>
+
+<span class="sd">        :param compatibility: The set of compatibility types to investigate. Each is a string chosen from</span>
+<span class="sd">        VMotionCompatibilityType. If this argument is not set, then all</span>
+<span class="sd">        compatibility types are investigated.</span>
+
+
+<span class="sd">        :rtype: HostVMotionCompatibility[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryVMotionCompatibility&quot;</span><span class="p">)(</span><span class="n">vm</span><span class="p">,</span><span class="n">host</span><span class="p">,</span><span class="n">compatibility</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RetrieveProductComponents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ServiceInstance.RetrieveProductComponents"><a class="viewcode-back" href="../../../mo/service_instance.html#pyvisdk.mo.service_instance.ServiceInstance.RetrieveProductComponents">[docs]</a>        <span class="sd">&#39;&#39;&#39;Component information for bundled products</span>
+
+<span class="sd">        :rtype: ProductComponentInfo[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RetrieveProductComponents&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">RetrieveServiceContent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ServiceInstance.RetrieveServiceContent"><a class="viewcode-back" href="../../../mo/service_instance.html#pyvisdk.mo.service_instance.ServiceInstance.RetrieveServiceContent">[docs]</a>        <span class="sd">&#39;&#39;&#39;Retrieves the properties of the service instance.</span>
+
+<span class="sd">        :rtype: ServiceContent </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RetrieveServiceContent&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">ValidateMigration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vm</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">testType</span><span class="p">,</span> <span class="n">pool</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ServiceInstance.ValidateMigration"><a class="viewcode-back" href="../../../mo/service_instance.html#pyvisdk.mo.service_instance.ServiceInstance.ValidateMigration">[docs]</a>        <span class="sd">&#39;&#39;&#39;Deprecated. As of vSphere API 4.0, use VirtualMachineProvisioningChecker instead.</span>
+<span class="sd">        Checks the validity of a set of proposed migrations. A migration is the</span>
+<span class="sd">        act of changing the assigned execution host of a virtual machine, which</span>
+<span class="sd">        can result from invoking MigrateVM_Task or RelocateVM_Task.</span>
+
+<span class="sd">        :param vm: The set of virtual machines intended for migration.</span>
+
+<span class="sd">        :param state: The power state that the virtual machines must have. If this argument is not set,</span>
+<span class="sd">        each virtual machine is evaluated according to its current power state.</span>
+
+<span class="sd">        :param testType: The set of tests to run. If this argument is not set, all tests will be run.</span>
+
+<span class="sd">        :param pool: The target resource pool for the virtual machines. If the pool parameter is left</span>
+<span class="sd">        unset, the target pool for each particular virtual machine&#39;s migration</span>
+<span class="sd">        will be that virtual machine&#39;s current pool. If the virtual machine is a</span>
+<span class="sd">        template then either this parameter or the host parameter must be set;</span>
+<span class="sd">        additionally if resource tests are requested then this parameter is</span>
+<span class="sd">        required.</span>
+
+<span class="sd">        :param host: The target host on which the virtual machines will run. The host parameter may be</span>
+<span class="sd">        left unset if the compute resource associated with the target pool</span>
+<span class="sd">        represents a stand-alone host or a DRS-enabled cluster. In the former case</span>
+<span class="sd">        the stand-alone host is used as the target host. In the latter case, each</span>
+<span class="sd">        connected host in the cluster that is not in maintenance mode is tested as</span>
+<span class="sd">        a target host. If the virtual machine is a template then either this</span>
+<span class="sd">        parameter or the pool parameter must be set.</span>
+
+
+<span class="sd">        :rtype: Event[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ValidateMigration&quot;</span><span class="p">)(</span><span class="n">vm</span><span class="p">,</span><span class="n">state</span><span class="p">,</span><span class="n">testType</span><span class="p">,</span><span class="n">pool</span><span class="p">,</span><span class="n">host</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,210 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.profile &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.profile</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.consts</span> <span class="kn">import</span> <span class="n">ManagedEntityTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.base_entity</span> <span class="kn">import</span> <span class="n">BaseEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Profile</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="Profile"><a class="viewcode-back" href="../../../mo/profile.html#pyvisdk.mo.profile.Profile">[docs]</a>    <span class="sd">&#39;&#39;&#39;Properties</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedEntityTypes</span><span class="o">.</span><span class="n">Profile</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Profile</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">complianceStatus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Profile.complianceStatus"><a class="viewcode-back" href="../../../mo/profile.html#pyvisdk.mo.profile.Profile.complianceStatus">[docs]</a>        <span class="sd">&#39;&#39;&#39;Overall compliance of entities associated with this profile. If one of the</span>
+<span class="sd">        entities is out of compliance, profile is out of compliance. If all</span>
+<span class="sd">        entities are in compliance, profile is in compliance. If compliance status</span>
+<span class="sd">        of one of the entities is unknown, compliance status of the profile is</span>
+<span class="sd">        unknown. See</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;complianceStatus&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Profile.config"><a class="viewcode-back" href="../../../mo/profile.html#pyvisdk.mo.profile.Profile.config">[docs]</a>        <span class="sd">&#39;&#39;&#39;Configuration of the profile</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;config&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">createdTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Profile.createdTime"><a class="viewcode-back" href="../../../mo/profile.html#pyvisdk.mo.profile.Profile.createdTime">[docs]</a>        <span class="sd">&#39;&#39;&#39;Time at which the profile was created</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;createdTime&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">description</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Profile.description"><a class="viewcode-back" href="../../../mo/profile.html#pyvisdk.mo.profile.Profile.description">[docs]</a>        <span class="sd">&#39;&#39;&#39;Localizeable Description of the Profile</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;description&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">entity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Profile.entity"><a class="viewcode-back" href="../../../mo/profile.html#pyvisdk.mo.profile.Profile.entity">[docs]</a>        <span class="sd">&#39;&#39;&#39;List of ManagedEntities associated with the Profile</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;entity&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">modifiedTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Profile.modifiedTime"><a class="viewcode-back" href="../../../mo/profile.html#pyvisdk.mo.profile.Profile.modifiedTime">[docs]</a>        <span class="sd">&#39;&#39;&#39;Time at which the profile was last modified</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;modifiedTime&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">AssociateProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Profile.AssociateProfile"><a class="viewcode-back" href="../../../mo/profile.html#pyvisdk.mo.profile.Profile.AssociateProfile">[docs]</a>        <span class="sd">&#39;&#39;&#39;Associate a profile with a managed entity.</span>
+
+<span class="sd">        :param entity: The entity(s) to associate with the profile. If entity is already associted with</span>
+<span class="sd">        the profile, association is maintained and operation is treated as a no-</span>
+<span class="sd">        op. throws InvalidType If the entity is of an unexpeted type. throws</span>
+<span class="sd">        InvalidArgument If the association conflicts with existing association.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;AssociateProfile&quot;</span><span class="p">)(</span><span class="n">entity</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CheckProfileCompliance_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Profile.CheckProfileCompliance_Task"><a class="viewcode-back" href="../../../mo/profile.html#pyvisdk.mo.profile.Profile.CheckProfileCompliance_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Check compliance of an entity against a Profile.</span>
+
+<span class="sd">        :param entity: If specified, the compliance check is done against this entity. If the entity is</span>
+<span class="sd">        not specified, a compliance check will be run on all the entities</span>
+<span class="sd">        associated with the profile. Entity need not be associated with the</span>
+<span class="sd">        profile.</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CheckProfileCompliance_Task&quot;</span><span class="p">)(</span><span class="n">entity</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">DestroyProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Profile.DestroyProfile"><a class="viewcode-back" href="../../../mo/profile.html#pyvisdk.mo.profile.Profile.DestroyProfile">[docs]</a>        <span class="sd">&#39;&#39;&#39;Destory the Profile</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;DestroyProfile&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">DissociateProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Profile.DissociateProfile"><a class="viewcode-back" href="../../../mo/profile.html#pyvisdk.mo.profile.Profile.DissociateProfile">[docs]</a>        <span class="sd">&#39;&#39;&#39;Dissociate a profile from a managed entity.</span>
+
+<span class="sd">        :param entity: Entity(s) from which to dissociate the profile. If unset, the profile is</span>
+<span class="sd">        dissociated from all managed entities it is currently associated with. If</span>
+<span class="sd">        the specified entity is not associated with the profile, the operation is</span>
+<span class="sd">        a no-op. throws InvalidArgument If the dissociation conflicts with</span>
+<span class="sd">        existing association.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;DissociateProfile&quot;</span><span class="p">)(</span><span class="n">entity</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">ExportProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Profile.ExportProfile"><a class="viewcode-back" href="../../../mo/profile.html#pyvisdk.mo.profile.Profile.ExportProfile">[docs]</a>        <span class="sd">&#39;&#39;&#39;Export the profile into a serialized form. The serialized string can then be used</span>
+<span class="sd">        to create a profile using SerializedCreateSpec</span>
+
+<span class="sd">        :rtype: xsd:string </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ExportProfile&quot;</span><span class="p">)()</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

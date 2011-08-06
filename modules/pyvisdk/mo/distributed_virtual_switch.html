@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.distributed_virtual_switch &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.distributed_virtual_switch</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.consts</span> <span class="kn">import</span> <span class="n">ManagedEntityTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.managed_entity</span> <span class="kn">import</span> <span class="n">ManagedEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">DistributedVirtualSwitch</span><span class="p">(</span><span class="n">ManagedEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="DistributedVirtualSwitch"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch">[docs]</a>    <span class="sd">&#39;&#39;&#39;Properties</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedEntityTypes</span><span class="o">.</span><span class="n">DistributedVirtualSwitch</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DistributedVirtualSwitch</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">capability</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="DistributedVirtualSwitch.capability"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.capability">[docs]</a>        <span class="sd">&#39;&#39;&#39;The capability of the switch. Queried against hosts, the property should always</span>
+<span class="sd">        return configModificationSupported as false.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;capability&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="DistributedVirtualSwitch.config"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.config">[docs]</a>        <span class="sd">&#39;&#39;&#39;The configuration of the switch.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;config&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">networkResourcePool</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="DistributedVirtualSwitch.networkResourcePool"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.networkResourcePool">[docs]</a>        <span class="sd">&#39;&#39;&#39;The network resource pool information for the switch.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;networkResourcePool&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">portgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="DistributedVirtualSwitch.portgroup"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.portgroup">[docs]</a>        <span class="sd">&#39;&#39;&#39;The portgroups that are defined on the switch.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;portgroup&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="DistributedVirtualSwitch.summary"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.summary">[docs]</a>        <span class="sd">&#39;&#39;&#39;The summary of the switch.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;summary&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">uuid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="DistributedVirtualSwitch.uuid"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.uuid">[docs]</a>        <span class="sd">&#39;&#39;&#39;The generated UUID of the switch. Unique across vCenter Server inventory and</span>
+<span class="sd">        instances.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;uuid&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">AddDVPortgroup_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitch.AddDVPortgroup_Task"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.AddDVPortgroup_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Add a DistributedVirtualPortgroup to the switch.</span>
+
+<span class="sd">        :param spec: The specification for the portgroup.</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;AddDVPortgroup_Task&quot;</span><span class="p">)(</span><span class="n">spec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">EnableNetworkResourceManagement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enable</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitch.EnableNetworkResourceManagement"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.EnableNetworkResourceManagement">[docs]</a>        <span class="sd">&#39;&#39;&#39;Enable/Disable network I/O control on the vNetwork Distributed Switch.</span>
+
+<span class="sd">        :param enable: If true, enables I/O control. If false, disables network I/O control.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;EnableNetworkResourceManagement&quot;</span><span class="p">)(</span><span class="n">enable</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">FetchDVPortKeys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criteria</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitch.FetchDVPortKeys"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.FetchDVPortKeys">[docs]</a>        <span class="sd">&#39;&#39;&#39;Return the keys of ports that meet the criteria. Queried against host, the</span>
+<span class="sd">        property reports only the connected ports currently on the host.</span>
+
+<span class="sd">        :param criteria: The port selection criteria. If unset, the operation returns the keys of all the</span>
+<span class="sd">        ports in the switch.</span>
+
+
+<span class="sd">        :rtype: xsd:string[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;FetchDVPortKeys&quot;</span><span class="p">)(</span><span class="n">criteria</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">FetchDVPorts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criteria</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitch.FetchDVPorts"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.FetchDVPorts">[docs]</a>        <span class="sd">&#39;&#39;&#39;Return the ports that meet the criteria.</span>
+
+<span class="sd">        :param criteria: The port selection criteria. If unset, the operation returns the keys of all the</span>
+<span class="sd">        ports in the portgroup.</span>
+
+
+<span class="sd">        :rtype: DistributedVirtualPort[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;FetchDVPorts&quot;</span><span class="p">)(</span><span class="n">criteria</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">MergeDvs_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dvs</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitch.MergeDvs_Task"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.MergeDvs_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Merge an existing DistributedVirtualSwitch (source) to this switch (destination).</span>
+<span class="sd">        The host members and the connected entity of the source switch will be</span>
+<span class="sd">        transferred to the destination switch. This operation disconnects the</span>
+<span class="sd">        entities from the source switch, tears down its host proxy</span>
+<span class="sd">        VirtualSwitches, creates new ones for the destination switch, and</span>
+<span class="sd">        reconnects the entities to the destination switch.In summary, this</span>
+<span class="sd">        operation does the following:</span>
+
+<span class="sd">        :param dvs: The switch (source) to be merged</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;MergeDvs_Task&quot;</span><span class="p">)(</span><span class="n">dvs</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">MoveDVPort_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">portKey</span><span class="p">,</span> <span class="n">destinationPortgroupKey</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitch.MoveDVPort_Task"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.MoveDVPort_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Move the ports out of their current portgroup into the specified portgroup. If the</span>
+<span class="sd">        moving of any of the ports results in a violation of the portgroup policy,</span>
+<span class="sd">        or type of the source or destination portgroup, the operation raises a</span>
+<span class="sd">        fault. A conflict port cannot be moved.</span>
+
+<span class="sd">        :param portKey: The keys of the ports to be moved into the portgroup.</span>
+
+<span class="sd">        :param destinationPortgroupKey: The key of the portgroup to be moved into. If unset, the port will be moved under</span>
+<span class="sd">        the switch.</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;MoveDVPort_Task&quot;</span><span class="p">)(</span><span class="n">portKey</span><span class="p">,</span><span class="n">destinationPortgroupKey</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">PerformDvsProductSpecOperation_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">operation</span><span class="p">,</span> <span class="n">productSpec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitch.PerformDvsProductSpecOperation_Task"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.PerformDvsProductSpecOperation_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Push the proxy VirtualSwitch module of the specified product info to the host</span>
+<span class="sd">        members of the switch at a fixed location known by the host.</span>
+
+<span class="sd">        :param operation: The operation. See DistributedVirtualSwitchProductSpecOperationType for valid</span>
+<span class="sd">        values. For VmwareDistributedVirtualSwitch, only upgrade is valid.</span>
+
+<span class="sd">        :param productSpec: The product info of the implementation.</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;PerformDvsProductSpecOperation_Task&quot;</span><span class="p">)(</span><span class="n">operation</span><span class="p">,</span><span class="n">productSpec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryUsedVlanIdInDvs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitch.QueryUsedVlanIdInDvs"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.QueryUsedVlanIdInDvs">[docs]</a>        <span class="sd">&#39;&#39;&#39;Return the used VLAN ID (PVLAN excluded) in the switch.</span>
+
+<span class="sd">        :rtype: xsd:int[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryUsedVlanIdInDvs&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">ReconfigureDVPort_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitch.ReconfigureDVPort_Task"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.ReconfigureDVPort_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Reconfigure individual ports.</span>
+
+<span class="sd">        :param port: The specification of the ports.</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ReconfigureDVPort_Task&quot;</span><span class="p">)(</span><span class="n">port</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">ReconfigureDvs_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitch.ReconfigureDvs_Task"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.ReconfigureDvs_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Reconfigure the switch.Reconfiguring the switch may require any of the following</span>
+<span class="sd">        privileges, depending on what is being changed:</span>
+
+<span class="sd">        :param spec: The configuration of the switch</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ReconfigureDvs_Task&quot;</span><span class="p">)(</span><span class="n">spec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RectifyDvsHost_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hosts</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitch.RectifyDvsHost_Task"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.RectifyDvsHost_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Update the switch configuration on the host to bring them in sync with the current</span>
+<span class="sd">        configuration in vCenter Server.</span>
+
+<span class="sd">        :param hosts: The hosts to be refreshed. If not set, all hosts are rectified.</span>
+
+
+<span class="sd">        :rtype: Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RectifyDvsHost_Task&quot;</span><span class="p">)(</span><span class="n">hosts</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RefreshDVPortState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">portKeys</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitch.RefreshDVPortState"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.RefreshDVPortState">[docs]</a>        <span class="sd">&#39;&#39;&#39;Refresh port states.</span>
+
+<span class="sd">        :param portKeys: The keys of the ports to be refreshed. If not set, all port states are refreshed.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RefreshDVPortState&quot;</span><span class="p">)(</span><span class="n">portKeys</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateDvsCapability</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capability</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitch.UpdateDvsCapability"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.UpdateDvsCapability">[docs]</a>        <span class="sd">&#39;&#39;&#39;Set the capability of the switch.</span>
+
+<span class="sd">        :param capability: The capability of the switch.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateDvsCapability&quot;</span><span class="p">)(</span><span class="n">capability</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateNetworkResourcePool</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configSpec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitch.UpdateNetworkResourcePool"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch.html#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.UpdateNetworkResourcePool">[docs]</a>        <span class="sd">&#39;&#39;&#39;Update the network resource pool configuration.</span>
+
+<span class="sd">        :param configSpec: the network resource pool configuration specification.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateNetworkResourcePool&quot;</span><span class="p">)(</span><span class="n">configSpec</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

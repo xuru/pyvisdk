@@ -1,0 +1,216 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.view_manager &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.view_manager</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.consts</span> <span class="kn">import</span> <span class="n">ManagedEntityTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.base_entity</span> <span class="kn">import</span> <span class="n">BaseEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">ViewManager</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="ViewManager"><a class="viewcode-back" href="../../../mo/view_manager.html#pyvisdk.mo.view_manager.ViewManager">[docs]</a>    <span class="sd">&#39;&#39;&#39;A View is a mechanism that supports selection of objects on the server and</span>
+<span class="sd">        subsequently, access to those objects. Views can simplify the task of</span>
+<span class="sd">        retrieving data from the server. When you use a view, you can use a single</span>
+<span class="sd">        invocation of a PropertyCollector method to retrieve data or receive</span>
+<span class="sd">        notification of changes instead of multiple invocations involving multiple</span>
+<span class="sd">        filter specifications. A view exists until you destroy it or until the end</span>
+<span class="sd">        of the session.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedEntityTypes</span><span class="o">.</span><span class="n">ViewManager</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ViewManager</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">viewList</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ViewManager.viewList"><a class="viewcode-back" href="../../../mo/view_manager.html#pyvisdk.mo.view_manager.ViewManager.viewList">[docs]</a>        <span class="sd">&#39;&#39;&#39;An array of view references. Each array entry is a managed object reference to a</span>
+<span class="sd">        view created by this ViewManager.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;viewList&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">CreateContainerView</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">recursive</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ViewManager.CreateContainerView"><a class="viewcode-back" href="../../../mo/view_manager.html#pyvisdk.mo.view_manager.ViewManager.CreateContainerView">[docs]</a>        <span class="sd">&#39;&#39;&#39;Create a ContainerView managed object for this session. The method returns a</span>
+<span class="sd">        reference to a ContainerView object that has a list of managed object</span>
+<span class="sd">        references. The list references objects in the container and may include</span>
+<span class="sd">        references to objects from additional containers. You can configure the</span>
+<span class="sd">        resulting list of objects by specifying a type list and recursion. Once</span>
+<span class="sd">        you have created the view, the object list always represents the current</span>
+<span class="sd">        configuration of the virtual environment and reflects any subsequent</span>
+<span class="sd">        changes that occur.</span>
+
+<span class="sd">        :param container: A reference to an instance of a Folder, Datacenter, ComputeResource, ResourcePool,</span>
+<span class="sd">        or HostSystem object.</span>
+
+<span class="sd">        :param type: An optional list of managed entity types. The server associates only objects of</span>
+<span class="sd">        the specified type(s) with the view. If you specify an empty array, the</span>
+<span class="sd">        server uses all types.</span>
+
+<span class="sd">        :param recursive: Whether to include only the immediate children of the container instance, or to</span>
+<span class="sd">        include additional objects by following paths beyond the immediate</span>
+<span class="sd">        children.* Folder object - childEntity property. If recursive is false,</span>
+<span class="sd">        the container list includes the reference to the child entity in the</span>
+<span class="sd">        folder instance. If recursive is true, the server will follow the child</span>
+<span class="sd">        folder path(s) to collect additional childEntity references. *</span>
+<span class="sd">        ResourcePool object - vm and resourcePool properties. If recursive is</span>
+<span class="sd">        false, the object list will contain references to the virtual machines</span>
+<span class="sd">        associated with this resource pool, and references to virtual machines</span>
+<span class="sd">        associated with the immediate child resource pools. If recursive is true,</span>
+<span class="sd">        the server will follow all child resource pool paths extending from the</span>
+<span class="sd">        immediate children (and their children, and so on) to collect additional</span>
+<span class="sd">        references to virtual machines. * ComputeResource object - host and</span>
+<span class="sd">        resourcePool properties. If recursive is false, the object list will</span>
+<span class="sd">        contain references to the host systems associated with this compute</span>
+<span class="sd">        resource, references to virtual machines associated with the host systems,</span>
+<span class="sd">        and references to virtual machines associated with the immediate child</span>
+<span class="sd">        resource pools. If recursive is true, the server will follow the child</span>
+<span class="sd">        resource pool paths (and their child resource pool paths, and so on) to</span>
+<span class="sd">        collect additional references to virtual machines. * Datacenter object -</span>
+<span class="sd">        vmFolder, hostFolder, datastoreFolder, and networkFolder properties. If</span>
+<span class="sd">        recursive is set to false, the server uses the immediate child folders for</span>
+<span class="sd">        the virtual machines, hosts, datastores, and networks associated with this</span>
+<span class="sd">        datacenter. If recursive is set to true, the server will follow the folder</span>
+<span class="sd">        paths to collect references to additional objects. * HostSystem object -</span>
+<span class="sd">        vm property. The view object list contains references to the virtual</span>
+<span class="sd">        machines associated with this host system. The value of recursive does not</span>
+<span class="sd">        affect this behavior.</span>
+
+
+<span class="sd">        :rtype: ContainerView </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateContainerView&quot;</span><span class="p">)(</span><span class="n">container</span><span class="p">,</span><span class="nb">type</span><span class="p">,</span><span class="n">recursive</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateInventoryView</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ViewManager.CreateInventoryView"><a class="viewcode-back" href="../../../mo/view_manager.html#pyvisdk.mo.view_manager.ViewManager.CreateInventoryView">[docs]</a>        <span class="sd">&#39;&#39;&#39;Create a new InventoryView managed object for this session.</span>
+
+<span class="sd">        :rtype: InventoryView </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateInventoryView&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateListView</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ViewManager.CreateListView"><a class="viewcode-back" href="../../../mo/view_manager.html#pyvisdk.mo.view_manager.ViewManager.CreateListView">[docs]</a>        <span class="sd">&#39;&#39;&#39;Create a ListView object for this session. The method returns a session object</span>
+<span class="sd">        that has a list of managed object references. The list of references</span>
+<span class="sd">        corresponds to the input object list. You can modify the resulting list</span>
+<span class="sd">        after you have created the object.</span>
+
+<span class="sd">        :param obj: The initial list of objects in the view.</span>
+
+
+<span class="sd">        :rtype: ListView </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateListView&quot;</span><span class="p">)(</span><span class="n">obj</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateListViewFromView</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">view</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ViewManager.CreateListViewFromView"><a class="viewcode-back" href="../../../mo/view_manager.html#pyvisdk.mo.view_manager.ViewManager.CreateListViewFromView">[docs]</a>        <span class="sd">&#39;&#39;&#39;Create a ListView object for this session. This method uses an existing view to</span>
+<span class="sd">        construct the object list for the new view.</span>
+
+<span class="sd">        :param view: The view that will provide the object list for the new ListView object.</span>
+
+
+<span class="sd">        :rtype: ListView </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateListViewFromView&quot;</span><span class="p">)(</span><span class="n">view</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

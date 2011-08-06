@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.vim &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.vim</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/env python</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.consts</span> <span class="kn">import</span> <span class="n">ManagedEntityTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.datacenter</span> <span class="kn">import</span> <span class="n">Datacenter</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.host_system</span> <span class="kn">import</span> <span class="n">HostSystem</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.virtual_machine</span> <span class="kn">import</span> <span class="n">VirtualMachine</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">pyvisdk.core</span>
+
+<span class="c">#</span>
+<span class="c"># Assumptions:  Must connect to the vSphere vCenter</span>
+<span class="c">#               Must be version 4.0 or greater</span>
+<span class="c"># </span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Vim"><a class="viewcode-back" href="../../client.html#pyvisdk.vim.Vim">[docs]</a><span class="k">class</span> <span class="nc">Vim</span><span class="p">(</span><span class="n">pyvisdk</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">VimBase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">connect</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Vim</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">connect</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loggedin</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="bp">None</span>
+        
+<div class="viewcode-block" id="Vim.login"><a class="viewcode-back" href="../../client.html#pyvisdk.vim.Vim.login">[docs]</a>    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Log into the vmware server.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">displayAbout</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">Login</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">service_content</span><span class="o">.</span><span class="n">sessionManager</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Successfully logged into </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loggedin</span> <span class="o">=</span> <span class="bp">True</span>
+</div>
+<div class="viewcode-block" id="Vim.logout"><a class="viewcode-back" href="../../client.html#pyvisdk.vim.Vim.logout">[docs]</a>    <span class="k">def</span> <span class="nf">logout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Log out of the vmware server.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">Logout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">service_content</span><span class="o">.</span><span class="n">sessionManager</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loggedin</span> <span class="o">=</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="Vim.relogin"><a class="viewcode-back" href="../../client.html#pyvisdk.vim.Vim.relogin">[docs]</a>    <span class="k">def</span> <span class="nf">relogin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Re-logs in to the vmware server.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">pass</span>
+            
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+        </div>
+<div class="viewcode-block" id="Vim.displayAbout"><a class="viewcode-back" href="../../client.html#pyvisdk.vim.Vim.displayAbout">[docs]</a>    <span class="k">def</span> <span class="nf">displayAbout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Display version information about the vmware server and library</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">40</span>
+        <span class="k">print</span> <span class="s">&quot;Connected to </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">server</span>
+        <span class="k">print</span> <span class="s">&quot;  </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">service_content</span><span class="o">.</span><span class="n">about</span><span class="o">.</span><span class="n">fullName</span>
+        <span class="k">print</span> <span class="s">&quot;  OS: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">service_content</span><span class="o">.</span><span class="n">about</span><span class="o">.</span><span class="n">osType</span>
+        <span class="k">print</span> <span class="s">&quot;  License: </span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">service_content</span><span class="o">.</span><span class="n">about</span><span class="o">.</span><span class="n">licenseProductName</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">service_content</span><span class="o">.</span><span class="n">about</span><span class="o">.</span><span class="n">licenseProductVersion</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">40</span>
+        </div>
+<div class="viewcode-block" id="Vim.getApiType"><a class="viewcode-back" href="../../client.html#pyvisdk.vim.Vim.getApiType">[docs]</a>    <span class="k">def</span> <span class="nf">getApiType</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the API type</span>
+<span class="sd">        </span>
+<span class="sd">        :returns: Indicates whether or not the service instance represents a standalone host. If the service instance represents a standalone host, then the physical inventory for that service instance is fixed to that single host. VirtualCenter server provides additional features over single hosts. For example, VirtualCenter offers multi-host management. </span>
+<span class="sd">        :rtype: xsd:string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">service_content</span><span class="o">.</span><span class="n">about</span><span class="o">.</span><span class="n">apiType</span>
+
+    <span class="c">#------------------------------------------------------------</span>
+    <span class="c"># Hosts</span>
+    <span class="c">#------------------------------------------------------------</span></div>
+<div class="viewcode-block" id="Vim.getHosts"><a class="viewcode-back" href="../../client.html#pyvisdk.vim.Vim.getHosts">[docs]</a>    <span class="k">def</span> <span class="nf">getHosts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all the hosts on the server</span>
+<span class="sd">        </span>
+<span class="sd">        :rtype: :py:class:`HostSystem`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDecendentsByName</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="n">ManagedEntityTypes</span><span class="o">.</span><span class="n">HostSystem</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">HostSystem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">mo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">propSet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mo</span><span class="p">]</span>
+    </div>
+<div class="viewcode-block" id="Vim.getHostSystem"><a class="viewcode-back" href="../../client.html#pyvisdk.vim.Vim.getHostSystem">[docs]</a>    <span class="k">def</span> <span class="nf">getHostSystem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the host system by name</span>
+<span class="sd">        </span>
+<span class="sd">        :rtype: :py:class:`HostSystem`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDecendentsByName</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="n">ManagedEntityTypes</span><span class="o">.</span><span class="n">HostSystem</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">HostSystem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">mo</span><span class="o">.</span><span class="n">propSet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">mo</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
+    
+    <span class="c">#------------------------------------------------------------</span>
+    <span class="c"># Datacenters</span>
+    <span class="c">#------------------------------------------------------------</span></div>
+<div class="viewcode-block" id="Vim.getDatacenters"><a class="viewcode-back" href="../../client.html#pyvisdk.vim.Vim.getDatacenters">[docs]</a>    <span class="k">def</span> <span class="nf">getDatacenters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all the data centers on the server</span>
+<span class="sd">        </span>
+<span class="sd">        :rtype: :py:class:`Datacenter`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDecendentsByName</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="n">ManagedEntityTypes</span><span class="o">.</span><span class="n">Datacenter</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">Datacenter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">mo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">propSet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mo</span><span class="p">]</span>
+    </div>
+<div class="viewcode-block" id="Vim.getDatacenter"><a class="viewcode-back" href="../../client.html#pyvisdk.vim.Vim.getDatacenter">[docs]</a>    <span class="k">def</span> <span class="nf">getDatacenter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the data center by name</span>
+<span class="sd">        </span>
+<span class="sd">        :rtype: :py:class:`Datacenter`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDecendentsByName</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="n">ManagedEntityTypes</span><span class="o">.</span><span class="n">Datacenter</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Datacenter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">mo</span><span class="o">.</span><span class="n">propSet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">mo</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
+
+    <span class="c">#------------------------------------------------------------</span>
+    <span class="c"># Virtual Machines</span>
+    <span class="c">#------------------------------------------------------------</span></div>
+<div class="viewcode-block" id="Vim.getVirtualMachine"><a class="viewcode-back" href="../../client.html#pyvisdk.vim.Vim.getVirtualMachine">[docs]</a>    <span class="k">def</span> <span class="nf">getVirtualMachine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the virtual machine by name</span>
+<span class="sd">        </span>
+<span class="sd">        :rtype: :py:class:`VirtualMachine`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDecendentsByName</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="n">ManagedEntityTypes</span><span class="o">.</span><span class="n">VirtualMachine</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;runtime.powerState&quot;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">VirtualMachine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">mo</span><span class="o">.</span><span class="n">propSet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">mo</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
+        </div>
+<div class="viewcode-block" id="Vim.getVirtualMachines"><a class="viewcode-back" href="../../client.html#pyvisdk.vim.Vim.getVirtualMachines">[docs]</a>    <span class="k">def</span> <span class="nf">getVirtualMachines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all the virtual machines on the server</span>
+<span class="sd">        </span>
+<span class="sd">        :rtype: :py:class:`VirtualMachine`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDecendentsByName</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="n">ManagedEntityTypes</span><span class="o">.</span><span class="n">VirtualMachine</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;runtime.powerState&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">VirtualMachine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">propSet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mo</span><span class="p">]</span>
+   </div>
+<div class="viewcode-block" id="Vim.getVirtualMachinesIter"><a class="viewcode-back" href="../../client.html#pyvisdk.vim.Vim.getVirtualMachinesIter">[docs]</a>    <span class="k">def</span> <span class="nf">getVirtualMachinesIter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all the virtual machines on the server</span>
+<span class="sd">        </span>
+<span class="sd">        :rtype: :py:class:`VirtualMachine`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">refs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDecendentsByName</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="n">ManagedEntityTypes</span><span class="o">.</span><span class="n">VirtualMachine</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;runtime.powerState&quot;</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">_ref</span> <span class="ow">in</span> <span class="n">refs</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">VirtualMachine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">_ref</span><span class="o">.</span><span class="n">propSet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">_ref</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
+    
+    <span class="c">#------------------------------------------------------------</span>
+    <span class="c"># Hierarchy</span>
+    <span class="c">#------------------------------------------------------------</span></div>
+    <span class="k">def</span> <span class="nf">_getHierarchy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">mo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getContentsRecursively</span><span class="p">(</span><span class="n">props</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;configIssue&quot;</span><span class="p">,</span> <span class="s">&quot;configStatus&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;parent&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">mo</span>
+    
+       </div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">optparse</span> <span class="kn">import</span> <span class="n">OptionParser</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+
+    <span class="c"># Some command line argument parsing gorp to make the script a little more</span>
+    <span class="c"># user friendly.</span>
+    <span class="n">usage</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;Usage: %prog [options]</span>
+
+<span class="s">      This program will dump the containers of the ESX environment from the host specified with</span>
+<span class="s">      the -s option.&#39;&#39;&#39;</span>
+    
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">(</span><span class="n">usage</span><span class="o">=</span><span class="n">usage</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s">&#39;-s&#39;</span><span class="p">,</span> <span class="s">&#39;--server&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&#39;server&#39;</span><span class="p">,</span>
+                  <span class="n">help</span><span class="o">=</span><span class="s">&#39;Specify the vCenter to connect to&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s">&#39;-u&#39;</span><span class="p">,</span> <span class="s">&#39;--username&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&#39;username&#39;</span><span class="p">,</span>
+                      <span class="n">help</span><span class="o">=</span><span class="s">&#39;Username (default is root)&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s">&#39;-p&#39;</span><span class="p">,</span> <span class="s">&#39;--password&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&#39;password&#39;</span><span class="p">,</span>
+                      <span class="n">help</span><span class="o">=</span><span class="s">&#39;Password (default is blank)&#39;</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">server</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&#39;You must specify a server to connect to.  Use --help for usage&#39;</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">username</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">options</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s">&#39;root&#39;</span>
+    <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">password</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">options</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+
+
+    <span class="k">print</span> <span class="s">&quot;Connecting to &quot;</span> <span class="o">+</span> <span class="n">options</span><span class="o">.</span><span class="n">server</span>
+    <span class="n">vim</span> <span class="o">=</span> <span class="n">Vim</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">server</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">vim</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">options</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+    
+    <span class="n">vms</span> <span class="o">=</span> <span class="n">vim</span><span class="o">.</span><span class="n">getAllVirtualMachineRefs</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="n">vms</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="n">propSet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">val</span>
+        <span class="n">power</span> <span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="n">propSet</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">val</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%-20s</span><span class="s"> </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">power</span><span class="p">)</span>
+            
+        <span class="n">vm</span> <span class="o">=</span> <span class="n">vim</span><span class="o">.</span><span class="n">getVirtualMachine</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">sname</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="n">createSnapshot</span><span class="p">()</span>
+        <span class="k">print</span> <span class="n">sname</span>
+        
+        <span class="n">snap</span> <span class="o">=</span> <span class="n">vm</span><span class="o">.</span><span class="n">getSnapshotByName</span><span class="p">(</span><span class="n">sname</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">snap</span>
+        <span class="k">break</span>
+    
+    <span class="n">vim</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
