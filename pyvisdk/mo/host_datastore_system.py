@@ -10,8 +10,17 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostDatastoreSystem(BaseEntity):
-    '''To a host, a datastore is a storage abstraction that is backed by one of several
-        types of storage volumes:
+    '''This managed object creates and removes datastores from the host.To a host, a
+        datastore is a storage abstraction that is backed by one of several types
+        of storage volumes:An ESX Server system automatically discovers the VMFS
+        volume on attached Logical Unit Numbers (LUNs) on startup and after re-
+        scanning the host bus adapter. Datastores are automatically created. The
+        datastore label is based on the VMFS volume label. If there is a conflict
+        with an existing datastore, it is made unique by appending a suffix. The
+        VMFS volume label will be unchanged.Destroying the datastore removes the
+        partitions that compose the VMFS volume.Datastores are never automatically
+        removed because transient storage connection outages may occur. They must
+        be removed from the host using this interface. See Datastore
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostDatastoreSystem):
         # MUST define these
@@ -31,7 +40,7 @@ class HostDatastoreSystem(BaseEntity):
         return self.update('datastore')
 
 
-    def ConfigureDatastorePrincipal(self, userName, password):
+    def ConfigureDatastorePrincipal(self, datastore):
         '''Configures datastore principal user for the host.All virtual machine-related file
         I/O is performed under this user. Configuring datastore principal user
         will result in all virtual machine files (configuration, disk, and so on)
@@ -48,86 +57,75 @@ class HostDatastoreSystem(BaseEntity):
         operation must be performed while in maintenance mode and requires host
         reboot.
 
-        :param userName: Datastore principal user name.
-
-        :param password: Optional password for systems that require password for user impersonation.
+        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the
+        localSwapDatastore property becomes unset. Otherwise, the host must have
+        read/write access to the indicated datastore.
 
         '''
         
-        return self.delegate("ConfigureDatastorePrincipal")(userName,password)
+        return self.delegate("ConfigureDatastorePrincipal")(datastore)
         
 
-    def CreateLocalDatastore(self, name, path):
+    def CreateLocalDatastore(self, datastore):
         '''Creates a new local datastore.
 
-        :param name: The name of a datastore to create on the local host.
-
-        :param path: The file path for a directory in which the virtual machine data will be stored.
-
-
-        :rtype: Datastore 
+        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the
+        localSwapDatastore property becomes unset. Otherwise, the host must have
+        read/write access to the indicated datastore.
 
         '''
         
-        return self.delegate("CreateLocalDatastore")(name,path)
+        return self.delegate("CreateLocalDatastore")(datastore)
         
 
-    def CreateNasDatastore(self, spec):
+    def CreateNasDatastore(self, datastore):
         '''Creates a new network-attached storage datastore.
 
-        :param spec: The specification for creating a network-attached storage volume.
-
-
-        :rtype: Datastore 
+        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the
+        localSwapDatastore property becomes unset. Otherwise, the host must have
+        read/write access to the indicated datastore.
 
         '''
         
-        return self.delegate("CreateNasDatastore")(spec)
+        return self.delegate("CreateNasDatastore")(datastore)
         
 
-    def CreateVmfsDatastore(self, spec):
+    def CreateVmfsDatastore(self, datastore):
         '''Creates a new VMFS datastore.
 
-        :param spec: The specification for creating a datastore backed by a VMFS.
-
-
-        :rtype: Datastore 
+        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the
+        localSwapDatastore property becomes unset. Otherwise, the host must have
+        read/write access to the indicated datastore.
 
         '''
         
-        return self.delegate("CreateVmfsDatastore")(spec)
+        return self.delegate("CreateVmfsDatastore")(datastore)
         
 
-    def ExpandVmfsDatastore(self, datastore, spec):
+    def ExpandVmfsDatastore(self, datastore):
         '''Increases the capacity of an existing VMFS datastore by expanding (increasing the
         size of) an existing extent of the datastore.
 
-        :param datastore: The datastore whose capacity should be increased.
-
-        :param spec: The specification describing which extent of the VMFS datastore to expand.
-
-
-        :rtype: Datastore 
+        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the
+        localSwapDatastore property becomes unset. Otherwise, the host must have
+        read/write access to the indicated datastore.
 
         '''
         
-        return self.delegate("ExpandVmfsDatastore")(datastore,spec)
+        return self.delegate("ExpandVmfsDatastore")(datastore)
         
 
-    def ExtendVmfsDatastore(self, datastore, spec):
+    def ExtendVmfsDatastore(self, datastore):
         '''Increases the capacity of an existing VMFS datastore by adding new extents to the
         datastore.
 
-        :param datastore: The datastore whose capacity should be increased.
-
-        :param spec: The specification describing what extents to add to a VMFS datastore.
-
-
-        :rtype: Datastore 
+        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the
+        localSwapDatastore property becomes unset. Otherwise, the host must have
+        read/write access to the indicated datastore.
 
         '''
         
-        return self.delegate("ExtendVmfsDatastore")(datastore,spec)
+        return self.delegate("ExtendVmfsDatastore")(datastore)
         
 
     def QueryAvailableDisksForVmfs(self, datastore):
@@ -144,91 +142,81 @@ class HostDatastoreSystem(BaseEntity):
         backend uses an RDM that is referencing a disk LUN, the disk LUN becomes
         ineligible for use by a VMFS datastore.
 
-        :param datastore: The managed object reference of the VMFS datastore you want extents for.
-
-
-        :rtype: HostScsiDisk[] 
+        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the
+        localSwapDatastore property becomes unset. Otherwise, the host must have
+        read/write access to the indicated datastore.
 
         '''
         
         return self.delegate("QueryAvailableDisksForVmfs")(datastore)
         
 
-    def QueryUnresolvedVmfsVolumes(self):
+    def QueryUnresolvedVmfsVolumes(self, datastore):
         '''Get the list of unbound VMFS volumes. For sharing a volume across hosts, a VMFS
         volume is bound to its underlying block device storage. When a low level
         block copy is performed to copy or move the VMFS volume, the copied volume
         will be unbound.
 
-        :rtype: HostUnresolvedVmfsVolume[] 
+        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the
+        localSwapDatastore property becomes unset. Otherwise, the host must have
+        read/write access to the indicated datastore.
 
         '''
         
-        return self.delegate("QueryUnresolvedVmfsVolumes")()
+        return self.delegate("QueryUnresolvedVmfsVolumes")(datastore)
         
 
-    def QueryVmfsDatastoreCreateOptions(self, devicePath):
-        '''Queries options for creating a new VMFS datastore for a disk.See devicePath
+    def QueryVmfsDatastoreCreateOptions(self, datastore):
+        '''Queries options for creating a new VMFS datastore for a disk. See devicePath
 
-        :param devicePath: The devicePath of the disk on which datastore creation options are generated.See
-        devicePath
-
-
-        :rtype: VmfsDatastoreOption[] 
+        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the
+        localSwapDatastore property becomes unset. Otherwise, the host must have
+        read/write access to the indicated datastore.
 
         '''
         
-        return self.delegate("QueryVmfsDatastoreCreateOptions")(devicePath)
+        return self.delegate("QueryVmfsDatastoreCreateOptions")(datastore)
         
 
     def QueryVmfsDatastoreExpandOptions(self, datastore):
         '''Queries for options for increasing the capacity of an existing VMFS datastore by
         expanding (increasing the size of) an existing extent of the datastore.
 
-        :param datastore: The datastore to be expanded.
-
-
-        :rtype: VmfsDatastoreOption[] 
+        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the
+        localSwapDatastore property becomes unset. Otherwise, the host must have
+        read/write access to the indicated datastore.
 
         '''
         
         return self.delegate("QueryVmfsDatastoreExpandOptions")(datastore)
         
 
-    def QueryVmfsDatastoreExtendOptions(self, datastore, devicePath, suppressExpandCandidates):
+    def QueryVmfsDatastoreExtendOptions(self, datastore):
         '''Queries for options for increasing the capacity of an existing VMFS datastore by
-        adding new extents using space from the specified disk.See devicePath
+        adding new extents using space from the specified disk. See devicePath
 
-        :param datastore: The datastore to be extended.See devicePath
-
-        :param devicePath: The devicePath of the disk on which datastore extension options are generated.See
-        devicePath
-
-        :param suppressExpandCandidates: Indicates whether to exclude options that can be used for extent expansion also.
-        Free space can be used for adding an extent or expanding an existing
-        extent. If this parameter is set to true, the list of options returned
-        will not include free space that can be used for expansion.See
-        devicePathvSphere API 4.0
-
-
-        :rtype: VmfsDatastoreOption[] 
+        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the
+        localSwapDatastore property becomes unset. Otherwise, the host must have
+        read/write access to the indicated datastore.
 
         '''
         
-        return self.delegate("QueryVmfsDatastoreExtendOptions")(datastore,devicePath,suppressExpandCandidates)
+        return self.delegate("QueryVmfsDatastoreExtendOptions")(datastore)
         
 
     def RemoveDatastore(self, datastore):
         '''Removes a datastore from a host.
 
-        :param datastore: The datastore to be removed.
+        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the
+        localSwapDatastore property becomes unset. Otherwise, the host must have
+        read/write access to the indicated datastore.
 
         '''
         
         return self.delegate("RemoveDatastore")(datastore)
         
 
-    def ResignatureUnresolvedVmfsVolume_Task(self, resolutionSpec):
+    def ResignatureUnresolvedVmfsVolume_Task(self, datastore):
         '''Resignature an unbound VMFS volume. To safely enable sharing of the volume across
         hosts, a VMFS volume is bound to its underlying block device storage. When
         a low level block copy is performed to copy or move the VMFS volume, the
@@ -241,15 +229,13 @@ class HostDatastoreSystem(BaseEntity):
         host. Users can specify a list of hosts on which the volume will be auto-
         mounted.
 
-        :param resolutionSpec: A data object that describes what the disk extents to be used for creating the new
-        VMFS volume.
-
-
-        :rtype: Task 
+        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the
+        localSwapDatastore property becomes unset. Otherwise, the host must have
+        read/write access to the indicated datastore.
 
         '''
         
-        return self.delegate("ResignatureUnresolvedVmfsVolume_Task")(resolutionSpec)
+        return self.delegate("ResignatureUnresolvedVmfsVolume_Task")(datastore)
         
 
     def UpdateLocalSwapDatastore(self, datastore):
@@ -259,9 +245,9 @@ class HostDatastoreSystem(BaseEntity):
         on; virtual machines that are currently powered on at this host will not
         yet be affected.
 
-        :param datastore: The selected datastore. If this argument is unset, then the localSwapDatastore
-        property becomes unset. Otherwise, the host must have read/write access to
-        the indicated datastore.
+        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the
+        localSwapDatastore property becomes unset. Otherwise, the host must have
+        read/write access to the indicated datastore.
 
         '''
         

@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class ProfileManager(BaseEntity):
-    '''Properties
+    '''This Class is responsible for managing Profiles.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ProfileManager):
         # MUST define these
@@ -24,32 +24,33 @@ class ProfileManager(BaseEntity):
         return self.update('profile')
 
 
-    def CreateProfile(self, createSpec):
+    def CreateProfile(self, policyName):
         '''Create a profile from the specified CreateSpec.
 
-        :param createSpec: Specification for the profile being created. Usually a derived class CreateSpec
-        can be used to create the Profile.
+        :param policyName: Retrieve metadata for the specified policyNames. If policyName is not specified,
+        metadata for all policies will be returned.
 
 
-        :rtype: Profile 
+        :rtype: ProfilePolicyMetadata[] 
 
         '''
         
-        return self.delegate("CreateProfile")(createSpec)
+        return self.delegate("CreateProfile")(policyName)
         
 
-    def FindAssociatedProfile(self, entity):
+    def FindAssociatedProfile(self, policyName):
         '''Get the profile(s) to which this entity is associated. The list of profiles will
         only include profiles known to this profileManager.
 
-        :param entity: Entity for which profile is being looked up.
+        :param policyName: Retrieve metadata for the specified policyNames. If policyName is not specified,
+        metadata for all policies will be returned.
 
 
-        :rtype: Profile[] 
+        :rtype: ProfilePolicyMetadata[] 
 
         '''
         
-        return self.delegate("FindAssociatedProfile")(entity)
+        return self.delegate("FindAssociatedProfile")(policyName)
         
 
     def QueryPolicyMetadata(self, policyName):

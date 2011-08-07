@@ -10,7 +10,12 @@ import logging
 log = logging.getLogger(__name__)
 
 class HttpNfcLease(BaseEntity):
-    '''A lease is in one of four states:
+    '''Represents a lease on a VirtualMachine or a VirtualApp, which can be used to
+        import or export disks for the entity. While the lease is held, operations
+        that alter the state of the virtual machines covered by the lease are
+        blocked. Examples of blocked operations are PowerOn, Destroy, Migrate,
+        etc.A lease is in one of four states:The import/export task corresponding
+        to the lease continues running while the lease is held.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HttpNfcLease):
         # MUST define these
@@ -45,7 +50,7 @@ class HttpNfcLease(BaseEntity):
         return self.update('state')
 
 
-    def HttpNfcLeaseAbort(self, fault):
+    def HttpNfcLeaseAbort(self, percent):
         '''Aborts the import/export and releases this lease. Operations on the objects
         contained in this lease will no longer be blocked. After calling this
         method, this lease will no longer be valid.Clients should call this method
@@ -53,32 +58,35 @@ class HttpNfcLease(BaseEntity):
         cancelled. The client can report the cause of the abort to other clients
         listening on the task with the fault parameter.
 
-        :param fault: [in] The fault that caused the abort, if any.
+        :param percent: [in] Completion status represented as an integer in the 0-100 range.
 
         '''
         
-        return self.delegate("HttpNfcLeaseAbort")(fault)
+        return self.delegate("HttpNfcLeaseAbort")(percent)
         
 
-    def HttpNfcLeaseComplete(self):
+    def HttpNfcLeaseComplete(self, percent):
         '''Completes the import/export and releases this lease. Operations on the objects
         contained in this lease will no longer be blocked. After calling this
         method, this lease will no longer be valid.Clients should call this method
         when they are done accessing the disks for the VirtualMachines in this
         lease. The status of the corresponding task will be set to success.
+
+        :param percent: [in] Completion status represented as an integer in the 0-100 range.
+
         '''
         
-        return self.delegate("HttpNfcLeaseComplete")()
+        return self.delegate("HttpNfcLeaseComplete")(percent)
         
 
-    def HttpNfcLeaseGetManifest(self):
+    def HttpNfcLeaseGetManifest(self, percent):
         '''Gets the download manifest for this lease.
 
-        :rtype: HttpNfcLeaseManifestEntry[] 
+        :param percent: [in] Completion status represented as an integer in the 0-100 range.
 
         '''
         
-        return self.delegate("HttpNfcLeaseGetManifest")()
+        return self.delegate("HttpNfcLeaseGetManifest")(percent)
         
 
     def HttpNfcLeaseProgress(self, percent):

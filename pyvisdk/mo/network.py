@@ -10,7 +10,11 @@ import logging
 log = logging.getLogger(__name__)
 
 class Network(ManagedEntity):
-    '''Networks are created:
+    '''Represents a network accessible by either hosts or virtual machines. This can be a
+        physical network or a logical network, such as a VLAN.Networks are
+        created:* explicitly when configuring a host. * automatically when adding
+        a host to VirtualCenter. * automatically when adding a new virtual machine
+        to a host or to VirtualCenter.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.Network):
         # MUST define these

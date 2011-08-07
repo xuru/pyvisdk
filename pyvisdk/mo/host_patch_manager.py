@@ -10,7 +10,10 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostPatchManager(BaseEntity):
-    '''Properties
+    '''This managed object is the interface for scanning and patching an ESX server.
+        VMware publishes updates through its external website. A patch update is
+        synonymous with a bulletin. An update may contain many individual patch
+        binaries, but its installation and uninstallation are atomic.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostPatchManager):
         # MUST define these
@@ -18,137 +21,109 @@ class HostPatchManager(BaseEntity):
     
     
 
-    def CheckHostPatch_Task(self, metaUrls, bundleUrls):
+    def CheckHostPatch_Task(self, bulletinIds):
         '''Check the list of metadata and returns the dependency, obsolete and conflict
         information The operation is cancelable through the returned Task object.
         No integrity checks are performed on the metadata.
 
-        :param metaUrls: a list of urls pointing to metadata.zip.
-
-        :param bundleUrls: a list of urls pointing to an "offline" bundle.
+        :param bulletinIds: A list of bulletin IDs to be removed.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("CheckHostPatch_Task")(metaUrls,bundleUrls)
+        return self.delegate("CheckHostPatch_Task")(bulletinIds)
         
 
-    def InstallHostPatch_Task(self, repository, updateID, force):
+    def InstallHostPatch_Task(self, bulletinIds):
         '''Deprecated. Method is deprecated, use InstallHostPatchV2_Task instead. Patch the
         host. The operation is not cancelable. If the patch installation failed,
         an atomic rollback of the installation will be attempted. Manual rollback
         is required if the atomic rollback failed, see PatchInstallFailed for
         details.
 
-        :param repository: Location of the repository that contains the bulletin depot. The depot must be
-        organized as a flat collection of bulletins with each one being a folder
-        named after the bulletin ID. Each folder must contain both update metadata
-        and required binaries.
-
-        :param updateID: The update to be installed on the host.
-
-        :param force: Specify whether to force reinstall an update. By default, installing an already-
-        installed update would fail with the PatchAlreadyInstalled fault. If force
-        is set to true, the update will be forcifully reinstalled, thus
-        overwriting the already installed update.
+        :param bulletinIds: A list of bulletin IDs to be removed.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("InstallHostPatch_Task")(repository,updateID,force)
+        return self.delegate("InstallHostPatch_Task")(bulletinIds)
         
 
-    def InstallHostPatchV2_Task(self, metaUrls, bundleUrls, vibUrls):
+    def InstallHostPatchV2_Task(self, bulletinIds):
         '''Patch the host. The operation is not cancelable. If the patch installation failed,
         an atomic rollback of the installation will be attempted. Manual rollback
         is required if the atomic rollback failed, see PatchInstallFailed for
         details.
 
-        :param metaUrls: A list of urls pointing to metadata.zip.
-
-        :param bundleUrls: a list of urls pointing to an "offline" bundle.
-
-        :param vibUrls: The urls of update binary files to be installed.
+        :param bulletinIds: A list of bulletin IDs to be removed.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("InstallHostPatchV2_Task")(metaUrls,bundleUrls,vibUrls)
+        return self.delegate("InstallHostPatchV2_Task")(bulletinIds)
         
 
-    def QueryHostPatch_Task(self):
+    def QueryHostPatch_Task(self, bulletinIds):
         '''Query the host for installed bulletins.
 
-        :rtype: Task 
+        :param bulletinIds: A list of bulletin IDs to be removed.
+
+
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("QueryHostPatch_Task")()
+        return self.delegate("QueryHostPatch_Task")(bulletinIds)
         
 
-    def ScanHostPatch_Task(self, repository, updateID):
+    def ScanHostPatch_Task(self, bulletinIds):
         '''Deprecated. As of VI API 4.0, use ScanHostPatchV2_Task. Scan the host for the
         patch status. The operation is cancelable through the returned Task
         object. Integrity checks are performed on the metadata only during the
         scan operation.
 
-        :param repository: Location of the repository that contains the bulletin depot. The depot must be
-        organized as a flat collection of bulletins with each one being a folder
-        named after the bulletin ID. Each folder must contain the full update
-        metadata.
-
-        :param updateID: The updates to scan. Wildcards can be used to specify the update IDs. The
-        wildcards will be expanded to include all updates whose IDs match the
-        specified wildcard and whose metadata is available in the repository.
-        Specifying no update is equivalent to a wildcard "*". In this case all
-        updates available in the repository will be scanned.
+        :param bulletinIds: A list of bulletin IDs to be removed.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("ScanHostPatch_Task")(repository,updateID)
+        return self.delegate("ScanHostPatch_Task")(bulletinIds)
         
 
-    def ScanHostPatchV2_Task(self, metaUrls, bundleUrls):
+    def ScanHostPatchV2_Task(self, bulletinIds):
         '''Scan the host for the patch status. The operation is cancelable through the
         returned Task object. Integrity checks are performed on the metadata only
         during the scan operation.
 
-        :param metaUrls: a list of urls pointing to metadata.zip.
-
-        :param bundleUrls: a list of urls pointing to an "offline" bundle.
+        :param bulletinIds: A list of bulletin IDs to be removed.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("ScanHostPatchV2_Task")(metaUrls,bundleUrls)
+        return self.delegate("ScanHostPatchV2_Task")(bulletinIds)
         
 
-    def StageHostPatch_Task(self, metaUrls, bundleUrls, vibUrls):
+    def StageHostPatch_Task(self, bulletinIds):
         '''Stage the vib files to esx local location and possibly do some run time check.
 
-        :param metaUrls: A list of urls pointing to metadata.zip.
-
-        :param bundleUrls: a list of urls pointing to an "offline" bundle.
-
-        :param vibUrls: The urls of update binary files to be staged.
+        :param bulletinIds: A list of bulletin IDs to be removed.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("StageHostPatch_Task")(metaUrls,bundleUrls,vibUrls)
+        return self.delegate("StageHostPatch_Task")(bulletinIds)
         
 
     def UninstallHostPatch_Task(self, bulletinIds):
@@ -157,7 +132,7 @@ class HostPatchManager(BaseEntity):
         :param bulletinIds: A list of bulletin IDs to be removed.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         

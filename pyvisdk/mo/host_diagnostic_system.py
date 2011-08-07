@@ -10,7 +10,12 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostDiagnosticSystem(BaseEntity):
-    '''
+    '''The DiagnosticSystem managed object is used to configure the diagnostic mechanisms
+        specific to the host. The DiagnosticSystem interface supports the
+        following concepts:* Notion of an active diagnostic partition that is
+        selected from a set of available partitions. * Ability to create a
+        diagnostic partition that gets added to the list of available partitions
+        and could be made active.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostDiagnosticSystem):
         # MUST define these
@@ -41,30 +46,19 @@ class HostDiagnosticSystem(BaseEntity):
         better than shared diagnostic partitions because of the impossibility of
         multiple servers sharing the same partition. The most preferred diagnostic
         partition will be first in the array.
-
-        :rtype: HostDiagnosticPartition[] 
-
         '''
         
         return self.delegate("QueryAvailablePartition")()
         
 
-    def QueryPartitionCreateDesc(self, diskUuid, diagnosticType):
+    def QueryPartitionCreateDesc(self):
         '''For a disk, query for the diagnostic partition creation description. The
         description details how the diagnostic partition will be created on the
         disk and provides a creation specification that is needed to invoke the
-        create operation.See HostScsiDiskSee uuid
-
-        :param diskUuid: See HostScsiDiskSee uuid
-
-        :param diagnosticType: See HostScsiDiskSee uuid
-
-
-        :rtype: HostDiagnosticPartitionCreateDescription 
-
+        create operation. See HostScsiDisk See uuid
         '''
         
-        return self.delegate("QueryPartitionCreateDesc")(diskUuid,diagnosticType)
+        return self.delegate("QueryPartitionCreateDesc")()
         
 
     def QueryPartitionCreateOptions(self):
@@ -72,9 +66,6 @@ class HostDiagnosticSystem(BaseEntity):
         list will contain disks that have sufficient space to contain a diagnostic
         partition of the specific type.The choices will be returned in the order
         that is most preferable as determined by the system.
-
-        :rtype: HostDiagnosticPartitionCreateOption[] 
-
         '''
         
         return self.delegate("QueryPartitionCreateOptions")()

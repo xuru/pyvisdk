@@ -10,7 +10,8 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostKernelModuleSystem(BaseEntity):
-    '''Properties
+    '''The KernelModuleSystem managed object controls the configuration of kernel modules
+        on the host.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostKernelModuleSystem):
         # MUST define these
@@ -18,29 +19,30 @@ class HostKernelModuleSystem(BaseEntity):
     
     
 
-    def QueryConfiguredModuleOptionString(self, name):
+    def QueryConfiguredModuleOptionString(self, name, options):
         '''Query the options configured to be passed to the kernel module when loaded. Note
         that this is not necessarily the option string currently in use by the
         kernel module.
 
         :param name: Module name.
 
-
-        :rtype: xsd:string 
+        :param options: Option string to be passed to the kernel module at load time.
 
         '''
         
-        return self.delegate("QueryConfiguredModuleOptionString")(name)
+        return self.delegate("QueryConfiguredModuleOptionString")(name,options)
         
 
-    def QueryModules(self):
+    def QueryModules(self, name, options):
         '''Query the set of modules on the host.
 
-        :rtype: KernelModuleInfo[] 
+        :param name: Module name.
+
+        :param options: Option string to be passed to the kernel module at load time.
 
         '''
         
-        return self.delegate("QueryModules")()
+        return self.delegate("QueryModules")(name,options)
         
 
     def UpdateModuleOptionString(self, name, options):

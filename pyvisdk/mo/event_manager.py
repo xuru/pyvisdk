@@ -10,7 +10,9 @@ import logging
 log = logging.getLogger(__name__)
 
 class EventManager(BaseEntity):
-    '''Properties
+    '''This managed object type provides properties and methods for event management
+        support. Event objects are used to record significant state changes of
+        managed entities.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.EventManager):
         # MUST define these
@@ -37,58 +39,47 @@ class EventManager(BaseEntity):
         return self.update('maxCollector')
 
 
-    def CreateCollectorForEvents(self, filter):
+    def CreateCollectorForEvents(self):
         '''Creates an event history collector, which is a specialized history collector that
         provides Event objects.Event collectors do not persist beyond the current
         client session.
 
-        :param filter: The event query filter.
-
-
-        :rtype: EventHistoryCollector 
+        :rtype: EventArgDesc[] 
 
         '''
         
-        return self.delegate("CreateCollectorForEvents")(filter)
+        return self.delegate("CreateCollectorForEvents")()
         
 
-    def LogUserEvent(self, entity, msg):
+    def LogUserEvent(self):
         '''Logs a user defined event against a particular managed entity.
 
-        :param entity: The entity against which the event is logged. The entity must be the root folder,
-        a DataCenter, a VirtualMachine, a HostSystem, or a ComputeResource.
-
-        :param msg: The message to be logged.
+        :rtype: EventArgDesc[] 
 
         '''
         
-        return self.delegate("LogUserEvent")(entity,msg)
+        return self.delegate("LogUserEvent")()
         
 
-    def PostEvent(self, eventToPost, taskInfo):
+    def PostEvent(self):
         '''Posts the specified event, optionally associating it with a Task.
 
-        :param eventToPost: Fully-specified event to post
-
-        :param taskInfo: Task associated with the event
+        :rtype: EventArgDesc[] 
 
         '''
         
-        return self.delegate("PostEvent")(eventToPost,taskInfo)
+        return self.delegate("PostEvent")()
         
 
-    def QueryEvents(self, filter):
+    def QueryEvents(self):
         '''Returns the events in specified filter. Returns empty array when there are not any
         events qualified.
 
-        :param filter: The events qualified.
-
-
-        :rtype: Event[] 
+        :rtype: EventArgDesc[] 
 
         '''
         
-        return self.delegate("QueryEvents")(filter)
+        return self.delegate("QueryEvents")()
         
 
     def RetrieveArgumentDescription(self):

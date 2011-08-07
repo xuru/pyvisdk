@@ -10,9 +10,11 @@ import logging
 log = logging.getLogger(__name__)
 
 class ListView(ManagedObjectView):
-    '''When you invoke the CreateListView method, you specify a list of objects. The view
-        list always represents the current configuration of the virtual
-        environment and reflects any subsequent changes that occur.
+    '''The ListView managed object provides access to updates on a specific set of
+        objects. You can use a ListView with a ViewManager.When you invoke the
+        CreateListView method, you specify a list of objects. The view list always
+        represents the current configuration of the virtual environment and
+        reflects any subsequent changes that occur.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ListView):
         # MUST define these
@@ -20,45 +22,37 @@ class ListView(ManagedObjectView):
     
     
 
-    def ModifyListView(self, add, remove):
+    def ModifyListView(self, view):
         '''Modify the list by giving a delta of entities to add and entities to remove.May
         partially succeed if some objects could not be resolved. The operation
         will still succeed for all objects which could be resolved, and the list
         of those which failed is returned as the result.
 
-        :param add: Optional list of objects to add to the view.
-
-        :param remove: Optional list of objects to remove from the view.
-
-
-        :rtype: ManagedObjectReference[] 
+        :param view: to a ViewThe view to copy objects from.
 
         '''
         
-        return self.delegate("ModifyListView")(add,remove)
+        return self.delegate("ModifyListView")(view)
         
 
-    def ResetListView(self, obj):
+    def ResetListView(self, view):
         '''Replaces the list with an entirely new set of objects. If the entire set is
         changing, this is less data to send than a delta.May partially succeed if
         some objects could not be resolved. The operation will still succeed for
         all objects which could be resolved, and the list of those which failed is
         as the result.
 
-        :param obj: The new list of objects.
-
-
-        :rtype: ManagedObjectReference[] 
+        :param view: to a ViewThe view to copy objects from.
 
         '''
         
-        return self.delegate("ResetListView")(obj)
+        return self.delegate("ResetListView")(view)
         
 
     def ResetListViewFromView(self, view):
         '''Replaces the list with the set of objects in a given view.
 
-        :param view: The view to copy objects from.
+        :param view: to a ViewThe view to copy objects from.
 
         '''
         

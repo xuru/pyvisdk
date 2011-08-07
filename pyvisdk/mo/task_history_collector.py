@@ -10,7 +10,8 @@ import logging
 log = logging.getLogger(__name__)
 
 class TaskHistoryCollector(HistoryCollector):
-    '''Properties
+    '''TaskHistoryCollector provides a mechanism for retrieving historical data and
+        updates when the server appends new tasks.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.TaskHistoryCollector):
         # MUST define these

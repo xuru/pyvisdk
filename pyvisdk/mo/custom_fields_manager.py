@@ -10,10 +10,12 @@ import logging
 log = logging.getLogger(__name__)
 
 class CustomFieldsManager(BaseEntity):
-    '''The custom fields values set on managed entities are available through the
-        customValue property and through the summary objects for VirtualMachine
-        and HostSystem. They are not available directly through this managed
-        object.
+    '''The CustomFieldsManager object is used to add and remove custom fields to managed
+        entities.The custom fields values set on managed entities are available
+        through the customValue property and through the summary objects for
+        VirtualMachine and HostSystem. They are not available directly through
+        this managed object.This functionality is only available through
+        VirtualCenter.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.CustomFieldsManager):
         # MUST define these
@@ -27,52 +29,44 @@ class CustomFieldsManager(BaseEntity):
         return self.update('field')
 
 
-    def AddCustomFieldDef(self, name, moType, fieldDefPolicy, fieldPolicy):
+    def AddCustomFieldDef(self, entity):
         '''Creates a new custom field. If the moType is specified, the field will only be
         available for that type of managed object.
 
-        :param name: The name of the field.
-
-        :param moType: The managed object type to which this field will applyVI API 2.5
-
-        :param fieldDefPolicy: Privilege policy to apply to FieldDef being createdVI API 2.5
-
-        :param fieldPolicy: Privilege policy to apply to instances of fieldVI API 2.5
-
-
-        :rtype: CustomFieldDef 
+        :param entity: to a ManagedEntity
 
         '''
         
-        return self.delegate("AddCustomFieldDef")(name,moType,fieldDefPolicy,fieldPolicy)
+        return self.delegate("AddCustomFieldDef")(entity)
         
 
-    def RemoveCustomFieldDef(self, key):
+    def RemoveCustomFieldDef(self, entity):
         '''Removes a custom field. This also removes all values assigned to this custom
         field.
 
-        :param key: The unique key for the field definition.
+        :param entity: to a ManagedEntity
 
         '''
         
-        return self.delegate("RemoveCustomFieldDef")(key)
+        return self.delegate("RemoveCustomFieldDef")(entity)
         
 
-    def RenameCustomFieldDef(self, key, name):
+    def RenameCustomFieldDef(self, entity):
         '''Renames a custom field.
 
-        :param key: The unique key for the field definition.
-
-        :param name: The new name for the field.
+        :param entity: to a ManagedEntity
 
         '''
         
-        return self.delegate("RenameCustomFieldDef")(key,name)
+        return self.delegate("RenameCustomFieldDef")(entity)
         
 
-    def SetField(self):
+    def SetField(self, entity):
         '''Assigns a value to a custom field on an entity.
+
+        :param entity: to a ManagedEntity
+
         '''
         
-        return self.delegate("SetField")()
+        return self.delegate("SetField")(entity)
         

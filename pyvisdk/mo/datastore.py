@@ -10,10 +10,35 @@ import logging
 log = logging.getLogger(__name__)
 
 class Datastore(ManagedEntity):
-    '''A datastore is platform-independent and host-independent. Therefore, datastores do
-        not change when the virtual machines they contain are moved between hosts.
-        The scope of a datastore is a datacenter; the datastore is uniquely named
-        within the datacenter.
+    '''Represents a storage location for virtual machine files. A storage location can be
+        a VMFS volume, a directory on Network Attached Storage, or a local file
+        system path.A datastore is platform-independent and host-independent.
+        Therefore, datastores do not change when the virtual machines they contain
+        are moved between hosts. The scope of a datastore is a datacenter; the
+        datastore is uniquely named within the datacenter.Any reference to a
+        virtual machine or file accessed by any host within the datacenter must
+        use a datastore path. A datastore path has the form "[<datastore>]
+        <path>", where <datastore> is the datastore name, and <path> is a slash-
+        delimited path from the root of the datastore. An example datastore path
+        is "[storage] path/to/config.vmx".You may use the following characters in
+        a path, but not in a datastore name: slash (/), backslash (\), and percent
+        (%).All references to files in the VIM API are implicitly done using
+        datastore paths.When a client creates a virtual machine, it may specify
+        the name of the datastore, omitting the path; the system, meaning
+        VirtualCenter or the host, automatically assigns filenames and creates
+        directories on the given datastore. For example, specifying My_Datastore
+        as a location for a virtual machine called MyVm results in a datastore
+        location of My_Datastore\MyVm\MyVm.vmx.Datastores are configured per host.
+        As part of host configuration, a HostSystem can be configured to mount a
+        set of network drives. Multiple hosts may be configured to point to the
+        same storage location. There exists only one Datastore object per
+        Datacenter, for each such shared location. Each Datastore object keeps a
+        reference to the set of hosts that have mounted the datastore. A Datastore
+        object can be removed only if no hosts currently have the datastore
+        mounted.Thus, managing datastores is done both at the host level and the
+        datacenter level. Each host is configured explicitly with the set of
+        datastores it can access. At the datacenter, a view of the datastores
+        across the datacenter is shown.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.Datastore):
         # MUST define these
@@ -65,40 +90,61 @@ class Datastore(ManagedEntity):
         return self.update('vm')
 
 
-    def DestroyDatastore(self):
+    def DestroyDatastore(self, mountPathDatastoreMapping):
         '''Deprecated. As of VI API 2.5 do not use this method. This method throws
         ResourceInUse. Datastores are automatically removed when no longer in use,
         so this method is unnecessary. Removes a datastore. A datastore can be
         removed only if it is not currently used by any host or virtual machine.
+
+        :param mountPathDatastoreMapping: Old mount path to datastore mapping.
+
+
+        :rtype: ManagedObjectReference to a Task 
+
         '''
         
-        return self.delegate("DestroyDatastore")()
+        return self.delegate("DestroyDatastore")(mountPathDatastoreMapping)
         
 
-    def RefreshDatastore(self):
+    def RefreshDatastore(self, mountPathDatastoreMapping):
         '''Explicitly refreshes free-space and capacity values in summary and info.
+
+        :param mountPathDatastoreMapping: Old mount path to datastore mapping.
+
+
+        :rtype: ManagedObjectReference to a Task 
+
         '''
         
-        return self.delegate("RefreshDatastore")()
+        return self.delegate("RefreshDatastore")(mountPathDatastoreMapping)
         
 
-    def RefreshDatastoreStorageInfo(self):
+    def RefreshDatastoreStorageInfo(self, mountPathDatastoreMapping):
         '''Refreshes all storage related information including free-space, capacity, and
         detailed usage of virtual machines. Updated values are available in
         summary and info.
+
+        :param mountPathDatastoreMapping: Old mount path to datastore mapping.
+
+
+        :rtype: ManagedObjectReference to a Task 
+
         '''
         
-        return self.delegate("RefreshDatastoreStorageInfo")()
+        return self.delegate("RefreshDatastoreStorageInfo")(mountPathDatastoreMapping)
         
 
-    def RenameDatastore(self, newName):
+    def RenameDatastore(self, mountPathDatastoreMapping):
         '''Deprecated. As of vSphere API 4.0, use Rename_Task. Renames a datastore.
 
-        :param newName: The new name to assign to the datastore.
+        :param mountPathDatastoreMapping: Old mount path to datastore mapping.
+
+
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("RenameDatastore")(newName)
+        return self.delegate("RenameDatastore")(mountPathDatastoreMapping)
         
 
     def UpdateVirtualMachineFiles_Task(self, mountPathDatastoreMapping):
@@ -122,7 +168,7 @@ class Datastore(ManagedEntity):
         :param mountPathDatastoreMapping: Old mount path to datastore mapping.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         

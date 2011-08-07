@@ -10,7 +10,11 @@ import logging
 log = logging.getLogger(__name__)
 
 class ManagedEntity(ExtensibleManagedObject):
-    '''Most Virtual Infrastructure managed object types extend this type.
+    '''ManagedEntity is an abstract base type for all managed objects present in the
+        inventory tree. The base type provides common functionality for traversing
+        the tree structure, as well as health monitoring and other basic
+        functions.Most Virtual Infrastructure managed object types extend this
+        type.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ManagedEntity):
         # MUST define these
@@ -118,7 +122,7 @@ class ManagedEntity(ExtensibleManagedObject):
         return self.update('triggeredAlarmState')
 
 
-    def Destroy_Task(self):
+    def Destroy_Task(self, newName):
         '''Destroys this object, deleting its contents and removing it from its parent folder
         (if any).NOTE: The appropriate privilege must be held on the parent of the
         destroyed entity as well as the entity itself.This method can throw one of
@@ -126,14 +130,17 @@ class ManagedEntity(ExtensibleManagedObject):
         entity that is being removed. See comments for each entity for more
         information on destroy behavior.
 
-        :rtype: Task 
+        :param newName: See name
+
+
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("Destroy_Task")()
+        return self.delegate("Destroy_Task")(newName)
         
 
-    def Reload(self):
+    def Reload(self, newName):
         '''Reload the entity state. Clients only need to call this method if they changed
         some external state that affects the service without using the Web service
         interface to perform the change. For example, hand-editing a virtual
@@ -142,9 +149,15 @@ class ManagedEntity(ExtensibleManagedObject):
         monitor the file for changes. In this case, after such an edit, a client
         would call "reload" on the associated virtual machine to ensure the
         service and its clients have current data for the virtual machine.
+
+        :param newName: See name
+
+
+        :rtype: ManagedObjectReference to a Task 
+
         '''
         
-        return self.delegate("Reload")()
+        return self.delegate("Reload")(newName)
         
 
     def Rename_Task(self, newName):
@@ -155,7 +168,7 @@ class ManagedEntity(ExtensibleManagedObject):
         :param newName: See name
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         

@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostProfile(Profile):
-    '''Properties
+    '''This data object type represents a profile for configuring the host.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostProfile):
         # MUST define these
@@ -24,39 +24,31 @@ class HostProfile(Profile):
         return self.update('referenceHost')
 
 
-    def ExecuteHostProfile(self, host, deferredParam):
+    def ExecuteHostProfile(self, host):
         '''Execute the Profile Engine to calculate the list of configuration changes needed
         for the host.
 
-        :param host: The host on which to execute the profile. The host needn't be associated with the
-        Profile.
-
-        :param deferredParam: The inputs that the user has given till now. This should include all the inputs
-        the user has given till now including the inputs from the previous round
-        of the call.
-
-
-        :rtype: ProfileExecuteResult 
+        :param host: to a HostSystemReference host to use. If Unset, referenceHost is cleared.
 
         '''
         
-        return self.delegate("ExecuteHostProfile")(host,deferredParam)
+        return self.delegate("ExecuteHostProfile")(host)
         
 
-    def UpdateHostProfile(self, config):
+    def UpdateHostProfile(self, host):
         '''Update the HostProfile with the specified config.
 
-        :param config: Specification which describes the changes.
+        :param host: to a HostSystemReference host to use. If Unset, referenceHost is cleared.
 
         '''
         
-        return self.delegate("UpdateHostProfile")(config)
+        return self.delegate("UpdateHostProfile")(host)
         
 
     def UpdateReferenceHost(self, host):
         '''Update the reference host in use by the HostProfile.
 
-        :param host: Reference host to use. If Unset, referenceHost is cleared.
+        :param host: to a HostSystemReference host to use. If Unset, referenceHost is cleared.
 
         '''
         

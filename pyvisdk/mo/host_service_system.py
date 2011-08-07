@@ -10,7 +10,9 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostServiceSystem(ExtensibleManagedObject):
-    '''Properties
+    '''The ServiceSystem managed object describes the configuration of host services.
+        This managed object operates in conjunction with the HostFirewallSystem
+        managed object.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostServiceSystem):
         # MUST define these

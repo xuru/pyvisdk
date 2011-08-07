@@ -10,7 +10,10 @@ import logging
 log = logging.getLogger(__name__)
 
 class TaskManager(BaseEntity):
-    '''Properties
+    '''The TaskManager managed object provides an interface for creating and managing
+        Task managed objects. Many operations are non-blocking, returning a Task
+        managed object that can be monitored by a client application. Task managed
+        objects may also be accessed through the TaskManager.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.TaskManager):
         # MUST define these
@@ -38,19 +41,27 @@ class TaskManager(BaseEntity):
         return self.update('recentTask')
 
 
-    def CreateCollectorForTasks(self, filter):
+    def CreateCollectorForTasks(self, obj, taskTypeId, initiatedBy, cancelable, parentTaskKey):
         '''Creates a TaskHistoryCollector, a specialized HistoryCollector that gathers
         TaskInfo data objects.A TaskHistoryCollector does not persist beyond the
         current client session.
 
-        :param filter: The specification for the task query filter.
+        :param obj: ManagedObject with which Task will be associated
+
+        :param taskTypeId: Extension registered task type identifier for type of task being created
+
+        :param initiatedBy: The name of the user on whose behalf the Extension is creating the task
+
+        :param cancelable: True if the task should be cancelable, else false
+
+        :param parentTaskKey: Key of the task that is the parent of this taskvSphere API 4.0
 
 
-        :rtype: TaskHistoryCollector 
+        :rtype: TaskInfo 
 
         '''
         
-        return self.delegate("CreateCollectorForTasks")(filter)
+        return self.delegate("CreateCollectorForTasks")(obj,taskTypeId,initiatedBy,cancelable,parentTaskKey)
         
 
     def CreateTask(self, obj, taskTypeId, initiatedBy, cancelable, parentTaskKey):

@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostProfileManager(ProfileManager):
-    '''Properties
+    '''This Class is responsible for managing Host Profiles.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostProfileManager):
         # MUST define these
@@ -18,49 +18,49 @@ class HostProfileManager(ProfileManager):
     
     
 
-    def ApplyHostConfig_Task(self, host, configSpec):
+    def ApplyHostConfig_Task(self, profileName):
         '''Apply the configuration to the host.
 
-        :param host: Host to which the configuration needs to be applied. Depending on the contents of
-        the configSpec, user has to have different privileges to perform this
-        operation.
-
-        :param configSpec: Set of configuration changes that need to be applied to the host.
+        :param profileName: Names of the profiles for which metadata is requested. If profileName is not set,
+        metadata for all the profiles will be returned.
 
 
-        :rtype: Task 
+        :rtype: ProfileMetadata[] 
 
         '''
         
-        return self.delegate("ApplyHostConfig_Task")(host,configSpec)
+        return self.delegate("ApplyHostConfig_Task")(profileName)
         
 
-    def CreateDefaultProfile(self):
+    def CreateDefaultProfile(self, profileName):
         '''Create a default profile of a given type. e.g: VirtualSwitchProfile. The
         profileTypes are defined in Vmodl. Once the default profile dataObject is
         generated, it can be modified and a profile can be created on the server.
 
-        :rtype: ApplyProfile 
+        :param profileName: Names of the profiles for which metadata is requested. If profileName is not set,
+        metadata for all the profiles will be returned.
+
+
+        :rtype: ProfileMetadata[] 
 
         '''
         
-        return self.delegate("CreateDefaultProfile")()
+        return self.delegate("CreateDefaultProfile")(profileName)
         
 
-    def GenerateConfigTaskList(self, configSpec, host):
+    def GenerateConfigTaskList(self, profileName):
         '''Generate a list of configuration tasks that will be performed on the host during
         HostProfile application.
 
-        :param configSpec: ConfigSpec which was proposed by ExecuteHostProfile method.
+        :param profileName: Names of the profiles for which metadata is requested. If profileName is not set,
+        metadata for all the profiles will be returned.
 
-        :param host: Host on which the HostProfile application needs to be carried out.
 
-
-        :rtype: HostProfileManagerConfigTaskList 
+        :rtype: ProfileMetadata[] 
 
         '''
         
-        return self.delegate("GenerateConfigTaskList")(configSpec,host)
+        return self.delegate("GenerateConfigTaskList")(profileName)
         
 
     def QueryHostProfileMetadata(self, profileName):

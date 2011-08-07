@@ -10,7 +10,9 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostMemorySystem(ExtensibleManagedObject):
-    '''Properties
+    '''The MemoryManagerSystem managed object provides an interface through which the
+        host memory management policies that affect the performance of running
+        virtual machines can be gathered and configured.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostMemorySystem):
         # MUST define these

@@ -10,7 +10,17 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostLocalAccountManager(BaseEntity):
-    '''Properties
+    '''This managed object type provides an interface through which local accounts on a
+        host are managed. Note that this managed object applies only to
+        applications that use a local account database on the host to provide
+        authentication (ESX Server, for example). POSIX and win32 hosts may impose
+        different restrictions on the password, ID, and description formats. POSIX
+        host implementation may restrict the user or group name to be lower case
+        letters and less than 16 characters in total. It may also disallow
+        characters such as ";", "\n", and so on. In short, all the platform
+        dependent rules and restrictions regarding naming of users/groups and
+        password apply here. An InvalidArgument fault is thrown if any of these
+        rules are not obeyed.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostLocalAccountManager):
         # MUST define these
@@ -18,30 +28,28 @@ class HostLocalAccountManager(BaseEntity):
     
     
 
-    def AssignUserToGroup(self, user, group):
+    def AssignUserToGroup(self, user):
         '''Assigns a user to a group.
 
-        :param user: User ID of the account whose group membership is being assigned.
-
-        :param group: Destination group account to which the user is being assigned.
+        :param user: Specification of user being updated.
 
         '''
         
-        return self.delegate("AssignUserToGroup")(user,group)
+        return self.delegate("AssignUserToGroup")(user)
         
 
-    def CreateGroup(self, group):
+    def CreateGroup(self, user):
         '''Creates a local group account using the parameters defined in the
         HostLocalAccountManagerAccountSpecification data object type. For POSIX
         hosts, passing the HostLocalAccountManagerPosixAccountSpecification data
         object type allows you to control the group ID format of the group account
         being created.
 
-        :param group: Specification of group being created.
+        :param user: Specification of user being updated.
 
         '''
         
-        return self.delegate("CreateGroup")(group)
+        return self.delegate("CreateGroup")(user)
         
 
     def CreateUser(self, user):
@@ -51,43 +59,41 @@ class HostLocalAccountManager(BaseEntity):
         object type allows you to control the format of the user ID of the user
         account being created.
 
-        :param user: Specification of user being created.
+        :param user: Specification of user being updated.
 
         '''
         
         return self.delegate("CreateUser")(user)
         
 
-    def RemoveGroup(self, groupName):
+    def RemoveGroup(self, user):
         '''Removes a local group account.
 
-        :param groupName: Group ID of the group account being removed.
+        :param user: Specification of user being updated.
 
         '''
         
-        return self.delegate("RemoveGroup")(groupName)
+        return self.delegate("RemoveGroup")(user)
         
 
-    def RemoveUser(self, userName):
+    def RemoveUser(self, user):
         '''Removes a local user account.
 
-        :param userName: User ID of the user account being removed.
+        :param user: Specification of user being updated.
 
         '''
         
-        return self.delegate("RemoveUser")(userName)
+        return self.delegate("RemoveUser")(user)
         
 
-    def UnassignUserFromGroup(self, user, group):
+    def UnassignUserFromGroup(self, user):
         '''Unassigns a user from a group.
 
-        :param user: User being unassigned from group.
-
-        :param group: Group from which the user is being removed.
+        :param user: Specification of user being updated.
 
         '''
         
-        return self.delegate("UnassignUserFromGroup")(user,group)
+        return self.delegate("UnassignUserFromGroup")(user)
         
 
     def UpdateUser(self, user):

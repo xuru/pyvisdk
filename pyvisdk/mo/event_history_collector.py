@@ -10,7 +10,8 @@ import logging
 log = logging.getLogger(__name__)
 
 class EventHistoryCollector(HistoryCollector):
-    '''Properties
+    '''EventHistoryCollector provides a mechanism for retrieving historical data and
+        updates when the server appends new events.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.EventHistoryCollector):
         # MUST define these

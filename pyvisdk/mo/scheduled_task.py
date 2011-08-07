@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class ScheduledTask(ExtensibleManagedObject):
-    '''Properties
+    '''The scheduled task object.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ScheduledTask):
         # MUST define these
@@ -24,14 +24,11 @@ class ScheduledTask(ExtensibleManagedObject):
         return self.update('info')
 
 
-    def ReconfigureScheduledTask(self, spec):
+    def ReconfigureScheduledTask(self):
         '''Reconfigures the scheduled task properties.
-
-        :param spec: The new specification for the scheduled task.
-
         '''
         
-        return self.delegate("ReconfigureScheduledTask")(spec)
+        return self.delegate("ReconfigureScheduledTask")()
         
 
     def RemoveScheduledTask(self):

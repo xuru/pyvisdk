@@ -10,7 +10,9 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostActiveDirectoryAuthentication(HostDirectoryStore):
-    '''Properties
+    '''The HostActiveDirectoryAuthentication managed object indicates domain membership
+        status and provides methods for adding a host to and removing a host from
+        a domain.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostActiveDirectoryAuthentication):
         # MUST define these
@@ -18,26 +20,22 @@ class HostActiveDirectoryAuthentication(HostDirectoryStore):
     
     
 
-    def JoinDomain_Task(self, domainName, userName, password):
+    def JoinDomain_Task(self, force):
         '''Adds the host to an Active Directory domain.If the
         HostAuthenticationStoreInfo.enabled property is True (accessed through the
         info property), the host has joined a domain. The vSphere API will throw
         the InvalidState fault if you try to add a host to a domain when the host
         has already joined a domain.
 
-        :param domainName: Name of the domain to be joined.
-
-        :param userName: Name for an Active Directory account that has the authority to add hosts to the
-        domain.
-
-        :param password: Password for theaccount.
+        :param force: If, any existing permissions on managed entities for Active Directory users will
+        be deleted. Ifand such permissions exist, the operation will fail.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("JoinDomain_Task")(domainName,userName,password)
+        return self.delegate("JoinDomain_Task")(force)
         
 
     def LeaveCurrentDomain_Task(self, force):
@@ -47,7 +45,7 @@ class HostActiveDirectoryAuthentication(HostDirectoryStore):
         be deleted. Ifand such permissions exist, the operation will fail.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         

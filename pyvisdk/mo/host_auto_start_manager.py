@@ -10,7 +10,12 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostAutoStartManager(BaseEntity):
-    '''Properties
+    '''The AutoStartManager allows clients to invoke and set up the auto-start/auto-stop
+        order of virtual machines on a single host. Virtual machines configured to
+        use auto-start are automatically started or stopped when the host is
+        started or shut down. The AutoStartManager is available when clients
+        connect directly to a host, such as an ESX Server machine or through
+        VirtualCenter.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostAutoStartManager):
         # MUST define these
@@ -24,22 +29,28 @@ class HostAutoStartManager(BaseEntity):
         return self.update('config')
 
 
-    def AutoStartPowerOff(self):
+    def AutoStartPowerOff(self, spec):
         '''Powers-off virtual machines according to the current AutoStart configuration.See
         the description of the (@link vim.host.AutoStartManager.AutoPowerInfo)
         data object type for more information on Auto power-off behavior.
+
+        :param spec: List of changes to defaults and auto-start/auto-stop order.
+
         '''
         
-        return self.delegate("AutoStartPowerOff")()
+        return self.delegate("AutoStartPowerOff")(spec)
         
 
-    def AutoStartPowerOn(self):
+    def AutoStartPowerOn(self, spec):
         '''Powers-on virtual machines according to the current AutoStart configuration.See
         the description of the (@link vim.host.AutoStartManager.AutoPowerInfo)
         data object type for more information on Auto power-on behavior.
+
+        :param spec: List of changes to defaults and auto-start/auto-stop order.
+
         '''
         
-        return self.delegate("AutoStartPowerOn")()
+        return self.delegate("AutoStartPowerOn")(spec)
         
 
     def ReconfigureAutostart(self, spec):

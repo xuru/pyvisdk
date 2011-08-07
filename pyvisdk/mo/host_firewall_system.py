@@ -10,8 +10,9 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostFirewallSystem(ExtensibleManagedObject):
-    '''The firewall should be configured first by setting the default policy and then by
-        making exceptions to the policy to get the desired openness.
+    '''The FirewallSystem managed object describes the firewall configuration of the
+        host.The firewall should be configured first by setting the default policy
+        and then by making exceptions to the policy to get the desired openness.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostFirewallSystem):
         # MUST define these

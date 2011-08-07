@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostHealthStatusSystem(BaseEntity):
-    '''Properties
+    '''This managed object manages the health state of the host.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostHealthStatusSystem):
         # MUST define these

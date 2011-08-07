@@ -10,7 +10,8 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostBootDeviceSystem(BaseEntity):
-    '''Properties
+    '''The HostBootDeviceSystem managed object provides methods to query and update a
+        host boot device configuration.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostBootDeviceSystem):
         # MUST define these
@@ -18,14 +19,14 @@ class HostBootDeviceSystem(BaseEntity):
     
     
 
-    def QueryBootDevices(self):
+    def QueryBootDevices(self, key):
         '''Retrieves a list of the available boot devices for the host system.
 
-        :rtype: HostBootDeviceInfo 
+        :param key: The key of the HostBootDevice from which the host will boot.
 
         '''
         
-        return self.delegate("QueryBootDevices")()
+        return self.delegate("QueryBootDevices")(key)
         
 
     def UpdateBootDevice(self, key):

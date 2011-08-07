@@ -10,7 +10,8 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostSnmpSystem(BaseEntity):
-    '''Properties
+    '''Provision the SNMP Version 1,2c agent. This object is a singleton accessed through
+        the HostConfigManager object.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostSnmpSystem):
         # MUST define these

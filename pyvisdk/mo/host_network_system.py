@@ -10,7 +10,8 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostNetworkSystem(ExtensibleManagedObject):
-    '''Properties
+    '''This managed object type describes networking host configuration and serves as the
+        top level container for relevant networking data objects.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostNetworkSystem):
         # MUST define these
@@ -50,7 +51,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
     def networkConfig(self):
         '''Network configuration information. This information can be applied using the
         updateNetworkConfig() method. The information is a strict subset of the
-        information available in NetworkInfo.See HostNetworkInfo
+        information available in NetworkInfo.
         '''
         return self.update('networkConfig')
 
@@ -67,35 +68,37 @@ class HostNetworkSystem(ExtensibleManagedObject):
         return self.update('offloadCapabilities')
 
 
-    def AddPortGroup(self):
+    def AddPortGroup(self, vswitchName, spec):
         '''Adds a port group to the virtual switch.
+
+        :param vswitchName: See HostNicOrderPolicy
+
+        :param spec: See HostNicOrderPolicy
+
         '''
         
-        return self.delegate("AddPortGroup")()
+        return self.delegate("AddPortGroup")(vswitchName,spec)
         
 
-    def AddServiceConsoleVirtualNic(self, portgroup, nic):
+    def AddServiceConsoleVirtualNic(self, vswitchName, spec):
         '''Adds a virtual service console network adapter. Returns the device of the
         VirtualNic.IP configuration is required although it does not have to be
         enabled if the host is an ESX Server system. The dynamic privilege check
         will ensure that users have Host.Config.Network privilege on the host, and
         Network.Assign privilege on the connecting DVPortGroup, or DVS if
         connecting to a standalone DVPort. Network.Assign privilege is not
-        required for operations on standard network.See usesServiceConsoleNic
+        required for operations on standard network. See usesServiceConsoleNic
 
-        :param portgroup: See usesServiceConsoleNic
+        :param vswitchName: See HostNicOrderPolicy
 
-        :param nic: See usesServiceConsoleNic
-
-
-        :rtype: xsd:string 
+        :param spec: See HostNicOrderPolicy
 
         '''
         
-        return self.delegate("AddServiceConsoleVirtualNic")(portgroup,nic)
+        return self.delegate("AddServiceConsoleVirtualNic")(vswitchName,spec)
         
 
-    def AddVirtualNic(self):
+    def AddVirtualNic(self, vswitchName, spec):
         '''Adds a virtual host/VMkernel network adapter. Returns the device of the virtual
         network adapter.IP configuration is required although it does not have to
         be enabled if the host is an ESX Server system. The dynamic privilege
@@ -104,181 +107,228 @@ class HostNetworkSystem(ExtensibleManagedObject):
         if connecting to a standalone DVPort. Network.Assign privilege is not
         required for operations on standard network.
 
-        :rtype: xsd:string 
+        :param vswitchName: See HostNicOrderPolicy
+
+        :param spec: See HostNicOrderPolicy
 
         '''
         
-        return self.delegate("AddVirtualNic")()
+        return self.delegate("AddVirtualNic")(vswitchName,spec)
         
 
     def AddVirtualSwitch(self, vswitchName, spec):
         '''Adds a new virtual switch to the system with the given name. The name must be
         unique with respect to other virtual switches on the host and is limited
-        to 32 characters.See UpdateVirtualSwitch
+        to 32 characters. See UpdateVirtualSwitch
 
-        :param vswitchName: See UpdateVirtualSwitch
+        :param vswitchName: See HostNicOrderPolicy
 
-        :param spec: See UpdateVirtualSwitch
+        :param spec: See HostNicOrderPolicy
 
         '''
         
         return self.delegate("AddVirtualSwitch")(vswitchName,spec)
         
 
-    def QueryNetworkHint(self, device):
+    def QueryNetworkHint(self, vswitchName, spec):
         '''Requests network hint information for a physical network adapter. A network hint
         is some information about the network to which the physical network
         adapter is attached. The method receives in a list of physical network
         adapter devices and returns an equal number of hints if some devices are
         provided. If the list of devices is empty, then the method accesses hints
-        for all physical network adapters.See supportsNetworkHintsSee device
+        for all physical network adapters. See supportsNetworkHints See device
 
-        :param device: See supportsNetworkHintsSee device
+        :param vswitchName: See HostNicOrderPolicy
 
-
-        :rtype: PhysicalNicHintInfo[] 
+        :param spec: See HostNicOrderPolicy
 
         '''
         
-        return self.delegate("QueryNetworkHint")(device)
+        return self.delegate("QueryNetworkHint")(vswitchName,spec)
         
 
-    def RefreshNetworkSystem(self):
+    def RefreshNetworkSystem(self, vswitchName, spec):
         '''Refresh the network information and settings to pick up any changes that might
         have occurred.
+
+        :param vswitchName: See HostNicOrderPolicy
+
+        :param spec: See HostNicOrderPolicy
+
         '''
         
-        return self.delegate("RefreshNetworkSystem")()
+        return self.delegate("RefreshNetworkSystem")(vswitchName,spec)
         
 
-    def RemovePortGroup(self):
+    def RemovePortGroup(self, vswitchName, spec):
         '''Removes port group from the virtual switch.
-        '''
-        
-        return self.delegate("RemovePortGroup")()
-        
 
-    def RemoveServiceConsoleVirtualNic(self, device):
-        '''Removes a virtual service console network adapter.See usesServiceConsoleNic
+        :param vswitchName: See HostNicOrderPolicy
 
-        :param device: See usesServiceConsoleNic
+        :param spec: See HostNicOrderPolicy
 
         '''
         
-        return self.delegate("RemoveServiceConsoleVirtualNic")(device)
+        return self.delegate("RemovePortGroup")(vswitchName,spec)
         
 
-    def RemoveVirtualNic(self):
+    def RemoveServiceConsoleVirtualNic(self, vswitchName, spec):
+        '''Removes a virtual service console network adapter. See usesServiceConsoleNic
+
+        :param vswitchName: See HostNicOrderPolicy
+
+        :param spec: See HostNicOrderPolicy
+
+        '''
+        
+        return self.delegate("RemoveServiceConsoleVirtualNic")(vswitchName,spec)
+        
+
+    def RemoveVirtualNic(self, vswitchName, spec):
         '''Removes a virtual host/VMkernel network adapter.
+
+        :param vswitchName: See HostNicOrderPolicy
+
+        :param spec: See HostNicOrderPolicy
+
         '''
         
-        return self.delegate("RemoveVirtualNic")()
+        return self.delegate("RemoveVirtualNic")(vswitchName,spec)
         
 
-    def RemoveVirtualSwitch(self):
+    def RemoveVirtualSwitch(self, vswitchName, spec):
         '''Removes an existing virtual switch from the system.
+
+        :param vswitchName: See HostNicOrderPolicy
+
+        :param spec: See HostNicOrderPolicy
+
         '''
         
-        return self.delegate("RemoveVirtualSwitch")()
+        return self.delegate("RemoveVirtualSwitch")(vswitchName,spec)
         
 
-    def RestartServiceConsoleVirtualNic(self, device):
+    def RestartServiceConsoleVirtualNic(self, vswitchName, spec):
         '''Restart the service console virtual network adapter interface. If the service
         console virtual network adapter uses DHCP, restarting the interface may
         result it with a different IP configuration, or even fail to be brought up
-        depending on the host system network configuration.See
+        depending on the host system network configuration. See
         usesServiceConsoleNic
 
-        :param device: See usesServiceConsoleNic
+        :param vswitchName: See HostNicOrderPolicy
+
+        :param spec: See HostNicOrderPolicy
 
         '''
         
-        return self.delegate("RestartServiceConsoleVirtualNic")(device)
+        return self.delegate("RestartServiceConsoleVirtualNic")(vswitchName,spec)
         
 
-    def UpdateConsoleIpRouteConfig(self):
+    def UpdateConsoleIpRouteConfig(self, vswitchName, spec):
         '''Applies the IP route configuration for the service console.
+
+        :param vswitchName: See HostNicOrderPolicy
+
+        :param spec: See HostNicOrderPolicy
+
         '''
         
-        return self.delegate("UpdateConsoleIpRouteConfig")()
+        return self.delegate("UpdateConsoleIpRouteConfig")(vswitchName,spec)
         
 
-    def UpdateDnsConfig(self):
+    def UpdateDnsConfig(self, vswitchName, spec):
         '''Applies the client-side DNS configuration for the host.
+
+        :param vswitchName: See HostNicOrderPolicy
+
+        :param spec: See HostNicOrderPolicy
+
         '''
         
-        return self.delegate("UpdateDnsConfig")()
+        return self.delegate("UpdateDnsConfig")(vswitchName,spec)
         
 
-    def UpdateIpRouteConfig(self):
+    def UpdateIpRouteConfig(self, vswitchName, spec):
         '''Applies the IP route configuration for the host.
+
+        :param vswitchName: See HostNicOrderPolicy
+
+        :param spec: See HostNicOrderPolicy
+
         '''
         
-        return self.delegate("UpdateIpRouteConfig")()
+        return self.delegate("UpdateIpRouteConfig")(vswitchName,spec)
         
 
-    def UpdateIpRouteTableConfig(self):
+    def UpdateIpRouteTableConfig(self, vswitchName, spec):
         '''Applies the IP route table configuration for the host.
+
+        :param vswitchName: See HostNicOrderPolicy
+
+        :param spec: See HostNicOrderPolicy
+
         '''
         
-        return self.delegate("UpdateIpRouteTableConfig")()
+        return self.delegate("UpdateIpRouteTableConfig")(vswitchName,spec)
         
 
-    def UpdateNetworkConfig(self, config, changeMode):
+    def UpdateNetworkConfig(self, vswitchName, spec):
         '''Applies the network configuration. This method operates primarily in two modes:
         replace or modify mode.
 
-        :param config: See HostConfigChangeMode
+        :param vswitchName: See HostNicOrderPolicy
 
-        :param changeMode: See HostConfigChangeMode
-
-
-        :rtype: HostNetworkConfigResult 
+        :param spec: See HostNicOrderPolicy
 
         '''
         
-        return self.delegate("UpdateNetworkConfig")(config,changeMode)
+        return self.delegate("UpdateNetworkConfig")(vswitchName,spec)
         
 
-    def UpdatePhysicalNicLinkSpeed(self, device, linkSpeed):
+    def UpdatePhysicalNicLinkSpeed(self, vswitchName, spec):
         '''Configures link speed and duplexity. If linkSpeed is not specified, physical
-        network adapter will be set to autonegotiate.See
+        network adapter will be set to autonegotiate. See
         canSetPhysicalNicLinkSpeed
 
-        :param device: See canSetPhysicalNicLinkSpeed
+        :param vswitchName: See HostNicOrderPolicy
 
-        :param linkSpeed: See canSetPhysicalNicLinkSpeed
+        :param spec: See HostNicOrderPolicy
 
         '''
         
-        return self.delegate("UpdatePhysicalNicLinkSpeed")(device,linkSpeed)
+        return self.delegate("UpdatePhysicalNicLinkSpeed")(vswitchName,spec)
         
 
-    def UpdatePortGroup(self):
+    def UpdatePortGroup(self, vswitchName, spec):
         '''Reconfigures a port group on the virtual switch.
+
+        :param vswitchName: See HostNicOrderPolicy
+
+        :param spec: See HostNicOrderPolicy
+
         '''
         
-        return self.delegate("UpdatePortGroup")()
+        return self.delegate("UpdatePortGroup")(vswitchName,spec)
         
 
-    def UpdateServiceConsoleVirtualNic(self, device, nic):
+    def UpdateServiceConsoleVirtualNic(self, vswitchName, spec):
         '''Configures the IP configuration for a virtual service console network adapter.IP
         configuration is required although it does not have to be enabled if the
         host is an ESX Server system. The dynamic privilege check will check that
         the users have Network.Assign privilege on the DVPortGroup or the DVS if
-        the port resides on a DVPortGroup or is a stand-alone DVS port.See
+        the port resides on a DVPortGroup or is a stand-alone DVS port. See
         usesServiceConsoleNic
 
-        :param device: See usesServiceConsoleNic
+        :param vswitchName: See HostNicOrderPolicy
 
-        :param nic: See usesServiceConsoleNic
+        :param spec: See HostNicOrderPolicy
 
         '''
         
-        return self.delegate("UpdateServiceConsoleVirtualNic")(device,nic)
+        return self.delegate("UpdateServiceConsoleVirtualNic")(vswitchName,spec)
         
 
-    def UpdateVirtualNic(self):
+    def UpdateVirtualNic(self, vswitchName, spec):
         '''Configures virtual host/VMkernel network adapter.IP configuration is required
         although it does not have to be enabled if the host is an ESX Server
         system. The dynamic privilege check will ensure that users have
@@ -286,9 +336,14 @@ class HostNetworkSystem(ExtensibleManagedObject):
         the connecting DVPortGroup, or DVS if connecting to a standalone DVPort.
         Network.Assign privilege is not required for operations on standard
         network.
+
+        :param vswitchName: See HostNicOrderPolicy
+
+        :param spec: See HostNicOrderPolicy
+
         '''
         
-        return self.delegate("UpdateVirtualNic")()
+        return self.delegate("UpdateVirtualNic")(vswitchName,spec)
         
 
     def UpdateVirtualSwitch(self, vswitchName, spec):
@@ -299,7 +354,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
         the network adapter order policy. If a network adapter is removed from the
         bridge configuration, then the network adapter is removed from the network
         adapter teaming order.The BondBridge configuration is the only valid
-        bridge configuration for an ESX Server system.See HostNicOrderPolicy
+        bridge configuration for an ESX Server system. See HostNicOrderPolicy
 
         :param vswitchName: See HostNicOrderPolicy
 

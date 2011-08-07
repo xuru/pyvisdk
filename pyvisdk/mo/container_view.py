@@ -10,9 +10,15 @@ import logging
 log = logging.getLogger(__name__)
 
 class ContainerView(ManagedObjectView):
-    '''When you invoke the CreateContainerView method, you specify a managed object
-        instance that provides the starting point for object selection. You can
-        use the following managed objects as the basis of a container view:
+    '''The ContainerView managed object provides a means of monitoring the contents of a
+        single container and, optionally, other containers. You can use a
+        ContainerView with a ViewManager.When you invoke the CreateContainerView
+        method, you specify a managed object instance that provides the starting
+        point for object selection. You can use the following managed objects as
+        the basis of a container view:* Folder * Datacenter * ComputeResource *
+        ResourcePool * HostSystemOnce you have created the view, the view list
+        always represents the current configuration of the virtual environment and
+        reflects any subsequent changes that occur.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ContainerView):
         # MUST define these

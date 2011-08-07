@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class ProfileComplianceManager(BaseEntity):
-    '''Properties
+    '''Interface handling the Compliance aspects of entities.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ProfileComplianceManager):
         # MUST define these
@@ -18,54 +18,46 @@ class ProfileComplianceManager(BaseEntity):
     
     
 
-    def CheckCompliance_Task(self, profile, entity):
+    def CheckCompliance_Task(self, expressionName):
         '''Check compliance of an entity against a Profile.
 
-        :param profile: If specified, check compliance against the specified profiles. If not specified,
-        use the profiles associated with the entities. If both Profiles and
-        Entities are specified, Check the compliance of each Entity against each
-        of the profile specified. For more information, look at the KMap below. P
-        represents if Profile is specified. E represents if Entity is specified.
-
-        :param entity: If specified, the compliance check is done against this entity.
+        :param expressionName: Names of the Expressions for which metadata is requested. If expressionNames are
+        not specified, metadata for all known expressions is returned
 
 
-        :rtype: Task 
+        :rtype: ProfileExpressionMetadata[] 
 
         '''
         
-        return self.delegate("CheckCompliance_Task")(profile,entity)
+        return self.delegate("CheckCompliance_Task")(expressionName)
         
 
-    def ClearComplianceStatus(self, profile, entity):
+    def ClearComplianceStatus(self, expressionName):
         '''Clear the saved ComplianceResult based on profile and entity filtering criteria.
 
-        :param profile: If specified, clear the ComplianceResult related to the Profile.
+        :param expressionName: Names of the Expressions for which metadata is requested. If expressionNames are
+        not specified, metadata for all known expressions is returned
 
-        :param entity: If specified, clear the ComplianceResult related to the entity. If profile and
-        entity are not specified, all the ComplianceResults will be cleared.
+
+        :rtype: ProfileExpressionMetadata[] 
 
         '''
         
-        return self.delegate("ClearComplianceStatus")(profile,entity)
+        return self.delegate("ClearComplianceStatus")(expressionName)
         
 
-    def QueryComplianceStatus(self, profile, entity):
+    def QueryComplianceStatus(self, expressionName):
         '''Query the compliance status based on Profile and Entity filter.
 
-        :param profile: If specified, compliance result for the specified profiles will be returned. This
-        acts like a filtering criteria for the ComplianceResults based on
-        specified profiles.
-
-        :param entity: If specified, compliance results for these entities will be returned. This acts
-        like a filtering criteria for the ComplianceResults based on entities.
+        :param expressionName: Names of the Expressions for which metadata is requested. If expressionNames are
+        not specified, metadata for all known expressions is returned
 
 
-        :rtype: ComplianceResult[] 
+        :rtype: ProfileExpressionMetadata[] 
 
         '''
         
-        return self.delegate("QueryComplianceStatus")(profile,entity)
+        return self.delegate("QueryComplianceStatus")(expressionName)
         
 
     def QueryExpressionMetadata(self, expressionName):

@@ -10,9 +10,16 @@ import logging
 log = logging.getLogger(__name__)
 
 class VirtualDiskManager(BaseEntity):
-    '''This managed object type provides a way to manage and manipulate virtual disks on
-        datastores. The source and the destination names are in the form of a URL
-        or a datastore path.
+    '''NOTE: This managed object type and all of its methods are experimental and subject
+        to change in future releases.This managed object type provides a way to
+        manage and manipulate virtual disks on datastores. The source and the
+        destination names are in the form of a URL or a datastore path.A URL has
+        the formwhere* is or . * specifies the hostname or IP address of the
+        VirtualCenter or ESX server and optionally the port. * is the inventory
+        path to the Datacenter containing the Datastore. * is the name of the
+        Datastore. * is a slash-delimited path from the root of the datastore.A
+        datastore path has the formwhere* is the datastore name. * is a slash-
+        delimited path from the root of the datastore.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.VirtualDiskManager):
         # MUST define these
@@ -20,60 +27,45 @@ class VirtualDiskManager(BaseEntity):
     
     
 
-    def CopyVirtualDisk_Task(self, sourceName, sourceDatacenter, destName, destDatacenter, destSpec, force):
+    def CopyVirtualDisk_Task(self, name, datacenter):
         '''Copy a virtual disk, performing conversions as specified in the spec.If source (or
         destination) name is specified as a URL, then the corresponding datacenter
         parameter may be omitted.Requires Datastore.FileManagement privilege on
         both source and destination datastores.Experimental. Subject to change
 
-        :param sourceName: The name of the source, either a datastore path or a URL referring to the virtual
-        disk to be copied.
+        :param name: The name of the disk, either a datastore path or a URL referring to the virtual
+        disk whose blocks should be overwritten with zeroes.
 
-        :param sourceDatacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter,must
-        be a URL.
-
-        :param destName: The name of the destination, either a datastore path or a URL referring to the
-        virtual disk to be created.
-
-        :param destDatacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter, it
-        is assumed that the destination path belongs to the source datacenter.
-
-        :param destSpec: The specification of the virtual disk to be created. If not specified, a
-        preallocated format and busLogic adapter type is assumed.
-
-        :param force: If true, overwrite any indentically named disk at the destination. If not
-        specified, it is assumed to be false
+        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not
+        needed when invoked directly on ESX. If not specified on a call to
+        VirtualCenter,must be a URL.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("CopyVirtualDisk_Task")(sourceName,sourceDatacenter,destName,destDatacenter,destSpec,force)
+        return self.delegate("CopyVirtualDisk_Task")(name,datacenter)
         
 
-    def CreateVirtualDisk_Task(self, name, datacenter, spec):
+    def CreateVirtualDisk_Task(self, name, datacenter):
         '''Create a virtual disk.The datacenter parameter may be omitted if a URL is used to
         name the disk.Requires Datastore.FileManagement privilege on the datastore
         where the virtual disk is created.Experimental. Subject to change
 
         :param name: The name of the disk, either a datastore path or a URL referring to the virtual
-        disk to be created.
+        disk whose blocks should be overwritten with zeroes.
 
-        :param datacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter,must
-        be a URL.
-
-        :param spec: The specification of the virtual disk to be created.
+        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not
+        needed when invoked directly on ESX. If not specified on a call to
+        VirtualCenter,must be a URL.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("CreateVirtualDisk_Task")(name,datacenter,spec)
+        return self.delegate("CreateVirtualDisk_Task")(name,datacenter)
         
 
     def DefragmentVirtualDisk_Task(self, name, datacenter):
@@ -85,14 +77,14 @@ class VirtualDiskManager(BaseEntity):
         resides.Experimental. Subject to change
 
         :param name: The name of the disk, either a datastore path or a URL referring to the virtual
-        disk that should be defragmented.
+        disk whose blocks should be overwritten with zeroes.
 
-        :param datacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter,must
-        be a URL.
+        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not
+        needed when invoked directly on ESX. If not specified on a call to
+        VirtualCenter,must be a URL.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
@@ -106,14 +98,14 @@ class VirtualDiskManager(BaseEntity):
         the virtual disk is removed.Experimental. Subject to change
 
         :param name: The name of the disk, either a datastore path or a URL referring to the virtual
-        disk to be deleted.
+        disk whose blocks should be overwritten with zeroes.
 
-        :param datacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter,must
-        be a URL.
+        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not
+        needed when invoked directly on ESX. If not specified on a call to
+        VirtualCenter,must be a URL.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
@@ -129,21 +121,21 @@ class VirtualDiskManager(BaseEntity):
         where the virtual disk resides.Experimental. Subject to change
 
         :param name: The name of the disk, either a datastore path or a URL referring to the virtual
-        disk that should be inflated.
+        disk whose blocks should be overwritten with zeroes.
 
-        :param datacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter,must
-        be a URL.
+        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not
+        needed when invoked directly on ESX. If not specified on a call to
+        VirtualCenter,must be a URL.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
         return self.delegate("EagerZeroVirtualDisk_Task")(name,datacenter)
         
 
-    def ExtendVirtualDisk_Task(self, name, datacenter, newCapacityKb, eagerZero):
+    def ExtendVirtualDisk_Task(self, name, datacenter):
         '''Expand the capacity of a virtual disk to the new capacity. If the eagerZero flag
         is not specified, - the extended disk region of a zerothick disk will be
         zeroedthick - the extended disk region of a eagerzerothick disk will be
@@ -157,23 +149,18 @@ class VirtualDiskManager(BaseEntity):
         the virtual disk resides.Experimental. Subject to change
 
         :param name: The name of the disk, either a datastore path or a URL referring to the virtual
-        disk whose capacity should be expanded.
+        disk whose blocks should be overwritten with zeroes.
 
-        :param datacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter,must
-        be a URL.
-
-        :param newCapacityKb: The new capacty of the virtual disk in Kb.
-
-        :param eagerZero: If true, the extended part of the disk will be explicitly filled with
-        zeroes.vSphere API 4.0
+        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not
+        needed when invoked directly on ESX. If not specified on a call to
+        VirtualCenter,must be a URL.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("ExtendVirtualDisk_Task")(name,datacenter,newCapacityKb,eagerZero)
+        return self.delegate("ExtendVirtualDisk_Task")(name,datacenter)
         
 
     def InflateVirtualDisk_Task(self, name, datacenter):
@@ -184,48 +171,38 @@ class VirtualDiskManager(BaseEntity):
         where the virtual disk resides.Experimental. Subject to change
 
         :param name: The name of the disk, either a datastore path or a URL referring to the virtual
-        disk that should be inflated.
+        disk whose blocks should be overwritten with zeroes.
 
-        :param datacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter,must
-        be a URL.
+        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not
+        needed when invoked directly on ESX. If not specified on a call to
+        VirtualCenter,must be a URL.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
         return self.delegate("InflateVirtualDisk_Task")(name,datacenter)
         
 
-    def MoveVirtualDisk_Task(self, sourceName, sourceDatacenter, destName, destDatacenter, force):
+    def MoveVirtualDisk_Task(self, name, datacenter):
         '''Move a virtual disk and all related files from the source location specified by
         sourceName and sourceDatacenter to the destination location specified by
         destName and destDatacenter.
 
-        :param sourceName: The name of the source, either a datastore path or a URL referring to the virtual
-        disk to be moved.
+        :param name: The name of the disk, either a datastore path or a URL referring to the virtual
+        disk whose blocks should be overwritten with zeroes.
 
-        :param sourceDatacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter,must
-        be a URL.
-
-        :param destName: The name of the destination, either a datastore path or a URL referring to the
-        destination virtual disk.
-
-        :param destDatacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter, it
-        is assumed that the destination path belongs to the source datacenter.
-
-        :param force: If true, overwrite any indentically named disk at the destination. If not
-        specified, it is assumed to be false
+        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not
+        needed when invoked directly on ESX. If not specified on a call to
+        VirtualCenter,must be a URL.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("MoveVirtualDisk_Task")(sourceName,sourceDatacenter,destName,destDatacenter,force)
+        return self.delegate("MoveVirtualDisk_Task")(name,datacenter)
         
 
     def QueryVirtualDiskFragmentation(self, name, datacenter):
@@ -237,14 +214,14 @@ class VirtualDiskManager(BaseEntity):
         where the virtual disk resides.Experimental. Subject to change
 
         :param name: The name of the disk, either a datastore path or a URL referring to the virtual
-        disk for which to return the percentage of fragmentation.
+        disk whose blocks should be overwritten with zeroes.
 
-        :param datacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter,must
-        be a URL.
+        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not
+        needed when invoked directly on ESX. If not specified on a call to
+        VirtualCenter,must be a URL.
 
 
-        :rtype: xsd:int 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
@@ -258,14 +235,14 @@ class VirtualDiskManager(BaseEntity):
         resides.Experimental. Subject to change
 
         :param name: The name of the disk, either a datastore path or a URL referring to the virtual
-        disk from which to get geometry information.
+        disk whose blocks should be overwritten with zeroes.
 
-        :param datacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter,must
-        be a URL.
+        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not
+        needed when invoked directly on ESX. If not specified on a call to
+        VirtualCenter,must be a URL.
 
 
-        :rtype: HostDiskDimensionsChs 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
@@ -279,41 +256,42 @@ class VirtualDiskManager(BaseEntity):
         resides.Experimental. Subject to change
 
         :param name: The name of the disk, either a datastore path or a URL referring to the virtual
-        disk from which to get SCSI inquiry page 0x83 data.
+        disk whose blocks should be overwritten with zeroes.
 
-        :param datacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter,must
-        be a URL.
+        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not
+        needed when invoked directly on ESX. If not specified on a call to
+        VirtualCenter,must be a URL.
 
 
-        :rtype: xsd:string 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
         return self.delegate("QueryVirtualDiskUuid")(name,datacenter)
         
 
-    def SetVirtualDiskUuid(self, name, datacenter, uuid):
+    def SetVirtualDiskUuid(self, name, datacenter):
         '''Set the virtual disk SCSI inquiry page 0x83 data.The datacenter parameter may be
         omitted if a URL is used to name the disk.Requires
         Datastore.FileManagement privilege on the datastore where the virtual disk
         resides.Experimental. Subject to change
 
         :param name: The name of the disk, either a datastore path or a URL referring to the virtual
-        disk whose SCSI inquiry page 0x83 data should be set.
+        disk whose blocks should be overwritten with zeroes.
 
-        :param datacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter,must
-        be a URL.
+        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not
+        needed when invoked directly on ESX. If not specified on a call to
+        VirtualCenter,must be a URL.
 
-        :param uuid: The hex representation of the unique ID for this virtual disk.
+
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("SetVirtualDiskUuid")(name,datacenter,uuid)
+        return self.delegate("SetVirtualDiskUuid")(name,datacenter)
         
 
-    def ShrinkVirtualDisk_Task(self, name, datacenter, copy):
+    def ShrinkVirtualDisk_Task(self, name, datacenter):
         '''Shrink a sparse virtual disk.The datacenter parameter may be omitted if a URL is
         used to name the disk.The optional parameter copy specifies whether to
         shrink the disk in copy-shrink mode or in-place mode. In copy-shrink mode,
@@ -323,21 +301,18 @@ class VirtualDiskManager(BaseEntity):
         shrink if the parameter is not specified.
 
         :param name: The name of the disk, either a datastore path or a URL referring to the virtual
-        disk that should be shrink.
+        disk whose blocks should be overwritten with zeroes.
 
-        :param datacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter,must
-        be a URL.
-
-        :param copy: If true or omitted, performs shrink in copy-shrink mode, otherwise shrink in in-
-        place mode.
+        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not
+        needed when invoked directly on ESX. If not specified on a call to
+        VirtualCenter,must be a URL.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("ShrinkVirtualDisk_Task")(name,datacenter,copy)
+        return self.delegate("ShrinkVirtualDisk_Task")(name,datacenter)
         
 
     def ZeroFillVirtualDisk_Task(self, name, datacenter):
@@ -349,12 +324,12 @@ class VirtualDiskManager(BaseEntity):
         :param name: The name of the disk, either a datastore path or a URL referring to the virtual
         disk whose blocks should be overwritten with zeroes.
 
-        :param datacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when
-        invoked directly on ESX. If not specified on a call to VirtualCenter,must
-        be a URL.
+        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not
+        needed when invoked directly on ESX. If not specified on a call to
+        VirtualCenter,must be a URL.
 
 
-        :rtype: Task 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         

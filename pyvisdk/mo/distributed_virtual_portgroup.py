@@ -10,7 +10,9 @@ import logging
 log = logging.getLogger(__name__)
 
 class DistributedVirtualPortgroup(Network):
-    '''Properties
+    '''The interface to the distributed virtual portgroup objects. This type represents
+        both a group of ports that share the common network setting and a Network
+        entity in the datacenter.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.DistributedVirtualPortgroup):
         # MUST define these

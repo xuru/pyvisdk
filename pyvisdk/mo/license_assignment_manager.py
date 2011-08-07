@@ -10,7 +10,7 @@ import logging
 log = logging.getLogger(__name__)
 
 class LicenseAssignmentManager(BaseEntity):
-    '''Properties
+    '''
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.LicenseAssignmentManager):
         # MUST define these
@@ -18,27 +18,38 @@ class LicenseAssignmentManager(BaseEntity):
     
     
 
-    def QueryAssignedLicenses(self, entityId):
+    def QueryAssignedLicenses(self, entity, licenseKey, entityDisplayName):
         '''Get information about all the licenses associated with an entity
 
-        :param entityId: ID of the entity. E.g. HostSystem.
+        :param entity: ID of the entity. E.g. HostSystem.
+
+        :param licenseKey: A license.
+
+        :param entityDisplayName: Display name for the entity
 
 
-        :rtype: LicenseAssignmentManagerLicenseAssignment[] 
+        :rtype: LicenseManagerLicenseInfo 
 
         '''
         
-        return self.delegate("QueryAssignedLicenses")(entityId)
+        return self.delegate("QueryAssignedLicenses")(entity,licenseKey,entityDisplayName)
         
 
-    def RemoveAssignedLicense(self, entityId):
+    def RemoveAssignedLicense(self, entity, licenseKey, entityDisplayName):
         '''Remove licenses associated with an entity
 
-        :param entityId: ID of the entity. E.g. HostSystem.
+        :param entity: ID of the entity. E.g. HostSystem.
+
+        :param licenseKey: A license.
+
+        :param entityDisplayName: Display name for the entity
+
+
+        :rtype: LicenseManagerLicenseInfo 
 
         '''
         
-        return self.delegate("RemoveAssignedLicense")(entityId)
+        return self.delegate("RemoveAssignedLicense")(entity,licenseKey,entityDisplayName)
         
 
     def UpdateAssignedLicense(self, entity, licenseKey, entityDisplayName):

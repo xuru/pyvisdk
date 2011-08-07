@@ -10,7 +10,8 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostVirtualNicManager(ExtensibleManagedObject):
-    '''Properties
+    '''The VirtualNicManager managed object describes the special vnic configuration of
+        the host.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostVirtualNicManager):
         # MUST define these
@@ -27,7 +28,7 @@ class HostVirtualNicManager(ExtensibleManagedObject):
     def DeselectVnicForNicType(self, nicType, device):
         '''Deselect the VirtualNic to be a special type.
 
-        :param nicType: The type of VirtualNic that would be deselected
+        :param nicType: The type of VirtualNic that would be selected
 
         :param device: The device that uniquely identifies the VirtualNic.
 
@@ -36,17 +37,16 @@ class HostVirtualNicManager(ExtensibleManagedObject):
         return self.delegate("DeselectVnicForNicType")(nicType,device)
         
 
-    def QueryNetConfig(self, nicType):
+    def QueryNetConfig(self, nicType, device):
         '''Get the NetConfig for the specified nicType
 
-        :param nicType: The NicType
+        :param nicType: The type of VirtualNic that would be selected
 
-
-        :rtype: VirtualNicManagerNetConfig 
+        :param device: The device that uniquely identifies the VirtualNic.
 
         '''
         
-        return self.delegate("QueryNetConfig")(nicType)
+        return self.delegate("QueryNetConfig")(nicType,device)
         
 
     def SelectVnicForNicType(self, nicType, device):
