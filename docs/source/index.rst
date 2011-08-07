@@ -13,6 +13,7 @@ insight into how the API works.
 Features
 --------
 
+* Pure Python implementation.
 * A more Object Oriented approach to interfacing with the web services API.
 * Knowledge of the inner workings of the API is not needed.
 * Simple and clean interface.
@@ -35,7 +36,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-
-* `Source on GitHub`__
-* `Documentation on GitHub`__
