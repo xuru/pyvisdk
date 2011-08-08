@@ -39,47 +39,59 @@ class EventManager(BaseEntity):
         return self.update('maxCollector')
 
 
-    def CreateCollectorForEvents(self):
+    def CreateCollectorForEvents(self, filter):
         '''Creates an event history collector, which is a specialized history collector that
         provides Event objects.Event collectors do not persist beyond the current
         client session.
 
-        :rtype: EventArgDesc[] 
+        :param filter: The event query filter.
+
+
+        :rtype: ManagedObjectReference to a EventHistoryCollector 
 
         '''
         
-        return self.delegate("CreateCollectorForEvents")()
+        return self.delegate("CreateCollectorForEvents")(filter)
         
 
-    def LogUserEvent(self):
+    def LogUserEvent(self, entity, msg):
         '''Logs a user defined event against a particular managed entity.
 
-        :rtype: EventArgDesc[] 
+        :param entity: to a ManagedEntityThe entity against which the event is logged. The entity must be
+        the root folder, a DataCenter, a VirtualMachine, a HostSystem, or a
+        ComputeResource.
+
+        :param msg: The message to be logged.
 
         '''
         
-        return self.delegate("LogUserEvent")()
+        return self.delegate("LogUserEvent")(entity,msg)
         
 
-    def PostEvent(self):
+    def PostEvent(self, eventToPost, taskInfo):
         '''Posts the specified event, optionally associating it with a Task.
 
-        :rtype: EventArgDesc[] 
+        :param eventToPost: Fully-specified event to post
+
+        :param taskInfo: Task associated with the event
 
         '''
         
-        return self.delegate("PostEvent")()
+        return self.delegate("PostEvent")(eventToPost,taskInfo)
         
 
-    def QueryEvents(self):
+    def QueryEvents(self, filter):
         '''Returns the events in specified filter. Returns empty array when there are not any
         events qualified.
 
-        :rtype: EventArgDesc[] 
+        :param filter: The events qualified.
+
+
+        :rtype: Event[] 
 
         '''
         
-        return self.delegate("QueryEvents")()
+        return self.delegate("QueryEvents")(filter)
         
 
     def RetrieveArgumentDescription(self):

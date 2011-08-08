@@ -29,28 +29,22 @@ class HostAutoStartManager(BaseEntity):
         return self.update('config')
 
 
-    def AutoStartPowerOff(self, spec):
+    def AutoStartPowerOff(self):
         '''Powers-off virtual machines according to the current AutoStart configuration.See
         the description of the (@link vim.host.AutoStartManager.AutoPowerInfo)
         data object type for more information on Auto power-off behavior.
-
-        :param spec: List of changes to defaults and auto-start/auto-stop order.
-
         '''
         
-        return self.delegate("AutoStartPowerOff")(spec)
+        return self.delegate("AutoStartPowerOff")()
         
 
-    def AutoStartPowerOn(self, spec):
+    def AutoStartPowerOn(self):
         '''Powers-on virtual machines according to the current AutoStart configuration.See
         the description of the (@link vim.host.AutoStartManager.AutoPowerInfo)
         data object type for more information on Auto power-on behavior.
-
-        :param spec: List of changes to defaults and auto-start/auto-stop order.
-
         '''
         
-        return self.delegate("AutoStartPowerOn")(spec)
+        return self.delegate("AutoStartPowerOn")()
         
 
     def ReconfigureAutostart(self, spec):

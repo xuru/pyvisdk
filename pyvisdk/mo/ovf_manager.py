@@ -58,7 +58,7 @@ class OvfManager(BaseEntity):
     
     
 
-    def CreateDescriptor(self, ovfDescriptor, host, vhp):
+    def CreateDescriptor(self, obj, cdp):
         '''Create an OVF descriptor for the specified ManagedEntity, which may be a
         VirtualMachine or a VirtualApp.To create the complete OVF descriptor, the
         client must already have downloaded the files that are part of the entity,
@@ -73,39 +73,43 @@ class OvfManager(BaseEntity):
         the entity given to it by VirtualMachine.exportVm or
         VirtualApp.exportVApp.
 
-        :param ovfDescriptor: The OVF descriptor to examine.
+        :param obj: to a ManagedEntityThe entity to export. Supported types are VirtualMachine and
+        VirtualApp.
 
-        :param host: to a HostSystemThe host to validate against.
-
-        :param vhp: Additional parameters for validateHost, wrapped in a ValidateHostParams instance.
+        :param cdp: Parameters to the method, bundled in an instance of CreateDescriptorParams.
 
 
-        :rtype: OvfValidateHostResult 
+        :rtype: OvfCreateDescriptorResult 
 
         '''
         
-        return self.delegate("CreateDescriptor")(ovfDescriptor,host,vhp)
+        return self.delegate("CreateDescriptor")(obj,cdp)
         
 
-    def CreateImportSpec(self, ovfDescriptor, host, vhp):
+    def CreateImportSpec(self, ovfDescriptor, resourcePool, datastore, cisp):
         '''Validate the OVF descriptor against the hardware supported by the host system. If
         the validation succeeds, return a result containing:
 
-        :param ovfDescriptor: The OVF descriptor to examine.
+        :param ovfDescriptor: The OVF descriptor of the entity.
 
-        :param host: to a HostSystemThe host to validate against.
+        :param resourcePool: to a ResourcePoolThe resource pool to import the entity to. May be a vApp.
 
-        :param vhp: Additional parameters for validateHost, wrapped in a ValidateHostParams instance.
+        :param datastore: to a DatastoreThe datastore on which to create the inventory objects of the
+        entity, for example "storage1". The privilege Datastore.AllocateSpace is
+        required on the datastore.
+
+        :param cisp: Additional parameters to the method, bundled in an instance of
+        CreateImportSpecParams.
 
 
-        :rtype: OvfValidateHostResult 
+        :rtype: OvfCreateImportSpecResult 
 
         '''
         
-        return self.delegate("CreateImportSpec")(ovfDescriptor,host,vhp)
+        return self.delegate("CreateImportSpec")(ovfDescriptor,resourcePool,datastore,cisp)
         
 
-    def ParseDescriptor(self, ovfDescriptor, host, vhp):
+    def ParseDescriptor(self, ovfDescriptor, pdp):
         '''Parse the OVF descriptor and return as much information about it as possible
         without knowing the host on which it will be imported.Typically, this
         method is called once without a deploymentOption parameter to obtain the
@@ -115,16 +119,15 @@ class OvfManager(BaseEntity):
 
         :param ovfDescriptor: The OVF descriptor to examine.
 
-        :param host: to a HostSystemThe host to validate against.
+        :param pdp: Additional parameters for parseDescriptor, wrapped in an instance of
+        ParseDescriptorParams.
 
-        :param vhp: Additional parameters for validateHost, wrapped in a ValidateHostParams instance.
 
-
-        :rtype: OvfValidateHostResult 
+        :rtype: OvfParseDescriptorResult 
 
         '''
         
-        return self.delegate("ParseDescriptor")(ovfDescriptor,host,vhp)
+        return self.delegate("ParseDescriptor")(ovfDescriptor,pdp)
         
 
     def ValidateHost(self, ovfDescriptor, host, vhp):

@@ -108,7 +108,7 @@ class ResourcePool(ManagedEntity):
         return self.update('vm')
 
 
-    def CreateChildVM_Task(self, name, config):
+    def CreateChildVM_Task(self, config, host):
         '''Creates a new virtual machine in a vApp container.This method supports creating a
         virtual machine directly in a vApp. A virtual machine in a vApp is not
         associated with a VM folder and therefore cannot be created using the
@@ -121,74 +121,90 @@ class ResourcePool(ManagedEntity):
         additional privileges may be required. See CreateVM_Task for a description
         of these privileges.
 
-        :param name: If set, then the new name of the resource pool.
+        :param config: The configuration of the virtual machine hardware.
 
-        :param config: If set, then the new resource allocation for this resource pool.
+        :param host: to a HostSystemThe target host on which the virtual machine will run. This must
+        specify a host that is a member of the ComputeResource indirectly
+        specified by the pool. For a stand-alone host or a cluster with DRS, host
+        can be omitted, and the system selects a default.
+
+
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("CreateChildVM_Task")(name,config)
+        return self.delegate("CreateChildVM_Task")(config,host)
         
 
-    def CreateResourcePool(self, name, config):
+    def CreateResourcePool(self):
         '''Creates a new resource pool.In the ResourceConfigSpec, all values in
         ResourceAllocationInfo must be supplied; they are not optional.Any %
         (percent) character used in this name parameter must be escaped, unless it
         is used to start an escape sequence. Clients may also escape any other
         characters in this name parameter.
 
-        :param name: If set, then the new name of the resource pool.
-
-        :param config: If set, then the new resource allocation for this resource pool.
+        :rtype: ManagedObjectReference to a ResourcePool 
 
         '''
         
-        return self.delegate("CreateResourcePool")(name,config)
+        return self.delegate("CreateResourcePool")()
         
 
-    def CreateVApp(self, name, config):
+    def CreateVApp(self, name, resSpec, configSpec, vmFolder):
         '''Creates a new vApp container.Any % (percent) character used in this name parameter
         must be escaped, unless it is used to start an escape sequence. Clients
         may also escape any other characters in this name parameter.
 
-        :param name: If set, then the new name of the resource pool.
+        :param name: The name of the vApp container in the inventory
 
-        :param config: If set, then the new resource allocation for this resource pool.
+        :param resSpec: The resource configuration for the vApp container (same as for a regular resource
+        pool).
+
+        :param configSpec: The specification of the vApp specific meta-data.
+
+        :param vmFolder: to a FolderThe parent folder for the vApp. This must be null if this is a child
+        vApp.
+
+
+        :rtype: ManagedObjectReference to a VirtualApp 
 
         '''
         
-        return self.delegate("CreateVApp")(name,config)
+        return self.delegate("CreateVApp")(name,resSpec,configSpec,vmFolder)
         
 
-    def DestroyChildren(self, name, config):
+    def DestroyChildren(self):
         '''Removes all child resource pools recursively. All virtual machines and vApps
         associated with the child resource pools get associated with this resource
         pool.Note that resource pools contained in child vApps are not
         affected.The privilege checks performed are the following.
-
-        :param name: If set, then the new name of the resource pool.
-
-        :param config: If set, then the new resource allocation for this resource pool.
-
         '''
         
-        return self.delegate("DestroyChildren")(name,config)
+        return self.delegate("DestroyChildren")()
         
 
-    def ImportVApp(self, name, config):
+    def ImportVApp(self, spec, folder, host):
         '''Creates a new entity in this resource pool. The import process consists of two
         steps:
 
-        :param name: If set, then the new name of the resource pool.
+        :param spec: An ImportSpec describing what to import.
 
-        :param config: If set, then the new resource allocation for this resource pool.
+        :param folder: to a FolderThe folder to which the entity will be attached.
+
+        :param host: to a HostSystemThe target host on which the entity will run. This must specify a
+        host that is a member of the ComputeResource indirectly specified by the
+        pool. For a stand-alone host or a cluster with DRS, host can be omitted,
+        and the system selects a default.
+
+
+        :rtype: ManagedObjectReference to a HttpNfcLease 
 
         '''
         
-        return self.delegate("ImportVApp")(name,config)
+        return self.delegate("ImportVApp")(spec,folder,host)
         
 
-    def MoveIntoResourcePool(self, name, config):
+    def MoveIntoResourcePool(self, list):
         '''Moves a set of resource pools, vApps or virtual machines into this pool. The
         pools, vApps and virtual machines must be part of the cluster or
         standalone host that contains this pool.For each entity being moved, the
@@ -200,45 +216,36 @@ class ResourcePool(ManagedEntity):
         failure is detected, then the method terminates with an exception.The root
         resource pool cannot be moved.
 
-        :param name: If set, then the new name of the resource pool.
-
-        :param config: If set, then the new resource allocation for this resource pool.
+        :param list: to a ManagedEntity[]A list of ResourcePool and VirtualMachine objects.
 
         '''
         
-        return self.delegate("MoveIntoResourcePool")(name,config)
+        return self.delegate("MoveIntoResourcePool")(list)
         
 
-    def QueryResourceConfigOption(self, name, config):
+    def QueryResourceConfigOption(self):
         '''Get a value range and default values for ResourceConfigSpec.
 
-        :param name: If set, then the new name of the resource pool.
-
-        :param config: If set, then the new resource allocation for this resource pool.
+        :rtype: ResourceConfigOption 
 
         '''
         
-        return self.delegate("QueryResourceConfigOption")(name,config)
+        return self.delegate("QueryResourceConfigOption")()
         
 
-    def RefreshRuntime(self, name, config):
+    def RefreshRuntime(self):
         '''Refreshes the resource usage data that is available in ResourcePoolRuntimeInfo.
         The latest runtime resource usage of this resource pool may not be
         available immediately after operations that alter resource usage, such as
         powering on a virtual machine. Invoke this method when resource usage may
         have recently changed, and the most up-to-date value in the
         ResourcePoolRuntimeInfo is needed.
-
-        :param name: If set, then the new name of the resource pool.
-
-        :param config: If set, then the new resource allocation for this resource pool.
-
         '''
         
-        return self.delegate("RefreshRuntime")(name,config)
+        return self.delegate("RefreshRuntime")()
         
 
-    def RegisterChildVM_Task(self, name, config):
+    def RegisterChildVM_Task(self, path, name, host):
         '''Adds an existing virtual machine to this resource pool or vApp.This operation only
         works for vApps or resource pools that are children of vApps. To register
         a VM in a folder, see RegisterVM_Task.Any % (percent) character used in
@@ -246,16 +253,29 @@ class ResourcePool(ManagedEntity):
         sequence. Clients may also escape any other characters in this name
         parameter.
 
-        :param name: If set, then the new name of the resource pool.
+        :param path: A datastore path to the virtual machine. If the path ends with ".vmtx", indicating
+        that it refers to a VM template, an InvalidArgument fault is thrown.
 
-        :param config: If set, then the new resource allocation for this resource pool.
+        :param name: The name to be assigned to the virtual machine. If this parameter is not set, the
+        displayName configuration parameter of the virtual machine is used. An
+        entity name must be a non-empty string of less than 80 characters. The
+        slash (/), backslash (\) and percent (%) will be escaped using the URL
+        syntax. For example, %2F.
+
+        :param host: to a HostSystemThe target host on which the virtual machine will run. This
+        parameter must specify a host that is a member of the ComputeResource to
+        which this resource pool belongs. For a stand-alone host or a cluster with
+        DRS, the parameter can be omitted, and the system selects a default.
+
+
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("RegisterChildVM_Task")(name,config)
+        return self.delegate("RegisterChildVM_Task")(path,name,host)
         
 
-    def UpdateChildResourceConfiguration(self, name, config):
+    def UpdateChildResourceConfiguration(self):
         '''Changes resource configuration of a set of children of this resource pool. The
         method allows bulk modifications of the set of the direct children
         (virtual machines and resource pools).Bulk modifications are not
@@ -265,14 +285,9 @@ class ResourcePool(ManagedEntity):
         include a subset of the resources. Children that are not mentioned in the
         list are not changed.For each ResourceConfigSpec, the following privilege
         checks apply:
-
-        :param name: If set, then the new name of the resource pool.
-
-        :param config: If set, then the new resource allocation for this resource pool.
-
         '''
         
-        return self.delegate("UpdateChildResourceConfiguration")(name,config)
+        return self.delegate("UpdateChildResourceConfiguration")()
         
 
     def UpdateConfig(self, name, config):

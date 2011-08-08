@@ -41,8 +41,7 @@ class InventoryView(ManagedObjectView):
         that failed is returned as the result.
 
         :param entity: to a ManagedEntity[]An array of managed object references. Each array entry is a
-        reference to an entity to expand. Expands each entity in the order given.
-        If an entity is not in the current view, expands the view as needed.
+        reference to an entity to collapse.
 
 
         :rtype: ManagedObjectReference[] to a ManagedEntity[] 

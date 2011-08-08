@@ -33,41 +33,30 @@ class VirtualMachineSnapshot(ExtensibleManagedObject):
         return self.update('config')
 
 
-    def RemoveSnapshot_Task(self, host, suppressPowerOn):
+    def RemoveSnapshot_Task(self, removeChildren):
         '''Removes this snapshot and deletes any associated storage.
 
-        :param host: to a HostSystem(optional) Choice of host for the virtual machine, in case this
-        operation causes the virtual machine to power on.
-
-        :param suppressPowerOn: (optional) If set to true, the virtual machine will not be powered on regardless
-        of the power state when the snapshot was created. Default to false.vSphere
-        API 4.0
+        :param removeChildren: Flag to specify removal of the entire snapshot subtree.
 
 
         :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("RemoveSnapshot_Task")(host,suppressPowerOn)
+        return self.delegate("RemoveSnapshot_Task")(removeChildren)
         
 
-    def RenameSnapshot(self, host, suppressPowerOn):
+    def RenameSnapshot(self, name, description):
         '''Rename this snapshot with either a new name or a new description or both. At least
         one of these must be specified when calling the rename method.
 
-        :param host: to a HostSystem(optional) Choice of host for the virtual machine, in case this
-        operation causes the virtual machine to power on.
+        :param name: New name for the snapshot.
 
-        :param suppressPowerOn: (optional) If set to true, the virtual machine will not be powered on regardless
-        of the power state when the snapshot was created. Default to false.vSphere
-        API 4.0
-
-
-        :rtype: ManagedObjectReference to a Task 
+        :param description: New description for the snapshot.
 
         '''
         
-        return self.delegate("RenameSnapshot")(host,suppressPowerOn)
+        return self.delegate("RenameSnapshot")(name,description)
         
 
     def RevertToSnapshot_Task(self, host, suppressPowerOn):

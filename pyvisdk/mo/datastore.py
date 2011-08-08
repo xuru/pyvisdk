@@ -90,61 +90,40 @@ class Datastore(ManagedEntity):
         return self.update('vm')
 
 
-    def DestroyDatastore(self, mountPathDatastoreMapping):
+    def DestroyDatastore(self):
         '''Deprecated. As of VI API 2.5 do not use this method. This method throws
         ResourceInUse. Datastores are automatically removed when no longer in use,
         so this method is unnecessary. Removes a datastore. A datastore can be
         removed only if it is not currently used by any host or virtual machine.
-
-        :param mountPathDatastoreMapping: Old mount path to datastore mapping.
-
-
-        :rtype: ManagedObjectReference to a Task 
-
         '''
         
-        return self.delegate("DestroyDatastore")(mountPathDatastoreMapping)
+        return self.delegate("DestroyDatastore")()
         
 
-    def RefreshDatastore(self, mountPathDatastoreMapping):
+    def RefreshDatastore(self):
         '''Explicitly refreshes free-space and capacity values in summary and info.
-
-        :param mountPathDatastoreMapping: Old mount path to datastore mapping.
-
-
-        :rtype: ManagedObjectReference to a Task 
-
         '''
         
-        return self.delegate("RefreshDatastore")(mountPathDatastoreMapping)
+        return self.delegate("RefreshDatastore")()
         
 
-    def RefreshDatastoreStorageInfo(self, mountPathDatastoreMapping):
+    def RefreshDatastoreStorageInfo(self):
         '''Refreshes all storage related information including free-space, capacity, and
         detailed usage of virtual machines. Updated values are available in
         summary and info.
-
-        :param mountPathDatastoreMapping: Old mount path to datastore mapping.
-
-
-        :rtype: ManagedObjectReference to a Task 
-
         '''
         
-        return self.delegate("RefreshDatastoreStorageInfo")(mountPathDatastoreMapping)
+        return self.delegate("RefreshDatastoreStorageInfo")()
         
 
-    def RenameDatastore(self, mountPathDatastoreMapping):
+    def RenameDatastore(self, newName):
         '''Deprecated. As of vSphere API 4.0, use Rename_Task. Renames a datastore.
 
-        :param mountPathDatastoreMapping: Old mount path to datastore mapping.
-
-
-        :rtype: ManagedObjectReference to a Task 
+        :param newName: The new name to assign to the datastore.
 
         '''
         
-        return self.delegate("RenameDatastore")(mountPathDatastoreMapping)
+        return self.delegate("RenameDatastore")(newName)
         
 
     def UpdateVirtualMachineFiles_Task(self, mountPathDatastoreMapping):

@@ -28,7 +28,7 @@ class HostVirtualNicManager(ExtensibleManagedObject):
     def DeselectVnicForNicType(self, nicType, device):
         '''Deselect the VirtualNic to be a special type.
 
-        :param nicType: The type of VirtualNic that would be selected
+        :param nicType: The type of VirtualNic that would be deselected
 
         :param device: The device that uniquely identifies the VirtualNic.
 
@@ -37,16 +37,17 @@ class HostVirtualNicManager(ExtensibleManagedObject):
         return self.delegate("DeselectVnicForNicType")(nicType,device)
         
 
-    def QueryNetConfig(self, nicType, device):
+    def QueryNetConfig(self, nicType):
         '''Get the NetConfig for the specified nicType
 
-        :param nicType: The type of VirtualNic that would be selected
+        :param nicType: The NicType
 
-        :param device: The device that uniquely identifies the VirtualNic.
+
+        :rtype: VirtualNicManagerNetConfig 
 
         '''
         
-        return self.delegate("QueryNetConfig")(nicType,device)
+        return self.delegate("QueryNetConfig")(nicType)
         
 
     def SelectVnicForNicType(self, nicType, device):

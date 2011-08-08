@@ -41,27 +41,19 @@ class TaskManager(BaseEntity):
         return self.update('recentTask')
 
 
-    def CreateCollectorForTasks(self, obj, taskTypeId, initiatedBy, cancelable, parentTaskKey):
+    def CreateCollectorForTasks(self, filter):
         '''Creates a TaskHistoryCollector, a specialized HistoryCollector that gathers
         TaskInfo data objects.A TaskHistoryCollector does not persist beyond the
         current client session.
 
-        :param obj: ManagedObject with which Task will be associated
-
-        :param taskTypeId: Extension registered task type identifier for type of task being created
-
-        :param initiatedBy: The name of the user on whose behalf the Extension is creating the task
-
-        :param cancelable: True if the task should be cancelable, else false
-
-        :param parentTaskKey: Key of the task that is the parent of this taskvSphere API 4.0
+        :param filter: The specification for the task query filter.
 
 
-        :rtype: TaskInfo 
+        :rtype: ManagedObjectReference to a TaskHistoryCollector 
 
         '''
         
-        return self.delegate("CreateCollectorForTasks")(obj,taskTypeId,initiatedBy,cancelable,parentTaskKey)
+        return self.delegate("CreateCollectorForTasks")(filter)
         
 
     def CreateTask(self, obj, taskTypeId, initiatedBy, cancelable, parentTaskKey):

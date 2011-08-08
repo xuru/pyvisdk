@@ -50,7 +50,7 @@ class HttpNfcLease(BaseEntity):
         return self.update('state')
 
 
-    def HttpNfcLeaseAbort(self, percent):
+    def HttpNfcLeaseAbort(self, fault):
         '''Aborts the import/export and releases this lease. Operations on the objects
         contained in this lease will no longer be blocked. After calling this
         method, this lease will no longer be valid.Clients should call this method
@@ -58,35 +58,32 @@ class HttpNfcLease(BaseEntity):
         cancelled. The client can report the cause of the abort to other clients
         listening on the task with the fault parameter.
 
-        :param percent: [in] Completion status represented as an integer in the 0-100 range.
+        :param fault: [in] The fault that caused the abort, if any.
 
         '''
         
-        return self.delegate("HttpNfcLeaseAbort")(percent)
+        return self.delegate("HttpNfcLeaseAbort")(fault)
         
 
-    def HttpNfcLeaseComplete(self, percent):
+    def HttpNfcLeaseComplete(self):
         '''Completes the import/export and releases this lease. Operations on the objects
         contained in this lease will no longer be blocked. After calling this
         method, this lease will no longer be valid.Clients should call this method
         when they are done accessing the disks for the VirtualMachines in this
         lease. The status of the corresponding task will be set to success.
-
-        :param percent: [in] Completion status represented as an integer in the 0-100 range.
-
         '''
         
-        return self.delegate("HttpNfcLeaseComplete")(percent)
+        return self.delegate("HttpNfcLeaseComplete")()
         
 
-    def HttpNfcLeaseGetManifest(self, percent):
+    def HttpNfcLeaseGetManifest(self):
         '''Gets the download manifest for this lease.
 
-        :param percent: [in] Completion status represented as an integer in the 0-100 range.
+        :rtype: HttpNfcLeaseManifestEntry[] 
 
         '''
         
-        return self.delegate("HttpNfcLeaseGetManifest")(percent)
+        return self.delegate("HttpNfcLeaseGetManifest")()
         
 
     def HttpNfcLeaseProgress(self, percent):

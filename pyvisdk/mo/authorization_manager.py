@@ -75,51 +75,46 @@ class AuthorizationManager(BaseEntity):
         return self.update('roleList')
 
 
-    def AddAuthorizationRole(self, roleId, newName, privIds):
+    def AddAuthorizationRole(self, name, privIds):
         '''Adds a new role. This method will add a user-defined role with given list of
         privileges and three system-defined privileges, "System.Anonymous",
         "System.View", and "System.Read".
 
-        :param roleId: The ID of the role that is updated.
+        :param name: Name of the new role.
 
-        :param newName: The new name for the role.
+        :param privIds: List of privileges to assign to the role.
 
-        :param privIds: The new set of privileges to assign to the role.
+
+        :rtype: xsd:int 
 
         '''
         
-        return self.delegate("AddAuthorizationRole")(roleId,newName,privIds)
+        return self.delegate("AddAuthorizationRole")(name,privIds)
         
 
-    def MergePermissions(self, roleId, newName, privIds):
+    def MergePermissions(self, srcRoleId, dstRoleId):
         '''Reassigns all permissions of a role to another role.
 
-        :param roleId: The ID of the role that is updated.
+        :param srcRoleId: The ID of the source role providing the permissions which are changing.
 
-        :param newName: The new name for the role.
-
-        :param privIds: The new set of privileges to assign to the role.
+        :param dstRoleId: The ID of the destination role to which the permissions are reassigned.
 
         '''
         
-        return self.delegate("MergePermissions")(roleId,newName,privIds)
+        return self.delegate("MergePermissions")(srcRoleId,dstRoleId)
         
 
-    def RemoveAuthorizationRole(self, roleId, newName, privIds):
+    def RemoveAuthorizationRole(self, failIfUsed):
         '''Removes a role.
 
-        :param roleId: The ID of the role that is updated.
-
-        :param newName: The new name for the role.
-
-        :param privIds: The new set of privileges to assign to the role.
+        :param failIfUsed: If true, prevents the role from being removed if any permissions are using it.
 
         '''
         
-        return self.delegate("RemoveAuthorizationRole")(roleId,newName,privIds)
+        return self.delegate("RemoveAuthorizationRole")(failIfUsed)
         
 
-    def RemoveEntityPermission(self, roleId, newName, privIds):
+    def RemoveEntityPermission(self, entity, user, isGroup):
         '''Removes a permission rule from an entity.This will fail with an InvalidArgument
         fault if called on: the direct child folders of a datacenter managed
         object, the root resource pool of a ComputeResource or
@@ -129,18 +124,18 @@ class AuthorizationManager(BaseEntity):
         fault-tolerance (FT) secondary VirtualMachine. Such a VirtualMachine
         always has the same permissions as its FT primary VirtualMachine.
 
-        :param roleId: The ID of the role that is updated.
+        :param entity: to a ManagedEntityEntity on which a permission is removed.
 
-        :param newName: The new name for the role.
+        :param user: User or group for which the permission is defined.
 
-        :param privIds: The new set of privileges to assign to the role.
+        :param isGroup: True, if user refers to a group name; false, for a user name.
 
         '''
         
-        return self.delegate("RemoveEntityPermission")(roleId,newName,privIds)
+        return self.delegate("RemoveEntityPermission")(entity,user,isGroup)
         
 
-    def ResetEntityPermissions(self, roleId, newName, privIds):
+    def ResetEntityPermissions(self, entity, permission):
         '''Update the entire set of permissions defined on an entity. Any existing
         permissions on the entity are removed and replaced with the provided
         set.If a permission is specified multiple times for the same user or
@@ -162,33 +157,29 @@ class AuthorizationManager(BaseEntity):
         fault-tolerance (FT) secondary VirtualMachine. Such a VirtualMachine
         always has the same permissions as its FT primary VirtualMachine.
 
-        :param roleId: The ID of the role that is updated.
+        :param entity: to a ManagedEntityThe entity on which permissions are updated.
 
-        :param newName: The new name for the role.
-
-        :param privIds: The new set of privileges to assign to the role.
+        :param permission: The list of Permission objects that define the new rules for access to the entity
+        and potentially entities below it. If the list is empty, all permissions
+        on the entity are removed.
 
         '''
         
-        return self.delegate("ResetEntityPermissions")(roleId,newName,privIds)
+        return self.delegate("ResetEntityPermissions")(entity,permission)
         
 
-    def RetrieveAllPermissions(self, roleId, newName, privIds):
+    def RetrieveAllPermissions(self):
         '''Finds all permissions defined in the system. The result is restricted to the
         managed entities visible to the user making the call.
 
-        :param roleId: The ID of the role that is updated.
-
-        :param newName: The new name for the role.
-
-        :param privIds: The new set of privileges to assign to the role.
+        :rtype: Permission[] 
 
         '''
         
-        return self.delegate("RetrieveAllPermissions")(roleId,newName,privIds)
+        return self.delegate("RetrieveAllPermissions")()
         
 
-    def RetrieveEntityPermissions(self, roleId, newName, privIds):
+    def RetrieveEntityPermissions(self, entity, inherited):
         '''Gets permissions defined on or effective on a managed entity. This returns the
         actual permission objects defined in the system for all users and groups
         relative to the managed entity. The inherited flag specifies whether or
@@ -200,33 +191,30 @@ class AuthorizationManager(BaseEntity):
         permissions. The current user's permissions are found on the effectiveRole
         property of the user's ManagedEntity.
 
-        :param roleId: The ID of the role that is updated.
+        :param entity: to a ManagedEntity
 
-        :param newName: The new name for the role.
+        :param inherited: Whether or not to include propagating permissions defined by parent entities.
 
-        :param privIds: The new set of privileges to assign to the role.
+
+        :rtype: Permission[] 
 
         '''
         
-        return self.delegate("RetrieveEntityPermissions")(roleId,newName,privIds)
+        return self.delegate("RetrieveEntityPermissions")(entity,inherited)
         
 
-    def RetrieveRolePermissions(self, roleId, newName, privIds):
+    def RetrieveRolePermissions(self):
         '''Finds all the permissions that use a particular role. The result is restricted to
         managed entities that are visible to the user making the call.
 
-        :param roleId: The ID of the role that is updated.
-
-        :param newName: The new name for the role.
-
-        :param privIds: The new set of privileges to assign to the role.
+        :rtype: Permission[] 
 
         '''
         
-        return self.delegate("RetrieveRolePermissions")(roleId,newName,privIds)
+        return self.delegate("RetrieveRolePermissions")()
         
 
-    def SetEntityPermissions(self, roleId, newName, privIds):
+    def SetEntityPermissions(self, entity, permission):
         '''Defines one or more permission rules on an entity or updates rules if already
         present for the given user or group on the entity.If a permission is
         specified multiple times for the same user or group, then the last
@@ -244,15 +232,13 @@ class AuthorizationManager(BaseEntity):
         VirtualMachine. Such a VirtualMachine always has the same permissions as
         its FT primary VirtualMachine.
 
-        :param roleId: The ID of the role that is updated.
+        :param entity: to a ManagedEntityThe entity on which to set permissions.
 
-        :param newName: The new name for the role.
-
-        :param privIds: The new set of privileges to assign to the role.
+        :param permission: An array of specifications for permissions on the entity.
 
         '''
         
-        return self.delegate("SetEntityPermissions")(roleId,newName,privIds)
+        return self.delegate("SetEntityPermissions")(entity,permission)
         
 
     def UpdateAuthorizationRole(self, roleId, newName, privIds):

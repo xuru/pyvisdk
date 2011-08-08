@@ -37,7 +37,7 @@ class ViewManager(BaseEntity):
         return self.update('viewList')
 
 
-    def CreateContainerView(self, view):
+    def CreateContainerView(self, container, type, recursive):
         '''Create a ContainerView managed object for this session. The method returns a
         reference to a ContainerView object that has a list of managed object
         references. The list references objects in the container and may include
@@ -47,43 +47,74 @@ class ViewManager(BaseEntity):
         configuration of the virtual environment and reflects any subsequent
         changes that occur.
 
-        :param view: to a ViewThe view that will provide the object list for the new ListView object.
+        :param container: to a ManagedEntityA reference to an instance of a Folder, Datacenter,
+        ComputeResource, ResourcePool, or HostSystem object.
+
+        :param type: An optional list of managed entity types. The server associates only objects of
+        the specified type(s) with the view. If you specify an empty array, the
+        server uses all types.
+
+        :param recursive: Whether to include only the immediate children of the container instance, or to
+        include additional objects by following paths beyond the immediate
+        children.* Folder object - childEntity property. If recursive is false,
+        the container list includes the reference to the child entity in the
+        folder instance. If recursive is true, the server will follow the child
+        folder path(s) to collect additional childEntity references. *
+        ResourcePool object - vm and resourcePool properties. If recursive is
+        false, the object list will contain references to the virtual machines
+        associated with this resource pool, and references to virtual machines
+        associated with the immediate child resource pools. If recursive is true,
+        the server will follow all child resource pool paths extending from the
+        immediate children (and their children, and so on) to collect additional
+        references to virtual machines. * ComputeResource object - host and
+        resourcePool properties. If recursive is false, the object list will
+        contain references to the host systems associated with this compute
+        resource, references to virtual machines associated with the host systems,
+        and references to virtual machines associated with the immediate child
+        resource pools. If recursive is true, the server will follow the child
+        resource pool paths (and their child resource pool paths, and so on) to
+        collect additional references to virtual machines. * Datacenter object -
+        vmFolder, hostFolder, datastoreFolder, and networkFolder properties. If
+        recursive is set to false, the server uses the immediate child folders for
+        the virtual machines, hosts, datastores, and networks associated with this
+        datacenter. If recursive is set to true, the server will follow the folder
+        paths to collect references to additional objects. * HostSystem object -
+        vm property. The view object list contains references to the virtual
+        machines associated with this host system. The value of recursive does not
+        affect this behavior.
 
 
-        :rtype: ManagedObjectReference to a ListView 
+        :rtype: ManagedObjectReference to a ContainerView 
 
         '''
         
-        return self.delegate("CreateContainerView")(view)
+        return self.delegate("CreateContainerView")(container,type,recursive)
         
 
-    def CreateInventoryView(self, view):
+    def CreateInventoryView(self):
         '''Create a new InventoryView managed object for this session.
 
-        :param view: to a ViewThe view that will provide the object list for the new ListView object.
-
-
-        :rtype: ManagedObjectReference to a ListView 
+        :rtype: ManagedObjectReference to a InventoryView 
 
         '''
         
-        return self.delegate("CreateInventoryView")(view)
+        return self.delegate("CreateInventoryView")()
         
 
-    def CreateListView(self, view):
+    def CreateListView(self, obj):
         '''Create a ListView object for this session. The method returns a session object
         that has a list of managed object references. The list of references
         corresponds to the input object list. You can modify the resulting list
         after you have created the object.
 
-        :param view: to a ViewThe view that will provide the object list for the new ListView object.
+        :param obj: The initial list of objects in the view.
 
 
         :rtype: ManagedObjectReference to a ListView 
 
         '''
         
-        return self.delegate("CreateListView")(view)
+        return self.delegate("CreateListView")(obj)
         
 
     def CreateListViewFromView(self, view):

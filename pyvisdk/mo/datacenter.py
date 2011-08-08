@@ -67,7 +67,7 @@ class Datacenter(ManagedEntity):
         return self.update('vmFolder')
 
 
-    def PowerOnMultiVM_Task(self, hostname, port, username, password, sslThumbprint):
+    def PowerOnMultiVM_Task(self, vm, option):
         '''Powers on multiple virtual machines in a data center. If the virtual machines are
         suspended, this method resumes execution from the suspend point. The
         virtual machines can belong to different clusters in the data center.If
@@ -83,25 +83,17 @@ class Datacenter(ManagedEntity):
         a cluster, the system might do an implicit relocation of the virtual
         machine to another host.
 
-        :param hostname: The target of the query.
+        :param vm: to a VirtualMachine[]The virtual machines to power on.
 
-        :param port: The port number of the target host. For ESX 2.x this is the authd port (902 by
-        default). For ESX 3.x and above and for VMware Server hosts this is the
-        https port (443 by default). You can specify -1 to have the vCenter Server
-        try the default ports.
-
-        :param username: The name of the user.
-
-        :param password: The password of the user.
-
-        :param sslThumbprint: The expected SSL thumbprint of the host's certificateVI API 2.5
+        :param option: An array of OptionValue options for this power-on session. The names and values of
+        the options are defined in ClusterPowerOnVmOption.vSphere API 4.1
 
 
-        :rtype: HostConnectInfo 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("PowerOnMultiVM_Task")(hostname,port,username,password,sslThumbprint)
+        return self.delegate("PowerOnMultiVM_Task")(vm,option)
         
 
     def QueryConnectionInfo(self, hostname, port, username, password, sslThumbprint):

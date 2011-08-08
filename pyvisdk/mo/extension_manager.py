@@ -29,39 +29,42 @@ class ExtensionManager(BaseEntity):
         return self.update('extensionList')
 
 
-    def FindExtension(self, extension):
+    def FindExtension(self, extensionKey):
         '''Returns extension with the given key, if any.
 
-        :param extension: Updated extension description.
+        :param extensionKey: Key to search for.
+
+
+        :rtype: Extension 
 
         '''
         
-        return self.delegate("FindExtension")(extension)
+        return self.delegate("FindExtension")(extensionKey)
         
 
-    def GetPublicKey(self, extension):
+    def GetPublicKey(self):
         '''Deprecated. As of VI 4.0, use trusted certificates and LoginExtensionBySubjectName
         or SetExtensionCertificate and LoginExtensionByCertificate. Returns
         VirtualCenter Server public key.
 
-        :param extension: Updated extension description.
+        :rtype: xsd:string 
 
         '''
         
-        return self.delegate("GetPublicKey")(extension)
+        return self.delegate("GetPublicKey")()
         
 
     def RegisterExtension(self, extension):
         '''Registers extension.
 
-        :param extension: Updated extension description.
+        :param extension: Extension description to register.
 
         '''
         
         return self.delegate("RegisterExtension")(extension)
         
 
-    def SetExtensionCertificate(self, extension):
+    def SetExtensionCertificate(self, extensionKey, certificatePem):
         '''Update the stored authentication certificate for a specified extension. Updates
         the registration of the specified extension with the thumbprint of the
         X.509 client certificate provided over SSL handshake, or by the
@@ -71,33 +74,38 @@ class ExtensionManager(BaseEntity):
         revocation.This method will unset any public key or subject name
         associated with the extension.
 
-        :param extension: Updated extension description.
+        :param extensionKey: Key of extension to update.
+
+        :param certificatePem: PEM encoded certificate. If not specified, the certificate passed over SSL
+        handshake is used.
 
         '''
         
-        return self.delegate("SetExtensionCertificate")(extension)
+        return self.delegate("SetExtensionCertificate")(extensionKey,certificatePem)
         
 
-    def SetPublicKey(self, extension):
+    def SetPublicKey(self, extensionKey, publicKey):
         '''Deprecated. As of VI 4.0, use trusted certificates and LoginExtensionBySubjectName
         or SetExtensionCertificate and LoginExtensionByCertificate. Sets
         extension's public key.
 
-        :param extension: Updated extension description.
+        :param extensionKey: Key of extension to update.
+
+        :param publicKey: Public key of extension, encoded in PEM (privacy-enhanced mail) format.
 
         '''
         
-        return self.delegate("SetPublicKey")(extension)
+        return self.delegate("SetPublicKey")(extensionKey,publicKey)
         
 
-    def UnregisterExtension(self, extension):
+    def UnregisterExtension(self, extensionKey):
         '''Unregisters the specified extension if it exists.
 
-        :param extension: Updated extension description.
+        :param extensionKey: Unique name of extension to unregister.
 
         '''
         
-        return self.delegate("UnregisterExtension")(extension)
+        return self.delegate("UnregisterExtension")(extensionKey)
         
 
     def UpdateExtension(self, extension):

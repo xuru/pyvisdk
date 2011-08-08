@@ -24,11 +24,14 @@ class ScheduledTask(ExtensibleManagedObject):
         return self.update('info')
 
 
-    def ReconfigureScheduledTask(self):
+    def ReconfigureScheduledTask(self, spec):
         '''Reconfigures the scheduled task properties.
+
+        :param spec: The new specification for the scheduled task.
+
         '''
         
-        return self.delegate("ReconfigureScheduledTask")()
+        return self.delegate("ReconfigureScheduledTask")(spec)
         
 
     def RemoveScheduledTask(self):

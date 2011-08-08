@@ -58,44 +58,55 @@ class Profile(BaseEntity):
         return self.update('modifiedTime')
 
 
-    def AssociateProfile(self):
+    def AssociateProfile(self, entity):
         '''Associate a profile with a managed entity.
 
-        :rtype: xsd:string 
+        :param entity: to a ManagedEntity[]The entity(s) to associate with the profile. If entity is
+        already associted with the profile, association is maintained and
+        operation is treated as a no-op. throws InvalidType If the entity is of an
+        unexpeted type. throws InvalidArgument If the association conflicts with
+        existing association.
 
         '''
         
-        return self.delegate("AssociateProfile")()
+        return self.delegate("AssociateProfile")(entity)
         
 
-    def CheckProfileCompliance_Task(self):
+    def CheckProfileCompliance_Task(self, entity):
         '''Check compliance of an entity against a Profile.
 
-        :rtype: xsd:string 
+        :param entity: to a ManagedEntity[]If specified, the compliance check is done against this
+        entity. If the entity is not specified, a compliance check will be run on
+        all the entities associated with the profile. Entity need not be
+        associated with the profile.
+
+
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("CheckProfileCompliance_Task")()
+        return self.delegate("CheckProfileCompliance_Task")(entity)
         
 
     def DestroyProfile(self):
         '''Destory the Profile
-
-        :rtype: xsd:string 
-
         '''
         
         return self.delegate("DestroyProfile")()
         
 
-    def DissociateProfile(self):
+    def DissociateProfile(self, entity):
         '''Dissociate a profile from a managed entity.
 
-        :rtype: xsd:string 
+        :param entity: to a ManagedEntity[]Entity(s) from which to dissociate the profile. If unset, the
+        profile is dissociated from all managed entities it is currently
+        associated with. If the specified entity is not associated with the
+        profile, the operation is a no-op. throws InvalidArgument If the
+        dissociation conflicts with existing association.
 
         '''
         
-        return self.delegate("DissociateProfile")()
+        return self.delegate("DissociateProfile")(entity)
         
 
     def ExportProfile(self):

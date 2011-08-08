@@ -37,11 +37,14 @@ class HostVMotionSystem(ExtensibleManagedObject):
         return self.delegate("DeselectVnic")()
         
 
-    def SelectVnic(self):
+    def SelectVnic(self, device):
         '''Select the VirtualNic to be used for VMotion.
+
+        :param device: The device that uniquely identifies the VirtualNic.
+
         '''
         
-        return self.delegate("SelectVnic")()
+        return self.delegate("SelectVnic")(device)
         
 
     def UpdateIpConfig(self):

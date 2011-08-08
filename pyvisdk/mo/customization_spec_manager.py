@@ -32,23 +32,21 @@ class CustomizationSpecManager(BaseEntity):
         return self.update('info')
 
 
-    def CheckCustomizationResources(self):
+    def CheckCustomizationResources(self, guestOs):
         '''Validate that required resources are available on the server to customize a
         particular guest operating system. These would include sysprep for Windows
         and the debugfs and changefs volume editors for Linux guests.
 
-        :rtype: CustomizationSpecItem 
+        :param guestOs: Short name from the guest OS descriptor list describing the OS we intend to
+        customize.
 
         '''
         
-        return self.delegate("CheckCustomizationResources")()
+        return self.delegate("CheckCustomizationResources")(guestOs)
         
 
     def CreateCustomizationSpec(self):
         '''Creates a new specification.
-
-        :rtype: CustomizationSpecItem 
-
         '''
         
         return self.delegate("CreateCustomizationSpec")()
@@ -57,7 +55,7 @@ class CustomizationSpecManager(BaseEntity):
     def CustomizationSpecItemToXml(self):
         '''Converts a specification item to XML text
 
-        :rtype: CustomizationSpecItem 
+        :rtype: xsd:string 
 
         '''
         
@@ -66,9 +64,6 @@ class CustomizationSpecManager(BaseEntity):
 
     def DeleteCustomizationSpec(self):
         '''Deletes a specification.
-
-        :rtype: CustomizationSpecItem 
-
         '''
         
         return self.delegate("DeleteCustomizationSpec")()
@@ -77,7 +72,7 @@ class CustomizationSpecManager(BaseEntity):
     def DoesCustomizationSpecExist(self):
         '''Whether or not a specification exists.
 
-        :rtype: CustomizationSpecItem 
+        :rtype: xsd:boolean 
 
         '''
         
@@ -86,22 +81,22 @@ class CustomizationSpecManager(BaseEntity):
 
     def DuplicateCustomizationSpec(self):
         '''Duplicates a specification.
-
-        :rtype: CustomizationSpecItem 
-
         '''
         
         return self.delegate("DuplicateCustomizationSpec")()
         
 
-    def GetCustomizationSpec(self):
+    def GetCustomizationSpec(self, name):
         '''Obtains a specification for the given name.
+
+        :param name: Unique name identifying the requested customization specification.
+
 
         :rtype: CustomizationSpecItem 
 
         '''
         
-        return self.delegate("GetCustomizationSpec")()
+        return self.delegate("GetCustomizationSpec")(name)
         
 
     def OverwriteCustomizationSpec(self):
@@ -110,9 +105,6 @@ class CustomizationSpecManager(BaseEntity):
         process detects that the specification has changed since its retrieval,
         then the API uses the SpecModified exception to warn the client that he
         might overwrite another client's change.
-
-        :rtype: CustomizationSpecItem 
-
         '''
         
         return self.delegate("OverwriteCustomizationSpec")()
@@ -120,9 +112,6 @@ class CustomizationSpecManager(BaseEntity):
 
     def RenameCustomizationSpec(self):
         '''Renames a specification.
-
-        :rtype: CustomizationSpecItem 
-
         '''
         
         return self.delegate("RenameCustomizationSpec")()

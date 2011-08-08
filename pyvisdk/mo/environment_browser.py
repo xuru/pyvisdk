@@ -26,7 +26,7 @@ class EnvironmentBrowser(BaseEntity):
         return self.update('datastoreBrowser')
 
 
-    def QueryConfigOption(self, host):
+    def QueryConfigOption(self, key, host):
         '''Query for a specific virtual machine configuration option (the ConfigOption).If
         the EnvironmentBrowser is from a ComputeResource or
         ClusterComputeResource, the key or host, or both arguments can be used to
@@ -40,27 +40,27 @@ class EnvironmentBrowser(BaseEntity):
         supported.If the EnvironmentBrowser is from a VirtualMachine neither a
         host nor a key should be specified.
 
-        :param host: to a HostSystemIf specified, the host whose capabilities are requested.
+        :param key: The key found in the VirtualMachineConfigOptionDescriptor, obtained by invoking
+        the QueryConfigOptionDescriptor operation.
+
+        :param host: to a HostSystemThe host whose ConfigOption is requested.
 
 
-        :rtype: HostCapability 
+        :rtype: VirtualMachineConfigOption 
 
         '''
         
-        return self.delegate("QueryConfigOption")(host)
+        return self.delegate("QueryConfigOption")(key,host)
         
 
-    def QueryConfigOptionDescriptor(self, host):
+    def QueryConfigOptionDescriptor(self):
         '''The list of ConfigOption keys available on this entity.
 
-        :param host: to a HostSystemIf specified, the host whose capabilities are requested.
-
-
-        :rtype: HostCapability 
+        :rtype: VirtualMachineConfigOptionDescriptor[] 
 
         '''
         
-        return self.delegate("QueryConfigOptionDescriptor")(host)
+        return self.delegate("QueryConfigOptionDescriptor")()
         
 
     def QueryConfigTarget(self, host):
@@ -78,10 +78,10 @@ class EnvironmentBrowser(BaseEntity):
         EnvironmentBrowser is from a VirtualMachine a host should not be
         specified.
 
-        :param host: to a HostSystemIf specified, the host whose capabilities are requested.
+        :param host: to a HostSystemIf specified, the host whose default BackingInfo is requested.
 
 
-        :rtype: HostCapability 
+        :rtype: ConfigTarget 
 
         '''
         

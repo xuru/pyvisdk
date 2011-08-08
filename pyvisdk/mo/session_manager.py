@@ -61,7 +61,7 @@ class SessionManager(BaseEntity):
         return self.update('supportedLocaleList')
 
 
-    def AcquireCloneTicket(self, message):
+    def AcquireCloneTicket(self):
         '''Acquire a session-specific ticket string which can be used to clone the current
         session. The caller of this operation can pass the ticket value to another
         entity on the client. The recipient can then call CloneSession with the
@@ -74,14 +74,14 @@ class SessionManager(BaseEntity):
         used by remote clients and do not require a shared filesystem for
         transport. See CloneSession
 
-        :param message: The message to send. Newline characters may be included.
+        :rtype: xsd:string 
 
         '''
         
-        return self.delegate("AcquireCloneTicket")(message)
+        return self.delegate("AcquireCloneTicket")()
         
 
-    def AcquireLocalTicket(self, message):
+    def AcquireLocalTicket(self, userName):
         '''Acquires a one-time ticket for mutual authentication between a server and
         client.The caller of this operation can use the user name and file content
         of the returned object as the userName and password arguments for login
@@ -97,27 +97,33 @@ class SessionManager(BaseEntity):
         this operation. Remote clients receive an InvalidRequest fault upon
         calling this operation.
 
-        :param message: The message to send. Newline characters may be included.
+        :param userName: User requesting one-time password.
+
+
+        :rtype: SessionManagerLocalTicket 
 
         '''
         
-        return self.delegate("AcquireLocalTicket")(message)
+        return self.delegate("AcquireLocalTicket")(userName)
         
 
-    def CloneSession(self, message):
+    def CloneSession(self, cloneTicket):
         '''Clone the session specified by the clone ticket and associate it with the current
         connection. The current session will take on the identity and
         authorization level of the UserSession associated with the specified
         cloning ticket. See AcquireCloneTicket
 
-        :param message: The message to send. Newline characters may be included.
+        :param cloneTicket: ticket string acquired via AcquireCloneTicket.See AcquireCloneTicket
+
+
+        :rtype: UserSession 
 
         '''
         
-        return self.delegate("CloneSession")(message)
+        return self.delegate("CloneSession")(cloneTicket)
         
 
-    def ImpersonateUser(self, message):
+    def ImpersonateUser(self, userName, locale):
         '''Converts current session to impersonate the specified user. The current session
         will take on the identity and authorization level of the user. That user
         must have a currently-active session. If the given userName is an
@@ -126,25 +132,39 @@ class SessionManager(BaseEntity):
         level of that extension provided the current session has the same
         authorization level of that extension.
 
-        :param message: The message to send. Newline characters may be included.
+        :param userName: The user or extension key to impersonate.
+
+        :param locale: A two-character ISO-639 language ID (like "en") optionally followed by an
+        underscore and a two-character ISO 3166 country ID (like "US").
+
+
+        :rtype: UserSession 
 
         '''
         
-        return self.delegate("ImpersonateUser")(message)
+        return self.delegate("ImpersonateUser")(userName,locale)
         
 
-    def Login(self, message):
+    def Login(self, userName, password, locale):
         '''Log on to the server. This method fails if the user name and password are
         incorrect, or if the user is valid but has no permissions granted.
 
-        :param message: The message to send. Newline characters may be included.
+        :param userName: The ID of the user who is logging on to the server.
+
+        :param password: The password of the user who is logging on to the server.
+
+        :param locale: A two-character ISO-639 language ID (like "en") optionally followed by an
+        underscore and a two-character ISO 3166 country ID (like "US").
+
+
+        :rtype: UserSession 
 
         '''
         
-        return self.delegate("Login")(message)
+        return self.delegate("Login")(userName,password,locale)
         
 
-    def LoginBySSPI(self, message):
+    def LoginBySSPI(self, base64Token, locale):
         '''Log on to the server using SSPI pass-through authentication.This method provides
         support for passing credentials of the calling process to the server
         without using a password, by leveraging the Windows Security Support
@@ -160,14 +180,20 @@ class SessionManager(BaseEntity):
         pass to InitializeSecurityContext(), followed by calling this method
         again.For more information, see the MSDN documentation on SSPI.
 
-        :param message: The message to send. Newline characters may be included.
+        :param base64Token: The partially formed context returned from InitializeSecurityContext().
+
+        :param locale: A two-character ISO-639 language ID (like "en") optionally followed by an
+        underscore and a two-character ISO 3166 country ID (like "US").
+
+
+        :rtype: UserSession 
 
         '''
         
-        return self.delegate("LoginBySSPI")(message)
+        return self.delegate("LoginBySSPI")(base64Token,locale)
         
 
-    def LoginExtensionByCertificate(self, message):
+    def LoginExtensionByCertificate(self, extensionKey, locale):
         '''Creates a special privileged session that includes the Sessions.ImpersonateUser
         privilege. Requires that the client connect over SSL and provide an X.509
         certificate for which they hold the private key. The certificate must
@@ -177,14 +203,20 @@ class SessionManager(BaseEntity):
         successful authentication using this method. If certificate verification
         is desired, use the LoginExtensionBySubjectName method instead.
 
-        :param message: The message to send. Newline characters may be included.
+        :param extensionKey: Key of extension that is logging in.
+
+        :param locale: A two-character ISO-639 language ID (like "en") optionally followed by an
+        underscore and a two-character ISO 3166 country ID (like "US").
+
+
+        :rtype: UserSession 
 
         '''
         
-        return self.delegate("LoginExtensionByCertificate")(message)
+        return self.delegate("LoginExtensionByCertificate")(extensionKey,locale)
         
 
-    def LoginExtensionBySubjectName(self, message):
+    def LoginExtensionBySubjectName(self, extensionKey, locale):
         '''Creates a special privileged session that includes the Sessions.ImpersonateUser
         privilege. Requires that the extension connected using SSL, with a
         certificate that has a subject name that matches the subject name
@@ -192,45 +224,54 @@ class SessionManager(BaseEntity):
         no longer thrown. Instead, InvalidLogin is thrown if the specified
         extension is not registered.
 
-        :param message: The message to send. Newline characters may be included.
+        :param extensionKey: Key of extension that is logging in.
+
+        :param locale: A two-character ISO-639 language ID (like "en") optionally followed by an
+        underscore and a two-character ISO 3166 country ID (like "US").
+
+
+        :rtype: UserSession 
 
         '''
         
-        return self.delegate("LoginExtensionBySubjectName")(message)
+        return self.delegate("LoginExtensionBySubjectName")(extensionKey,locale)
         
 
-    def Logout(self, message):
+    def Logout(self):
         '''Log out and terminate the current session.
-
-        :param message: The message to send. Newline characters may be included.
-
         '''
         
-        return self.delegate("Logout")(message)
+        return self.delegate("Logout")()
         
 
-    def SessionIsActive(self, message):
+    def SessionIsActive(self, sessionID, userName):
         '''Validates that a currently-active session exists with the specified sessionID and
         userName associated with it. Returns true if session exists.
 
-        :param message: The message to send. Newline characters may be included.
+        :param sessionID: Session ID to validate.
+
+        :param userName: User name to validate.
+
+
+        :rtype: xsd:boolean 
 
         '''
         
-        return self.delegate("SessionIsActive")(message)
+        return self.delegate("SessionIsActive")(sessionID,userName)
         
 
-    def SetLocale(self, message):
+    def SetLocale(self, locale):
         '''Sets the session locale.
 
-        :param message: The message to send. Newline characters may be included.
+        :param locale: A two-character ISO-639 language ID (like "en") optionally followed by an
+        underscore and a two-character ISO 3166 country ID (like "US").
 
         '''
         
-        return self.delegate("SetLocale")(message)
+        return self.delegate("SetLocale")(locale)
         
 
-    def TerminateSession(self, message):
+    def TerminateSession(self, sessionId):
         '''Log off and terminate the provided list of sessions.This method is only
         transactional for each session ID. The set of sessions are terminated
         sequentially, as specified in the list. If a failure occurs, for example,
@@ -238,11 +279,11 @@ class SessionManager(BaseEntity):
         the method aborts, any sessions that have not yet been terminated are left
         in their unterminated state.
 
-        :param message: The message to send. Newline characters may be included.
+        :param sessionId: A list of sessions to terminate.
 
         '''
         
-        return self.delegate("TerminateSession")(message)
+        return self.delegate("TerminateSession")(sessionId)
         
 
     def UpdateServiceMessage(self, message):

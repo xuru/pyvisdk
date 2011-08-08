@@ -43,19 +43,30 @@ class HostDiagnosticSystem(BaseEntity):
         better than shared diagnostic partitions because of the impossibility of
         multiple servers sharing the same partition. The most preferred diagnostic
         partition will be first in the array.
+
+        :rtype: HostDiagnosticPartition[] 
+
         '''
         
         return self.delegate("QueryAvailablePartition")()
         
 
-    def QueryPartitionCreateDesc(self):
+    def QueryPartitionCreateDesc(self, diskUuid, diagnosticType):
         '''For a disk, query for the diagnostic partition creation description. The
         description details how the diagnostic partition will be created on the
         disk and provides a creation specification that is needed to invoke the
         create operation. See HostScsiDisk See uuid
+
+        :param diskUuid: See HostScsiDiskSee uuid
+
+        :param diagnosticType: See HostScsiDiskSee uuid
+
+
+        :rtype: HostDiagnosticPartitionCreateDescription 
+
         '''
         
-        return self.delegate("QueryPartitionCreateDesc")()
+        return self.delegate("QueryPartitionCreateDesc")(diskUuid,diagnosticType)
         
 
     def QueryPartitionCreateOptions(self):
@@ -63,6 +74,9 @@ class HostDiagnosticSystem(BaseEntity):
         list will contain disks that have sufficient space to contain a diagnostic
         partition of the specific type.The choices will be returned in the order
         that is most preferable as determined by the system.
+
+        :rtype: HostDiagnosticPartitionCreateOption[] 
+
         '''
         
         return self.delegate("QueryPartitionCreateOptions")()

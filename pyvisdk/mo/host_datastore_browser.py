@@ -70,9 +70,6 @@ class HostDatastoreBrowser(BaseEntity):
         '''Deprecated. As of VI API 2.5, use DeleteDatastoreFile_Task. Deletes the specified
         files from the datastore. If a valid virtual disk file is specified, then
         all the components of the virtual disk are deleted.
-
-        :rtype: ManagedObjectReference to a Task 
-
         '''
         
         return self.delegate("DeleteFile")()

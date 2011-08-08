@@ -122,7 +122,7 @@ class ManagedEntity(ExtensibleManagedObject):
         return self.update('triggeredAlarmState')
 
 
-    def Destroy_Task(self, newName):
+    def Destroy_Task(self):
         '''Destroys this object, deleting its contents and removing it from its parent folder
         (if any).NOTE: The appropriate privilege must be held on the parent of the
         destroyed entity as well as the entity itself.This method can throw one of
@@ -130,17 +130,14 @@ class ManagedEntity(ExtensibleManagedObject):
         entity that is being removed. See comments for each entity for more
         information on destroy behavior.
 
-        :param newName: See name
-
-
         :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("Destroy_Task")(newName)
+        return self.delegate("Destroy_Task")()
         
 
-    def Reload(self, newName):
+    def Reload(self):
         '''Reload the entity state. Clients only need to call this method if they changed
         some external state that affects the service without using the Web service
         interface to perform the change. For example, hand-editing a virtual
@@ -149,15 +146,9 @@ class ManagedEntity(ExtensibleManagedObject):
         monitor the file for changes. In this case, after such an edit, a client
         would call "reload" on the associated virtual machine to ensure the
         service and its clients have current data for the virtual machine.
-
-        :param newName: See name
-
-
-        :rtype: ManagedObjectReference to a Task 
-
         '''
         
-        return self.delegate("Reload")(newName)
+        return self.delegate("Reload")()
         
 
     def Rename_Task(self, newName):

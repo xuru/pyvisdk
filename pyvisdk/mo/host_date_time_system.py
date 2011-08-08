@@ -27,47 +27,44 @@ class HostDateTimeSystem(BaseEntity):
         return self.update('dateTimeInfo')
 
 
-    def QueryAvailableTimeZones(self, config):
+    def QueryAvailableTimeZones(self):
         '''Retrieves the list of available timezones on the host. The API works off the
         public domain 'tz' timezone database.
 
-        :param config: The new DateTime configuration information.
+        :rtype: HostDateTimeSystemTimeZone[] 
 
         '''
         
-        return self.delegate("QueryAvailableTimeZones")(config)
+        return self.delegate("QueryAvailableTimeZones")()
         
 
-    def QueryDateTime(self, config):
+    def QueryDateTime(self):
         '''Get the current DateTime on the host.
 
-        :param config: The new DateTime configuration information.
+        :rtype: xsd:dateTime 
 
         '''
         
-        return self.delegate("QueryDateTime")(config)
+        return self.delegate("QueryDateTime")()
         
 
-    def RefreshDateTimeSystem(self, config):
+    def RefreshDateTimeSystem(self):
         '''Refresh the DateTime related settings to pick up any changes that might have
         occurred.
-
-        :param config: The new DateTime configuration information.
-
         '''
         
-        return self.delegate("RefreshDateTimeSystem")(config)
+        return self.delegate("RefreshDateTimeSystem")()
         
 
-    def UpdateDateTime(self, config):
+    def UpdateDateTime(self, dateTime):
         '''Update the date/time on the host. This method should be used with caution since
         network delays, execution delays can result in time skews.
 
-        :param config: The new DateTime configuration information.
+        :param dateTime: DateTime to update the host to.
 
         '''
         
-        return self.delegate("UpdateDateTime")(config)
+        return self.delegate("UpdateDateTime")(dateTime)
         
 
     def UpdateDateTimeConfig(self, config):

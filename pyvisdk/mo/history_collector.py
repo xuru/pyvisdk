@@ -39,38 +39,29 @@ class HistoryCollector(BaseEntity):
         return self.update('filter')
 
 
-    def DestroyCollector(self, maxCount):
+    def DestroyCollector(self):
         '''Destroys this collector.
-
-        :param maxCount: The maximum number of items in the page.
-
         '''
         
-        return self.delegate("DestroyCollector")(maxCount)
+        return self.delegate("DestroyCollector")()
         
 
-    def ResetCollector(self, maxCount):
+    def ResetCollector(self):
         '''Moves the "scrollable view" to the item immediately preceding the "viewable latest
         page". If you use "readPrev", ReadPreviousTasks or ReadPreviousEvents, all
         items are retrieved from the newest item to the oldest item.
-
-        :param maxCount: The maximum number of items in the page.
-
         '''
         
-        return self.delegate("ResetCollector")(maxCount)
+        return self.delegate("ResetCollector")()
         
 
-    def RewindCollector(self, maxCount):
+    def RewindCollector(self):
         '''Moves the "scrollable view" to the oldest item. If you use ReadNextTasks or
         ReadNextEvents, all items are retrieved from the oldest item to the newest
         item. This is the default setting when the collector is created.
-
-        :param maxCount: The maximum number of items in the page.
-
         '''
         
-        return self.delegate("RewindCollector")(maxCount)
+        return self.delegate("RewindCollector")()
         
 
     def SetCollectorPageSize(self, maxCount):

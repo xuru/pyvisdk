@@ -98,6 +98,9 @@ class HostSystem(ManagedEntity):
         '''Creates and returns a one-time credential used to establish a remote connection to
         a CIM interface. The port to connect to is the standard well known port
         for the service.
+
+        :rtype: HostServiceTicket 
+
         '''
         
         return self.delegate("AcquireCimServicesTicket")()
@@ -105,6 +108,9 @@ class HostSystem(ManagedEntity):
 
     def DisconnectHost_Task(self):
         '''Disconnects from a host and instructs the server to stop sending heartbeats.
+
+        :rtype: ManagedObjectReference to a Task 
+
         '''
         
         return self.delegate("DisconnectHost_Task")()
@@ -124,7 +130,7 @@ class HostSystem(ManagedEntity):
         return self.delegate("EnterLockdownMode")()
         
 
-    def EnterMaintenanceMode_Task(self):
+    def EnterMaintenanceMode_Task(self, timeout, evacuatePoweredOffVms):
         '''Puts the host in maintenance mode. While this task is running and when the host is
         in maintenance mode, no virtual machines can be powered on and no
         provisioning operations can be performed on the host. Once the call
@@ -141,9 +147,27 @@ class HostSystem(ManagedEntity):
         machines are reregistered to other hosts. If VMware DRS is enabled, VC
         will automatically evacuate powered-off virtual machines. The task is
         cancellable.
+
+        :param timeout: The task completes when the host successfully enters maintenance mode or the
+        timeout expires, and in the latter case the task contains a Timeout fault.
+        If the timeout is less than or equal to zero, there is no timeout. The
+        timeout is specified in seconds.
+
+        :param evacuatePoweredOffVms: This is a parameter only supported by VirtualCenter. If set to true, for a DRS
+        disabled cluster, the task will not succeed unless all powered-off virtual
+        machines have been manually reregistered; for a DRS enabled cluster,
+        VirtualCenter will automatically reregister powered-off virtual machines
+        and a powered-off virtual machine may remain at the host only for two
+        reasons: (a) no compatible host found for reregistration, (b) DRS is
+        disabled for the virtual machine. If set to false, powered-off virtual
+        machines do not need to be moved.VI API 2.5
+
+
+        :rtype: ManagedObjectReference to a Task 
+
         '''
         
-        return self.delegate("EnterMaintenanceMode_Task")()
+        return self.delegate("EnterMaintenanceMode_Task")(timeout,evacuatePoweredOffVms)
         
 
     def ExitLockdownMode(self):
@@ -157,16 +181,23 @@ class HostSystem(ManagedEntity):
         return self.delegate("ExitLockdownMode")()
         
 
-    def ExitMaintenanceMode_Task(self):
+    def ExitMaintenanceMode_Task(self, timeout):
         '''Takes the host out of maintenance mode. This blocks if any concurrent running
         maintenance-only host configurations operations are being performed. For
         example, if VMFS volumes are being upgraded.The task is cancellable.
+
+        :param timeout: Number of seconds to wait for the exit maintenance mode to succeed. If the timeout
+        is less than or equal to zero, there is no timeout.
+
+
+        :rtype: ManagedObjectReference to a Task 
+
         '''
         
-        return self.delegate("ExitMaintenanceMode_Task")()
+        return self.delegate("ExitMaintenanceMode_Task")(timeout)
         
 
-    def PowerDownHostToStandBy_Task(self):
+    def PowerDownHostToStandBy_Task(self, timeoutSec, evacuatePoweredOffVms):
         '''Puts the host in standby mode, a mode in which the host is in a standby state from
         which it can be powered up remotely. While this task is running, no
         virtual machines can be powered on and no provisioning operations can be
@@ -185,12 +216,29 @@ class HostSystem(ManagedEntity):
         automatically evacuate powered-off virtual machines.The task is
         cancellable.This command is not supported on all hosts. Check the host
         capability standbySupported.
+
+        :param timeoutSec: The task completes when the host successfully enters standby mode and stops
+        sending heartbeat signals. If heartbeats are still coming after
+        timeoutSecs seconds, the host is declared timedout, and the task is
+        assumed failed.
+
+        :param evacuatePoweredOffVms: This is a parameter used only by VirtualCenter. If set to true, for a DRS disabled
+        cluster, the task will not succeed unless all powered-off virtual machines
+        have been manually reregistered; for a DRS enabled cluster, VirtualCenter
+        will automatically reregister powered-off virtual machines and a powered-
+        off virtual machine may remain at the host only for two reasons: (a) no
+        compatible host found for reregistration, (b) DRS is disabled for the
+        virtual machine.
+
+
+        :rtype: ManagedObjectReference to a Task 
+
         '''
         
-        return self.delegate("PowerDownHostToStandBy_Task")()
+        return self.delegate("PowerDownHostToStandBy_Task")(timeoutSec,evacuatePoweredOffVms)
         
 
-    def PowerUpHostFromStandBy_Task(self):
+    def PowerUpHostFromStandBy_Task(self, timeoutSec):
         '''Takes the host out of standby mode. If the command is successful, the host wakes
         up and starts sending heartbeats. This method may be called automatically
         by a dynamic recommendation generation module to add capacity to a
@@ -199,44 +247,86 @@ class HostSystem(ManagedEntity):
         indicator of success in the returned task. In some cases, it is not even
         possible to ensure that the wakeup request has made it to the host.The
         task is cancellable.
+
+        :param timeoutSec: The task completes when the host successfully exits standby state and sends a
+        heartbeat signal. If nothing is received from the host for timeoutSec
+        seconds, the host is declared timedout, and the task is assumed failed.
+
+
+        :rtype: ManagedObjectReference to a Task 
+
         '''
         
-        return self.delegate("PowerUpHostFromStandBy_Task")()
+        return self.delegate("PowerUpHostFromStandBy_Task")(timeoutSec)
         
 
     def QueryHostConnectionInfo(self):
         '''Connection-oriented information about a host.
+
+        :rtype: HostConnectInfo 
+
         '''
         
         return self.delegate("QueryHostConnectionInfo")()
         
 
-    def QueryMemoryOverhead(self):
+    def QueryMemoryOverhead(self, memorySize, videoRamSize, numVcpus):
         '''Deprecated. As of VI API 2.5, use QueryMemoryOverheadEx. Determines the amount of
         memory overhead necessary to power on a virtual machine with the specified
         characteristics.
+
+        :param memorySize: The amount of virtual system RAM, in bytes. For an existing virtual machine, this
+        value can be found (in megabytes) as the memoryMB property of the
+        VirtualHardware.
+
+        :param videoRamSize: The amount of virtual video RAM, in bytes. For an existing virtual machine on a
+        host that supports advertising this property, this value can be found (in
+        kilobytes) as the videoRamSizeInKB property of the
+        VirtualMachineVideoCard. If this parameter is left unset, the default
+        video RAM size for virtual machines on this host is assumed.
+
+        :param numVcpus: The number of virtual CPUs. For an existing virtual machine, this value can be
+        found as the numCPU property of the VirtualHardware.
+
+
+        :rtype: xsd:long 
+
         '''
         
-        return self.delegate("QueryMemoryOverhead")()
+        return self.delegate("QueryMemoryOverhead")(memorySize,videoRamSize,numVcpus)
         
 
-    def QueryMemoryOverheadEx(self):
+    def QueryMemoryOverheadEx(self, vmConfigInfo):
         '''Determines the amount of memory overhead necessary to power on a virtual machine
         with the specified characteristics.
+
+        :param vmConfigInfo: The configuration of the virtual machine.
+
+
+        :rtype: xsd:long 
+
         '''
         
-        return self.delegate("QueryMemoryOverheadEx")()
+        return self.delegate("QueryMemoryOverheadEx")(vmConfigInfo)
         
 
-    def RebootHost_Task(self):
+    def RebootHost_Task(self, force):
         '''Reboots a host. If the command is successful, then the host has been rebooted. If
         connected directly to the host, the client never receives an indicator of
         success in the returned task but simply loses connection to the host, upon
         success.This command is not supported on all hosts. Check the host
         capability vim.host.Capability.rebootSupported.
+
+        :param force: Flag to specify whether or not the host should be rebooted regardless of whether
+        it is in maintenance mode. If true, the host is rebooted, even if there
+        are virtual machines running or other operations in progress.
+
+
+        :rtype: ManagedObjectReference to a Task 
+
         '''
         
-        return self.delegate("RebootHost_Task")()
+        return self.delegate("RebootHost_Task")(force)
         
 
     def ReconfigureHostForDAS_Task(self):
@@ -245,12 +335,15 @@ class HostSystem(ManagedEntity):
         used if a host is added to a HA enabled cluster and the automatic HA
         configuration system task fails. Automatic HA configuration may fail for a
         variety of reasons. For example, the host is configured incorrectly.
+
+        :rtype: ManagedObjectReference to a Task 
+
         '''
         
         return self.delegate("ReconfigureHostForDAS_Task")()
         
 
-    def ReconnectHost_Task(self):
+    def ReconnectHost_Task(self, cnxSpec):
         '''Reconnects to a host. This process reinstalls agents and reconfigures the host, if
         it has gotten out of date with VirtualCenter. The reconnection process
         goes through many of the same steps as addHost: ensuring the correct set
@@ -263,28 +356,47 @@ class HostSystem(ManagedEntity):
         existing statistics, alarms, and privileges.This method can also be used
         to change the SSL thumbprint of a connected host without disconnecting
         it.This method is only supported through VirtualCenter.
+
+        :param cnxSpec: Includes the parameters to use, including user name and password, when
+        reconnecting to the host. If this parameter is not specified, the default
+        connection parameters is used.
+
+
+        :rtype: ManagedObjectReference to a Task 
+
         '''
         
-        return self.delegate("ReconnectHost_Task")()
+        return self.delegate("ReconnectHost_Task")(cnxSpec)
         
 
     def RetrieveHardwareUptime(self):
         '''Return the hardware uptime of the host in seconds. The harware uptime of a host is
         not affected by NTP and changes to its wall clock time and can be used by
         clients to provide a common time reference for all hosts.
+
+        :rtype: xsd:long 
+
         '''
         
         return self.delegate("RetrieveHardwareUptime")()
         
 
-    def ShutdownHost_Task(self):
+    def ShutdownHost_Task(self, force):
         '''Shuts down a host. If the command is successful, then the host has been shut down.
         Thus, the client never receives an indicator of success in the returned
         task if connected directly to the host.This command is not supported on
         all hosts. Check the host capability shutdownSupported.
+
+        :param force: Flag to specify whether or not the host should be shut down regardless of whether
+        it is in maintenance mode. If true, the host is shut down, even if there
+        are virtual machines running or other operations in progress.
+
+
+        :rtype: ManagedObjectReference to a Task 
+
         '''
         
-        return self.delegate("ShutdownHost_Task")()
+        return self.delegate("ShutdownHost_Task")(force)
         
 
     def UpdateFlags(self):

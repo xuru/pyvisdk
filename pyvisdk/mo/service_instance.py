@@ -58,140 +58,57 @@ class ServiceInstance(BaseEntity):
         return self.update('serverClock')
 
 
-    def CurrentTime(self, vm, state, testType, pool, host):
+    def CurrentTime(self):
         '''Returns the current time on the server. To monitor non-linear time changes, use
         the serverClock property.
 
-        :param vm: to a VirtualMachine[]The set of virtual machines intended for migration.
-
-        :param state: The power state that the virtual machines must have. If this argument is not set,
-        each virtual machine is evaluated according to its current power state.
-
-        :param testType: The set of tests to run. If this argument is not set, all tests will be run.
-
-        :param pool: to a ResourcePoolThe target resource pool for the virtual machines. If the pool
-        parameter is left unset, the target pool for each particular virtual
-        machine's migration will be that virtual machine's current pool. If the
-        virtual machine is a template then either this parameter or the host
-        parameter must be set; additionally if resource tests are requested then
-        this parameter is required.
-
-        :param host: to a HostSystemThe target host on which the virtual machines will run. The host
-        parameter may be left unset if the compute resource associated with the
-        target pool represents a stand-alone host or a DRS-enabled cluster. In the
-        former case the stand-alone host is used as the target host. In the latter
-        case, each connected host in the cluster that is not in maintenance mode
-        is tested as a target host. If the virtual machine is a template then
-        either this parameter or the pool parameter must be set.
-
-
-        :rtype: Event[] 
+        :rtype: xsd:dateTime 
 
         '''
         
-        return self.delegate("CurrentTime")(vm,state,testType,pool,host)
+        return self.delegate("CurrentTime")()
         
 
-    def QueryVMotionCompatibility(self, vm, state, testType, pool, host):
+    def QueryVMotionCompatibility(self, vm, host, compatibility):
         '''Deprecated. As of vSphere API 4.0, use QueryVMotionCompatibilityEx_Task instead.
         Investigates the general VMotion compatibility of a virtual machine with a
         set of hosts. The virtual machine may be in any power state. Hosts may be
         in any connection state and also may be in maintenance mode.
 
-        :param vm: to a VirtualMachine[]The set of virtual machines intended for migration.
+        :param vm: to a VirtualMachineThe virtual machine that is the designated VMotion candidate.
 
-        :param state: The power state that the virtual machines must have. If this argument is not set,
-        each virtual machine is evaluated according to its current power state.
+        :param host: to a HostSystem[]The group of hosts to analyze for compatibility.
 
-        :param testType: The set of tests to run. If this argument is not set, all tests will be run.
-
-        :param pool: to a ResourcePoolThe target resource pool for the virtual machines. If the pool
-        parameter is left unset, the target pool for each particular virtual
-        machine's migration will be that virtual machine's current pool. If the
-        virtual machine is a template then either this parameter or the host
-        parameter must be set; additionally if resource tests are requested then
-        this parameter is required.
-
-        :param host: to a HostSystemThe target host on which the virtual machines will run. The host
-        parameter may be left unset if the compute resource associated with the
-        target pool represents a stand-alone host or a DRS-enabled cluster. In the
-        former case the stand-alone host is used as the target host. In the latter
-        case, each connected host in the cluster that is not in maintenance mode
-        is tested as a target host. If the virtual machine is a template then
-        either this parameter or the pool parameter must be set.
+        :param compatibility: The set of compatibility types to investigate. Each is a string chosen from
+        VMotionCompatibilityType. If this argument is not set, then all
+        compatibility types are investigated.
 
 
-        :rtype: Event[] 
+        :rtype: HostVMotionCompatibility[] 
 
         '''
         
-        return self.delegate("QueryVMotionCompatibility")(vm,state,testType,pool,host)
+        return self.delegate("QueryVMotionCompatibility")(vm,host,compatibility)
         
 
-    def RetrieveProductComponents(self, vm, state, testType, pool, host):
+    def RetrieveProductComponents(self):
         '''Component information for bundled products
 
-        :param vm: to a VirtualMachine[]The set of virtual machines intended for migration.
-
-        :param state: The power state that the virtual machines must have. If this argument is not set,
-        each virtual machine is evaluated according to its current power state.
-
-        :param testType: The set of tests to run. If this argument is not set, all tests will be run.
-
-        :param pool: to a ResourcePoolThe target resource pool for the virtual machines. If the pool
-        parameter is left unset, the target pool for each particular virtual
-        machine's migration will be that virtual machine's current pool. If the
-        virtual machine is a template then either this parameter or the host
-        parameter must be set; additionally if resource tests are requested then
-        this parameter is required.
-
-        :param host: to a HostSystemThe target host on which the virtual machines will run. The host
-        parameter may be left unset if the compute resource associated with the
-        target pool represents a stand-alone host or a DRS-enabled cluster. In the
-        former case the stand-alone host is used as the target host. In the latter
-        case, each connected host in the cluster that is not in maintenance mode
-        is tested as a target host. If the virtual machine is a template then
-        either this parameter or the pool parameter must be set.
-
-
-        :rtype: Event[] 
+        :rtype: ProductComponentInfo[] 
 
         '''
         
-        return self.delegate("RetrieveProductComponents")(vm,state,testType,pool,host)
+        return self.delegate("RetrieveProductComponents")()
         
 
-    def RetrieveServiceContent(self, vm, state, testType, pool, host):
+    def RetrieveServiceContent(self):
         '''Retrieves the properties of the service instance.
 
-        :param vm: to a VirtualMachine[]The set of virtual machines intended for migration.
-
-        :param state: The power state that the virtual machines must have. If this argument is not set,
-        each virtual machine is evaluated according to its current power state.
-
-        :param testType: The set of tests to run. If this argument is not set, all tests will be run.
-
-        :param pool: to a ResourcePoolThe target resource pool for the virtual machines. If the pool
-        parameter is left unset, the target pool for each particular virtual
-        machine's migration will be that virtual machine's current pool. If the
-        virtual machine is a template then either this parameter or the host
-        parameter must be set; additionally if resource tests are requested then
-        this parameter is required.
-
-        :param host: to a HostSystemThe target host on which the virtual machines will run. The host
-        parameter may be left unset if the compute resource associated with the
-        target pool represents a stand-alone host or a DRS-enabled cluster. In the
-        former case the stand-alone host is used as the target host. In the latter
-        case, each connected host in the cluster that is not in maintenance mode
-        is tested as a target host. If the virtual machine is a template then
-        either this parameter or the pool parameter must be set.
-
-
-        :rtype: Event[] 
+        :rtype: ServiceContent 
 
         '''
         
-        return self.delegate("RetrieveServiceContent")(vm,state,testType,pool,host)
+        return self.delegate("RetrieveServiceContent")()
         
 
     def ValidateMigration(self, vm, state, testType, pool, host):

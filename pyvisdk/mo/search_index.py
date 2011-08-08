@@ -27,86 +27,103 @@ class SearchIndex(BaseEntity):
     
     
 
-    def FindAllByDnsName(self, entity, name):
+    def FindAllByDnsName(self, datacenter, dnsName, vmSearch):
         '''Finds all virtual machines or hosts by DNS name. The DNS name for a virtual
         machine is the one returned from VMware tools, hostName.
 
-        :param entity: to a ManagedEntityA reference to a managed entity.
+        :param datacenter: to a DatacenterIf specified, restricts the query to entities in a particular
+        datacenter. If not specified, the entire inventory is searched.
 
-        :param name: The name of the child object.
+        :param dnsName: The fully qualified domain name to find.
+
+        :param vmSearch: If true, search for virtual machines, otherwise search for hosts.
 
 
-        :rtype: ManagedObjectReference to a ManagedEntity 
+        :rtype: ManagedObjectReference[] to a ManagedEntity[] 
 
         '''
         
-        return self.delegate("FindAllByDnsName")(entity,name)
+        return self.delegate("FindAllByDnsName")(datacenter,dnsName,vmSearch)
         
 
-    def FindAllByIp(self, entity, name):
+    def FindAllByIp(self, datacenter, ip, vmSearch):
         '''Finds all virtual machines or hosts by IP address, where the IP address is in dot-
         decimal notation. For example, 10.17.12.12. The IP address for a virtual
         machine is the one returned from VMware tools, ipAddress.
 
-        :param entity: to a ManagedEntityA reference to a managed entity.
+        :param datacenter: to a DatacenterIf specified, restricts the query to entities in a particular
+        datacenter. If not specified, the entire inventory is searched.
 
-        :param name: The name of the child object.
+        :param ip: The dot-decimal notation formatted IP address to find.
+
+        :param vmSearch: If true, search for virtual machines, otherwise search for hosts.
 
 
-        :rtype: ManagedObjectReference to a ManagedEntity 
+        :rtype: ManagedObjectReference[] to a ManagedEntity[] 
 
         '''
         
-        return self.delegate("FindAllByIp")(entity,name)
+        return self.delegate("FindAllByIp")(datacenter,ip,vmSearch)
         
 
-    def FindAllByUuid(self, entity, name):
+    def FindAllByUuid(self, datacenter, uuid, vmSearch, instanceUuid):
         '''Finds all virtual machines or hosts by UUID.
 
-        :param entity: to a ManagedEntityA reference to a managed entity.
+        :param datacenter: to a DatacenterIf specified, restricts the query to entities in a particular
+        datacenter. If not specified, the entire inventory is searched.
 
-        :param name: The name of the child object.
+        :param uuid: The UUID to find. If vmSearch is true, the UUID can be either BIOS or instance
+        UUID.
+
+        :param vmSearch: If true, search for virtual machines, otherwise search for hosts.
+
+        :param instanceUuid: Should only be set when vmSearch is true. If specified, search for virtual
+        machines whose instance UUID matches the given uuid. Otherwise, search for
+        virtual machines whose BIOS UUID matches the given uuid.
 
 
-        :rtype: ManagedObjectReference to a ManagedEntity 
+        :rtype: ManagedObjectReference[] to a ManagedEntity[] 
 
         '''
         
-        return self.delegate("FindAllByUuid")(entity,name)
+        return self.delegate("FindAllByUuid")(datacenter,uuid,vmSearch,instanceUuid)
         
 
-    def FindByDatastorePath(self, entity, name):
+    def FindByDatastorePath(self, datacenter, path):
         '''Finds a virtual machine by its location on a datastore.
 
-        :param entity: to a ManagedEntityA reference to a managed entity.
+        :param datacenter: to a DatacenterSpecifies the datacenter to which the datastore path belongs.
 
-        :param name: The name of the child object.
+        :param path: A datastore path to the .vmx file for the virtual machine.
 
 
-        :rtype: ManagedObjectReference to a ManagedEntity 
+        :rtype: ManagedObjectReference to a VirtualMachine 
 
         '''
         
-        return self.delegate("FindByDatastorePath")(entity,name)
+        return self.delegate("FindByDatastorePath")(datacenter,path)
         
 
-    def FindByDnsName(self, entity, name):
+    def FindByDnsName(self, datacenter, dnsName, vmSearch):
         '''Finds a virtual machine or host by DNS name. The DNS name for a virtual machine is
         the one returned from VMware tools, hostName.
 
-        :param entity: to a ManagedEntityA reference to a managed entity.
+        :param datacenter: to a DatacenterIf specified, restricts the query to entities in a particular
+        datacenter. If not specified, the entire inventory is searched.
 
-        :param name: The name of the child object.
+        :param dnsName: The fully qualified domain name to find.
+
+        :param vmSearch: if true, search for virtual machines, otherwise search for hosts.
 
 
         :rtype: ManagedObjectReference to a ManagedEntity 
 
         '''
         
-        return self.delegate("FindByDnsName")(entity,name)
+        return self.delegate("FindByDnsName")(datacenter,dnsName,vmSearch)
         
 
-    def FindByInventoryPath(self, entity, name):
+    def FindByInventoryPath(self, inventoryPath):
         '''Finds a managed entity based on its location in the inventory. The path is
         separated by slashes ('/'). For example, a path should be of the form "My
         Folder/My Datacenter/vm/Discovered VM/VM1". A leading slash or trailing
@@ -116,48 +133,57 @@ class SearchIndex(BaseEntity):
         the inventory can be retrieved using this method, including resource pools
         and hosts.
 
-        :param entity: to a ManagedEntityA reference to a managed entity.
-
-        :param name: The name of the child object.
+        :param inventoryPath: The path to the entity.
 
 
         :rtype: ManagedObjectReference to a ManagedEntity 
 
         '''
         
-        return self.delegate("FindByInventoryPath")(entity,name)
+        return self.delegate("FindByInventoryPath")(inventoryPath)
         
 
-    def FindByIp(self, entity, name):
+    def FindByIp(self, datacenter, ip, vmSearch):
         '''Finds a virtual machine or host by IP address, where the IP address is in dot-
         decimal notation. For example, 10.17.12.12. The IP address for a virtual
         machine is the one returned from VMware tools, ipAddress.
 
-        :param entity: to a ManagedEntityA reference to a managed entity.
+        :param datacenter: to a DatacenterIf specified, restricts the query to entities in a particular
+        datacenter. If not specified, the entire inventory is searched.
 
-        :param name: The name of the child object.
+        :param ip: The dot-decimal notation formatted IP address to find.
+
+        :param vmSearch: if true, search for virtual machines, otherwise search for hosts.
 
 
         :rtype: ManagedObjectReference to a ManagedEntity 
 
         '''
         
-        return self.delegate("FindByIp")(entity,name)
+        return self.delegate("FindByIp")(datacenter,ip,vmSearch)
         
 
-    def FindByUuid(self, entity, name):
+    def FindByUuid(self, datacenter, uuid, vmSearch, instanceUuid):
         '''Finds a virtual machine or host by BIOS or instance UUID.
 
-        :param entity: to a ManagedEntityA reference to a managed entity.
+        :param datacenter: to a DatacenterIf specified, restricts the query to entities in a particular
+        datacenter. If not specified, the entire inventory is searched.
 
-        :param name: The name of the child object.
+        :param uuid: The UUID to find. If vmSearch is true, the uuid can be either BIOS or instance
+        UUID.
+
+        :param vmSearch: If true, search for virtual machines, otherwise search for hosts.
+
+        :param instanceUuid: Should only be set when vmSearch is true. If specified, search for virtual
+        machines whose instance UUID matches the given uuid. Otherwise, search for
+        virtual machines whose BIOS UUID matches the given uuid.vSphere API 4.0
 
 
         :rtype: ManagedObjectReference to a ManagedEntity 
 
         '''
         
-        return self.delegate("FindByUuid")(entity,name)
+        return self.delegate("FindByUuid")(datacenter,uuid,vmSearch,instanceUuid)
         
 
     def FindChild(self, entity, name):

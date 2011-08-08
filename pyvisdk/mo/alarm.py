@@ -26,14 +26,17 @@ class Alarm(ExtensibleManagedObject):
         return self.update('info')
 
 
-    def ReconfigureAlarm(self):
+    def ReconfigureAlarm(self, spec):
         '''Reconfigures the alarm properties. This operation requires access privileges on
         the entity with which the alarm is associated.In addition to the
         Alarm.Edit privilege, may also require the Global.ScriptAction if a
         RunScriptAction action is specified in the AlarmSpec.
+
+        :param spec: The new specification for the alarm.
+
         '''
         
-        return self.delegate("ReconfigureAlarm")()
+        return self.delegate("ReconfigureAlarm")(spec)
         
 
     def RemoveAlarm(self):

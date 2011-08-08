@@ -21,40 +21,52 @@ class DiagnosticManager(BaseEntity):
     
     
 
-    def BrowseDiagnosticLog(self, host):
+    def BrowseDiagnosticLog(self, host, key, start, lines):
         '''Returns part of a log file. Log entries are always returned chronologically,
         typically with the newest event last.
 
         :param host: to a HostSystemSpecifies the host. If not specified, then it defaults to the
-        server itself. For example, if called on VirtualCenter, then the value
-        defaults to VirtualCenter logs. When called on an ESX server host, the
-        host should not be specified.
+        default server. For example, if called on VirtualCenter, then the value
+        defaults to VirtualCenter logs.
+
+        :param key: A string key specifying the key for the log file to browse. Keys can be obtained
+        using the queryDescriptions method.
+
+        :param start: The line number for the first entry to be returned. If the parameter is not
+        specified, then the operation returns with lines starting from the top of
+        the log.
+
+        :param lines: The number of lines to return. If not specified, then all lines are returned from
+        the start value to the end of the file.
 
 
-        :rtype: DiagnosticManagerLogDescriptor[] 
+        :rtype: DiagnosticManagerLogHeader 
 
         '''
         
-        return self.delegate("BrowseDiagnosticLog")(host)
+        return self.delegate("BrowseDiagnosticLog")(host,key,start,lines)
         
 
-    def GenerateLogBundles_Task(self, host):
+    def GenerateLogBundles_Task(self, includeDefault, host):
         '''Instructs the server to generate diagnostic bundles. A diagnostic bundle includes
         log files and other configuration information that can be used to
         investigate potential server issues. Virtual machine and guest operation
         system state is excluded from diagnostic bundles.
 
-        :param host: to a HostSystemSpecifies the host. If not specified, then it defaults to the
-        server itself. For example, if called on VirtualCenter, then the value
-        defaults to VirtualCenter logs. When called on an ESX server host, the
-        host should not be specified.
+        :param includeDefault: Specifies if the bundle should include the default server. If called on a
+        VirtualCenter server, then this means the VirtualCenter diagnostic files.
+        If called directly on a host, then includeDefault must be set to true.
+
+        :param host: to a HostSystem[]Lists hosts that are included. This is only used when called on
+        VirtualCenter. If called directly on a host, then this parameter must be
+        empty.
 
 
-        :rtype: DiagnosticManagerLogDescriptor[] 
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("GenerateLogBundles_Task")(host)
+        return self.delegate("GenerateLogBundles_Task")(includeDefault,host)
         
 
     def QueryDescriptions(self, host):

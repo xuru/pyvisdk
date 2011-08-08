@@ -69,7 +69,7 @@ class ClusterComputeResource(ComputeResource):
         return self.update('recommendation')
 
 
-    def AddHost_Task(self):
+    def AddHost_Task(self, spec, asConnected, resourcePool, license):
         '''Adds a host to the cluster. The hostname must be either an IP address, such as
         192.168.0.1, or a DNS resolvable name. DNS names may be fully qualified
         names, such as host1.domain1.com, or a short name such as host1, providing
@@ -82,38 +82,49 @@ class ClusterComputeResource(ComputeResource):
         stand-alone host resource hierarchy is discarded and all virtual machines
         on the host are put under the cluster's root resource pool.
 
-        :rtype: ClusterDasAdvancedRuntimeInfo 
+        :param spec: Specifies the host name, port, and password for the host to be added.
+
+        :param asConnected: Flag to specify whether or not the host should be connected immediately after it
+        is added. If the host is to be connected immediately after it is added,
+        but the connection fails, then an exception is thrown.
+
+        :param resourcePool: to a ResourcePoolthe resource pool for the root resource pool from the host.
+
+        :param license: Provide a licenseKey or licenseKeyType. See LicenseManagervSphere API 4.0
+
+
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("AddHost_Task")()
+        return self.delegate("AddHost_Task")(spec,asConnected,resourcePool,license)
         
 
-    def ApplyRecommendation(self):
+    def ApplyRecommendation(self, key):
         '''Applies a recommendation from the drsRecommendation or the recommendation list.
         Each recommendation can be applied only once.resource.applyRecommendation
         privilege is required if the recommendation is DRS migration or power
         management recommendations.
 
-        :rtype: ClusterDasAdvancedRuntimeInfo 
+        :param key: The key field of the DrsRecommendation or Recommendation.
 
         '''
         
-        return self.delegate("ApplyRecommendation")()
+        return self.delegate("ApplyRecommendation")(key)
         
 
-    def CancelRecommendation(self):
+    def CancelRecommendation(self, key):
         '''Cancels a recommendation. Currently only initial placement recommendations can be
         cancelled. Migration or power management recommendations cannot.
 
-        :rtype: ClusterDasAdvancedRuntimeInfo 
+        :param key: The key field of the Recommendation.
 
         '''
         
-        return self.delegate("CancelRecommendation")()
+        return self.delegate("CancelRecommendation")(key)
         
 
-    def MoveHostInto_Task(self):
+    def MoveHostInto_Task(self, host, resourcePool):
         '''Moves an existing host into a cluster. The host must be part of the same
         datacenter, and if the host is part of a cluster, the host must be in
         maintenance mode.If the host is a stand-alone host, the stand-alone
@@ -129,14 +140,20 @@ class ClusterComputeResource(ComputeResource):
         does not support nested resource pools or the resourcePool argument is not
         specified, then the stand-alone host resource hierarchy is ignored.
 
-        :rtype: ClusterDasAdvancedRuntimeInfo 
+        :param host: to a HostSystemThe list of hosts to move into the cluster.
+
+        :param resourcePool: to a ResourcePoolThe resource pool to match the root resource pool of stand-alone
+        hosts. This argument has no effect if the host is part of a cluster.
+
+
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("MoveHostInto_Task")()
+        return self.delegate("MoveHostInto_Task")(host,resourcePool)
         
 
-    def MoveInto_Task(self):
+    def MoveInto_Task(self, host):
         '''Moves an existing host into a cluster. The host must be part of the same
         datacenter, and if the host is part of a cluster, the host must be in
         maintenance mode.If the host is part of a stand-alone ComputeResource,
@@ -156,14 +173,17 @@ class ClusterComputeResource(ComputeResource):
         privileges mentioned, the user must also hold Host.Inventory.EditCluster
         on the host's source ComputeResource object.
 
-        :rtype: ClusterDasAdvancedRuntimeInfo 
+        :param host: to a HostSystem[]The list of hosts to move into the cluster.
+
+
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("MoveInto_Task")()
+        return self.delegate("MoveInto_Task")(host)
         
 
-    def RecommendHostsForVm(self):
+    def RecommendHostsForVm(self, vm, pool):
         '''Deprecated. As of VI API 2.5, use PowerOnMultiVM_Task. RecommendHostsForVm cannot
         make any recommendations if DRS cannot find the specified host in the
         cluster. With PowerOnMultiVM_Task, DRS attempts to migrate virtual
@@ -172,31 +192,48 @@ class ClusterComputeResource(ComputeResource):
         from powered-off state to powered on state, or to migrate a specific
         virtual machine. If no host is found, an empty list is returned.
 
-        :rtype: ClusterDasAdvancedRuntimeInfo 
+        :param vm: to a VirtualMachineSpecifies the virtual machine for which the user is requesting
+        a recommendations.
+
+        :param pool: to a ResourcePoolSpecifies the ResourcePool into which the virtual machine is to
+        be migrated. If the virtual machine is powered-on, this argument must be
+        specified and it is relevant only when the virtual machine is powered-on.
+        This ResourcePool cannot be in the same cluster as the virtual machine.
+
+
+        :rtype: ClusterHostRecommendation[] 
 
         '''
         
-        return self.delegate("RecommendHostsForVm")()
+        return self.delegate("RecommendHostsForVm")(vm,pool)
         
 
-    def ReconfigureCluster_Task(self):
+    def ReconfigureCluster_Task(self, spec, modify):
         '''Deprecated. As of VI API 2.5, use ReconfigureComputeResource_Task. Reconfigures a
         cluster.
 
-        :rtype: ClusterDasAdvancedRuntimeInfo 
+        :param spec: A set of configuration changes to apply to the cluster. The specification can be a
+        complete set of changes or a partial set of changes, applied
+        incrementally.
+
+        :param modify: Flag to specify whether the specification ("spec") should be applied
+        incrementally. If "modify" is false and the operation succeeds, then the
+        configuration of the cluster matches the specification exactly; in this
+        case any unset portions of the specification will result in unset or
+        default portions of the configuration.
+
+
+        :rtype: ManagedObjectReference to a Task 
 
         '''
         
-        return self.delegate("ReconfigureCluster_Task")()
+        return self.delegate("ReconfigureCluster_Task")(spec,modify)
         
 
     def RefreshRecommendation(self):
         '''Make DRS invoke again and return a new list of recommendations. Concurrent
         "refresh" requests may be combined together and trigger only one DRS
         invocation.The recommendations generated is stored at recommendation.
-
-        :rtype: ClusterDasAdvancedRuntimeInfo 
-
         '''
         
         return self.delegate("RefreshRecommendation")()

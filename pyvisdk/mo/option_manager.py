@@ -34,6 +34,9 @@ class OptionManager(BaseEntity):
         '''Returns a specific node or nodes in the option hierarchy.This method might require
         any of the following privileges depending on where the property fits in
         the inventory tree.
+
+        :rtype: OptionValue[] 
+
         '''
         
         return self.delegate("QueryOptions")()

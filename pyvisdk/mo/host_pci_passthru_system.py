@@ -24,14 +24,11 @@ class HostPciPassthruSystem(ExtensibleManagedObject):
         return self.update('pciPassthruInfo')
 
 
-    def Refresh(self, config):
+    def Refresh(self):
         '''Refresh the available PciPassthru information.
-
-        :param config: The new PciPassthru configuration information.
-
         '''
         
-        return self.delegate("Refresh")(config)
+        return self.delegate("Refresh")()
         
 
     def UpdatePassthruConfig(self, config):
