@@ -70,6 +70,8 @@ from pyvisdk.mo.performance_manager import PerformanceManager
 from pyvisdk.mo.profile import Profile
 from pyvisdk.mo.profile_compliance_manager import ProfileComplianceManager
 from pyvisdk.mo.profile_manager import ProfileManager
+from pyvisdk.mo.property_collector import PropertyCollector
+from pyvisdk.mo.property_filter import PropertyFilter
 from pyvisdk.mo.resource_planning_manager import ResourcePlanningManager
 from pyvisdk.mo.resource_pool import ResourcePool
 from pyvisdk.mo.scheduled_task import ScheduledTask

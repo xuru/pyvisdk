@@ -72,6 +72,8 @@ ManagedEntityTypes = Enum(
     "Profile",
     "ProfileComplianceManager",
     "ProfileManager",
+    "PropertyCollector",
+    "PropertyFilter",
     "ResourcePlanningManager",
     "ResourcePool",
     "ScheduledTask",

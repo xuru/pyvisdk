@@ -180,10 +180,7 @@ class VirtualMachine(ManagedEntity):
         server where the virtual machine is running, and the ESX server must be
         reachable to the management client from the address made available to the
         client via the ticket.Acquiring a virtual machine ticket requires
-        different privileges depending on the types of ticket:*
-        VirtualMachine.Interact.DeviceConnection if requesting a device ticket. *
-        VirtualMachine.Interact.GuestControl if requesting a guestControl ticket.
-        * VirtualMachine.Interact.ConsoleInteract if requesting an mks ticket.
+        different privileges depending on the types of ticket:
 
         :param version: If specified, upgrade to that specified version. If not specified, upgrade to the
         most current virtual hardware supported on the host.
@@ -234,19 +231,13 @@ class VirtualMachine(ManagedEntity):
         character used in this name parameter must be escaped, unless it is used
         to start an escape sequence. Clients may also escape any other characters
         in this name parameter.The privilege required on the source virtual
-        machine depends on the source and destination types:* source is virtual
-        machine, destination is virtual machine -
-        VirtualMachine.Provisioning.Clone * source is virtual machine, destination
-        is template - VirtualMachine.Provisioning.CreateTemplateFromVM * source is
-        template, destination is virtual machine -
-        VirtualMachine.Provisioning.DeployTemplate * source is template,
-        destination is template - VirtualMachine.Provisioning.CloneTemplateIf
-        customization is requested in the CloneSpec, then the
-        VirtualMachine.Provisioning.Customize privilege must also be held on the
-        source virtual machine.The Resource.AssignVMToPool privilege is also
-        required for the resource pool specified in the CloneSpec, if the
-        destination is not a template. The Datastore.AllocateSpace privilege is
-        required on all datastores where the clone is created.
+        machine depends on the source and destination types:If customization is
+        requested in the CloneSpec, then the VirtualMachine.Provisioning.Customize
+        privilege must also be held on the source virtual machine.The
+        Resource.AssignVMToPool privilege is also required for the resource pool
+        specified in the CloneSpec, if the destination is not a template. The
+        Datastore.AllocateSpace privilege is required on all datastores where the
+        clone is created.
 
         :param version: If specified, upgrade to that specified version. If not specified, upgrade to the
         most current virtual hardware supported on the host.
@@ -642,46 +633,9 @@ class VirtualMachine(ManagedEntity):
         '''Reconfigures this virtual machine. All the changes in the given configuration are
         applied to the virtual machine as an atomic operation.Reconfiguring the
         virtual machine may require any of the following privileges depending on
-        what is being changed:* VirtualMachine.Interact.DeviceConnection if
-        changing the runtime connection state of a device as embodied by the
-        Connectable property. * VirtualMachine.Interact.SetCDMedia if changing the
-        backing of a CD-ROM device * VirtualMachine.Interact.SetFloppyMedia if
-        changing the backing of a floppy device * VirtualMachine.Config.Rename if
-        renaming the virtual machine * VirtualMachine.Config.AddExistingDisk if
-        adding a virtual disk device that is backed by an existing virtual disk
-        file * VirtualMachine.Config.AddNewDisk if adding a virtual disk device
-        for which the backing virtual disk file is to be created *
-        VirtualMachine.Config.RemoveDisk if removing a virtual disk device that
-        refers to a virtual disk file * VirtualMachine.Config.CPUCount if changing
-        the number of CPUs * VirtualMachine.Config.Memory if changing the amount
-        of memory * VirtualMachine.Config.RawDevice if adding, removing or editing
-        a raw device mapping (RDM) or SCSI passthrough device *
-        VirtualMachine.Config.AddRemoveDevice if adding or removing any device
-        other than disk, raw, or USB device * VirtualMachine.Config.EditDevice if
-        changing the settings of any device * VirtualMachine.Config.Settings if
-        changing any basic settings such as those in ToolsConfigInfo, FlagInfo, or
-        DefaultPowerOpInfo * VirtualMachine.Config.Resource if changing resource
-        allocations, affinities, or setting network traffic shaping or virtual
-        disk shares * VirtualMachine.Config.AdvancedConfig if changing values in
-        extraConfig * VirtualMachine.Config.SwapPlacement if changing
-        swapPlacement * VirtualMachine.Config.HostUSBDevice if adding, removing or
-        editing a VirtualUSB device backed by the host USB device. *
-        VirtualMachine.Config.DiskExtend if extending an existing VirtualDisk
-        device. * VirtualMachine.Config.ChangeTracking if enabling/disabling
-        changed block tracking for the virtual machine's disks. * DVSwitch.CanUse
-        if connecting a VirtualEthernetAdapter to a port in a
-        DistributedVirtualSwitch. * DVPortgroup.CanUse if connecting a
-        VirtualEthernetAdapter to a DistributedVirtualPortgroup.Creating a virtual
-        machine may require the following privileges:*
-        VirtualMachine.Config.RawDevice if adding a raw device *
-        VirtualMachine.Config.AddExistingDisk if adding a VirtualDisk and the
-        fileOperation is unset * VirtualMachine.Config.AddNewDisk if adding a
-        VirtualDisk and the fileOperation is set *
-        VirtualMachine.Config.HostUSBDevice if adding a VirtualUSB device backed
-        by the host USB device.In addition, this operation may require the
-        following privileges:* Datastore.AllocateSpace on any datastore where
-        virtual disks will be created or extended. * Network.Assign on any network
-        the virtual machine will be connected to.
+        what is being changed:Creating a virtual machine may require the following
+        privileges:In addition, this operation may require the following
+        privileges:
 
         :param version: If specified, upgrade to that specified version. If not specified, upgrade to the
         most current virtual hardware supported on the host.

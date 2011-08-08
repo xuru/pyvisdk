@@ -25,15 +25,7 @@ class HistoryCollector(BaseEntity):
         the "latestPage" property, which the client may retrieve and monitor by
         using the PropertyCollector managed object.Clients can change the page
         size of the "latestPage" by using setLatestPageSize().The client may use
-        the following features of the history collector.* RewindCollector - Moves
-        the "scrollable view" to the oldest item (the default setting). * readNext
-        - Retrieves all the items in the collector, from the oldest item to the
-        newest item. Retrieves either tasks or events depending on the operation.
-        * readPrev - Retrieves all items (excluding the "viewable latest page") in
-        the collector, from the newest item to the oldest item. Retrieves either
-        tasks or events depending on the operation. * ResetCollector - Moves the
-        "scrollable view" to the item immediately preceding the "viewable latest
-        page".
+        the following features of the history collector.
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HistoryCollector):
         # MUST define these

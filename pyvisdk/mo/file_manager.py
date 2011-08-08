@@ -14,12 +14,7 @@ class FileManager(BaseEntity):
         to change in future releases.This managed object type provides a way to
         manage and manipulate files and folders on datastores. The source and the
         destination names are in the form of a URL or a datastore path.A URL has
-        the formwhere* is or . * specifies the hostname or IP address of the
-        VirtualCenter or ESX server and optionally the port. * is the inventory
-        path to the Datacenter containing the Datastore. * is the name of the
-        Datastore. * is a slash-delimited path from the root of the datastore.A
-        datastore path has the formwhere* is the datastore name. * is a slash-
-        delimited path from the root of the datastore.
+        the formwhereA datastore path has the formwhere
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.FileManager):
         # MUST define these

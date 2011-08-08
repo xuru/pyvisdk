@@ -12,10 +12,7 @@ log = logging.getLogger(__name__)
 class HostDiagnosticSystem(BaseEntity):
     '''The DiagnosticSystem managed object is used to configure the diagnostic mechanisms
         specific to the host. The DiagnosticSystem interface supports the
-        following concepts:* Notion of an active diagnostic partition that is
-        selected from a set of available partitions. * Ability to create a
-        diagnostic partition that gets added to the list of available partitions
-        and could be made active.
+        following concepts:
     '''
     def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostDiagnosticSystem):
         # MUST define these
