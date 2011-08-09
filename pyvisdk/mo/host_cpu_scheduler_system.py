@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.extensible_managed_object import ExtensibleManagedObject
 import logging
 
@@ -16,7 +16,7 @@ class HostCpuSchedulerSystem(ExtensibleManagedObject):
         where resource management controls are available to optimize the running
         of virtual machines.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostCpuSchedulerSystem):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostCpuSchedulerSystem):
         # MUST define these
         super(HostCpuSchedulerSystem, self).__init__(core, name=name, ref=ref, type=type)
     

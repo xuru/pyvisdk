@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -13,7 +13,7 @@ class VirtualMachineProvisioningChecker(BaseEntity):
     '''A singleton managed object that can answer questions about the feasibility of
         certain provisioning operations.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.VirtualMachineProvisioningChecker):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.VirtualMachineProvisioningChecker):
         # MUST define these
         super(VirtualMachineProvisioningChecker, self).__init__(core, name=name, ref=ref, type=type)
     

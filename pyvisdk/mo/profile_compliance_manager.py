@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 class ProfileComplianceManager(BaseEntity):
     '''Interface handling the Compliance aspects of entities.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ProfileComplianceManager):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ProfileComplianceManager):
         # MUST define these
         super(ProfileComplianceManager, self).__init__(core, name=name, ref=ref, type=type)
     

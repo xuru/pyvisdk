@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.profile import Profile
 import logging
 
@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 class HostProfile(Profile):
     '''This data object type represents a profile for configuring the host.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostProfile):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostProfile):
         # MUST define these
         super(HostProfile, self).__init__(core, name=name, ref=ref, type=type)
     

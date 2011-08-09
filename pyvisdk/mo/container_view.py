@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.managed_object_view import ManagedObjectView
 import logging
 
@@ -15,11 +15,12 @@ class ContainerView(ManagedObjectView):
         ContainerView with a ViewManager.When you invoke the CreateContainerView
         method, you specify a managed object instance that provides the starting
         point for object selection. You can use the following managed objects as
-        the basis of a container view:Once you have created the view, the view
-        list always represents the current configuration of the virtual
-        environment and reflects any subsequent changes that occur.
+        the basis of a container view:* Folder * Datacenter * ComputeResource *
+        ResourcePool * HostSystemOnce you have created the view, the view list
+        always represents the current configuration of the virtual environment and
+        reflects any subsequent changes that occur.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ContainerView):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ContainerView):
         # MUST define these
         super(ContainerView, self).__init__(core, name=name, ref=ref, type=type)
     

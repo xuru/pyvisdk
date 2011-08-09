@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.managed_entity import ManagedEntity
 import logging
 
@@ -17,7 +17,7 @@ class HostSystem(ManagedEntity):
         failover host throws a DisallowedOperationOnFailoverHost fault. See
         ClusterFailoverHostAdmissionControlPolicy.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostSystem):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostSystem):
         # MUST define these
         super(HostSystem, self).__init__(core, name=name, ref=ref, type=type)
     

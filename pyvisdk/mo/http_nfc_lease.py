@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -17,7 +17,7 @@ class HttpNfcLease(BaseEntity):
         etc.A lease is in one of four states:The import/export task corresponding
         to the lease continues running while the lease is held.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HttpNfcLease):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HttpNfcLease):
         # MUST define these
         super(HttpNfcLease, self).__init__(core, name=name, ref=ref, type=type)
     

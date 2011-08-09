@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.network import Network
 import logging
 
@@ -14,7 +14,7 @@ class DistributedVirtualPortgroup(Network):
         both a group of ports that share the common network setting and a Network
         entity in the datacenter.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.DistributedVirtualPortgroup):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.DistributedVirtualPortgroup):
         # MUST define these
         super(DistributedVirtualPortgroup, self).__init__(core, name=name, ref=ref, type=type)
     

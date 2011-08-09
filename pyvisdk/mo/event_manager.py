@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -14,7 +14,7 @@ class EventManager(BaseEntity):
         support. Event objects are used to record significant state changes of
         managed entities.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.EventManager):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.EventManager):
         # MUST define these
         super(EventManager, self).__init__(core, name=name, ref=ref, type=type)
     

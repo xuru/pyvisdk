@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.compute_resource import ComputeResource
 import logging
 
@@ -17,7 +17,7 @@ class ClusterComputeResource(ComputeResource):
         Compatibility), enhance the utility of this single compute resource.Use
         the Folder.CreateClusterEx method to create an instance of this object.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ClusterComputeResource):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ClusterComputeResource):
         # MUST define these
         super(ClusterComputeResource, self).__init__(core, name=name, ref=ref, type=type)
     

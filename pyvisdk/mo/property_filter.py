@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -17,7 +17,7 @@ class PropertyFilter(BaseEntity):
         when the session on which it was created is closed or the
         PropertyCollector on which it was created is destroyed.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.PropertyFilter):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.PropertyFilter):
         # MUST define these
         super(PropertyFilter, self).__init__(core, name=name, ref=ref, type=type)
     

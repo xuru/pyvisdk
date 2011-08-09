@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -13,7 +13,7 @@ class AlarmManager(BaseEntity):
     '''The alarm manager is a singleton object for managing alarms within a service
         instance.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.AlarmManager):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.AlarmManager):
         # MUST define these
         super(AlarmManager, self).__init__(core, name=name, ref=ref, type=type)
     

@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.extensible_managed_object import ExtensibleManagedObject
 import logging
 
@@ -14,7 +14,7 @@ class HostFirewallSystem(ExtensibleManagedObject):
         host.The firewall should be configured first by setting the default policy
         and then by making exceptions to the policy to get the desired openness.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostFirewallSystem):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostFirewallSystem):
         # MUST define these
         super(HostFirewallSystem, self).__init__(core, name=name, ref=ref, type=type)
     

@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.managed_object_view import ManagedObjectView
 import logging
 
@@ -25,7 +25,7 @@ class InventoryView(ManagedObjectView):
         following sequence of operations with an InventoryView and the
         PropertyCollector:
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.InventoryView):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.InventoryView):
         # MUST define these
         super(InventoryView, self).__init__(core, name=name, ref=ref, type=type)
     

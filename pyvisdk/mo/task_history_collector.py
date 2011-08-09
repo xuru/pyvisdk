@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.history_collector import HistoryCollector
 import logging
 
@@ -13,7 +13,7 @@ class TaskHistoryCollector(HistoryCollector):
     '''TaskHistoryCollector provides a mechanism for retrieving historical data and
         updates when the server appends new tasks.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.TaskHistoryCollector):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.TaskHistoryCollector):
         # MUST define these
         super(TaskHistoryCollector, self).__init__(core, name=name, ref=ref, type=type)
     

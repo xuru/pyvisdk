@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -25,9 +25,17 @@ class HistoryCollector(BaseEntity):
         the "latestPage" property, which the client may retrieve and monitor by
         using the PropertyCollector managed object.Clients can change the page
         size of the "latestPage" by using setLatestPageSize().The client may use
-        the following features of the history collector.
+        the following features of the history collector.* RewindCollector - Moves
+        the "scrollable view" to the oldest item (the default setting). * readNext
+        - Retrieves all the items in the collector, from the oldest item to the
+        newest item. Retrieves either tasks or events depending on the operation.
+        * readPrev - Retrieves all items (excluding the "viewable latest page") in
+        the collector, from the newest item to the oldest item. Retrieves either
+        tasks or events depending on the operation. * ResetCollector - Moves the
+        "scrollable view" to the item immediately preceding the "viewable latest
+        page".
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HistoryCollector):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HistoryCollector):
         # MUST define these
         super(HistoryCollector, self).__init__(core, name=name, ref=ref, type=type)
     

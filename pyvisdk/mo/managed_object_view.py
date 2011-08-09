@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.view import View
 import logging
 
@@ -15,7 +15,7 @@ class ManagedObjectView(View):
         contains references to objects in the view. To create a view use the
         ViewManager methods.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ManagedObjectView):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ManagedObjectView):
         # MUST define these
         super(ManagedObjectView, self).__init__(core, name=name, ref=ref, type=type)
     

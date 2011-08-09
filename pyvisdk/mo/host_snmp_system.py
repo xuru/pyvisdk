@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -13,7 +13,7 @@ class HostSnmpSystem(BaseEntity):
     '''Provision the SNMP Version 1,2c agent. This object is a singleton accessed through
         the HostConfigManager object.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostSnmpSystem):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostSnmpSystem):
         # MUST define these
         super(HostSnmpSystem, self).__init__(core, name=name, ref=ref, type=type)
     

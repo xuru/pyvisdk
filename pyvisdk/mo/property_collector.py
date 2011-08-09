@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -17,9 +17,13 @@ class PropertyCollector(BaseEntity):
         notification.For change detection a client creates one or more filters to
         specify the subset of managed objects in which the client is interested.
         Filters keep per-session state to track incremental changes. Because this
-        state is per-session:
+        state is per-session:* A session cannot share its PropertyCollector
+        filters with other sessions * two different clients can share the same
+        session, and so can share the same filters, but this is not recommended *
+        When a session terminates, the associated PropertyCollector filters are
+        automatically destroyed.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.PropertyCollector):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.PropertyCollector):
         # MUST define these
         super(PropertyCollector, self).__init__(core, name=name, ref=ref, type=type)
     

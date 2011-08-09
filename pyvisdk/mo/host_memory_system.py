@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.extensible_managed_object import ExtensibleManagedObject
 import logging
 
@@ -14,7 +14,7 @@ class HostMemorySystem(ExtensibleManagedObject):
         host memory management policies that affect the performance of running
         virtual machines can be gathered and configured.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostMemorySystem):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostMemorySystem):
         # MUST define these
         super(HostMemorySystem, self).__init__(core, name=name, ref=ref, type=type)
     

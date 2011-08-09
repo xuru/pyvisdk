@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -52,7 +52,7 @@ class OvfManager(BaseEntity):
         based on the warnings issued.Errors cause processing to abort by
         definition.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.OvfManager):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.OvfManager):
         # MUST define these
         super(OvfManager, self).__init__(core, name=name, ref=ref, type=type)
     
@@ -88,7 +88,9 @@ class OvfManager(BaseEntity):
 
     def CreateImportSpec(self, ovfDescriptor, resourcePool, datastore, cisp):
         '''Validate the OVF descriptor against the hardware supported by the host system. If
-        the validation succeeds, return a result containing:
+        the validation succeeds, return a result containing:* An ImportSpec to use
+        when importing the entity. * A list of items to upload (for example disk
+        backing files, ISO images etc.)
 
         :param ovfDescriptor: The OVF descriptor of the entity.
 

@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -18,7 +18,7 @@ class ExtensibleManagedObject(BaseEntity):
         managedObjectType. (If you do not set a managed object type for a custom
         field definition, the field applies to all managed objects.)
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ExtensibleManagedObject):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ExtensibleManagedObject):
         # MUST define these
         super(ExtensibleManagedObject, self).__init__(core, name=name, ref=ref, type=type)
     

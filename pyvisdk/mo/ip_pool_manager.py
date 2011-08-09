@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -13,7 +13,7 @@ class IpPoolManager(BaseEntity):
     '''Singleton Managed Object used to manage IP Pools.IP Pools are used to allocate
         IPv4 and IPv6 addresses to vApps.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.IpPoolManager):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.IpPoolManager):
         # MUST define these
         super(IpPoolManager, self).__init__(core, name=name, ref=ref, type=type)
     

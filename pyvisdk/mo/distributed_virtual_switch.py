@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.managed_entity import ManagedEntity
 import logging
 
@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 class DistributedVirtualSwitch(ManagedEntity):
     '''The interface to the distributed virtual switch objects.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.DistributedVirtualSwitch):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.DistributedVirtualSwitch):
         # MUST define these
         super(DistributedVirtualSwitch, self).__init__(core, name=name, ref=ref, type=type)
     
@@ -115,7 +115,28 @@ class DistributedVirtualSwitch(ManagedEntity):
         entities from the source switch, tears down its host proxy
         VirtualSwitches, creates new ones for the destination switch, and
         reconnects the entities to the destination switch.In summary, this
-        operation does the following:
+        operation does the following:* Adds the maxPorts of the source switch to
+        the maxPorts of the destination switch. * The host members of the source
+        switch leave the source switch and join the destination switch with the
+        same pNIC and VirtualSwitch (if applicable). A set of new uplink ports,
+        compliant with the uplinkPortPolicy, is created as the hosts join the
+        destination switch. * The portgroups on the source switch are copied over
+        to destination switch, by calculating the effective default port config
+        and creating a portgroup of the same name in the destination switch. If
+        the name already exists, the copied portgroup uses names like "Copy of
+        switch-portgroup-name" scheme to avoid conflict. The same number of ports
+        are created inside each copied portgroup. * The standalone DVPorts are not
+        copied, unless there is a Virtual Machine or host vNIC connecting to it.
+        In that case, the operation calculates the effective port config and
+        creates a port in the designation DVS with the same name. Name conflict is
+        resolved by numbers like "original-port-name(1)". The uplink ports are not
+        copied over. * The Virtual Machine host vNICs are disconnected from the
+        source switch and reconnected with the destination switch, either to the
+        copied standalone port or portgroup. * (Applicable to
+        VmwareDistributedVirtualSwitch object only) Unless the PVLAN map contains
+        exactly the same entries between the source and destination switches, the
+        operation raises a fault if pvlanId is set in any port, portgroup, or
+        switch that will be copied.
 
         :param dvs: to a DistributedVirtualSwitchThe switch (source) to be merged
 
@@ -188,7 +209,11 @@ class DistributedVirtualSwitch(ManagedEntity):
 
     def ReconfigureDvs_Task(self, spec):
         '''Reconfigure the switch.Reconfiguring the switch may require any of the following
-        privileges, depending on what is being changed:
+        privileges, depending on what is being changed:* DVSwitch.PolicyOp if
+        policy is set. * DVSwitch.PortSetting if defaultPortConfig is set. *
+        DVSwitch.HostOp if policy is set. The user will also need the
+        Host.Config.Network privilege on the host. * DVSwitch.Modify for anything
+        else.
 
         :param spec: The configuration of the switch
 

@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -15,7 +15,7 @@ class HostDateTimeSystem(BaseEntity):
         functionality to start and stop the daemon is provided by the
         HostServiceSystem object.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostDateTimeSystem):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostDateTimeSystem):
         # MUST define these
         super(HostDateTimeSystem, self).__init__(core, name=name, ref=ref, type=type)
     

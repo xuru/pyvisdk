@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -15,7 +15,7 @@ class TaskManager(BaseEntity):
         managed object that can be monitored by a client application. Task managed
         objects may also be accessed through the TaskManager.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.TaskManager):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.TaskManager):
         # MUST define these
         super(TaskManager, self).__init__(core, name=name, ref=ref, type=type)
     

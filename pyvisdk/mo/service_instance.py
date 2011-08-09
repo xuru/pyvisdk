@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -22,14 +22,33 @@ class ServiceInstance(BaseEntity):
         to the various vSphere manager entities and to the root folder of the
         inventory.When you create managed objects, the server adds them to the
         inventory. The inventory of managed objects includes instances the
-        following object types:The following figure shows the organization of
-        managed objects in the vCenter hierarchy:Every Datacenter has the
-        following set of dedicated folders. These folders are empty until you
-        create entities for the Datacenter.The host agent hierarchy has the same
-        general form as the vCenter hierarchy, but most of the objects are limited
-        to one instance:
+        following object types:* ServiceInstance -- Root of the inventory; created
+        by vSphere. * Datacenter -- A container that represents a virtual data
+        center. It contains hosts, network entities, virtual machines and virtual
+        applications, and datastores. * Folder -- A container used for
+        hierarchical organization of the inventory. * VirtualMachine -- A virtual
+        machine. * VirtualApp -- A virtual application. * ComputeResource -- A
+        compute resource (either a cluster or a stand-alone host). * ResourcePool
+        -- A subset of resources provided by a ComputeResource. * HostSystem -- A
+        single host (ESX Server or VMware Server). * Network -- A network
+        available to either hosts or virtual machines. * DistributedVirtualSwitch
+        -- A distributed virtual switch. * DistributedVirtualPortgroup -- A
+        distributed virtual port group. * Datastore -- Platform-independent, host-
+        independent storage for virtual machine files.The following figure shows
+        the organization of managed objects in the vCenter hierarchy:Every
+        Datacenter has the following set of dedicated folders. These folders are
+        empty until you create entities for the Datacenter.* A folder for any
+        combination of VirtualMachine and/or VirtualApp objects. VirtualApp
+        objects can be nested, but only the parent VirtualApp can be visible in
+        the folder. Virtual machines that are children of virtual applications are
+        not associated with a VirtualMachine/VirtualApp folder. * A folder for a
+        ComputeResource hierarchy. * A folder for network entities - any
+        combination of Network, DistributedVirtualSwitch, and/or
+        DistributedVirtualPortgroup objects. * A folder for Datastore objects.The
+        host agent hierarchy has the same general form as the vCenter hierarchy,
+        but most of the objects are limited to one instance:
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ServiceInstance):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ServiceInstance):
         # MUST define these
         super(ServiceInstance, self).__init__(core, name=name, ref=ref, type=type)
     

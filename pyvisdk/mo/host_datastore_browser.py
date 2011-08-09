@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -44,7 +44,7 @@ class HostDatastoreBrowser(BaseEntity):
         conveniences comes with the cost of additional latency in the request and
         possible side effects on the system as a whole. See FileInfo
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostDatastoreBrowser):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostDatastoreBrowser):
         # MUST define these
         super(HostDatastoreBrowser, self).__init__(core, name=name, ref=ref, type=type)
     

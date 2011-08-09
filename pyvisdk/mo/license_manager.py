@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -37,7 +37,7 @@ class LicenseManager(BaseEntity):
         successfully install that edition.Here is a diagram of the unit costs
         supported by this API and their relationships.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.LicenseManager):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.LicenseManager):
         # MUST define these
         super(LicenseManager, self).__init__(core, name=name, ref=ref, type=type)
     

@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.managed_object_view import ManagedObjectView
 import logging
 
@@ -16,7 +16,7 @@ class ListView(ManagedObjectView):
         represents the current configuration of the virtual environment and
         reflects any subsequent changes that occur.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ListView):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ListView):
         # MUST define these
         super(ListView, self).__init__(core, name=name, ref=ref, type=type)
     

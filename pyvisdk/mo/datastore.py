@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.managed_entity import ManagedEntity
 import logging
 
@@ -40,7 +40,7 @@ class Datastore(ManagedEntity):
         datastores it can access. At the datacenter, a view of the datastores
         across the datacenter is shown.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.Datastore):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.Datastore):
         # MUST define these
         super(Datastore, self).__init__(core, name=name, ref=ref, type=type)
     

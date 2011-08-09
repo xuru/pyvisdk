@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.managed_entity import ManagedEntity
 import logging
 
@@ -19,7 +19,7 @@ class ComputeResource(ManagedEntity):
         types of clusters such as those with VMware DRS enabled and standalone
         hosts (ESX Server 3) support the creation of ResourcePool hierarchies.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.ComputeResource):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ComputeResource):
         # MUST define these
         super(ComputeResource, self).__init__(core, name=name, ref=ref, type=type)
     

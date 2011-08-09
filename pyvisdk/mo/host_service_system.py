@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.extensible_managed_object import ExtensibleManagedObject
 import logging
 
@@ -14,7 +14,7 @@ class HostServiceSystem(ExtensibleManagedObject):
         This managed object operates in conjunction with the HostFirewallSystem
         managed object.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostServiceSystem):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostServiceSystem):
         # MUST define these
         super(HostServiceSystem, self).__init__(core, name=name, ref=ref, type=type)
     

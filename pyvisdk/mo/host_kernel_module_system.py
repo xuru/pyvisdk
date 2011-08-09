@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -13,7 +13,7 @@ class HostKernelModuleSystem(BaseEntity):
     '''The KernelModuleSystem managed object controls the configuration of kernel modules
         on the host.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostKernelModuleSystem):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostKernelModuleSystem):
         # MUST define these
         super(HostKernelModuleSystem, self).__init__(core, name=name, ref=ref, type=type)
     

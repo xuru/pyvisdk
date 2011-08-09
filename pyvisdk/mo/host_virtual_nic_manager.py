@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.extensible_managed_object import ExtensibleManagedObject
 import logging
 
@@ -13,7 +13,7 @@ class HostVirtualNicManager(ExtensibleManagedObject):
     '''The VirtualNicManager managed object describes the special vnic configuration of
         the host.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostVirtualNicManager):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostVirtualNicManager):
         # MUST define these
         super(HostVirtualNicManager, self).__init__(core, name=name, ref=ref, type=type)
     

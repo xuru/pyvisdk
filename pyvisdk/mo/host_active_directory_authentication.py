@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.host_directory_store import HostDirectoryStore
 import logging
 
@@ -14,7 +14,7 @@ class HostActiveDirectoryAuthentication(HostDirectoryStore):
         status and provides methods for adding a host to and removing a host from
         a domain.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.HostActiveDirectoryAuthentication):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostActiveDirectoryAuthentication):
         # MUST define these
         super(HostActiveDirectoryAuthentication, self).__init__(core, name=name, ref=ref, type=type)
     

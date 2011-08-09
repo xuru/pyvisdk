@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -13,7 +13,7 @@ class LocalizationManager(BaseEntity):
     '''This managed object type presents all the message catalogs for client-side
         localization of messages.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.LocalizationManager):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.LocalizationManager):
         # MUST define these
         super(LocalizationManager, self).__init__(core, name=name, ref=ref, type=type)
     

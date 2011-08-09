@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.extensible_managed_object import ExtensibleManagedObject
 import logging
 
@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 class Task(ExtensibleManagedObject):
     '''A task is used to monitor and potentially cancel long running operations.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.Task):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.Task):
         # MUST define these
         super(Task, self).__init__(core, name=name, ref=ref, type=type)
     

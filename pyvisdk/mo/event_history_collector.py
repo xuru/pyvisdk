@@ -1,5 +1,5 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.history_collector import HistoryCollector
 import logging
 
@@ -13,7 +13,7 @@ class EventHistoryCollector(HistoryCollector):
     '''EventHistoryCollector provides a mechanism for retrieving historical data and
         updates when the server appends new events.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.EventHistoryCollector):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.EventHistoryCollector):
         # MUST define these
         super(EventHistoryCollector, self).__init__(core, name=name, ref=ref, type=type)
     

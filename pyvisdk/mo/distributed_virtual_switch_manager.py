@@ -1,6 +1,6 @@
 
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.mo.base_entity import BaseEntity
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 class DistributedVirtualSwitchManager(BaseEntity):
     '''The interface to provide relevant information about DistributedVirtualSwitch.
     '''
-    def __init__(self, core, name=None, ref=None, type=ManagedEntityTypes.DistributedVirtualSwitchManager):
+    def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.DistributedVirtualSwitchManager):
         # MUST define these
         super(DistributedVirtualSwitchManager, self).__init__(core, name=name, ref=ref, type=type)
     
@@ -94,7 +94,14 @@ class DistributedVirtualSwitchManager(BaseEntity):
         intersection of hosts against which compatibility is checked. If caller
         did not have view privileges on the host entity in an element of the
         CompatibilityResult array, then that entire element would be removed from
-        the CompatibilityResult array. Typical uses:
+        the CompatibilityResult array. Typical uses:* For the createDVS situation,
+        hostFilterSpec is of type HostDvsFilterSpec and DvsProductSpec will have
+        newSwitchProductSpec set. * For the Add-Host-To-DVS situation, you can use
+        either HostDvsFilterSpec or HostDvsMembershipFilter with inclusive being
+        false, and pass the DVS in DvsProductSpec. * For the Upgrade-DVS
+        situation, you can use either HostDvsFilterSpec or HostDvsMembershipFilter
+        with inclusive being true, and pass the new desired ProductSpec for DVS in
+        newSwitchProductSpec.
 
         :param hostContainer: The container of hosts on which we check the compatibility. This container can be
         a datacenter, folder, or computeResource. We can also include all the
