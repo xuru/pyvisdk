@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from pyvisdk.mo.consts import ManagedEntityTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from pyvisdk.mo.datacenter import Datacenter
 from pyvisdk.mo.host_system import HostSystem
 from pyvisdk.mo.virtual_machine import VirtualMachine
@@ -84,7 +84,7 @@ class Vim(pyvisdk.core.VimBase):
         
         :rtype: :py:class:`HostSystem`
         """
-        mo = self.getDecendentsByName(_type=ManagedEntityTypes.HostSystem, properties=["name"])
+        mo = self.getDecendentsByName(_type=ManagedObjectTypes.HostSystem, properties=["name"])
         return [HostSystem(self, name=mo[0].propSet[0].val, ref=x.obj) for x in mo]
     
     def getHostSystem(self, _name=None):
@@ -93,7 +93,7 @@ class Vim(pyvisdk.core.VimBase):
         
         :rtype: :py:class:`HostSystem`
         """
-        mo = self.getDecendentsByName(_type=ManagedEntityTypes.HostSystem, properties=["name"], name=_name)
+        mo = self.getDecendentsByName(_type=ManagedObjectTypes.HostSystem, properties=["name"], name=_name)
         return HostSystem(self, name=mo.propSet[0].val, ref=mo.obj)
     
     #------------------------------------------------------------
@@ -105,7 +105,7 @@ class Vim(pyvisdk.core.VimBase):
         
         :rtype: :py:class:`Datacenter`
         """
-        mo = self.getDecendentsByName(_type=ManagedEntityTypes.Datacenter, properties=["name"])
+        mo = self.getDecendentsByName(_type=ManagedObjectTypes.Datacenter, properties=["name"])
         return [Datacenter(self, name=mo[0].propSet[0].val, ref=x.obj) for x in mo]
     
     def getDatacenter(self, _name):
@@ -114,7 +114,7 @@ class Vim(pyvisdk.core.VimBase):
         
         :rtype: :py:class:`Datacenter`
         """
-        mo = self.getDecendentsByName(_type=ManagedEntityTypes.Datacenter, properties=["name"], name=_name)
+        mo = self.getDecendentsByName(_type=ManagedObjectTypes.Datacenter, properties=["name"], name=_name)
         return Datacenter(self, name=mo.propSet[0].val, ref=mo.obj)
 
     #------------------------------------------------------------
@@ -126,7 +126,7 @@ class Vim(pyvisdk.core.VimBase):
         
         :rtype: :py:class:`VirtualMachine`
         """
-        mo = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"], name=_name)
+        mo = self.getDecendentsByName(_type=ManagedObjectTypes.VirtualMachine, properties=["name", "runtime.powerState"], name=_name)
         return VirtualMachine(self, name=mo.propSet[0].val, ref=mo.obj)
         
     def getVirtualMachines(self):
@@ -135,7 +135,7 @@ class Vim(pyvisdk.core.VimBase):
         
         :rtype: :py:class:`VirtualMachine`
         """
-        mo = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"])
+        mo = self.getDecendentsByName(_type=ManagedObjectTypes.VirtualMachine, properties=["name", "runtime.powerState"])
         return [VirtualMachine(self, name=x.propSet[0].val, ref=x.obj) for x in mo]
    
     def getVirtualMachinesIter(self):
@@ -144,7 +144,7 @@ class Vim(pyvisdk.core.VimBase):
         
         :rtype: :py:class:`VirtualMachine`
         """
-        refs = self.getDecendentsByName(_type=ManagedEntityTypes.VirtualMachine, properties=["name", "runtime.powerState"])
+        refs = self.getDecendentsByName(_type=ManagedObjectTypes.VirtualMachine, properties=["name", "runtime.powerState"])
         for _ref in refs:
             yield VirtualMachine(self, name=_ref.propSet[0].val, ref=_ref.obj)
     
