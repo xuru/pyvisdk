@@ -176,16 +176,18 @@ class Enum(object):
     def __init__(self, *keys, **kwargs):
         """ Create an enumeration instance. """
 
-        value_type = kwargs.get('value_type', EnumValue)
+        self.value_type = kwargs.get('value_type', EnumValue)
 
-        if not keys:
-            raise EnumEmptyError()
+        #if not keys:
+        #    raise EnumEmptyError()
+        self.update(keys)
 
+    def update(self, keys):
         keys = tuple(keys)
         values = [None] * len(keys)
 
         for i, key in enumerate(keys):
-            value = value_type(self, i, key)
+            value = self.value_type(self, i, key)
             values[i] = value
             try:
                 super(Enum, self).__setattr__(key, value)
@@ -196,7 +198,10 @@ class Enum(object):
         self.__dict__['_values'] = values
 
     def __setattr__(self, name, value):
-        raise EnumImmutableError(name)
+        if name in ['update', 'value_type']:
+            object.__setattr__(self, name, value)
+        else:
+            raise EnumImmutableError(name)
 
     def __delattr__(self, name):
         raise EnumImmutableError(name)
