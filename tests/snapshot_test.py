@@ -5,6 +5,7 @@ Created on Jul 6, 2011
 '''
 import unittest
 from pyvisdk import Vim
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
 from tests.common import get_options
 
 
