@@ -3,8 +3,6 @@ Created on Mar 6, 2011
 
 @author: eplaster
 '''
-from pyvisdk.consts import ComputeResourcesTypes, HistoryCollectorTypes
-from pyvisdk.mo.consts import ManagedEntityTypes
 from suds import MethodNotFound
 import logging
 import os.path
@@ -57,20 +55,3 @@ class Client(object):
                 # if it's a member of this class...
                 return super(Client, self).__getattribute__(attr)
             
-    
-    def typeIsA(self, searchType, foundType):
-        if searchType == foundType:
-            return True
-        elif searchType == "ManagedEntity":
-            for me in ManagedEntityTypes:
-                if me == foundType:
-                    return True
-        elif searchType == "ComputeResource":
-            for me in ComputeResourcesTypes:
-                if me == foundType:
-                    return True
-        elif searchType == "HistoryCollector":
-            for me in HistoryCollectorTypes:
-                if me == foundType:
-                    return True
-        return False
