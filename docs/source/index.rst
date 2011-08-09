@@ -27,7 +27,8 @@ Documentation
    
    getting-started.rst
    client.rst
-   API <mo.rst>
+   Managed Objects <mo.rst>
+   Data Objects <do.rst>
    changes.rst
 
 Indices and tables

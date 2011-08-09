@@ -1,0 +1,21 @@
+
+
+========================================
+HostIpToShortNameFailedEvent
+========================================
+
+
+
+.. describe:: Since
+    
+    VI API 2.5
+
+
+.. describe:: Extends
+    
+    :py:class:`~pyvisdk.mo.host_event.HostEvent`
+
+
+.. autoclass:: pyvisdk.do.host_ip_to_short_name_failed_event.HostIpToShortNameFailedEvent
+    :members:
+    :inherited-members:
