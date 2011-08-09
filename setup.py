@@ -29,7 +29,7 @@ from distutils.core import setup
 from pyvisdk import Version
 
 # we need to make sure we have these to python modules in our path
-install_requires = ["suds"]
+install_requires = ["suds", "dataflake.cache", "enum"]
 
 setup( 
     name = 'pyvisdk',
