@@ -61,7 +61,7 @@ class TaskDelegate(object):
         if self.name[-5:] == '_Task':
             log.debug("Waiting for task to Complete")
             self.core.waitForTask(rv)
-        return self._return_value(rv)
+        return rv
 
     def _return_value(self, rv):
         if isinstance(rv, list):
@@ -102,43 +102,17 @@ class BaseEntity(object):
                 self.name = self.ref.value
             
     def update(self, prop):
-        rv = None
         if type(prop) == types.ListType:
             for x in prop:
                 self.update(x)
                 
         data = self.cache.get(prop, default=None)
         if not data:
-            self.cache.set(prop, self.core.getDynamicProperty(self.ref, prop))
-            data = self.cache.get(prop)
+            data = self.core.getObjectProperties(self.ref, prop)
+            self.cache.set(prop, data)
             
-        if not data:
-            return None
-            
-        for name, value in data.items():
-            if name == prop:
-                rv = self._clean(value)
-        return rv
+        return data
                 
-    def _clean(self, objectContent):
-        if type(objectContent) == types.ListType:
-            out = []
-            for x in objectContent:
-                out.append(self._clean(x))
-            return out
-        
-        elif objectContent.__class__.__name__ == "ObjectContent":
-            obj = objectContent.obj
-            if obj._type in ManagedObjectTypes:
-                return MOFactory(self.core, obj)
-            
-        elif hasattr(objectContent, '_type') and objectContent._type in ManagedObjectTypes:
-            return MOFactory(self.core, objectContent)
-        
-        else:
-            log.debug("Unable to clean: %s" % objectContent)
-        return objectContent
-    
 
     def delegate(self, name):
         log.debug("Delegating %s" % name)
