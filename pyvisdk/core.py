@@ -4,11 +4,11 @@ Created on Feb 15, 2011
 @author: eplaster
 '''
 from pyvisdk.client import Client
-from pyvisdk.mo.consts import ManagedEntityTypes
-from pyvisdk.consts import TaskInfoState, serviceTypes
+from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.base.base_entity import ManagedObjectReference
+from pyvisdk.consts import TaskInfoState
 from pyvisdk.exceptions import VisdkTaskError
 from pyvisdk.mo.service_instance import ServiceInstance
-from pyvisdk.mo.base_entity import ManagedObjectReference
 from suds.sudsobject import Property
 import logging
 import urllib2
@@ -35,7 +35,7 @@ class VimBase(object):
         self.connected = False
         
         self.listeners = {}
-        for me in ManagedEntityTypes:
+        for me in ManagedObjectTypes:
             self.listeners[me] = []
          
         # setup logging...
@@ -66,14 +66,6 @@ class VimBase(object):
         #self.service_content = self.client.RetrieveServiceContent(self.service_instance)
         self.service_content = self.service_instance.RetrieveServiceContent()
         self.property_collector = self.service_content.propertyCollector
-        #self.managers = {}
-        
-        # bundle up all the managed objects that we need
-        #for name, _type in serviceTypes.items():
-        #    try:
-        #        self.managers[name] = ManagedObjectReference(_type, eval("self.service_content.%s.value" % name))
-        #    except AttributeError, e:
-        #        pass  # it may not support all the listed services
 
         self.root = self.service_content.rootFolder
         self.connected = True
@@ -96,7 +88,7 @@ class VimBase(object):
         return versions
         
     def callRetrievePropertiesEx(self, maxObjects=0):
-        myPropSpec = self.PropertySpec(all=False, _type=ManagedEntityTypes.VirtualMachine, pathSet=["name"])
+        myPropSpec = self.PropertySpec(all=False, _type=ManagedObjectTypes.VirtualMachine, pathSet=["name"])
        
         myObjSpec = self.ObjectSpec(self.root, selectSet=self.buildFullTraversal())
        
@@ -182,7 +174,7 @@ class VimBase(object):
         """
         if not "name" in properties:
             properties += ["name"]
-        ocary = self.getContentsRecursively(_type=_type, props=properties, root=root)
+        ocary = self.getContentsRecursively(_type=str(_type), props=properties, root=root)
         log.debug("ocary: %s" % ocary)
 
         if ocary:
@@ -202,9 +194,9 @@ class VimBase(object):
     def getContentsRecursively(self, props=[], _type=None, collector=None, root=None, recurse=True):
         if not collector: collector = self.property_collector
         if not root: root = self.root
-        if not _type: _type = ManagedEntityTypes.ManagedEntity
+        if not _type: _type = ManagedObjectTypes.ManagedEntity
             
-        typeinfo = [ self.PropertySpec(_type=_type, pathSet=props) ]
+        typeinfo = [ self.PropertySpec(_type=str(_type), pathSet=props) ]
 
         selectionSpecs = []
         if recurse:
@@ -225,33 +217,33 @@ class VimBase(object):
          * @return The SelectionSpec[]
         """
         # Recurse through all ResourcePools
-        rpToRp = self.TraversalSpec(name="rpToRp", _type=ManagedEntityTypes.ResourcePool, path="resourcePool",
+        rpToRp = self.TraversalSpec(name="rpToRp", _type=ManagedObjectTypes.ResourcePool, path="resourcePool",
                         selectSet=[ self.SelectionSpec("rpToRp"), self.SelectionSpec("rpToVm") ])
 
         # Recurse through all ResourcePools
-        rpToVm = self.TraversalSpec(name="rpToVm", _type=ManagedEntityTypes.ResourcePool, path="vm")
+        rpToVm = self.TraversalSpec(name="rpToVm", _type=ManagedObjectTypes.ResourcePool, path="vm")
 
         # Traversal through ResourcePool branch
-        crToRp = self.TraversalSpec(name="crToRp", _type=ManagedEntityTypes.ComputeResource, path="resourcePool",
+        crToRp = self.TraversalSpec(name="crToRp", _type=ManagedObjectTypes.ComputeResource, path="resourcePool",
                         selectSet=[ self.SelectionSpec("rpToRp"), self.SelectionSpec("rpToVm") ])
 
         # Traversal through host branch
-        crToH = self.TraversalSpec(name="crToH", _type=ManagedEntityTypes.ComputeResource, path="host")
+        crToH = self.TraversalSpec(name="crToH", _type=ManagedObjectTypes.ComputeResource, path="host")
         
         # Traversal through hostFolder branch
-        dcToHf = self.TraversalSpec(name="dcToHf", _type=ManagedEntityTypes.Datacenter, path="hostFolder",
+        dcToHf = self.TraversalSpec(name="dcToHf", _type=ManagedObjectTypes.Datacenter, path="hostFolder",
                         selectSet=[self.SelectionSpec("visitFolders")])
 
         # Traversal through vmFolder branch
-        dcToVmf = self.TraversalSpec(name="dcToVmf", _type=ManagedEntityTypes.Datacenter, path="vmFolder",
+        dcToVmf = self.TraversalSpec(name="dcToVmf", _type=ManagedObjectTypes.Datacenter, path="vmFolder",
                         selectSet=[self.SelectionSpec("visitFolders")])
 
         # Recurse through all Hosts
-        HToVm = self.TraversalSpec(name="HToVm", _type=ManagedEntityTypes.HostSystem, path="vm",
+        HToVm = self.TraversalSpec(name="HToVm", _type=ManagedObjectTypes.HostSystem, path="vm",
                         selectSet=[self.SelectionSpec("visitFolders")])
         
         # Recurse through the folders
-        visitFolders = self.TraversalSpec(name="visitFolders", _type=ManagedEntityTypes.Folder, path="childEntity",
+        visitFolders = self.TraversalSpec(name="visitFolders", _type=ManagedObjectTypes.Folder, path="childEntity",
                         selectSet=[ self.SelectionSpec("visitFolders"),
                                      self.SelectionSpec("dcToHf"),
                                      self.SelectionSpec("dcToVmf"),
@@ -270,14 +262,14 @@ class VimBase(object):
     """
     def callCreatePropertyCollectorEx(self):
         propCol = self.client.CreatePropertyCollector(self.property_collector)
-        collector = ManagedObjectReference(serviceTypes['propertyCollector'], propCol.value)
+        collector = ManagedObjectReference(ManagedObjectTypes.PropertyCollector, propCol.value)
         
         if self.verbose > 5:
             log.debug(str(collector))
       
         pSpec = self.PropertyFilterSpec(
                 propSet=[
-                    self.PropertySpec(_type=ManagedEntityTypes.VirtualMachine, all=False, pathSet=["configIssue", "configStatus", "name", "parent"])
+                    self.PropertySpec(_type=ManagedObjectTypes.VirtualMachine, all=False, pathSet=["configIssue", "configStatus", "name", "parent"])
                 ],
                 objectSet=[
                     self.ObjectSpec(self.root, selectSet=self.buildFullTraversal())
