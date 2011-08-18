@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.license_event import LicenseEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LicenseServerUnavailableEvent(LicenseEvent):
-    '''This event is reported if the LicenseServer becomes unreachable.
-    '''
+def LicenseServerUnavailableEvent(vim, *args, **kwargs):
+    '''This event is reported if the LicenseServer becomes unreachable.'''
     
-    def __init__(self, licenseServer):
-        # MUST define these
-        super(LicenseServerUnavailableEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:LicenseServerUnavailableEvent')
     
-        self.data['licenseServer'] = licenseServer
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'licenseServer' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def licenseServer(self):
-        '''
-        '''
-        return self.data['licenseServer']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

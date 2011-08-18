@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchKeyedOpaqueBlob(DynamicData):
+def DistributedVirtualSwitchKeyedOpaqueBlob(vim, *args, **kwargs):
     '''This class defines a data structure to hold opaque binary data identified by a
-        key.
-    '''
+    key.'''
     
-    def __init__(self, key, opaqueData):
-        # MUST define these
-        super(DistributedVirtualSwitchKeyedOpaqueBlob, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchKeyedOpaqueBlob')
     
-        self.data['key'] = key
-        self.data['opaqueData'] = opaqueData
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'opaqueData' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''A key that identifies the opaque binary blob.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def opaqueData(self):
-        '''The opaque data. It is recommended that base64 encoding be used for binary data.
-        '''
-        return self.data['opaqueData']
-
+    return obj
+    

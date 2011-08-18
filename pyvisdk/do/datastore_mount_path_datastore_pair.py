@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DatastoreMountPathDatastorePair(DynamicData):
+def DatastoreMountPathDatastorePair(vim, *args, **kwargs):
     '''Contains a mapping of an old mount path and its corresponding resignatured or
-        remounted datastore
-    '''
+    remounted datastore'''
     
-    def __init__(self, datastore, oldMountPath):
-        # MUST define these
-        super(DatastoreMountPathDatastorePair, self).__init__()
+    obj = vim.client.factory.create('ns0:DatastoreMountPathDatastorePair')
     
-        self.data['datastore'] = datastore
-        self.data['oldMountPath'] = oldMountPath
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'datastore', 'oldMountPath' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def datastore(self):
-        '''The resignatured or remounted datastore corresponding to the oldMountPath
-        '''
-        return self.data['datastore']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def oldMountPath(self):
-        '''Old file path where file system volume is mounted, which should be path value in
-        HostMountInfo
-        '''
-        return self.data['oldMountPath']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,28 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmWwnAssignedEvent(VmEvent):
+def VmWwnAssignedEvent(vim, *args, **kwargs):
     '''This event records the assignment of a new WWN (World Wide Name) to a virtual
-        machine.
-    '''
+    machine.'''
     
-    def __init__(self, nodeWwns, portWwns):
-        # MUST define these
-        super(VmWwnAssignedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmWwnAssignedEvent')
     
-        self.data['nodeWwns'] = nodeWwns
-        self.data['portWwns'] = portWwns
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'nodeWwns', 'portWwns' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def nodeWwns(self):
-        '''The new node WWN.
-        '''
-        return self.data['nodeWwns']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def portWwns(self):
-        '''The new port WWN.
-        '''
-        return self.data['portWwns']
-
+    return obj
+    

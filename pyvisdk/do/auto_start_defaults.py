@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,51 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AutoStartDefaults(DynamicData):
-    '''Defines the system default auto-start/auto-stop values.
-    '''
+def AutoStartDefaults(vim, *args, **kwargs):
+    '''Defines the system default auto-start/auto-stop values.'''
     
-    def __init__(self, enabled, startDelay, stopAction, stopDelay, waitForHeartbeat):
-        # MUST define these
-        super(AutoStartDefaults, self).__init__()
+    obj = vim.client.factory.create('ns0:AutoStartDefaults')
     
-        self.data['enabled'] = enabled
-        self.data['startDelay'] = startDelay
-        self.data['stopAction'] = stopAction
-        self.data['stopDelay'] = stopDelay
-        self.data['waitForHeartbeat'] = waitForHeartbeat
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'startDelay', 'stopAction', 'stopDelay', 'waitForHeartbeat' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def enabled(self):
-        '''Indicates whether or not auto-start manager is enabled.
-        '''
-        return self.data['enabled']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def startDelay(self):
-        '''System-default autoStart delay in seconds. The default is 120 seconds.
-        '''
-        return self.data['startDelay']
-
-    @property
-    def stopAction(self):
-        '''System-default power-off action. Used if the stopAction string in the
-        AutoPowerInfo object for a particular machine is set to systemDefault. If
-        stopAction and startAction for a virtual machine are both set to none,
-        that virtual machine is removed from the AutoStart sequence.
-        '''
-        return self.data['stopAction']
-
-    @property
-    def stopDelay(self):
-        '''System-default autoStop delay in seconds. The default is 120 seconds.
-        '''
-        return self.data['stopDelay']
-
-    @property
-    def waitForHeartbeat(self):
-        '''System-default waitForHeartbeat setting.
-        '''
-        return self.data['waitForHeartbeat']
-
+    return obj
+    

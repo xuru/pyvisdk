@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.datastore_event import DatastoreEvent
 import logging
 
 ########################################
@@ -8,22 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DatastoreFileEvent(DatastoreEvent):
-    '''Base class for events related to datastore file and directory operations.Property
-        inherited from DatastoreEvent refers to the destination datastore in case
-        there is more than datastore involved in the operation.
-    '''
+def DatastoreFileEvent(vim, *args, **kwargs):
+    '''Base class for events related to datastore file and directory
+    operations.Property inherited from DatastoreEvent refers to the destination
+    datastore in case there is more than datastore involved in the operation.'''
     
-    def __init__(self, targetFile):
-        # MUST define these
-        super(DatastoreFileEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DatastoreFileEvent')
     
-        self.data['targetFile'] = targetFile
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'datastore', 'targetFile' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def targetFile(self):
-        '''Datastore path of the target file or directory.
-        '''
-        return self.data['targetFile']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

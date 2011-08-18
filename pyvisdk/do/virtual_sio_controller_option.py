@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_controller_option import VirtualControllerOption
 import logging
 
 ########################################
@@ -8,47 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualSIOControllerOption(VirtualControllerOption):
-    '''The VirtualSIOControllerOption data object type contains the options for a virtual
-        Super IO Controller.
-    '''
+def VirtualSIOControllerOption(vim, *args, **kwargs):
+    '''The VirtualSIOControllerOption data object type contains the options for a
+    virtual Super IO Controller.'''
     
-    def __init__(self, numFloppyDrives, numParallelPorts, numSerialPorts):
-        # MUST define these
-        super(VirtualSIOControllerOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualSIOControllerOption')
     
-        self.data['numFloppyDrives'] = numFloppyDrives
-        self.data['numParallelPorts'] = numParallelPorts
-        self.data['numSerialPorts'] = numSerialPorts
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
+        'defaultBackingOptionIndex', 'deprecated', 'hotRemoveSupported',
+        'licensingLimit', 'plugAndPlay', 'type', 'devices', 'supportedDevice',
+        'numFloppyDrives', 'numParallelPorts', 'numSerialPorts' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def numFloppyDrives(self):
-        '''Three properties (numFloppyDrives.min, numFloppyDrives.max, and
-        numFloppyDrives.defaultValue) define the minimum, maximum, and default
-        number of floppy drives you can have at any given time in the Super IO
-        Controller. This is further constrained by the number of available slots
-        in the Super IO Controller.
-        '''
-        return self.data['numFloppyDrives']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def numParallelPorts(self):
-        '''Three properties (numParallelPorts.min, numParallelPorts.max, and
-        numParallelPorts.defaultValue) define the minimum, maximum, and default
-        number of parallel ports you can have at any given time in the Super IO
-        controller. This is further constrained by the number of available slots
-        in the Super IO Controller.
-        '''
-        return self.data['numParallelPorts']
-
-    @property
-    def numSerialPorts(self):
-        '''Three properties (numSerialPorts.min, numSerialPorts.max, and
-        numSerialPorts.defaultValue) define the minimum, maximum, and default
-        number of serial ports you can have at any given time in the Super IO
-        Controller. This is further constrained by the number of available slots
-        in the Super IO Controller.
-        '''
-        return self.data['numSerialPorts']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,22 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDeviceBackingOption(DynamicData):
+def VirtualDeviceBackingOption(vim, *args, **kwargs):
     '''The VirtualDeviceBackingOption data class defines options for device-specific
-        virtual backing objects.
-    '''
+    virtual backing objects.'''
     
-    def __init__(self, type):
-        # MUST define these
-        super(VirtualDeviceBackingOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDeviceBackingOption')
     
-        self.data['type'] = type
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'type' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def type(self):
-        '''The name of the class the client should use to instantiate backing for the virtual
-        device.
-        '''
-        return self.data['type']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

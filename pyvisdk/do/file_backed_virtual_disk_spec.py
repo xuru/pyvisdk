@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_disk_spec import VirtualDiskSpec
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class FileBackedVirtualDiskSpec(VirtualDiskSpec):
-    '''Specification used to create a file based virtual disk
-    '''
+def FileBackedVirtualDiskSpec(vim, *args, **kwargs):
+    '''Specification used to create a file based virtual disk'''
     
-    def __init__(self, capacityKb):
-        # MUST define these
-        super(FileBackedVirtualDiskSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:FileBackedVirtualDiskSpec')
     
-        self.data['capacityKb'] = capacityKb
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'adapterType', 'diskType', 'capacityKb' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def capacityKb(self):
-        '''Specify the capacity of the virtual disk in Kb.
-        '''
-        return self.data['capacityKb']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

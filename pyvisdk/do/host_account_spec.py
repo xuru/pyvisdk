@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostAccountSpec(DynamicData):
-    '''This data object type contains common parameters for local account creation. The
-        password and description properties are not supported for group accounts
-        on POSIX hosts.
-    '''
+def HostAccountSpec(vim, *args, **kwargs):
+    '''This data object type contains common parameters for local account creation.
+    The password and description properties are not supported for group accounts on
+    POSIX hosts.'''
     
-    def __init__(self, description, id, password):
-        # MUST define these
-        super(HostAccountSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:HostAccountSpec')
     
-        self.data['description'] = description
-        self.data['id'] = id
-        self.data['password'] = password
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'description', 'id', 'password' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def description(self):
-        '''The description of the specified account.
-        '''
-        return self.data['description']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def id(self):
-        '''The ID of the specified account.
-        '''
-        return self.data['id']
-
-    @property
-    def password(self):
-        '''The password for a user or group.
-        '''
-        return self.data['password']
-
+    return obj
+    

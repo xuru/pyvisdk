@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dvs_config_spec import DVSConfigSpec
 import logging
 
 ########################################
@@ -8,34 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VMwareDVSConfigSpec(DVSConfigSpec):
-    '''This class defines the VMware specific configuration for DistributedVirtualSwitch.
-    '''
+def VMwareDVSConfigSpec(vim, *args, **kwargs):
+    '''This class defines the VMware specific configuration for
+    DistributedVirtualSwitch.'''
     
-    def __init__(self, linkDiscoveryProtocolConfig, maxMtu, pvlanConfigSpec):
-        # MUST define these
-        super(VMwareDVSConfigSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:VMwareDVSConfigSpec')
     
-        self.data['linkDiscoveryProtocolConfig'] = linkDiscoveryProtocolConfig
-        self.data['maxMtu'] = maxMtu
-        self.data['pvlanConfigSpec'] = pvlanConfigSpec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'configVersion', 'contact', 'defaultPortConfig', 'description', 'extensionKey',
+        'host', 'maxPorts', 'name', 'numStandalonePorts', 'policy', 'uplinkPortgroup',
+        'uplinkPortPolicy', 'vendorSpecificConfig', 'linkDiscoveryProtocolConfig',
+        'maxMtu', 'pvlanConfigSpec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def linkDiscoveryProtocolConfig(self):
-        '''See LinkDiscoveryProtocolConfig.
-        '''
-        return self.data['linkDiscoveryProtocolConfig']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def maxMtu(self):
-        '''The maximum MTU in the switch.
-        '''
-        return self.data['maxMtu']
-
-    @property
-    def pvlanConfigSpec(self):
-        '''The PVLAN configuration specification.
-        '''
-        return self.data['pvlanConfigSpec']
-
+    return obj
+    

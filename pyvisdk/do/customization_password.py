@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationPassword(DynamicData):
+def CustomizationPassword(vim, *args, **kwargs):
     '''Contains a password string and a flag that specifies whether the string is in
-        plain text or encrypted.
-    '''
+    plain text or encrypted.'''
     
-    def __init__(self, plainText, value):
-        # MUST define these
-        super(CustomizationPassword, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationPassword')
     
-        self.data['plainText'] = plainText
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'plainText', 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def plainText(self):
-        '''Flag to specify whether or not the password is in plain text, rather than
-        encrypted.
-        '''
-        return self.data['plainText']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def value(self):
-        '''The password string. It is encrypted if the associated plainText flag is false.
-        '''
-        return self.data['value']
-
+    return obj
+    

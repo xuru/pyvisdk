@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,33 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchManagerCompatibilityResult(DynamicData):
-    '''This is the return type for the checkCompatibility method. This object has a host
-        property and optionally a fault which would be populated only if that host
-        is not compatible with a given dvsProductSpec. If the host is compatible
-        then the error property would be unset.
-    '''
+def DistributedVirtualSwitchManagerCompatibilityResult(vim, *args, **kwargs):
+    '''This is the return type for the checkCompatibility method. This object has a
+    host property and optionally a fault which would be populated only if that host
+    is not compatible with a given dvsProductSpec. If the host is compatible then
+    the error property would be unset.'''
     
-    def __init__(self, error, host):
-        # MUST define these
-        super(DistributedVirtualSwitchManagerCompatibilityResult, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchManagerCompatibilityResult')
     
-        self.data['error'] = error
-        self.data['host'] = host
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'error', 'host' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def error(self):
-        '''This property contains the faults that makes the host not compatible with a given
-        DvsProductSpec. For example, a host might not be compatible because it's
-        an older version of ESX that doesn't support DVS.
-        '''
-        return self.data['error']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def host(self):
-        '''The host for which results are annotated. The whole object will be filtered out if
-        the caller did not have view permissions on the host entity.
-        '''
-        return self.data['host']
-
+    return obj
+    

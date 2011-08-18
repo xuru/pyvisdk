@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.base.base_data import BaseData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ManagedObjectReference(BaseData):
-    '''This class is used to refer to a server-side Managed Object.
-    '''
+def ManagedObjectReference(vim, *args, **kwargs):
+    '''This class is used to refer to a server-side Managed Object.'''
     
-    def __init__(self, type, value):
-        # MUST define these
-        super(ManagedObjectReference, self).__init__()
+    obj = vim.client.factory.create('ns0:ManagedObjectReference')
     
-        self.data['type'] = type
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'type', 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def type(self):
-        '''The name of the Managed Object type this ManagedObjectReference refers to.
-        '''
-        return self.data['type']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def value(self):
-        '''The specific instance of Managed Object this ManagedObjectReference refers to.
-        '''
-        return self.data['value']
-
+    return obj
+    

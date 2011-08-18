@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,63 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class UserSession(DynamicData):
-    '''Information about a current user session.
-    '''
+def UserSession(vim, *args, **kwargs):
+    '''Information about a current user session.'''
     
-    def __init__(self, fullName, key, lastActiveTime, locale, loginTime, messageLocale, userName):
-        # MUST define these
-        super(UserSession, self).__init__()
+    obj = vim.client.factory.create('ns0:UserSession')
     
-        self.data['fullName'] = fullName
-        self.data['key'] = key
-        self.data['lastActiveTime'] = lastActiveTime
-        self.data['locale'] = locale
-        self.data['loginTime'] = loginTime
-        self.data['messageLocale'] = messageLocale
-        self.data['userName'] = userName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 7:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fullName', 'key', 'lastActiveTime', 'locale', 'loginTime', 'messageLocale',
+        'userName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fullName(self):
-        '''The full name of the user, if available.
-        '''
-        return self.data['fullName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def key(self):
-        '''A unique identifier for this session, also known as the session ID.
-        '''
-        return self.data['key']
-
-    @property
-    def lastActiveTime(self):
-        '''Timestamp when the user last executed a command.
-        '''
-        return self.data['lastActiveTime']
-
-    @property
-    def locale(self):
-        '''The locale for the session used for data formatting and preferred for messages.
-        '''
-        return self.data['locale']
-
-    @property
-    def loginTime(self):
-        '''Timestamp when the user last logged on to the server.
-        '''
-        return self.data['loginTime']
-
-    @property
-    def messageLocale(self):
-        '''The locale used for messages for the session. If there are no localized messages
-        for the user-specified locale, then the server determines this locale.
-        '''
-        return self.data['messageLocale']
-
-    @property
-    def userName(self):
-        '''The user name represented by this session.
-        '''
-        return self.data['userName']
-
+    return obj
+    

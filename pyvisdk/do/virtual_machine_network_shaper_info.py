@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,42 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineNetworkShaperInfo(DynamicData):
+def VirtualMachineNetworkShaperInfo(vim, *args, **kwargs):
     '''Network traffic shaping specification.Traffic shaping is used to configure the
-        network utilization characteristics of a virtual machine.
-    '''
+    network utilization characteristics of a virtual machine.'''
     
-    def __init__(self, averageBps, burstSize, enabled, peakBps):
-        # MUST define these
-        super(VirtualMachineNetworkShaperInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineNetworkShaperInfo')
     
-        self.data['averageBps'] = averageBps
-        self.data['burstSize'] = burstSize
-        self.data['enabled'] = enabled
-        self.data['peakBps'] = peakBps
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'averageBps', 'burstSize', 'enabled', 'peakBps' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def averageBps(self):
-        '''Average bandwidth, in bits per second.
-        '''
-        return self.data['averageBps']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def burstSize(self):
-        '''Burst size, in bytes.
-        '''
-        return self.data['burstSize']
-
-    @property
-    def enabled(self):
-        '''Is the shaper enabled?
-        '''
-        return self.data['enabled']
-
-    @property
-    def peakBps(self):
-        '''Peak bandwidth, in bits per second.
-        '''
-        return self.data['peakBps']
-
+    return obj
+    

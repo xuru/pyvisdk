@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,34 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class EventAlarmExpressionComparison(DynamicData):
-    '''Encapsulates Comparison of an event's attribute to a value.
-    '''
+def EventAlarmExpressionComparison(vim, *args, **kwargs):
+    '''Encapsulates Comparison of an event's attribute to a value.'''
     
-    def __init__(self, attributeName, operator, value):
-        # MUST define these
-        super(EventAlarmExpressionComparison, self).__init__()
+    obj = vim.client.factory.create('ns0:EventAlarmExpressionComparison')
     
-        self.data['attributeName'] = attributeName
-        self.data['operator'] = operator
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'attributeName', 'operator', 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def attributeName(self):
-        '''The attribute of the event to compare
-        '''
-        return self.data['attributeName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def operator(self):
-        '''An operator from the list above
-        '''
-        return self.data['operator']
-
-    @property
-    def value(self):
-        '''The value to compare against
-        '''
-        return self.data['value']
-
+    return obj
+    

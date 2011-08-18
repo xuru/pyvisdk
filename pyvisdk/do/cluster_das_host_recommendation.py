@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterDasHostRecommendation(DynamicData):
-    '''A host recommendation for a virtual machine managed by the VMware HA Service.
-    '''
+def ClusterDasHostRecommendation(vim, *args, **kwargs):
+    '''A host recommendation for a virtual machine managed by the VMware HA Service.'''
     
-    def __init__(self, drsRating, host):
-        # MUST define these
-        super(ClusterDasHostRecommendation, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterDasHostRecommendation')
     
-        self.data['drsRating'] = drsRating
-        self.data['host'] = host
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'drsRating', 'host' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def drsRating(self):
-        '''Rating as computed by DRS for a DRS-enabled cluster. Rating range from 1 to 5, and
-        the higher the rating, the stronger DRS suggests this host is picked for
-        the operation.
-        '''
-        return self.data['drsRating']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def host(self):
-        '''The recommended host.
-        '''
-        return self.data['host']
-
+    return obj
+    

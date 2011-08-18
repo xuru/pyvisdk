@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.customization_failed import CustomizationFailed
 import logging
 
 ########################################
@@ -8,30 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationSysprepFailed(CustomizationFailed):
-    '''Sysprep failed to run in the guest during customization. This will most like have
-        been caused by the fact that the wrong sysprep was used for the guest, so
-        we include the version information in the event.
-    '''
+def CustomizationSysprepFailed(vim, *args, **kwargs):
+    '''Sysprep failed to run in the guest during customization. This will most like
+    have been caused by the fact that the wrong sysprep was used for the guest, so
+    we include the version information in the event.'''
     
-    def __init__(self, sysprepVersion, systemVersion):
-        # MUST define these
-        super(CustomizationSysprepFailed, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationSysprepFailed')
     
-        self.data['sysprepVersion'] = sysprepVersion
-        self.data['systemVersion'] = systemVersion
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'logLocation', 'sysprepVersion', 'systemVersion' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def sysprepVersion(self):
-        '''The version string for the sysprep files that were included in the customization
-        package.
-        '''
-        return self.data['sysprepVersion']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def systemVersion(self):
-        '''The version string for the system
-        '''
-        return self.data['systemVersion']
-
+    return obj
+    

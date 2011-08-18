@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_event import HostEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostIpChangedEvent(HostEvent):
-    '''This event records a change in host IP address.
-    '''
+def HostIpChangedEvent(vim, *args, **kwargs):
+    '''This event records a change in host IP address.'''
     
-    def __init__(self, newIP, oldIP):
-        # MUST define these
-        super(HostIpChangedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:HostIpChangedEvent')
     
-        self.data['newIP'] = newIP
-        self.data['oldIP'] = oldIP
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'newIP',
+        'oldIP' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def newIP(self):
-        '''New IP address of the host.
-        '''
-        return self.data['newIP']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def oldIP(self):
-        '''Old IP address of the host.
-        '''
-        return self.data['oldIP']
-
+    return obj
+    

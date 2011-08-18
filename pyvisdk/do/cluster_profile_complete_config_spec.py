@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.cluster_profile_config_spec import ClusterProfileConfigSpec
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterProfileCompleteConfigSpec(ClusterProfileConfigSpec):
-    '''DataObject completely specifying the configuration of the profile.
-    '''
+def ClusterProfileCompleteConfigSpec(vim, *args, **kwargs):
+    '''DataObject completely specifying the configuration of the profile.'''
     
-    def __init__(self, complyProfile):
-        # MUST define these
-        super(ClusterProfileCompleteConfigSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterProfileCompleteConfigSpec')
     
-        self.data['complyProfile'] = complyProfile
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'annotation', 'enabled', 'name', 'complyProfile' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def complyProfile(self):
-        '''User defined compliance profile for the cluster. If unset, clear the
-        complyProfile.
-        '''
-        return self.data['complyProfile']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

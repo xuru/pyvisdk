@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineConsolePreferences(DynamicData):
+def VirtualMachineConsolePreferences(vim, *args, **kwargs):
     '''Preferences for the legacy console application that affect the way it behaves
-        during power operations on the virtual machine.
-    '''
+    during power operations on the virtual machine.'''
     
-    def __init__(self, closeOnPowerOffOrSuspend, enterFullScreenOnPowerOn, powerOnWhenOpened):
-        # MUST define these
-        super(VirtualMachineConsolePreferences, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineConsolePreferences')
     
-        self.data['closeOnPowerOffOrSuspend'] = closeOnPowerOffOrSuspend
-        self.data['enterFullScreenOnPowerOn'] = enterFullScreenOnPowerOn
-        self.data['powerOnWhenOpened'] = powerOnWhenOpened
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'closeOnPowerOffOrSuspend', 'enterFullScreenOnPowerOn', 'powerOnWhenOpened' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def closeOnPowerOffOrSuspend(self):
-        '''Close the console application when the virtual machine is powered off or
-        suspended.
-        '''
-        return self.data['closeOnPowerOffOrSuspend']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def enterFullScreenOnPowerOn(self):
-        '''Enter full screen mode when this virtual machine is powered on.
-        '''
-        return self.data['enterFullScreenOnPowerOn']
-
-    @property
-    def powerOnWhenOpened(self):
-        '''Power on the virtual machine when it is opened in the console.
-        '''
-        return self.data['powerOnWhenOpened']
-
+    return obj
+    

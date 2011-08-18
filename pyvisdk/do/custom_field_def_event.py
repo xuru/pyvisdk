@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.custom_field_event import CustomFieldEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomFieldDefEvent(CustomFieldEvent):
-    '''This event records a custom field definition event.
-    '''
+def CustomFieldDefEvent(vim, *args, **kwargs):
+    '''This event records a custom field definition event.'''
     
-    def __init__(self, fieldKey, name):
-        # MUST define these
-        super(CustomFieldDefEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomFieldDefEvent')
     
-        self.data['fieldKey'] = fieldKey
-        self.data['name'] = name
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'fieldKey', 'name' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fieldKey(self):
-        '''The unique identifier of the custom field definition.
-        '''
-        return self.data['fieldKey']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def name(self):
-        '''The name of the custom field.
-        '''
-        return self.data['name']
-
+    return obj
+    

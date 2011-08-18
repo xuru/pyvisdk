@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostNatService(DynamicData):
-    '''A network address translation (NAT) service instance provides firewall and network
-        address translation services for a virtual network.
-    '''
+def HostNatService(vim, *args, **kwargs):
+    '''A network address translation (NAT) service instance provides firewall and
+    network address translation services for a virtual network.'''
     
-    def __init__(self, key, spec):
-        # MUST define these
-        super(HostNatService, self).__init__()
+    obj = vim.client.factory.create('ns0:HostNatService')
     
-        self.data['key'] = key
-        self.data['spec'] = spec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'spec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''The instance ID of the NAT service.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def spec(self):
-        '''The configurable properties for the NatService object.
-        '''
-        return self.data['spec']
-
+    return obj
+    

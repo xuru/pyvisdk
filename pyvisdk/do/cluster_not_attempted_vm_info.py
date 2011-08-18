@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterNotAttemptedVmInfo(DynamicData):
-    '''This data class reports one virtual machine powerOn failure.
-    '''
+def ClusterNotAttemptedVmInfo(vim, *args, **kwargs):
+    '''This data class reports one virtual machine powerOn failure.'''
     
-    def __init__(self, fault, vm):
-        # MUST define these
-        super(ClusterNotAttemptedVmInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterNotAttemptedVmInfo')
     
-        self.data['fault'] = fault
-        self.data['vm'] = vm
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fault', 'vm' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fault(self):
-        '''The exception returned.
-        '''
-        return self.data['fault']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def vm(self):
-        '''The virtual machine that can not be powered on.
-        '''
-        return self.data['vm']
-
+    return obj
+    

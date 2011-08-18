@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.session_event import SessionEvent
 import logging
 
 ########################################
@@ -8,24 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class BadUsernameSessionEvent(SessionEvent):
-    '''This event records a failed user logon. Failed logons are due to no match existing
-        between the provided user name and password combination and the
-        combinations stored for authentication.
-    '''
+def BadUsernameSessionEvent(vim, *args, **kwargs):
+    '''This event records a failed user logon. Failed logons are due to no match
+    existing between the provided user name and password combination and the
+    combinations stored for authentication.'''
     
-    def __init__(self, ipAddress):
-        # MUST define these
-        super(BadUsernameSessionEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:BadUsernameSessionEvent')
     
-        self.data['ipAddress'] = ipAddress
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'ipAddress' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ipAddress(self):
-        '''The IP address of the peer that initiated the connection. This may be the client
-        that originated the session, or it may be an intervening proxy if the
-        binding uses a protocol that supports proxies, such as HTTP.
-        '''
-        return self.data['ipAddress']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

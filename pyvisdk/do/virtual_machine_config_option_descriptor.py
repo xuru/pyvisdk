@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,54 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineConfigOptionDescriptor(DynamicData):
+def VirtualMachineConfigOptionDescriptor(vim, *args, **kwargs):
     '''Contains the definition of a unique key that can be used to retrieve a
-        configOption object.
-    '''
+    configOption object.'''
     
-    def __init__(self, createSupported, defaultConfigOption, description, host, key):
-        # MUST define these
-        super(VirtualMachineConfigOptionDescriptor, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineConfigOptionDescriptor')
     
-        self.data['createSupported'] = createSupported
-        self.data['defaultConfigOption'] = defaultConfigOption
-        self.data['description'] = description
-        self.data['host'] = host
-        self.data['key'] = key
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'createSupported', 'defaultConfigOption', 'description', 'host', 'key' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def createSupported(self):
-        '''Indicates whether the associated set of configuration options can be used for
-        virtual machine creation on a given host or cluster.
-        '''
-        return self.data['createSupported']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def defaultConfigOption(self):
-        '''Indicates whether the associated set of virtual machine configuration options is
-        the default one for a given host or cluster. If this setting is TRUE,
-        virtual machine creates will use the associated set of configuration
-        options, unless a config version is explicitly specified in the
-        ConfigSpec.
-        '''
-        return self.data['defaultConfigOption']
-
-    @property
-    def description(self):
-        '''A description of the configOption object.
-        '''
-        return self.data['description']
-
-    @property
-    def host(self):
-        '''List of hosts to which this descriptor applies.
-        '''
-        return self.data['host']
-
-    @property
-    def key(self):
-        '''A unique key used to identify a configOption object in this EnvironmentBrowser.
-        '''
-        return self.data['key']
-
+    return obj
+    

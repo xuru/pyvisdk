@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostFirewallConfigRuleSetConfig(DynamicData):
-    '''
-    '''
+def HostFirewallConfigRuleSetConfig(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, enabled, rulesetId):
-        # MUST define these
-        super(HostFirewallConfigRuleSetConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:HostFirewallConfigRuleSetConfig')
     
-        self.data['enabled'] = enabled
-        self.data['rulesetId'] = rulesetId
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'rulesetId' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def enabled(self):
-        '''Flag indicating if the specified ruleset should be enabled.
-        '''
-        return self.data['enabled']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def rulesetId(self):
-        '''Id of the ruleset.
-        '''
-        return self.data['rulesetId']
-
+    return obj
+    

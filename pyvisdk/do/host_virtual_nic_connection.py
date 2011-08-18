@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,34 +8,27 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostVirtualNicConnection(DynamicData):
+def HostVirtualNicConnection(vim, *args, **kwargs):
     '''DataObject which provides a level of indirection when identifying VirtualNics
-        during configuration. This dataObject lets users specify a VirtualNic in
-        terms of the portgroup/Dv Port the vnic is connected to. This is useful in
-        cases where VirtualNic will be created as part of a configuration
-        operation and the created VirtualNic is referred to in some other part of
-        configuration. e.g: for configuring VMotion
-    '''
+    during configuration. This dataObject lets users specify a VirtualNic in terms
+    of the portgroup/Dv Port the vnic is connected to. This is useful in cases
+    where VirtualNic will be created as part of a configuration operation and the
+    created VirtualNic is referred to in some other part of configuration. e.g: for
+    configuring VMotion'''
     
-    def __init__(self, dvPort, portgroup):
-        # MUST define these
-        super(HostVirtualNicConnection, self).__init__()
+    obj = vim.client.factory.create('ns0:HostVirtualNicConnection')
     
-        self.data['dvPort'] = dvPort
-        self.data['portgroup'] = portgroup
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'dvPort', 'portgroup' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def dvPort(self):
-        '''Identifier for the DistributedVirtualPort. If the virtual nic is to be connected
-        to a DVS, #dvPort will be set instead of #portgroup
-        '''
-        return self.data['dvPort']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def portgroup(self):
-        '''Name of the portgroup to which the virtual nic is connected to. If this parameter
-        is set, use a virtual nic connected to a legacy portgroup.
-        '''
-        return self.data['portgroup']
-
+    return obj
+    

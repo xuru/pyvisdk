@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,37 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostProxySwitchConfig(DynamicData):
-    '''This data object type describes the HostProxySwitch configuration containing both
-        the configurable properties on a HostProxySwitch and identification
-        information.
-    '''
+def HostProxySwitchConfig(vim, *args, **kwargs):
+    '''This data object type describes the HostProxySwitch configuration containing
+    both the configurable properties on a HostProxySwitch and identification
+    information.'''
     
-    def __init__(self, changeOperation, spec, uuid):
-        # MUST define these
-        super(HostProxySwitchConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:HostProxySwitchConfig')
     
-        self.data['changeOperation'] = changeOperation
-        self.data['spec'] = spec
-        self.data['uuid'] = uuid
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'changeOperation', 'spec', 'uuid' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def changeOperation(self):
-        '''This property indicates the change operation to apply on this configuration
-        specification. Valid values are: * edit * remove
-        '''
-        return self.data['changeOperation']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def spec(self):
-        '''The specification of the HostProxySwitch.
-        '''
-        return self.data['spec']
-
-    @property
-    def uuid(self):
-        '''The uuid of the DistributedVirtualSwitch that the HostProxySwitch is a part of.
-        '''
-        return self.data['uuid']
-
+    return obj
+    

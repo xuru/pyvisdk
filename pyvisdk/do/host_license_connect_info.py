@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostLicenseConnectInfo(DynamicData):
-    '''This data object type describes license information stored on the host.
-    '''
+def HostLicenseConnectInfo(vim, *args, **kwargs):
+    '''This data object type describes license information stored on the host.'''
     
-    def __init__(self, evaluation, license):
-        # MUST define these
-        super(HostLicenseConnectInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostLicenseConnectInfo')
     
-        self.data['evaluation'] = evaluation
-        self.data['license'] = license
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'evaluation', 'license' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def evaluation(self):
-        '''Evaluation information.
-        '''
-        return self.data['evaluation']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def license(self):
-        '''License information.
-        '''
-        return self.data['license']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_event import HostEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DatastorePrincipalConfigured(HostEvent):
-    '''This event records that a datastore principal was configured on a host.
-    '''
+def DatastorePrincipalConfigured(vim, *args, **kwargs):
+    '''This event records that a datastore principal was configured on a host.'''
     
-    def __init__(self, datastorePrincipal):
-        # MUST define these
-        super(DatastorePrincipalConfigured, self).__init__()
+    obj = vim.client.factory.create('ns0:DatastorePrincipalConfigured')
     
-        self.data['datastorePrincipal'] = datastorePrincipal
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'datastorePrincipal' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def datastorePrincipal(self):
-        '''
-        '''
-        return self.data['datastorePrincipal']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

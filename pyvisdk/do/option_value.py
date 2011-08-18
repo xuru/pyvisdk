@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,32 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class OptionValue(DynamicData):
-    '''Describes the key/value pair of a configured option.
-    '''
+def OptionValue(vim, *args, **kwargs):
+    '''Describes the key/value pair of a configured option.'''
     
-    def __init__(self, key, value):
-        # MUST define these
-        super(OptionValue, self).__init__()
+    obj = vim.client.factory.create('ns0:OptionValue')
     
-        self.data['key'] = key
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''The name of the option using dot notation to reflect the option's position in a
-        hierarchy. For example, you might have an option called "Ethernet" and
-        another option that is a child of that called "Connection". In this case,
-        the key for the latter could be defined as "Ethernet.Connection"
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def value(self):
-        '''The value of the option. The Any data object type enables you to define any value
-        for the option. Typically, however, the value of an option is of type
-        String or Integer.
-        '''
-        return self.data['value']
-
+    return obj
+    

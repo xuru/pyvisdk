@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ComplianceProfile(DynamicData):
-    '''DataObject contains the verifications that need to be done to make sure the entity
-        is in compliance.
-    '''
+def ComplianceProfile(vim, *args, **kwargs):
+    '''DataObject contains the verifications that need to be done to make sure the
+    entity is in compliance.'''
     
-    def __init__(self, expression, rootExpression):
-        # MUST define these
-        super(ComplianceProfile, self).__init__()
+    obj = vim.client.factory.create('ns0:ComplianceProfile')
     
-        self.data['expression'] = expression
-        self.data['rootExpression'] = rootExpression
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'expression', 'rootExpression' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def expression(self):
-        '''List of expressions that make up the ComplianceChecks.
-        '''
-        return self.data['expression']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def rootExpression(self):
-        '''Name of the Expression which is the root of the expression tree.
-        '''
-        return self.data['rootExpression']
-
+    return obj
+    

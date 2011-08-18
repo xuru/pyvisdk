@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,52 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationIdentification(DynamicData):
+def CustomizationIdentification(vim, *args, **kwargs):
     '''The Identification data object type provides information needed to join a
-        workgroup or domain.The Identification data object type maps to the
-        Identification key in the answer file. These values are transferred into
-        the file that VirtualCenter stores on the target virtual disk. For more
-        detailed information, see the document .
-    '''
+    workgroup or domain.The Identification data object type maps to the
+    Identification key in the answer file. These values are transferred into the
+    file that VirtualCenter stores on the target virtual disk. For more detailed
+    information, see the document .'''
     
-    def __init__(self, domainAdmin, domainAdminPassword, joinDomain, joinWorkgroup):
-        # MUST define these
-        super(CustomizationIdentification, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationIdentification')
     
-        self.data['domainAdmin'] = domainAdmin
-        self.data['domainAdminPassword'] = domainAdminPassword
-        self.data['joinDomain'] = joinDomain
-        self.data['joinWorkgroup'] = joinWorkgroup
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'domainAdmin', 'domainAdminPassword', 'joinDomain', 'joinWorkgroup' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def domainAdmin(self):
-        '''This is the domain user account used for authentication if the virtual machine is
-        joining a domain. The user does not need to be a domain administrator, but
-        the account must have the privileges required to add computers to the
-        domain.
-        '''
-        return self.data['domainAdmin']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def domainAdminPassword(self):
-        '''This is the password for the domain user account used for authentication if the
-        virtual machine is joining a domain.
-        '''
-        return self.data['domainAdminPassword']
-
-    @property
-    def joinDomain(self):
-        '''The domain that the virtual machine should join. If this value is supplied, then
-        domainAdmin and domainAdminPassword must also be supplied, and the
-        workgroup name must be empty.
-        '''
-        return self.data['joinDomain']
-
-    @property
-    def joinWorkgroup(self):
-        '''The workgroup that the virtual machine should join. If this value is supplied,
-        then the domain name and authentication fields must be empty.
-        '''
-        return self.data['joinWorkgroup']
-
+    return obj
+    

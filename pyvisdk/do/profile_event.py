@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.event import Event
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfileEvent(Event):
-    '''This event records a Profile specific event.
-    '''
+def ProfileEvent(vim, *args, **kwargs):
+    '''This event records a Profile specific event.'''
     
-    def __init__(self, profile):
-        # MUST define these
-        super(ProfileEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfileEvent')
     
-        self.data['profile'] = profile
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'profile' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def profile(self):
-        '''Link to the profile to which this event applies
-        '''
-        return self.data['profile']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

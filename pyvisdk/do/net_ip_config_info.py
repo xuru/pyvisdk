@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,38 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class NetIpConfigInfo(DynamicData):
-    '''Protocol version independent address reporting data object for network interfaces.
-    '''
+def NetIpConfigInfo(vim, *args, **kwargs):
+    '''Protocol version independent address reporting data object for network
+    interfaces.'''
     
-    def __init__(self, autoConfigurationEnabled, dhcp, ipAddress):
-        # MUST define these
-        super(NetIpConfigInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:NetIpConfigInfo')
     
-        self.data['autoConfigurationEnabled'] = autoConfigurationEnabled
-        self.data['dhcp'] = dhcp
-        self.data['ipAddress'] = ipAddress
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'autoConfigurationEnabled', 'dhcp', 'ipAddress' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def autoConfigurationEnabled(self):
-        '''Enable or disable ICMPv6 router solictitation requests from a given interface to
-        acquire an IPv6 address and default gateway route from zero, one or more
-        routers on the connected network. If not set then ICMPv6 is not available
-        on this system, See vim.host.Network.Capabilities
-        '''
-        return self.data['autoConfigurationEnabled']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def dhcp(self):
-        '''Client side DHCP for a given interface.
-        '''
-        return self.data['dhcp']
-
-    @property
-    def ipAddress(self):
-        '''Zero, one or more manual (static) assigned IP addresses to be configured on a
-        given interface.
-        '''
-        return self.data['ipAddress']
-
+    return obj
+    

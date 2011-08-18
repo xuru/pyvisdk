@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,57 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HttpNfcLeaseManifestEntry(DynamicData):
-    '''Provides a manifest for downloaded (exported) files and disks.
-    '''
+def HttpNfcLeaseManifestEntry(vim, *args, **kwargs):
+    '''Provides a manifest for downloaded (exported) files and disks.'''
     
-    def __init__(self, capacity, disk, key, populatedSize, sha1, size):
-        # MUST define these
-        super(HttpNfcLeaseManifestEntry, self).__init__()
+    obj = vim.client.factory.create('ns0:HttpNfcLeaseManifestEntry')
     
-        self.data['capacity'] = capacity
-        self.data['disk'] = disk
-        self.data['key'] = key
-        self.data['populatedSize'] = populatedSize
-        self.data['sha1'] = sha1
-        self.data['size'] = size
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'capacity', 'disk', 'key', 'populatedSize', 'sha1', 'size' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def capacity(self):
-        '''The capacity of the disk, if the file is a virtual disk backing.
-        '''
-        return self.data['capacity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def disk(self):
-        '''True if the downloaded file is a virtual disk backing.
-        '''
-        return self.data['disk']
-
-    @property
-    def key(self):
-        '''Key used to match this entry with the corresponding DeviceUrl entry in info.
-        '''
-        return self.data['key']
-
-    @property
-    def populatedSize(self):
-        '''The populated size of the disk, if the file is a virtual disk backing.
-        '''
-        return self.data['populatedSize']
-
-    @property
-    def sha1(self):
-        '''SHA-1 checksum of the data stream sent from the server. This can be used to verify
-        that the bytes received by the client match those sent by the HttpNfc
-        server.
-        '''
-        return self.data['sha1']
-
-    @property
-    def size(self):
-        '''Size of the downloaded file.
-        '''
-        return self.data['size']
-
+    return obj
+    

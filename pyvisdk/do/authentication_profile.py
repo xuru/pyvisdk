@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.apply_profile import ApplyProfile
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AuthenticationProfile(ApplyProfile):
-    '''This data object type represents the profile for authentication configuration
-    '''
+def AuthenticationProfile(vim, *args, **kwargs):
+    '''This data object type represents the profile for authentication configuration'''
     
-    def __init__(self, activeDirectory):
-        # MUST define these
-        super(AuthenticationProfile, self).__init__()
+    obj = vim.client.factory.create('ns0:AuthenticationProfile')
     
-        self.data['activeDirectory'] = activeDirectory
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'policy', 'activeDirectory' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def activeDirectory(self):
-        '''Profile representing the Active Directory configuration
-        '''
-        return self.data['activeDirectory']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,40 +8,29 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class TaskScheduler(DynamicData):
+def TaskScheduler(vim, *args, **kwargs):
     '''The TaskScheduler data object is the base type for the scheduler objects. The
-        hierarchy of scheduler objects is as follows:Use a scheduler object to set
-        the time(s) for task execution. You can use two scheduling modes - single
-        execution or recurring execution:* Use the AfterStartupTaskScheduler or
-        the OnceTaskScheduler to schedule a single instance of task execution. *
-        Use one of the recurrent task schedulers to schedule hourly, daily,
-        weekly, or monthly task execution.After you have established the task
-        timing, use the scheduler object for the ScheduledTaskSpec scheduler
-        property value.
-    '''
+    hierarchy of scheduler objects is as follows:Use a scheduler object to set the
+    time(s) for task execution. You can use two scheduling modes - single execution
+    or recurring execution:* Use the AfterStartupTaskScheduler or the
+    OnceTaskScheduler to schedule a single instance of task execution. * Use one of
+    the recurrent task schedulers to schedule hourly, daily, weekly, or monthly
+    task execution.After you have established the task timing, use the scheduler
+    object for the ScheduledTaskSpec scheduler property value.'''
     
-    def __init__(self, activeTime, expireTime):
-        # MUST define these
-        super(TaskScheduler, self).__init__()
+    obj = vim.client.factory.create('ns0:TaskScheduler')
     
-        self.data['activeTime'] = activeTime
-        self.data['expireTime'] = expireTime
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'activeTime', 'expireTime' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def activeTime(self):
-        '''The time that the schedule for the task takes effect. Task activation is distinct
-        from task execution. When you activate a task, its schedule starts, and
-        when the next execution time occurs, the task will run. If you do not set
-        activeTime, the activation time defaults to the time that you create the
-        scheduled task.
-        '''
-        return self.data['activeTime']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def expireTime(self):
-        '''The time the schedule for the task expires. If you do not set expireTime, the
-        schedule does not expire.
-        '''
-        return self.data['expireTime']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_option import VirtualDeviceOption
 import logging
 
 ########################################
@@ -8,28 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualControllerOption(VirtualDeviceOption):
-    '''The VirtualControllerOption data object type contains information about a virtual
-        controller type.
-    '''
+def VirtualControllerOption(vim, *args, **kwargs):
+    '''The VirtualControllerOption data object type contains information about a
+    virtual controller type.'''
     
-    def __init__(self, devices, supportedDevice):
-        # MUST define these
-        super(VirtualControllerOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualControllerOption')
     
-        self.data['devices'] = devices
-        self.data['supportedDevice'] = supportedDevice
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
+        'defaultBackingOptionIndex', 'deprecated', 'hotRemoveSupported',
+        'licensingLimit', 'plugAndPlay', 'type', 'devices', 'supportedDevice' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def devices(self):
-        '''The minimum and maximum number of devices this controller can control at run time.
-        '''
-        return self.data['devices']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def supportedDevice(self):
-        '''Array of supported device options for this controller.
-        '''
-        return self.data['supportedDevice']
-
+    return obj
+    

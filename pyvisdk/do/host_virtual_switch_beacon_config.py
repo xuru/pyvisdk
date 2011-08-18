@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,29 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostVirtualSwitchBeaconConfig(DynamicData):
+def HostVirtualSwitchBeaconConfig(vim, *args, **kwargs):
     '''This data object type describes the configuration of the beacon to probe
-        connectivity of physical network adapters. A beacon is sent out of one
-        network adapter and should arrive on another network adapter in the team.
-        The successful roundtrip indicates that the network adapters are
-        working.Define this data object to enable beacon probing as a method to
-        validate the link status of a physical network adapter. Beacon probing
-        must be configured in order to use the beacon status as a criteria to
-        determine if a physical network adapter failed. See checkBeacon
-    '''
+    connectivity of physical network adapters. A beacon is sent out of one network
+    adapter and should arrive on another network adapter in the team. The
+    successful roundtrip indicates that the network adapters are working.Define
+    this data object to enable beacon probing as a method to validate the link
+    status of a physical network adapter. Beacon probing must be configured in
+    order to use the beacon status as a criteria to determine if a physical network
+    adapter failed. See checkBeacon'''
     
-    def __init__(self, interval):
-        # MUST define these
-        super(HostVirtualSwitchBeaconConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:HostVirtualSwitchBeaconConfig')
     
-        self.data['interval'] = interval
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'interval' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def interval(self):
-        '''Determines how often, in seconds, a beacon should be sent.
-        '''
-        return self.data['interval']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

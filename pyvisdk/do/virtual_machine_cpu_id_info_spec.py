@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.array_update_spec import ArrayUpdateSpec
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineCpuIdInfoSpec(ArrayUpdateSpec):
-    '''Wrapper class to support incremental updates of the cpuFeatureMask.
-    '''
+def VirtualMachineCpuIdInfoSpec(vim, *args, **kwargs):
+    '''Wrapper class to support incremental updates of the cpuFeatureMask.'''
     
-    def __init__(self, info):
-        # MUST define these
-        super(VirtualMachineCpuIdInfoSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineCpuIdInfoSpec')
     
-        self.data['info'] = info
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'operation', 'removeKey', 'info' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def info(self):
-        '''
-        '''
-        return self.data['info']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

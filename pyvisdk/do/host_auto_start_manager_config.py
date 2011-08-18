@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostAutoStartManagerConfig(DynamicData):
-    '''Contains the entire auto-start/auto-stop configuration.
-    '''
+def HostAutoStartManagerConfig(vim, *args, **kwargs):
+    '''Contains the entire auto-start/auto-stop configuration.'''
     
-    def __init__(self, defaults, powerInfo):
-        # MUST define these
-        super(HostAutoStartManagerConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:HostAutoStartManagerConfig')
     
-        self.data['defaults'] = defaults
-        self.data['powerInfo'] = powerInfo
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'defaults', 'powerInfo' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def defaults(self):
-        '''System defaults for auto-start/auto-stop.
-        '''
-        return self.data['defaults']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def powerInfo(self):
-        '''Lists the auto-start/auto-stop configuration. If a virtual machine is not
-        mentioned in this array, it does not participate in auto-start/auto-stop
-        operations.
-        '''
-        return self.data['powerInfo']
-
+    return obj
+    

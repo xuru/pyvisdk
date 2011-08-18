@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_backing_option import VirtualDeviceBackingOption
 import logging
 
 ########################################
@@ -8,24 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDeviceURIBackingOption(VirtualDeviceBackingOption):
-    '''The URIBackingOption data object type describes network communication options for
-        virtual devices. When establishing a connection with a remote system on
-        the network, the virtual machine can act as a server or a client. When the
-        virtual machine acts as a server, it accepts a connection. When the
-        virtual machine acts as a client, it initiates the connection.
-    '''
+def VirtualDeviceURIBackingOption(vim, *args, **kwargs):
+    '''The URIBackingOption data object type describes network communication options
+    for virtual devices. When establishing a connection with a remote system on the
+    network, the virtual machine can act as a server or a client. When the virtual
+    machine acts as a server, it accepts a connection. When the virtual machine
+    acts as a client, it initiates the connection.'''
     
-    def __init__(self, directions):
-        # MUST define these
-        super(VirtualDeviceURIBackingOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDeviceURIBackingOption')
     
-        self.data['directions'] = directions
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'type', 'directions' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def directions(self):
-        '''List of possible directions. Valid directions are: * server * client
-        '''
-        return self.data['directions']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.alarm_event import AlarmEvent
 import logging
 
 ########################################
@@ -8,34 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AlarmEmailFailedEvent(AlarmEvent):
-    '''This event records a failure to complete an alarm email notification.
-    '''
+def AlarmEmailFailedEvent(vim, *args, **kwargs):
+    '''This event records a failure to complete an alarm email notification.'''
     
-    def __init__(self, entity, reason, to):
-        # MUST define these
-        super(AlarmEmailFailedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:AlarmEmailFailedEvent')
     
-        self.data['entity'] = entity
-        self.data['reason'] = reason
-        self.data['to'] = to
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'alarm',
+        'entity', 'reason', 'to' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def entity(self):
-        '''The entity with which the alarm is registered.
-        '''
-        return self.data['entity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def reason(self):
-        '''The reason for the failure.
-        '''
-        return self.data['reason']
-
-    @property
-    def to(self):
-        '''The destination email address.
-        '''
-        return self.data['to']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vmware_distributed_virtual_switch_vlan_spec import VmwareDistributedVirtualSwitchVlanSpec
 import logging
 
 ########################################
@@ -8,22 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmwareDistributedVirtualSwitchVlanIdSpec(VmwareDistributedVirtualSwitchVlanSpec):
-    '''This data type defines the configuration when single vlanId is used for the port.
-    '''
+def VmwareDistributedVirtualSwitchVlanIdSpec(vim, *args, **kwargs):
+    '''This data type defines the configuration when single vlanId is used for the
+    port.'''
     
-    def __init__(self, vlanId):
-        # MUST define these
-        super(VmwareDistributedVirtualSwitchVlanIdSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:VmwareDistributedVirtualSwitchVlanIdSpec')
     
-        self.data['vlanId'] = vlanId
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'inherited', 'vlanId' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def vlanId(self):
-        '''The VLAN ID for ports. Possible values: * A value of 0 specifies that you do not
-        want the port associated with a VLAN. * A value from 1 to 4094 specifies a
-        VLAN ID for the port.
-        '''
-        return self.data['vlanId']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

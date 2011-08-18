@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.license_event import LicenseEvent
 import logging
 
 ########################################
@@ -8,15 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LicenseRestrictedEvent(LicenseEvent):
+def LicenseRestrictedEvent(vim, *args, **kwargs):
     '''This event records if the required licenses could not be reserved because of a
-        restriction in the option file.
-    '''
+    restriction in the option file.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(LicenseRestrictedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:LicenseRestrictedEvent')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

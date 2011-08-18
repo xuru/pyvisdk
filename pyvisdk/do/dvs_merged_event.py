@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dvs_event import DvsEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DvsMergedEvent(DvsEvent):
-    '''Two distributed virtual switches was merged.
-    '''
+def DvsMergedEvent(vim, *args, **kwargs):
+    '''Two distributed virtual switches was merged.'''
     
-    def __init__(self, destinationDvs, sourceDvs):
-        # MUST define these
-        super(DvsMergedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DvsMergedEvent')
     
-        self.data['destinationDvs'] = destinationDvs
-        self.data['sourceDvs'] = sourceDvs
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'destinationDvs', 'sourceDvs' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def destinationDvs(self):
-        '''The destination DVS.
-        '''
-        return self.data['destinationDvs']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def sourceDvs(self):
-        '''The source DVS.
-        '''
-        return self.data['sourceDvs']
-
+    return obj
+    

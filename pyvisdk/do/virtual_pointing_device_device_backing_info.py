@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_device_backing_info import VirtualDeviceDeviceBackingInfo
 import logging
 
 ########################################
@@ -8,24 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualPointingDeviceDeviceBackingInfo(VirtualDeviceDeviceBackingInfo):
+def VirtualPointingDeviceDeviceBackingInfo(vim, *args, **kwargs):
     '''The VirtualPointingDevice.DeviceBackingInfo provides information about the
-        physical mouse backing the VirtualPointingDevice data object type.
-    '''
+    physical mouse backing the VirtualPointingDevice data object type.'''
     
-    def __init__(self, hostPointingDevice):
-        # MUST define these
-        super(VirtualPointingDeviceDeviceBackingInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualPointingDeviceDeviceBackingInfo')
     
-        self.data['hostPointingDevice'] = hostPointingDevice
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'deviceName', 'useAutoDetect', 'hostPointingDevice' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def hostPointingDevice(self):
-        '''This optional property defines the mouse type (two-button, three-button, and so
-        on). The mouse type determines how the user interacts with the host mouse.
-        The valid values are specified in the VirtualPointingDeviceHostChoice
-        list.
-        '''
-        return self.data['hostPointingDevice']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

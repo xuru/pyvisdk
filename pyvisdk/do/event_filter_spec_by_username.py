@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class EventFilterSpecByUsername(DynamicData):
-    '''This option specifies users used to filter event history.
-    '''
+def EventFilterSpecByUsername(vim, *args, **kwargs):
+    '''This option specifies users used to filter event history.'''
     
-    def __init__(self, systemUser, userList):
-        # MUST define these
-        super(EventFilterSpecByUsername, self).__init__()
+    obj = vim.client.factory.create('ns0:EventFilterSpecByUsername')
     
-        self.data['systemUser'] = systemUser
-        self.data['userList'] = userList
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'systemUser', 'userList' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def systemUser(self):
-        '''filter by system user true for system user event
-        '''
-        return self.data['systemUser']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def userList(self):
-        '''all interested username list If this property is not set, then all regular user
-        events are collected
-        '''
-        return self.data['userList']
-
+    return obj
+    

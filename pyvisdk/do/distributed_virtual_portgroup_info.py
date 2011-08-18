@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,63 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualPortgroupInfo(DynamicData):
+def DistributedVirtualPortgroupInfo(vim, *args, **kwargs):
     '''This class describes a DistributedVirtualPortgroup that a device backing can be
-        attached to.
-    '''
+    attached to.'''
     
-    def __init__(self, portgroup, portgroupKey, portgroupName, portgroupType, switchName, switchUuid, uplinkPortgroup):
-        # MUST define these
-        super(DistributedVirtualPortgroupInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualPortgroupInfo')
     
-        self.data['portgroup'] = portgroup
-        self.data['portgroupKey'] = portgroupKey
-        self.data['portgroupName'] = portgroupName
-        self.data['portgroupType'] = portgroupType
-        self.data['switchName'] = switchName
-        self.data['switchUuid'] = switchUuid
-        self.data['uplinkPortgroup'] = uplinkPortgroup
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 7:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'portgroup', 'portgroupKey', 'portgroupName', 'portgroupType', 'switchName',
+        'switchUuid', 'uplinkPortgroup' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def portgroup(self):
-        '''The portgroup.
-        '''
-        return self.data['portgroup']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def portgroupKey(self):
-        '''The key of the portgroup.
-        '''
-        return self.data['portgroupKey']
-
-    @property
-    def portgroupName(self):
-        '''The name of the portgroup.
-        '''
-        return self.data['portgroupName']
-
-    @property
-    def portgroupType(self):
-        '''The type of portgroup. See DistributedVirtualPortgroupPortgroupType
-        '''
-        return self.data['portgroupType']
-
-    @property
-    def switchName(self):
-        '''The name of the switch.
-        '''
-        return self.data['switchName']
-
-    @property
-    def switchUuid(self):
-        '''The UUID of the switch.
-        '''
-        return self.data['switchUuid']
-
-    @property
-    def uplinkPortgroup(self):
-        '''Whether this portgroup is an uplink portgroup.
-        '''
-        return self.data['uplinkPortgroup']
-
+    return obj
+    

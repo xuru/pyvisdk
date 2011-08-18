@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.action import Action
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CreateTaskAction(Action):
-    '''This data object type specifies the type of task to be created when this action is
-        triggered.
-    '''
+def CreateTaskAction(vim, *args, **kwargs):
+    '''This data object type specifies the type of task to be created when this action
+    is triggered.'''
     
-    def __init__(self, cancelable, taskTypeId):
-        # MUST define these
-        super(CreateTaskAction, self).__init__()
+    obj = vim.client.factory.create('ns0:CreateTaskAction')
     
-        self.data['cancelable'] = cancelable
-        self.data['taskTypeId'] = taskTypeId
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'cancelable', 'taskTypeId' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def cancelable(self):
-        '''Whether the task should be cancelable.
-        '''
-        return self.data['cancelable']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def taskTypeId(self):
-        '''Extension registered task type identifier for type of task being created.
-        '''
-        return self.data['taskTypeId']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_event import HostEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class UserUnassignedFromGroup(HostEvent):
-    '''This event records that a user account membership was removed from a group.
-    '''
+def UserUnassignedFromGroup(vim, *args, **kwargs):
+    '''This event records that a user account membership was removed from a group.'''
     
-    def __init__(self, group, userLogin):
-        # MUST define these
-        super(UserUnassignedFromGroup, self).__init__()
+    obj = vim.client.factory.create('ns0:UserUnassignedFromGroup')
     
-        self.data['group'] = group
-        self.data['userLogin'] = userLogin
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'group',
+        'userLogin' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def group(self):
-        '''
-        '''
-        return self.data['group']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def userLogin(self):
-        '''
-        '''
-        return self.data['userLogin']
-
+    return obj
+    

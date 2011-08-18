@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_device_backing_option import VirtualDeviceDeviceBackingOption
 import logging
 
 ########################################
@@ -8,22 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualPointingDeviceBackingOption(VirtualDeviceDeviceBackingOption):
+def VirtualPointingDeviceBackingOption(vim, *args, **kwargs):
     '''The DeviceBackingOption data object type represents the options for a pointing
-        device backing a VirtualPointingDevice data object type.
-    '''
+    device backing a VirtualPointingDevice data object type.'''
     
-    def __init__(self, hostPointingDevice):
-        # MUST define these
-        super(VirtualPointingDeviceBackingOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualPointingDeviceBackingOption')
     
-        self.data['hostPointingDevice'] = hostPointingDevice
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'type', 'autoDetectAvailable', 'hostPointingDevice' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def hostPointingDevice(self):
-        '''This object defines the supported mouse types, including the default supported
-        mouse type, with the following properties: *
-        '''
-        return self.data['hostPointingDevice']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

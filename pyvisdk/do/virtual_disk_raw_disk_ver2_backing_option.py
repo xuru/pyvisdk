@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_device_backing_option import VirtualDeviceDeviceBackingOption
 import logging
 
 ########################################
@@ -8,28 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDiskRawDiskVer2BackingOption(VirtualDeviceDeviceBackingOption):
-    '''The VirtualDiskOption.RawDiskVer2BackingOption object type contains the available
-        options when backing a virtual disk using a host device on VMware Server.
-    '''
+def VirtualDiskRawDiskVer2BackingOption(vim, *args, **kwargs):
+    '''The VirtualDiskOption.RawDiskVer2BackingOption object type contains the
+    available options when backing a virtual disk using a host device on VMware
+    Server.'''
     
-    def __init__(self, descriptorFileNameExtensions, uuid):
-        # MUST define these
-        super(VirtualDiskRawDiskVer2BackingOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDiskRawDiskVer2BackingOption')
     
-        self.data['descriptorFileNameExtensions'] = descriptorFileNameExtensions
-        self.data['uuid'] = uuid
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'type', 'autoDetectAvailable', 'descriptorFileNameExtensions', 'uuid' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def descriptorFileNameExtensions(self):
-        '''Valid extensions for the filename of the raw disk descriptor file.
-        '''
-        return self.data['descriptorFileNameExtensions']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def uuid(self):
-        '''Flag to indicate whether this backing supports disk UUID property.
-        '''
-        return self.data['uuid']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineFileLayoutExDiskLayout(DynamicData):
+def VirtualMachineFileLayoutExDiskLayout(vim, *args, **kwargs):
     '''Layout of a virtual disk, including the base- and delta- disks.A virtual disk
-        typically is made up of a chain of disk-units.
-    '''
+    typically is made up of a chain of disk-units.'''
     
-    def __init__(self, chain, key):
-        # MUST define these
-        super(VirtualMachineFileLayoutExDiskLayout, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineFileLayoutExDiskLayout')
     
-        self.data['chain'] = chain
-        self.data['key'] = key
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chain', 'key' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def chain(self):
-        '''The disk-unit chain that makes up this virtual disk.
-        '''
-        return self.data['chain']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def key(self):
-        '''Identifier for the virtual disk in device.
-        '''
-        return self.data['key']
-
+    return obj
+    

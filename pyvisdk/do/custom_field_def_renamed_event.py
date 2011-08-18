@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.custom_field_def_event import CustomFieldDefEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomFieldDefRenamedEvent(CustomFieldDefEvent):
-    '''This event records the renaming of a custom field definition.
-    '''
+def CustomFieldDefRenamedEvent(vim, *args, **kwargs):
+    '''This event records the renaming of a custom field definition.'''
     
-    def __init__(self, newName):
-        # MUST define these
-        super(CustomFieldDefRenamedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomFieldDefRenamedEvent')
     
-        self.data['newName'] = newName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'fieldKey', 'name', 'newName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def newName(self):
-        '''
-        '''
-        return self.data['newName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

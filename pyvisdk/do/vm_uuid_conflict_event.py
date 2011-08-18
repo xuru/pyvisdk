@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmUuidConflictEvent(VmEvent):
-    '''This event records a conflict of virtual machine BIOS UUIDs.
-    '''
+def VmUuidConflictEvent(vim, *args, **kwargs):
+    '''This event records a conflict of virtual machine BIOS UUIDs.'''
     
-    def __init__(self, conflictedVm, uuid):
-        # MUST define these
-        super(VmUuidConflictEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmUuidConflictEvent')
     
-        self.data['conflictedVm'] = conflictedVm
-        self.data['uuid'] = uuid
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'conflictedVm', 'uuid' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def conflictedVm(self):
-        '''The virtual machine whose UUID conflicts with the current virtual machine's UUID.
-        '''
-        return self.data['conflictedVm']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def uuid(self):
-        '''The BIOS UUID in conflict.
-        '''
-        return self.data['uuid']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class EnumDescription(DynamicData):
-    '''Static strings used for describing an enumerated type.
-    '''
+def EnumDescription(vim, *args, **kwargs):
+    '''Static strings used for describing an enumerated type.'''
     
-    def __init__(self, key, tags):
-        # MUST define these
-        super(EnumDescription, self).__init__()
+    obj = vim.client.factory.create('ns0:EnumDescription')
     
-        self.data['key'] = key
-        self.data['tags'] = tags
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'tags' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''Type of enumeration being described.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def tags(self):
-        '''Element descriptions of all the tags for that enumerated type.
-        '''
-        return self.data['tags']
-
+    return obj
+    

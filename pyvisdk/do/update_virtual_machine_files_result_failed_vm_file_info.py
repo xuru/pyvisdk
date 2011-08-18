@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class UpdateVirtualMachineFilesResultFailedVmFileInfo(DynamicData):
-    '''
-    '''
+def UpdateVirtualMachineFilesResultFailedVmFileInfo(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, fault, vmFile):
-        # MUST define these
-        super(UpdateVirtualMachineFilesResultFailedVmFileInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:UpdateVirtualMachineFilesResultFailedVmFileInfo')
     
-        self.data['fault'] = fault
-        self.data['vmFile'] = vmFile
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fault', 'vmFile' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fault(self):
-        '''The reason why the update failed.
-        '''
-        return self.data['fault']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def vmFile(self):
-        '''The file path
-        '''
-        return self.data['vmFile']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PerformanceDescription(DynamicData):
-    '''Static strings for performance metrics.
-    '''
+def PerformanceDescription(vim, *args, **kwargs):
+    '''Static strings for performance metrics.'''
     
-    def __init__(self, counterType, statsType):
-        # MUST define these
-        super(PerformanceDescription, self).__init__()
+    obj = vim.client.factory.create('ns0:PerformanceDescription')
     
-        self.data['counterType'] = counterType
-        self.data['statsType'] = statsType
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'counterType', 'statsType' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def counterType(self):
-        '''Identifies the type of the counter.
-        '''
-        return self.data['counterType']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def statsType(self):
-        '''Identifies the type of statistic.
-        '''
-        return self.data['statsType']
-
+    return obj
+    

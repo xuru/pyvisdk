@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_config_spec import VmConfigSpec
 import logging
 
 ########################################
@@ -8,36 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VAppConfigSpec(VmConfigSpec):
-    '''Configuration of a vApp
-    '''
+def VAppConfigSpec(vim, *args, **kwargs):
+    '''Configuration of a vApp'''
     
-    def __init__(self, annotation, entityConfig, instanceUuid):
-        # MUST define these
-        super(VAppConfigSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:VAppConfigSpec')
     
-        self.data['annotation'] = annotation
-        self.data['entityConfig'] = entityConfig
-        self.data['instanceUuid'] = instanceUuid
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'eula', 'installBootRequired', 'installBootStopDelay', 'ipAssignment',
+        'ovfEnvironmentTransport', 'ovfSection', 'product', 'property_', 'annotation',
+        'entityConfig', 'instanceUuid' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def annotation(self):
-        '''Description for the vApp.
-        '''
-        return self.data['annotation']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def entityConfig(self):
-        '''Configuration of sub-entities (virtual machine or vApp container).
-        '''
-        return self.data['entityConfig']
-
-    @property
-    def instanceUuid(self):
-        '''vCenter-specific 128-bit UUID of a vApp, represented as a hexadecimal string. This
-        identifier is used by vCenter to uniquely identify all vApp instances in
-        the Virtual Infrastructure environment.
-        '''
-        return self.data['instanceUuid']
-
+    return obj
+    

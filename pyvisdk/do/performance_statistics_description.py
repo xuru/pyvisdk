@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PerformanceStatisticsDescription(DynamicData):
-    '''Data object to capture all information needed to describe a sample inventory.
-    '''
+def PerformanceStatisticsDescription(vim, *args, **kwargs):
+    '''Data object to capture all information needed to describe a sample inventory.'''
     
-    def __init__(self, intervals):
-        # MUST define these
-        super(PerformanceStatisticsDescription, self).__init__()
+    obj = vim.client.factory.create('ns0:PerformanceStatisticsDescription')
     
-        self.data['intervals'] = intervals
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'intervals' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def intervals(self):
-        '''Historic interval setting. Default value is the same as the historic interval
-        settings of the current instance of running VC.
-        '''
-        return self.data['intervals']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

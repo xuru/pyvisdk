@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.option_type import OptionType
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class BoolOption(OptionType):
-    '''The BoolOption data object type describes if an option is supported ("true") and
-        if the option is set to "true" or "false" by default.
-    '''
+def BoolOption(vim, *args, **kwargs):
+    '''The BoolOption data object type describes if an option is supported ("true")
+    and if the option is set to "true" or "false" by default.'''
     
-    def __init__(self, defaultValue, supported):
-        # MUST define these
-        super(BoolOption, self).__init__()
+    obj = vim.client.factory.create('ns0:BoolOption')
     
-        self.data['defaultValue'] = defaultValue
-        self.data['supported'] = supported
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'valueIsReadonly', 'defaultValue', 'supported' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def defaultValue(self):
-        '''The default value for the option.
-        '''
-        return self.data['defaultValue']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def supported(self):
-        '''The flag to indicate whether or not the option is supported.
-        '''
-        return self.data['supported']
-
+    return obj
+    

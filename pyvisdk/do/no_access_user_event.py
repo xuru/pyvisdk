@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.session_event import SessionEvent
 import logging
 
 ########################################
@@ -8,22 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class NoAccessUserEvent(SessionEvent):
-    '''This event records a failed user logon due to insufficient access permission.
-    '''
+def NoAccessUserEvent(vim, *args, **kwargs):
+    '''This event records a failed user logon due to insufficient access permission.'''
     
-    def __init__(self, ipAddress):
-        # MUST define these
-        super(NoAccessUserEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:NoAccessUserEvent')
     
-        self.data['ipAddress'] = ipAddress
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'ipAddress' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ipAddress(self):
-        '''The IP address of the peer that initiated the connection. This may be the client
-        that originated the session, or it may be an intervening proxy if the
-        binding uses a protocol that supports proxies, such as HTTP.
-        '''
-        return self.data['ipAddress']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

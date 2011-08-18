@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,45 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDatastoreSystemCapabilities(DynamicData):
-    '''Capability vector indicating the available product features.
-    '''
+def HostDatastoreSystemCapabilities(vim, *args, **kwargs):
+    '''Capability vector indicating the available product features.'''
     
-    def __init__(self, localDatastoreSupported, nfsMountCreationRequired, nfsMountCreationSupported, vmfsExtentExpansionSupported):
-        # MUST define these
-        super(HostDatastoreSystemCapabilities, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDatastoreSystemCapabilities')
     
-        self.data['localDatastoreSupported'] = localDatastoreSupported
-        self.data['nfsMountCreationRequired'] = nfsMountCreationRequired
-        self.data['nfsMountCreationSupported'] = nfsMountCreationSupported
-        self.data['vmfsExtentExpansionSupported'] = vmfsExtentExpansionSupported
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'localDatastoreSupported', 'nfsMountCreationRequired',
+        'nfsMountCreationSupported', 'vmfsExtentExpansionSupported' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def localDatastoreSupported(self):
-        '''Indicates whether local datastores are supported.
-        '''
-        return self.data['localDatastoreSupported']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def nfsMountCreationRequired(self):
-        '''Indicates whether mounting the NFS volume is required to be done as part of NAS
-        datastore creation. If this is set to true, then NAS datastores cannot be
-        created for currently mounted NFS volumes.
-        '''
-        return self.data['nfsMountCreationRequired']
-
-    @property
-    def nfsMountCreationSupported(self):
-        '''Indicates whether mounting an NFS volume is supported when a NAS datastore is
-        created. If this option is false, then NAS datastores corresponding to NFS
-        volumes can be created only for already mounted NFS volumes.
-        '''
-        return self.data['nfsMountCreationSupported']
-
-    @property
-    def vmfsExtentExpansionSupported(self):
-        '''Indicates whether vmfs extent expansion is supported.
-        '''
-        return self.data['vmfsExtentExpansionSupported']
-
+    return obj
+    

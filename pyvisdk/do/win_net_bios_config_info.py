@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.net_bios_config_info import NetBIOSConfigInfo
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class WinNetBIOSConfigInfo(NetBIOSConfigInfo):
-    '''This data object type describes the Windows-specific NetBIOS configuration.
-    '''
+def WinNetBIOSConfigInfo(vim, *args, **kwargs):
+    '''This data object type describes the Windows-specific NetBIOS configuration.'''
     
-    def __init__(self, primaryWINS, secondaryWINS):
-        # MUST define these
-        super(WinNetBIOSConfigInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:WinNetBIOSConfigInfo')
     
-        self.data['primaryWINS'] = primaryWINS
-        self.data['secondaryWINS'] = secondaryWINS
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'mode', 'primaryWINS', 'secondaryWINS' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def primaryWINS(self):
-        '''The IP address of the primary WINS server.
-        '''
-        return self.data['primaryWINS']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def secondaryWINS(self):
-        '''The IP address of the secondary WINS server.
-        '''
-        return self.data['secondaryWINS']
-
+    return obj
+    

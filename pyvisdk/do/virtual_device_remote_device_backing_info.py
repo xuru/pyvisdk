@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_backing_info import VirtualDeviceBackingInfo
 import logging
 
 ########################################
@@ -8,32 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDeviceRemoteDeviceBackingInfo(VirtualDeviceBackingInfo):
+def VirtualDeviceRemoteDeviceBackingInfo(vim, *args, **kwargs):
     '''is a data object type for information about a remote device backing used by a
-        device in a virtual machine. The primary difference between a remote
-        device backing and a local device backing is that the VirtualCenter server
-        cannot provide a list of remote host devices available for this virtual
-        device backing.
-    '''
+    device in a virtual machine. The primary difference between a remote device
+    backing and a local device backing is that the VirtualCenter server cannot
+    provide a list of remote host devices available for this virtual device
+    backing.'''
     
-    def __init__(self, deviceName, useAutoDetect):
-        # MUST define these
-        super(VirtualDeviceRemoteDeviceBackingInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDeviceRemoteDeviceBackingInfo')
     
-        self.data['deviceName'] = deviceName
-        self.data['useAutoDetect'] = useAutoDetect
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'deviceName', 'useAutoDetect' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def deviceName(self):
-        '''The name of the device on the remote system.
-        '''
-        return self.data['deviceName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def useAutoDetect(self):
-        '''Indicates whether the device should be auto detected instead of directly
-        specified. If this value is set to TRUE,
-        '''
-        return self.data['useAutoDetect']
-
+    return obj
+    

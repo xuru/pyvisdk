@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_relocate_spec_event import VmRelocateSpecEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmBeingRelocatedEvent(VmRelocateSpecEvent):
-    '''This event records that a virtual machine is being relocated.
-    '''
+def VmBeingRelocatedEvent(vim, *args, **kwargs):
+    '''This event records that a virtual machine is being relocated.'''
     
-    def __init__(self, destHost):
-        # MUST define these
-        super(VmBeingRelocatedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmBeingRelocatedEvent')
     
-        self.data['destHost'] = destHost
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'destHost' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def destHost(self):
-        '''The destination host to which the virtual machine is being relocated.
-        '''
-        return self.data['destHost']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

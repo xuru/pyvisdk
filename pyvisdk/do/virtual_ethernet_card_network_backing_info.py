@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_device_backing_info import VirtualDeviceDeviceBackingInfo
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualEthernetCardNetworkBackingInfo(VirtualDeviceDeviceBackingInfo):
-    '''The virtual Ethernet card backing class.
-    '''
+def VirtualEthernetCardNetworkBackingInfo(vim, *args, **kwargs):
+    '''The virtual Ethernet card backing class.'''
     
-    def __init__(self, inPassthroughMode, network):
-        # MUST define these
-        super(VirtualEthernetCardNetworkBackingInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualEthernetCardNetworkBackingInfo')
     
-        self.data['inPassthroughMode'] = inPassthroughMode
-        self.data['network'] = network
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'deviceName', 'useAutoDetect', 'inPassthroughMode', 'network' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def inPassthroughMode(self):
-        '''deprecated As of vSphere API 4.0, this property is not supported.
-        '''
-        return self.data['inPassthroughMode']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def network(self):
-        '''Reference to the network managed object to which this backing applies. This is not
-        used during configuration.
-        '''
-        return self.data['network']
-
+    return obj
+    

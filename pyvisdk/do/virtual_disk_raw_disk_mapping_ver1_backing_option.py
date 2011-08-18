@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_device_backing_option import VirtualDeviceDeviceBackingOption
 import logging
 
 ########################################
@@ -8,45 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDiskRawDiskMappingVer1BackingOption(VirtualDeviceDeviceBackingOption):
+def VirtualDiskRawDiskMappingVer1BackingOption(vim, *args, **kwargs):
     '''The VirtualDiskOption.RawDiskMappingVer1BackingOption object type contains the
-        available options when backing a virtual disk using a raw device mapping
-        on ESX Server 2.5 or 3.x.
-    '''
+    available options when backing a virtual disk using a raw device mapping on ESX
+    Server 2.5 or 3.x.'''
     
-    def __init__(self, compatibilityMode, descriptorFileNameExtensions, diskMode, uuid):
-        # MUST define these
-        super(VirtualDiskRawDiskMappingVer1BackingOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDiskRawDiskMappingVer1BackingOption')
     
-        self.data['compatibilityMode'] = compatibilityMode
-        self.data['descriptorFileNameExtensions'] = descriptorFileNameExtensions
-        self.data['diskMode'] = diskMode
-        self.data['uuid'] = uuid
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'type', 'autoDetectAvailable', 'compatibilityMode',
+        'descriptorFileNameExtensions', 'diskMode', 'uuid' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def compatibilityMode(self):
-        '''The supported raw disk mapping compatibility modes.
-        '''
-        return self.data['compatibilityMode']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def descriptorFileNameExtensions(self):
-        '''Valid extensions for the filename of the optional raw disk mapping descriptor
-        file. This is present only for ESX Server 3.x and greater hosts.
-        '''
-        return self.data['descriptorFileNameExtensions']
-
-    @property
-    def diskMode(self):
-        '''The disk mode. Valid values are: * persistent * independent_persistent *
-        independent_nonpersistent
-        '''
-        return self.data['diskMode']
-
-    @property
-    def uuid(self):
-        '''Flag to indicate whether this backing supports disk UUID property.
-        '''
-        return self.data['uuid']
-
+    return obj
+    

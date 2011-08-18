@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,34 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostHardwareStatusInfo(DynamicData):
-    '''Data object representing the status of the hardware components of the host.
-    '''
+def HostHardwareStatusInfo(vim, *args, **kwargs):
+    '''Data object representing the status of the hardware components of the host.'''
     
-    def __init__(self, cpuStatusInfo, memoryStatusInfo, storageStatusInfo):
-        # MUST define these
-        super(HostHardwareStatusInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostHardwareStatusInfo')
     
-        self.data['cpuStatusInfo'] = cpuStatusInfo
-        self.data['memoryStatusInfo'] = memoryStatusInfo
-        self.data['storageStatusInfo'] = storageStatusInfo
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'cpuStatusInfo', 'memoryStatusInfo', 'storageStatusInfo' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def cpuStatusInfo(self):
-        '''Status of the CPU packages
-        '''
-        return self.data['cpuStatusInfo']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def memoryStatusInfo(self):
-        '''Status of the physical memory
-        '''
-        return self.data['memoryStatusInfo']
-
-    @property
-    def storageStatusInfo(self):
-        '''Status of the physical storage system
-        '''
-        return self.data['storageStatusInfo']
-
+    return obj
+    

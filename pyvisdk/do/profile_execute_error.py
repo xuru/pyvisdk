@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfileExecuteError(DynamicData):
-    '''DataObject which points to an error encountered during execute.
-    '''
+def ProfileExecuteError(vim, *args, **kwargs):
+    '''DataObject which points to an error encountered during execute.'''
     
-    def __init__(self, message, path):
-        # MUST define these
-        super(ProfileExecuteError, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfileExecuteError')
     
-        self.data['message'] = message
-        self.data['path'] = path
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'message', 'path' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def message(self):
-        '''Message describing the error
-        '''
-        return self.data['message']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def path(self):
-        '''Path where the error occurred
-        '''
-        return self.data['path']
-
+    return obj
+    

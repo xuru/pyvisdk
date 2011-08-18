@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,49 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDiskPartitionBlockRange(DynamicData):
+def HostDiskPartitionBlockRange(vim, *args, **kwargs):
     '''A BlockRange data object type describes a contiguous set of blocks on a disk. A
-        BlockRange may describe either a partition or unpartitioned (primordial)
-        blocks on the disk.
-    '''
+    BlockRange may describe either a partition or unpartitioned (primordial) blocks
+    on the disk.'''
     
-    def __init__(self, end, partition, start, type):
-        # MUST define these
-        super(HostDiskPartitionBlockRange, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDiskPartitionBlockRange')
     
-        self.data['end'] = end
-        self.data['partition'] = partition
-        self.data['start'] = start
-        self.data['type'] = type
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'end', 'partition', 'start', 'type' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def end(self):
-        '''The end block address of the disk range. The block numbers start from zero. The
-        range is inclusive of the end address.
-        '''
-        return self.data['end']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def partition(self):
-        '''Partition number. This number is a hint from the server indicating what the
-        partition number for this block range is if the range corresponds to a
-        partition. The partition number should correlate to the one in the
-        partition specification. If sent back to the server, this property is
-        ignored.
-        '''
-        return self.data['partition']
-
-    @property
-    def start(self):
-        '''The starting block address of the disk range. The block numbers start from zero.
-        The range is inclusive of the end address.
-        '''
-        return self.data['start']
-
-    @property
-    def type(self):
-        '''The type of data in the partition.
-        '''
-        return self.data['type']
-
+    return obj
+    

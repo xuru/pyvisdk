@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,34 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfileConfigInfo(DynamicData):
-    '''
-    '''
+def ProfileConfigInfo(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, annotation, enabled, name):
-        # MUST define these
-        super(ProfileConfigInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfileConfigInfo')
     
-        self.data['annotation'] = annotation
-        self.data['enabled'] = enabled
-        self.data['name'] = name
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'annotation', 'enabled', 'name' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def annotation(self):
-        '''User Provided description of the profile
-        '''
-        return self.data['annotation']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def enabled(self):
-        '''Flag indicating if the Profile is enabled
-        '''
-        return self.data['enabled']
-
-    @property
-    def name(self):
-        '''Name of the profile
-        '''
-        return self.data['name']
-
+    return obj
+    

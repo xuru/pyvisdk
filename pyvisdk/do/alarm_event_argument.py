@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.entity_event_argument import EntityEventArgument
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AlarmEventArgument(EntityEventArgument):
-    '''The event argument is an Alarm object.
-    '''
+def AlarmEventArgument(vim, *args, **kwargs):
+    '''The event argument is an Alarm object.'''
     
-    def __init__(self, alarm):
-        # MUST define these
-        super(AlarmEventArgument, self).__init__()
+    obj = vim.client.factory.create('ns0:AlarmEventArgument')
     
-        self.data['alarm'] = alarm
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name', 'alarm' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def alarm(self):
-        '''The Alarm object.
-        '''
-        return self.data['alarm']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

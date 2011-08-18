@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_datastore_connect_info import HostDatastoreConnectInfo
 import logging
 
 ########################################
@@ -8,22 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDatastoreNameConflictConnectInfo(HostDatastoreConnectInfo):
-    '''This data object type describes a datastore on the host that has the same name as
-        a different datastore on VirtualCenter.
-    '''
+def HostDatastoreNameConflictConnectInfo(vim, *args, **kwargs):
+    '''This data object type describes a datastore on the host that has the same name
+    as a different datastore on VirtualCenter.'''
     
-    def __init__(self, newDatastoreName):
-        # MUST define these
-        super(HostDatastoreNameConflictConnectInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDatastoreNameConflictConnectInfo')
     
-        self.data['newDatastoreName'] = newDatastoreName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'summary', 'newDatastoreName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def newDatastoreName(self):
-        '''To resolve a conflict with existing datastores, a suggested new name of the
-        datastore can be provided.
-        '''
-        return self.data['newDatastoreName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

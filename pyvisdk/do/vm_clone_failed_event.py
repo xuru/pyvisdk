@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_clone_event import VmCloneEvent
 import logging
 
 ########################################
@@ -8,41 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmCloneFailedEvent(VmCloneEvent):
-    '''This event records a failure to clone a virtual machine.
-    '''
+def VmCloneFailedEvent(vim, *args, **kwargs):
+    '''This event records a failure to clone a virtual machine.'''
     
-    def __init__(self, destFolder, destHost, destName, reason):
-        # MUST define these
-        super(VmCloneFailedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmCloneFailedEvent')
     
-        self.data['destFolder'] = destFolder
-        self.data['destHost'] = destHost
-        self.data['destName'] = destName
-        self.data['reason'] = reason
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 6:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'destFolder', 'destHost', 'destName', 'reason' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def destFolder(self):
-        '''The destination folder to which the virtual machine is being cloned.
-        '''
-        return self.data['destFolder']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def destHost(self):
-        '''The destination host to which the virtual machine was being cloned.
-        '''
-        return self.data['destHost']
-
-    @property
-    def destName(self):
-        '''The name of the destination virtual machine.
-        '''
-        return self.data['destName']
-
-    @property
-    def reason(self):
-        '''The reason why this clone operation failed.
-        '''
-        return self.data['reason']
-
+    return obj
+    

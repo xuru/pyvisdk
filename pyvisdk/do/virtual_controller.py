@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device import VirtualDevice
 import logging
 
 ########################################
@@ -8,31 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualController(VirtualDevice):
+def VirtualController(vim, *args, **kwargs):
     '''VirtualController is the base data object type for a device controller in a
-        virtual machine. VirtualController extends VirtualDevice to inherit
-        general information about a controller (such as name and description), and
-        to allow controllers to appear in a generic list of virtual devices.
-    '''
+    virtual machine. VirtualController extends VirtualDevice to inherit general
+    information about a controller (such as name and description), and to allow
+    controllers to appear in a generic list of virtual devices.'''
     
-    def __init__(self, busNumber, device):
-        # MUST define these
-        super(VirtualController, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualController')
     
-        self.data['busNumber'] = busNumber
-        self.data['device'] = device
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'key', 'unitNumber',
+        'busNumber', 'device' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def busNumber(self):
-        '''Bus number associated with this controller.
-        '''
-        return self.data['busNumber']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def device(self):
-        '''List of devices currently controlled by this controller. Each entry contains the
-        key property of the corresponding device object.
-        '''
-        return self.data['device']
-
+    return obj
+    

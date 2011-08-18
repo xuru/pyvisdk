@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostIpRouteOp(DynamicData):
+def HostIpRouteOp(vim, *args, **kwargs):
     '''Routing Entry Operation. Routing entries are individual static routes which
-        combined with the default route form all of the routing rules for a host.
-    '''
+    combined with the default route form all of the routing rules for a host.'''
     
-    def __init__(self, changeOperation, route):
-        # MUST define these
-        super(HostIpRouteOp, self).__init__()
+    obj = vim.client.factory.create('ns0:HostIpRouteOp')
     
-        self.data['changeOperation'] = changeOperation
-        self.data['route'] = route
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'changeOperation', 'route' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def changeOperation(self):
-        '''This property indicates the change operation to apply on this configuration
-        specification.
-        '''
-        return self.data['changeOperation']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def route(self):
-        '''The routing entry itself
-        '''
-        return self.data['route']
-
+    return obj
+    

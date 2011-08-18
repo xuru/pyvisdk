@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.session_event import SessionEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class GlobalMessageChangedEvent(SessionEvent):
-    '''This event records a change to the global message.
-    '''
+def GlobalMessageChangedEvent(vim, *args, **kwargs):
+    '''This event records a change to the global message.'''
     
-    def __init__(self, message):
-        # MUST define these
-        super(GlobalMessageChangedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:GlobalMessageChangedEvent')
     
-        self.data['message'] = message
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'message' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def message(self):
-        '''The new message that was set.
-        '''
-        return self.data['message']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

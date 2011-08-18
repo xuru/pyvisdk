@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PowerSystemInfo(DynamicData):
-    '''Power System Info data object. Shows current state of power management system.
-    '''
+def PowerSystemInfo(vim, *args, **kwargs):
+    '''Power System Info data object. Shows current state of power management system.'''
     
-    def __init__(self, currentPolicy):
-        # MUST define these
-        super(PowerSystemInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:PowerSystemInfo')
     
-        self.data['currentPolicy'] = currentPolicy
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'currentPolicy' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def currentPolicy(self):
-        '''Currently selected host power management policy. This property can have one of the
-        values from availablePolicy.
-        '''
-        return self.data['currentPolicy']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

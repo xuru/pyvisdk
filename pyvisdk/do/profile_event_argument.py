@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.event_argument import EventArgument
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfileEventArgument(EventArgument):
-    '''The event argument is a Profile object
-    '''
+def ProfileEventArgument(vim, *args, **kwargs):
+    '''The event argument is a Profile object'''
     
-    def __init__(self, name, profile):
-        # MUST define these
-        super(ProfileEventArgument, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfileEventArgument')
     
-        self.data['name'] = name
-        self.data['profile'] = profile
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name', 'profile' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def name(self):
-        '''
-        '''
-        return self.data['name']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def profile(self):
-        '''
-        '''
-        return self.data['profile']
-
+    return obj
+    

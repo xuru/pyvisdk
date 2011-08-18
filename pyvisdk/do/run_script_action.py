@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.action import Action
 import logging
 
 ########################################
@@ -8,23 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class RunScriptAction(Action):
+def RunScriptAction(vim, *args, **kwargs):
     '''This data object type specifies a script that is triggered by an alarm. You can
-        use any elements of the ActionParameter enumerated list as part of your
-        script to provide information available at runtime.
-    '''
+    use any elements of the ActionParameter enumerated list as part of your script
+    to provide information available at runtime.'''
     
-    def __init__(self, script):
-        # MUST define these
-        super(RunScriptAction, self).__init__()
+    obj = vim.client.factory.create('ns0:RunScriptAction')
     
-        self.data['script'] = script
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'script' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def script(self):
-        '''The fully-qualified path to a shell script that runs on the VirtualCenter server
-        as a result of an alarm.
-        '''
-        return self.data['script']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

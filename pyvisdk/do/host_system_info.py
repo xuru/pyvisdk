@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,41 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostSystemInfo(DynamicData):
-    '''Information about the system as a whole.
-    '''
+def HostSystemInfo(vim, *args, **kwargs):
+    '''Information about the system as a whole.'''
     
-    def __init__(self, model, otherIdentifyingInfo, uuid, vendor):
-        # MUST define these
-        super(HostSystemInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostSystemInfo')
     
-        self.data['model'] = model
-        self.data['otherIdentifyingInfo'] = otherIdentifyingInfo
-        self.data['uuid'] = uuid
-        self.data['vendor'] = vendor
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'model', 'otherIdentifyingInfo', 'uuid', 'vendor' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def model(self):
-        '''System model identification.
-        '''
-        return self.data['model']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def otherIdentifyingInfo(self):
-        '''Other System identification information. This information may be vendor specific
-        '''
-        return self.data['otherIdentifyingInfo']
-
-    @property
-    def uuid(self):
-        '''Hardware BIOS identification.
-        '''
-        return self.data['uuid']
-
-    @property
-    def vendor(self):
-        '''Hardware vendor identification.
-        '''
-        return self.data['vendor']
-
+    return obj
+    

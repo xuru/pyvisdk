@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.cluster_event import ClusterEvent
 import logging
 
 ########################################
@@ -8,15 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DrsRecoveredFromFailureEvent(ClusterEvent):
+def DrsRecoveredFromFailureEvent(vim, *args, **kwargs):
     '''This event records that DRS has recovered from failure. It is triggered by a
-        successful DRS invocation after repeated failure.
-    '''
+    successful DRS invocation after repeated failure.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(DrsRecoveredFromFailureEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DrsRecoveredFromFailureEvent')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

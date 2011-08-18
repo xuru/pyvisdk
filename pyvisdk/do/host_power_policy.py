@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,45 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostPowerPolicy(DynamicData):
+def HostPowerPolicy(vim, *args, **kwargs):
     '''Power Management Policy data object. Used to retrieve and specify current host
-        power management policy.
-    '''
+    power management policy.'''
     
-    def __init__(self, description, key, name, shortName):
-        # MUST define these
-        super(HostPowerPolicy, self).__init__()
+    obj = vim.client.factory.create('ns0:HostPowerPolicy')
     
-        self.data['description'] = description
-        self.data['key'] = key
-        self.data['name'] = name
-        self.data['shortName'] = shortName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'description', 'key', 'name', 'shortName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def description(self):
-        '''Power Policy Description.
-        '''
-        return self.data['description']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def key(self):
-        '''Power Policy Key. Internally generated key which uniquely identifies power
-        management policy on a host.
-        '''
-        return self.data['key']
-
-    @property
-    def name(self):
-        '''Power Policy Name.
-        '''
-        return self.data['name']
-
-    @property
-    def shortName(self):
-        '''Power Policy Short Name. This is not localizable property which can be used to
-        identify specific power managing policies like "custom" power policy.
-        Custom power policy has short name set to "custom".
-        '''
-        return self.data['shortName']
-
+    return obj
+    

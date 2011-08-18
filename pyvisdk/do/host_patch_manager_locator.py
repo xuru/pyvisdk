@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostPatchManagerLocator(DynamicData):
-    '''
-    '''
+def HostPatchManagerLocator(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, proxy, url):
-        # MUST define these
-        super(HostPatchManagerLocator, self).__init__()
+    obj = vim.client.factory.create('ns0:HostPatchManagerLocator')
     
-        self.data['proxy'] = proxy
-        self.data['url'] = url
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'proxy', 'url' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def proxy(self):
-        '''The proxy setting required to access the URL from the host. If unset, a direct URL
-        connection will be attempted.
-        '''
-        return self.data['proxy']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def url(self):
-        '''The URL that will be used to access the patch repository.
-        '''
-        return self.data['url']
-
+    return obj
+    

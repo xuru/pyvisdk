@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.customization_name import CustomizationName
 import logging
 
 ########################################
@@ -8,24 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationCustomName(CustomizationName):
+def CustomizationCustomName(vim, *args, **kwargs):
     '''Specifies that the VirtualCenter server will launch an external application to
-        generate the (hostname/IP). The command line for this application must be
-        specified in the server configuration file (vpxd.cfg) in the vpxd/name-ip-
-        generator key.
-    '''
+    generate the (hostname/IP). The command line for this application must be
+    specified in the server configuration file (vpxd.cfg) in the vpxd/name-ip-
+    generator key.'''
     
-    def __init__(self, argument):
-        # MUST define these
-        super(CustomizationCustomName, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationCustomName')
     
-        self.data['argument'] = argument
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'argument' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def argument(self):
-        '''An optional argument that is passed to the utility for this IP address. The
-        meaning of this field is user-defined in the script.
-        '''
-        return self.data['argument']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

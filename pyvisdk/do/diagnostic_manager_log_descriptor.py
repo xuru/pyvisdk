@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,58 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DiagnosticManagerLogDescriptor(DynamicData):
-    '''Describes a log file that is available on a server.
-    '''
+def DiagnosticManagerLogDescriptor(vim, *args, **kwargs):
+    '''Describes a log file that is available on a server.'''
     
-    def __init__(self, creator, fileName, format, info, key, mimeType):
-        # MUST define these
-        super(DiagnosticManagerLogDescriptor, self).__init__()
+    obj = vim.client.factory.create('ns0:DiagnosticManagerLogDescriptor')
     
-        self.data['creator'] = creator
-        self.data['fileName'] = fileName
-        self.data['format'] = format
-        self.data['info'] = info
-        self.data['key'] = key
-        self.data['mimeType'] = mimeType
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 6:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'creator', 'fileName', 'format', 'info', 'key', 'mimeType' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def creator(self):
-        '''The application that generated the log file. For more information on currently
-        supported creators, see DiagnosticManagerLogCreator.
-        '''
-        return self.data['creator']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def fileName(self):
-        '''The filename of the log.
-        '''
-        return self.data['fileName']
-
-    @property
-    def format(self):
-        '''Describes the format of the log file. For more information on currently supported
-        formats, see DiagnosticManagerLogFormat.
-        '''
-        return self.data['format']
-
-    @property
-    def info(self):
-        '''Localized description of log file.
-        '''
-        return self.data['info']
-
-    @property
-    def key(self):
-        '''A key to identify the log file for browsing and download operations.
-        '''
-        return self.data['key']
-
-    @property
-    def mimeType(self):
-        '''Describes the mime-type of the returned file. Typical mime-types include: *
-        text/plain - for a plain log file
-        '''
-        return self.data['mimeType']
-
+    return obj
+    

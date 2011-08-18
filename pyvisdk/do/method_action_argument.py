@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class MethodActionArgument(DynamicData):
-    '''This data object type defines a named argument for an operation.
-    '''
+def MethodActionArgument(vim, *args, **kwargs):
+    '''This data object type defines a named argument for an operation.'''
     
-    def __init__(self, value):
-        # MUST define these
-        super(MethodActionArgument, self).__init__()
+    obj = vim.client.factory.create('ns0:MethodActionArgument')
     
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def value(self):
-        '''The value of the argument.
-        '''
-        return self.data['value']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

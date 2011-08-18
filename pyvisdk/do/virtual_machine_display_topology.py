@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,41 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineDisplayTopology(DynamicData):
-    '''This data object defines a two-dimensional, rectangular display area.
-    '''
+def VirtualMachineDisplayTopology(vim, *args, **kwargs):
+    '''This data object defines a two-dimensional, rectangular display area.'''
     
-    def __init__(self, height, width, x, y):
-        # MUST define these
-        super(VirtualMachineDisplayTopology, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineDisplayTopology')
     
-        self.data['height'] = height
-        self.data['width'] = width
-        self.data['x'] = x
-        self.data['y'] = y
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'height', 'width', 'x', 'y' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def height(self):
-        '''The height of the display rectangle.
-        '''
-        return self.data['height']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def width(self):
-        '''The width of the display rectangle.
-        '''
-        return self.data['width']
-
-    @property
-    def x(self):
-        '''The x co-ordinate defining the start of the display rectangle.
-        '''
-        return self.data['x']
-
-    @property
-    def y(self):
-        '''The y co-ordinate defining the start of the display rectangle.
-        '''
-        return self.data['y']
-
+    return obj
+    

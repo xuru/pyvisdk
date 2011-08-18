@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.option_value import OptionValue
 import logging
 
 ########################################
@@ -8,25 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostInternetScsiHbaParamValue(OptionValue):
+def HostInternetScsiHbaParamValue(vim, *args, **kwargs):
     '''Describes the the value of an iSCSI parameter, and whether the value is being
-        inherited.
-    '''
+    inherited.'''
     
-    def __init__(self, isInherited):
-        # MUST define these
-        super(HostInternetScsiHbaParamValue, self).__init__()
+    obj = vim.client.factory.create('ns0:HostInternetScsiHbaParamValue')
     
-        self.data['isInherited'] = isInherited
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'value', 'isInherited' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def isInherited(self):
-        '''Indicates if the value is inherited from some other source. If unset, the value is
-        not inheritable. isInherited can be modified only if it has already been
-        set. If value is to being modified, isInherited should be set to true.
-        Setting isInherited to false will result in the value being once again
-        inherited from the source.
-        '''
-        return self.data['isInherited']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

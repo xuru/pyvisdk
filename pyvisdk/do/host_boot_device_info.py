@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostBootDeviceInfo(DynamicData):
-    '''This data object represents the boot device information of the host.
-    '''
+def HostBootDeviceInfo(vim, *args, **kwargs):
+    '''This data object represents the boot device information of the host.'''
     
-    def __init__(self, bootDevices, currentBootDeviceKey):
-        # MUST define these
-        super(HostBootDeviceInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostBootDeviceInfo')
     
-        self.data['bootDevices'] = bootDevices
-        self.data['currentBootDeviceKey'] = currentBootDeviceKey
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'bootDevices', 'currentBootDeviceKey' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def bootDevices(self):
-        '''The list of boot devices present on the host
-        '''
-        return self.data['bootDevices']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def currentBootDeviceKey(self):
-        '''The key of the current boot device that the host is configured to boot. This
-        property is unset if the current boot device is disabled.
-        '''
-        return self.data['currentBootDeviceKey']
-
+    return obj
+    

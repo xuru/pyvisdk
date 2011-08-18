@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.profile_expression import ProfileExpression
 import logging
 
 ########################################
@@ -8,33 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfileCompositeExpression(ProfileExpression):
-    '''DataObject to Compose expressions. It is used to group expressions together. They
-        are similar to a parentheses in an expression.
-    '''
+def ProfileCompositeExpression(vim, *args, **kwargs):
+    '''DataObject to Compose expressions. It is used to group expressions together.
+    They are similar to a parentheses in an expression.'''
     
-    def __init__(self, expressionName, operator):
-        # MUST define these
-        super(ProfileCompositeExpression, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfileCompositeExpression')
     
-        self.data['expressionName'] = expressionName
-        self.data['operator'] = operator
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'displayName', 'id', 'negated', 'expressionName', 'operator' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def expressionName(self):
-        '''List of expression names that will be used for this composition. The individual
-        expressions will return a boolean. The return values of the individual
-        expressions will be used to compute the final return value of the
-        CompositeExpression. The expressions specified in the list can themselves
-        be CompositeExpressions.
-        '''
-        return self.data['expressionName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def operator(self):
-        '''Logical operator to be applied between the expressions in the composite
-        expression. e.g: or, and
-        '''
-        return self.data['operator']
-
+    return obj
+    

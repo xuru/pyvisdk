@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,30 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HttpNfcLeaseDatastoreLeaseInfo(DynamicData):
+def HttpNfcLeaseDatastoreLeaseInfo(vim, *args, **kwargs):
     '''For a given datastore, represented by datastoreKey, contains a list of leased
-        multi-POST-capable hosts connected to it.
-    '''
+    multi-POST-capable hosts connected to it.'''
     
-    def __init__(self, datastoreKey, hosts):
-        # MUST define these
-        super(HttpNfcLeaseDatastoreLeaseInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HttpNfcLeaseDatastoreLeaseInfo')
     
-        self.data['datastoreKey'] = datastoreKey
-        self.data['hosts'] = hosts
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'datastoreKey', 'hosts' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def datastoreKey(self):
-        '''Datastore key.
-        '''
-        return self.data['datastoreKey']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def hosts(self):
-        '''List of hosts connected to this datastore and covered by this lease. The hosts in
-        this list are multi-POST-capable, and any one of them can be used to
-        transfer disks on this datastore.
-        '''
-        return self.data['hosts']
-
+    return obj
+    

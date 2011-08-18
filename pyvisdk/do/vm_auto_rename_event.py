@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,28 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmAutoRenameEvent(VmEvent):
-    '''This event records that a virtual machine was automatically renamed because of a
-        name conflict.
-    '''
+def VmAutoRenameEvent(vim, *args, **kwargs):
+    '''This event records that a virtual machine was automatically renamed because of
+    a name conflict.'''
     
-    def __init__(self, newName, oldName):
-        # MUST define these
-        super(VmAutoRenameEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmAutoRenameEvent')
     
-        self.data['newName'] = newName
-        self.data['oldName'] = oldName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'newName', 'oldName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def newName(self):
-        '''The name of the virtual machine after renaming.
-        '''
-        return self.data['newName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def oldName(self):
-        '''The name of the virtual machine before renaming.
-        '''
-        return self.data['oldName']
-
+    return obj
+    

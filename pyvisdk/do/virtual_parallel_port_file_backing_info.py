@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_file_backing_info import VirtualDeviceFileBackingInfo
 import logging
 
 ########################################
@@ -8,14 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualParallelPortFileBackingInfo(VirtualDeviceFileBackingInfo):
-    '''The data object type for a file backing of a virtual parallel port.
-    '''
+def VirtualParallelPortFileBackingInfo(vim, *args, **kwargs):
+    '''The data object type for a file backing of a virtual parallel port.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VirtualParallelPortFileBackingInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualParallelPortFileBackingInfo')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'datastore', 'fileName' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

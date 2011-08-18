@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmReconfiguredEvent(VmEvent):
-    '''This event records a reconfiguration of the virtual machine.
-    '''
+def VmReconfiguredEvent(vim, *args, **kwargs):
+    '''This event records a reconfiguration of the virtual machine.'''
     
-    def __init__(self, configSpec):
-        # MUST define these
-        super(VmReconfiguredEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmReconfiguredEvent')
     
-        self.data['configSpec'] = configSpec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'configSpec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def configSpec(self):
-        '''The configuration specification that was used for the reconfiguration.
-        '''
-        return self.data['configSpec']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

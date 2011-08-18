@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,28 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmMacAssignedEvent(VmEvent):
+def VmMacAssignedEvent(vim, *args, **kwargs):
     '''This event records the assignment of a new MAC address to a virtual network
-        adapter.
-    '''
+    adapter.'''
     
-    def __init__(self, adapter, mac):
-        # MUST define these
-        super(VmMacAssignedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmMacAssignedEvent')
     
-        self.data['adapter'] = adapter
-        self.data['mac'] = mac
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'adapter', 'mac' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def adapter(self):
-        '''The name of the virtual adapter.
-        '''
-        return self.data['adapter']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def mac(self):
-        '''The new MAC address.
-        '''
-        return self.data['mac']
-
+    return obj
+    

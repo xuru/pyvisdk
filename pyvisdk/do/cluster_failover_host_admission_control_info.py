@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.cluster_das_admission_control_info import ClusterDasAdmissionControlInfo
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterFailoverHostAdmissionControlInfo(ClusterDasAdmissionControlInfo):
+def ClusterFailoverHostAdmissionControlInfo(vim, *args, **kwargs):
     '''The current admission control related information if the cluster was configured
-        with a FailoverHostAdmissionControlPolicy.
-    '''
+    with a FailoverHostAdmissionControlPolicy.'''
     
-    def __init__(self, hostStatus):
-        # MUST define these
-        super(ClusterFailoverHostAdmissionControlInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterFailoverHostAdmissionControlInfo')
     
-        self.data['hostStatus'] = hostStatus
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'hostStatus' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def hostStatus(self):
-        '''Status of the failover hosts in the cluster.
-        '''
-        return self.data['hostStatus']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

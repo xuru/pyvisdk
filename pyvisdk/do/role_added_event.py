@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.role_event import RoleEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class RoleAddedEvent(RoleEvent):
-    '''This event records the creation of a role.
-    '''
+def RoleAddedEvent(vim, *args, **kwargs):
+    '''This event records the creation of a role.'''
     
-    def __init__(self, privilegeList):
-        # MUST define these
-        super(RoleAddedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:RoleAddedEvent')
     
-        self.data['privilegeList'] = privilegeList
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'role',
+        'privilegeList' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def privilegeList(self):
-        '''The privileges granted to the role.
-        '''
-        return self.data['privilegeList']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

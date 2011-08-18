@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class Tag(DynamicData):
-    '''Defines a tag that can be associated with a managed entity.
-    '''
+def Tag(vim, *args, **kwargs):
+    '''Defines a tag that can be associated with a managed entity.'''
     
-    def __init__(self, key):
-        # MUST define these
-        super(Tag, self).__init__()
+    obj = vim.client.factory.create('ns0:Tag')
     
-        self.data['key'] = key
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''The tag key in human readable form.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

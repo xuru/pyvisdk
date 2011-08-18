@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class OvfDeploymentOption(DynamicData):
+def OvfDeploymentOption(vim, *args, **kwargs):
     '''A deployment option as defined in the OVF specfication.This corresponds to the
-        Configuration element of the DeploymentOptionSection in the specification.
-    '''
+    Configuration element of the DeploymentOptionSection in the specification.'''
     
-    def __init__(self, description, key, label):
-        # MUST define these
-        super(OvfDeploymentOption, self).__init__()
+    obj = vim.client.factory.create('ns0:OvfDeploymentOption')
     
-        self.data['description'] = description
-        self.data['key'] = key
-        self.data['label'] = label
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'description', 'key', 'label' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def description(self):
-        '''A localizable description for the deployment option.
-        '''
-        return self.data['description']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def key(self):
-        '''The key of the deployment option, corresponding to the ovf:id attribute in the OVF
-        descriptor
-        '''
-        return self.data['key']
-
-    @property
-    def label(self):
-        '''A localized label for the deployment option
-        '''
-        return self.data['label']
-
+    return obj
+    

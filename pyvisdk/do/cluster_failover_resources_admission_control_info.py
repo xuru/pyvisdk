@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.cluster_das_admission_control_info import ClusterDasAdmissionControlInfo
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterFailoverResourcesAdmissionControlInfo(ClusterDasAdmissionControlInfo):
+def ClusterFailoverResourcesAdmissionControlInfo(vim, *args, **kwargs):
     '''The current admission control related information if the cluster was configured
-        with a FailoverResourcesAdmissionControlPolicy.
-    '''
+    with a FailoverResourcesAdmissionControlPolicy.'''
     
-    def __init__(self, currentCpuFailoverResourcesPercent, currentMemoryFailoverResourcesPercent):
-        # MUST define these
-        super(ClusterFailoverResourcesAdmissionControlInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterFailoverResourcesAdmissionControlInfo')
     
-        self.data['currentCpuFailoverResourcesPercent'] = currentCpuFailoverResourcesPercent
-        self.data['currentMemoryFailoverResourcesPercent'] = currentMemoryFailoverResourcesPercent
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'currentCpuFailoverResourcesPercent', 'currentMemoryFailoverResourcesPercent' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def currentCpuFailoverResourcesPercent(self):
-        '''The percentage of cpu resources in the cluster available for failover.
-        '''
-        return self.data['currentCpuFailoverResourcesPercent']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def currentMemoryFailoverResourcesPercent(self):
-        '''The percentage of memory resources in the cluster available for failover.
-        '''
-        return self.data['currentMemoryFailoverResourcesPercent']
-
+    return obj
+    

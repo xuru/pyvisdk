@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class MultipleCertificatesVerifyFaultThumbprintData(DynamicData):
-    '''
-    '''
+def MultipleCertificatesVerifyFaultThumbprintData(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, port, thumbprint):
-        # MUST define these
-        super(MultipleCertificatesVerifyFaultThumbprintData, self).__init__()
+    obj = vim.client.factory.create('ns0:MultipleCertificatesVerifyFaultThumbprintData')
     
-        self.data['port'] = port
-        self.data['thumbprint'] = thumbprint
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'port', 'thumbprint' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def port(self):
-        '''The port used by the service.
-        '''
-        return self.data['port']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def thumbprint(self):
-        '''The SSL thumbprint of the host's certificate used by the service.
-        '''
-        return self.data['thumbprint']
-
+    return obj
+    

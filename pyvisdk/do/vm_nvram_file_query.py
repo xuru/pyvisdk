@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.file_query import FileQuery
 import logging
 
 ########################################
@@ -8,15 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmNvramFileQuery(FileQuery):
-    '''This data object type describes the query specification for a non-volatile memory
-        file.
-    '''
+def VmNvramFileQuery(vim, *args, **kwargs):
+    '''This data object type describes the query specification for a non-volatile
+    memory file.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VmNvramFileQuery, self).__init__()
+    obj = vim.client.factory.create('ns0:VmNvramFileQuery')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [  ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.type_description import TypeDescription
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ScheduledTaskDetail(TypeDescription):
-    '''Descriptive detail for each scheduler type.
-    '''
+def ScheduledTaskDetail(vim, *args, **kwargs):
+    '''Descriptive detail for each scheduler type.'''
     
-    def __init__(self, frequency):
-        # MUST define these
-        super(ScheduledTaskDetail, self).__init__()
+    obj = vim.client.factory.create('ns0:ScheduledTaskDetail')
     
-        self.data['frequency'] = frequency
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'label', 'summary', 'key', 'frequency' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def frequency(self):
-        '''Scheduler frequency description.
-        '''
-        return self.data['frequency']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

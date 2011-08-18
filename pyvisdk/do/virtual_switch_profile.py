@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.apply_profile import ApplyProfile
 import logging
 
 ########################################
@@ -8,48 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualSwitchProfile(ApplyProfile):
-    '''This data object type represents a profile for a virtual switch.
-    '''
+def VirtualSwitchProfile(vim, *args, **kwargs):
+    '''This data object type represents a profile for a virtual switch.'''
     
-    def __init__(self, key, link, name, networkPolicy, numPorts):
-        # MUST define these
-        super(VirtualSwitchProfile, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualSwitchProfile')
     
-        self.data['key'] = key
-        self.data['link'] = link
-        self.data['name'] = name
-        self.data['networkPolicy'] = networkPolicy
-        self.data['numPorts'] = numPorts
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 6:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'policy', 'key', 'link', 'name', 'networkPolicy', 'numPorts' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''The linkable identifier.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def link(self):
-        '''The links that are connected to the virtual switch.
-        '''
-        return self.data['link']
-
-    @property
-    def name(self):
-        '''The name of the virtual switch.
-        '''
-        return self.data['name']
-
-    @property
-    def networkPolicy(self):
-        '''The network policy applicable on the virtual switch.
-        '''
-        return self.data['networkPolicy']
-
-    @property
-    def numPorts(self):
-        '''The number of ports on the virtual switch.
-        '''
-        return self.data['numPorts']
-
+    return obj
+    

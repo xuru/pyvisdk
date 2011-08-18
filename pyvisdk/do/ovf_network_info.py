@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class OvfNetworkInfo(DynamicData):
-    '''The name and description of a network as specified by the OVF descriptor.
-    '''
+def OvfNetworkInfo(vim, *args, **kwargs):
+    '''The name and description of a network as specified by the OVF descriptor.'''
     
-    def __init__(self, description, name):
-        # MUST define these
-        super(OvfNetworkInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:OvfNetworkInfo')
     
-        self.data['description'] = description
-        self.data['name'] = name
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'description', 'name' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def description(self):
-        '''
-        '''
-        return self.data['description']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def name(self):
-        '''
-        '''
-        return self.data['name']
-
+    return obj
+    

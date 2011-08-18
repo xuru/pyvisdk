@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_das_event import HostDasEvent
 import logging
 
 ########################################
@@ -8,21 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostIsolationIpPingFailedEvent(HostDasEvent):
+def HostIsolationIpPingFailedEvent(vim, *args, **kwargs):
     '''This event records that the isolation address could not be pinged. The default
-        isolation address is the service console's default gateway.
-    '''
+    isolation address is the service console's default gateway.'''
     
-    def __init__(self, isolationIp):
-        # MUST define these
-        super(HostIsolationIpPingFailedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:HostIsolationIpPingFailedEvent')
     
-        self.data['isolationIp'] = isolationIp
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'isolationIp' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def isolationIp(self):
-        '''
-        '''
-        return self.data['isolationIp']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

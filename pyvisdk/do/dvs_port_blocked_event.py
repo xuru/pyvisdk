@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dvs_event import DvsEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DvsPortBlockedEvent(DvsEvent):
-    '''A port is blocked in the distributed virtual switch.
-    '''
+def DvsPortBlockedEvent(vim, *args, **kwargs):
+    '''A port is blocked in the distributed virtual switch.'''
     
-    def __init__(self, portKey, statusDetail):
-        # MUST define these
-        super(DvsPortBlockedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DvsPortBlockedEvent')
     
-        self.data['portKey'] = portKey
-        self.data['statusDetail'] = statusDetail
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'portKey', 'statusDetail' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def portKey(self):
-        '''The port key.
-        '''
-        return self.data['portKey']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def statusDetail(self):
-        '''Reason for port's current status
-        '''
-        return self.data['statusDetail']
-
+    return obj
+    

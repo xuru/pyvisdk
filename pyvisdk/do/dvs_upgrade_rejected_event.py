@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dvs_event import DvsEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DvsUpgradeRejectedEvent(DvsEvent):
-    '''An upgrade for the distributed virtual switch is rejected.
-    '''
+def DvsUpgradeRejectedEvent(vim, *args, **kwargs):
+    '''An upgrade for the distributed virtual switch is rejected.'''
     
-    def __init__(self, productInfo):
-        # MUST define these
-        super(DvsUpgradeRejectedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DvsUpgradeRejectedEvent')
     
-        self.data['productInfo'] = productInfo
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'productInfo' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def productInfo(self):
-        '''The product info of the upgrade.
-        '''
-        return self.data['productInfo']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

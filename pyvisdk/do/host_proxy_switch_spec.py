@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,23 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostProxySwitchSpec(DynamicData):
-    '''This data object type describes the HostProxySwitch specification representing the
-        properties on a HostProxySwitch that can be configured once the object
-        exists.
-    '''
+def HostProxySwitchSpec(vim, *args, **kwargs):
+    '''This data object type describes the HostProxySwitch specification representing
+    the properties on a HostProxySwitch that can be configured once the object
+    exists.'''
     
-    def __init__(self, backing):
-        # MUST define these
-        super(HostProxySwitchSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:HostProxySwitchSpec')
     
-        self.data['backing'] = backing
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'backing' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def backing(self):
-        '''The specification describes how physical network adapters are bridged to the
-        switch.
-        '''
-        return self.data['backing']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostPciPassthruConfig(DynamicData):
-    '''This data object provides information about the state of PciPassthru for all pci
-        devices.
-    '''
+def HostPciPassthruConfig(vim, *args, **kwargs):
+    '''This data object provides information about the state of PciPassthru for all
+    pci devices.'''
     
-    def __init__(self, id, passthruEnabled):
-        # MUST define these
-        super(HostPciPassthruConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:HostPciPassthruConfig')
     
-        self.data['id'] = id
-        self.data['passthruEnabled'] = passthruEnabled
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'id', 'passthruEnabled' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def id(self):
-        '''The name ID of this PCI, composed of "bus:slot.function".
-        '''
-        return self.data['id']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def passthruEnabled(self):
-        '''Whether passThru is has been configured for this device
-        '''
-        return self.data['passthruEnabled']
-
+    return obj
+    

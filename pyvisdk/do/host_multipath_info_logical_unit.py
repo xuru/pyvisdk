@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,57 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostMultipathInfoLogicalUnit(DynamicData):
-    '''This data object type represents a storage entity that provides disk blocks to a
-        host.
-    '''
+def HostMultipathInfoLogicalUnit(vim, *args, **kwargs):
+    '''This data object type represents a storage entity that provides disk blocks to
+    a host.'''
     
-    def __init__(self, id, key, lun, path, policy, storageArrayTypePolicy):
-        # MUST define these
-        super(HostMultipathInfoLogicalUnit, self).__init__()
+    obj = vim.client.factory.create('ns0:HostMultipathInfoLogicalUnit')
     
-        self.data['id'] = id
-        self.data['key'] = key
-        self.data['lun'] = lun
-        self.data['path'] = path
-        self.data['policy'] = policy
-        self.data['storageArrayTypePolicy'] = storageArrayTypePolicy
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'id', 'key', 'lun', 'path', 'policy', 'storageArrayTypePolicy' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def id(self):
-        '''Identifier of LogicalUnit.
-        '''
-        return self.data['id']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def key(self):
-        '''Linkable identifier.
-        '''
-        return self.data['key']
-
-    @property
-    def lun(self):
-        '''The SCSI device corresponding to logical unit.
-        '''
-        return self.data['lun']
-
-    @property
-    def path(self):
-        '''The array of paths available to access this LogicalUnit.
-        '''
-        return self.data['path']
-
-    @property
-    def policy(self):
-        '''Policy that the logical unit should use when selecting a path.
-        '''
-        return self.data['policy']
-
-    @property
-    def storageArrayTypePolicy(self):
-        '''Policy used to determine how a storage device is accessed. This policy is
-        currently immutable.
-        '''
-        return self.data['storageArrayTypePolicy']
-
+    return obj
+    

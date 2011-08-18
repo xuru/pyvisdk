@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmfsDatastoreBaseOption(DynamicData):
-    '''Base class that describes a VMFS datastore provisioning option.
-    '''
+def VmfsDatastoreBaseOption(vim, *args, **kwargs):
+    '''Base class that describes a VMFS datastore provisioning option.'''
     
-    def __init__(self, layout):
-        # MUST define these
-        super(VmfsDatastoreBaseOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VmfsDatastoreBaseOption')
     
-        self.data['layout'] = layout
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'layout' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def layout(self):
-        '''The partition table layout that the disk will have if this provisioning option is
-        selected.
-        '''
-        return self.data['layout']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

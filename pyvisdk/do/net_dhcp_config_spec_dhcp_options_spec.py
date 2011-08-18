@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class NetDhcpConfigSpecDhcpOptionsSpec(DynamicData):
-    '''Provides for configuration of IPv6
-    '''
+def NetDhcpConfigSpecDhcpOptionsSpec(vim, *args, **kwargs):
+    '''Provides for configuration of IPv6'''
     
-    def __init__(self, config, enable, operation):
-        # MUST define these
-        super(NetDhcpConfigSpecDhcpOptionsSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:NetDhcpConfigSpecDhcpOptionsSpec')
     
-        self.data['config'] = config
-        self.data['enable'] = enable
-        self.data['operation'] = operation
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'config', 'enable', 'operation' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def config(self):
-        '''Platform specific settings for DHCP Client. The key part is a unique number, the
-        value part is the platform specific configuration command. See
-        NetDhcpConfigInfo for value formatting.
-        '''
-        return self.data['config']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def enable(self):
-        '''Enable or disable dhcp for IPv4.
-        '''
-        return self.data['enable']
-
-    @property
-    def operation(self):
-        '''Requires one of the values from HostConfigChangeOperation.
-        '''
-        return self.data['operation']
-
+    return obj
+    

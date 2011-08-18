@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_starting_event import VmStartingEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmUnsupportedStartingEvent(VmStartingEvent):
-    '''This event records when an unsupported guest is powering on.
-    '''
+def VmUnsupportedStartingEvent(vim, *args, **kwargs):
+    '''This event records when an unsupported guest is powering on.'''
     
-    def __init__(self, guestId):
-        # MUST define these
-        super(VmUnsupportedStartingEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmUnsupportedStartingEvent')
     
-        self.data['guestId'] = guestId
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'guestId' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def guestId(self):
-        '''
-        '''
-        return self.data['guestId']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

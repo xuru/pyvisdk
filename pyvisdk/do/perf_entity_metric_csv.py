@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.perf_entity_metric_base import PerfEntityMetricBase
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PerfEntityMetricCSV(PerfEntityMetricBase):
-    '''This data object type stores metric values for a specific entity in CSV format.
-    '''
+def PerfEntityMetricCSV(vim, *args, **kwargs):
+    '''This data object type stores metric values for a specific entity in CSV format.'''
     
-    def __init__(self, sampleInfoCSV, value):
-        # MUST define these
-        super(PerfEntityMetricCSV, self).__init__()
+    obj = vim.client.factory.create('ns0:PerfEntityMetricCSV')
     
-        self.data['sampleInfoCSV'] = sampleInfoCSV
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'entity', 'sampleInfoCSV', 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def sampleInfoCSV(self):
-        '''The PerfSampleInfo encoded in the following CSV format: [interval1], [date1],
-        [interval2], [date2], and so on.
-        '''
-        return self.data['sampleInfoCSV']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def value(self):
-        '''Metric values corresponding to the samples collected in this list.
-        '''
-        return self.data['value']
-
+    return obj
+    

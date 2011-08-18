@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AlarmSetting(DynamicData):
-    '''Tolerance and frequency limits of an alarm.
-    '''
+def AlarmSetting(vim, *args, **kwargs):
+    '''Tolerance and frequency limits of an alarm.'''
     
-    def __init__(self, reportingFrequency, toleranceRange):
-        # MUST define these
-        super(AlarmSetting, self).__init__()
+    obj = vim.client.factory.create('ns0:AlarmSetting')
     
-        self.data['reportingFrequency'] = reportingFrequency
-        self.data['toleranceRange'] = toleranceRange
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'reportingFrequency', 'toleranceRange' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def reportingFrequency(self):
-        '''How often the alarm is triggered, measured in seconds.
-        '''
-        return self.data['reportingFrequency']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def toleranceRange(self):
-        '''Tolerance range for the metric triggers, measured in one hundredth percentage.
-        '''
-        return self.data['toleranceRange']
-
+    return obj
+    

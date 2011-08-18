@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HttpNfcLeaseHostInfo(DynamicData):
-    '''Contains information about how to connect to a given host.
-    '''
+def HttpNfcLeaseHostInfo(vim, *args, **kwargs):
+    '''Contains information about how to connect to a given host.'''
     
-    def __init__(self, sslThumbprint, url):
-        # MUST define these
-        super(HttpNfcLeaseHostInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HttpNfcLeaseHostInfo')
     
-        self.data['sslThumbprint'] = sslThumbprint
-        self.data['url'] = url
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'sslThumbprint', 'url' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def sslThumbprint(self):
-        '''SSL thumbprint for the host the URL refers to. Empty if no SSL thumbprint is
-        available or needed.
-        '''
-        return self.data['sslThumbprint']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def url(self):
-        '''The host url will be of the form
-        '''
-        return self.data['url']
-
+    return obj
+    

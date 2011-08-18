@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineIdeDiskDevicePartitionInfo(DynamicData):
-    '''Describes the partition sizes
-    '''
+def VirtualMachineIdeDiskDevicePartitionInfo(vim, *args, **kwargs):
+    '''Describes the partition sizes'''
     
-    def __init__(self, capacity, id):
-        # MUST define these
-        super(VirtualMachineIdeDiskDevicePartitionInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineIdeDiskDevicePartitionInfo')
     
-        self.data['capacity'] = capacity
-        self.data['id'] = id
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'capacity', 'id' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def capacity(self):
-        '''Size of partition
-        '''
-        return self.data['capacity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def id(self):
-        '''Identification of the partition
-        '''
-        return self.data['id']
-
+    return obj
+    

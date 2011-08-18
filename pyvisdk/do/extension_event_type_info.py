@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ExtensionEventTypeInfo(DynamicData):
-    '''This data object type describes event types defined by the extension.
-    '''
+def ExtensionEventTypeInfo(vim, *args, **kwargs):
+    '''This data object type describes event types defined by the extension.'''
     
-    def __init__(self, eventID, eventTypeSchema):
-        # MUST define these
-        super(ExtensionEventTypeInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ExtensionEventTypeInfo')
     
-        self.data['eventID'] = eventID
-        self.data['eventTypeSchema'] = eventTypeSchema
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'eventID', 'eventTypeSchema' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def eventID(self):
-        '''The ID of the event type. Should follow java package naming conventions for
-        uniqueness.
-        '''
-        return self.data['eventID']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def eventTypeSchema(self):
-        '''Optional XML descriptor for the EventType. The structure of this descriptor is:
-        '''
-        return self.data['eventTypeSchema']
-
+    return obj
+    

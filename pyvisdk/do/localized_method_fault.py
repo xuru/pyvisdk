@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,31 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LocalizedMethodFault(DynamicData):
-    '''A wrapper class used to pass MethodFault data objects over the wire along with a
-        localized display message for the fault.
-    '''
+def LocalizedMethodFault(vim, *args, **kwargs):
+    '''A wrapper class used to pass MethodFault data objects over the wire along with
+    a localized display message for the fault.'''
     
-    def __init__(self, fault, localizedMessage):
-        # MUST define these
-        super(LocalizedMethodFault, self).__init__()
+    obj = vim.client.factory.create('ns0:LocalizedMethodFault')
     
-        self.data['fault'] = fault
-        self.data['localizedMessage'] = localizedMessage
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fault', 'localizedMessage' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fault(self):
-        '''
-        '''
-        return self.data['fault']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def localizedMessage(self):
-        '''The localized message that would be sent in the faultstring element of the SOAP
-        Fault. It is optional so that clients are not required to send a localized
-        message to the server, but servers are required to send the localized
-        message to clients.
-        '''
-        return self.data['localizedMessage']
-
+    return obj
+    

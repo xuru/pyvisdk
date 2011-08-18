@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.custom_field_event import CustomFieldEvent
 import logging
 
 ########################################
@@ -8,41 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomFieldValueChangedEvent(CustomFieldEvent):
-    '''This event records a change to a custom field value for a particular entity.
-    '''
+def CustomFieldValueChangedEvent(vim, *args, **kwargs):
+    '''This event records a change to a custom field value for a particular entity.'''
     
-    def __init__(self, entity, fieldKey, name, value):
-        # MUST define these
-        super(CustomFieldValueChangedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomFieldValueChangedEvent')
     
-        self.data['entity'] = entity
-        self.data['fieldKey'] = fieldKey
-        self.data['name'] = name
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'entity', 'fieldKey', 'name', 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def entity(self):
-        '''The entity on which the field value was changed.
-        '''
-        return self.data['entity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def fieldKey(self):
-        '''The custom field whose value was changed for the entity.
-        '''
-        return self.data['fieldKey']
-
-    @property
-    def name(self):
-        '''The name of the custom field at the time the value was changed.
-        '''
-        return self.data['name']
-
-    @property
-    def value(self):
-        '''The new value that was set.
-        '''
-        return self.data['value']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.entity_event_argument import EntityEventArgument
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ComputeResourceEventArgument(EntityEventArgument):
-    '''The event argument is a ComputeResource object.
-    '''
+def ComputeResourceEventArgument(vim, *args, **kwargs):
+    '''The event argument is a ComputeResource object.'''
     
-    def __init__(self, computeResource):
-        # MUST define these
-        super(ComputeResourceEventArgument, self).__init__()
+    obj = vim.client.factory.create('ns0:ComputeResourceEventArgument')
     
-        self.data['computeResource'] = computeResource
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name', 'computeResource' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def computeResource(self):
-        '''The ComputeResource object.
-        '''
-        return self.data['computeResource']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

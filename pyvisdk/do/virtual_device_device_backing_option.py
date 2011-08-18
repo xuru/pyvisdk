@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_backing_option import VirtualDeviceBackingOption
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDeviceDeviceBackingOption(VirtualDeviceBackingOption):
-    '''The DeviceBackingOption data class contains device-specific backing options.
-    '''
+def VirtualDeviceDeviceBackingOption(vim, *args, **kwargs):
+    '''The DeviceBackingOption data class contains device-specific backing options.'''
     
-    def __init__(self, autoDetectAvailable):
-        # MUST define these
-        super(VirtualDeviceDeviceBackingOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDeviceDeviceBackingOption')
     
-        self.data['autoDetectAvailable'] = autoDetectAvailable
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'type', 'autoDetectAvailable' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def autoDetectAvailable(self):
-        '''Flag to indicate whether the specific instance of this device can be auto-detected
-        on the host instead of having to specify a particular physical device.
-        '''
-        return self.data['autoDetectAvailable']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

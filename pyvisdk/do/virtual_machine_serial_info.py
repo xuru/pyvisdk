@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_machine_target_info import VirtualMachineTargetInfo
 import logging
 
 ########################################
@@ -8,14 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineSerialInfo(VirtualMachineTargetInfo):
-    '''SerialInfo class contains information about a physical serial drive on the host.
-    '''
+def VirtualMachineSerialInfo(vim, *args, **kwargs):
+    '''SerialInfo class contains information about a physical serial drive on the
+    host.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VirtualMachineSerialInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineSerialInfo')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'configurationTag', 'name' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

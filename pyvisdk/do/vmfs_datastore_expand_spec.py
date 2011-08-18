@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vmfs_datastore_spec import VmfsDatastoreSpec
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmfsDatastoreExpandSpec(VmfsDatastoreSpec):
+def VmfsDatastoreExpandSpec(vim, *args, **kwargs):
     '''Specification to increase the capacity of a VMFS datastore by expanding
-        (increasing the size of) an existing extent of the datastore.
-    '''
+    (increasing the size of) an existing extent of the datastore.'''
     
-    def __init__(self, extent, partition):
-        # MUST define these
-        super(VmfsDatastoreExpandSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:VmfsDatastoreExpandSpec')
     
-        self.data['extent'] = extent
-        self.data['partition'] = partition
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'diskUuid', 'extent', 'partition' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def extent(self):
-        '''VMFS extent to expand.
-        '''
-        return self.data['extent']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def partition(self):
-        '''Partitioning specification.
-        '''
-        return self.data['partition']
-
+    return obj
+    

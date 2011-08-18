@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vmfs_datastore_base_option import VmfsDatastoreBaseOption
 import logging
 
 ########################################
@@ -8,25 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmfsDatastoreMultipleExtentOption(VmfsDatastoreBaseOption):
+def VmfsDatastoreMultipleExtentOption(vim, *args, **kwargs):
     '''Datastore addition policy to use multiple extents on the disk for a VMFS
-        datastore. Multiple extents implies that more than one disk partition will
-        be created on the disk for creating or increasing the capacity of a VMFS
-        datastore. Multiple extents are needed when unpartitioned space is
-        fragmented in the existing partition layout of the disk.
-    '''
+    datastore. Multiple extents implies that more than one disk partition will be
+    created on the disk for creating or increasing the capacity of a VMFS
+    datastore. Multiple extents are needed when unpartitioned space is fragmented
+    in the existing partition layout of the disk.'''
     
-    def __init__(self, vmfsExtent):
-        # MUST define these
-        super(VmfsDatastoreMultipleExtentOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VmfsDatastoreMultipleExtentOption')
     
-        self.data['vmfsExtent'] = vmfsExtent
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'layout', 'vmfsExtent' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def vmfsExtent(self):
-        '''The block ranges to be used as extents in a VMFS datastore. The first block range
-        will be the head partition.
-        '''
-        return self.data['vmfsExtent']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

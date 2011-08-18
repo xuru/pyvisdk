@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.perf_metric_series import PerfMetricSeries
 import logging
 
 ########################################
@@ -8,24 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PerfMetricIntSeries(PerfMetricSeries):
-    '''This data object type describes integer metric values. The size of the array must
-        match the size of sampleInfo property in the PerfEntityMetric that
-        contains this series.
-    '''
+def PerfMetricIntSeries(vim, *args, **kwargs):
+    '''This data object type describes integer metric values. The size of the array
+    must match the size of sampleInfo property in the PerfEntityMetric that
+    contains this series.'''
     
-    def __init__(self, value):
-        # MUST define these
-        super(PerfMetricIntSeries, self).__init__()
+    obj = vim.client.factory.create('ns0:PerfMetricIntSeries')
     
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'id', 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def value(self):
-        '''An array of 64-bit integer values. The size of the array matches the size as the
-        PerfSampleInfo, because the values can only be interpreted in the context
-        of the sample that generated the value.
-        '''
-        return self.data['value']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

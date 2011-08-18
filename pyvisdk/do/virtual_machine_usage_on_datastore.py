@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,44 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineUsageOnDatastore(DynamicData):
-    '''Storage space used by this virtual machine on a particular datastore.
-    '''
+def VirtualMachineUsageOnDatastore(vim, *args, **kwargs):
+    '''Storage space used by this virtual machine on a particular datastore.'''
     
-    def __init__(self, committed, datastore, uncommitted, unshared):
-        # MUST define these
-        super(VirtualMachineUsageOnDatastore, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineUsageOnDatastore')
     
-        self.data['committed'] = committed
-        self.data['datastore'] = datastore
-        self.data['uncommitted'] = uncommitted
-        self.data['unshared'] = unshared
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'committed', 'datastore', 'uncommitted', 'unshared' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def committed(self):
-        '''Storage space, in bytes, on this datastore that is actually being used by the
-        virtual machine.
-        '''
-        return self.data['committed']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def datastore(self):
-        '''Reference to datastore for which information is being provided.
-        '''
-        return self.data['datastore']
-
-    @property
-    def uncommitted(self):
-        '''Additional storage space, in bytes, potentially used by the virtual machine on
-        this datastore.
-        '''
-        return self.data['uncommitted']
-
-    @property
-    def unshared(self):
-        '''Storage space, in bytes, occupied by the virtual machine on this datastore that is
-        not shared with any other virtual machine.
-        '''
-        return self.data['unshared']
-
+    return obj
+    

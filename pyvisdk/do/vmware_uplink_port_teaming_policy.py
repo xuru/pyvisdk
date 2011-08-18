@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.inheritable_policy import InheritablePolicy
 import logging
 
 ########################################
@@ -8,60 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmwareUplinkPortTeamingPolicy(InheritablePolicy):
-    '''Policy for a uplink port team.
-    '''
+def VmwareUplinkPortTeamingPolicy(vim, *args, **kwargs):
+    '''Policy for a uplink port team.'''
     
-    def __init__(self, failureCriteria, notifySwitches, policy, reversePolicy, rollingOrder, uplinkPortOrder):
-        # MUST define these
-        super(VmwareUplinkPortTeamingPolicy, self).__init__()
+    obj = vim.client.factory.create('ns0:VmwareUplinkPortTeamingPolicy')
     
-        self.data['failureCriteria'] = failureCriteria
-        self.data['notifySwitches'] = notifySwitches
-        self.data['policy'] = policy
-        self.data['reversePolicy'] = reversePolicy
-        self.data['rollingOrder'] = rollingOrder
-        self.data['uplinkPortOrder'] = uplinkPortOrder
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'inherited', 'failureCriteria', 'notifySwitches', 'policy', 'reversePolicy',
+        'rollingOrder', 'uplinkPortOrder' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def failureCriteria(self):
-        '''Failover detection policy for the uplink port team.
-        '''
-        return self.data['failureCriteria']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def notifySwitches(self):
-        '''Flag to specify whether or not to notify the physical switch if a link fails. Also
-        see notifySwitches
-        '''
-        return self.data['notifySwitches']
-
-    @property
-    def policy(self):
-        '''Network adapter teaming policy. The policy defines the way traffic from the
-        clients of the team is routed through the different uplinks in the team.
-        The policies supported on the vDS platform is one of nicTeamingPolicy.
-        '''
-        return self.data['policy']
-
-    @property
-    def reversePolicy(self):
-        '''The flag to indicate whether or not the teaming policy is applied to inbound
-        frames as well. Also see reversePolicy
-        '''
-        return self.data['reversePolicy']
-
-    @property
-    def rollingOrder(self):
-        '''The flag to indicate whether or not to use a rolling policy when restoring links.
-        Also see rollingOrder
-        '''
-        return self.data['rollingOrder']
-
-    @property
-    def uplinkPortOrder(self):
-        '''Failover order policy for uplink ports on the hosts.
-        '''
-        return self.data['uplinkPortOrder']
-
+    return obj
+    

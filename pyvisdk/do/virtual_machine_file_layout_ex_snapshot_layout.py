@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,34 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineFileLayoutExSnapshotLayout(DynamicData):
-    '''Layout of a snapshot.
-    '''
+def VirtualMachineFileLayoutExSnapshotLayout(vim, *args, **kwargs):
+    '''Layout of a snapshot.'''
     
-    def __init__(self, dataKey, disk, key):
-        # MUST define these
-        super(VirtualMachineFileLayoutExSnapshotLayout, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineFileLayoutExSnapshotLayout')
     
-        self.data['dataKey'] = dataKey
-        self.data['disk'] = disk
-        self.data['key'] = key
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'dataKey', 'disk', 'key' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def dataKey(self):
-        '''Key to the snapshot data file in file.
-        '''
-        return self.data['dataKey']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def disk(self):
-        '''Layout of each virtual disk of the virtual machine when the snapshot was taken.
-        '''
-        return self.data['disk']
-
-    @property
-    def key(self):
-        '''Reference to the snapshot.
-        '''
-        return self.data['key']
-
+    return obj
+    

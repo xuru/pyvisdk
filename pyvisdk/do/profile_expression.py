@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,37 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfileExpression(DynamicData):
-    '''
-    '''
+def ProfileExpression(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, displayName, id, negated):
-        # MUST define these
-        super(ProfileExpression, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfileExpression')
     
-        self.data['displayName'] = displayName
-        self.data['id'] = id
-        self.data['negated'] = negated
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'displayName', 'id', 'negated' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def displayName(self):
-        '''User visible display name
-        '''
-        return self.data['displayName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def id(self):
-        '''Identifier of this expression. The id has to be unique within a Profile. The id
-        can be used as a key while building composite expressions.
-        '''
-        return self.data['id']
-
-    @property
-    def negated(self):
-        '''Flag indicating if the condition of the expression should be negated. e.g:
-        conditions like VSwitch0 has vmnic0 connected to it can be turned into
-        VSwitch0 doesn't have vmnic0 connected to it.
-        '''
-        return self.data['negated']
-
+    return obj
+    

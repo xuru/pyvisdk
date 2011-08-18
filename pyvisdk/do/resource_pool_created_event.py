@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.resource_pool_event import ResourcePoolEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ResourcePoolCreatedEvent(ResourcePoolEvent):
-    '''This event records when a new resource pool is created.
-    '''
+def ResourcePoolCreatedEvent(vim, *args, **kwargs):
+    '''This event records when a new resource pool is created.'''
     
-    def __init__(self, parent):
-        # MUST define these
-        super(ResourcePoolCreatedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:ResourcePoolCreatedEvent')
     
-        self.data['parent'] = parent
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'resourcePool', 'parent' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def parent(self):
-        '''The parent resource pool that new resource pool belongs to.
-        '''
-        return self.data['parent']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

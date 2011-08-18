@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,41 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostSnmpConfigSpec(DynamicData):
-    '''
-    '''
+def HostSnmpConfigSpec(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, enabled, port, readOnlyCommunities, trapTargets):
-        # MUST define these
-        super(HostSnmpConfigSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:HostSnmpConfigSpec')
     
-        self.data['enabled'] = enabled
-        self.data['port'] = port
-        self.data['readOnlyCommunities'] = readOnlyCommunities
-        self.data['trapTargets'] = trapTargets
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'port', 'readOnlyCommunities', 'trapTargets' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def enabled(self):
-        '''
-        '''
-        return self.data['enabled']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def port(self):
-        '''
-        '''
-        return self.data['port']
-
-    @property
-    def readOnlyCommunities(self):
-        '''
-        '''
-        return self.data['readOnlyCommunities']
-
-    @property
-    def trapTargets(self):
-        '''
-        '''
-        return self.data['trapTargets']
-
+    return obj
+    

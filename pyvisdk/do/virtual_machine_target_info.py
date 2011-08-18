@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,32 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineTargetInfo(DynamicData):
+def VirtualMachineTargetInfo(vim, *args, **kwargs):
     '''The TargetInfo specified a value that can be used in the device backings to
-        connect the virtual machine to a physical (or logical) host device.
-    '''
+    connect the virtual machine to a physical (or logical) host device.'''
     
-    def __init__(self, configurationTag, name):
-        # MUST define these
-        super(VirtualMachineTargetInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineTargetInfo')
     
-        self.data['configurationTag'] = configurationTag
-        self.data['name'] = name
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'configurationTag', 'name' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def configurationTag(self):
-        '''List of configurations that this device is available for. This is only filled out
-        if more than one configuration is requested.
-        '''
-        return self.data['configurationTag']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def name(self):
-        '''The identification of the endpoint on the host. The format of this depends on the
-        kind of virtual device this endpoints is used for. For example, for a
-        VirtualEthernetCard this would be a networkname, and for a VirtualCDROM it
-        would be a device name.
-        '''
-        return self.data['name']
-
+    return obj
+    

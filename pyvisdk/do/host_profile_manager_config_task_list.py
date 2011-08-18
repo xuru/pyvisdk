@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,30 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostProfileManagerConfigTaskList(DynamicData):
+def HostProfileManagerConfigTaskList(vim, *args, **kwargs):
     '''DataObject which represents list of tasks that will be performed on the host
-        during application of a HostProfile.
-    '''
+    during application of a HostProfile.'''
     
-    def __init__(self, configSpec, taskDescription):
-        # MUST define these
-        super(HostProfileManagerConfigTaskList, self).__init__()
+    obj = vim.client.factory.create('ns0:HostProfileManagerConfigTaskList')
     
-        self.data['configSpec'] = configSpec
-        self.data['taskDescription'] = taskDescription
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'configSpec', 'taskDescription' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def configSpec(self):
-        '''ConfigSpec describing a list of tasks that will be performed on the host to carry
-        out HostProfile application.
-        '''
-        return self.data['configSpec']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def taskDescription(self):
-        '''Description of tasks that will to be performed on the host to carry out
-        HostProfile application.
-        '''
-        return self.data['taskDescription']
-
+    return obj
+    

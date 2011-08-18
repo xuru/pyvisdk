@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.custom_field_value import CustomFieldValue
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomFieldStringValue(CustomFieldValue):
-    '''Subtype for string values (currently the only supported type).
-    '''
+def CustomFieldStringValue(vim, *args, **kwargs):
+    '''Subtype for string values (currently the only supported type).'''
     
-    def __init__(self, value):
-        # MUST define these
-        super(CustomFieldStringValue, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomFieldStringValue')
     
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def value(self):
-        '''Value assigned to the custom field.
-        '''
-        return self.data['value']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

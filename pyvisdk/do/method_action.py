@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.action import Action
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class MethodAction(Action):
+def MethodAction(vim, *args, **kwargs):
     '''This data object type defines an operation and its arguments, invoked on a
-        particular entity.
-    '''
+    particular entity.'''
     
-    def __init__(self, argument, name):
-        # MUST define these
-        super(MethodAction, self).__init__()
+    obj = vim.client.factory.create('ns0:MethodAction')
     
-        self.data['argument'] = argument
-        self.data['name'] = name
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'argument', 'name' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def argument(self):
-        '''An array consisting of the arguments for the operation.
-        '''
-        return self.data['argument']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def name(self):
-        '''Name of the operation.
-        '''
-        return self.data['name']
-
+    return obj
+    

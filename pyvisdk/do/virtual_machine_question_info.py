@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,43 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineQuestionInfo(DynamicData):
-    '''This data object type describes the question that is currently blocking a virtual
-        machine.
-    '''
+def VirtualMachineQuestionInfo(vim, *args, **kwargs):
+    '''This data object type describes the question that is currently blocking a
+    virtual machine.'''
     
-    def __init__(self, choice, id, message, text):
-        # MUST define these
-        super(VirtualMachineQuestionInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineQuestionInfo')
     
-        self.data['choice'] = choice
-        self.data['id'] = id
-        self.data['message'] = message
-        self.data['text'] = text
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'choice', 'id', 'message', 'text' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def choice(self):
-        '''List of key-value pairs that specify possible answers.
-        '''
-        return self.data['choice']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def id(self):
-        '''Identifier with an opaque value that specifies the pending question.
-        '''
-        return self.data['id']
-
-    @property
-    def message(self):
-        '''The message data for the individual messages that comprise the question. Only
-        available on servers that support localization.
-        '''
-        return self.data['message']
-
-    @property
-    def text(self):
-        '''Text that describes the pending question.
-        '''
-        return self.data['text']
-
+    return obj
+    

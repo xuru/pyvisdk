@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DatastoreOption(DynamicData):
-    '''The DatastoreOption data object describes datastore options for a virtual machine.
-    '''
+def DatastoreOption(vim, *args, **kwargs):
+    '''The DatastoreOption data object describes datastore options for a virtual
+    machine.'''
     
-    def __init__(self, unsupportedVolumes):
-        # MUST define these
-        super(DatastoreOption, self).__init__()
+    obj = vim.client.factory.create('ns0:DatastoreOption')
     
-        self.data['unsupportedVolumes'] = unsupportedVolumes
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'unsupportedVolumes' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def unsupportedVolumes(self):
-        '''The type of file system volumes on which this virtual machine cannot have its disk
-        and configuration files.
-        '''
-        return self.data['unsupportedVolumes']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

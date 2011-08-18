@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,38 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterDrsVmConfigInfo(DynamicData):
-    '''DRS configuration for a single virtual machine. This makes it possible to override
-        the default behavior for an individual virtual machine.
-    '''
+def ClusterDrsVmConfigInfo(vim, *args, **kwargs):
+    '''DRS configuration for a single virtual machine. This makes it possible to
+    override the default behavior for an individual virtual machine.'''
     
-    def __init__(self, behavior, enabled, key):
-        # MUST define these
-        super(ClusterDrsVmConfigInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterDrsVmConfigInfo')
     
-        self.data['behavior'] = behavior
-        self.data['enabled'] = enabled
-        self.data['key'] = key
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'behavior', 'enabled', 'key' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def behavior(self):
-        '''Specifies the particular DRS behavior for this virtual machine.
-        '''
-        return self.data['behavior']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def enabled(self):
-        '''Flag to indicate whether or not VirtualCenter is allowed to perform any DRS
-        migration or initial placement recommendations for this virtual machine.
-        If this flag is false, the virtual machine is effectively excluded from
-        DRS.
-        '''
-        return self.data['enabled']
-
-    @property
-    def key(self):
-        '''Reference to the virtual machine.
-        '''
-        return self.data['key']
-
+    return obj
+    

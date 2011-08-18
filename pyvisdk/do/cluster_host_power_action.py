@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.cluster_action import ClusterAction
 import logging
 
 ########################################
@@ -8,47 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterHostPowerAction(ClusterAction):
-    '''Describes a single host power action.
-    '''
+def ClusterHostPowerAction(vim, *args, **kwargs):
+    '''Describes a single host power action.'''
     
-    def __init__(self, cpuCapacityMHz, memCapacityMB, operationType, powerConsumptionWatt):
-        # MUST define these
-        super(ClusterHostPowerAction, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterHostPowerAction')
     
-        self.data['cpuCapacityMHz'] = cpuCapacityMHz
-        self.data['memCapacityMB'] = memCapacityMB
-        self.data['operationType'] = operationType
-        self.data['powerConsumptionWatt'] = powerConsumptionWatt
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'target', 'type', 'cpuCapacityMHz', 'memCapacityMB', 'operationType',
+        'powerConsumptionWatt' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def cpuCapacityMHz(self):
-        '''CPU capacity of the host in units of MHz. In case of power-on action, this is the
-        projected increase in the cluster's CPU capacity. In case of power off,
-        this is the projected decrease in the cluster's CPU capacity.
-        '''
-        return self.data['cpuCapacityMHz']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def memCapacityMB(self):
-        '''Memory capacity of the host in units of MM. In case of power-on action, this is
-        the projected increase in the cluster's memory capacity. In case of power
-        off, this is the projected decrease in the cluster's memory capacity.
-        '''
-        return self.data['memCapacityMB']
-
-    @property
-    def operationType(self):
-        '''Specify whether the action is power on or power off
-        '''
-        return self.data['operationType']
-
-    @property
-    def powerConsumptionWatt(self):
-        '''Estimated power consumption of the host. In case of power-on, this is the
-        projected increase in the cluster's power consumption. In case of power
-        off, this is the projected decrease in the cluster's power consumption
-        '''
-        return self.data['powerConsumptionWatt']
-
+    return obj
+    

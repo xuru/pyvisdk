@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.base.base_data import BaseData
 import logging
 
 ########################################
@@ -8,30 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DynamicArray(BaseData):
-    '''DynamicArray is a data object type that represents an array of dynamically-typed
-        objects. A client should only see a DynamicArray object when the element
-        type is unknown (meaning the type is newer than the client). Otherwise, a
-        client would see the type as T[] where T is known.
-    '''
+def DynamicArray(vim, *args, **kwargs):
+    '''DynamicArray is a data object type that represents an array of dynamically-
+    typed objects. A client should only see a DynamicArray object when the element
+    type is unknown (meaning the type is newer than the client). Otherwise, a
+    client would see the type as T[] where T is known.'''
     
-    def __init__(self, dynamicType, val):
-        # MUST define these
-        super(DynamicArray, self).__init__()
+    obj = vim.client.factory.create('ns0:DynamicArray')
     
-        self.data['dynamicType'] = dynamicType
-        self.data['val'] = val
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'dynamicType', 'val' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def dynamicType(self):
-        '''Reserved.
-        '''
-        return self.data['dynamicType']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def val(self):
-        '''Array of dynamic values.
-        '''
-        return self.data['val']
-
+    return obj
+    

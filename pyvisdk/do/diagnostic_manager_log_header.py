@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DiagnosticManagerLogHeader(DynamicData):
-    '''A header that is returned with a set of log entries. This header describes where
-        entries are located in the log file. Log files typically grow dynamically,
-        so indexes based on line numbers may become inaccurate.
-    '''
+def DiagnosticManagerLogHeader(vim, *args, **kwargs):
+    '''A header that is returned with a set of log entries. This header describes
+    where entries are located in the log file. Log files typically grow
+    dynamically, so indexes based on line numbers may become inaccurate.'''
     
-    def __init__(self, lineEnd, lineStart, lineText):
-        # MUST define these
-        super(DiagnosticManagerLogHeader, self).__init__()
+    obj = vim.client.factory.create('ns0:DiagnosticManagerLogHeader')
     
-        self.data['lineEnd'] = lineEnd
-        self.data['lineStart'] = lineStart
-        self.data['lineText'] = lineText
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'lineEnd', 'lineStart', 'lineText' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def lineEnd(self):
-        '''The last line of this log segment.
-        '''
-        return self.data['lineEnd']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def lineStart(self):
-        '''The first line of this log segment.
-        '''
-        return self.data['lineStart']
-
-    @property
-    def lineText(self):
-        '''Log entries, listed by line, for this log segment.
-        '''
-        return self.data['lineText']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.datastore_event import DatastoreEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DatastoreRenamedEvent(DatastoreEvent):
-    '''This event records the renaming of a datastore.
-    '''
+def DatastoreRenamedEvent(vim, *args, **kwargs):
+    '''This event records the renaming of a datastore.'''
     
-    def __init__(self, newName, oldName):
-        # MUST define these
-        super(DatastoreRenamedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DatastoreRenamedEvent')
     
-        self.data['newName'] = newName
-        self.data['oldName'] = oldName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'datastore', 'newName', 'oldName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def newName(self):
-        '''The new datastore name.
-        '''
-        return self.data['newName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def oldName(self):
-        '''The old datastore name.
-        '''
-        return self.data['oldName']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,41 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class OvfCreateDescriptorResult(DynamicData):
-    '''The result of creating the OVF descriptor for the entity.
-    '''
+def OvfCreateDescriptorResult(vim, *args, **kwargs):
+    '''The result of creating the OVF descriptor for the entity.'''
     
-    def __init__(self, error, includeImageFiles, ovfDescriptor, warning):
-        # MUST define these
-        super(OvfCreateDescriptorResult, self).__init__()
+    obj = vim.client.factory.create('ns0:OvfCreateDescriptorResult')
     
-        self.data['error'] = error
-        self.data['includeImageFiles'] = includeImageFiles
-        self.data['ovfDescriptor'] = ovfDescriptor
-        self.data['warning'] = warning
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'error', 'includeImageFiles', 'ovfDescriptor', 'warning' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def error(self):
-        '''Errors that happened during processing.
-        '''
-        return self.data['error']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def includeImageFiles(self):
-        '''Returns true if there are ISO or Floppy images attached to one or more VMs.
-        '''
-        return self.data['includeImageFiles']
-
-    @property
-    def ovfDescriptor(self):
-        '''The OVF descriptor for the entity.
-        '''
-        return self.data['ovfDescriptor']
-
-    @property
-    def warning(self):
-        '''Non-fatal warnings from the processing.
-        '''
-        return self.data['warning']
-
+    return obj
+    

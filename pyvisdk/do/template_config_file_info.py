@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_config_file_info import VmConfigFileInfo
 import logging
 
 ########################################
@@ -8,14 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class TemplateConfigFileInfo(VmConfigFileInfo):
-    '''This data object type describes a template virtual machine configuration file.
-    '''
+def TemplateConfigFileInfo(vim, *args, **kwargs):
+    '''This data object type describes a template virtual machine configuration file.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(TemplateConfigFileInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:TemplateConfigFileInfo')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fileSize', 'modification', 'owner', 'path', 'configVersion' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

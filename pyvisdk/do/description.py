@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class Description(DynamicData):
-    '''Static strings used for describing an object or property.
-    '''
+def Description(vim, *args, **kwargs):
+    '''Static strings used for describing an object or property.'''
     
-    def __init__(self, label, summary):
-        # MUST define these
-        super(Description, self).__init__()
+    obj = vim.client.factory.create('ns0:Description')
     
-        self.data['label'] = label
-        self.data['summary'] = summary
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'label', 'summary' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def label(self):
-        '''Display label.
-        '''
-        return self.data['label']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def summary(self):
-        '''Summary description.
-        '''
-        return self.data['summary']
-
+    return obj
+    

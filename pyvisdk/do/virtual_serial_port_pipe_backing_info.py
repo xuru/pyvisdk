@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_pipe_backing_info import VirtualDevicePipeBackingInfo
 import logging
 
 ########################################
@@ -8,34 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualSerialPortPipeBackingInfo(VirtualDevicePipeBackingInfo):
-    '''The data object defines information for backing a with a named pipe. You can use a
-        pipe to connect a virtual serial port to a host application or to another
-        virtual machine on the host computer. This is useful for capturing
-        debugging information sent through the virtual serial port.
-    '''
+def VirtualSerialPortPipeBackingInfo(vim, *args, **kwargs):
+    '''The data object defines information for backing a with a named pipe. You can
+    use a pipe to connect a virtual serial port to a host application or to another
+    virtual machine on the host computer. This is useful for capturing debugging
+    information sent through the virtual serial port.'''
     
-    def __init__(self, endpoint, noRxLoss):
-        # MUST define these
-        super(VirtualSerialPortPipeBackingInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualSerialPortPipeBackingInfo')
     
-        self.data['endpoint'] = endpoint
-        self.data['noRxLoss'] = noRxLoss
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'pipeName', 'endpoint', 'noRxLoss' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def endpoint(self):
-        '''Indicates the role the virtual machine assumes as an endpoint for the pipe. The
-        valid values are "client" or "server".
-        '''
-        return self.data['endpoint']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def noRxLoss(self):
-        '''Enables optimized data transfer over the pipe. When you use this feature, the ESX
-        server buffers data to prevent data overrun. This allows the virtual
-        machine to read all of the data transferred over the pipe with no data
-        loss. To use optimized data transfer, set
-        '''
-        return self.data['noRxLoss']
-
+    return obj
+    

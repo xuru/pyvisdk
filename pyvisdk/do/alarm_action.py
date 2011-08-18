@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,14 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AlarmAction(DynamicData):
-    '''Action invoked by triggered alarm.This is an abstract type.
-    '''
+def AlarmAction(vim, *args, **kwargs):
+    '''Action invoked by triggered alarm.This is an abstract type.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(AlarmAction, self).__init__()
+    obj = vim.client.factory.create('ns0:AlarmAction')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [  ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

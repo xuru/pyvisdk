@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ExtensionHealthInfo(DynamicData):
-    '''This data object encapsulates the health specification for the extension.
-    '''
+def ExtensionHealthInfo(vim, *args, **kwargs):
+    '''This data object encapsulates the health specification for the extension.'''
     
-    def __init__(self, url):
-        # MUST define these
-        super(ExtensionHealthInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ExtensionHealthInfo')
     
-        self.data['url'] = url
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'url' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def url(self):
-        '''
-        '''
-        return self.data['url']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

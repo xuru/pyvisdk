@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.customization_ip_generator import CustomizationIpGenerator
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationFixedIp(CustomizationIpGenerator):
-    '''Use a static IP Address for the virtual network adapter.
-    '''
+def CustomizationFixedIp(vim, *args, **kwargs):
+    '''Use a static IP Address for the virtual network adapter.'''
     
-    def __init__(self, ipAddress):
-        # MUST define these
-        super(CustomizationFixedIp, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationFixedIp')
     
-        self.data['ipAddress'] = ipAddress
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'ipAddress' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ipAddress(self):
-        '''
-        '''
-        return self.data['ipAddress']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

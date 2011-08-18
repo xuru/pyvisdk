@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ResourceAllocationOption(DynamicData):
-    '''The ResourceAllocationOption data object specifies value ranges and default values
-        for ResourceAllocationInfo.
-    '''
+def ResourceAllocationOption(vim, *args, **kwargs):
+    '''The ResourceAllocationOption data object specifies value ranges and default
+    values for ResourceAllocationInfo.'''
     
-    def __init__(self, sharesOption):
-        # MUST define these
-        super(ResourceAllocationOption, self).__init__()
+    obj = vim.client.factory.create('ns0:ResourceAllocationOption')
     
-        self.data['sharesOption'] = sharesOption
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'sharesOption' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def sharesOption(self):
-        '''Default value and value range for shares.
-        '''
-        return self.data['sharesOption']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.inheritable_policy import InheritablePolicy
 import logging
 
 ########################################
@@ -8,14 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmwareDistributedVirtualSwitchVlanSpec(InheritablePolicy):
-    '''Base class for Vlan Specifiation for ports.
-    '''
+def VmwareDistributedVirtualSwitchVlanSpec(vim, *args, **kwargs):
+    '''Base class for Vlan Specifiation for ports.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VmwareDistributedVirtualSwitchVlanSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:VmwareDistributedVirtualSwitchVlanSpec')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'inherited' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

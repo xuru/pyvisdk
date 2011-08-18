@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LicenseReservationInfo(DynamicData):
-    '''A reservation describes how many licenses of a particular feature are being used
-        by a particular feature.
-    '''
+def LicenseReservationInfo(vim, *args, **kwargs):
+    '''A reservation describes how many licenses of a particular feature are being
+    used by a particular feature.'''
     
-    def __init__(self, key, required, state):
-        # MUST define these
-        super(LicenseReservationInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:LicenseReservationInfo')
     
-        self.data['key'] = key
-        self.data['required'] = required
-        self.data['state'] = state
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'required', 'state' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''Key of the License Feature.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def required(self):
-        '''Contains the required number of licenses of the particular type that the product
-        needs in its current configuration.
-        '''
-        return self.data['required']
-
-    @property
-    def state(self):
-        '''Describes the reservation state of a license.
-        '''
-        return self.data['state']
-
+    return obj
+    

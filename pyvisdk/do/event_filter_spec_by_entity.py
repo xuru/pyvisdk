@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,31 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class EventFilterSpecByEntity(DynamicData):
+def EventFilterSpecByEntity(vim, *args, **kwargs):
     '''This option specifies a managed entity used to filter event history. If the
-        specified managed entity is a Folder or a ResourcePool, the query will
-        actually be performed on the entities contained within that Folder or
-        ResourcePool, so you cannot query for events on Folders and ResourcePools
-        themselves this way.
-    '''
+    specified managed entity is a Folder or a ResourcePool, the query will actually
+    be performed on the entities contained within that Folder or ResourcePool, so
+    you cannot query for events on Folders and ResourcePools themselves this way.'''
     
-    def __init__(self, entity, recursion):
-        # MUST define these
-        super(EventFilterSpecByEntity, self).__init__()
+    obj = vim.client.factory.create('ns0:EventFilterSpecByEntity')
     
-        self.data['entity'] = entity
-        self.data['recursion'] = recursion
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'entity', 'recursion' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def entity(self):
-        '''The managed entity to which the event pertains.
-        '''
-        return self.data['entity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def recursion(self):
-        '''Specification of related managed entities in the inventory hierarchy.
-        '''
-        return self.data['recursion']
-
+    return obj
+    

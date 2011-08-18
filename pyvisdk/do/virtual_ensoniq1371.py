@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_sound_card import VirtualSoundCard
 import logging
 
 ########################################
@@ -8,15 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualEnsoniq1371(VirtualSoundCard):
-    '''The VirtualEnsoniq1371 data object type represents an Ensoniq 1371 sound card in a
-        virtual machine.
-    '''
+def VirtualEnsoniq1371(vim, *args, **kwargs):
+    '''The VirtualEnsoniq1371 data object type represents an Ensoniq 1371 sound card
+    in a virtual machine.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VirtualEnsoniq1371, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualEnsoniq1371')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'key', 'unitNumber' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

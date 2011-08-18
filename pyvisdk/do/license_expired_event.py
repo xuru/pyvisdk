@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.event import Event
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LicenseExpiredEvent(Event):
-    '''This event records the expiration of a license.
-    '''
+def LicenseExpiredEvent(vim, *args, **kwargs):
+    '''This event records the expiration of a license.'''
     
-    def __init__(self, feature):
-        # MUST define these
-        super(LicenseExpiredEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:LicenseExpiredEvent')
     
-        self.data['feature'] = feature
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'feature' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def feature(self):
-        '''
-        '''
-        return self.data['feature']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,21 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmMigratedEvent(VmEvent):
-    '''This event records a virtual machine migration.
-    '''
+def VmMigratedEvent(vim, *args, **kwargs):
+    '''This event records a virtual machine migration.'''
     
-    def __init__(self, sourceHost):
-        # MUST define these
-        super(VmMigratedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmMigratedEvent')
     
-        self.data['sourceHost'] = sourceHost
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'sourceHost' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def sourceHost(self):
-        '''The source host. (Because this is after a successful migration, the destination
-        host is recorded in the inherited "host" property.)
-        '''
-        return self.data['sourceHost']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

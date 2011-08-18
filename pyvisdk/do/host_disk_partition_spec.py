@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDiskPartitionSpec(DynamicData):
+def HostDiskPartitionSpec(vim, *args, **kwargs):
     '''This data object type describes the disk partition table specification used to
-        configure the partitions on a disk. This data object represents the
-        fundamental data needed to specify a partition table.
-    '''
+    configure the partitions on a disk. This data object represents the fundamental
+    data needed to specify a partition table.'''
     
-    def __init__(self, chs, partition, totalSectors):
-        # MUST define these
-        super(HostDiskPartitionSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDiskPartitionSpec')
     
-        self.data['chs'] = chs
-        self.data['partition'] = partition
-        self.data['totalSectors'] = totalSectors
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chs', 'partition', 'totalSectors' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def chs(self):
-        '''Disk dimensions expressed as cylinder, head, sector (CHS) coordinates.
-        '''
-        return self.data['chs']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def partition(self):
-        '''List of partitions on the disk.
-        '''
-        return self.data['partition']
-
-    @property
-    def totalSectors(self):
-        '''Disk dimensions expressed in total number of 512-byte sectors.
-        '''
-        return self.data['totalSectors']
-
+    return obj
+    

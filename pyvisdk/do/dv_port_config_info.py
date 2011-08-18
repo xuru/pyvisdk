@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,53 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DVPortConfigInfo(DynamicData):
-    '''Management related configuration of a DistributedVirtualPort.
-    '''
+def DVPortConfigInfo(vim, *args, **kwargs):
+    '''Management related configuration of a DistributedVirtualPort.'''
     
-    def __init__(self, configVersion, description, name, scope, setting):
-        # MUST define these
-        super(DVPortConfigInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:DVPortConfigInfo')
     
-        self.data['configVersion'] = configVersion
-        self.data['description'] = description
-        self.data['name'] = name
-        self.data['scope'] = scope
-        self.data['setting'] = setting
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'configVersion', 'description', 'name', 'scope', 'setting' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def configVersion(self):
-        '''The version string of the configuration.
-        '''
-        return self.data['configVersion']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def description(self):
-        '''A description string of the port.
-        '''
-        return self.data['description']
-
-    @property
-    def name(self):
-        '''The name of the port.
-        '''
-        return self.data['name']
-
-    @property
-    def scope(self):
-        '''The eligible entities that can connect to the port. If unset, there is no
-        restriction on which entity can connect to the port. If set, only the
-        entities in the specified list or their child entities are allowed to
-        connect to the port. If scopes are defined at both port and portgroup
-        level, they are taken as an "AND" relationship. If such a relationship
-        doesn't make sense, the reconfigure operation will raise an exception.
-        '''
-        return self.data['scope']
-
-    @property
-    def setting(self):
-        '''The network configuration of the port.
-        '''
-        return self.data['setting']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.cluster_event import ClusterEvent
 import logging
 
 ########################################
@@ -8,20 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostMonitoringStateChangedEvent(ClusterEvent):
-    '''This event records when host monitoring state has changed.
-    '''
+def HostMonitoringStateChangedEvent(vim, *args, **kwargs):
+    '''This event records when host monitoring state has changed.'''
     
-    def __init__(self, state):
-        # MUST define these
-        super(HostMonitoringStateChangedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:HostMonitoringStateChangedEvent')
     
-        self.data['state'] = state
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'state' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def state(self):
-        '''The service state in ClusterDasConfigInfoServiceState
-        '''
-        return self.data['state']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,47 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CheckResult(DynamicData):
+def CheckResult(vim, *args, **kwargs):
     '''The result of a call to any of the methods in either
-        VirtualMachineCompatibilityChecker or VirtualMachineProvisioningChecker.
-    '''
+    VirtualMachineCompatibilityChecker or VirtualMachineProvisioningChecker.'''
     
-    def __init__(self, error, host, vm, warning):
-        # MUST define these
-        super(CheckResult, self).__init__()
+    obj = vim.client.factory.create('ns0:CheckResult')
     
-        self.data['error'] = error
-        self.data['host'] = host
-        self.data['vm'] = vm
-        self.data['warning'] = warning
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'error', 'host', 'vm', 'warning' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def error(self):
-        '''A list of faults representing problems which are fatal to the operation. For
-        VirtualMachineProvisioningChecker an error means that the given
-        provisioning operation would fail. For VirtualMachineCompatibilityChecker
-        an error means that either a power-on of this virtual machine would fail,
-        or that the virtual machine would not run correctly once powered-on.
-        '''
-        return self.data['error']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def host(self):
-        '''The host involved in the testing.
-        '''
-        return self.data['host']
-
-    @property
-    def vm(self):
-        '''The virtual machine involved in the testing.
-        '''
-        return self.data['vm']
-
-    @property
-    def warning(self):
-        '''A list of faults representing problems which may require attention, but which are
-        not fatal.
-        '''
-        return self.data['warning']
-
+    return obj
+    

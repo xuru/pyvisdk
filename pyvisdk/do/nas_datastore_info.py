@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.datastore_info import DatastoreInfo
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class NasDatastoreInfo(DatastoreInfo):
-    '''Information details about a network-attached storage (NAS) datastore.
-    '''
+def NasDatastoreInfo(vim, *args, **kwargs):
+    '''Information details about a network-attached storage (NAS) datastore.'''
     
-    def __init__(self, nas):
-        # MUST define these
-        super(NasDatastoreInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:NasDatastoreInfo')
     
-        self.data['nas'] = nas
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'freeSpace', 'maxFileSize', 'name', 'timestamp', 'url', 'nas' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def nas(self):
-        '''The NFS mount information for the datastore. May not be available when the
-        datastore is not accessible.
-        '''
-        return self.data['nas']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

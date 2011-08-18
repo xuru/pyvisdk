@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,24 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostMultipathStateInfo(DynamicData):
+def HostMultipathStateInfo(vim, *args, **kwargs):
     '''This data object type describes the state of storage paths on the host. All
-        storage paths on the host are enumerated in this data object.The reason
-        all path state information is encapsulated in this data object is because
-        the path may actively change. This data object ensures that a request to
-        gather path state changes only needs to fetch this data object.
-    '''
+    storage paths on the host are enumerated in this data object.The reason all
+    path state information is encapsulated in this data object is because the path
+    may actively change. This data object ensures that a request to gather path
+    state changes only needs to fetch this data object.'''
     
-    def __init__(self, path):
-        # MUST define these
-        super(HostMultipathStateInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostMultipathStateInfo')
     
-        self.data['path'] = path
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'path' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def path(self):
-        '''List of paths on the system and their path states.
-        '''
-        return self.data['path']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

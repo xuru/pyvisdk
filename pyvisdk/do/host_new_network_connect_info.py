@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_connect_info_network_info import HostConnectInfoNetworkInfo
 import logging
 
 ########################################
@@ -8,15 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostNewNetworkConnectInfo(HostConnectInfoNetworkInfo):
+def HostNewNetworkConnectInfo(vim, *args, **kwargs):
     '''Network information for a network that will be added to VirtualCenter when the
-        host is added.
-    '''
+    host is added.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(HostNewNetworkConnectInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostNewNetworkConnectInfo')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'summary' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

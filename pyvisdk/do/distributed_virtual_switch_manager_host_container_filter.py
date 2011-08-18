@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.distributed_virtual_switch_manager_host_dvs_filter_spec import DistributedVirtualSwitchManagerHostDvsFilterSpec
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchManagerHostContainerFilter(DistributedVirtualSwitchManagerHostDvsFilterSpec):
+def DistributedVirtualSwitchManagerHostContainerFilter(vim, *args, **kwargs):
     '''Check host compatibility against all hosts in this
-        DistributedVirtualSwitchManagerHostContainer
-    '''
+    DistributedVirtualSwitchManagerHostContainer'''
     
-    def __init__(self, hostContainer):
-        # MUST define these
-        super(DistributedVirtualSwitchManagerHostContainerFilter, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchManagerHostContainerFilter')
     
-        self.data['hostContainer'] = hostContainer
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'inclusive', 'hostContainer' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def hostContainer(self):
-        '''Container of hosts that are part of the filter.
-        '''
-        return self.data['hostContainer']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

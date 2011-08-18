@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_device_backing_option import VirtualDeviceDeviceBackingOption
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualCdromPassthroughBackingOption(VirtualDeviceDeviceBackingOption):
+def VirtualCdromPassthroughBackingOption(vim, *args, **kwargs):
     '''The VirtualCdromOption.PassthroughBackingOption data object type contains the
-        options for a pass-through CD-ROM device backing.
-    '''
+    options for a pass-through CD-ROM device backing.'''
     
-    def __init__(self, exclusive):
-        # MUST define these
-        super(VirtualCdromPassthroughBackingOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualCdromPassthroughBackingOption')
     
-        self.data['exclusive'] = exclusive
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'type', 'autoDetectAvailable', 'exclusive' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def exclusive(self):
-        '''Flag to indicate whether or not exclusive CD-ROM device access is supported.
-        '''
-        return self.data['exclusive']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

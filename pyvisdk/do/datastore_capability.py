@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,43 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DatastoreCapability(DynamicData):
-    '''Information about the capabilities of this datastore.
-    '''
+def DatastoreCapability(vim, *args, **kwargs):
+    '''Information about the capabilities of this datastore.'''
     
-    def __init__(self, directoryHierarchySupported, perFileThinProvisioningSupported, rawDiskMappingsSupported, storageIORMSupported):
-        # MUST define these
-        super(DatastoreCapability, self).__init__()
+    obj = vim.client.factory.create('ns0:DatastoreCapability')
     
-        self.data['directoryHierarchySupported'] = directoryHierarchySupported
-        self.data['perFileThinProvisioningSupported'] = perFileThinProvisioningSupported
-        self.data['rawDiskMappingsSupported'] = rawDiskMappingsSupported
-        self.data['storageIORMSupported'] = storageIORMSupported
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'directoryHierarchySupported', 'perFileThinProvisioningSupported',
+        'rawDiskMappingsSupported', 'storageIORMSupported' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def directoryHierarchySupported(self):
-        '''Indicates whether or not directories can be created on this datastore.
-        '''
-        return self.data['directoryHierarchySupported']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def perFileThinProvisioningSupported(self):
-        '''Indicates whether or not the datastore supports thin provisioning on a per file
-        basis. When thin provisioning is used, backing storage is lazily
-        allocated.
-        '''
-        return self.data['perFileThinProvisioningSupported']
-
-    @property
-    def rawDiskMappingsSupported(self):
-        '''Indicates whether or not raw disk mappings can be created on this datastore.
-        '''
-        return self.data['rawDiskMappingsSupported']
-
-    @property
-    def storageIORMSupported(self):
-        '''Indicates whether the datastore supports Storage I/O Resource Management.
-        '''
-        return self.data['storageIORMSupported']
-
+    return obj
+    

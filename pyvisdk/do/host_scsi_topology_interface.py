@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostScsiTopologyInterface(DynamicData):
-    '''This data object type describes the SCSI interface that is associated with a list
-        of targets.
-    '''
+def HostScsiTopologyInterface(vim, *args, **kwargs):
+    '''This data object type describes the SCSI interface that is associated with a
+    list of targets.'''
     
-    def __init__(self, adapter, key, target):
-        # MUST define these
-        super(HostScsiTopologyInterface, self).__init__()
+    obj = vim.client.factory.create('ns0:HostScsiTopologyInterface')
     
-        self.data['adapter'] = adapter
-        self.data['key'] = key
-        self.data['target'] = target
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'adapter', 'key', 'target' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def adapter(self):
-        '''The link to data for this SCSI interface.
-        '''
-        return self.data['adapter']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def key(self):
-        '''The identifier for the SCSI interface
-        '''
-        return self.data['key']
-
-    @property
-    def target(self):
-        '''The list of targets to which the SCSI interface is associated.
-        '''
-        return self.data['target']
-
+    return obj
+    

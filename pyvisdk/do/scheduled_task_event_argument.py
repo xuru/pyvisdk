@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.entity_event_argument import EntityEventArgument
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ScheduledTaskEventArgument(EntityEventArgument):
-    '''The event argument is a scheduled task object.
-    '''
+def ScheduledTaskEventArgument(vim, *args, **kwargs):
+    '''The event argument is a scheduled task object.'''
     
-    def __init__(self, scheduledTask):
-        # MUST define these
-        super(ScheduledTaskEventArgument, self).__init__()
+    obj = vim.client.factory.create('ns0:ScheduledTaskEventArgument')
     
-        self.data['scheduledTask'] = scheduledTask
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name', 'scheduledTask' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def scheduledTask(self):
-        '''The scheduled task object.
-        '''
-        return self.data['scheduledTask']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostLocalFileSystemVolumeSpec(DynamicData):
-    '''The specification for creating a new local file system volume.
-    '''
+def HostLocalFileSystemVolumeSpec(vim, *args, **kwargs):
+    '''The specification for creating a new local file system volume.'''
     
-    def __init__(self, device, localPath):
-        # MUST define these
-        super(HostLocalFileSystemVolumeSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:HostLocalFileSystemVolumeSpec')
     
-        self.data['device'] = device
-        self.data['localPath'] = localPath
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'device', 'localPath' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def device(self):
-        '''The device of the local file system.
-        '''
-        return self.data['device']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def localPath(self):
-        '''The file path on the host where the file system is mounted.
-        '''
-        return self.data['localPath']
-
+    return obj
+    

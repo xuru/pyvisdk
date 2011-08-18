@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.datastore_event import DatastoreEvent
 import logging
 
 ########################################
@@ -8,28 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DatastoreCapacityIncreasedEvent(DatastoreEvent):
+def DatastoreCapacityIncreasedEvent(vim, *args, **kwargs):
     '''This event records when increase in a datastore's capacity is observed. It may
-        happen due to different reasons, like extending or expanding a datastore.
-    '''
+    happen due to different reasons, like extending or expanding a datastore.'''
     
-    def __init__(self, newCapacity, oldCapacity):
-        # MUST define these
-        super(DatastoreCapacityIncreasedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DatastoreCapacityIncreasedEvent')
     
-        self.data['newCapacity'] = newCapacity
-        self.data['oldCapacity'] = oldCapacity
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'datastore', 'newCapacity', 'oldCapacity' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def newCapacity(self):
-        '''The new datastore capacity.
-        '''
-        return self.data['newCapacity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def oldCapacity(self):
-        '''The old datastore capacity.
-        '''
-        return self.data['oldCapacity']
-
+    return obj
+    

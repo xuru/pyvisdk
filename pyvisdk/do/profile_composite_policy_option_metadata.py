@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.profile_policy_option_metadata import ProfilePolicyOptionMetadata
 import logging
 
 ########################################
@@ -8,24 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfileCompositePolicyOptionMetadata(ProfilePolicyOptionMetadata):
+def ProfileCompositePolicyOptionMetadata(vim, *args, **kwargs):
     '''DataObject represents the metadata information of a composite PolicyOption. The
-        user will retrieve the metadata information about a composite policy and
-        then compose the Composite PolicyOption.
-    '''
+    user will retrieve the metadata information about a composite policy and then
+    compose the Composite PolicyOption.'''
     
-    def __init__(self, option):
-        # MUST define these
-        super(ProfileCompositePolicyOptionMetadata, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfileCompositePolicyOptionMetadata')
     
-        self.data['option'] = option
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'id', 'parameter', 'option' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def option(self):
-        '''List of optional policy option identifiers that could be composed in this
-        composite policy option. The policyOptions should already be part of the
-        possible policyOptions for the policy.
-        '''
-        return self.data['option']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,21 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmPrimaryFailoverEvent(VmEvent):
+def VmPrimaryFailoverEvent(vim, *args, **kwargs):
     '''This event records a fault tolerance failover. The reason could be : lost
-        connection to primary, partial hardware failure of primary or by user.
-    '''
+    connection to primary, partial hardware failure of primary or by user.'''
     
-    def __init__(self, reason):
-        # MUST define these
-        super(VmPrimaryFailoverEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmPrimaryFailoverEvent')
     
-        self.data['reason'] = reason
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'reason' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def reason(self):
-        '''The reason for the failure. see VirtualMachineNeedSecondaryReason
-        '''
-        return self.data['reason']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

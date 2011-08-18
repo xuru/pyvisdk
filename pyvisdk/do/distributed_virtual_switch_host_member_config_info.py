@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,42 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchHostMemberConfigInfo(DynamicData):
-    '''Configuration of a HostMember.
-    '''
+def DistributedVirtualSwitchHostMemberConfigInfo(vim, *args, **kwargs):
+    '''Configuration of a HostMember.'''
     
-    def __init__(self, backing, host, maxProxySwitchPorts, vendorSpecificConfig):
-        # MUST define these
-        super(DistributedVirtualSwitchHostMemberConfigInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchHostMemberConfigInfo')
     
-        self.data['backing'] = backing
-        self.data['host'] = host
-        self.data['maxProxySwitchPorts'] = maxProxySwitchPorts
-        self.data['vendorSpecificConfig'] = vendorSpecificConfig
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'backing', 'host', 'maxProxySwitchPorts', 'vendorSpecificConfig' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def backing(self):
-        '''The backing used by the HostMember.
-        '''
-        return self.data['backing']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def host(self):
-        '''The host. This property should always be set unless the user's setting does not
-        have System.Read privilege on the object referred to by this property.
-        '''
-        return self.data['host']
-
-    @property
-    def maxProxySwitchPorts(self):
-        '''The maximum number of ports allowed to be created in the proxy switch.
-        '''
-        return self.data['maxProxySwitchPorts']
-
-    @property
-    def vendorSpecificConfig(self):
-        '''An opaque binary blob that stores vendor specific configuration.
-        '''
-        return self.data['vendorSpecificConfig']
-
+    return obj
+    

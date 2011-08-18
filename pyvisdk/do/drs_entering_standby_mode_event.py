@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.entering_standby_mode_event import EnteringStandbyModeEvent
 import logging
 
 ########################################
@@ -8,15 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DrsEnteringStandbyModeEvent(EnteringStandbyModeEvent):
+def DrsEnteringStandbyModeEvent(vim, *args, **kwargs):
     '''This event records that a host has begun the process of entering standby mode
-        initiated by Distributed Power Management.
-    '''
+    initiated by Distributed Power Management.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(DrsEnteringStandbyModeEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DrsEnteringStandbyModeEvent')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

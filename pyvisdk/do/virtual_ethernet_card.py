@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device import VirtualDevice
 import logging
 
 ########################################
@@ -8,21 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualEthernetCard(VirtualDevice):
-    '''This data object type contains the properties of an Ethernet adapter attached to a
-        virtual machine.
-    '''
+def VirtualEthernetCard(vim, *args, **kwargs):
+    '''This data object type contains the properties of an Ethernet adapter attached
+    to a virtual machine.'''
     
-    def __init__(self, addressType):
-        # MUST define these
-        super(VirtualEthernetCard, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualEthernetCard')
     
-        self.data['addressType'] = addressType
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'key', 'unitNumber',
+        'addressType' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def addressType(self):
-        '''MAC address type.
-        '''
-        return self.data['addressType']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

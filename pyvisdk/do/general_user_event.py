@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.general_event import GeneralEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class GeneralUserEvent(GeneralEvent):
-    '''This event is the general user event type.
-    '''
+def GeneralUserEvent(vim, *args, **kwargs):
+    '''This event is the general user event type.'''
     
-    def __init__(self, entity):
-        # MUST define these
-        super(GeneralUserEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:GeneralUserEvent')
     
-        self.data['entity'] = entity
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'message', 'entity' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def entity(self):
-        '''The entity on which the event was logged.
-        '''
-        return self.data['entity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

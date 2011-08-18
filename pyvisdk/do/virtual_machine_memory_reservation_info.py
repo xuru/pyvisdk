@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,43 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineMemoryReservationInfo(DynamicData):
-    '''The VirtualMachineReservationInfo data object type describes the amount of memory
-        that is being reserved for virtual machines on the host, and how
-        additional memory may be acquired.
-    '''
+def VirtualMachineMemoryReservationInfo(vim, *args, **kwargs):
+    '''The VirtualMachineReservationInfo data object type describes the amount of
+    memory that is being reserved for virtual machines on the host, and how
+    additional memory may be acquired.'''
     
-    def __init__(self, allocationPolicy, virtualMachineMax, virtualMachineMin, virtualMachineReserved):
-        # MUST define these
-        super(VirtualMachineMemoryReservationInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineMemoryReservationInfo')
     
-        self.data['allocationPolicy'] = allocationPolicy
-        self.data['virtualMachineMax'] = virtualMachineMax
-        self.data['virtualMachineMin'] = virtualMachineMin
-        self.data['virtualMachineReserved'] = virtualMachineReserved
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'allocationPolicy', 'virtualMachineMax', 'virtualMachineMin',
+        'virtualMachineReserved' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def allocationPolicy(self):
-        '''Policy for allocating additional memory for virtual machines.
-        '''
-        return self.data['allocationPolicy']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def virtualMachineMax(self):
-        '''The maximum amount of memory reserved for all running virtual machines, in bytes.
-        '''
-        return self.data['virtualMachineMax']
-
-    @property
-    def virtualMachineMin(self):
-        '''The minimum amount of memory reserved for all running virtual machines, in bytes.
-        '''
-        return self.data['virtualMachineMin']
-
-    @property
-    def virtualMachineReserved(self):
-        '''The amount of memory reserved for all running virtual machines, in bytes.
-        '''
-        return self.data['virtualMachineReserved']
-
+    return obj
+    

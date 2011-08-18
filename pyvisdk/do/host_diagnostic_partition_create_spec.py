@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,51 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDiagnosticPartitionCreateSpec(DynamicData):
+def HostDiagnosticPartitionCreateSpec(vim, *args, **kwargs):
     '''The diagnostic create specification is used by the system to create a new
-        diagnostic partition on a SCSI disk.
-    '''
+    diagnostic partition on a SCSI disk.'''
     
-    def __init__(self, active, diagnosticType, id, partition, storageType):
-        # MUST define these
-        super(HostDiagnosticPartitionCreateSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDiagnosticPartitionCreateSpec')
     
-        self.data['active'] = active
-        self.data['diagnosticType'] = diagnosticType
-        self.data['id'] = id
-        self.data['partition'] = partition
-        self.data['storageType'] = storageType
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'active', 'diagnosticType', 'id', 'partition', 'storageType' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def active(self):
-        '''Indicates if the created diagnostic partition should be made the active diagnostic
-        partition. If not supplied, the system will decide whether or not the
-        created specification is active.
-        '''
-        return self.data['active']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def diagnosticType(self):
-        '''Indicates the type of the diagnostic partition to be created.
-        '''
-        return self.data['diagnosticType']
-
-    @property
-    def id(self):
-        '''Diagnostic partition identification information.
-        '''
-        return self.data['id']
-
-    @property
-    def partition(self):
-        '''Partitioning specification.
-        '''
-        return self.data['partition']
-
-    @property
-    def storageType(self):
-        '''Indicates the storage type where the diagnostic partition will be created.
-        '''
-        return self.data['storageType']
-
+    return obj
+    

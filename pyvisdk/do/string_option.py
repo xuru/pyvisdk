@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.option_type import OptionType
 import logging
 
 ########################################
@@ -8,29 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class StringOption(OptionType):
+def StringOption(vim, *args, **kwargs):
     '''The StringOption data object type is used to define an open-ended string value
-        based on an optional subset of valid characters.
-    '''
+    based on an optional subset of valid characters.'''
     
-    def __init__(self, defaultValue, validCharacters):
-        # MUST define these
-        super(StringOption, self).__init__()
+    obj = vim.client.factory.create('ns0:StringOption')
     
-        self.data['defaultValue'] = defaultValue
-        self.data['validCharacters'] = validCharacters
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'valueIsReadonly', 'defaultValue', 'validCharacters' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def defaultValue(self):
-        '''The default value.
-        '''
-        return self.data['defaultValue']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def validCharacters(self):
-        '''The string containing the set of valid characters. If a string option is not
-        specified, all strings are allowed.
-        '''
-        return self.data['validCharacters']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmUpgradeCompleteEvent(VmEvent):
-    '''This event records the successful completion of an upgrade operation.
-    '''
+def VmUpgradeCompleteEvent(vim, *args, **kwargs):
+    '''This event records the successful completion of an upgrade operation.'''
     
-    def __init__(self, version):
-        # MUST define these
-        super(VmUpgradeCompleteEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmUpgradeCompleteEvent')
     
-        self.data['version'] = version
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'version' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def version(self):
-        '''The version of the agent.
-        '''
-        return self.data['version']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

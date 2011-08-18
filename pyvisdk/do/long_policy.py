@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.inheritable_policy import InheritablePolicy
 import logging
 
 ########################################
@@ -8,20 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LongPolicy(InheritablePolicy):
-    '''The long integer type of setting or configuration that may get an inherited value.
-    '''
+def LongPolicy(vim, *args, **kwargs):
+    '''The long integer type of setting or configuration that may get an inherited
+    value.'''
     
-    def __init__(self, value):
-        # MUST define these
-        super(LongPolicy, self).__init__()
+    obj = vim.client.factory.create('ns0:LongPolicy')
     
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'inherited', 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def value(self):
-        '''The boolean value that is either set or inherited.
-        '''
-        return self.data['value']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

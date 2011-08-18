@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.license_event import LicenseEvent
 import logging
 
 ########################################
@@ -8,20 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LicenseNonComplianceEvent(LicenseEvent):
-    '''This event records that the inventory is not license compliant.
-    '''
+def LicenseNonComplianceEvent(vim, *args, **kwargs):
+    '''This event records that the inventory is not license compliant.'''
     
-    def __init__(self, url):
-        # MUST define these
-        super(LicenseNonComplianceEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:LicenseNonComplianceEvent')
     
-        self.data['url'] = url
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'url' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def url(self):
-        '''Gives the url at which more details about non-compliance can be found.
-        '''
-        return self.data['url']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

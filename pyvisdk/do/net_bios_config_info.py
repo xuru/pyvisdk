@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class NetBIOSConfigInfo(DynamicData):
-    '''This data object type describes the NetBIOS configuration of an operating system.
-    '''
+def NetBIOSConfigInfo(vim, *args, **kwargs):
+    '''This data object type describes the NetBIOS configuration of an operating
+    system.'''
     
-    def __init__(self, mode):
-        # MUST define these
-        super(NetBIOSConfigInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:NetBIOSConfigInfo')
     
-        self.data['mode'] = mode
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'mode' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def mode(self):
-        '''NetBIOS configuration mode. The supported values are described by
-        NetBIOSConfigInfoMode.
-        '''
-        return self.data['mode']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

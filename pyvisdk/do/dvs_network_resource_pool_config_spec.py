@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,38 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DVSNetworkResourcePoolConfigSpec(DynamicData):
-    '''The configuration specification data object to update the resource configuration
-        for a network resource pool.
-    '''
+def DVSNetworkResourcePoolConfigSpec(vim, *args, **kwargs):
+    '''The configuration specification data object to update the resource
+    configuration for a network resource pool.'''
     
-    def __init__(self, allocationInfo, configVersion, key):
-        # MUST define these
-        super(DVSNetworkResourcePoolConfigSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:DVSNetworkResourcePoolConfigSpec')
     
-        self.data['allocationInfo'] = allocationInfo
-        self.data['configVersion'] = configVersion
-        self.data['key'] = key
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'allocationInfo', 'configVersion', 'key' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def allocationInfo(self):
-        '''The network resource allocation for the network resource pool.
-        '''
-        return self.data['allocationInfo']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def configVersion(self):
-        '''The configVersion is a unique identifier for a given version of the configuration.
-        Each change to the configuration will update this value. This is typically
-        implemented as a non-decreasing count or a time-stamp. However, a client
-        should always treat this as an opaque string.
-        '''
-        return self.data['configVersion']
-
-    @property
-    def key(self):
-        '''The key of the network resource pool.
-        '''
-        return self.data['key']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DatastoreHostMount(DynamicData):
-    '''Host-specific datastore information.
-    '''
+def DatastoreHostMount(vim, *args, **kwargs):
+    '''Host-specific datastore information.'''
     
-    def __init__(self, key, mountInfo):
-        # MUST define these
-        super(DatastoreHostMount, self).__init__()
+    obj = vim.client.factory.create('ns0:DatastoreHostMount')
     
-        self.data['key'] = key
-        self.data['mountInfo'] = mountInfo
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'mountInfo' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''The host associated with this datastore.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def mountInfo(self):
-        '''Host-specific information about the mount.
-        '''
-        return self.data['mountInfo']
-
+    return obj
+    

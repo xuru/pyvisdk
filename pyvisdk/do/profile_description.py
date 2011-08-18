@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfileDescription(DynamicData):
+def ProfileDescription(vim, *args, **kwargs):
     '''DataObject which describes the profile. Description contains multiple sections.
-        Each section describes some sub-part of the profile.
-    '''
+    Each section describes some sub-part of the profile.'''
     
-    def __init__(self, section):
-        # MUST define these
-        super(ProfileDescription, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfileDescription')
     
-        self.data['section'] = section
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'section' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def section(self):
-        '''Sections which make up the Description.
-        '''
-        return self.data['section']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

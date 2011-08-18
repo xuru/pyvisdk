@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class TaskFilterSpecByTime(DynamicData):
-    '''This data object type specifies a time range used to filter task history.
-    '''
+def TaskFilterSpecByTime(vim, *args, **kwargs):
+    '''This data object type specifies a time range used to filter task history.'''
     
-    def __init__(self, beginTime, endTime, timeType):
-        # MUST define these
-        super(TaskFilterSpecByTime, self).__init__()
+    obj = vim.client.factory.create('ns0:TaskFilterSpecByTime')
     
-        self.data['beginTime'] = beginTime
-        self.data['endTime'] = endTime
-        self.data['timeType'] = timeType
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'beginTime', 'endTime', 'timeType' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def beginTime(self):
-        '''The beginning of the time range. If this property is not specified, then tasks are
-        collected from the earliest time in the database.
-        '''
-        return self.data['beginTime']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def endTime(self):
-        '''The end of the time range. If this property is not specified, then tasks are
-        collected up to the latest time in the database.
-        '''
-        return self.data['endTime']
-
-    @property
-    def timeType(self):
-        '''The time stamp to filter: queued, started, or completed time.
-        '''
-        return self.data['timeType']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_target_transport import HostTargetTransport
 import logging
 
 ########################################
@@ -8,14 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostBlockAdapterTargetTransport(HostTargetTransport):
-    '''Block adapter transport information about a SCSI target.
-    '''
+def HostBlockAdapterTargetTransport(vim, *args, **kwargs):
+    '''Block adapter transport information about a SCSI target.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(HostBlockAdapterTargetTransport, self).__init__()
+    obj = vim.client.factory.create('ns0:HostBlockAdapterTargetTransport')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [  ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

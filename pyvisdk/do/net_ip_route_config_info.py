@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class NetIpRouteConfigInfo(DynamicData):
-    '''This data object reports the IP Route Table.
-    '''
+def NetIpRouteConfigInfo(vim, *args, **kwargs):
+    '''This data object reports the IP Route Table.'''
     
-    def __init__(self, ipRoute):
-        # MUST define these
-        super(NetIpRouteConfigInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:NetIpRouteConfigInfo')
     
-        self.data['ipRoute'] = ipRoute
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'ipRoute' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ipRoute(self):
-        '''IP routing table for all address families.
-        '''
-        return self.data['ipRoute']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

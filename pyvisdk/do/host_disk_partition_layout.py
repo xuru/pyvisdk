@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDiskPartitionLayout(DynamicData):
-    '''This data object type describes the disk partition layout specified as a list of
-        ordered BlockRanges. This view of the disk partitions shows the data on
-        the disk as a contiguous set of BlockRanges.
-    '''
+def HostDiskPartitionLayout(vim, *args, **kwargs):
+    '''This data object type describes the disk partition layout specified as a list
+    of ordered BlockRanges. This view of the disk partitions shows the data on the
+    disk as a contiguous set of BlockRanges.'''
     
-    def __init__(self, partition, total):
-        # MUST define these
-        super(HostDiskPartitionLayout, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDiskPartitionLayout')
     
-        self.data['partition'] = partition
-        self.data['total'] = total
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'partition', 'total' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def partition(self):
-        '''List of block ranges on the disk.
-        '''
-        return self.data['partition']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def total(self):
-        '''Total number of blocks on a disk.
-        '''
-        return self.data['total']
-
+    return obj
+    

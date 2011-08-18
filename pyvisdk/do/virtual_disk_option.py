@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_option import VirtualDeviceOption
 import logging
 
 ########################################
@@ -8,28 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDiskOption(VirtualDeviceOption):
+def VirtualDiskOption(vim, *args, **kwargs):
     '''The VirtualDiskOption data class contains the options for the virtual disk data
-        object type.
-    '''
+    object type.'''
     
-    def __init__(self, capacityInKB, ioAllocationOption):
-        # MUST define these
-        super(VirtualDiskOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDiskOption')
     
-        self.data['capacityInKB'] = capacityInKB
-        self.data['ioAllocationOption'] = ioAllocationOption
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
+        'defaultBackingOptionIndex', 'deprecated', 'hotRemoveSupported',
+        'licensingLimit', 'plugAndPlay', 'type', 'capacityInKB', 'ioAllocationOption' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def capacityInKB(self):
-        '''Minimum, maximum, and default capacity of the disk.
-        '''
-        return self.data['capacityInKB']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def ioAllocationOption(self):
-        '''Minumum, maximum, and default values for Storage I/O allocation.
-        '''
-        return self.data['ioAllocationOption']
-
+    return obj
+    

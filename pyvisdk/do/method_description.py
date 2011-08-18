@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.description import Description
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class MethodDescription(Description):
-    '''Static strings used for describing an object model method.
-    '''
+def MethodDescription(vim, *args, **kwargs):
+    '''Static strings used for describing an object model method.'''
     
-    def __init__(self, key):
-        # MUST define these
-        super(MethodDescription, self).__init__()
+    obj = vim.client.factory.create('ns0:MethodDescription')
     
-        self.data['key'] = key
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'label', 'summary', 'key' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''Method being described.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

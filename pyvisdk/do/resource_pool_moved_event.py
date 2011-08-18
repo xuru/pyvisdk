@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.resource_pool_event import ResourcePoolEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ResourcePoolMovedEvent(ResourcePoolEvent):
-    '''This event records when a resource pool is moved.
-    '''
+def ResourcePoolMovedEvent(vim, *args, **kwargs):
+    '''This event records when a resource pool is moved.'''
     
-    def __init__(self, newParent, oldParent):
-        # MUST define these
-        super(ResourcePoolMovedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:ResourcePoolMovedEvent')
     
-        self.data['newParent'] = newParent
-        self.data['oldParent'] = oldParent
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'resourcePool', 'newParent', 'oldParent' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def newParent(self):
-        '''The new parent of the resource Pool.
-        '''
-        return self.data['newParent']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def oldParent(self):
-        '''The old parent of the resource Pool.
-        '''
-        return self.data['oldParent']
-
+    return obj
+    

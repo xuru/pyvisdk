@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_event import HostEvent
 import logging
 
 ########################################
@@ -8,30 +8,27 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DatastoreRenamedOnHostEvent(HostEvent):
+def DatastoreRenamedOnHostEvent(vim, *args, **kwargs):
     '''This event records when a datastore is added to VirtualCenter and is renamed by
-        VirtualCenter because this datastore already exists in VirtualCenter with
-        a different name, or because the name conflicts with another datastore in
-        VirtualCenter.
-    '''
+    VirtualCenter because this datastore already exists in VirtualCenter with a
+    different name, or because the name conflicts with another datastore in
+    VirtualCenter.'''
     
-    def __init__(self, newName, oldName):
-        # MUST define these
-        super(DatastoreRenamedOnHostEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DatastoreRenamedOnHostEvent')
     
-        self.data['newName'] = newName
-        self.data['oldName'] = oldName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'newName', 'oldName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def newName(self):
-        '''The new datastore name.
-        '''
-        return self.data['newName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def oldName(self):
-        '''The old datastore name.
-        '''
-        return self.data['oldName']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.customization_ip_generator import CustomizationIpGenerator
 import logging
 
 ########################################
@@ -8,14 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationDhcpIpGenerator(CustomizationIpGenerator):
-    '''Use a DHCP server to configure the virtual network adapter.
-    '''
+def CustomizationDhcpIpGenerator(vim, *args, **kwargs):
+    '''Use a DHCP server to configure the virtual network adapter.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(CustomizationDhcpIpGenerator, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationDhcpIpGenerator')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [  ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

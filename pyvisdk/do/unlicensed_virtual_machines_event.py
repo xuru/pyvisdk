@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.license_event import LicenseEvent
 import logging
 
 ########################################
@@ -8,29 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class UnlicensedVirtualMachinesEvent(LicenseEvent):
-    '''This event records that we have unlicensed virtual machines on the specified host.
-        This can be both a (@link vim.ManagedEntity.configIssue configIssue) and
-        an entry in the event log.
-    '''
+def UnlicensedVirtualMachinesEvent(vim, *args, **kwargs):
+    '''This event records that we have unlicensed virtual machines on the specified
+    host. This can be both a (@link vim.ManagedEntity.configIssue configIssue) and
+    an entry in the event log.'''
     
-    def __init__(self, available, unlicensed):
-        # MUST define these
-        super(UnlicensedVirtualMachinesEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:UnlicensedVirtualMachinesEvent')
     
-        self.data['available'] = available
-        self.data['unlicensed'] = unlicensed
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'available', 'unlicensed' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def available(self):
-        '''
-        '''
-        return self.data['available']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def unlicensed(self):
-        '''
-        '''
-        return self.data['unlicensed']
-
+    return obj
+    

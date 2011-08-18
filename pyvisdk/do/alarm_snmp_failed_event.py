@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.alarm_event import AlarmEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AlarmSnmpFailedEvent(AlarmEvent):
-    '''This event records a failure to complete an alarm SNMP notification.
-    '''
+def AlarmSnmpFailedEvent(vim, *args, **kwargs):
+    '''This event records a failure to complete an alarm SNMP notification.'''
     
-    def __init__(self, entity, reason):
-        # MUST define these
-        super(AlarmSnmpFailedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:AlarmSnmpFailedEvent')
     
-        self.data['entity'] = entity
-        self.data['reason'] = reason
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'alarm',
+        'entity', 'reason' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def entity(self):
-        '''The entity with which the alarm is registered.
-        '''
-        return self.data['entity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def reason(self):
-        '''The reason for the failure.
-        '''
-        return self.data['reason']
-
+    return obj
+    

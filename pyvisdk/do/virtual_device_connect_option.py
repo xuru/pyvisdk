@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDeviceConnectOption(DynamicData):
+def VirtualDeviceConnectOption(vim, *args, **kwargs):
     '''The ConnectOption data object type contains information about options for
-        connectable virtual devices.
-    '''
+    connectable virtual devices.'''
     
-    def __init__(self, allowGuestControl, startConnected):
-        # MUST define these
-        super(VirtualDeviceConnectOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDeviceConnectOption')
     
-        self.data['allowGuestControl'] = allowGuestControl
-        self.data['startConnected'] = startConnected
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'allowGuestControl', 'startConnected' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def allowGuestControl(self):
-        '''Flag to indicate whether or not the device can be connected and disconnected from
-        within the guest operating system.
-        '''
-        return self.data['allowGuestControl']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def startConnected(self):
-        '''Flag to indicate whether or not the device supports the startConnected feature.
-        '''
-        return self.data['startConnected']
-
+    return obj
+    

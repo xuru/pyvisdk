@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,49 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterConfigSpec(DynamicData):
-    '''A complete cluster configuration. All fields are defined as optional. In case of a
-        reconfiguration, unset fields are unchanged.
-    '''
+def ClusterConfigSpec(vim, *args, **kwargs):
+    '''A complete cluster configuration. All fields are defined as optional. In case
+    of a reconfiguration, unset fields are unchanged.'''
     
-    def __init__(self, dasConfig, dasVmConfigSpec, drsConfig, drsVmConfigSpec, rulesSpec):
-        # MUST define these
-        super(ClusterConfigSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterConfigSpec')
     
-        self.data['dasConfig'] = dasConfig
-        self.data['dasVmConfigSpec'] = dasVmConfigSpec
-        self.data['drsConfig'] = drsConfig
-        self.data['drsVmConfigSpec'] = drsVmConfigSpec
-        self.data['rulesSpec'] = rulesSpec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'dasConfig', 'dasVmConfigSpec', 'drsConfig', 'drsVmConfigSpec', 'rulesSpec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def dasConfig(self):
-        '''Changes to the configuration of VMware HA.
-        '''
-        return self.data['dasConfig']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def dasVmConfigSpec(self):
-        '''Changes to the per-virtual-machine VMware HA settings.
-        '''
-        return self.data['dasVmConfigSpec']
-
-    @property
-    def drsConfig(self):
-        '''Changes to the configuration of the VMware DRS service.
-        '''
-        return self.data['drsConfig']
-
-    @property
-    def drsVmConfigSpec(self):
-        '''Changes to the per-virtual-machine DRS settings.
-        '''
-        return self.data['drsVmConfigSpec']
-
-    @property
-    def rulesSpec(self):
-        '''Changes to the set of rules.
-        '''
-        return self.data['rulesSpec']
-
+    return obj
+    

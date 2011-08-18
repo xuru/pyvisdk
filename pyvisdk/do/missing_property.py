@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class MissingProperty(DynamicData):
-    '''Used for reporting properties for which values could not be retrieved.
-    '''
+def MissingProperty(vim, *args, **kwargs):
+    '''Used for reporting properties for which values could not be retrieved.'''
     
-    def __init__(self, fault, path):
-        # MUST define these
-        super(MissingProperty, self).__init__()
+    obj = vim.client.factory.create('ns0:MissingProperty')
     
-        self.data['fault'] = fault
-        self.data['path'] = path
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fault', 'path' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fault(self):
-        '''Fault describing the failure to retrieve the property value.
-        '''
-        return self.data['fault']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def path(self):
-        '''Property for which a value could not be retrieved
-        '''
-        return self.data['path']
-
+    return obj
+    

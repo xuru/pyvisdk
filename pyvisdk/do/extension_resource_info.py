@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ExtensionResourceInfo(DynamicData):
-    '''This data object encapsulates the message resources for all locales.
-    '''
+def ExtensionResourceInfo(vim, *args, **kwargs):
+    '''This data object encapsulates the message resources for all locales.'''
     
-    def __init__(self, data, locale, module):
-        # MUST define these
-        super(ExtensionResourceInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ExtensionResourceInfo')
     
-        self.data['data'] = data
-        self.data['locale'] = locale
-        self.data['module'] = module
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'data', 'locale', 'module' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def data(self):
-        '''
-        '''
-        return self.data['data']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def locale(self):
-        '''
-        '''
-        return self.data['locale']
-
-    @property
-    def module(self):
-        '''Module for a resource type and other message or fault resources. Examples: "task"
-        for task, "event" for event and "auth" for "privilege".
-        '''
-        return self.data['module']
-
+    return obj
+    

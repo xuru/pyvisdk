@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostMultipathInfoLogicalUnitPolicy(DynamicData):
+def HostMultipathInfoLogicalUnitPolicy(vim, *args, **kwargs):
     '''This data object type describes a path selection policy for for a device. This
-        policy determines how paths should be utilized when accessing a device.
-    '''
+    policy determines how paths should be utilized when accessing a device.'''
     
-    def __init__(self, policy):
-        # MUST define these
-        super(HostMultipathInfoLogicalUnitPolicy, self).__init__()
+    obj = vim.client.factory.create('ns0:HostMultipathInfoLogicalUnitPolicy')
     
-        self.data['policy'] = policy
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'policy' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def policy(self):
-        '''The string representing the multipath policy. Valid strings include: *
-        '''
-        return self.data['policy']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

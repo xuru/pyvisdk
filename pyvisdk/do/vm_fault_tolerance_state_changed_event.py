@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,31 +8,28 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmFaultToleranceStateChangedEvent(VmEvent):
+def VmFaultToleranceStateChangedEvent(vim, *args, **kwargs):
     '''This event records a fault tolerance state change. A default alarm will be
-        triggered upon this event, which would change the vm state: the vm state
-        is red if the newState is needSecondary; the vm state is yellow if the
-        newState is disabled; the vm state is green if the newState is
-        notConfigured, starting, enabled or running
-    '''
+    triggered upon this event, which would change the vm state: the vm state is red
+    if the newState is needSecondary; the vm state is yellow if the newState is
+    disabled; the vm state is green if the newState is notConfigured, starting,
+    enabled or running'''
     
-    def __init__(self, newState, oldState):
-        # MUST define these
-        super(VmFaultToleranceStateChangedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmFaultToleranceStateChangedEvent')
     
-        self.data['newState'] = newState
-        self.data['oldState'] = oldState
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'newState', 'oldState' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def newState(self):
-        '''The new fault tolerance state.
-        '''
-        return self.data['newState']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def oldState(self):
-        '''The old fault toleeance state.
-        '''
-        return self.data['oldState']
-
+    return obj
+    

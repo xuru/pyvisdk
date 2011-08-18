@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_event import HostEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AccountRemovedEvent(HostEvent):
-    '''This event records that an account was removed from a host.
-    '''
+def AccountRemovedEvent(vim, *args, **kwargs):
+    '''This event records that an account was removed from a host.'''
     
-    def __init__(self, account, group):
-        # MUST define these
-        super(AccountRemovedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:AccountRemovedEvent')
     
-        self.data['account'] = account
-        self.data['group'] = group
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'account', 'group' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def account(self):
-        '''
-        '''
-        return self.data['account']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def group(self):
-        '''
-        '''
-        return self.data['group']
-
+    return obj
+    

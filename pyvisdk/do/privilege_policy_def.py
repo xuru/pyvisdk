@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,41 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PrivilegePolicyDef(DynamicData):
-    '''Describes a basic privilege policy.
-    '''
+def PrivilegePolicyDef(vim, *args, **kwargs):
+    '''Describes a basic privilege policy.'''
     
-    def __init__(self, createPrivilege, deletePrivilege, readPrivilege, updatePrivilege):
-        # MUST define these
-        super(PrivilegePolicyDef, self).__init__()
+    obj = vim.client.factory.create('ns0:PrivilegePolicyDef')
     
-        self.data['createPrivilege'] = createPrivilege
-        self.data['deletePrivilege'] = deletePrivilege
-        self.data['readPrivilege'] = readPrivilege
-        self.data['updatePrivilege'] = updatePrivilege
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'createPrivilege', 'deletePrivilege', 'readPrivilege', 'updatePrivilege' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def createPrivilege(self):
-        '''Name of privilege required for creation.
-        '''
-        return self.data['createPrivilege']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def deletePrivilege(self):
-        '''Name of privilege required for deleting.
-        '''
-        return self.data['deletePrivilege']
-
-    @property
-    def readPrivilege(self):
-        '''Name of privilege required for reading.
-        '''
-        return self.data['readPrivilege']
-
-    @property
-    def updatePrivilege(self):
-        '''Name of privilege required for updating.
-        '''
-        return self.data['updatePrivilege']
-
+    return obj
+    

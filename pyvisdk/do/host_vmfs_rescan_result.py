@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,30 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostVmfsRescanResult(DynamicData):
-    '''When a user resignatures an UnresolvedVmfsVolume through DatastoreSystem API, we
-        resignature and auto-mount on the other hosts which share the same
-        underlying storage luns. As part of the operation, we rescan host. This
-        data object describes the outcome of rescan operation on a host
-    '''
+def HostVmfsRescanResult(vim, *args, **kwargs):
+    '''When a user resignatures an UnresolvedVmfsVolume through DatastoreSystem API,
+    we resignature and auto-mount on the other hosts which share the same
+    underlying storage luns. As part of the operation, we rescan host. This data
+    object describes the outcome of rescan operation on a host'''
     
-    def __init__(self, fault, host):
-        # MUST define these
-        super(HostVmfsRescanResult, self).__init__()
+    obj = vim.client.factory.create('ns0:HostVmfsRescanResult')
     
-        self.data['fault'] = fault
-        self.data['host'] = host
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fault', 'host' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fault(self):
-        ''''fault' would be set if the operation was not successful
-        '''
-        return self.data['fault']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def host(self):
-        '''Host name on which rescan was performed
-        '''
-        return self.data['host']
-
+    return obj
+    

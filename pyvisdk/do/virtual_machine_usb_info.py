@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_machine_target_info import VirtualMachineTargetInfo
 import logging
 
 ########################################
@@ -8,65 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineUsbInfo(VirtualMachineTargetInfo):
-    '''This data object contains information about a physical USB device on the host.
-    '''
+def VirtualMachineUsbInfo(vim, *args, **kwargs):
+    '''This data object contains information about a physical USB device on the host.'''
     
-    def __init__(self, description, family, physicalPath, product, speed, summary, vendor):
-        # MUST define these
-        super(VirtualMachineUsbInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineUsbInfo')
     
-        self.data['description'] = description
-        self.data['family'] = family
-        self.data['physicalPath'] = physicalPath
-        self.data['product'] = product
-        self.data['speed'] = speed
-        self.data['summary'] = summary
-        self.data['vendor'] = vendor
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'configurationTag', 'name', 'description', 'family', 'physicalPath', 'product',
+        'speed', 'summary', 'vendor' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def description(self):
-        '''A user visible name of the USB device.
-        '''
-        return self.data['description']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def family(self):
-        '''The device class families. For possible values see VirtualMachineUsbInfoFamily
-        '''
-        return self.data['family']
-
-    @property
-    def physicalPath(self):
-        '''An autoconnect pattern which describes the device's physical path. This is the
-        path to the specific port on the host where the USB device is attached.
-        '''
-        return self.data['physicalPath']
-
-    @property
-    def product(self):
-        '''The product ID of the USB device.
-        '''
-        return self.data['product']
-
-    @property
-    def speed(self):
-        '''The possible device speeds detected by server. For possible values see
-        VirtualMachineUsbInfoSpeed
-        '''
-        return self.data['speed']
-
-    @property
-    def summary(self):
-        '''Summary information about the virtual machine that is currently using this device,
-        if any.
-        '''
-        return self.data['summary']
-
-    @property
-    def vendor(self):
-        '''The vendor ID of the USB device.
-        '''
-        return self.data['vendor']
-
+    return obj
+    

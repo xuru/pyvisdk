@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostScsiDiskPartition(DynamicData):
-    '''This data object type describes the specification of a Disk partition.
-    '''
+def HostScsiDiskPartition(vim, *args, **kwargs):
+    '''This data object type describes the specification of a Disk partition.'''
     
-    def __init__(self, diskName, partition):
-        # MUST define these
-        super(HostScsiDiskPartition, self).__init__()
+    obj = vim.client.factory.create('ns0:HostScsiDiskPartition')
     
-        self.data['diskName'] = diskName
-        self.data['partition'] = partition
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'diskName', 'partition' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def diskName(self):
-        '''The SCSI disk device on which a VMware File System (VMFS) extent resides.
-        '''
-        return self.data['diskName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def partition(self):
-        '''The partition number of the partition on the ScsiDisk.
-        '''
-        return self.data['partition']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,49 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DVSNetworkResourcePool(DynamicData):
+def DVSNetworkResourcePool(vim, *args, **kwargs):
     '''DataObject describing the resource configuration and management of network
-        resource pools.
-    '''
+    resource pools.'''
     
-    def __init__(self, allocationInfo, configVersion, description, key, name):
-        # MUST define these
-        super(DVSNetworkResourcePool, self).__init__()
+    obj = vim.client.factory.create('ns0:DVSNetworkResourcePool')
     
-        self.data['allocationInfo'] = allocationInfo
-        self.data['configVersion'] = configVersion
-        self.data['description'] = description
-        self.data['key'] = key
-        self.data['name'] = name
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'allocationInfo', 'configVersion', 'description', 'key', 'name' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def allocationInfo(self):
-        '''The resource settings of the resource pool.
-        '''
-        return self.data['allocationInfo']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def configVersion(self):
-        '''The config version for the network resource pool.
-        '''
-        return self.data['configVersion']
-
-    @property
-    def description(self):
-        '''The description of the network resource pool.
-        '''
-        return self.data['description']
-
-    @property
-    def key(self):
-        '''The key of the network resource pool.
-        '''
-        return self.data['key']
-
-    @property
-    def name(self):
-        '''The name of the network resource pool.
-        '''
-        return self.data['name']
-
+    return obj
+    

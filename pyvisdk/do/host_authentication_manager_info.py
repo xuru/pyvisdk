@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,25 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostAuthenticationManagerInfo(DynamicData):
+def HostAuthenticationManagerInfo(vim, *args, **kwargs):
     '''The HostAuthenticationManagerInfo data object provides access to authentication
-        information for the ESX host.
-    '''
+    information for the ESX host.'''
     
-    def __init__(self, authConfig):
-        # MUST define these
-        super(HostAuthenticationManagerInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostAuthenticationManagerInfo')
     
-        self.data['authConfig'] = authConfig
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'authConfig' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def authConfig(self):
-        '''An array containing entries for local authentication and host Active Directory
-        authentication. * HostLocalAuthenticationInfo - Local authentication is
-        always enabled. * HostActiveDirectoryInfo - Host Active Directory
-        authentication information includes the name of the domain, membership
-        status, and a list of other domains trusted by the membership domain.
-        '''
-        return self.data['authConfig']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,63 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostService(DynamicData):
-    '''Data object that describes a single service that runs on the host.
-    '''
+def HostService(vim, *args, **kwargs):
+    '''Data object that describes a single service that runs on the host.'''
     
-    def __init__(self, key, label, policy, required, ruleset, running, uninstallable):
-        # MUST define these
-        super(HostService, self).__init__()
+    obj = vim.client.factory.create('ns0:HostService')
     
-        self.data['key'] = key
-        self.data['label'] = label
-        self.data['policy'] = policy
-        self.data['required'] = required
-        self.data['ruleset'] = ruleset
-        self.data['running'] = running
-        self.data['uninstallable'] = uninstallable
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'label', 'policy', 'required', 'ruleset', 'running', 'uninstallable' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''Brief identifier for the service.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def label(self):
-        '''Display label for the service.
-        '''
-        return self.data['label']
-
-    @property
-    def policy(self):
-        '''Service activation policy.
-        '''
-        return self.data['policy']
-
-    @property
-    def required(self):
-        '''Flag indicating whether the service is required and cannot be disabled.
-        '''
-        return self.data['required']
-
-    @property
-    def ruleset(self):
-        '''List of firewall rulesets used by this service. Must come from the list of
-        rulesets in ruleset.
-        '''
-        return self.data['ruleset']
-
-    @property
-    def running(self):
-        '''Flag indicating whether the service is currently running.
-        '''
-        return self.data['running']
-
-    @property
-    def uninstallable(self):
-        '''Flag indicating whether the service can be uninstalled.
-        '''
-        return self.data['uninstallable']
-
+    return obj
+    

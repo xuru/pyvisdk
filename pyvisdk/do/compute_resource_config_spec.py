@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,24 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ComputeResourceConfigSpec(DynamicData):
-    '''Changes to apply to the compute resource configuration.
-    '''
+def ComputeResourceConfigSpec(vim, *args, **kwargs):
+    '''Changes to apply to the compute resource configuration.'''
     
-    def __init__(self, vmSwapPlacement):
-        # MUST define these
-        super(ComputeResourceConfigSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:ComputeResourceConfigSpec')
     
-        self.data['vmSwapPlacement'] = vmSwapPlacement
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'vmSwapPlacement' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def vmSwapPlacement(self):
-        '''New setting for the swapfile placement policy. Any change to this policy will
-        affect virtual machines that subsequently power on or resume from a
-        suspended state in this compute resource, or that migrate to a host in
-        this compute resource while powered on; virtual machines that are
-        currently powered on in this compute resource will not yet be affected.
-        '''
-        return self.data['vmSwapPlacement']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

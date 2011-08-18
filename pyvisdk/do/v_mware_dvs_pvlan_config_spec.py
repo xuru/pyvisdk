@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VMwareDVSPvlanConfigSpec(DynamicData):
-    '''This class defines the configuration of a PVLAN map entry
-    '''
+def VMwareDVSPvlanConfigSpec(vim, *args, **kwargs):
+    '''This class defines the configuration of a PVLAN map entry'''
     
-    def __init__(self, operation, pvlanEntry):
-        # MUST define these
-        super(VMwareDVSPvlanConfigSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:VMwareDVSPvlanConfigSpec')
     
-        self.data['operation'] = operation
-        self.data['pvlanEntry'] = pvlanEntry
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'operation', 'pvlanEntry' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def operation(self):
-        '''Operation type. See ConfigSpecOperation for valid values, except for the "edit"
-        value, which is not supported.
-        '''
-        return self.data['operation']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def pvlanEntry(self):
-        '''The PVLAN entry to be added or removed.
-        '''
-        return self.data['pvlanEntry']
-
+    return obj
+    

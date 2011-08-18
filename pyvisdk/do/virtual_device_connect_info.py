@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,44 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDeviceConnectInfo(DynamicData):
-    '''The data object type contains information about connectable virtual devices.
-    '''
+def VirtualDeviceConnectInfo(vim, *args, **kwargs):
+    '''The data object type contains information about connectable virtual devices.'''
     
-    def __init__(self, allowGuestControl, connected, startConnected, status):
-        # MUST define these
-        super(VirtualDeviceConnectInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDeviceConnectInfo')
     
-        self.data['allowGuestControl'] = allowGuestControl
-        self.data['connected'] = connected
-        self.data['startConnected'] = startConnected
-        self.data['status'] = status
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'allowGuestControl', 'connected', 'startConnected', 'status' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def allowGuestControl(self):
-        '''Enables guest control over whether the connectable device is connected.
-        '''
-        return self.data['allowGuestControl']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def connected(self):
-        '''Indicates whether the device is currently connected. Valid only while the virtual
-        machine is running.
-        '''
-        return self.data['connected']
-
-    @property
-    def startConnected(self):
-        '''Specifies whether or not to connect the device when the virtual machine starts.
-        '''
-        return self.data['startConnected']
-
-    @property
-    def status(self):
-        '''Indicates the current status of the connectable device. Valid only while the
-        virtual machine is running. The set of possible values is described in
-        VirtualDeviceConnectInfoStatus
-        '''
-        return self.data['status']
-
+    return obj
+    

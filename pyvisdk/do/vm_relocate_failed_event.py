@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_relocate_spec_event import VmRelocateSpecEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmRelocateFailedEvent(VmRelocateSpecEvent):
-    '''This event records a failure to relocate a virtual machine.
-    '''
+def VmRelocateFailedEvent(vim, *args, **kwargs):
+    '''This event records a failure to relocate a virtual machine.'''
     
-    def __init__(self, destHost, reason):
-        # MUST define these
-        super(VmRelocateFailedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmRelocateFailedEvent')
     
-        self.data['destHost'] = destHost
-        self.data['reason'] = reason
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'destHost', 'reason' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def destHost(self):
-        '''The destination host to which the virtual machine is being relocated.
-        '''
-        return self.data['destHost']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def reason(self):
-        '''The reason why this relocate operation failed.
-        '''
-        return self.data['reason']
-
+    return obj
+    

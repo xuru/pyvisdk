@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterActionHistory(DynamicData):
-    '''Base class for all action history.
-    '''
+def ClusterActionHistory(vim, *args, **kwargs):
+    '''Base class for all action history.'''
     
-    def __init__(self, action, time):
-        # MUST define these
-        super(ClusterActionHistory, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterActionHistory')
     
-        self.data['action'] = action
-        self.data['time'] = time
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'action', 'time' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def action(self):
-        '''The action that was executed recently.
-        '''
-        return self.data['action']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def time(self):
-        '''The time when the action was executed.
-        '''
-        return self.data['time']
-
+    return obj
+    

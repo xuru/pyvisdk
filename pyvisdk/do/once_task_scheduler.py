@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.task_scheduler import TaskScheduler
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class OnceTaskScheduler(TaskScheduler):
+def OnceTaskScheduler(vim, *args, **kwargs):
     '''The OnceTaskScheduler data object establishes the time for running a scheduled
-        task only once.
-    '''
+    task only once.'''
     
-    def __init__(self, runAt):
-        # MUST define these
-        super(OnceTaskScheduler, self).__init__()
+    obj = vim.client.factory.create('ns0:OnceTaskScheduler')
     
-        self.data['runAt'] = runAt
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'activeTime', 'expireTime', 'runAt' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def runAt(self):
-        '''The time a task will run. If you do not set the time, it executes immediately.
-        '''
-        return self.data['runAt']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

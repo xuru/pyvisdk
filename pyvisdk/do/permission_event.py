@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.authorization_event import AuthorizationEvent
 import logging
 
 ########################################
@@ -8,34 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PermissionEvent(AuthorizationEvent):
-    '''This event records a permission operation.
-    '''
+def PermissionEvent(vim, *args, **kwargs):
+    '''This event records a permission operation.'''
     
-    def __init__(self, entity, group, principal):
-        # MUST define these
-        super(PermissionEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:PermissionEvent')
     
-        self.data['entity'] = entity
-        self.data['group'] = group
-        self.data['principal'] = principal
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'entity', 'group', 'principal' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def entity(self):
-        '''The entity to which the permission applied.
-        '''
-        return self.data['entity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def group(self):
-        '''Whether or not the principal was a group.
-        '''
-        return self.data['group']
-
-    @property
-    def principal(self):
-        '''The user name or group to which the permission was granted.
-        '''
-        return self.data['principal']
-
+    return obj
+    

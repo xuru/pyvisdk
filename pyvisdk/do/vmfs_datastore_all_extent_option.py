@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vmfs_datastore_single_extent_option import VmfsDatastoreSingleExtentOption
 import logging
 
 ########################################
@@ -8,15 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmfsDatastoreAllExtentOption(VmfsDatastoreSingleExtentOption):
+def VmfsDatastoreAllExtentOption(vim, *args, **kwargs):
     '''Datastore addition policy to use the entire disk as a single extent for a VMFS
-        datastore. If there is any data on the disk, it will be overwritten.
-    '''
+    datastore. If there is any data on the disk, it will be overwritten.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VmfsDatastoreAllExtentOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VmfsDatastoreAllExtentOption')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'layout', 'vmfsExtent' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

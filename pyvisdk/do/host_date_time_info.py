@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDateTimeInfo(DynamicData):
-    '''This data object represents the dateTime configuration of the host.
-    '''
+def HostDateTimeInfo(vim, *args, **kwargs):
+    '''This data object represents the dateTime configuration of the host.'''
     
-    def __init__(self, ntpConfig, timeZone):
-        # MUST define these
-        super(HostDateTimeInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDateTimeInfo')
     
-        self.data['ntpConfig'] = ntpConfig
-        self.data['timeZone'] = timeZone
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'ntpConfig', 'timeZone' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ntpConfig(self):
-        '''The NTP configuration on the host.
-        '''
-        return self.data['ntpConfig']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def timeZone(self):
-        '''The time zone of the host.
-        '''
-        return self.data['timeZone']
-
+    return obj
+    

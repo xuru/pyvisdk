@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,45 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class FaultToleranceSecondaryOpResult(DynamicData):
+def FaultToleranceSecondaryOpResult(vim, *args, **kwargs):
     '''FaultToleranceSecondaryOpResult is a data object that reports on the outcome of
-        the CreateSecondaryVM_Task or EnableSecondaryVM_Task operation.
-    '''
+    the CreateSecondaryVM_Task or EnableSecondaryVM_Task operation.'''
     
-    def __init__(self, powerOnAttempted, powerOnResult, vm):
-        # MUST define these
-        super(FaultToleranceSecondaryOpResult, self).__init__()
+    obj = vim.client.factory.create('ns0:FaultToleranceSecondaryOpResult')
     
-        self.data['powerOnAttempted'] = powerOnAttempted
-        self.data['powerOnResult'] = powerOnResult
-        self.data['vm'] = vm
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'powerOnAttempted', 'powerOnResult', 'vm' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def powerOnAttempted(self):
-        '''Whether an attempt was made to power on the secondary. If an attempt was made,
-        powerOnResult will report the status of this attempt.
-        '''
-        return self.data['powerOnAttempted']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def powerOnResult(self):
-        '''The powerOnResult property reports the outcome of powering on the Secondary
-        VirtualMachine if a power on was required. A power on will be attempted if
-        the Primary Virtual Machine is powered on when the operation is performed.
-        This object is only reported if powerOnAttempted is true. If the outcome
-        of the power-on attempt is not successful, the returned
-        ClusterPowerOnVmResult object will include an instance of
-        ClusterNotAttemptedVmInfo whereas if the attempt was successful, then an
-        instance of ClusterAttemptedVmInfo is returned. When
-        ClusterAttemptedVmInfo is returned, its task property is only set if the
-        cluster is a HA-only cluster.
-        '''
-        return self.data['powerOnResult']
-
-    @property
-    def vm(self):
-        '''The Secondary VirtualMachine
-        '''
-        return self.data['vm']
-
+    return obj
+    

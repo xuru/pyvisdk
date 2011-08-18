@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,48 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ExtensionClientInfo(DynamicData):
-    '''This data object type describes a client of the extension.
-    '''
+def ExtensionClientInfo(vim, *args, **kwargs):
+    '''This data object type describes a client of the extension.'''
     
-    def __init__(self, company, description, type, url, version):
-        # MUST define these
-        super(ExtensionClientInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ExtensionClientInfo')
     
-        self.data['company'] = company
-        self.data['description'] = description
-        self.data['type'] = type
-        self.data['url'] = url
-        self.data['version'] = version
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'company', 'description', 'type', 'url', 'version' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def company(self):
-        '''Company information.
-        '''
-        return self.data['company']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def description(self):
-        '''Description of client.
-        '''
-        return self.data['description']
-
-    @property
-    def type(self):
-        '''Type of client (examples may include win32, .net, linux, etc.).
-        '''
-        return self.data['type']
-
-    @property
-    def url(self):
-        '''Plugin url.
-        '''
-        return self.data['url']
-
-    @property
-    def version(self):
-        '''Client version number as a dot-separated string. For example, "1.0.0"
-        '''
-        return self.data['version']
-
+    return obj
+    

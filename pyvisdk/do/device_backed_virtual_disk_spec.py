@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_disk_spec import VirtualDiskSpec
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DeviceBackedVirtualDiskSpec(VirtualDiskSpec):
-    '''Specification used to create a host device backed virtual disk
-    '''
+def DeviceBackedVirtualDiskSpec(vim, *args, **kwargs):
+    '''Specification used to create a host device backed virtual disk'''
     
-    def __init__(self, device):
-        # MUST define these
-        super(DeviceBackedVirtualDiskSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:DeviceBackedVirtualDiskSpec')
     
-        self.data['device'] = device
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'adapterType', 'diskType', 'device' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def device(self):
-        '''The deviceName of the backing device
-        '''
-        return self.data['device']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

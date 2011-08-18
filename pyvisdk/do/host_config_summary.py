@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,64 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostConfigSummary(DynamicData):
-    '''An overview of the key configuration parameters.
-    '''
+def HostConfigSummary(vim, *args, **kwargs):
+    '''An overview of the key configuration parameters.'''
     
-    def __init__(self, faultToleranceEnabled, featureVersion, name, port, product, sslThumbprint, vmotionEnabled):
-        # MUST define these
-        super(HostConfigSummary, self).__init__()
+    obj = vim.client.factory.create('ns0:HostConfigSummary')
     
-        self.data['faultToleranceEnabled'] = faultToleranceEnabled
-        self.data['featureVersion'] = featureVersion
-        self.data['name'] = name
-        self.data['port'] = port
-        self.data['product'] = product
-        self.data['sslThumbprint'] = sslThumbprint
-        self.data['vmotionEnabled'] = vmotionEnabled
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'faultToleranceEnabled', 'featureVersion', 'name', 'port', 'product',
+        'sslThumbprint', 'vmotionEnabled' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def faultToleranceEnabled(self):
-        '''The flag to indicate whether or not Fault Tolerance logging is enabled on this
-        host.
-        '''
-        return self.data['faultToleranceEnabled']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def featureVersion(self):
-        '''List of feature-specific version information. Each element refers to the version
-        information for a specific feature.
-        '''
-        return self.data['featureVersion']
-
-    @property
-    def name(self):
-        '''The name of the host.
-        '''
-        return self.data['name']
-
-    @property
-    def port(self):
-        '''The port number.
-        '''
-        return self.data['port']
-
-    @property
-    def product(self):
-        '''Information about the software running on the host, if known.
-        '''
-        return self.data['product']
-
-    @property
-    def sslThumbprint(self):
-        '''The SSL thumbprint of the host, if known.
-        '''
-        return self.data['sslThumbprint']
-
-    @property
-    def vmotionEnabled(self):
-        '''The flag to indicate whether or not VMotion is enabled on this host.
-        '''
-        return self.data['vmotionEnabled']
-
+    return obj
+    

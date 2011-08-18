@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class NumericRange(DynamicData):
-    '''The class that describe an integer range.
-    '''
+def NumericRange(vim, *args, **kwargs):
+    '''The class that describe an integer range.'''
     
-    def __init__(self, end, start):
-        # MUST define these
-        super(NumericRange, self).__init__()
+    obj = vim.client.factory.create('ns0:NumericRange')
     
-        self.data['end'] = end
-        self.data['start'] = start
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'end', 'start' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def end(self):
-        '''The ending number (inclusive).
-        '''
-        return self.data['end']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def start(self):
-        '''The starting number.
-        '''
-        return self.data['start']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostConnectInfoNetworkInfo(DynamicData):
-    '''The base data object type for information about networks on the host.
-    '''
+def HostConnectInfoNetworkInfo(vim, *args, **kwargs):
+    '''The base data object type for information about networks on the host.'''
     
-    def __init__(self, summary):
-        # MUST define these
-        super(HostConnectInfoNetworkInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostConnectInfoNetworkInfo')
     
-        self.data['summary'] = summary
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'summary' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def summary(self):
-        '''Basic network information, such as network name. The managed object reference is
-        not set.
-        '''
-        return self.data['summary']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

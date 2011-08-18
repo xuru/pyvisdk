@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PasswordField(DynamicData):
-    '''DataObject which represents a Password field. Password is functionally equivalent
-        to String.
-    '''
+def PasswordField(vim, *args, **kwargs):
+    '''DataObject which represents a Password field. Password is functionally
+    equivalent to String.'''
     
-    def __init__(self, value):
-        # MUST define these
-        super(PasswordField, self).__init__()
+    obj = vim.client.factory.create('ns0:PasswordField')
     
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def value(self):
-        '''
-        '''
-        return self.data['value']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

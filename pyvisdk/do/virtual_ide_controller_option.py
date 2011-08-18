@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_controller_option import VirtualControllerOption
 import logging
 
 ########################################
@@ -8,34 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualIDEControllerOption(VirtualControllerOption):
-    '''The VirtualIDEControllerOption data object type contains the options for a virtual
-        IDE controller.
-    '''
+def VirtualIDEControllerOption(vim, *args, **kwargs):
+    '''The VirtualIDEControllerOption data object type contains the options for a
+    virtual IDE controller.'''
     
-    def __init__(self, numIDECdroms, numIDEDisks):
-        # MUST define these
-        super(VirtualIDEControllerOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualIDEControllerOption')
     
-        self.data['numIDECdroms'] = numIDECdroms
-        self.data['numIDEDisks'] = numIDEDisks
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
+        'defaultBackingOptionIndex', 'deprecated', 'hotRemoveSupported',
+        'licensingLimit', 'plugAndPlay', 'type', 'devices', 'supportedDevice',
+        'numIDECdroms', 'numIDEDisks' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def numIDECdroms(self):
-        '''The minimum, maximum, and default number of IDE VirtualCdrom instances you can
-        have, at any given time, in the IDE controller. The number is further
-        constrained by the number of available slots in the virtual IDE
-        controller.
-        '''
-        return self.data['numIDECdroms']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def numIDEDisks(self):
-        '''The minimum, maximum, and default number of IDE VirtualDisk instances you can
-        have, at any given time, in the IDE controller. The number is further
-        constrained by the number of available slots in the virtual IDE
-        controller.
-        '''
-        return self.data['numIDEDisks']
-
+    return obj
+    

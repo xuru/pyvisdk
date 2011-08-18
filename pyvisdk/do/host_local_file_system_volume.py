@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_file_system_volume import HostFileSystemVolume
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostLocalFileSystemVolume(HostFileSystemVolume):
-    '''Local file system volume.
-    '''
+def HostLocalFileSystemVolume(vim, *args, **kwargs):
+    '''Local file system volume.'''
     
-    def __init__(self, device):
-        # MUST define these
-        super(HostLocalFileSystemVolume, self).__init__()
+    obj = vim.client.factory.create('ns0:HostLocalFileSystemVolume')
     
-        self.data['device'] = device
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'capacity', 'name', 'type', 'device' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def device(self):
-        '''The device of the local file system.
-        '''
-        return self.data['device']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

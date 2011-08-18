@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,41 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostInternetScsiHbaDigestProperties(DynamicData):
-    '''The digest settings for this host bus adapter.
-    '''
+def HostInternetScsiHbaDigestProperties(vim, *args, **kwargs):
+    '''The digest settings for this host bus adapter.'''
     
-    def __init__(self, dataDigestInherited, dataDigestType, headerDigestInherited, headerDigestType):
-        # MUST define these
-        super(HostInternetScsiHbaDigestProperties, self).__init__()
+    obj = vim.client.factory.create('ns0:HostInternetScsiHbaDigestProperties')
     
-        self.data['dataDigestInherited'] = dataDigestInherited
-        self.data['dataDigestType'] = dataDigestType
-        self.data['headerDigestInherited'] = headerDigestInherited
-        self.data['headerDigestType'] = headerDigestType
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'dataDigestInherited', 'dataDigestType', 'headerDigestInherited',
+        'headerDigestType' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def dataDigestInherited(self):
-        '''Data digest setting is inherited
-        '''
-        return self.data['dataDigestInherited']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def dataDigestType(self):
-        '''The data digest preference if data digest is enabled
-        '''
-        return self.data['dataDigestType']
-
-    @property
-    def headerDigestInherited(self):
-        '''Header digest setting is inherited
-        '''
-        return self.data['headerDigestInherited']
-
-    @property
-    def headerDigestType(self):
-        '''The header digest preference if header digest is enabled
-        '''
-        return self.data['headerDigestType']
-
+    return obj
+    

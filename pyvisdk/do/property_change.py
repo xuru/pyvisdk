@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PropertyChange(DynamicData):
-    '''Describes a change to a property.
-    '''
+def PropertyChange(vim, *args, **kwargs):
+    '''Describes a change to a property.'''
     
-    def __init__(self, name, op):
-        # MUST define these
-        super(PropertyChange, self).__init__()
+    obj = vim.client.factory.create('ns0:PropertyChange')
     
-        self.data['name'] = name
-        self.data['op'] = op
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name', 'op' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def name(self):
-        '''Property or nested property to which the change applies. Nested properties are
-        specified by paths; for example, * foo.bar * foo.arProp["key val"] *
-        foo.arProp["key val"].baz
-        '''
-        return self.data['name']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def op(self):
-        '''Change operation for the property. Valid values are:
-        '''
-        return self.data['op']
-
+    return obj
+    

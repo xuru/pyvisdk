@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineConfigInfoDatastoreUrlPair(DynamicData):
+def VirtualMachineConfigInfoDatastoreUrlPair(vim, *args, **kwargs):
     '''Contains the name of a datastore, and its local file path on the host currently
-        affiliated with this virtual machine.
-    '''
+    affiliated with this virtual machine.'''
     
-    def __init__(self, name, url):
-        # MUST define these
-        super(VirtualMachineConfigInfoDatastoreUrlPair, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineConfigInfoDatastoreUrlPair')
     
-        self.data['name'] = name
-        self.data['url'] = url
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name', 'url' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def name(self):
-        '''
-        '''
-        return self.data['name']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def url(self):
-        '''
-        '''
-        return self.data['url']
-
+    return obj
+    

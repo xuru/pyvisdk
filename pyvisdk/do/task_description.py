@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,34 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class TaskDescription(DynamicData):
-    '''Static strings for task objects. These strings are locale-specific.
-    '''
+def TaskDescription(vim, *args, **kwargs):
+    '''Static strings for task objects. These strings are locale-specific.'''
     
-    def __init__(self, methodInfo, reason, state):
-        # MUST define these
-        super(TaskDescription, self).__init__()
+    obj = vim.client.factory.create('ns0:TaskDescription')
     
-        self.data['methodInfo'] = methodInfo
-        self.data['reason'] = reason
-        self.data['state'] = state
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'methodInfo', 'reason', 'state' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def methodInfo(self):
-        '''Display label and summary for all tasks
-        '''
-        return self.data['methodInfo']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def reason(self):
-        '''Kind of entity responsible for creating this task.
-        '''
-        return self.data['reason']
-
-    @property
-    def state(self):
-        '''TaskInfo State enum
-        '''
-        return self.data['state']
-
+    return obj
+    

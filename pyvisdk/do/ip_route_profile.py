@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.apply_profile import ApplyProfile
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class IpRouteProfile(ApplyProfile):
-    '''DataObject representing the Ip Route configuration.
-    '''
+def IpRouteProfile(vim, *args, **kwargs):
+    '''DataObject representing the Ip Route configuration.'''
     
-    def __init__(self, staticRoute):
-        # MUST define these
-        super(IpRouteProfile, self).__init__()
+    obj = vim.client.factory.create('ns0:IpRouteProfile')
     
-        self.data['staticRoute'] = staticRoute
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'policy', 'staticRoute' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def staticRoute(self):
-        '''Static routes that need to be configured
-        '''
-        return self.data['staticRoute']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

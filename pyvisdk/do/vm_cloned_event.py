@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_clone_event import VmCloneEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmClonedEvent(VmCloneEvent):
-    '''This event records the completion of a virtual machine cloning operation.
-    '''
+def VmClonedEvent(vim, *args, **kwargs):
+    '''This event records the completion of a virtual machine cloning operation.'''
     
-    def __init__(self, sourceVm):
-        # MUST define these
-        super(VmClonedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmClonedEvent')
     
-        self.data['sourceVm'] = sourceVm
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'sourceVm' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def sourceVm(self):
-        '''The source virtual machine for the clone operation.
-        '''
-        return self.data['sourceVm']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

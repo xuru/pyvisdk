@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,43 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchPortConnectee(DynamicData):
-    '''Information about the entity that connects to a DistributedVirtualPort.
-    '''
+def DistributedVirtualSwitchPortConnectee(vim, *args, **kwargs):
+    '''Information about the entity that connects to a DistributedVirtualPort.'''
     
-    def __init__(self, addressHint, connectedEntity, nicKey, type):
-        # MUST define these
-        super(DistributedVirtualSwitchPortConnectee, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchPortConnectee')
     
-        self.data['addressHint'] = addressHint
-        self.data['connectedEntity'] = connectedEntity
-        self.data['nicKey'] = nicKey
-        self.data['type'] = type
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'addressHint', 'connectedEntity', 'nicKey', 'type' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def addressHint(self):
-        '''A hint on address information of the NIC that connects to this port.
-        '''
-        return self.data['addressHint']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def connectedEntity(self):
-        '''The connected entity. This property should always be set unless the user's setting
-        does not have System.Read privilege on the object referred to by this
-        property.
-        '''
-        return self.data['connectedEntity']
-
-    @property
-    def nicKey(self):
-        '''The key of the virtual NIC that connects to this port.
-        '''
-        return self.data['nicKey']
-
-    @property
-    def type(self):
-        '''The type of the connectee. See ConnecteeType for valid values.
-        '''
-        return self.data['type']
-
+    return obj
+    

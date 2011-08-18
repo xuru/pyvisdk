@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,59 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostStorageDeviceInfo(DynamicData):
-    '''This data object type describes the storage subsystem configuration.
-    '''
+def HostStorageDeviceInfo(vim, *args, **kwargs):
+    '''This data object type describes the storage subsystem configuration.'''
     
-    def __init__(self, hostBusAdapter, multipathInfo, plugStoreTopology, scsiLun, scsiTopology, softwareInternetScsiEnabled):
-        # MUST define these
-        super(HostStorageDeviceInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostStorageDeviceInfo')
     
-        self.data['hostBusAdapter'] = hostBusAdapter
-        self.data['multipathInfo'] = multipathInfo
-        self.data['plugStoreTopology'] = plugStoreTopology
-        self.data['scsiLun'] = scsiLun
-        self.data['scsiTopology'] = scsiTopology
-        self.data['softwareInternetScsiEnabled'] = softwareInternetScsiEnabled
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'hostBusAdapter', 'multipathInfo', 'plugStoreTopology', 'scsiLun',
+        'scsiTopology', 'softwareInternetScsiEnabled' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def hostBusAdapter(self):
-        '''The list of host bus adapters available on the host.
-        '''
-        return self.data['hostBusAdapter']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def multipathInfo(self):
-        '''The multipath configuration that controls multipath policy for ScsiLuns. This data
-        object exists only if path information is available and is configurable.
-        '''
-        return self.data['multipathInfo']
-
-    @property
-    def plugStoreTopology(self):
-        '''The plug-store topology on the host system. This data object exists only if the
-        plug-store system is available and configurable.
-        '''
-        return self.data['plugStoreTopology']
-
-    @property
-    def scsiLun(self):
-        '''The list of SCSI logical units available on the host.
-        '''
-        return self.data['scsiLun']
-
-    @property
-    def scsiTopology(self):
-        '''Storage topology view of SCSI storage devices. This data object exists only if
-        storage topology information is available. See the ScsiTopology data
-        object type for more information.
-        '''
-        return self.data['scsiTopology']
-
-    @property
-    def softwareInternetScsiEnabled(self):
-        '''Indicates if the software iSCSI initiator is enabled on this system
-        '''
-        return self.data['softwareInternetScsiEnabled']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,52 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class OvfResourceMap(DynamicData):
-    '''Maps source child entities to destination resource pools and resource settings. If
-        a mapping is not specified, a child is copied as a direct child of the
-        parent.
-    '''
+def OvfResourceMap(vim, *args, **kwargs):
+    '''Maps source child entities to destination resource pools and resource settings.
+    If a mapping is not specified, a child is copied as a direct child of the
+    parent.'''
     
-    def __init__(self, datastore, parent, resourceSpec, source):
-        # MUST define these
-        super(OvfResourceMap, self).__init__()
+    obj = vim.client.factory.create('ns0:OvfResourceMap')
     
-        self.data['datastore'] = datastore
-        self.data['parent'] = parent
-        self.data['resourceSpec'] = resourceSpec
-        self.data['source'] = source
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'datastore', 'parent', 'resourceSpec', 'source' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def datastore(self):
-        '''A client can optionally specify a datastore location in the resource map to
-        override the default datastore passed into CreateImportSpec field. This
-        enables importing to different compute resources that do not have shared
-        datastores.
-        '''
-        return self.data['datastore']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def parent(self):
-        '''The parent resource pool to use for the entity. This must specify a resource pool
-        that is not part of the vApp. If this is specified, a linked child (as
-        opposed to a direct child) is created for the vApp.
-        '''
-        return self.data['parent']
-
-    @property
-    def resourceSpec(self):
-        '''An optional resource configuration for the created entity. If not specified, the
-        resource configuration given in the OVF descriptor is used.
-        '''
-        return self.data['resourceSpec']
-
-    @property
-    def source(self):
-        '''Identifies a source VirtualSystem or VirtualSystemCollection in an OVF descriptor.
-        The source cannot be the root VirtualSystem or VirtualSystemCollection of
-        the OVF. This is a path created by concatenating the OVF ids for each
-        entity, e.g., "vm1", "WebTier/vm2", etc.
-        '''
-        return self.data['source']
-
+    return obj
+    

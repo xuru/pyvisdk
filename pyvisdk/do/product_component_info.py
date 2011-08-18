@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,48 +8,27 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProductComponentInfo(DynamicData):
+def ProductComponentInfo(vim, *args, **kwargs):
     '''ProductComponentInfo data object type describes installed components. Product
-        component is defined as a software module that is released and versioned
-        independently but has dependency relationship with other products. If one
-        product, for usability or any other reason, bundles other products,
-        ProductComponentInfo type may be used to describe installed components.
-        For example, ESX product may bundle VI Client in its releases.
-    '''
+    component is defined as a software module that is released and versioned
+    independently but has dependency relationship with other products. If one
+    product, for usability or any other reason, bundles other products,
+    ProductComponentInfo type may be used to describe installed components. For
+    example, ESX product may bundle VI Client in its releases.'''
     
-    def __init__(self, id, name, release, version):
-        # MUST define these
-        super(ProductComponentInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ProductComponentInfo')
     
-        self.data['id'] = id
-        self.data['name'] = name
-        self.data['release'] = release
-        self.data['version'] = version
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'id', 'name', 'release', 'version' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def id(self):
-        '''Opaque identifier that is unique for this product component
-        '''
-        return self.data['id']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def name(self):
-        '''Canonical name of product component
-        '''
-        return self.data['name']
-
-    @property
-    def release(self):
-        '''Release property is a number which increments with each new release of product.
-        Product release may not rev version but release number is always
-        incremented.
-        '''
-        return self.data['release']
-
-    @property
-    def version(self):
-        '''Version of product component
-        '''
-        return self.data['version']
-
+    return obj
+    

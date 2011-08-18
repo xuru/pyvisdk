@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_option import VirtualDeviceOption
 import logging
 
 ########################################
@@ -8,44 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualVideoCardOption(VirtualDeviceOption):
+def VirtualVideoCardOption(vim, *args, **kwargs):
     '''This data object type contains the options for the VirtualVideoCard data object
-        type.
-    '''
+    type.'''
     
-    def __init__(self, numDisplays, support3D, useAutoDetect, videoRamSizeInKB):
-        # MUST define these
-        super(VirtualVideoCardOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualVideoCardOption')
     
-        self.data['numDisplays'] = numDisplays
-        self.data['support3D'] = support3D
-        self.data['useAutoDetect'] = useAutoDetect
-        self.data['videoRamSizeInKB'] = videoRamSizeInKB
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
+        'defaultBackingOptionIndex', 'deprecated', 'hotRemoveSupported',
+        'licensingLimit', 'plugAndPlay', 'type', 'numDisplays', 'support3D',
+        'useAutoDetect', 'videoRamSizeInKB' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def numDisplays(self):
-        '''Minimum, maximum and default value for the number of displays.
-        '''
-        return self.data['numDisplays']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def support3D(self):
-        '''Flag to indicate whether the virtual video card supports 3D functions.
-        '''
-        return self.data['support3D']
-
-    @property
-    def useAutoDetect(self):
-        '''Flag to indicate whether the display settings of the host should be used to
-        automatically determine the display settings of the virtual machine's
-        video card.
-        '''
-        return self.data['useAutoDetect']
-
-    @property
-    def videoRamSizeInKB(self):
-        '''Minimum, maximum and default size of the video frame buffer.
-        '''
-        return self.data['videoRamSizeInKB']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,15 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostVirtualSwitchBridge(DynamicData):
+def HostVirtualSwitchBridge(vim, *args, **kwargs):
     '''A bridge connects a virtual switch to a physical network adapter. There are
-        multiple types of bridges.
-    '''
+    multiple types of bridges.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(HostVirtualSwitchBridge, self).__init__()
+    obj = vim.client.factory.create('ns0:HostVirtualSwitchBridge')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [  ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,30 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ComplianceLocator(DynamicData):
+def ComplianceLocator(vim, *args, **kwargs):
     '''This dataObject contains information about location of applyProfile which was
-        responsible for generation of a particular ComplianceExpression.
-    '''
+    responsible for generation of a particular ComplianceExpression.'''
     
-    def __init__(self, applyPath, expressionName):
-        # MUST define these
-        super(ComplianceLocator, self).__init__()
+    obj = vim.client.factory.create('ns0:ComplianceLocator')
     
-        self.data['applyPath'] = applyPath
-        self.data['expressionName'] = expressionName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'applyPath', 'expressionName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def applyPath(self):
-        '''Complete path to the profile/policy which was responsible for the generation of
-        the ComplianceExpression. [ProfilePath + policyId] will uniquely identify
-        a Policy.
-        '''
-        return self.data['applyPath']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def expressionName(self):
-        '''Exression for which the Locator corresponds to
-        '''
-        return self.data['expressionName']
-
+    return obj
+    

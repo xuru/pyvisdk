@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.file_query import FileQuery
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmDiskFileQuery(FileQuery):
+def VmDiskFileQuery(vim, *args, **kwargs):
     '''This data object type describes the query specification for the virtual disk
-        primary file.
-    '''
+    primary file.'''
     
-    def __init__(self, details, filter):
-        # MUST define these
-        super(VmDiskFileQuery, self).__init__()
+    obj = vim.client.factory.create('ns0:VmDiskFileQuery')
     
-        self.data['details'] = details
-        self.data['filter'] = filter
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'details', 'filter' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def details(self):
-        '''Details specification for the virtual disk primary file query.
-        '''
-        return self.data['details']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def filter(self):
-        '''The filter specification for the virtual disk primary file query.
-        '''
-        return self.data['filter']
-
+    return obj
+    

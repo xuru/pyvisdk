@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PhysicalNicConfig(DynamicData):
-    '''The configuration of the physical network adapter containing both the configurable
-        properties and identification information.
-    '''
+def PhysicalNicConfig(vim, *args, **kwargs):
+    '''The configuration of the physical network adapter containing both the
+    configurable properties and identification information.'''
     
-    def __init__(self, device, spec):
-        # MUST define these
-        super(PhysicalNicConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:PhysicalNicConfig')
     
-        self.data['device'] = device
-        self.data['spec'] = spec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'device', 'spec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def device(self):
-        '''PhysicalNic device to which configuration applies.
-        '''
-        return self.data['device']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def spec(self):
-        '''The specification of the physical network adapter.
-        '''
-        return self.data['spec']
-
+    return obj
+    

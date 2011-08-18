@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class TaskFilterSpecByEntity(DynamicData):
-    '''This data object type specifies a managed entity used to filter task history.
-    '''
+def TaskFilterSpecByEntity(vim, *args, **kwargs):
+    '''This data object type specifies a managed entity used to filter task history.'''
     
-    def __init__(self, entity, recursion):
-        # MUST define these
-        super(TaskFilterSpecByEntity, self).__init__()
+    obj = vim.client.factory.create('ns0:TaskFilterSpecByEntity')
     
-        self.data['entity'] = entity
-        self.data['recursion'] = recursion
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'entity', 'recursion' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def entity(self):
-        '''The managed entity to which the task pertains.
-        '''
-        return self.data['entity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def recursion(self):
-        '''Specification of related managed entities in the inventory hierarchy.
-        '''
-        return self.data['recursion']
-
+    return obj
+    

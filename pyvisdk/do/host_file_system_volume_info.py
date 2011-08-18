@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,29 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostFileSystemVolumeInfo(DynamicData):
+def HostFileSystemVolumeInfo(vim, *args, **kwargs):
     '''The HostFileSystemVolumeInfo data object describes the file system volume
-        information for the host.A file system volume refers to a storage
-        abstraction that allows files to be created and organized. A host can have
-        multiple file system volumes. File system volumes are typically mounted
-        into a file namespace that allows all files in mounted file systems to be
-        addressable from the host.A file system volume is backed by disk storage.
-        It could span one or more disks but need not use an entire disk.A file
-        system volume by definition must be mounted on the file system in order to
-        exist.
-    '''
+    information for the host.A file system volume refers to a storage abstraction
+    that allows files to be created and organized. A host can have multiple file
+    system volumes. File system volumes are typically mounted into a file namespace
+    that allows all files in mounted file systems to be addressable from the host.A
+    file system volume is backed by disk storage. It could span one or more disks
+    but need not use an entire disk.A file system volume by definition must be
+    mounted on the file system in order to exist.'''
     
-    def __init__(self, mountInfo, volumeTypeList):
-        # MUST define these
-        super(HostFileSystemVolumeInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostFileSystemVolumeInfo')
     
-        self.data['mountInfo'] = mountInfo
-        self.data['volumeTypeList'] = volumeTypeList
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'mountInfo', 'volumeTypeList' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def mountInfo(self):
-        '''The list of file system volumes mounted on the host.
-        '''
-        return self.data['mountInfo']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def volumeTypeList(self):
-        '''The list of supported file system volume types.
-        '''
-        return self.data['volumeTypeList']
-
+    return obj
+    

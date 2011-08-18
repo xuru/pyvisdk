@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ScsiLunDescriptor(DynamicData):
+def ScsiLunDescriptor(vim, *args, **kwargs):
     '''A structure that encapsulates an identifier and its properties for the ScsiLun
-        object.
-    '''
+    object.'''
     
-    def __init__(self, id, quality):
-        # MUST define these
-        super(ScsiLunDescriptor, self).__init__()
+    obj = vim.client.factory.create('ns0:ScsiLunDescriptor')
     
-        self.data['id'] = id
-        self.data['quality'] = quality
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'id', 'quality' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def id(self):
-        '''The identifier represented as a string.
-        '''
-        return self.data['id']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def quality(self):
-        '''An indicator of the utility of the descriptor as an identifier that is stable,
-        unique, and correlatable.
-        '''
-        return self.data['quality']
-
+    return obj
+    

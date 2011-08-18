@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HealthSystemRuntime(DynamicData):
-    '''The system health runtime information
-    '''
+def HealthSystemRuntime(vim, *args, **kwargs):
+    '''The system health runtime information'''
     
-    def __init__(self, hardwareStatusInfo, systemHealthInfo):
-        # MUST define these
-        super(HealthSystemRuntime, self).__init__()
+    obj = vim.client.factory.create('ns0:HealthSystemRuntime')
     
-        self.data['hardwareStatusInfo'] = hardwareStatusInfo
-        self.data['systemHealthInfo'] = systemHealthInfo
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'hardwareStatusInfo', 'systemHealthInfo' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def hardwareStatusInfo(self):
-        '''Available hardware health information
-        '''
-        return self.data['hardwareStatusInfo']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def systemHealthInfo(self):
-        '''Available system health information
-        '''
-        return self.data['systemHealthInfo']
-
+    return obj
+    

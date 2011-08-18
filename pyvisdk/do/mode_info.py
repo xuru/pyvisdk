@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,57 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ModeInfo(DynamicData):
+def ModeInfo(vim, *args, **kwargs):
     '''The FileAccess.Modes data object type defines the known access modes for a
-        datastore. The property values specify how to interpret the "what"
-        property for a FileAccess object.
-    '''
+    datastore. The property values specify how to interpret the "what" property for
+    a FileAccess object.'''
     
-    def __init__(self, admin, browse, full, modify, read, use):
-        # MUST define these
-        super(ModeInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ModeInfo')
     
-        self.data['admin'] = admin
-        self.data['browse'] = browse
-        self.data['full'] = full
-        self.data['modify'] = modify
-        self.data['read'] = read
-        self.data['use'] = use
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'admin', 'browse', 'full', 'modify', 'read', 'use' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def admin(self):
-        '''Can change permissions for a file.
-        '''
-        return self.data['admin']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def browse(self):
-        '''Can see the existence of a file.
-        '''
-        return self.data['browse']
-
-    @property
-    def full(self):
-        '''Can do anything to a file, including change permissions.
-        '''
-        return self.data['full']
-
-    @property
-    def modify(self):
-        '''Can read and write a file.
-        '''
-        return self.data['modify']
-
-    @property
-    def read(self):
-        '''Can read a file.
-        '''
-        return self.data['read']
-
-    @property
-    def use(self):
-        '''Can execute or operate a file or look inside a directory.
-        '''
-        return self.data['use']
-
+    return obj
+    

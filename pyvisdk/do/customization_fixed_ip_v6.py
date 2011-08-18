@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.customization_ip_v6_generator import CustomizationIpV6Generator
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationFixedIpV6(CustomizationIpV6Generator):
-    '''Use a static ipv6 address for the virtual network adapter
-    '''
+def CustomizationFixedIpV6(vim, *args, **kwargs):
+    '''Use a static ipv6 address for the virtual network adapter'''
     
-    def __init__(self, ipAddress, subnetMask):
-        # MUST define these
-        super(CustomizationFixedIpV6, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationFixedIpV6')
     
-        self.data['ipAddress'] = ipAddress
-        self.data['subnetMask'] = subnetMask
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'ipAddress', 'subnetMask' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ipAddress(self):
-        '''
-        '''
-        return self.data['ipAddress']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def subnetMask(self):
-        '''
-        '''
-        return self.data['subnetMask']
-
+    return obj
+    

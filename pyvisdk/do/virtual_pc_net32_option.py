@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_ethernet_card_option import VirtualEthernetCardOption
 import logging
 
 ########################################
@@ -8,26 +8,28 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualPCNet32Option(VirtualEthernetCardOption):
+def VirtualPCNet32Option(vim, *args, **kwargs):
     '''The VirtualPCNet32Option data object type defines the options for the
-        VirtualPCNet32 data object type. Except for the boolean supportsMorphing
-        option, the options are inherited from the VirtualEthernetCardOption data
-        object type.
-    '''
+    VirtualPCNet32 data object type. Except for the boolean supportsMorphing
+    option, the options are inherited from the VirtualEthernetCardOption data
+    object type.'''
     
-    def __init__(self, supportsMorphing):
-        # MUST define these
-        super(VirtualPCNet32Option, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualPCNet32Option')
     
-        self.data['supportsMorphing'] = supportsMorphing
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
+        'defaultBackingOptionIndex', 'deprecated', 'hotRemoveSupported',
+        'licensingLimit', 'plugAndPlay', 'type', 'macType', 'supportedOUI',
+        'supportsMorphing' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def supportsMorphing(self):
-        '''Indicates that this Ethernet card supports morphing into vmxnet when appropriate.
-        This means that, if supportsMorphing="true", the virtual AMD Lance PCNet32
-        Ethernet card becomes a vmxnet Ethernet card with its added performance
-        capabilities when appropriate.
-        '''
-        return self.data['supportsMorphing']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

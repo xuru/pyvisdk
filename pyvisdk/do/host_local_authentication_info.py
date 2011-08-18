@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_authentication_store_info import HostAuthenticationStoreInfo
 import logging
 
 ########################################
@@ -8,15 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostLocalAuthenticationInfo(HostAuthenticationStoreInfo):
-    '''The HostLocalAuthenticationInfo data object represents local authentication on the
-        ESX host. Local authentication is always enabled.
-    '''
+def HostLocalAuthenticationInfo(vim, *args, **kwargs):
+    '''The HostLocalAuthenticationInfo data object represents local authentication on
+    the ESX host. Local authentication is always enabled.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(HostLocalAuthenticationInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostLocalAuthenticationInfo')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

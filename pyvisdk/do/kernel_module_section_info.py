@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class KernelModuleSectionInfo(DynamicData):
-    '''Information about a module section.
-    '''
+def KernelModuleSectionInfo(vim, *args, **kwargs):
+    '''Information about a module section.'''
     
-    def __init__(self, address, length):
-        # MUST define these
-        super(KernelModuleSectionInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:KernelModuleSectionInfo')
     
-        self.data['address'] = address
-        self.data['length'] = length
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'address', 'length' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def address(self):
-        '''Base address of section.
-        '''
-        return self.data['address']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def length(self):
-        '''Section length.
-        '''
-        return self.data['length']
-
+    return obj
+    

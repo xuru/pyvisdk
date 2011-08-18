@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ExtensionPrivilegeInfo(DynamicData):
-    '''This data object type describes privileges defined by the extension.
-    '''
+def ExtensionPrivilegeInfo(vim, *args, **kwargs):
+    '''This data object type describes privileges defined by the extension.'''
     
-    def __init__(self, privGroupName, privID):
-        # MUST define these
-        super(ExtensionPrivilegeInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ExtensionPrivilegeInfo')
     
-        self.data['privGroupName'] = privGroupName
-        self.data['privID'] = privID
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'privGroupName', 'privID' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def privGroupName(self):
-        '''Hierarchical group name. Each level of the grouping hierarchy is separated by a
-        "." so group names may not include a ".". privGroupName.
-        '''
-        return self.data['privGroupName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def privID(self):
-        '''The ID of the privilege. The format should be "<group name>.<privilege name>". The
-        group name should be the same as the privGroupName property.
-        '''
-        return self.data['privID']
-
+    return obj
+    

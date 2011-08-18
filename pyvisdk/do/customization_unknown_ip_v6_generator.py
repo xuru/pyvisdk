@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.customization_ip_v6_generator import CustomizationIpV6Generator
 import logging
 
 ########################################
@@ -8,15 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationUnknownIpV6Generator(CustomizationIpV6Generator):
-    '''The ipv6 address is left unspecified. The user must be prompted to supply an ipv6
-        address.
-    '''
+def CustomizationUnknownIpV6Generator(vim, *args, **kwargs):
+    '''The ipv6 address is left unspecified. The user must be prompted to supply an
+    ipv6 address.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(CustomizationUnknownIpV6Generator, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationUnknownIpV6Generator')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [  ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

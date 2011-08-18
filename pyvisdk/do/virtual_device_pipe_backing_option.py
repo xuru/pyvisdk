@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_backing_option import VirtualDeviceBackingOption
 import logging
 
 ########################################
@@ -8,14 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDevicePipeBackingOption(VirtualDeviceBackingOption):
-    '''The data object type contains options specific to pipe backings.
-    '''
+def VirtualDevicePipeBackingOption(vim, *args, **kwargs):
+    '''The data object type contains options specific to pipe backings.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VirtualDevicePipeBackingOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDevicePipeBackingOption')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'type' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

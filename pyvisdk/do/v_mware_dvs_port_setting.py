@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dv_port_setting import DVPortSetting
 import logging
 
 ########################################
@@ -8,48 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VMwareDVSPortSetting(DVPortSetting):
-    '''This class defines the VMware specific configuration for DistributedVirtualPort.
-    '''
+def VMwareDVSPortSetting(vim, *args, **kwargs):
+    '''This class defines the VMware specific configuration for
+    DistributedVirtualPort.'''
     
-    def __init__(self, qosTag, securityPolicy, txUplink, uplinkTeamingPolicy, vlan):
-        # MUST define these
-        super(VMwareDVSPortSetting, self).__init__()
+    obj = vim.client.factory.create('ns0:VMwareDVSPortSetting')
     
-        self.data['qosTag'] = qosTag
-        self.data['securityPolicy'] = securityPolicy
-        self.data['txUplink'] = txUplink
-        self.data['uplinkTeamingPolicy'] = uplinkTeamingPolicy
-        self.data['vlan'] = vlan
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'blocked', 'inShapingPolicy', 'outShapingPolicy', 'vendorSpecificConfig',
+        'vmDirectPathGen2Allowed', 'qosTag', 'securityPolicy', 'txUplink',
+        'uplinkTeamingPolicy', 'vlan' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def qosTag(self):
-        '''This property is currently not supported.
-        '''
-        return self.data['qosTag']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def securityPolicy(self):
-        '''The security policy.
-        '''
-        return self.data['securityPolicy']
-
-    @property
-    def txUplink(self):
-        '''Whether this should forward all incoming traffic out an uplink
-        '''
-        return self.data['txUplink']
-
-    @property
-    def uplinkTeamingPolicy(self):
-        '''The uplink teaming policy. This property is ignored for uplink ports.
-        '''
-        return self.data['uplinkTeamingPolicy']
-
-    @property
-    def vlan(self):
-        '''The VLAN Specification of the port.
-        '''
-        return self.data['vlan']
-
+    return obj
+    

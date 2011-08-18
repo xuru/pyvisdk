@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class RetrieveResult(DynamicData):
-    '''Result of RetrievePropertiesEx and ContinueRetrievePropertiesEx
-    '''
+def RetrieveResult(vim, *args, **kwargs):
+    '''Result of RetrievePropertiesEx and ContinueRetrievePropertiesEx'''
     
-    def __init__(self, objects, token):
-        # MUST define these
-        super(RetrieveResult, self).__init__()
+    obj = vim.client.factory.create('ns0:RetrieveResult')
     
-        self.data['objects'] = objects
-        self.data['token'] = token
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'objects', 'token' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def objects(self):
-        '''retrieved objects.
-        '''
-        return self.data['objects']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def token(self):
-        '''A token used to retrieve further retrieve results.
-        '''
-        return self.data['token']
-
+    return obj
+    

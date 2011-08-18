@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,51 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterDrsRecommendation(DynamicData):
+def ClusterDrsRecommendation(vim, *args, **kwargs):
     '''DrsRecommendation describes a recommendation to migrate one or more virtual
-        machines.
-    '''
+    machines.'''
     
-    def __init__(self, key, migrationList, rating, reason, reasonText):
-        # MUST define these
-        super(ClusterDrsRecommendation, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterDrsRecommendation')
     
-        self.data['key'] = key
-        self.data['migrationList'] = migrationList
-        self.data['rating'] = rating
-        self.data['reason'] = reason
-        self.data['reasonText'] = reasonText
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'migrationList', 'rating', 'reason', 'reasonText' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''Key to identify the recommendation when calling applyRecommendation.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def migrationList(self):
-        '''
-        '''
-        return self.data['migrationList']
-
-    @property
-    def rating(self):
-        '''A rating of the recommendation. Valid values range from 1 (lowest confidence) to 5
-        (highest confidence).
-        '''
-        return self.data['rating']
-
-    @property
-    def reason(self):
-        '''A reason code explaining why this set of migrations is being suggested.
-        '''
-        return self.data['reason']
-
-    @property
-    def reasonText(self):
-        '''Text that provides more information about the reason code for the suggested set of
-        migrations.
-        '''
-        return self.data['reasonText']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.option_type import OptionType
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ChoiceOption(OptionType):
+def ChoiceOption(vim, *args, **kwargs):
     '''The ChoiceOption data object type defines a set of supported string values, a
-        localizable description for each value, and the default value.
-    '''
+    localizable description for each value, and the default value.'''
     
-    def __init__(self, choiceInfo, defaultIndex):
-        # MUST define these
-        super(ChoiceOption, self).__init__()
+    obj = vim.client.factory.create('ns0:ChoiceOption')
     
-        self.data['choiceInfo'] = choiceInfo
-        self.data['defaultIndex'] = defaultIndex
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'valueIsReadonly', 'choiceInfo', 'defaultIndex' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def choiceInfo(self):
-        '''The set of possible selections and descriptions.
-        '''
-        return self.data['choiceInfo']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def defaultIndex(self):
-        '''The index in ChoiceOption.value that serves as the default value.
-        '''
-        return self.data['defaultIndex']
-
+    return obj
+    

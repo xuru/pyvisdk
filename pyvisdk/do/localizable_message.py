@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LocalizableMessage(DynamicData):
-    '''
-    '''
+def LocalizableMessage(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, arg, key, message):
-        # MUST define these
-        super(LocalizableMessage, self).__init__()
+    obj = vim.client.factory.create('ns0:LocalizableMessage')
     
-        self.data['arg'] = arg
-        self.data['key'] = key
-        self.data['message'] = message
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'arg', 'key', 'message' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def arg(self):
-        '''If the localized message contains variables, messageArg will provide the values
-        for the arguments. e.g: If the message is "IP address is {address}", value
-        for "address" will be provided by #arg.
-        '''
-        return self.data['arg']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def key(self):
-        '''Unique key identifying the message in the localized message catalog.
-        '''
-        return self.data['key']
-
-    @property
-    def message(self):
-        '''Message in server locale. This message need not be localized.
-        '''
-        return self.data['message']
-
+    return obj
+    

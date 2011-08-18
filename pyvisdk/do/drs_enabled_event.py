@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.cluster_event import ClusterEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DrsEnabledEvent(ClusterEvent):
-    '''This event records when DRS is enabled on a cluster.
-    '''
+def DrsEnabledEvent(vim, *args, **kwargs):
+    '''This event records when DRS is enabled on a cluster.'''
     
-    def __init__(self, behavior):
-        # MUST define these
-        super(DrsEnabledEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DrsEnabledEvent')
     
-        self.data['behavior'] = behavior
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'behavior' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def behavior(self):
-        '''The DRS automation level in (DrsBehavior)
-        '''
-        return self.data['behavior']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

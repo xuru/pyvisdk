@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.customization_identity_settings import CustomizationIdentitySettings
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationSysprepText(CustomizationIdentitySettings):
-    '''An alternate way to specify the answer file. This string is more or less written
-        exactly to the answer file on the target virtual disk.
-    '''
+def CustomizationSysprepText(vim, *args, **kwargs):
+    '''An alternate way to specify the answer file. This string is more or less
+    written exactly to the answer file on the target virtual disk.'''
     
-    def __init__(self, value):
-        # MUST define these
-        super(CustomizationSysprepText, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationSysprepText')
     
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def value(self):
-        '''Text for the
-        '''
-        return self.data['value']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

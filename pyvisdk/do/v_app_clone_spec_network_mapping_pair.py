@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VAppCloneSpecNetworkMappingPair(DynamicData):
-    '''Maps one network to another as part of the clone process.Instances of this class
-        are used in the field networkMapping
-    '''
+def VAppCloneSpecNetworkMappingPair(vim, *args, **kwargs):
+    '''Maps one network to another as part of the clone process.Instances of this
+    class are used in the field networkMapping'''
     
-    def __init__(self, destination, source):
-        # MUST define these
-        super(VAppCloneSpecNetworkMappingPair, self).__init__()
+    obj = vim.client.factory.create('ns0:VAppCloneSpecNetworkMappingPair')
     
-        self.data['destination'] = destination
-        self.data['source'] = source
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'destination', 'source' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def destination(self):
-        '''The destination network
-        '''
-        return self.data['destination']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def source(self):
-        '''The source network
-        '''
-        return self.data['source']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_pipe_backing_option import VirtualDevicePipeBackingOption
 import logging
 
 ########################################
@@ -8,30 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualSerialPortPipeBackingOption(VirtualDevicePipeBackingOption):
-    '''The data object contains the options for backing a serial port device with a pipe
-        to another process.
-    '''
+def VirtualSerialPortPipeBackingOption(vim, *args, **kwargs):
+    '''The data object contains the options for backing a serial port device with a
+    pipe to another process.'''
     
-    def __init__(self, endpoint, noRxLoss):
-        # MUST define these
-        super(VirtualSerialPortPipeBackingOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualSerialPortPipeBackingOption')
     
-        self.data['endpoint'] = endpoint
-        self.data['noRxLoss'] = noRxLoss
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'type', 'endpoint', 'noRxLoss' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def endpoint(self):
-        '''Indicates the choices available and the default setting for the pipe endpoint. As
-        an endpoint, the virtual machine can act as a client or a server.
-        '''
-        return self.data['endpoint']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def noRxLoss(self):
-        '''Indicates whether the server supports optimized data transfer over the pipe and
-        also specifies default behavior.
-        '''
-        return self.data['noRxLoss']
-
+    return obj
+    

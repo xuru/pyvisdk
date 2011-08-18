@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_target_transport import HostTargetTransport
 import logging
 
 ########################################
@@ -8,34 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostInternetScsiTargetTransport(HostTargetTransport):
-    '''Internet SCSI transport information about a SCSI target.
-    '''
+def HostInternetScsiTargetTransport(vim, *args, **kwargs):
+    '''Internet SCSI transport information about a SCSI target.'''
     
-    def __init__(self, address, iScsiAlias, iScsiName):
-        # MUST define these
-        super(HostInternetScsiTargetTransport, self).__init__()
+    obj = vim.client.factory.create('ns0:HostInternetScsiTargetTransport')
     
-        self.data['address'] = address
-        self.data['iScsiAlias'] = iScsiAlias
-        self.data['iScsiName'] = iScsiName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'address', 'iScsiAlias', 'iScsiName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def address(self):
-        '''The IP addresses through which the target may be reached.
-        '''
-        return self.data['address']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def iScsiAlias(self):
-        '''The iSCSI alias of the target.
-        '''
-        return self.data['iScsiAlias']
-
-    @property
-    def iScsiName(self):
-        '''The iSCSI name of the target.
-        '''
-        return self.data['iScsiName']
-
+    return obj
+    

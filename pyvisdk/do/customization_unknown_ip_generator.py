@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.customization_ip_generator import CustomizationIpGenerator
 import logging
 
 ########################################
@@ -8,15 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationUnknownIpGenerator(CustomizationIpGenerator):
+def CustomizationUnknownIpGenerator(vim, *args, **kwargs):
     '''The IP address is left unspecified. The user must be prompted to supply an IP
-        address.
-    '''
+    address.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(CustomizationUnknownIpGenerator, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationUnknownIpGenerator')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [  ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

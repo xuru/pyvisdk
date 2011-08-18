@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,37 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterDpmHostConfigInfo(DynamicData):
+def ClusterDpmHostConfigInfo(vim, *args, **kwargs):
     '''DPM configuration for a single host. This makes it possible to override the
-        default behavior for an individual host.
-    '''
+    default behavior for an individual host.'''
     
-    def __init__(self, behavior, enabled, key):
-        # MUST define these
-        super(ClusterDpmHostConfigInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterDpmHostConfigInfo')
     
-        self.data['behavior'] = behavior
-        self.data['enabled'] = enabled
-        self.data['key'] = key
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'behavior', 'enabled', 'key' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def behavior(self):
-        '''Specifies the particular DPM behavior for this host.
-        '''
-        return self.data['behavior']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def enabled(self):
-        '''Flag to indicate whether or not VirtualCenter is allowed to perform any power
-        related operations or recommendations for this host. If this flag is
-        false, the host is effectively excluded from DPM service.
-        '''
-        return self.data['enabled']
-
-    @property
-    def key(self):
-        '''Reference to the host.
-        '''
-        return self.data['key']
-
+    return obj
+    

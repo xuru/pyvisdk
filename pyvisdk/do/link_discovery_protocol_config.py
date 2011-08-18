@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,30 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LinkDiscoveryProtocolConfig(DynamicData):
-    '''Dataobject representing the link discovery protocol configuration for a virtual or
-        distributed virtual switch.
-    '''
+def LinkDiscoveryProtocolConfig(vim, *args, **kwargs):
+    '''Dataobject representing the link discovery protocol configuration for a virtual
+    or distributed virtual switch.'''
     
-    def __init__(self, operation, protocol):
-        # MUST define these
-        super(LinkDiscoveryProtocolConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:LinkDiscoveryProtocolConfig')
     
-        self.data['operation'] = operation
-        self.data['protocol'] = protocol
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'operation', 'protocol' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def operation(self):
-        '''Whether to advertise or listen. For valid values see
-        LinkDiscoveryProtocolConfigOperationType.
-        '''
-        return self.data['operation']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def protocol(self):
-        '''The discovery protocol type. For valid values see
-        LinkDiscoveryProtocolConfigProtocolType.
-        '''
-        return self.data['protocol']
-
+    return obj
+    

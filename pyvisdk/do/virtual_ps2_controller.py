@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_controller import VirtualController
 import logging
 
 ########################################
@@ -8,15 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualPS2Controller(VirtualController):
+def VirtualPS2Controller(vim, *args, **kwargs):
     '''The VirtualPS2Controller data object type represents a controller for keyboards
-        and mice.
-    '''
+    and mice.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VirtualPS2Controller, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualPS2Controller')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'key', 'unitNumber',
+        'busNumber', 'device' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

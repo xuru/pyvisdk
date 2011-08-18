@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostVMotionNetConfig(DynamicData):
-    '''The NetConfig data object type contains the networking configuration for VMotion
-        operations.
-    '''
+def HostVMotionNetConfig(vim, *args, **kwargs):
+    '''The NetConfig data object type contains the networking configuration for
+    VMotion operations.'''
     
-    def __init__(self, candidateVnic, selectedVnic):
-        # MUST define these
-        super(HostVMotionNetConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:HostVMotionNetConfig')
     
-        self.data['candidateVnic'] = candidateVnic
-        self.data['selectedVnic'] = selectedVnic
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'candidateVnic', 'selectedVnic' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def candidateVnic(self):
-        '''List of VirtualNic objects that may be used for VMotion. This will be a subset of
-        the list of VirtualNics in vnic.
-        '''
-        return self.data['candidateVnic']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def selectedVnic(self):
-        '''VirtualNic that is selected for use in VMotion operations.
-        '''
-        return self.data['selectedVnic']
-
+    return obj
+    

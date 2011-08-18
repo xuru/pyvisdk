@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.license_source import LicenseSource
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class EvaluationLicenseSource(LicenseSource):
-    '''Specify an evaluation license source. Feature licensing is not required while the
-        remaining hours is greater than zero.
-    '''
+def EvaluationLicenseSource(vim, *args, **kwargs):
+    '''Specify an evaluation license source. Feature licensing is not required while
+    the remaining hours is greater than zero.'''
     
-    def __init__(self, remainingHours):
-        # MUST define these
-        super(EvaluationLicenseSource, self).__init__()
+    obj = vim.client.factory.create('ns0:EvaluationLicenseSource')
     
-        self.data['remainingHours'] = remainingHours
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'remainingHours' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def remainingHours(self):
-        '''The number of remaining hours before product evaluation expires
-        '''
-        return self.data['remainingHours']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.event import Event
 import logging
 
 ########################################
@@ -8,21 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class UpgradeEvent(Event):
-    '''These event types represent events converted from VirtualCenter 1.x. All upgraded
-        events are converted to string values.
-    '''
+def UpgradeEvent(vim, *args, **kwargs):
+    '''These event types represent events converted from VirtualCenter 1.x. All
+    upgraded events are converted to string values.'''
     
-    def __init__(self, message):
-        # MUST define these
-        super(UpgradeEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:UpgradeEvent')
     
-        self.data['message'] = message
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'message' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def message(self):
-        '''The formatted message from the upgrade.
-        '''
-        return self.data['message']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostPortGroupConfig(DynamicData):
+def HostPortGroupConfig(vim, *args, **kwargs):
     '''This describes the port group configuration containing both the configurable
-        properties on a port group and the associated virtual switch.
-    '''
+    properties on a port group and the associated virtual switch.'''
     
-    def __init__(self, changeOperation, spec):
-        # MUST define these
-        super(HostPortGroupConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:HostPortGroupConfig')
     
-        self.data['changeOperation'] = changeOperation
-        self.data['spec'] = spec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'changeOperation', 'spec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def changeOperation(self):
-        '''Indicates the change operation to apply on this configuration specification.
-        '''
-        return self.data['changeOperation']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def spec(self):
-        '''The specification of the port group.
-        '''
-        return self.data['spec']
-
+    return obj
+    

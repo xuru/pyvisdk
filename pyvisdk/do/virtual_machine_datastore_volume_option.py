@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,30 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineDatastoreVolumeOption(DynamicData):
+def VirtualMachineDatastoreVolumeOption(vim, *args, **kwargs):
     '''This data object type describes a file system volume option for this virtual
-        machine.
-    '''
+    machine.'''
     
-    def __init__(self, fileSystemType, majorVersion):
-        # MUST define these
-        super(VirtualMachineDatastoreVolumeOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineDatastoreVolumeOption')
     
-        self.data['fileSystemType'] = fileSystemType
-        self.data['majorVersion'] = majorVersion
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fileSystemType', 'majorVersion' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fileSystemType(self):
-        '''The type name of the file system volume information object for this option.
-        '''
-        return self.data['fileSystemType']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def majorVersion(self):
-        '''The major version of the file system volume information for this option. If not
-        specified, all versions of this file system are included in this option.
-        Currently, this value is set only for VMFS volumes.
-        '''
-        return self.data['majorVersion']
-
+    return obj
+    

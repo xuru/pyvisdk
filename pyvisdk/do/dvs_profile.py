@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.apply_profile import ApplyProfile
 import logging
 
 ########################################
@@ -8,34 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DvsProfile(ApplyProfile):
-    '''DataObject representing a Distributed Virtual Switch this host is connected to.
-    '''
+def DvsProfile(vim, *args, **kwargs):
+    '''DataObject representing a Distributed Virtual Switch this host is connected to.'''
     
-    def __init__(self, key, name, uplink):
-        # MUST define these
-        super(DvsProfile, self).__init__()
+    obj = vim.client.factory.create('ns0:DvsProfile')
     
-        self.data['key'] = key
-        self.data['name'] = name
-        self.data['uplink'] = uplink
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'policy', 'key', 'name', 'uplink' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''The linkable identifier
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def name(self):
-        '''Unique identifier for the Distributed Virtual Switch
-        '''
-        return self.data['name']
-
-    @property
-    def uplink(self):
-        '''Mapping of PNICs to Uplinks
-        '''
-        return self.data['uplink']
-
+    return obj
+    

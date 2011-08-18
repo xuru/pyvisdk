@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,57 +8,28 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostVirtualNic(DynamicData):
-    '''This data object type describes a virtual network adapter representing an adapter
-        that connects to a virtual switch. A VirtualNic differs from a PhysicalNic
-        in that the latter corresponds to a physical device that is connected to
-        the physical network. The former is a virtual device that is connected to
-        a virtual switch. A VirtualNic accesses the external network through a
-        virtual switch that is bridged through a PhysicalNic to a physical
-        network.
-    '''
+def HostVirtualNic(vim, *args, **kwargs):
+    '''This data object type describes a virtual network adapter representing an
+    adapter that connects to a virtual switch. A VirtualNic differs from a
+    PhysicalNic in that the latter corresponds to a physical device that is
+    connected to the physical network. The former is a virtual device that is
+    connected to a virtual switch. A VirtualNic accesses the external network
+    through a virtual switch that is bridged through a PhysicalNic to a physical
+    network.'''
     
-    def __init__(self, device, key, port, portgroup, spec):
-        # MUST define these
-        super(HostVirtualNic, self).__init__()
+    obj = vim.client.factory.create('ns0:HostVirtualNic')
     
-        self.data['device'] = device
-        self.data['key'] = key
-        self.data['port'] = port
-        self.data['portgroup'] = portgroup
-        self.data['spec'] = spec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'device', 'key', 'port', 'portgroup', 'spec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def device(self):
-        '''Device name.
-        '''
-        return self.data['device']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def key(self):
-        '''The linkable identifier.
-        '''
-        return self.data['key']
-
-    @property
-    def port(self):
-        '''The port on the port group that the virtual network adapter is using when it is
-        enabled.
-        '''
-        return self.data['port']
-
-    @property
-    def portgroup(self):
-        '''If the vnic is connecting to a vSwitch, this property is the name of portgroup
-        connected. If the vnic is connecting to a DistributedVirtualSwitch, this
-        property is an empty string.
-        '''
-        return self.data['portgroup']
-
-    @property
-    def spec(self):
-        '''The configurable properties for the virtual network adapter object.
-        '''
-        return self.data['spec']
-
+    return obj
+    

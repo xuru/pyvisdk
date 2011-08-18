@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.inheritable_policy import InheritablePolicy
 import logging
 
 ########################################
@@ -8,29 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VMwareUplinkPortOrderPolicy(InheritablePolicy):
+def VMwareUplinkPortOrderPolicy(vim, *args, **kwargs):
     '''This data object type describes uplink port ordering policy for a distributed
-        virtual port. A uplink port can be in the active list, the standby list,
-        or neither. It cannot be in both lists.
-    '''
+    virtual port. A uplink port can be in the active list, the standby list, or
+    neither. It cannot be in both lists.'''
     
-    def __init__(self, activeUplinkPort, standbyUplinkPort):
-        # MUST define these
-        super(VMwareUplinkPortOrderPolicy, self).__init__()
+    obj = vim.client.factory.create('ns0:VMwareUplinkPortOrderPolicy')
     
-        self.data['activeUplinkPort'] = activeUplinkPort
-        self.data['standbyUplinkPort'] = standbyUplinkPort
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'inherited', 'activeUplinkPort', 'standbyUplinkPort' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def activeUplinkPort(self):
-        '''List of active uplink ports used for load balancing.
-        '''
-        return self.data['activeUplinkPort']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def standbyUplinkPort(self):
-        '''Standby uplink ports used for failover.
-        '''
-        return self.data['standbyUplinkPort']
-
+    return obj
+    

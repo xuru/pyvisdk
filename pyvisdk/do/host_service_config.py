@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostServiceConfig(DynamicData):
-    '''DataObject representing configuration for a particular service.
-    '''
+def HostServiceConfig(vim, *args, **kwargs):
+    '''DataObject representing configuration for a particular service.'''
     
-    def __init__(self, serviceId, startupPolicy):
-        # MUST define these
-        super(HostServiceConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:HostServiceConfig')
     
-        self.data['serviceId'] = serviceId
-        self.data['startupPolicy'] = startupPolicy
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'serviceId', 'startupPolicy' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def serviceId(self):
-        '''Key of the service to configure.
-        '''
-        return self.data['serviceId']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def startupPolicy(self):
-        '''Startup policy which defines how the service be configured. See
-        '''
-        return self.data['startupPolicy']
-
+    return obj
+    

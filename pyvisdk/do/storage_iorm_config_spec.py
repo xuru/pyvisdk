@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class StorageIORMConfigSpec(DynamicData):
+def StorageIORMConfigSpec(vim, *args, **kwargs):
     '''Configuration settings used for creating or reconfiguring storage I/O resource
-        management.All fields are defined as optional. If a field is unset, the
-        property is not changed.
-    '''
+    management.All fields are defined as optional. If a field is unset, the
+    property is not changed.'''
     
-    def __init__(self, congestionThreshold, enabled):
-        # MUST define these
-        super(StorageIORMConfigSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:StorageIORMConfigSpec')
     
-        self.data['congestionThreshold'] = congestionThreshold
-        self.data['enabled'] = enabled
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'congestionThreshold', 'enabled' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def congestionThreshold(self):
-        '''The latency beyond which the storage array is considered congested.
-        '''
-        return self.data['congestionThreshold']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def enabled(self):
-        '''Flag indicating whether or not the service is enabled.
-        '''
-        return self.data['enabled']
-
+    return obj
+    

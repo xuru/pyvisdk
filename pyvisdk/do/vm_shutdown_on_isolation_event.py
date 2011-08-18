@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_powered_off_event import VmPoweredOffEvent
 import logging
 
 ########################################
@@ -8,29 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmShutdownOnIsolationEvent(VmPoweredOffEvent):
-    '''This event records when a virtual machine has been shut down on an isolated host
-        in a HA cluster.
-    '''
+def VmShutdownOnIsolationEvent(vim, *args, **kwargs):
+    '''This event records when a virtual machine has been shut down on an isolated
+    host in a HA cluster.'''
     
-    def __init__(self, isolatedHost, shutdownResult):
-        # MUST define these
-        super(VmShutdownOnIsolationEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmShutdownOnIsolationEvent')
     
-        self.data['isolatedHost'] = isolatedHost
-        self.data['shutdownResult'] = shutdownResult
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'isolatedHost', 'shutdownResult' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def isolatedHost(self):
-        '''The isolated host on which a virtual machine was shutdown.
-        '''
-        return self.data['isolatedHost']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def shutdownResult(self):
-        '''Indicates if the shutdown was successful. If the shutdown failed, the virtual
-        machine was powered off. see Operation
-        '''
-        return self.data['shutdownResult']
-
+    return obj
+    

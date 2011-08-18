@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,37 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostSystemResourceInfo(DynamicData):
-    '''The SystemResourceInfo data object describes the configuration of a single system
-        resource group. System resource groups are analogous to ResourcePool
-        objects for virtual machines; however, their structure is fixed and groups
-        may not be created nor destroyed, only configured.
-    '''
+def HostSystemResourceInfo(vim, *args, **kwargs):
+    '''The SystemResourceInfo data object describes the configuration of a single
+    system resource group. System resource groups are analogous to ResourcePool
+    objects for virtual machines; however, their structure is fixed and groups may
+    not be created nor destroyed, only configured.'''
     
-    def __init__(self, child, config, key):
-        # MUST define these
-        super(HostSystemResourceInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostSystemResourceInfo')
     
-        self.data['child'] = child
-        self.data['config'] = config
-        self.data['key'] = key
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'child', 'config', 'key' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def child(self):
-        '''List of child resource groups.
-        '''
-        return self.data['child']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def config(self):
-        '''Configuration of this system resource group.
-        '''
-        return self.data['config']
-
-    @property
-    def key(self):
-        '''ID of the system resource group.
-        '''
-        return self.data['key']
-
+    return obj
+    

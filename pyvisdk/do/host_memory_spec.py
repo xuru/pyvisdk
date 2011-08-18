@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostMemorySpec(DynamicData):
-    '''DataObject used for configuring the memory setting
-    '''
+def HostMemorySpec(vim, *args, **kwargs):
+    '''DataObject used for configuring the memory setting'''
     
-    def __init__(self, serviceConsoleReservation):
-        # MUST define these
-        super(HostMemorySpec, self).__init__()
+    obj = vim.client.factory.create('ns0:HostMemorySpec')
     
-        self.data['serviceConsoleReservation'] = serviceConsoleReservation
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'serviceConsoleReservation' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def serviceConsoleReservation(self):
-        '''Service Console reservation in bytes.
-        '''
-        return self.data['serviceConsoleReservation']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

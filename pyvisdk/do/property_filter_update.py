@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PropertyFilterUpdate(DynamicData):
+def PropertyFilterUpdate(vim, *args, **kwargs):
     '''The PropertyFilterUpdate data object type contains a list of updates to data
-        visible through a specific filter. Note that if a property changes through
-        multiple filters, then a client receives an update for each filter.
-    '''
+    visible through a specific filter. Note that if a property changes through
+    multiple filters, then a client receives an update for each filter.'''
     
-    def __init__(self, filter, missingSet, objectSet):
-        # MUST define these
-        super(PropertyFilterUpdate, self).__init__()
+    obj = vim.client.factory.create('ns0:PropertyFilterUpdate')
     
-        self.data['filter'] = filter
-        self.data['missingSet'] = missingSet
-        self.data['objectSet'] = objectSet
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'filter', 'missingSet', 'objectSet' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def filter(self):
-        '''Filter that was updated.
-        '''
-        return self.data['filter']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def missingSet(self):
-        '''Objects that could not be found on the server, but were specified in a objectSet.
-        '''
-        return self.data['missingSet']
-
-    @property
-    def objectSet(self):
-        '''Set of changes to object properties in the filter.
-        '''
-        return self.data['objectSet']
-
+    return obj
+    

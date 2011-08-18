@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,23 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineFileLayoutExDiskUnit(DynamicData):
+def VirtualMachineFileLayoutExDiskUnit(vim, *args, **kwargs):
     '''Information about a single unit of a virtual disk, such as the base-disk or a
-        delta-disk.A disk-unit consists of at least one descriptor file, and zero
-        or more extent files.Sometimes, a disk-unit is also referred to as a .
-    '''
+    delta-disk.A disk-unit consists of at least one descriptor file, and zero or
+    more extent files.Sometimes, a disk-unit is also referred to as a .'''
     
-    def __init__(self, fileKey):
-        # MUST define these
-        super(VirtualMachineFileLayoutExDiskUnit, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineFileLayoutExDiskUnit')
     
-        self.data['fileKey'] = fileKey
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fileKey' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fileKey(self):
-        '''Array of keys of the files that make up the disk unit. Values here correspond to
-        property key in file.
-        '''
-        return self.data['fileKey']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

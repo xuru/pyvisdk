@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DiagnosticManagerBundleInfo(DynamicData):
+def DiagnosticManagerBundleInfo(vim, *args, **kwargs):
     '''Describes a location of a diagnostic bundle and the server to which it belongs.
-        This is a return type for the generateLogBundles operation.
-    '''
+    This is a return type for the generateLogBundles operation.'''
     
-    def __init__(self, system, url):
-        # MUST define these
-        super(DiagnosticManagerBundleInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:DiagnosticManagerBundleInfo')
     
-        self.data['system'] = system
-        self.data['url'] = url
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'system', 'url' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def system(self):
-        '''The host to which this diagnostic bundle belongs. If this is for the default
-        server, then it is not set.
-        '''
-        return self.data['system']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def url(self):
-        '''The location from which the diagnostic bundle can be downloaded. The host part of
-        the URL is returned as '*' if the hostname to be used is the name of the
-        server to which the call was made. For example, if the call is made to
-        vcsrv1.domain1.com, and the bundle is available for download from
-        http://vcsrv1.domain1.com/diagnostics/bundle.zip, the URL returned may be
-        http:// * /diagnostics/bundle.zip. The client replaces the asterisk with
-        the server name on which it invoked the call.
-        '''
-        return self.data['url']
-
+    return obj
+    

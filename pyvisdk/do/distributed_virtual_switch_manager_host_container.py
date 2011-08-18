@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,33 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchManagerHostContainer(DynamicData):
-    '''Check host compatibility for all hosts in the container. If the recursive flag is
-        true, then check hosts at all levels within this container, otherwise
-        check only at the container level. In case of container being a
-        Datacenter, the recursive flag is applied to its HostFolder.
-    '''
+def DistributedVirtualSwitchManagerHostContainer(vim, *args, **kwargs):
+    '''Check host compatibility for all hosts in the container. If the recursive flag
+    is true, then check hosts at all levels within this container, otherwise check
+    only at the container level. In case of container being a Datacenter, the
+    recursive flag is applied to its HostFolder.'''
     
-    def __init__(self, container, recursive):
-        # MUST define these
-        super(DistributedVirtualSwitchManagerHostContainer, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchManagerHostContainer')
     
-        self.data['container'] = container
-        self.data['recursive'] = recursive
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'container', 'recursive' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def container(self):
-        '''Check compatibility of hosts in this container. The supported container types are
-        Datacenter, Folder, and ComputeResource.
-        '''
-        return self.data['container']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def recursive(self):
-        '''If true, include hosts of all levels in the hierarchy with container as root of
-        the tree. In case of container being a Datacenter, the recursive flag is
-        applied to its HostFolder.
-        '''
-        return self.data['recursive']
-
+    return obj
+    

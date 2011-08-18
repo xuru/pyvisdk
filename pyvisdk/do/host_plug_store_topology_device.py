@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostPlugStoreTopologyDevice(DynamicData):
+def HostPlugStoreTopologyDevice(vim, *args, **kwargs):
     '''This data object type is an association class that describes a ScsiLun and its
-        associated Path objects. The ScsiLun is a Device that is formed from a set
-        of Paths.
-    '''
+    associated Path objects. The ScsiLun is a Device that is formed from a set of
+    Paths.'''
     
-    def __init__(self, key, lun, path):
-        # MUST define these
-        super(HostPlugStoreTopologyDevice, self).__init__()
+    obj = vim.client.factory.create('ns0:HostPlugStoreTopologyDevice')
     
-        self.data['key'] = key
-        self.data['lun'] = lun
-        self.data['path'] = path
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'lun', 'path' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''Linkable identifier.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def lun(self):
-        '''The SCSI device corresponding to logical unit.
-        '''
-        return self.data['lun']
-
-    @property
-    def path(self):
-        '''The array of paths available to access this LogicalUnit.
-        '''
-        return self.data['path']
-
+    return obj
+    

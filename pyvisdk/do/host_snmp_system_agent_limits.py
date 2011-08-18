@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,48 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostSnmpSystemAgentLimits(DynamicData):
-    '''
-    '''
+def HostSnmpSystemAgentLimits(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, capability, maxBufferSize, maxCommunityLength, maxReadOnlyCommunities, maxTrapDestinations):
-        # MUST define these
-        super(HostSnmpSystemAgentLimits, self).__init__()
+    obj = vim.client.factory.create('ns0:HostSnmpSystemAgentLimits')
     
-        self.data['capability'] = capability
-        self.data['maxBufferSize'] = maxBufferSize
-        self.data['maxCommunityLength'] = maxCommunityLength
-        self.data['maxReadOnlyCommunities'] = maxReadOnlyCommunities
-        self.data['maxTrapDestinations'] = maxTrapDestinations
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'capability', 'maxBufferSize', 'maxCommunityLength', 'maxReadOnlyCommunities',
+        'maxTrapDestinations' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def capability(self):
-        '''Supported Capability for this agent
-        '''
-        return self.data['capability']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def maxBufferSize(self):
-        '''SNMP input buffer size
-        '''
-        return self.data['maxBufferSize']
-
-    @property
-    def maxCommunityLength(self):
-        '''Max length of community
-        '''
-        return self.data['maxCommunityLength']
-
-    @property
-    def maxReadOnlyCommunities(self):
-        '''number of allowed communities
-        '''
-        return self.data['maxReadOnlyCommunities']
-
-    @property
-    def maxTrapDestinations(self):
-        '''number of allowed destinations for notifications
-        '''
-        return self.data['maxTrapDestinations']
-
+    return obj
+    

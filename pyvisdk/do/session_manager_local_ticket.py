@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class SessionManagerLocalTicket(DynamicData):
-    '''This data object type contains the user name and location of the file containing
-        the password that clients can use for one-time logon to a server.
-    '''
+def SessionManagerLocalTicket(vim, *args, **kwargs):
+    '''This data object type contains the user name and location of the file
+    containing the password that clients can use for one-time logon to a server.'''
     
-    def __init__(self, passwordFilePath, userName):
-        # MUST define these
-        super(SessionManagerLocalTicket, self).__init__()
+    obj = vim.client.factory.create('ns0:SessionManagerLocalTicket')
     
-        self.data['passwordFilePath'] = passwordFilePath
-        self.data['userName'] = userName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'passwordFilePath', 'userName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def passwordFilePath(self):
-        '''Absolute local path to the file containing a one-time password.
-        '''
-        return self.data['passwordFilePath']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def userName(self):
-        '''User name to be used for logon.
-        '''
-        return self.data['userName']
-
+    return obj
+    

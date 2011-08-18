@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,50 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ComplianceResult(DynamicData):
-    '''DataObject representing the result from a ComplianceCheck
-    '''
+def ComplianceResult(vim, *args, **kwargs):
+    '''DataObject representing the result from a ComplianceCheck'''
     
-    def __init__(self, checkTime, complianceStatus, entity, failure, profile):
-        # MUST define these
-        super(ComplianceResult, self).__init__()
+    obj = vim.client.factory.create('ns0:ComplianceResult')
     
-        self.data['checkTime'] = checkTime
-        self.data['complianceStatus'] = complianceStatus
-        self.data['entity'] = entity
-        self.data['failure'] = failure
-        self.data['profile'] = profile
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'checkTime', 'complianceStatus', 'entity', 'failure', 'profile' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def checkTime(self):
-        '''Time at which compliance check was last run on the entity
-        '''
-        return self.data['checkTime']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def complianceStatus(self):
-        '''Indicates the compliance status of the entity. See
-        '''
-        return self.data['complianceStatus']
-
-    @property
-    def entity(self):
-        '''Entity on which the compliance check was carried out. Entity can be a Cluster,
-        Host and so on.
-        '''
-        return self.data['entity']
-
-    @property
-    def failure(self):
-        '''If complianceStatus is non-compliant, failure will contain additional information
-        about the compliance errors.
-        '''
-        return self.data['failure']
-
-    @property
-    def profile(self):
-        '''Profile for which the ComplianceResult applies
-        '''
-        return self.data['profile']
-
+    return obj
+    

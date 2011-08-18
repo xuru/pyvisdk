@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,28 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmMacConflictEvent(VmEvent):
-    '''This event records a MAC address conflict for a virtual machine.
-    '''
+def VmMacConflictEvent(vim, *args, **kwargs):
+    '''This event records a MAC address conflict for a virtual machine.'''
     
-    def __init__(self, conflictedVm, mac):
-        # MUST define these
-        super(VmMacConflictEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmMacConflictEvent')
     
-        self.data['conflictedVm'] = conflictedVm
-        self.data['mac'] = mac
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'conflictedVm', 'mac' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def conflictedVm(self):
-        '''The virtual machine whose MAC address conflicts with the current virtual machine's
-        address.
-        '''
-        return self.data['conflictedVm']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def mac(self):
-        '''The MAC address that is in conflict.
-        '''
-        return self.data['mac']
-
+    return obj
+    

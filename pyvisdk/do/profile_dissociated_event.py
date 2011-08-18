@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.profile_event import ProfileEvent
 import logging
 
 ########################################
@@ -8,14 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfileDissociatedEvent(ProfileEvent):
-    '''This event records that a Profile was dissociated from a managed entity
-    '''
+def ProfileDissociatedEvent(vim, *args, **kwargs):
+    '''This event records that a Profile was dissociated from a managed entity'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(ProfileDissociatedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfileDissociatedEvent')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'profile' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

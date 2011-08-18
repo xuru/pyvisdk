@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_event import HostEvent
 import logging
 
 ########################################
@@ -8,28 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostIpInconsistentEvent(HostEvent):
-    '''This event records that the IP address resolution returned different addresses on
-        the host. Please check your host's network configuration.
-    '''
+def HostIpInconsistentEvent(vim, *args, **kwargs):
+    '''This event records that the IP address resolution returned different addresses
+    on the host. Please check your host's network configuration.'''
     
-    def __init__(self, ipAddress, ipAddress2):
-        # MUST define these
-        super(HostIpInconsistentEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:HostIpInconsistentEvent')
     
-        self.data['ipAddress'] = ipAddress
-        self.data['ipAddress2'] = ipAddress2
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'ipAddress', 'ipAddress2' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ipAddress(self):
-        '''
-        '''
-        return self.data['ipAddress']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def ipAddress2(self):
-        '''
-        '''
-        return self.data['ipAddress2']
-
+    return obj
+    

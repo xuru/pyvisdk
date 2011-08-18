@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DatabaseSizeEstimate(DynamicData):
+def DatabaseSizeEstimate(vim, *args, **kwargs):
     '''DatabaseSizeEstimate contains information about the size required to by the
-        database.
-    '''
+    database.'''
     
-    def __init__(self, size):
-        # MUST define these
-        super(DatabaseSizeEstimate, self).__init__()
+    obj = vim.client.factory.create('ns0:DatabaseSizeEstimate')
     
-        self.data['size'] = size
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'size' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def size(self):
-        '''The estimated size required in MB
-        '''
-        return self.data['size']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

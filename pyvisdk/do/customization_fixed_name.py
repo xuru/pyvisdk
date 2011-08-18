@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.customization_name import CustomizationName
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationFixedName(CustomizationName):
-    '''A fixed name.
-    '''
+def CustomizationFixedName(vim, *args, **kwargs):
+    '''A fixed name.'''
     
-    def __init__(self, name):
-        # MUST define these
-        super(CustomizationFixedName, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationFixedName')
     
-        self.data['name'] = name
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def name(self):
-        '''The virtual machine name specified by the client.
-        '''
-        return self.data['name']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.profile_policy_option_metadata import ProfilePolicyOptionMetadata
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class UserInputRequiredParameterMetadata(ProfilePolicyOptionMetadata):
+def UserInputRequiredParameterMetadata(vim, *args, **kwargs):
     '''DataObject represents the metadata information for a parameter which will be
-        specified by the user during apply time.
-    '''
+    specified by the user during apply time.'''
     
-    def __init__(self, userInputParameter):
-        # MUST define these
-        super(UserInputRequiredParameterMetadata, self).__init__()
+    obj = vim.client.factory.create('ns0:UserInputRequiredParameterMetadata')
     
-        self.data['userInputParameter'] = userInputParameter
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'id', 'parameter', 'userInputParameter' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def userInputParameter(self):
-        '''
-        '''
-        return self.data['userInputParameter']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

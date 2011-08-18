@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,29 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmMessageErrorEvent(VmEvent):
+def VmMessageErrorEvent(vim, *args, **kwargs):
     '''This event records when an error message (consisting of a collection of
-        "observations") is thrown by the virtual machine. This is a generic event
-        for such messages.
-    '''
+    "observations") is thrown by the virtual machine. This is a generic event for
+    such messages.'''
     
-    def __init__(self, message, messageInfo):
-        # MUST define these
-        super(VmMessageErrorEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmMessageErrorEvent')
     
-        self.data['message'] = message
-        self.data['messageInfo'] = messageInfo
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'message', 'messageInfo' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def message(self):
-        '''A raw message returned by the virtualization platform.
-        '''
-        return self.data['message']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def messageInfo(self):
-        '''
-        '''
-        return self.data['messageInfo']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostNetworkConfigResult(DynamicData):
-    '''The result returned by updateNetworkConfig call. See UpdateNetworkConfig
-    '''
+def HostNetworkConfigResult(vim, *args, **kwargs):
+    '''The result returned by updateNetworkConfig call. See UpdateNetworkConfig'''
     
-    def __init__(self, consoleVnicDevice, vnicDevice):
-        # MUST define these
-        super(HostNetworkConfigResult, self).__init__()
+    obj = vim.client.factory.create('ns0:HostNetworkConfigResult')
     
-        self.data['consoleVnicDevice'] = consoleVnicDevice
-        self.data['vnicDevice'] = vnicDevice
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'consoleVnicDevice', 'vnicDevice' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def consoleVnicDevice(self):
-        '''Service console virtual network adapter keys.
-        '''
-        return self.data['consoleVnicDevice']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def vnicDevice(self):
-        '''Virtual network adapter keys.
-        '''
-        return self.data['vnicDevice']
-
+    return obj
+    

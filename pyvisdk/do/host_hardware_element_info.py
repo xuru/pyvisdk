@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostHardwareElementInfo(DynamicData):
-    '''Data object describing the operational status of a physical element.
-    '''
+def HostHardwareElementInfo(vim, *args, **kwargs):
+    '''Data object describing the operational status of a physical element.'''
     
-    def __init__(self, name, status):
-        # MUST define these
-        super(HostHardwareElementInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostHardwareElementInfo')
     
-        self.data['name'] = name
-        self.data['status'] = status
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name', 'status' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def name(self):
-        '''The name of the physical element
-        '''
-        return self.data['name']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def status(self):
-        '''The operational status of the physical element. The status is one of the values
-        specified in HostHardwareElementStatus.
-        '''
-        return self.data['status']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.license_source import LicenseSource
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LocalLicenseSource(LicenseSource):
-    '''Specify license key data to store locally.
-    '''
+def LocalLicenseSource(vim, *args, **kwargs):
+    '''Specify license key data to store locally.'''
     
-    def __init__(self, licenseKeys):
-        # MUST define these
-        super(LocalLicenseSource, self).__init__()
+    obj = vim.client.factory.create('ns0:LocalLicenseSource')
     
-        self.data['licenseKeys'] = licenseKeys
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'licenseKeys' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def licenseKeys(self):
-        '''The size of this string is implementation dependent. It must contain ASCII or ISO
-        Latin-1 characters only.
-        '''
-        return self.data['licenseKeys']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

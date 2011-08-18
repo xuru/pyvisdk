@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,39 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDiagnosticPartitionCreateDescription(DynamicData):
-    '''The diagnostic partition create description details what will be done to create a
-        new diagnostic partition on a disk. It contains a CreateSpec that can be
-        submitted to create the partition and information that can be shown to the
-        user.
-    '''
+def HostDiagnosticPartitionCreateDescription(vim, *args, **kwargs):
+    '''The diagnostic partition create description details what will be done to create
+    a new diagnostic partition on a disk. It contains a CreateSpec that can be
+    submitted to create the partition and information that can be shown to the
+    user.'''
     
-    def __init__(self, diskUuid, layout, spec):
-        # MUST define these
-        super(HostDiagnosticPartitionCreateDescription, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDiagnosticPartitionCreateDescription')
     
-        self.data['diskUuid'] = diskUuid
-        self.data['layout'] = layout
-        self.data['spec'] = spec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'diskUuid', 'layout', 'spec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def diskUuid(self):
-        '''The UUID of the SCSI disk on which to create the diagnostic partition. This disk
-        UUID will match that found in the identification field of the creation
-        spec.
-        '''
-        return self.data['diskUuid']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def layout(self):
-        '''Layout describing the format of the disk
-        '''
-        return self.data['layout']
-
-    @property
-    def spec(self):
-        '''Creation specification for diagnostic partition
-        '''
-        return self.data['spec']
-
+    return obj
+    

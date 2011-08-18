@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.distributed_virtual_switch_host_member_backing import DistributedVirtualSwitchHostMemberBacking
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchHostMemberPnicBacking(DistributedVirtualSwitchHostMemberBacking):
+def DistributedVirtualSwitchHostMemberPnicBacking(vim, *args, **kwargs):
     '''Specification to select individual physical NICs. In this case, a proxy switch
-        will be created on the host from scratch with the pNICs as the uplinks.
-    '''
+    will be created on the host from scratch with the pNICs as the uplinks.'''
     
-    def __init__(self, pnicSpec):
-        # MUST define these
-        super(DistributedVirtualSwitchHostMemberPnicBacking, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchHostMemberPnicBacking')
     
-        self.data['pnicSpec'] = pnicSpec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'pnicSpec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def pnicSpec(self):
-        '''The key of the physical NICs to be added in the switch.
-        '''
-        return self.data['pnicSpec']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

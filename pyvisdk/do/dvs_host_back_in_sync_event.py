@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dvs_event import DvsEvent
 import logging
 
 ########################################
@@ -8,22 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DvsHostBackInSyncEvent(DvsEvent):
-    '''The DVS configuration on the host was synchronized with that of the Virtual Center
-        Server and the configuration is the same on the host and Virtual Center
-        Server.
-    '''
+def DvsHostBackInSyncEvent(vim, *args, **kwargs):
+    '''The DVS configuration on the host was synchronized with that of the Virtual
+    Center Server and the configuration is the same on the host and Virtual Center
+    Server.'''
     
-    def __init__(self, hostBackInSync):
-        # MUST define these
-        super(DvsHostBackInSyncEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DvsHostBackInSyncEvent')
     
-        self.data['hostBackInSync'] = hostBackInSync
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'hostBackInSync' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def hostBackInSync(self):
-        '''The host that was synchronized.
-        '''
-        return self.data['hostBackInSync']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

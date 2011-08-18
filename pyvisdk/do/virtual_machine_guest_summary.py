@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,62 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineGuestSummary(DynamicData):
-    '''A subset of virtual machine guest information.
-    '''
+def VirtualMachineGuestSummary(vim, *args, **kwargs):
+    '''A subset of virtual machine guest information.'''
     
-    def __init__(self, guestFullName, guestId, hostName, ipAddress, toolsRunningStatus, toolsStatus, toolsVersionStatus):
-        # MUST define these
-        super(VirtualMachineGuestSummary, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineGuestSummary')
     
-        self.data['guestFullName'] = guestFullName
-        self.data['guestId'] = guestId
-        self.data['hostName'] = hostName
-        self.data['ipAddress'] = ipAddress
-        self.data['toolsRunningStatus'] = toolsRunningStatus
-        self.data['toolsStatus'] = toolsStatus
-        self.data['toolsVersionStatus'] = toolsVersionStatus
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'guestFullName', 'guestId', 'hostName', 'ipAddress', 'toolsRunningStatus',
+        'toolsStatus', 'toolsVersionStatus' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def guestFullName(self):
-        '''Guest operating system name configured on the virtual machine.
-        '''
-        return self.data['guestFullName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def guestId(self):
-        '''Guest operating system identifier (short name), if known.
-        '''
-        return self.data['guestId']
-
-    @property
-    def hostName(self):
-        '''Hostname of the guest operating system, if known.
-        '''
-        return self.data['hostName']
-
-    @property
-    def ipAddress(self):
-        '''Primary IP address assigned to the guest operating system, if known.
-        '''
-        return self.data['ipAddress']
-
-    @property
-    def toolsRunningStatus(self):
-        '''Current running status of VMware Tools in the guest operating system, if known.
-        '''
-        return self.data['toolsRunningStatus']
-
-    @property
-    def toolsStatus(self):
-        '''Current status of VMware Tools in the guest operating system, if known.
-        '''
-        return self.data['toolsStatus']
-
-    @property
-    def toolsVersionStatus(self):
-        '''Current version status of VMware Tools in the guest operating system, if known.
-        '''
-        return self.data['toolsVersionStatus']
-
+    return obj
+    

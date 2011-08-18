@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.apply_profile import ApplyProfile
 import logging
 
 ########################################
@@ -8,49 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PortGroupProfile(ApplyProfile):
+def PortGroupProfile(vim, *args, **kwargs):
     '''This data object type is a base class for the different kinds of port group
-        profiles.
-    '''
+    profiles.'''
     
-    def __init__(self, key, name, networkPolicy, vlan, vswitch):
-        # MUST define these
-        super(PortGroupProfile, self).__init__()
+    obj = vim.client.factory.create('ns0:PortGroupProfile')
     
-        self.data['key'] = key
-        self.data['name'] = name
-        self.data['networkPolicy'] = networkPolicy
-        self.data['vlan'] = vlan
-        self.data['vswitch'] = vswitch
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 6:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'policy', 'key', 'name', 'networkPolicy', 'vlan', 'vswitch' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''The linkable identifier.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def name(self):
-        '''The name of the portgroup.
-        '''
-        return self.data['name']
-
-    @property
-    def networkPolicy(self):
-        '''The network policy applicable on the port group.
-        '''
-        return self.data['networkPolicy']
-
-    @property
-    def vlan(self):
-        '''The vlan Id of the portGroup.
-        '''
-        return self.data['vlan']
-
-    @property
-    def vswitch(self):
-        '''The virtual switch that the protgroup is connected to.
-        '''
-        return self.data['vswitch']
-
+    return obj
+    

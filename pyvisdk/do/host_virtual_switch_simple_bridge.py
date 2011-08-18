@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_virtual_switch_bridge import HostVirtualSwitchBridge
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostVirtualSwitchSimpleBridge(HostVirtualSwitchBridge):
-    '''A bridge that is statically bound to a single physical network adapter.
-    '''
+def HostVirtualSwitchSimpleBridge(vim, *args, **kwargs):
+    '''A bridge that is statically bound to a single physical network adapter.'''
     
-    def __init__(self, nicDevice):
-        # MUST define these
-        super(HostVirtualSwitchSimpleBridge, self).__init__()
+    obj = vim.client.factory.create('ns0:HostVirtualSwitchSimpleBridge')
     
-        self.data['nicDevice'] = nicDevice
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'nicDevice' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def nicDevice(self):
-        '''The key of the physical network adapter to be bridged.
-        '''
-        return self.data['nicDevice']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

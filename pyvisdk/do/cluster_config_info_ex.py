@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.compute_resource_config_info import ComputeResourceConfigInfo
 import logging
 
 ########################################
@@ -8,73 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterConfigInfoEx(ComputeResourceConfigInfo):
+def ClusterConfigInfoEx(vim, *args, **kwargs):
     '''The ClusterConfigInfoEx data object describes a complete cluster configuration.
-        For information about configuring a cluster, see ClusterConfigSpecEx.
-    '''
+    For information about configuring a cluster, see ClusterConfigSpecEx.'''
     
-    def __init__(self, dasConfig, dasVmConfig, dpmConfigInfo, dpmHostConfig, drsConfig, drsVmConfig, group, rule):
-        # MUST define these
-        super(ClusterConfigInfoEx, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterConfigInfoEx')
     
-        self.data['dasConfig'] = dasConfig
-        self.data['dasVmConfig'] = dasVmConfig
-        self.data['dpmConfigInfo'] = dpmConfigInfo
-        self.data['dpmHostConfig'] = dpmHostConfig
-        self.data['drsConfig'] = drsConfig
-        self.data['drsVmConfig'] = drsVmConfig
-        self.data['group'] = group
-        self.data['rule'] = rule
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'vmSwapPlacement', 'dasConfig', 'dasVmConfig', 'dpmConfigInfo',
+        'dpmHostConfig', 'drsConfig', 'drsVmConfig', 'group', 'rule' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def dasConfig(self):
-        '''Cluster-wide configuration of the VMware HA service.
-        '''
-        return self.data['dasConfig']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def dasVmConfig(self):
-        '''List of virtual machine configurations for the VMware HA service. Each entry
-        applies to one virtual machine.
-        '''
-        return self.data['dasVmConfig']
-
-    @property
-    def dpmConfigInfo(self):
-        '''Cluster-wide configuration of the VMware DPM service.
-        '''
-        return self.data['dpmConfigInfo']
-
-    @property
-    def dpmHostConfig(self):
-        '''List of host configurations for the VMware DPM service. Each entry applies to one
-        virtual machine.
-        '''
-        return self.data['dpmHostConfig']
-
-    @property
-    def drsConfig(self):
-        '''Cluster-wide configuration of the VMware DRS service.
-        '''
-        return self.data['drsConfig']
-
-    @property
-    def drsVmConfig(self):
-        '''List of virtual machine configurations for the VMware DRS service. Each entry
-        applies to one virtual machine.
-        '''
-        return self.data['drsVmConfig']
-
-    @property
-    def group(self):
-        '''Cluster-wide groups.
-        '''
-        return self.data['group']
-
-    @property
-    def rule(self):
-        '''Cluster-wide rules.
-        '''
-        return self.data['rule']
-
+    return obj
+    

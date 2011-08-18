@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,41 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DVSNetworkResourcePoolAllocationInfo(DynamicData):
-    '''Resource allocation information for a network resource pool.
-    '''
+def DVSNetworkResourcePoolAllocationInfo(vim, *args, **kwargs):
+    '''Resource allocation information for a network resource pool.'''
     
-    def __init__(self, limit, shares):
-        # MUST define these
-        super(DVSNetworkResourcePoolAllocationInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:DVSNetworkResourcePoolAllocationInfo')
     
-        self.data['limit'] = limit
-        self.data['shares'] = shares
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'limit', 'shares' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def limit(self):
-        '''The maximum allowed usage for network clients belonging to this resource pool per
-        host. The utilization of network clients belonging to this resource pool
-        will not exceed the specified limit even if there are available network
-        resources. If set to -1, then there is no limit on the network resource
-        usage for clients belonging to this resource pool. Units are in Mbits/sec.
-        When setting the allocation of a particular resource pool, if the property
-        is unset, it is treated as no change and the property is not updated. An
-        unset limit value while reading back the allocation information of a
-        network resource pool indicates that there is no limit on the network
-        resource usage for the clients belonging to this resource group.
-        '''
-        return self.data['limit']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def shares(self):
-        '''The share settings associated with the network resource pool to facilitate
-        proportional sharing of the physical network resources. If the property is
-        unset when setting the allocation of a particular resource pool, it is
-        treated as unset and the property is not updated. The property is always
-        set when reading back the allocation information of a network resource
-        pool.
-        '''
-        return self.data['shares']
-
+    return obj
+    

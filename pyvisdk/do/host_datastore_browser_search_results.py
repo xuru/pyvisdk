@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDatastoreBrowserSearchResults(DynamicData):
-    '''This data object type contains the results of a search method for one datastore. A
-        search method typically returns a set of these objects as an array.
-    '''
+def HostDatastoreBrowserSearchResults(vim, *args, **kwargs):
+    '''This data object type contains the results of a search method for one
+    datastore. A search method typically returns a set of these objects as an
+    array.'''
     
-    def __init__(self, datastore, file, folderPath):
-        # MUST define these
-        super(HostDatastoreBrowserSearchResults, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDatastoreBrowserSearchResults')
     
-        self.data['datastore'] = datastore
-        self.data['file'] = file
-        self.data['folderPath'] = folderPath
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'datastore', 'file', 'folderPath' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def datastore(self):
-        '''Datastore contains the results.
-        '''
-        return self.data['datastore']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def file(self):
-        '''Set of matching files, if any.
-        '''
-        return self.data['file']
-
-    @property
-    def folderPath(self):
-        '''Relative path to the top-level folder.
-        '''
-        return self.data['folderPath']
-
+    return obj
+    

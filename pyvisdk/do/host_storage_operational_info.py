@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostStorageOperationalInfo(DynamicData):
-    '''Data class describing operational information of a storage element
-    '''
+def HostStorageOperationalInfo(vim, *args, **kwargs):
+    '''Data class describing operational information of a storage element'''
     
-    def __init__(self, property, value):
-        # MUST define these
-        super(HostStorageOperationalInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostStorageOperationalInfo')
     
-        self.data['property'] = property
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'property_', 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def property_(self):
-        '''The property of interest for the storage element
-        '''
-        return self.data['property']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def value(self):
-        '''The property value for the storage element
-        '''
-        return self.data['value']
-
+    return obj
+    

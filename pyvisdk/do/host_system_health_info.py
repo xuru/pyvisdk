@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostSystemHealthInfo(DynamicData):
-    '''This data object provides information about the health of the phyical system. The
-        data is retrieved from numeric sensor probes.
-    '''
+def HostSystemHealthInfo(vim, *args, **kwargs):
+    '''This data object provides information about the health of the phyical system.
+    The data is retrieved from numeric sensor probes.'''
     
-    def __init__(self, numericSensorInfo):
-        # MUST define these
-        super(HostSystemHealthInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostSystemHealthInfo')
     
-        self.data['numericSensorInfo'] = numericSensorInfo
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'numericSensorInfo' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def numericSensorInfo(self):
-        '''Health information provided by the power probes.
-        '''
-        return self.data['numericSensorInfo']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

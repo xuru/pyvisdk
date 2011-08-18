@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class EventDescription(DynamicData):
-    '''This data object provides static, locale-specific strings for event objects.
-    '''
+def EventDescription(vim, *args, **kwargs):
+    '''This data object provides static, locale-specific strings for event objects.'''
     
-    def __init__(self, category, enumeratedTypes, eventInfo):
-        # MUST define these
-        super(EventDescription, self).__init__()
+    obj = vim.client.factory.create('ns0:EventDescription')
     
-        self.data['category'] = category
-        self.data['enumeratedTypes'] = enumeratedTypes
-        self.data['eventInfo'] = eventInfo
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'category', 'enumeratedTypes', 'eventInfo' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def category(self):
-        '''Event Category enum
-        '''
-        return self.data['category']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def enumeratedTypes(self):
-        '''Localized descriptions of all enumerated types that are used for member
-        declarations in event classes.
-        '''
-        return self.data['enumeratedTypes']
-
-    @property
-    def eventInfo(self):
-        '''The event class description details.
-        '''
-        return self.data['eventInfo']
-
+    return obj
+    

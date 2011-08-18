@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.license_event import LicenseEvent
 import logging
 
 ########################################
@@ -8,19 +8,27 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AllVirtualMachinesLicensedEvent(LicenseEvent):
+def AllVirtualMachinesLicensedEvent(vim, *args, **kwargs):
     '''This event records that the previously unlicensed virtual machines on the
-        specified host are now licensed. After this event is entered into the
-        event log, we expect to see that the (@link
-        vim.event.Event.UnlicensedVirtualMachinesEvent
-        UnlicensedVirtualMachinesEvent) (@link vim.ManagedEntity.configIssue
-        configIssue) is removed from the host.
-    '''
+    specified host are now licensed. After this event is entered into the event
+    log, we expect to see that the (@link
+    vim.event.Event.UnlicensedVirtualMachinesEvent UnlicensedVirtualMachinesEvent)
+    (@link vim.ManagedEntity.configIssue configIssue) is removed from the host.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(AllVirtualMachinesLicensedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:AllVirtualMachinesLicensedEvent')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

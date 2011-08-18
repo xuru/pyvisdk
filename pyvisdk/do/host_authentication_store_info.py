@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,22 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostAuthenticationStoreInfo(DynamicData):
+def HostAuthenticationStoreInfo(vim, *args, **kwargs):
     '''The HostAuthenticationStoreInfo base class defines status information for local
-        and host Active Directory authentication.
-    '''
+    and host Active Directory authentication.'''
     
-    def __init__(self, enabled):
-        # MUST define these
-        super(HostAuthenticationStoreInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostAuthenticationStoreInfo')
     
-        self.data['enabled'] = enabled
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def enabled(self):
-        '''Indicates whether the authentication store is configured. * Host Active Directory
-        authentication -
-        '''
-        return self.data['enabled']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

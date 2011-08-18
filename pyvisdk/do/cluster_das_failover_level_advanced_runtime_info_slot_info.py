@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,40 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterDasFailoverLevelAdvancedRuntimeInfoSlotInfo(DynamicData):
+def ClusterDasFailoverLevelAdvancedRuntimeInfoSlotInfo(vim, *args, **kwargs):
     '''A slot represents an amount of resources sufficient for any powered on virtual
-        machine in the cluster.
-    '''
+    machine in the cluster.'''
     
-    def __init__(self, cpuMHz, memoryMB, numVcpus):
-        # MUST define these
-        super(ClusterDasFailoverLevelAdvancedRuntimeInfoSlotInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterDasFailoverLevelAdvancedRuntimeInfoSlotInfo')
     
-        self.data['cpuMHz'] = cpuMHz
-        self.data['memoryMB'] = memoryMB
-        self.data['numVcpus'] = numVcpus
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'cpuMHz', 'memoryMB', 'numVcpus' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def cpuMHz(self):
-        '''The cpu speed of a slot is defined as the maximum cpu reservation of any powered
-        on virtual machine in the cluster, or any otherwise defined minimum,
-        whichever is larger.
-        '''
-        return self.data['cpuMHz']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def memoryMB(self):
-        '''The memory size of a slot is defined as the maximum memory reservation plus memory
-        overhead of any powered on virtual machine in the cluster, or any
-        otherwise defined minimum, whichever is larger.
-        '''
-        return self.data['memoryMB']
-
-    @property
-    def numVcpus(self):
-        '''The number of virtual cpus of a slot is defined as the maximum number of virtual
-        cpus any powered on virtual machine has.
-        '''
-        return self.data['numVcpus']
-
+    return obj
+    

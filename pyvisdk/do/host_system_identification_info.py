@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostSystemIdentificationInfo(DynamicData):
+def HostSystemIdentificationInfo(vim, *args, **kwargs):
     '''This data object describes system identifying information of the host. This
-        information may be vendor specific.
-    '''
+    information may be vendor specific.'''
     
-    def __init__(self, identifierType, identifierValue):
-        # MUST define these
-        super(HostSystemIdentificationInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostSystemIdentificationInfo')
     
-        self.data['identifierType'] = identifierType
-        self.data['identifierValue'] = identifierValue
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'identifierType', 'identifierValue' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def identifierType(self):
-        '''The description of the identifying information.
-        '''
-        return self.data['identifierType']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def identifierValue(self):
-        '''The system identification information
-        '''
-        return self.data['identifierValue']
-
+    return obj
+    

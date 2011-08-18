@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostStorageArrayTypePolicyOption(DynamicData):
+def HostStorageArrayTypePolicyOption(vim, *args, **kwargs):
     '''Description of options associated with a native multipathing storage array type
-        plugin.
-    '''
+    plugin.'''
     
-    def __init__(self, policy):
-        # MUST define these
-        super(HostStorageArrayTypePolicyOption, self).__init__()
+    obj = vim.client.factory.create('ns0:HostStorageArrayTypePolicyOption')
     
-        self.data['policy'] = policy
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'policy' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def policy(self):
-        '''Description of the paths selection policy. Use the key as the identifier.
-        '''
-        return self.data['policy']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

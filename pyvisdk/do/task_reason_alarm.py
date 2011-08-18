@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.task_reason import TaskReason
 import logging
 
 ########################################
@@ -8,43 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class TaskReasonAlarm(TaskReason):
-    '''Indicates that the task was queued by an alarm.
-    '''
+def TaskReasonAlarm(vim, *args, **kwargs):
+    '''Indicates that the task was queued by an alarm.'''
     
-    def __init__(self, alarm, alarmName, entity, entityName):
-        # MUST define these
-        super(TaskReasonAlarm, self).__init__()
+    obj = vim.client.factory.create('ns0:TaskReasonAlarm')
     
-        self.data['alarm'] = alarm
-        self.data['alarmName'] = alarmName
-        self.data['entity'] = entity
-        self.data['entityName'] = entityName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'alarm', 'alarmName', 'entity', 'entityName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def alarm(self):
-        '''The alarm object that queued the task.
-        '''
-        return self.data['alarm']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def alarmName(self):
-        '''The name of the alarm that queued the task, retained in the history collector
-        database.
-        '''
-        return self.data['alarmName']
-
-    @property
-    def entity(self):
-        '''The managed entity object on which the alarm is triggered.
-        '''
-        return self.data['entity']
-
-    @property
-    def entityName(self):
-        '''The name of the managed entity on which the alarm is triggered, retained in the
-        history collector database.
-        '''
-        return self.data['entityName']
-
+    return obj
+    

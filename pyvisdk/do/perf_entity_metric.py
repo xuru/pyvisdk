@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.perf_entity_metric_base import PerfEntityMetricBase
 import logging
 
 ########################################
@@ -8,29 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PerfEntityMetric(PerfEntityMetricBase):
+def PerfEntityMetric(vim, *args, **kwargs):
     '''This data object type stores values and metadata for metrics associated with a
-        specific entity, in 'normal' format.
-    '''
+    specific entity, in 'normal' format.'''
     
-    def __init__(self, sampleInfo, value):
-        # MUST define these
-        super(PerfEntityMetric, self).__init__()
+    obj = vim.client.factory.create('ns0:PerfEntityMetric')
     
-        self.data['sampleInfo'] = sampleInfo
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'entity', 'sampleInfo', 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def sampleInfo(self):
-        '''A list of objects containing information (an interval and a timestamp) about the
-        samples collected.
-        '''
-        return self.data['sampleInfo']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def value(self):
-        '''A list of values that corresponds to the samples collected.
-        '''
-        return self.data['value']
-
+    return obj
+    

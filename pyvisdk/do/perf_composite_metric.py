@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PerfCompositeMetric(DynamicData):
-    '''PerfCompositeMetric includes an optional aggregated entity performance statistics
-        and a list of composite entities performance statistics. The aggregated
-        entity statistics are optional because some entities, such as folders, do
-        not have their own statistics.
-    '''
+def PerfCompositeMetric(vim, *args, **kwargs):
+    '''PerfCompositeMetric includes an optional aggregated entity performance
+    statistics and a list of composite entities performance statistics. The
+    aggregated entity statistics are optional because some entities, such as
+    folders, do not have their own statistics.'''
     
-    def __init__(self, childEntity, entity):
-        # MUST define these
-        super(PerfCompositeMetric, self).__init__()
+    obj = vim.client.factory.create('ns0:PerfCompositeMetric')
     
-        self.data['childEntity'] = childEntity
-        self.data['entity'] = entity
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'childEntity', 'entity' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def childEntity(self):
-        '''A list of metrics of performance providers that comprise the aggregated entity.
-        For example, Host is an aggregated entity for virtual machines and virtual
-        machine Folders. ResourcePools are aggregate entities for virtual
-        machines. Host, Folder, and Cluster are aggregate entities for hosts in
-        the cluster or folder.
-        '''
-        return self.data['childEntity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def entity(self):
-        '''The aggregated entity performance metrics. If it exists, the PerfSampleInfo list
-        of the aggregate entity is a complete list of PerfSampleInfo that could be
-        contained in PerfSampleInfo lists of child entities.
-        '''
-        return self.data['entity']
-
+    return obj
+    

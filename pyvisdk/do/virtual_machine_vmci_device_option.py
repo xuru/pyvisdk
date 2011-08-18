@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_option import VirtualDeviceOption
 import logging
 
 ########################################
@@ -8,25 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineVMCIDeviceOption(VirtualDeviceOption):
+def VirtualMachineVMCIDeviceOption(vim, *args, **kwargs):
     '''The VirtualMachineVMCIDeviceOption data object contains the options for the
-        virtual VMCI device (VirtualMachineVMCIDevice).
-    '''
+    virtual VMCI device (VirtualMachineVMCIDevice).'''
     
-    def __init__(self, allowUnrestrictedCommunication):
-        # MUST define these
-        super(VirtualMachineVMCIDeviceOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineVMCIDeviceOption')
     
-        self.data['allowUnrestrictedCommunication'] = allowUnrestrictedCommunication
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
+        'defaultBackingOptionIndex', 'deprecated', 'hotRemoveSupported',
+        'licensingLimit', 'plugAndPlay', 'type', 'allowUnrestrictedCommunication' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def allowUnrestrictedCommunication(self):
-        '''Indicates support for VMCI communication and specifies the default operation. If
-        defaultValue is set to true, the virtual machine can participate in VMCI
-        communication with all other virtual machines on the host. Otherwise, VMCI
-        communication will be restricted to trusted services such as the
-        hypervisor on the host.
-        '''
-        return self.data['allowUnrestrictedCommunication']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

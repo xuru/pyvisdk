@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,30 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineFileLayoutDiskLayout(DynamicData):
-    '''Enumerats the set of files for each virtual disk.
-    '''
+def VirtualMachineFileLayoutDiskLayout(vim, *args, **kwargs):
+    '''Enumerats the set of files for each virtual disk.'''
     
-    def __init__(self, diskFile, key):
-        # MUST define these
-        super(VirtualMachineFileLayoutDiskLayout, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineFileLayoutDiskLayout')
     
-        self.data['diskFile'] = diskFile
-        self.data['key'] = key
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'diskFile', 'key' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def diskFile(self):
-        '''List of files that makes up the virtual disk. At least one entry always exists in
-        this array. The first entry is the main descriptor of the virtual disk
-        (the one used when adding the disk to a virtual machine). These are
-        complete datastore paths, not relative paths.
-        '''
-        return self.data['diskFile']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def key(self):
-        '''Identification of the disk in config.
-        '''
-        return self.data['key']
-
+    return obj
+    

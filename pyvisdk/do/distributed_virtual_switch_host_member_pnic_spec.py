@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,44 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchHostMemberPnicSpec(DynamicData):
+def DistributedVirtualSwitchHostMemberPnicSpec(vim, *args, **kwargs):
     '''Specification to select individual physical NICs. In this case, a proxy switch
-        will be created on the host from scratch with the pNICs as the uplinks.
-    '''
+    will be created on the host from scratch with the pNICs as the uplinks.'''
     
-    def __init__(self, connectionCookie, pnicDevice, uplinkPortgroupKey, uplinkPortKey):
-        # MUST define these
-        super(DistributedVirtualSwitchHostMemberPnicSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchHostMemberPnicSpec')
     
-        self.data['connectionCookie'] = connectionCookie
-        self.data['pnicDevice'] = pnicDevice
-        self.data['uplinkPortgroupKey'] = uplinkPortgroupKey
-        self.data['uplinkPortKey'] = uplinkPortKey
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'connectionCookie', 'pnicDevice', 'uplinkPortgroupKey', 'uplinkPortKey' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def connectionCookie(self):
-        '''The cookie that represents this portConnection instance for the port. The value of
-        this property is generated from the Server. Any value set by an SDK client
-        is ignored.
-        '''
-        return self.data['connectionCookie']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def pnicDevice(self):
-        '''The physical NIC to be added in the switch. See device.
-        '''
-        return self.data['pnicDevice']
-
-    @property
-    def uplinkPortgroupKey(self):
-        '''The key of the portgroup to be connected to the physical NIC.
-        '''
-        return self.data['uplinkPortgroupKey']
-
-    @property
-    def uplinkPortKey(self):
-        '''The key of the port to be connected to the physical NICs.
-        '''
-        return self.data['uplinkPortKey']
-
+    return obj
+    

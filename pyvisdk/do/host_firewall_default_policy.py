@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostFirewallDefaultPolicy(DynamicData):
-    '''Default settings for the firewall, used for ports that are not explicitly opened.
-    '''
+def HostFirewallDefaultPolicy(vim, *args, **kwargs):
+    '''Default settings for the firewall, used for ports that are not explicitly
+    opened.'''
     
-    def __init__(self, incomingBlocked, outgoingBlocked):
-        # MUST define these
-        super(HostFirewallDefaultPolicy, self).__init__()
+    obj = vim.client.factory.create('ns0:HostFirewallDefaultPolicy')
     
-        self.data['incomingBlocked'] = incomingBlocked
-        self.data['outgoingBlocked'] = outgoingBlocked
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'incomingBlocked', 'outgoingBlocked' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def incomingBlocked(self):
-        '''Flag indicating whether incoming traffic should be blocked by default.
-        '''
-        return self.data['incomingBlocked']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def outgoingBlocked(self):
-        '''Flag indicating whether outgoing traffic should be blocked by default.
-        '''
-        return self.data['outgoingBlocked']
-
+    return obj
+    

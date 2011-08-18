@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class MissingObject(DynamicData):
+def MissingObject(vim, *args, **kwargs):
     '''Used for reporting missing objects that were explicitly referenced by a filter
-        spec. In other words, any of the objects referenced in objectSet
-    '''
+    spec. In other words, any of the objects referenced in objectSet'''
     
-    def __init__(self, fault, obj):
-        # MUST define these
-        super(MissingObject, self).__init__()
+    obj = vim.client.factory.create('ns0:MissingObject')
     
-        self.data['fault'] = fault
-        self.data['obj'] = obj
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fault', 'obj' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fault(self):
-        '''Fault describing the failure to lookup this object
-        '''
-        return self.data['fault']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def obj(self):
-        '''The object that is being reported missing
-        '''
-        return self.data['obj']
-
+    return obj
+    

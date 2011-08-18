@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_das_event import HostDasEvent
 import logging
 
 ########################################
@@ -8,21 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostNoAvailableNetworksEvent(HostDasEvent):
-    '''This event records the fact that a host does not have any available networks for
-        HA communication
-    '''
+def HostNoAvailableNetworksEvent(vim, *args, **kwargs):
+    '''This event records the fact that a host does not have any available networks
+    for HA communication'''
     
-    def __init__(self, ips):
-        # MUST define these
-        super(HostNoAvailableNetworksEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:HostNoAvailableNetworksEvent')
     
-        self.data['ips'] = ips
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'ips' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ips(self):
-        '''The comma-separated list of used networks
-        '''
-        return self.data['ips']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

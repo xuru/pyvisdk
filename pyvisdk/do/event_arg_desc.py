@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,37 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class EventArgDesc(DynamicData):
-    '''Describes an available event argument name for an Event type, which can be used in
-        EventAlarmExpression.
-    '''
+def EventArgDesc(vim, *args, **kwargs):
+    '''Describes an available event argument name for an Event type, which can be used
+    in EventAlarmExpression.'''
     
-    def __init__(self, description, name, type):
-        # MUST define these
-        super(EventArgDesc, self).__init__()
+    obj = vim.client.factory.create('ns0:EventArgDesc')
     
-        self.data['description'] = description
-        self.data['name'] = name
-        self.data['type'] = type
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'description', 'name', 'type' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def description(self):
-        '''The localized description of the event argument. The key holds the localization
-        prefix for the argument, which is decided by the Event type that it is
-        actually declared in, which may be a base type of this event type.
-        '''
-        return self.data['description']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def name(self):
-        '''The name of the argument
-        '''
-        return self.data['name']
-
-    @property
-    def type(self):
-        '''The type of the argument. The supported values are
-        '''
-        return self.data['type']
-
+    return obj
+    

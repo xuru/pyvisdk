@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_backing_option import VirtualDeviceBackingOption
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDeviceFileBackingOption(VirtualDeviceBackingOption):
-    '''The FileBackingOption data class contains file-specific backing options.
-    '''
+def VirtualDeviceFileBackingOption(vim, *args, **kwargs):
+    '''The FileBackingOption data class contains file-specific backing options.'''
     
-    def __init__(self, fileNameExtensions):
-        # MUST define these
-        super(VirtualDeviceFileBackingOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDeviceFileBackingOption')
     
-        self.data['fileNameExtensions'] = fileNameExtensions
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'type', 'fileNameExtensions' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fileNameExtensions(self):
-        '''Valid filename extension for the filename. If no extensions are present, any file
-        extension is acceptable.
-        '''
-        return self.data['fileNameExtensions']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

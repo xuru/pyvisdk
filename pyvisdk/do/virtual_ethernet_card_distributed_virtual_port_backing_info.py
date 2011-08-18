@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_backing_info import VirtualDeviceBackingInfo
 import logging
 
 ########################################
@@ -8,25 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualEthernetCardDistributedVirtualPortBackingInfo(VirtualDeviceBackingInfo):
+def VirtualEthernetCardDistributedVirtualPortBackingInfo(vim, *args, **kwargs):
     '''The class defines a VirtualEthernetCard backing that connects the device to a
-        distributed virtual switch port or portgroup.
-    '''
+    distributed virtual switch port or portgroup.'''
     
-    def __init__(self, port):
-        # MUST define these
-        super(VirtualEthernetCardDistributedVirtualPortBackingInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualEthernetCardDistributedVirtualPortBackingInfo')
     
-        self.data['port'] = port
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'port' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def port(self):
-        '''The DistributedVirtualPort or DistributedVirtualPortgroup connection. To specify a
-        port connection, set this property to a
-        DistributedVirtualSwitchPortConnection object. To specific a portgroup
-        connection, set this property to a DistributedVirtualSwitchPortConnection
-        object.
-        '''
-        return self.data['port']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

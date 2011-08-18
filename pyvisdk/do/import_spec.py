@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,26 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ImportSpec(DynamicData):
-    '''An ImportSpec is used when importing VMs or vApps.It can be built from scratch, or
-        it can be generated from an OVF descriptor using the service interface
-        OvfManager.This class is the abstract base for VirtualMachineImportSpec
-        and VirtualAppImportSpec. These three classes form a composite structure
-        that allows us to contain arbitrarily complex entitites in a single
-        ImportSpec.
-    '''
+def ImportSpec(vim, *args, **kwargs):
+    '''An ImportSpec is used when importing VMs or vApps.It can be built from scratch,
+    or it can be generated from an OVF descriptor using the service interface
+    OvfManager.This class is the abstract base for VirtualMachineImportSpec and
+    VirtualAppImportSpec. These three classes form a composite structure that
+    allows us to contain arbitrarily complex entitites in a single ImportSpec.'''
     
-    def __init__(self, entityConfig):
-        # MUST define these
-        super(ImportSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:ImportSpec')
     
-        self.data['entityConfig'] = entityConfig
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'entityConfig' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def entityConfig(self):
-        '''Configuration of sub-entities (virtual machine or vApp). This is used for sub-
-        entities of a vApp that could be a virtual machine or a vApp.
-        '''
-        return self.data['entityConfig']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostActiveDirectorySpec(DynamicData):
+def HostActiveDirectorySpec(vim, *args, **kwargs):
     '''The HostActiveDirectorySpec data object defines properties for Active Directory
-        domain access.
-    '''
+    domain access.'''
     
-    def __init__(self, domainName, password, userName):
-        # MUST define these
-        super(HostActiveDirectorySpec, self).__init__()
+    obj = vim.client.factory.create('ns0:HostActiveDirectorySpec')
     
-        self.data['domainName'] = domainName
-        self.data['password'] = password
-        self.data['userName'] = userName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'domainName', 'password', 'userName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def domainName(self):
-        '''Domain name.
-        '''
-        return self.data['domainName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def password(self):
-        '''Password for the Active Directory account.
-        '''
-        return self.data['password']
-
-    @property
-    def userName(self):
-        '''Name of an Active Directory account with the authority to add a host to the
-        domain.
-        '''
-        return self.data['userName']
-
+    return obj
+    

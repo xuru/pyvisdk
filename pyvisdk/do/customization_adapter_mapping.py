@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationAdapterMapping(DynamicData):
-    '''Data object type to associate a virtual network adapter with its IP settings.
-    '''
+def CustomizationAdapterMapping(vim, *args, **kwargs):
+    '''Data object type to associate a virtual network adapter with its IP settings.'''
     
-    def __init__(self, adapter, macAddress):
-        # MUST define these
-        super(CustomizationAdapterMapping, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationAdapterMapping')
     
-        self.data['adapter'] = adapter
-        self.data['macAddress'] = macAddress
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'adapter', 'macAddress' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def adapter(self):
-        '''The IP settings for the associated virtual network adapter.
-        '''
-        return self.data['adapter']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def macAddress(self):
-        '''The MAC address of a network adapter being customized. The client cannot change
-        this value because the guest operating system has no control over the MAC
-        address of a virtual network adapter.
-        '''
-        return self.data['macAddress']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,38 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class UserSearchResult(DynamicData):
-    '''When searching for users, the search results in some additional information. This
-        object describes the additional information.
-    '''
+def UserSearchResult(vim, *args, **kwargs):
+    '''When searching for users, the search results in some additional information.
+    This object describes the additional information.'''
     
-    def __init__(self, fullName, group, principal):
-        # MUST define these
-        super(UserSearchResult, self).__init__()
+    obj = vim.client.factory.create('ns0:UserSearchResult')
     
-        self.data['fullName'] = fullName
-        self.data['group'] = group
-        self.data['principal'] = principal
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fullName', 'group', 'principal' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fullName(self):
-        '''Full name of the user found by the search, or the description of a group, if
-        available.
-        '''
-        return self.data['fullName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def group(self):
-        '''If this is true, then the result is a group. If this is false, then the result is
-        a user.
-        '''
-        return self.data['group']
-
-    @property
-    def principal(self):
-        '''Login name of a user or the name of a group. This key is the user within the
-        searched domain.
-        '''
-        return self.data['principal']
-
+    return obj
+    

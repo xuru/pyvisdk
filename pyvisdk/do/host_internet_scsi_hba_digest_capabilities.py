@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,47 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostInternetScsiHbaDigestCapabilities(DynamicData):
-    '''The digest capabilities for this host bus adapter.
-    '''
+def HostInternetScsiHbaDigestCapabilities(vim, *args, **kwargs):
+    '''The digest capabilities for this host bus adapter.'''
     
-    def __init__(self, dataDigestSettable, headerDigestSettable, targetDataDigestSettable, targetHeaderDigestSettable):
-        # MUST define these
-        super(HostInternetScsiHbaDigestCapabilities, self).__init__()
+    obj = vim.client.factory.create('ns0:HostInternetScsiHbaDigestCapabilities')
     
-        self.data['dataDigestSettable'] = dataDigestSettable
-        self.data['headerDigestSettable'] = headerDigestSettable
-        self.data['targetDataDigestSettable'] = targetDataDigestSettable
-        self.data['targetHeaderDigestSettable'] = targetHeaderDigestSettable
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'dataDigestSettable', 'headerDigestSettable', 'targetDataDigestSettable',
+        'targetHeaderDigestSettable' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def dataDigestSettable(self):
-        '''True if this host bus adapter supports the configuration of the use of data
-        digest. Defaults to false, in which case no data digests will be used.
-        '''
-        return self.data['dataDigestSettable']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def headerDigestSettable(self):
-        '''True if this host bus adapter supports the configuration of the use of header
-        digest. Defaults to false, in which case no header digests will be used.
-        '''
-        return self.data['headerDigestSettable']
-
-    @property
-    def targetDataDigestSettable(self):
-        '''True if configuration of the use of data digest is supported on the targets
-        associated with the host bus adapter. Defaults to false, in which case no
-        data digests will be used.
-        '''
-        return self.data['targetDataDigestSettable']
-
-    @property
-    def targetHeaderDigestSettable(self):
-        '''True if configuration of the use of header digest is supported on the targets
-        associated with the host bus adapter. Defaults to false, in which case no
-        header digests will be used.
-        '''
-        return self.data['targetHeaderDigestSettable']
-
+    return obj
+    

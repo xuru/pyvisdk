@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDiskMappingInfo(DynamicData):
+def HostDiskMappingInfo(vim, *args, **kwargs):
     '''The HostDiskMappingInfo data object type describes a virtual disk mapping to a
-        host disk.
-    '''
+    host disk.'''
     
-    def __init__(self, exclusive, name, physicalPartition):
-        # MUST define these
-        super(HostDiskMappingInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDiskMappingInfo')
     
-        self.data['exclusive'] = exclusive
-        self.data['name'] = name
-        self.data['physicalPartition'] = physicalPartition
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'exclusive', 'name', 'physicalPartition' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def exclusive(self):
-        '''Flag to indicate whether or not the virtual machine has exclusive access to the
-        host device.
-        '''
-        return self.data['exclusive']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def name(self):
-        '''Host resource name.
-        '''
-        return self.data['name']
-
-    @property
-    def physicalPartition(self):
-        '''The partition used on the host, if not mapping to a full disk device.
-        '''
-        return self.data['physicalPartition']
-
+    return obj
+    

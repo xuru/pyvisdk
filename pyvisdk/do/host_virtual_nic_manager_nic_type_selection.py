@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostVirtualNicManagerNicTypeSelection(DynamicData):
+def HostVirtualNicManagerNicTypeSelection(vim, *args, **kwargs):
     '''DataObject which lets a VirtualNic be marked for use as a
-        HostVirtualNicManagerNicType.
-    '''
+    HostVirtualNicManagerNicType.'''
     
-    def __init__(self, nicType, vnic):
-        # MUST define these
-        super(HostVirtualNicManagerNicTypeSelection, self).__init__()
+    obj = vim.client.factory.create('ns0:HostVirtualNicManagerNicTypeSelection')
     
-        self.data['nicType'] = nicType
-        self.data['vnic'] = vnic
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'nicType', 'vnic' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def nicType(self):
-        '''
-        '''
-        return self.data['nicType']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def vnic(self):
-        '''VirtualNic for the selection is being made
-        '''
-        return self.data['vnic']
-
+    return obj
+    

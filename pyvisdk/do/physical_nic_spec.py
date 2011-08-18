@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,32 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PhysicalNicSpec(DynamicData):
+def PhysicalNicSpec(vim, *args, **kwargs):
     '''This data object type describes the physical network adapter specification
-        representing the properties on a physical network adapter that can be
-        configured once the object exists.
-    '''
+    representing the properties on a physical network adapter that can be
+    configured once the object exists.'''
     
-    def __init__(self, ip, linkSpeed):
-        # MUST define these
-        super(PhysicalNicSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:PhysicalNicSpec')
     
-        self.data['ip'] = ip
-        self.data['linkSpeed'] = linkSpeed
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'ip', 'linkSpeed' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ip(self):
-        '''The IP configuration on the physical network adapter (applies only to a hosted
-        network adapter). The data object will be NULL on an ESX Server system.
-        '''
-        return self.data['ip']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def linkSpeed(self):
-        '''The link speed and duplexity that this physical network adapter is currently
-        configured to use. If this property is not set, the physical network
-        adapter autonegotiates its proper settings.
-        '''
-        return self.data['linkSpeed']
-
+    return obj
+    

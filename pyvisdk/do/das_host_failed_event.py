@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.cluster_event import ClusterEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DasHostFailedEvent(ClusterEvent):
-    '''This event records when a host failure has been detected by HA.
-    '''
+def DasHostFailedEvent(vim, *args, **kwargs):
+    '''This event records when a host failure has been detected by HA.'''
     
-    def __init__(self, failedHost):
-        # MUST define these
-        super(DasHostFailedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DasHostFailedEvent')
     
-        self.data['failedHost'] = failedHost
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'failedHost' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def failedHost(self):
-        '''The host that failed.
-        '''
-        return self.data['failedHost']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

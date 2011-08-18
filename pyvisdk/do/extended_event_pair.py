@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ExtendedEventPair(DynamicData):
-    '''key/value pair
-    '''
+def ExtendedEventPair(vim, *args, **kwargs):
+    '''key/value pair'''
     
-    def __init__(self, key, value):
-        # MUST define these
-        super(ExtendedEventPair, self).__init__()
+    obj = vim.client.factory.create('ns0:ExtendedEventPair')
     
-        self.data['key'] = key
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def value(self):
-        '''
-        '''
-        return self.data['value']
-
+    return obj
+    

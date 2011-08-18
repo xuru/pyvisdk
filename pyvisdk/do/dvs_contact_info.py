@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DVSContactInfo(DynamicData):
-    '''Contact information of a human operator.
-    '''
+def DVSContactInfo(vim, *args, **kwargs):
+    '''Contact information of a human operator.'''
     
-    def __init__(self, contact, name):
-        # MUST define these
-        super(DVSContactInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:DVSContactInfo')
     
-        self.data['contact'] = contact
-        self.data['name'] = name
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'contact', 'name' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def contact(self):
-        '''The contact information for the person.
-        '''
-        return self.data['contact']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def name(self):
-        '''The name of the person who is responsible for the switch.
-        '''
-        return self.data['name']
-
+    return obj
+    

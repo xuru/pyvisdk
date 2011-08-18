@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vmware_distributed_virtual_switch_vlan_spec import VmwareDistributedVirtualSwitchVlanSpec
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmwareDistributedVirtualSwitchTrunkVlanSpec(VmwareDistributedVirtualSwitchVlanSpec):
+def VmwareDistributedVirtualSwitchTrunkVlanSpec(vim, *args, **kwargs):
     '''This data type specifies that the port uses trunk mode, which allows the guest
-        operating system to manage its own VLAN tags.
-    '''
+    operating system to manage its own VLAN tags.'''
     
-    def __init__(self, vlanId):
-        # MUST define these
-        super(VmwareDistributedVirtualSwitchTrunkVlanSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:VmwareDistributedVirtualSwitchTrunkVlanSpec')
     
-        self.data['vlanId'] = vlanId
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'inherited', 'vlanId' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def vlanId(self):
-        '''The VlanId range for the trunk port. The valid VlanId range is from 0 to 4094.
-        '''
-        return self.data['vlanId']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

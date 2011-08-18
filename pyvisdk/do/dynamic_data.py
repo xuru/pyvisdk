@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.base.base_data import BaseData
 import logging
 
 ########################################
@@ -8,33 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DynamicData(BaseData):
+def DynamicData(vim, *args, **kwargs):
     '''DynamicData is a builtin object model data object type for manipulating data
-        properties dynamically. The primary usage is as a base class for types
-        that may be extended with subtypes in the future, where new properties
-        should be sent to old clients as a set of dynamic properties.
-    '''
+    properties dynamically. The primary usage is as a base class for types that may
+    be extended with subtypes in the future, where new properties should be sent to
+    old clients as a set of dynamic properties.'''
     
-    def __init__(self, dynamicProperty, dynamicType):
-        # MUST define these
-        super(DynamicData, self).__init__()
+    obj = vim.client.factory.create('ns0:DynamicData')
     
-        self.data['dynamicProperty'] = dynamicProperty
-        self.data['dynamicType'] = dynamicType
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [  ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def dynamicProperty(self):
-        '''Set of dynamic properties. This property is optional because only the properties
-        of an object that are unknown to a client will be part of this set. This
-        property is not readonly just in case we want to send such properties from
-        a client in the future.
-        '''
-        return self.data['dynamicProperty']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def dynamicType(self):
-        '''Reserved.
-        '''
-        return self.data['dynamicType']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,45 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostPlugStoreTopologyPlugin(DynamicData):
-    '''This data object type represents a Plugin in the plug store architecture. A Plugin
-        claims a set of paths and groups them into Devices.
-    '''
+def HostPlugStoreTopologyPlugin(vim, *args, **kwargs):
+    '''This data object type represents a Plugin in the plug store architecture. A
+    Plugin claims a set of paths and groups them into Devices.'''
     
-    def __init__(self, claimedPath, device, key, name):
-        # MUST define these
-        super(HostPlugStoreTopologyPlugin, self).__init__()
+    obj = vim.client.factory.create('ns0:HostPlugStoreTopologyPlugin')
     
-        self.data['claimedPath'] = claimedPath
-        self.data['device'] = device
-        self.data['key'] = key
-        self.data['name'] = name
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'claimedPath', 'device', 'key', 'name' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def claimedPath(self):
-        '''The set of paths claimed by this plugin. Not every claimed path will necessarily
-        appear as part of a Device. Claimed paths will only appear under Devices
-        if the device identifier of the path matches up with the device identifier
-        exposed by the Device.
-        '''
-        return self.data['claimedPath']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def device(self):
-        '''The set of devices formed by this plugin.
-        '''
-        return self.data['device']
-
-    @property
-    def key(self):
-        '''The identifier of the plugin.
-        '''
-        return self.data['key']
-
-    @property
-    def name(self):
-        '''The name of the plugin.
-        '''
-        return self.data['name']
-
+    return obj
+    

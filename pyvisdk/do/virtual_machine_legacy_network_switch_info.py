@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,23 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineLegacyNetworkSwitchInfo(DynamicData):
-    '''The LegacyNetworkSwitchInfo data object type contains information about the legacy
-        network switches available on the host.* VMware Server - Options available
-        for the "custom" NetworkBackingType. * ESX Server - The "esxnet"
-        NetworkBackingType.
-    '''
+def VirtualMachineLegacyNetworkSwitchInfo(vim, *args, **kwargs):
+    '''The LegacyNetworkSwitchInfo data object type contains information about the
+    legacy network switches available on the host.* VMware Server - Options
+    available for the "custom" NetworkBackingType. * ESX Server - The "esxnet"
+    NetworkBackingType.'''
     
-    def __init__(self, name):
-        # MUST define these
-        super(VirtualMachineLegacyNetworkSwitchInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineLegacyNetworkSwitchInfo')
     
-        self.data['name'] = name
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def name(self):
-        '''The name of the network switch.
-        '''
-        return self.data['name']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

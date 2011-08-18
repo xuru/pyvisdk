@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,94 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineSnapshotTree(DynamicData):
-    '''SnapshotTree encapsulates all the read-only data produced by the snapshot.
-    '''
+def VirtualMachineSnapshotTree(vim, *args, **kwargs):
+    '''SnapshotTree encapsulates all the read-only data produced by the snapshot.'''
     
-    def __init__(self, backupManifest, childSnapshotList, createTime, description, id, name, quiesced, replaySupported, snapshot, state, vm):
-        # MUST define these
-        super(VirtualMachineSnapshotTree, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineSnapshotTree')
     
-        self.data['backupManifest'] = backupManifest
-        self.data['childSnapshotList'] = childSnapshotList
-        self.data['createTime'] = createTime
-        self.data['description'] = description
-        self.data['id'] = id
-        self.data['name'] = name
-        self.data['quiesced'] = quiesced
-        self.data['replaySupported'] = replaySupported
-        self.data['snapshot'] = snapshot
-        self.data['state'] = state
-        self.data['vm'] = vm
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'backupManifest', 'childSnapshotList', 'createTime', 'description', 'id',
+        'name', 'quiesced', 'replaySupported', 'snapshot', 'state', 'vm' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def backupManifest(self):
-        '''The relative path from the snapshotDirectory pointing to the backup manifest.
-        Available for certain quiesced snapshots only.
-        '''
-        return self.data['backupManifest']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def childSnapshotList(self):
-        '''The snapshot data for all snapshots for which this snapshot is the parent.
-        '''
-        return self.data['childSnapshotList']
-
-    @property
-    def createTime(self):
-        '''The date and time the snapshot was taken.
-        '''
-        return self.data['createTime']
-
-    @property
-    def description(self):
-        '''Description of the snapshot.
-        '''
-        return self.data['description']
-
-    @property
-    def id(self):
-        '''The unique identifier that distinguishes this snapshot from other snapshots of the
-        virtual machine.
-        '''
-        return self.data['id']
-
-    @property
-    def name(self):
-        '''Name of the snapshot.
-        '''
-        return self.data['name']
-
-    @property
-    def quiesced(self):
-        '''Flag to indicate whether or not the snapshot was created with the "quiesce"
-        option, ensuring a consistent state of the file system.
-        '''
-        return self.data['quiesced']
-
-    @property
-    def replaySupported(self):
-        '''Flag to indicate whether this snapshot is associated with a recording session on
-        the virtual machine that can be replayed.
-        '''
-        return self.data['replaySupported']
-
-    @property
-    def snapshot(self):
-        '''The managed object for this snapshot.
-        '''
-        return self.data['snapshot']
-
-    @property
-    def state(self):
-        '''The power state of the virtual machine when this snapshot was taken.
-        '''
-        return self.data['state']
-
-    @property
-    def vm(self):
-        '''The virtual machine for which the snapshot was taken.
-        '''
-        return self.data['vm']
-
+    return obj
+    

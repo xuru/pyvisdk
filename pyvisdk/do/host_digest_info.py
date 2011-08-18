@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDigestInfo(DynamicData):
-    '''This data object type describes the digest information
-    '''
+def HostDigestInfo(vim, *args, **kwargs):
+    '''This data object type describes the digest information'''
     
-    def __init__(self, digestMethod, digestValue, objectName):
-        # MUST define these
-        super(HostDigestInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDigestInfo')
     
-        self.data['digestMethod'] = digestMethod
-        self.data['digestValue'] = digestValue
-        self.data['objectName'] = objectName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'digestMethod', 'digestValue', 'objectName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def digestMethod(self):
-        '''Method in which the digest value is calculated. The set of possible values is
-        described in HostDigestInfoDigestMethodType.
-        '''
-        return self.data['digestMethod']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def digestValue(self):
-        '''The variable length byte array containing the digest value calculated by the
-        specified digestMethod.
-        '''
-        return self.data['digestValue']
-
-    @property
-    def objectName(self):
-        '''The name of the object from which this digest value is calcaulated.
-        '''
-        return self.data['objectName']
-
+    return obj
+    

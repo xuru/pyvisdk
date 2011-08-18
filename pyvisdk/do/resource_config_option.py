@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ResourceConfigOption(DynamicData):
+def ResourceConfigOption(vim, *args, **kwargs):
     '''This data object type is a default value and value range specification for
-        ResourceConfigSpec object.
-    '''
+    ResourceConfigSpec object.'''
     
-    def __init__(self, cpuAllocationOption, memoryAllocationOption):
-        # MUST define these
-        super(ResourceConfigOption, self).__init__()
+    obj = vim.client.factory.create('ns0:ResourceConfigOption')
     
-        self.data['cpuAllocationOption'] = cpuAllocationOption
-        self.data['memoryAllocationOption'] = memoryAllocationOption
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'cpuAllocationOption', 'memoryAllocationOption' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def cpuAllocationOption(self):
-        '''Resource allocation options for CPU.
-        '''
-        return self.data['cpuAllocationOption']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def memoryAllocationOption(self):
-        '''Resource allocation options for memory.
-        '''
-        return self.data['memoryAllocationOption']
-
+    return obj
+    

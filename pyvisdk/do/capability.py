@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,52 +8,32 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class Capability(DynamicData):
+def Capability(vim, *args, **kwargs):
     '''A particular product may or may not support certain features. This data object
-        indicates whether or not a service instance implements these features.
-        This data object type indicates the circumstances under which an operation
-        throws a NotSupported fault.Support for some features is indicated by the
-        presence or absence of the manager object from the service instance. For
-        example, the AlarmManager manager object indicates collecting alarms is
-        supported. Other features indicate whether or not a given operation on an
-        object throws a NotSupported fault.Some capabilities depend on the host or
-        virtual machine version. These are specified by using the
-        vim.host.Capability and vim.vm.Capability objects.
-    '''
+    indicates whether or not a service instance implements these features. This
+    data object type indicates the circumstances under which an operation throws a
+    NotSupported fault.Support for some features is indicated by the presence or
+    absence of the manager object from the service instance. For example, the
+    AlarmManager manager object indicates collecting alarms is supported. Other
+    features indicate whether or not a given operation on an object throws a
+    NotSupported fault.Some capabilities depend on the host or virtual machine
+    version. These are specified by using the vim.host.Capability and
+    vim.vm.Capability objects.'''
     
-    def __init__(self, multiHostSupported, provisioningSupported, supportedEVCMode, userShellAccessSupported):
-        # MUST define these
-        super(Capability, self).__init__()
+    obj = vim.client.factory.create('ns0:Capability')
     
-        self.data['multiHostSupported'] = multiHostSupported
-        self.data['provisioningSupported'] = provisioningSupported
-        self.data['supportedEVCMode'] = supportedEVCMode
-        self.data['userShellAccessSupported'] = userShellAccessSupported
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'multiHostSupported', 'provisioningSupported', 'supportedEVCMode',
+        'userShellAccessSupported' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def multiHostSupported(self):
-        '''Indicates whether or not the service instance supports multiple hosts.
-        '''
-        return self.data['multiHostSupported']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def provisioningSupported(self):
-        '''Indicates whether or not the service instance supports provisioning. For example,
-        the CloneVM operation.
-        '''
-        return self.data['provisioningSupported']
-
-    @property
-    def supportedEVCMode(self):
-        '''All supported Enhanced VMotion Compatibility modes.
-        '''
-        return self.data['supportedEVCMode']
-
-    @property
-    def userShellAccessSupported(self):
-        '''Flag indicating whether host user accounts should have the option to be granted
-        shell access
-        '''
-        return self.data['userShellAccessSupported']
-
+    return obj
+    

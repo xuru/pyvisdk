@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_event import HostEvent
 import logging
 
 ########################################
@@ -8,21 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class GhostDvsProxySwitchDetectedEvent(HostEvent):
-    '''This event records when Virtual Center server found DVS proxy switches on the host
-        that don't match any DVS defined in Virtual Center.
-    '''
+def GhostDvsProxySwitchDetectedEvent(vim, *args, **kwargs):
+    '''This event records when Virtual Center server found DVS proxy switches on the
+    host that don't match any DVS defined in Virtual Center.'''
     
-    def __init__(self, switchUuid):
-        # MUST define these
-        super(GhostDvsProxySwitchDetectedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:GhostDvsProxySwitchDetectedEvent')
     
-        self.data['switchUuid'] = switchUuid
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'switchUuid' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def switchUuid(self):
-        '''The list of ghost DVS proxy switch uuids that were found.
-        '''
-        return self.data['switchUuid']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

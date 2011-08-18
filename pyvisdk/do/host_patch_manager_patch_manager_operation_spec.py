@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,51 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostPatchManagerPatchManagerOperationSpec(DynamicData):
-    '''Optional parameters for hostd to pass to exupdate.
-    '''
+def HostPatchManagerPatchManagerOperationSpec(vim, *args, **kwargs):
+    '''Optional parameters for hostd to pass to exupdate.'''
     
-    def __init__(self, cmdOption, password, port, proxy, userName):
-        # MUST define these
-        super(HostPatchManagerPatchManagerOperationSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:HostPatchManagerPatchManagerOperationSpec')
     
-        self.data['cmdOption'] = cmdOption
-        self.data['password'] = password
-        self.data['port'] = port
-        self.data['proxy'] = proxy
-        self.data['userName'] = userName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'cmdOption', 'password', 'port', 'proxy', 'userName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def cmdOption(self):
-        '''Possible command line options when calling esxupdate.
-        '''
-        return self.data['cmdOption']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def password(self):
-        '''The password used for the proxy server. This is passed with ssl through a trusted
-        channel.
-        '''
-        return self.data['password']
-
-    @property
-    def port(self):
-        '''The port of the possible proxy for esxupdate to use to connect to a server. The
-        patch and metadata may be cached within the proxy server.
-        '''
-        return self.data['port']
-
-    @property
-    def proxy(self):
-        '''The name of the possible proxy for esxupdate to use to connect to a server. The
-        patch and metadata may be cached within the proxy server.
-        '''
-        return self.data['proxy']
-
-    @property
-    def userName(self):
-        '''The user name used for the proxy server.
-        '''
-        return self.data['userName']
-
+    return obj
+    

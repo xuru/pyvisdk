@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.inheritable_policy import InheritablePolicy
 import logging
 
 ########################################
@@ -8,42 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DVSTrafficShapingPolicy(InheritablePolicy):
-    '''This data object type describes traffic shaping policy.
-    '''
+def DVSTrafficShapingPolicy(vim, *args, **kwargs):
+    '''This data object type describes traffic shaping policy.'''
     
-    def __init__(self, averageBandwidth, burstSize, enabled, peakBandwidth):
-        # MUST define these
-        super(DVSTrafficShapingPolicy, self).__init__()
+    obj = vim.client.factory.create('ns0:DVSTrafficShapingPolicy')
     
-        self.data['averageBandwidth'] = averageBandwidth
-        self.data['burstSize'] = burstSize
-        self.data['enabled'] = enabled
-        self.data['peakBandwidth'] = peakBandwidth
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'inherited', 'averageBandwidth', 'burstSize', 'enabled', 'peakBandwidth' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def averageBandwidth(self):
-        '''The average bandwidth in bits per second if shaping is enabled on the port.
-        '''
-        return self.data['averageBandwidth']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def burstSize(self):
-        '''The maximum burst size allowed in bytes if shaping is enabled on the port.
-        '''
-        return self.data['burstSize']
-
-    @property
-    def enabled(self):
-        '''The flag to indicate whether or not traffic shaper is enabled on the port.
-        '''
-        return self.data['enabled']
-
-    @property
-    def peakBandwidth(self):
-        '''The peak bandwidth during bursts in bits per second if traffic shaping is enabled
-        on the port.
-        '''
-        return self.data['peakBandwidth']
-
+    return obj
+    

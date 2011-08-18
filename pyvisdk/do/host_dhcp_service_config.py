@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDhcpServiceConfig(DynamicData):
+def HostDhcpServiceConfig(vim, *args, **kwargs):
     '''This data object type describes the configuration of a DHCP service instance
-        representing both the configured properties on the instance and
-        identification information.
-    '''
+    representing both the configured properties on the instance and identification
+    information.'''
     
-    def __init__(self, changeOperation, key, spec):
-        # MUST define these
-        super(HostDhcpServiceConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDhcpServiceConfig')
     
-        self.data['changeOperation'] = changeOperation
-        self.data['key'] = key
-        self.data['spec'] = spec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'changeOperation', 'key', 'spec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def changeOperation(self):
-        '''Indicates the change operation to apply on this configuration specification.
-        '''
-        return self.data['changeOperation']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def key(self):
-        '''The instance ID of the DHCP service.
-        '''
-        return self.data['key']
-
-    @property
-    def spec(self):
-        '''Specification of the DHCP service.
-        '''
-        return self.data['spec']
-
+    return obj
+    

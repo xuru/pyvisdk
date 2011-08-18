@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_machine_target_info import VirtualMachineTargetInfo
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineDiskDeviceInfo(VirtualMachineTargetInfo):
-    '''The DiskDeviceInfo class contains basic information about a specific disk hardware
-        device.
-    '''
+def VirtualMachineDiskDeviceInfo(vim, *args, **kwargs):
+    '''The DiskDeviceInfo class contains basic information about a specific disk
+    hardware device.'''
     
-    def __init__(self, capacity, vm):
-        # MUST define these
-        super(VirtualMachineDiskDeviceInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineDiskDeviceInfo')
     
-        self.data['capacity'] = capacity
-        self.data['vm'] = vm
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'configurationTag', 'name', 'capacity', 'vm' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def capacity(self):
-        '''Size of disk
-        '''
-        return self.data['capacity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def vm(self):
-        '''List of known virtual machines using this physical disk as a backing
-        '''
-        return self.data['vm']
-
+    return obj
+    

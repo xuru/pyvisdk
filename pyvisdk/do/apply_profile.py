@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ApplyProfile(DynamicData):
-    '''This data object type is the base class for all profiles.
-    '''
+def ApplyProfile(vim, *args, **kwargs):
+    '''This data object type is the base class for all profiles.'''
     
-    def __init__(self, enabled, policy):
-        # MUST define these
-        super(ApplyProfile, self).__init__()
+    obj = vim.client.factory.create('ns0:ApplyProfile')
     
-        self.data['enabled'] = enabled
-        self.data['policy'] = policy
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'policy' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def enabled(self):
-        '''Indicates whether the profile is enabled.
-        '''
-        return self.data['enabled']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def policy(self):
-        '''The list of policies comprising the profile.
-        '''
-        return self.data['policy']
-
+    return obj
+    

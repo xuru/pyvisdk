@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.license_event import LicenseEvent
 import logging
 
 ########################################
@@ -8,22 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class NoLicenseEvent(LicenseEvent):
-    '''These are events reported by License Manager.A NoLicenseEvent is reported if the
-        required licenses could not be reserved. Each feature that is not fully
-        licensed is reported.
-    '''
+def NoLicenseEvent(vim, *args, **kwargs):
+    '''These are events reported by License Manager.A NoLicenseEvent is reported if
+    the required licenses could not be reserved. Each feature that is not fully
+    licensed is reported.'''
     
-    def __init__(self, feature):
-        # MUST define these
-        super(NoLicenseEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:NoLicenseEvent')
     
-        self.data['feature'] = feature
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'feature' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def feature(self):
-        '''
-        '''
-        return self.data['feature']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

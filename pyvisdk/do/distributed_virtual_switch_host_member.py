@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,50 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchHostMember(DynamicData):
-    '''The data object that represents a host member in the distributed virtual switch.
-    '''
+def DistributedVirtualSwitchHostMember(vim, *args, **kwargs):
+    '''The data object that represents a host member in the distributed virtual
+    switch.'''
     
-    def __init__(self, config, productInfo, status, statusDetail, uplinkPortKey):
-        # MUST define these
-        super(DistributedVirtualSwitchHostMember, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchHostMember')
     
-        self.data['config'] = config
-        self.data['productInfo'] = productInfo
-        self.data['status'] = status
-        self.data['statusDetail'] = statusDetail
-        self.data['uplinkPortKey'] = uplinkPortKey
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'config', 'productInfo', 'status', 'statusDetail', 'uplinkPortKey' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def config(self):
-        '''Host member configuration.
-        '''
-        return self.data['config']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def productInfo(self):
-        '''The vendor, product and version information for the proxy vSwitch module.
-        '''
-        return self.data['productInfo']
-
-    @property
-    def status(self):
-        '''The host DistributedVirtualSwitch component status. See HostComponentState for
-        valid values.
-        '''
-        return self.data['status']
-
-    @property
-    def statusDetail(self):
-        '''Additional information regarding the host's current status.
-        '''
-        return self.data['statusDetail']
-
-    @property
-    def uplinkPortKey(self):
-        '''The port keys of the uplink ports created for the host member. These ports will be
-        deleted after the host leaves the switch.
-        '''
-        return self.data['uplinkPortKey']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.policy_option import PolicyOption
 import logging
 
 ########################################
@@ -8,30 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CompositePolicyOption(PolicyOption):
+def CompositePolicyOption(vim, *args, **kwargs):
     '''DataObject represents a composite Policy that is created by the user using
-        different PolicyOptions. The options set in the CompositePolicyOption
-        should be derived from the possible options as indicated by the
-        CompositePolicyOptionMetadata.
-    '''
+    different PolicyOptions. The options set in the CompositePolicyOption should be
+    derived from the possible options as indicated by the
+    CompositePolicyOptionMetadata.'''
     
-    def __init__(self, option):
-        # MUST define these
-        super(CompositePolicyOption, self).__init__()
+    obj = vim.client.factory.create('ns0:CompositePolicyOption')
     
-        self.data['option'] = option
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'id', 'parameter', 'option' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def option(self):
-        '''List of policy options that are composed and applicable for this composite policy
-        option. The selected PolicyOptions in a CompositePolicyOption will be used
-        in the policy. PolicyOptions need not be specified if they are not desired
-        for the CompositePolicyOption. Order of PolicyOptions in the PolicyOption
-        array is not significant. The host profile policy engine will not respect
-        order of PolicyOptions. It will apply PolicyOptions in a pre-determined
-        order. Clients of the API must produce PolicyOption in the same order as
-        specified in the metadata.
-        '''
-        return self.data['option']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

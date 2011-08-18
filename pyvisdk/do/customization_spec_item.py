@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationSpecItem(DynamicData):
-    '''Specification information and the Specification object.
-    '''
+def CustomizationSpecItem(vim, *args, **kwargs):
+    '''Specification information and the Specification object.'''
     
-    def __init__(self, info, spec):
-        # MUST define these
-        super(CustomizationSpecItem, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationSpecItem')
     
-        self.data['info'] = info
-        self.data['spec'] = spec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'info', 'spec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def info(self):
-        '''Information about the specification - name, description, and so on.
-        '''
-        return self.data['info']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def spec(self):
-        '''The customization specification.
-        '''
-        return self.data['spec']
-
+    return obj
+    

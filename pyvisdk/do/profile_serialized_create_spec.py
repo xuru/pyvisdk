@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.profile_create_spec import ProfileCreateSpec
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfileSerializedCreateSpec(ProfileCreateSpec):
-    '''DataObject describing the profile in a string serialized representation.
-    '''
+def ProfileSerializedCreateSpec(vim, *args, **kwargs):
+    '''DataObject describing the profile in a string serialized representation.'''
     
-    def __init__(self, profileConfigString):
-        # MUST define these
-        super(ProfileSerializedCreateSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfileSerializedCreateSpec')
     
-        self.data['profileConfigString'] = profileConfigString
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'annotation', 'enabled', 'name', 'profileConfigString' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def profileConfigString(self):
-        '''Represenation of the profile in the string form
-        '''
-        return self.data['profileConfigString']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

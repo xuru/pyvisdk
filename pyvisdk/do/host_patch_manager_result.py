@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostPatchManagerResult(DynamicData):
+def HostPatchManagerResult(vim, *args, **kwargs):
     '''The result of the operation. Some of the fields are only valid for specific
-        operations.
-    '''
+    operations.'''
     
-    def __init__(self, status, version, xmlResult):
-        # MUST define these
-        super(HostPatchManagerResult, self).__init__()
+    obj = vim.client.factory.create('ns0:HostPatchManagerResult')
     
-        self.data['status'] = status
-        self.data['version'] = version
-        self.data['xmlResult'] = xmlResult
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'status', 'version', 'xmlResult' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def status(self):
-        '''The scan results for each patch.
-        '''
-        return self.data['status']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def version(self):
-        '''The version of the scan result schema.
-        '''
-        return self.data['version']
-
-    @property
-    def xmlResult(self):
-        '''The scan results in XML format.
-        '''
-        return self.data['xmlResult']
-
+    return obj
+    

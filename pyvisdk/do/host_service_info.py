@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostServiceInfo(DynamicData):
-    '''Data object describing the host service configuration.
-    '''
+def HostServiceInfo(vim, *args, **kwargs):
+    '''Data object describing the host service configuration.'''
     
-    def __init__(self, service):
-        # MUST define these
-        super(HostServiceInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostServiceInfo')
     
-        self.data['service'] = service
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'service' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def service(self):
-        '''List of configured services.
-        '''
-        return self.data['service']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

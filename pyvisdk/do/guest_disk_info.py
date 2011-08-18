@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class GuestDiskInfo(DynamicData):
-    '''Information about each virtual disk configured in the guest operating system.
-    '''
+def GuestDiskInfo(vim, *args, **kwargs):
+    '''Information about each virtual disk configured in the guest operating system.'''
     
-    def __init__(self, capacity, diskPath, freeSpace):
-        # MUST define these
-        super(GuestDiskInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:GuestDiskInfo')
     
-        self.data['capacity'] = capacity
-        self.data['diskPath'] = diskPath
-        self.data['freeSpace'] = freeSpace
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'capacity', 'diskPath', 'freeSpace' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def capacity(self):
-        '''Total capacity of the disk, in bytes. This is part of the virtual machine
-        configuration.
-        '''
-        return self.data['capacity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def diskPath(self):
-        '''Name of the virtual disk in the guest operating system. For example: C:\
-        '''
-        return self.data['diskPath']
-
-    @property
-    def freeSpace(self):
-        '''Free space on the disk, in bytes. This is retrieved by VMware Tools.
-        '''
-        return self.data['freeSpace']
-
+    return obj
+    

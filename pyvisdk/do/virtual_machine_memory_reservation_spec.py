@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineMemoryReservationSpec(DynamicData):
+def VirtualMachineMemoryReservationSpec(vim, *args, **kwargs):
     '''The VirtualMachineReservationSpec data object specifies configurable parameters
-        for virtual machine memory reservation.
-    '''
+    for virtual machine memory reservation.'''
     
-    def __init__(self, allocationPolicy, virtualMachineReserved):
-        # MUST define these
-        super(VirtualMachineMemoryReservationSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineMemoryReservationSpec')
     
-        self.data['allocationPolicy'] = allocationPolicy
-        self.data['virtualMachineReserved'] = virtualMachineReserved
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'allocationPolicy', 'virtualMachineReserved' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def allocationPolicy(self):
-        '''Policy for allocating additional memory for virtual machines.
-        '''
-        return self.data['allocationPolicy']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def virtualMachineReserved(self):
-        '''The amount of memory reserved for all running virtual machines, in bytes.
-        '''
-        return self.data['virtualMachineReserved']
-
+    return obj
+    

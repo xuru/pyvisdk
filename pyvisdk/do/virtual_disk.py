@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device import VirtualDevice
 import logging
 
 ########################################
@@ -8,37 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDisk(VirtualDevice):
-    '''This data object type contains information about a disk in a virtual machine.The
-        virtual disk backing object types describe the different virtual disk
-        backings available. The disk format version in each case describes the
-        version of the format that is used.Supported virtual disk backings:
-    '''
+def VirtualDisk(vim, *args, **kwargs):
+    '''This data object type contains information about a disk in a virtual
+    machine.The virtual disk backing object types describe the different virtual
+    disk backings available. The disk format version in each case describes the
+    version of the format that is used.Supported virtual disk backings:'''
     
-    def __init__(self, capacityInKB, shares, storageIOAllocation):
-        # MUST define these
-        super(VirtualDisk, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDisk')
     
-        self.data['capacityInKB'] = capacityInKB
-        self.data['shares'] = shares
-        self.data['storageIOAllocation'] = storageIOAllocation
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'key', 'unitNumber',
+        'capacityInKB', 'shares', 'storageIOAllocation' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def capacityInKB(self):
-        '''Capacity of this virtual disk.
-        '''
-        return self.data['capacityInKB']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def shares(self):
-        '''Disk shares, used for resource scheduling.
-        '''
-        return self.data['shares']
-
-    @property
-    def storageIOAllocation(self):
-        '''Resource allocation for storage I/O.
-        '''
-        return self.data['storageIOAllocation']
-
+    return obj
+    

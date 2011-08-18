@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_option import VirtualDeviceOption
 import logging
 
 ########################################
@@ -8,29 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualEthernetCardOption(VirtualDeviceOption):
+def VirtualEthernetCardOption(vim, *args, **kwargs):
     '''This data object type contains the options for the virtual ethernet card data
-        object type.
-    '''
+    object type.'''
     
-    def __init__(self, macType, supportedOUI):
-        # MUST define these
-        super(VirtualEthernetCardOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualEthernetCardOption')
     
-        self.data['macType'] = macType
-        self.data['supportedOUI'] = supportedOUI
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
+        'defaultBackingOptionIndex', 'deprecated', 'hotRemoveSupported',
+        'licensingLimit', 'plugAndPlay', 'type', 'macType', 'supportedOUI' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def macType(self):
-        '''The supported MAC address types.
-        '''
-        return self.data['macType']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def supportedOUI(self):
-        '''The valid Organizational Unique Identifiers (OUIs) supported by this virtual
-        Ethernet card.
-        '''
-        return self.data['supportedOUI']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,32 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PerfSampleInfo(DynamicData):
-    '''This data object type describes information contained in a sample collection, its
-        timestamp, and sampling interval.
-    '''
+def PerfSampleInfo(vim, *args, **kwargs):
+    '''This data object type describes information contained in a sample collection,
+    its timestamp, and sampling interval.'''
     
-    def __init__(self, interval, timestamp):
-        # MUST define these
-        super(PerfSampleInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:PerfSampleInfo')
     
-        self.data['interval'] = interval
-        self.data['timestamp'] = timestamp
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'interval', 'timestamp' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def interval(self):
-        '''The interval in seconds for which performance statistics were collected. This can
-        be the refreshRate of the managed object for which this statistics was
-        collected or one of the intervals for historical statistics configured in
-        the system. See UpdatePerfInterval for more information about the
-        intervals configured in the system.
-        '''
-        return self.data['interval']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def timestamp(self):
-        '''The time at which the sample was collected.
-        '''
-        return self.data['timestamp']
-
+    return obj
+    

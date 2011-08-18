@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,53 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostNatServicePortForwardSpec(DynamicData):
+def HostNatServicePortForwardSpec(vim, *args, **kwargs):
     '''This data object type describes the Network Address Translation (NAT) port
-        forwarding specification.
-    '''
+    forwarding specification.'''
     
-    def __init__(self, guestIpAddress, guestPort, hostPort, name, type):
-        # MUST define these
-        super(HostNatServicePortForwardSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:HostNatServicePortForwardSpec')
     
-        self.data['guestIpAddress'] = guestIpAddress
-        self.data['guestPort'] = guestPort
-        self.data['hostPort'] = hostPort
-        self.data['name'] = name
-        self.data['type'] = type
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'guestIpAddress', 'guestPort', 'hostPort', 'name', 'type' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def guestIpAddress(self):
-        '''The IP address for the guest. Network traffic from the host is forwarded to this
-        IP address.
-        '''
-        return self.data['guestIpAddress']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def guestPort(self):
-        '''The port number for the guest. Network traffic from the host is forwarded to this
-        port.
-        '''
-        return self.data['guestPort']
-
-    @property
-    def hostPort(self):
-        '''The port number on the host. Network traffic sent to the host on this TCP/UDP port
-        is forwarded to the guest at the specified IP address and port.
-        '''
-        return self.data['hostPort']
-
-    @property
-    def name(self):
-        '''The user-defined name to identify the service being forwarded. No white spaces are
-        allowed in the string.
-        '''
-        return self.data['name']
-
-    @property
-    def type(self):
-        '''Either "tcp" or "udp".
-        '''
-        return self.data['type']
-
+    return obj
+    

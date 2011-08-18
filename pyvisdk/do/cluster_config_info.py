@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,50 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterConfigInfo(DynamicData):
-    '''A complete cluster configuration.
-    '''
+def ClusterConfigInfo(vim, *args, **kwargs):
+    '''A complete cluster configuration.'''
     
-    def __init__(self, dasConfig, dasVmConfig, drsConfig, drsVmConfig, rule):
-        # MUST define these
-        super(ClusterConfigInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterConfigInfo')
     
-        self.data['dasConfig'] = dasConfig
-        self.data['dasVmConfig'] = dasVmConfig
-        self.data['drsConfig'] = drsConfig
-        self.data['drsVmConfig'] = drsVmConfig
-        self.data['rule'] = rule
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'dasConfig', 'dasVmConfig', 'drsConfig', 'drsVmConfig', 'rule' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def dasConfig(self):
-        '''Cluster-wide configuration of the VMware HA service.
-        '''
-        return self.data['dasConfig']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def dasVmConfig(self):
-        '''List of virtual machine configurations for the VMware HA service. Each entry
-        applies to one virtual machine.
-        '''
-        return self.data['dasVmConfig']
-
-    @property
-    def drsConfig(self):
-        '''Cluster-wide configuration of the VMware DRS service.
-        '''
-        return self.data['drsConfig']
-
-    @property
-    def drsVmConfig(self):
-        '''List of virtual machine configurations for the VMware DRS service. Each entry
-        applies to one virtual machine.
-        '''
-        return self.data['drsVmConfig']
-
-    @property
-    def rule(self):
-        '''Cluster-wide rules.
-        '''
-        return self.data['rule']
-
+    return obj
+    

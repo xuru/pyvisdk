@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,37 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostNetworkSecurityPolicy(DynamicData):
-    '''This data object type describes security policy governing ports.
-    '''
+def HostNetworkSecurityPolicy(vim, *args, **kwargs):
+    '''This data object type describes security policy governing ports.'''
     
-    def __init__(self, allowPromiscuous, forgedTransmits, macChanges):
-        # MUST define these
-        super(HostNetworkSecurityPolicy, self).__init__()
+    obj = vim.client.factory.create('ns0:HostNetworkSecurityPolicy')
     
-        self.data['allowPromiscuous'] = allowPromiscuous
-        self.data['forgedTransmits'] = forgedTransmits
-        self.data['macChanges'] = macChanges
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'allowPromiscuous', 'forgedTransmits', 'macChanges' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def allowPromiscuous(self):
-        '''The flag to indicate whether or not all traffic is seen on the port.
-        '''
-        return self.data['allowPromiscuous']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def forgedTransmits(self):
-        '''The flag to indicate whether or not the virtual network adapter should be allowed
-        to send network traffic with a different MAC address than that of the
-        virtual network adapter.
-        '''
-        return self.data['forgedTransmits']
-
-    @property
-    def macChanges(self):
-        '''The flag to indicate whether or not the Media Access Control (MAC) address can be
-        changed.
-        '''
-        return self.data['macChanges']
-
+    return obj
+    

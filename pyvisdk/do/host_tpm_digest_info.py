@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_digest_info import HostDigestInfo
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostTpmDigestInfo(HostDigestInfo):
+def HostTpmDigestInfo(vim, *args, **kwargs):
     '''This data object type describes the digest values in the Platform Configuration
-        Register (PCR) of a Trusted Platform Module (TPM) device.
-    '''
+    Register (PCR) of a Trusted Platform Module (TPM) device.'''
     
-    def __init__(self, pcrNumber):
-        # MUST define these
-        super(HostTpmDigestInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostTpmDigestInfo')
     
-        self.data['pcrNumber'] = pcrNumber
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'digestMethod', 'digestValue', 'objectName', 'pcrNumber' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def pcrNumber(self):
-        '''Index of the PCR that stores the TPM digest value.
-        '''
-        return self.data['pcrNumber']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

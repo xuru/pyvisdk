@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device import VirtualDevice
 import logging
 
 ########################################
@@ -8,14 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualParallelPort(VirtualDevice):
-    '''This data object type represents a parallel port in a virtual machine.
-    '''
+def VirtualParallelPort(vim, *args, **kwargs):
+    '''This data object type represents a parallel port in a virtual machine.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VirtualParallelPort, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualParallelPort')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'key', 'unitNumber' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterAttemptedVmInfo(DynamicData):
-    '''This data class reports virtual machine powerOn information.
-    '''
+def ClusterAttemptedVmInfo(vim, *args, **kwargs):
+    '''This data class reports virtual machine powerOn information.'''
     
-    def __init__(self, task, vm):
-        # MUST define these
-        super(ClusterAttemptedVmInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterAttemptedVmInfo')
     
-        self.data['task'] = task
-        self.data['vm'] = vm
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'task', 'vm' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def task(self):
-        '''The ID of the task, which monitors powering on.
-        '''
-        return self.data['task']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def vm(self):
-        '''The virtual machine being powered on.
-        '''
-        return self.data['vm']
-
+    return obj
+    

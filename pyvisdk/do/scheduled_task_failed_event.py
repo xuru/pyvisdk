@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.scheduled_task_event import ScheduledTaskEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ScheduledTaskFailedEvent(ScheduledTaskEvent):
-    '''This event records the failure of a scheduled task.
-    '''
+def ScheduledTaskFailedEvent(vim, *args, **kwargs):
+    '''This event records the failure of a scheduled task.'''
     
-    def __init__(self, reason):
-        # MUST define these
-        super(ScheduledTaskFailedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:ScheduledTaskFailedEvent')
     
-        self.data['reason'] = reason
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'entity', 'scheduledTask', 'reason' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def reason(self):
-        '''The reason for the failure.
-        '''
-        return self.data['reason']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

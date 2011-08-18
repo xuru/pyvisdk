@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.customization_ip_v6_generator import CustomizationIpV6Generator
 import logging
 
 ########################################
@@ -8,14 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationStatelessIpV6Generator(CustomizationIpV6Generator):
-    '''Use stateless autoconfiguration to configure to ipv6 address
-    '''
+def CustomizationStatelessIpV6Generator(vim, *args, **kwargs):
+    '''Use stateless autoconfiguration to configure to ipv6 address'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(CustomizationStatelessIpV6Generator, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationStatelessIpV6Generator')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [  ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

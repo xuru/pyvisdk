@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualHardware(DynamicData):
+def VirtualHardware(vim, *args, **kwargs):
     '''The VirtualHardware data object type contains the complete configuration of the
-        hardware in a virtual machine.
-    '''
+    hardware in a virtual machine.'''
     
-    def __init__(self, device, memoryMB, numCPU):
-        # MUST define these
-        super(VirtualHardware, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualHardware')
     
-        self.data['device'] = device
-        self.data['memoryMB'] = memoryMB
-        self.data['numCPU'] = numCPU
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'device', 'memoryMB', 'numCPU' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def device(self):
-        '''The set of virtual devices belonging to the virtual machine. This list is
-        unordered.
-        '''
-        return self.data['device']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def memoryMB(self):
-        '''Memory size, in MB.
-        '''
-        return self.data['memoryMB']
-
-    @property
-    def numCPU(self):
-        '''Number of virtual CPUs present in this virtual machine.
-        '''
-        return self.data['numCPU']
-
+    return obj
+    

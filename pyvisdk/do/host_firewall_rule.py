@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,44 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostFirewallRule(DynamicData):
+def HostFirewallRule(vim, *args, **kwargs):
     '''This data object type describes a port (or range of ports), identified by port
-        number(s), direction and protocol. It is used as a convenient way for
-        users to express what ports they want to permit through the firewall.
-    '''
+    number(s), direction and protocol. It is used as a convenient way for users to
+    express what ports they want to permit through the firewall.'''
     
-    def __init__(self, direction, endPort, port, protocol):
-        # MUST define these
-        super(HostFirewallRule, self).__init__()
+    obj = vim.client.factory.create('ns0:HostFirewallRule')
     
-        self.data['direction'] = direction
-        self.data['endPort'] = endPort
-        self.data['port'] = port
-        self.data['protocol'] = protocol
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'direction', 'endPort', 'port', 'protocol' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def direction(self):
-        '''The port direction.
-        '''
-        return self.data['direction']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def endPort(self):
-        '''For a port range, the ending port number.
-        '''
-        return self.data['endPort']
-
-    @property
-    def port(self):
-        '''The port number.
-        '''
-        return self.data['port']
-
-    @property
-    def protocol(self):
-        '''The port protocol. Valid values are defined by the HostFirewallRuleProtocol
-        enumeration.
-        '''
-        return self.data['protocol']
-
+    return obj
+    

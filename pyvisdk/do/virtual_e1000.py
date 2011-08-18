@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_ethernet_card import VirtualEthernetCard
 import logging
 
 ########################################
@@ -8,15 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualE1000(VirtualEthernetCard):
+def VirtualE1000(vim, *args, **kwargs):
     '''The VirtualE1000 data object type represents an instance of the E1000 virtual
-        Ethernet adapter attached to a virtual machine.
-    '''
+    Ethernet adapter attached to a virtual machine.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VirtualE1000, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualE1000')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'key', 'unitNumber',
+        'addressType' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

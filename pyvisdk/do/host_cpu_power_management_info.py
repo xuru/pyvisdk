@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostCpuPowerManagementInfo(DynamicData):
-    '''The CpuPowerManagementInfo data object type describes supported power management
-        and current policy.
-    '''
+def HostCpuPowerManagementInfo(vim, *args, **kwargs):
+    '''The CpuPowerManagementInfo data object type describes supported power
+    management and current policy.'''
     
-    def __init__(self, currentPolicy, hardwareSupport):
-        # MUST define these
-        super(HostCpuPowerManagementInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostCpuPowerManagementInfo')
     
-        self.data['currentPolicy'] = currentPolicy
-        self.data['hardwareSupport'] = hardwareSupport
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'currentPolicy', 'hardwareSupport' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def currentPolicy(self):
-        '''Information about current CPU power management policy.
-        '''
-        return self.data['currentPolicy']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def hardwareSupport(self):
-        '''Information about supported CPU power management.
-        '''
-        return self.data['hardwareSupport']
-
+    return obj
+    

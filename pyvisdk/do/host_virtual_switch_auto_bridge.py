@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_virtual_switch_bridge import HostVirtualSwitchBridge
 import logging
 
 ########################################
@@ -8,23 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostVirtualSwitchAutoBridge(HostVirtualSwitchBridge):
-    '''This data type describes a bridge that automatically selects a particular physical
-        network adapter on the host according to some predetermined policy. Used
-        primarily to support mobility scenarios.
-    '''
+def HostVirtualSwitchAutoBridge(vim, *args, **kwargs):
+    '''This data type describes a bridge that automatically selects a particular
+    physical network adapter on the host according to some predetermined policy.
+    Used primarily to support mobility scenarios.'''
     
-    def __init__(self, excludedNicDevice):
-        # MUST define these
-        super(HostVirtualSwitchAutoBridge, self).__init__()
+    obj = vim.client.factory.create('ns0:HostVirtualSwitchAutoBridge')
     
-        self.data['excludedNicDevice'] = excludedNicDevice
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'excludedNicDevice' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def excludedNicDevice(self):
-        '''List of physical network adapters that have been excluded from participating in
-        the AutoBridge
-        '''
-        return self.data['excludedNicDevice']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

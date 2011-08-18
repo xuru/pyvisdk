@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostVMotionConfig(DynamicData):
+def HostVMotionConfig(vim, *args, **kwargs):
     '''This data object configuring VMotion on the host. The runtime information is
-        available from the VMotionInfo data object type.
-    '''
+    available from the VMotionInfo data object type.'''
     
-    def __init__(self, enabled, vmotionNicKey):
-        # MUST define these
-        super(HostVMotionConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:HostVMotionConfig')
     
-        self.data['enabled'] = enabled
-        self.data['vmotionNicKey'] = vmotionNicKey
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'vmotionNicKey' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def enabled(self):
-        '''Flag to indicate whether or not VMotion is enabled.
-        '''
-        return self.data['enabled']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def vmotionNicKey(self):
-        '''Key of the VirtualNic used for VMotion.
-        '''
-        return self.data['vmotionNicKey']
-
+    return obj
+    

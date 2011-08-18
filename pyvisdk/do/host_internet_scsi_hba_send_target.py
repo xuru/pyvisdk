@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,68 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostInternetScsiHbaSendTarget(DynamicData):
-    '''The iSCSI send target.
-    '''
+def HostInternetScsiHbaSendTarget(vim, *args, **kwargs):
+    '''The iSCSI send target.'''
     
-    def __init__(self, address, advancedOptions, authenticationProperties, digestProperties, parent, port, supportedAdvancedOptions):
-        # MUST define these
-        super(HostInternetScsiHbaSendTarget, self).__init__()
+    obj = vim.client.factory.create('ns0:HostInternetScsiHbaSendTarget')
     
-        self.data['address'] = address
-        self.data['advancedOptions'] = advancedOptions
-        self.data['authenticationProperties'] = authenticationProperties
-        self.data['digestProperties'] = digestProperties
-        self.data['parent'] = parent
-        self.data['port'] = port
-        self.data['supportedAdvancedOptions'] = supportedAdvancedOptions
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'address', 'advancedOptions', 'authenticationProperties', 'digestProperties',
+        'parent', 'port', 'supportedAdvancedOptions' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def address(self):
-        '''The IP address or hostname of the storage device.
-        '''
-        return self.data['address']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def advancedOptions(self):
-        '''A list of the current options settings for the host bus adapter.
-        '''
-        return self.data['advancedOptions']
-
-    @property
-    def authenticationProperties(self):
-        '''The authentication settings for this discovery target. All static targets
-        discovered via this target will inherit the use of these settings unless
-        the static target's authentication settings are explicitly set.
-        '''
-        return self.data['authenticationProperties']
-
-    @property
-    def digestProperties(self):
-        '''The digest settings for this discovery target. All static targets discovered via
-        this target will inherit the use of these settings unless the static
-        target's digest settings are explicitly set.
-        '''
-        return self.data['digestProperties']
-
-    @property
-    def parent(self):
-        '''The device name of the host bus adapter from which settings can be inherited.
-        '''
-        return self.data['parent']
-
-    @property
-    def port(self):
-        '''The TCP port of the storage device. If not specified, the standard default of 3260
-        is used.
-        '''
-        return self.data['port']
-
-    @property
-    def supportedAdvancedOptions(self):
-        '''A list of supported key/value pair advanced options for the host bus adapter
-        including their type information.
-        '''
-        return self.data['supportedAdvancedOptions']
-
+    return obj
+    

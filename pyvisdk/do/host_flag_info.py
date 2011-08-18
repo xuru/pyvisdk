@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,22 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostFlagInfo(DynamicData):
+def HostFlagInfo(vim, *args, **kwargs):
     '''The FlagInfo data object type encapsulates the flag settings for a host. These
-        properties are optional since the same structure is used to change the
-        values during an edit or create operation.
-    '''
+    properties are optional since the same structure is used to change the values
+    during an edit or create operation.'''
     
-    def __init__(self, backgroundSnapshotsEnabled):
-        # MUST define these
-        super(HostFlagInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostFlagInfo')
     
-        self.data['backgroundSnapshotsEnabled'] = backgroundSnapshotsEnabled
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'backgroundSnapshotsEnabled' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def backgroundSnapshotsEnabled(self):
-        '''Flag to specify whether background snapshots are enabled.
-        '''
-        return self.data['backgroundSnapshotsEnabled']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

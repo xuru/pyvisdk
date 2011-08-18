@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dvs_event import DvsEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DvsHostLeftEvent(DvsEvent):
-    '''A host left the distributed virtual switch.
-    '''
+def DvsHostLeftEvent(vim, *args, **kwargs):
+    '''A host left the distributed virtual switch.'''
     
-    def __init__(self, hostLeft):
-        # MUST define these
-        super(DvsHostLeftEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DvsHostLeftEvent')
     
-        self.data['hostLeft'] = hostLeft
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'hostLeft' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def hostLeft(self):
-        '''The host that left DVS.
-        '''
-        return self.data['hostLeft']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

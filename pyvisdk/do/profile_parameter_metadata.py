@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,41 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfileParameterMetadata(DynamicData):
-    '''This data object represents the metadata information of a PolicyParameter
-    '''
+def ProfileParameterMetadata(vim, *args, **kwargs):
+    '''This data object represents the metadata information of a PolicyParameter'''
     
-    def __init__(self, defaultValue, id, optional, type):
-        # MUST define these
-        super(ProfileParameterMetadata, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfileParameterMetadata')
     
-        self.data['defaultValue'] = defaultValue
-        self.data['id'] = id
-        self.data['optional'] = optional
-        self.data['type'] = type
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'defaultValue', 'id', 'optional', 'type' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def defaultValue(self):
-        '''The default value that can be used for the parameter
-        '''
-        return self.data['defaultValue']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def id(self):
-        '''The id of the parameter
-        '''
-        return self.data['id']
-
-    @property
-    def optional(self):
-        '''Whether the parameter is optional
-        '''
-        return self.data['optional']
-
-    @property
-    def type(self):
-        '''The type of the parameter
-        '''
-        return self.data['type']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchManagerDvsProductSpec(DynamicData):
+def DistributedVirtualSwitchManagerDvsProductSpec(vim, *args, **kwargs):
     '''This class is used to specify ProductSpec for the DVS. The two properties are
-        strictly mutually exclusive. If both properties are set, then an
-        InvalidArgument fault would be thrown.
-    '''
+    strictly mutually exclusive. If both properties are set, then an
+    InvalidArgument fault would be thrown.'''
     
-    def __init__(self, distributedVirtualSwitch, newSwitchProductSpec):
-        # MUST define these
-        super(DistributedVirtualSwitchManagerDvsProductSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchManagerDvsProductSpec')
     
-        self.data['distributedVirtualSwitch'] = distributedVirtualSwitch
-        self.data['newSwitchProductSpec'] = newSwitchProductSpec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'distributedVirtualSwitch', 'newSwitchProductSpec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def distributedVirtualSwitch(self):
-        '''Get ProductSpec from the existing DVS
-        '''
-        return self.data['distributedVirtualSwitch']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def newSwitchProductSpec(self):
-        '''The ProductSpec for new DVS
-        '''
-        return self.data['newSwitchProductSpec']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostFileAccess(DynamicData):
+def HostFileAccess(vim, *args, **kwargs):
     '''This data object type contains a single access control entry for a file
-        permissions list.
-    '''
+    permissions list.'''
     
-    def __init__(self, what, who):
-        # MUST define these
-        super(HostFileAccess, self).__init__()
+    obj = vim.client.factory.create('ns0:HostFileAccess')
     
-        self.data['what'] = what
-        self.data['who'] = who
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'what', 'who' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def what(self):
-        '''Rights given to the user or group.
-        '''
-        return self.data['what']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def who(self):
-        '''User or group to which the access applies.
-        '''
-        return self.data['who']
-
+    return obj
+    

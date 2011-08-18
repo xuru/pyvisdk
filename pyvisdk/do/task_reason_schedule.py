@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.task_reason import TaskReason
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class TaskReasonSchedule(TaskReason):
-    '''Indicates that the task was queued by a scheduled task.
-    '''
+def TaskReasonSchedule(vim, *args, **kwargs):
+    '''Indicates that the task was queued by a scheduled task.'''
     
-    def __init__(self, name, scheduledTask):
-        # MUST define these
-        super(TaskReasonSchedule, self).__init__()
+    obj = vim.client.factory.create('ns0:TaskReasonSchedule')
     
-        self.data['name'] = name
-        self.data['scheduledTask'] = scheduledTask
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name', 'scheduledTask' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def name(self):
-        '''The name of the scheduled task that queued this task.
-        '''
-        return self.data['name']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def scheduledTask(self):
-        '''The scheduledTask object that queued this task.
-        '''
-        return self.data['scheduledTask']
-
+    return obj
+    

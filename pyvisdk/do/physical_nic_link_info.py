@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,31 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PhysicalNicLinkInfo(DynamicData):
+def PhysicalNicLinkInfo(vim, *args, **kwargs):
     '''This data object type describes the link speed and the type of duplex
-        communication. The link speed indicates the bit rate in Mhz. The duplex
-        boolean indicates if the link is capable of full-duplex or half-duplex
-        communication.
-    '''
+    communication. The link speed indicates the bit rate in Mhz. The duplex boolean
+    indicates if the link is capable of full-duplex or half-duplex communication.'''
     
-    def __init__(self, duplex, speedMb):
-        # MUST define these
-        super(PhysicalNicLinkInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:PhysicalNicLinkInfo')
     
-        self.data['duplex'] = duplex
-        self.data['speedMb'] = speedMb
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'duplex', 'speedMb' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def duplex(self):
-        '''The flag to indicate whether or not the link is capable of full-duplex ("true") or
-        only half-duplex ("false").
-        '''
-        return self.data['duplex']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def speedMb(self):
-        '''The bit rate on the link.
-        '''
-        return self.data['speedMb']
-
+    return obj
+    

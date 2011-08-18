@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.event import Event
 import logging
 
 ########################################
@@ -8,41 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HealthStatusChangedEvent(Event):
-    '''Event used to report change in health status of VirtualCenter components.
-    '''
+def HealthStatusChangedEvent(vim, *args, **kwargs):
+    '''Event used to report change in health status of VirtualCenter components.'''
     
-    def __init__(self, componentId, componentName, newStatus, oldStatus):
-        # MUST define these
-        super(HealthStatusChangedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:HealthStatusChangedEvent')
     
-        self.data['componentId'] = componentId
-        self.data['componentName'] = componentName
-        self.data['newStatus'] = newStatus
-        self.data['oldStatus'] = oldStatus
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'componentId', 'componentName', 'newStatus', 'oldStatus' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def componentId(self):
-        '''Unique ID of the VirtualCenter component.
-        '''
-        return self.data['componentId']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def componentName(self):
-        '''Component name.
-        '''
-        return self.data['componentName']
-
-    @property
-    def newStatus(self):
-        '''Current health status of the component.
-        '''
-        return self.data['newStatus']
-
-    @property
-    def oldStatus(self):
-        '''Previous health status of the component.
-        '''
-        return self.data['oldStatus']
-
+    return obj
+    

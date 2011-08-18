@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostInternetScsiHbaTargetSet(DynamicData):
-    '''A collection of one or more static targets or discovery addresses. At least one of
-        the arrays must be non-empty.
-    '''
+def HostInternetScsiHbaTargetSet(vim, *args, **kwargs):
+    '''A collection of one or more static targets or discovery addresses. At least one
+    of the arrays must be non-empty.'''
     
-    def __init__(self, sendTargets, staticTargets):
-        # MUST define these
-        super(HostInternetScsiHbaTargetSet, self).__init__()
+    obj = vim.client.factory.create('ns0:HostInternetScsiHbaTargetSet')
     
-        self.data['sendTargets'] = sendTargets
-        self.data['staticTargets'] = staticTargets
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'sendTargets', 'staticTargets' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def sendTargets(self):
-        '''
-        '''
-        return self.data['sendTargets']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def staticTargets(self):
-        '''
-        '''
-        return self.data['staticTargets']
-
+    return obj
+    

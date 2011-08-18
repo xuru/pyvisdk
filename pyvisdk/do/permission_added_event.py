@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.permission_event import PermissionEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PermissionAddedEvent(PermissionEvent):
-    '''This event records the creation of a permission.
-    '''
+def PermissionAddedEvent(vim, *args, **kwargs):
+    '''This event records the creation of a permission.'''
     
-    def __init__(self, propagate, role):
-        # MUST define these
-        super(PermissionAddedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:PermissionAddedEvent')
     
-        self.data['propagate'] = propagate
-        self.data['role'] = role
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 6:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'entity', 'group', 'principal', 'propagate', 'role' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def propagate(self):
-        '''Whether or not the permission applies to sub-entities.
-        '''
-        return self.data['propagate']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def role(self):
-        '''The associated role.
-        '''
-        return self.data['role']
-
+    return obj
+    

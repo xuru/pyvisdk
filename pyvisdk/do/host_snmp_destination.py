@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostSnmpDestination(DynamicData):
-    '''Defines a receiver for SNMP Notifications
-    '''
+def HostSnmpDestination(vim, *args, **kwargs):
+    '''Defines a receiver for SNMP Notifications'''
     
-    def __init__(self, community, hostName, port):
-        # MUST define these
-        super(HostSnmpDestination, self).__init__()
+    obj = vim.client.factory.create('ns0:HostSnmpDestination')
     
-        self.data['community'] = community
-        self.data['hostName'] = hostName
-        self.data['port'] = port
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'community', 'hostName', 'port' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def community(self):
-        '''
-        '''
-        return self.data['community']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def hostName(self):
-        '''A system listening for SNMP notifications. These must be a IPv4 unicast address or
-        resolvable dns name.
-        '''
-        return self.data['hostName']
-
-    @property
-    def port(self):
-        '''UDP port to Notification receiver is listening on. udp/162 is the reserved port
-        '''
-        return self.data['port']
-
+    return obj
+    

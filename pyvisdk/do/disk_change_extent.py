@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DiskChangeExtent(DynamicData):
-    '''An area of the disk flagged as modified
-    '''
+def DiskChangeExtent(vim, *args, **kwargs):
+    '''An area of the disk flagged as modified'''
     
-    def __init__(self, length, start):
-        # MUST define these
-        super(DiskChangeExtent, self).__init__()
+    obj = vim.client.factory.create('ns0:DiskChangeExtent')
     
-        self.data['length'] = length
-        self.data['start'] = start
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'length', 'start' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def length(self):
-        '''Length (in bytes) of modified area
-        '''
-        return self.data['length']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def start(self):
-        '''Start offset (in bytes) of modified area
-        '''
-        return self.data['start']
-
+    return obj
+    

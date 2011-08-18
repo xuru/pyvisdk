@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineDeviceRuntimeInfo(DynamicData):
+def VirtualMachineDeviceRuntimeInfo(vim, *args, **kwargs):
     '''The DeviceRuntimeInfo data object type provides information about the execution
-        state of a single virtual device.
-    '''
+    state of a single virtual device.'''
     
-    def __init__(self, key, runtimeState):
-        # MUST define these
-        super(VirtualMachineDeviceRuntimeInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineDeviceRuntimeInfo')
     
-        self.data['key'] = key
-        self.data['runtimeState'] = runtimeState
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'runtimeState' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''The device key.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def runtimeState(self):
-        '''The device runtime state.
-        '''
-        return self.data['runtimeState']
-
+    return obj
+    

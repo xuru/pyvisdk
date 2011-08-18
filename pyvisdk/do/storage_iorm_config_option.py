@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class StorageIORMConfigOption(DynamicData):
-    '''Configuration setting ranges for IORMConfigSpec object.
-    '''
+def StorageIORMConfigOption(vim, *args, **kwargs):
+    '''Configuration setting ranges for IORMConfigSpec object.'''
     
-    def __init__(self, congestionThresholdOption, enabledOption):
-        # MUST define these
-        super(StorageIORMConfigOption, self).__init__()
+    obj = vim.client.factory.create('ns0:StorageIORMConfigOption')
     
-        self.data['congestionThresholdOption'] = congestionThresholdOption
-        self.data['enabledOption'] = enabledOption
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'congestionThresholdOption', 'enabledOption' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def congestionThresholdOption(self):
-        '''congestionThresholdOption defines value range which can be used for
-        congestionThreshold
-        '''
-        return self.data['congestionThresholdOption']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def enabledOption(self):
-        '''enabledOption provides default state value for enabled
-        '''
-        return self.data['enabledOption']
-
+    return obj
+    

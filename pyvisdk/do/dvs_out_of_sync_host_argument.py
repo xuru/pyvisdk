@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DvsOutOfSyncHostArgument(DynamicData):
-    '''The host on which the DVS configuration is different from that of Virtual Center
-        server.
-    '''
+def DvsOutOfSyncHostArgument(vim, *args, **kwargs):
+    '''The host on which the DVS configuration is different from that of Virtual
+    Center server.'''
     
-    def __init__(self, configParamters, outOfSyncHost):
-        # MUST define these
-        super(DvsOutOfSyncHostArgument, self).__init__()
+    obj = vim.client.factory.create('ns0:DvsOutOfSyncHostArgument')
     
-        self.data['configParamters'] = configParamters
-        self.data['outOfSyncHost'] = outOfSyncHost
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'configParamters', 'outOfSyncHost' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def configParamters(self):
-        '''The DVS configuration parameters that are different between Virtual Center server
-        and the host.
-        '''
-        return self.data['configParamters']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def outOfSyncHost(self):
-        '''The host.
-        '''
-        return self.data['outOfSyncHost']
-
+    return obj
+    

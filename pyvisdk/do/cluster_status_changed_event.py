@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.cluster_event import ClusterEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterStatusChangedEvent(ClusterEvent):
-    '''This event records when a cluster's overall status changed.
-    '''
+def ClusterStatusChangedEvent(vim, *args, **kwargs):
+    '''This event records when a cluster's overall status changed.'''
     
-    def __init__(self, newStatus, oldStatus):
-        # MUST define these
-        super(ClusterStatusChangedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterStatusChangedEvent')
     
-        self.data['newStatus'] = newStatus
-        self.data['oldStatus'] = oldStatus
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'newStatus', 'oldStatus' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def newStatus(self):
-        '''The new (status).
-        '''
-        return self.data['newStatus']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def oldStatus(self):
-        '''The old (status).
-        '''
-        return self.data['oldStatus']
-
+    return obj
+    

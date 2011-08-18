@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,21 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class MigrationEvent(VmEvent):
-    '''These are events used to describe migration warning and errors
-    '''
+def MigrationEvent(vim, *args, **kwargs):
+    '''These are events used to describe migration warning and errors'''
     
-    def __init__(self, fault):
-        # MUST define these
-        super(MigrationEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:MigrationEvent')
     
-        self.data['fault'] = fault
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'fault' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fault(self):
-        '''The fault that describes the migration issue. This is typically either a
-        MigrationFault or a VmConfigFault.
-        '''
-        return self.data['fault']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

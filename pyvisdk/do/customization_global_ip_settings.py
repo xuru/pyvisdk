@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationGlobalIPSettings(DynamicData):
+def CustomizationGlobalIPSettings(vim, *args, **kwargs):
     '''A collection of global IP settings for a virtual network adapter. In Linux, DNS
-        server settings are global. The settings can either be statically set or
-        supplied by a DHCP server.
-    '''
+    server settings are global. The settings can either be statically set or
+    supplied by a DHCP server.'''
     
-    def __init__(self, dnsServerList, dnsSuffixList):
-        # MUST define these
-        super(CustomizationGlobalIPSettings, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationGlobalIPSettings')
     
-        self.data['dnsServerList'] = dnsServerList
-        self.data['dnsSuffixList'] = dnsSuffixList
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'dnsServerList', 'dnsSuffixList' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def dnsServerList(self):
-        '''List of DNS servers, for a virtual network adapter with a static IP address. If
-        this list is empty, then the guest operating system is expected to use a
-        DHCP server to get its DNS server settings. These settings configure the
-        virtual machine to use the specified DNS servers. These DNS server
-        settings are listed in order of preference.
-        '''
-        return self.data['dnsServerList']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def dnsSuffixList(self):
-        '''List of name resolution suffixes for the virtual network adapter. This list
-        applies to both Windows and Linux guest customization. For Linux, this
-        setting is global, whereas in Windows, this setting is listed on a per-
-        adapter basis, even though the setting is global in Windows.
-        '''
-        return self.data['dnsSuffixList']
-
+    return obj
+    

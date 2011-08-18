@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,44 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostInternetScsiHbaDiscoveryCapabilities(DynamicData):
-    '''The discovery capabilities for this host bus adapter. At least one discovery mode
-        must always be active. Multiple modes may be active at the same time.
-    '''
+def HostInternetScsiHbaDiscoveryCapabilities(vim, *args, **kwargs):
+    '''The discovery capabilities for this host bus adapter. At least one discovery
+    mode must always be active. Multiple modes may be active at the same time.'''
     
-    def __init__(self, iSnsDiscoverySettable, sendTargetsDiscoverySettable, slpDiscoverySettable, staticTargetDiscoverySettable):
-        # MUST define these
-        super(HostInternetScsiHbaDiscoveryCapabilities, self).__init__()
+    obj = vim.client.factory.create('ns0:HostInternetScsiHbaDiscoveryCapabilities')
     
-        self.data['iSnsDiscoverySettable'] = iSnsDiscoverySettable
-        self.data['sendTargetsDiscoverySettable'] = sendTargetsDiscoverySettable
-        self.data['slpDiscoverySettable'] = slpDiscoverySettable
-        self.data['staticTargetDiscoverySettable'] = staticTargetDiscoverySettable
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'iSnsDiscoverySettable', 'sendTargetsDiscoverySettable',
+        'slpDiscoverySettable', 'staticTargetDiscoverySettable' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def iSnsDiscoverySettable(self):
-        '''True if this host bus adapter supports iSNS
-        '''
-        return self.data['iSnsDiscoverySettable']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def sendTargetsDiscoverySettable(self):
-        '''True if this host bus adapter supports changing the configuration state of send
-        targets discovery. Send targets is mandatory, however some adapters may
-        not allow disabling this discovery method.
-        '''
-        return self.data['sendTargetsDiscoverySettable']
-
-    @property
-    def slpDiscoverySettable(self):
-        '''True if this host bus adapter supports SLP
-        '''
-        return self.data['slpDiscoverySettable']
-
-    @property
-    def staticTargetDiscoverySettable(self):
-        '''True if this host bus adapter supports static discovery
-        '''
-        return self.data['staticTargetDiscoverySettable']
-
+    return obj
+    

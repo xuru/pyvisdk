@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,57 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomFieldDef(DynamicData):
-    '''Describes a custom field.
-    '''
+def CustomFieldDef(vim, *args, **kwargs):
+    '''Describes a custom field.'''
     
-    def __init__(self, fieldDefPrivileges, fieldInstancePrivileges, key, managedObjectType, name, type):
-        # MUST define these
-        super(CustomFieldDef, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomFieldDef')
     
-        self.data['fieldDefPrivileges'] = fieldDefPrivileges
-        self.data['fieldInstancePrivileges'] = fieldInstancePrivileges
-        self.data['key'] = key
-        self.data['managedObjectType'] = managedObjectType
-        self.data['name'] = name
-        self.data['type'] = type
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fieldDefPrivileges', 'fieldInstancePrivileges', 'key', 'managedObjectType',
+        'name', 'type' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fieldDefPrivileges(self):
-        '''The set of privileges to apply on this field definition
-        '''
-        return self.data['fieldDefPrivileges']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def fieldInstancePrivileges(self):
-        '''The set of privileges to apply on instances of this field
-        '''
-        return self.data['fieldInstancePrivileges']
-
-    @property
-    def key(self):
-        '''A unique ID used to reference this custom field in assignments. This ID is unique
-        for the lifetime of the field (even across rename operations).
-        '''
-        return self.data['key']
-
-    @property
-    def managedObjectType(self):
-        '''Type of object for which the field is valid. If not specified, the field is valid
-        for all managed objects.
-        '''
-        return self.data['managedObjectType']
-
-    @property
-    def name(self):
-        '''Name of the field.
-        '''
-        return self.data['name']
-
-    @property
-    def type(self):
-        '''Type of the field.
-        '''
-        return self.data['type']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.apply_profile import ApplyProfile
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class FirewallProfile(ApplyProfile):
-    '''DataObject representing the Firewall configuration on the host
-    '''
+def FirewallProfile(vim, *args, **kwargs):
+    '''DataObject representing the Firewall configuration on the host'''
     
-    def __init__(self, ruleset):
-        # MUST define these
-        super(FirewallProfile, self).__init__()
+    obj = vim.client.factory.create('ns0:FirewallProfile')
     
-        self.data['ruleset'] = ruleset
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'policy', 'ruleset' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ruleset(self):
-        '''List of Rulesets that will be configured for the profile.
-        '''
-        return self.data['ruleset']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

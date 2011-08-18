@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,48 +8,28 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterDasVmConfigInfo(DynamicData):
-    '''The ClusterDasVmConfigInfo data object contains the HA configuration for a single
-        virtual machine.All fields are optional. If you set the parameter to when
-        you call ReconfigureComputeResource_Task, an unset property has no effect
-        on the existing property value in the cluster configuration on the Server.
-        If you set the parameter to when you reconfigure a cluster, the cluster
-        configuration is reverted to the default values, then the new
-        configuration values are applied.
-    '''
+def ClusterDasVmConfigInfo(vim, *args, **kwargs):
+    '''The ClusterDasVmConfigInfo data object contains the HA configuration for a
+    single virtual machine.All fields are optional. If you set the parameter to
+    when you call ReconfigureComputeResource_Task, an unset property has no effect
+    on the existing property value in the cluster configuration on the Server. If
+    you set the parameter to when you reconfigure a cluster, the cluster
+    configuration is reverted to the default values, then the new configuration
+    values are applied.'''
     
-    def __init__(self, dasSettings, key, powerOffOnIsolation, restartPriority):
-        # MUST define these
-        super(ClusterDasVmConfigInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterDasVmConfigInfo')
     
-        self.data['dasSettings'] = dasSettings
-        self.data['key'] = key
-        self.data['powerOffOnIsolation'] = powerOffOnIsolation
-        self.data['restartPriority'] = restartPriority
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'dasSettings', 'key', 'powerOffOnIsolation', 'restartPriority' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def dasSettings(self):
-        '''HA settings that apply to this virtual machine.
-        '''
-        return self.data['dasSettings']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def key(self):
-        '''Reference to the virtual machine.
-        '''
-        return self.data['key']
-
-    @property
-    def powerOffOnIsolation(self):
-        '''Flag to indicate whether or not the virtual machine should be powered off if a
-        host determines that it is isolated from the rest of the compute resource.
-        '''
-        return self.data['powerOffOnIsolation']
-
-    @property
-    def restartPriority(self):
-        '''Restart priority for a virtual machine.
-        '''
-        return self.data['restartPriority']
-
+    return obj
+    

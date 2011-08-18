@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.base.base_data import BaseData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DynamicProperty(BaseData):
-    '''The DynamicProperty data object type represents a name-value pair.
-    '''
+def DynamicProperty(vim, *args, **kwargs):
+    '''The DynamicProperty data object type represents a name-value pair.'''
     
-    def __init__(self, name, val):
-        # MUST define these
-        super(DynamicProperty, self).__init__()
+    obj = vim.client.factory.create('ns0:DynamicProperty')
     
-        self.data['name'] = name
-        self.data['val'] = val
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name', 'val' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def name(self):
-        '''Path to the property.
-        '''
-        return self.data['name']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def val(self):
-        '''Value of the property.
-        '''
-        return self.data['val']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,37 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterPowerOnVmResult(DynamicData):
+def ClusterPowerOnVmResult(vim, *args, **kwargs):
     '''PowerOnVmResult is the base class of the result returned to the
-        PowerOnMultiVM_Task method.
-    '''
+    PowerOnMultiVM_Task method.'''
     
-    def __init__(self, attempted, notAttempted, recommendations):
-        # MUST define these
-        super(ClusterPowerOnVmResult, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterPowerOnVmResult')
     
-        self.data['attempted'] = attempted
-        self.data['notAttempted'] = notAttempted
-        self.data['recommendations'] = recommendations
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'attempted', 'notAttempted', 'recommendations' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def attempted(self):
-        '''The list of virtual machines the Virtual Center has attempted to power on. For a
-        virtual machine not managed by DRS, a task ID is also returned.
-        '''
-        return self.data['attempted']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def notAttempted(self):
-        '''The list of virtual machines DRS can not find suitable hosts for powering on.
-        There is one fault associated with each virtual machine.
-        '''
-        return self.data['notAttempted']
-
-    @property
-    def recommendations(self):
-        '''The list of recommendations that need the client to approve manually.
-        '''
-        return self.data['recommendations']
-
+    return obj
+    

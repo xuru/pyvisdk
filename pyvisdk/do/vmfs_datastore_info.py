@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.datastore_info import DatastoreInfo
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmfsDatastoreInfo(DatastoreInfo):
-    '''Information details about a VMFS datastore.
-    '''
+def VmfsDatastoreInfo(vim, *args, **kwargs):
+    '''Information details about a VMFS datastore.'''
     
-    def __init__(self, vmfs):
-        # MUST define these
-        super(VmfsDatastoreInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VmfsDatastoreInfo')
     
-        self.data['vmfs'] = vmfs
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'freeSpace', 'maxFileSize', 'name', 'timestamp', 'url', 'vmfs' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def vmfs(self):
-        '''The VMFS volume information for the datastore. May not be available when the
-        datastore is not accessible.
-        '''
-        return self.data['vmfs']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

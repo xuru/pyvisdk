@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterDasAdvancedRuntimeInfo(DynamicData):
+def ClusterDasAdvancedRuntimeInfo(vim, *args, **kwargs):
     '''Base class for advanced runtime information related to the high availability
-        service for a cluster.
-    '''
+    service for a cluster.'''
     
-    def __init__(self, dasHostInfo):
-        # MUST define these
-        super(ClusterDasAdvancedRuntimeInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterDasAdvancedRuntimeInfo')
     
-        self.data['dasHostInfo'] = dasHostInfo
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'dasHostInfo' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def dasHostInfo(self):
-        '''The information pertaining to the HA agents on the hosts
-        '''
-        return self.data['dasHostInfo']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

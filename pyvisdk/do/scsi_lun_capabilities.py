@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ScsiLunCapabilities(DynamicData):
-    '''Scsi device specific capabilities.
-    '''
+def ScsiLunCapabilities(vim, *args, **kwargs):
+    '''Scsi device specific capabilities.'''
     
-    def __init__(self, updateDisplayNameSupported):
-        # MUST define these
-        super(ScsiLunCapabilities, self).__init__()
+    obj = vim.client.factory.create('ns0:ScsiLunCapabilities')
     
-        self.data['updateDisplayNameSupported'] = updateDisplayNameSupported
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'updateDisplayNameSupported' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def updateDisplayNameSupported(self):
-        '''Can the display name of the SCSI device be updated?
-        '''
-        return self.data['updateDisplayNameSupported']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

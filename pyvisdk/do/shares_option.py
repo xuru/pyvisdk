@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class SharesOption(DynamicData):
-    '''Specification of shares.Object of this class specifies value ranges for object of
-        instance SharesInfo
-    '''
+def SharesOption(vim, *args, **kwargs):
+    '''Specification of shares.Object of this class specifies value ranges for object
+    of instance SharesInfo'''
     
-    def __init__(self, defaultLevel, sharesOption):
-        # MUST define these
-        super(SharesOption, self).__init__()
+    obj = vim.client.factory.create('ns0:SharesOption')
     
-        self.data['defaultLevel'] = defaultLevel
-        self.data['sharesOption'] = sharesOption
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'defaultLevel', 'sharesOption' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def defaultLevel(self):
-        '''Default value for level
-        '''
-        return self.data['defaultLevel']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def sharesOption(self):
-        '''Value range which can be used for share definition in shares
-        '''
-        return self.data['sharesOption']
-
+    return obj
+    

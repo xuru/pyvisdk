@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.alarm_event import AlarmEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AlarmActionTriggeredEvent(AlarmEvent):
-    '''This event records that an alarm was triggered.
-    '''
+def AlarmActionTriggeredEvent(vim, *args, **kwargs):
+    '''This event records that an alarm was triggered.'''
     
-    def __init__(self, entity, source):
-        # MUST define these
-        super(AlarmActionTriggeredEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:AlarmActionTriggeredEvent')
     
-        self.data['entity'] = entity
-        self.data['source'] = source
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'alarm',
+        'entity', 'source' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def entity(self):
-        '''The entity with which the alarm is registered.
-        '''
-        return self.data['entity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def source(self):
-        '''The entity that triggered the alarm.
-        '''
-        return self.data['source']
-
+    return obj
+    

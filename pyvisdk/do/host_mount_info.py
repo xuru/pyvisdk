@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,37 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostMountInfo(DynamicData):
-    '''The HostMountInfo data object provides information related to a configured mount
-        point. This object does not include information about the mounted file
-        system. (See HostFileSystemMountInfo.)
-    '''
+def HostMountInfo(vim, *args, **kwargs):
+    '''The HostMountInfo data object provides information related to a configured
+    mount point. This object does not include information about the mounted file
+    system. (See HostFileSystemMountInfo.)'''
     
-    def __init__(self, accessible, accessMode, path):
-        # MUST define these
-        super(HostMountInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostMountInfo')
     
-        self.data['accessible'] = accessible
-        self.data['accessMode'] = accessMode
-        self.data['path'] = path
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'accessible', 'accessMode', 'path' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def accessible(self):
-        '''Flag that indicates if the datastore is currently accessible from the host.
-        '''
-        return self.data['accessible']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def accessMode(self):
-        '''Access mode to the underlying file system for this host.
-        '''
-        return self.data['accessMode']
-
-    @property
-    def path(self):
-        '''Local file path where file system volume is mounted, if applicable. This path
-        identifies the file system volume from the point of view of the host.
-        '''
-        return self.data['path']
-
+    return obj
+    

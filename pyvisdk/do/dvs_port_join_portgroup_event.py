@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dvs_event import DvsEvent
 import logging
 
 ########################################
@@ -8,34 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DvsPortJoinPortgroupEvent(DvsEvent):
-    '''A port was moved into the distributed virtual portgroup.
-    '''
+def DvsPortJoinPortgroupEvent(vim, *args, **kwargs):
+    '''A port was moved into the distributed virtual portgroup.'''
     
-    def __init__(self, portgroupKey, portgroupName, portKey):
-        # MUST define these
-        super(DvsPortJoinPortgroupEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DvsPortJoinPortgroupEvent')
     
-        self.data['portgroupKey'] = portgroupKey
-        self.data['portgroupName'] = portgroupName
-        self.data['portKey'] = portKey
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'portgroupKey', 'portgroupName', 'portKey' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def portgroupKey(self):
-        '''The portgroup key.
-        '''
-        return self.data['portgroupKey']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def portgroupName(self):
-        '''The portgroup name.
-        '''
-        return self.data['portgroupName']
-
-    @property
-    def portKey(self):
-        '''The port key.
-        '''
-        return self.data['portKey']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.apply_profile import ApplyProfile
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PermissionProfile(ApplyProfile):
-    '''This data object type represents the profile for a permission rule
-    '''
+def PermissionProfile(vim, *args, **kwargs):
+    '''This data object type represents the profile for a permission rule'''
     
-    def __init__(self, key):
-        # MUST define these
-        super(PermissionProfile, self).__init__()
+    obj = vim.client.factory.create('ns0:PermissionProfile')
     
-        self.data['key'] = key
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'policy', 'key' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

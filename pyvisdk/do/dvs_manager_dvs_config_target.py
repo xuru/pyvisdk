@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DVSManagerDvsConfigTarget(DynamicData):
+def DVSManagerDvsConfigTarget(vim, *args, **kwargs):
     '''Configuration specification for a DistributedVirtualSwitch or
-        DistributedVirtualPortgroup.
-    '''
+    DistributedVirtualPortgroup.'''
     
-    def __init__(self, distributedVirtualPortgroup, distributedVirtualSwitch):
-        # MUST define these
-        super(DVSManagerDvsConfigTarget, self).__init__()
+    obj = vim.client.factory.create('ns0:DVSManagerDvsConfigTarget')
     
-        self.data['distributedVirtualPortgroup'] = distributedVirtualPortgroup
-        self.data['distributedVirtualSwitch'] = distributedVirtualSwitch
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'distributedVirtualPortgroup', 'distributedVirtualSwitch' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def distributedVirtualPortgroup(self):
-        '''List of any DistributedVirtualPortgroup available for host vNIC connection.
-        '''
-        return self.data['distributedVirtualPortgroup']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def distributedVirtualSwitch(self):
-        '''List of any DistributedVirtualSwitch available for host vNIC connection.
-        '''
-        return self.data['distributedVirtualSwitch']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchInfo(DynamicData):
-    '''This class describes a DistributedVirtualSwitch that a device backing can attached
-        to its ports.
-    '''
+def DistributedVirtualSwitchInfo(vim, *args, **kwargs):
+    '''This class describes a DistributedVirtualSwitch that a device backing can
+    attached to its ports.'''
     
-    def __init__(self, distributedVirtualSwitch, switchName, switchUuid):
-        # MUST define these
-        super(DistributedVirtualSwitchInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchInfo')
     
-        self.data['distributedVirtualSwitch'] = distributedVirtualSwitch
-        self.data['switchName'] = switchName
-        self.data['switchUuid'] = switchUuid
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'distributedVirtualSwitch', 'switchName', 'switchUuid' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def distributedVirtualSwitch(self):
-        '''The switch.
-        '''
-        return self.data['distributedVirtualSwitch']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def switchName(self):
-        '''The name of the switch.
-        '''
-        return self.data['switchName']
-
-    @property
-    def switchUuid(self):
-        '''The UUID of the switch.
-        '''
-        return self.data['switchUuid']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.datastore_info import DatastoreInfo
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LocalDatastoreInfo(DatastoreInfo):
-    '''The information details about a datastore that is local to a host.
-    '''
+def LocalDatastoreInfo(vim, *args, **kwargs):
+    '''The information details about a datastore that is local to a host.'''
     
-    def __init__(self, path):
-        # MUST define these
-        super(LocalDatastoreInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:LocalDatastoreInfo')
     
-        self.data['path'] = path
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'freeSpace', 'maxFileSize', 'name', 'timestamp', 'url', 'path' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def path(self):
-        '''The local path on a host. May not be available when the datastore is not
-        accessible.
-        '''
-        return self.data['path']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

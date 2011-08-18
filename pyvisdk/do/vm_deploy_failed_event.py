@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmDeployFailedEvent(VmEvent):
-    '''This event records a failure to deploy from a template.
-    '''
+def VmDeployFailedEvent(vim, *args, **kwargs):
+    '''This event records a failure to deploy from a template.'''
     
-    def __init__(self, destDatastore, reason):
-        # MUST define these
-        super(VmDeployFailedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmDeployFailedEvent')
     
-        self.data['destDatastore'] = destDatastore
-        self.data['reason'] = reason
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'destDatastore', 'reason' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def destDatastore(self):
-        '''The destination datastore the template is being deployed to.
-        '''
-        return self.data['destDatastore']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def reason(self):
-        '''The reason for the failure.
-        '''
-        return self.data['reason']
-
+    return obj
+    

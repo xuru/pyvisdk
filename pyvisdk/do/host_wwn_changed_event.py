@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_event import HostEvent
 import logging
 
 ########################################
@@ -8,41 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostWwnChangedEvent(HostEvent):
-    '''This event records a change in a host's WWN (World Wide Name).
-    '''
+def HostWwnChangedEvent(vim, *args, **kwargs):
+    '''This event records a change in a host's WWN (World Wide Name).'''
     
-    def __init__(self, newNodeWwns, newPortWwns, oldNodeWwns, oldPortWwns):
-        # MUST define these
-        super(HostWwnChangedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:HostWwnChangedEvent')
     
-        self.data['newNodeWwns'] = newNodeWwns
-        self.data['newPortWwns'] = newPortWwns
-        self.data['oldNodeWwns'] = oldNodeWwns
-        self.data['oldPortWwns'] = oldPortWwns
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'newNodeWwns', 'newPortWwns', 'oldNodeWwns', 'oldPortWwns' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def newNodeWwns(self):
-        '''The new node WWN.
-        '''
-        return self.data['newNodeWwns']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def newPortWwns(self):
-        '''The new port WWN.
-        '''
-        return self.data['newPortWwns']
-
-    @property
-    def oldNodeWwns(self):
-        '''The old node WWN.
-        '''
-        return self.data['oldNodeWwns']
-
-    @property
-    def oldPortWwns(self):
-        '''The old port WWN.
-        '''
-        return self.data['oldPortWwns']
-
+    return obj
+    

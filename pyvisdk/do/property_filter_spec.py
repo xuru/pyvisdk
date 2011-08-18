@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,37 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PropertyFilterSpec(DynamicData):
-    '''Specify the property data that is included in a filter. A filter can specify part
-        of a single managed object, or parts of multiple related managed objects
-        in an inventory hierarchy - for example, to collect updates from all
-        virtual machines in a given folder.
-    '''
+def PropertyFilterSpec(vim, *args, **kwargs):
+    '''Specify the property data that is included in a filter. A filter can specify
+    part of a single managed object, or parts of multiple related managed objects
+    in an inventory hierarchy - for example, to collect updates from all virtual
+    machines in a given folder.'''
     
-    def __init__(self, objectSet, propSet, reportMissingObjectsInResults):
-        # MUST define these
-        super(PropertyFilterSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:PropertyFilterSpec')
     
-        self.data['objectSet'] = objectSet
-        self.data['propSet'] = propSet
-        self.data['reportMissingObjectsInResults'] = reportMissingObjectsInResults
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'objectSet', 'propSet', 'reportMissingObjectsInResults' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def objectSet(self):
-        '''Set of specifications that determine the objects to filter.
-        '''
-        return self.data['objectSet']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def propSet(self):
-        '''Set of properties to include in the filter, specified for each object type.
-        '''
-        return self.data['propSet']
-
-    @property
-    def reportMissingObjectsInResults(self):
-        '''Control how to report missing objects during filter creation.
-        '''
-        return self.data['reportMissingObjectsInResults']
-
+    return obj
+    

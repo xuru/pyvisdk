@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,21 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmNoNetworkAccessEvent(VmEvent):
+def VmNoNetworkAccessEvent(vim, *args, **kwargs):
     '''This event records a migration failure when the destination host is not on the
-        same network as the source host.
-    '''
+    same network as the source host.'''
     
-    def __init__(self, destHost):
-        # MUST define these
-        super(VmNoNetworkAccessEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmNoNetworkAccessEvent')
     
-        self.data['destHost'] = destHost
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'destHost' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def destHost(self):
-        '''The destination host.
-        '''
-        return self.data['destHost']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

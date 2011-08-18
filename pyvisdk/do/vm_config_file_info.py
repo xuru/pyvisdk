@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.file_info import FileInfo
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmConfigFileInfo(FileInfo):
-    '''This data object type describes a virtual machine configuration file.
-    '''
+def VmConfigFileInfo(vim, *args, **kwargs):
+    '''This data object type describes a virtual machine configuration file.'''
     
-    def __init__(self, configVersion):
-        # MUST define these
-        super(VmConfigFileInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VmConfigFileInfo')
     
-        self.data['configVersion'] = configVersion
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fileSize', 'modification', 'owner', 'path', 'configVersion' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def configVersion(self):
-        '''
-        '''
-        return self.data['configVersion']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

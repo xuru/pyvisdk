@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostNtpConfig(DynamicData):
-    '''Configuration information for the NTP (Network Time Protocol) service.
-    '''
+def HostNtpConfig(vim, *args, **kwargs):
+    '''Configuration information for the NTP (Network Time Protocol) service.'''
     
-    def __init__(self, server):
-        # MUST define these
-        super(HostNtpConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:HostNtpConfig')
     
-        self.data['server'] = server
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'server' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def server(self):
-        '''List of time servers, specified as either IP addresses or fully qualified domain
-        names (FQDNs).
-        '''
-        return self.data['server']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

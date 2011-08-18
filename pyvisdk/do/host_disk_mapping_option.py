@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDiskMappingOption(DynamicData):
+def HostDiskMappingOption(vim, *args, **kwargs):
     '''The HostDiskMappingOption data object type describes the options for a virtual
-        disk mapping to a host disk.
-    '''
+    disk mapping to a host disk.'''
     
-    def __init__(self, name, physicalPartition):
-        # MUST define these
-        super(HostDiskMappingOption, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDiskMappingOption')
     
-        self.data['name'] = name
-        self.data['physicalPartition'] = physicalPartition
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name', 'physicalPartition' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def name(self):
-        '''Host resource name.
-        '''
-        return self.data['name']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def physicalPartition(self):
-        '''Array of valid partitions on this physical disk. There is no default for this
-        array.
-        '''
-        return self.data['physicalPartition']
-
+    return obj
+    

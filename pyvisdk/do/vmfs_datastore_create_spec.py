@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vmfs_datastore_spec import VmfsDatastoreSpec
 import logging
 
 ########################################
@@ -8,35 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmfsDatastoreCreateSpec(VmfsDatastoreSpec):
+def VmfsDatastoreCreateSpec(vim, *args, **kwargs):
     '''This data object type is used when creating a new VMFS datastore, to create a
-        specification for the VMFS datastore.
-    '''
+    specification for the VMFS datastore.'''
     
-    def __init__(self, extent, partition, vmfs):
-        # MUST define these
-        super(VmfsDatastoreCreateSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:VmfsDatastoreCreateSpec')
     
-        self.data['extent'] = extent
-        self.data['partition'] = partition
-        self.data['vmfs'] = vmfs
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'diskUuid', 'extent', 'partition', 'vmfs' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def extent(self):
-        '''Extents to append to VMFS.
-        '''
-        return self.data['extent']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def partition(self):
-        '''Partitioning specification.
-        '''
-        return self.data['partition']
-
-    @property
-    def vmfs(self):
-        '''The VMFS creation specification.
-        '''
-        return self.data['vmfs']
-
+    return obj
+    

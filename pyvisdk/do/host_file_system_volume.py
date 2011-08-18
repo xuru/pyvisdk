@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,37 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostFileSystemVolume(DynamicData):
+def HostFileSystemVolume(vim, *args, **kwargs):
     '''Detailed information about a file system. This is a base type for derived types
-        that have more specific details about specific filesystem types.Typically
-        a FileSystem is exposed as a datatore See DatastoreInfo See HostVmfsVolume
-        See HostNasVolume See HostLocalFileSystemVolume
-    '''
+    that have more specific details about specific filesystem types.Typically a
+    FileSystem is exposed as a datatore See DatastoreInfo See HostVmfsVolume See
+    HostNasVolume See HostLocalFileSystemVolume'''
     
-    def __init__(self, capacity, name, type):
-        # MUST define these
-        super(HostFileSystemVolume, self).__init__()
+    obj = vim.client.factory.create('ns0:HostFileSystemVolume')
     
-        self.data['capacity'] = capacity
-        self.data['name'] = name
-        self.data['type'] = type
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'capacity', 'name', 'type' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def capacity(self):
-        '''The capacity of the file system volume, in bytes.
-        '''
-        return self.data['capacity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def name(self):
-        '''Name of the file system volume.
-        '''
-        return self.data['name']
-
-    @property
-    def type(self):
-        '''Type of file system volume.
-        '''
-        return self.data['type']
-
+    return obj
+    

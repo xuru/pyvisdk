@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationIPSettingsIpV6AddressSpec(DynamicData):
-    '''IPv6 settings
-    '''
+def CustomizationIPSettingsIpV6AddressSpec(vim, *args, **kwargs):
+    '''IPv6 settings'''
     
-    def __init__(self, gateway, ip):
-        # MUST define these
-        super(CustomizationIPSettingsIpV6AddressSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationIPSettingsIpV6AddressSpec')
     
-        self.data['gateway'] = gateway
-        self.data['ip'] = ip
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'gateway', 'ip' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def gateway(self):
-        '''gateways
-        '''
-        return self.data['gateway']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def ip(self):
-        '''ipv6 address generators
-        '''
-        return self.data['ip']
-
+    return obj
+    

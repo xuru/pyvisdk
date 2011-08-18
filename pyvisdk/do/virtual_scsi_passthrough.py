@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device import VirtualDevice
 import logging
 
 ########################################
@@ -8,16 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualSCSIPassthrough(VirtualDevice):
+def VirtualSCSIPassthrough(vim, *args, **kwargs):
     '''The VirtualSCSIPassthrough data object type contains information about a SCSI
-        device on the virtual machine that is being backed by a generic SCSI
-        device on the host via passthrough.
-    '''
+    device on the virtual machine that is being backed by a generic SCSI device on
+    the host via passthrough.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VirtualSCSIPassthrough, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualSCSIPassthrough')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'key', 'unitNumber' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

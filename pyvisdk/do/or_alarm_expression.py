@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.alarm_expression import AlarmExpression
 import logging
 
 ########################################
@@ -8,24 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class OrAlarmExpression(AlarmExpression):
-    '''A data object type that links multiple alarm expressions with OR operators.
-    '''
+def OrAlarmExpression(vim, *args, **kwargs):
+    '''A data object type that links multiple alarm expressions with OR operators.'''
     
-    def __init__(self, expression):
-        # MUST define these
-        super(OrAlarmExpression, self).__init__()
+    obj = vim.client.factory.create('ns0:OrAlarmExpression')
     
-        self.data['expression'] = expression
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'expression' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def expression(self):
-        '''List of alarm expressions that define the overall status of the alarm. * The state
-        of the alarm expression is gray if all subexpressions are gray. Otherwise,
-        gray subexpressions are ignored. * The state is red if any subexpression
-        is red. * Otherwise, the state is yellow if any subexpression is yellow. *
-        Otherwise, the state of the alarm expression is green.
-        '''
-        return self.data['expression']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

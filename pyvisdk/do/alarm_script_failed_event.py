@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.alarm_event import AlarmEvent
 import logging
 
 ########################################
@@ -8,34 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AlarmScriptFailedEvent(AlarmEvent):
-    '''This event records a failure to complete an alarm-triggered script.
-    '''
+def AlarmScriptFailedEvent(vim, *args, **kwargs):
+    '''This event records a failure to complete an alarm-triggered script.'''
     
-    def __init__(self, entity, reason, script):
-        # MUST define these
-        super(AlarmScriptFailedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:AlarmScriptFailedEvent')
     
-        self.data['entity'] = entity
-        self.data['reason'] = reason
-        self.data['script'] = script
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'alarm',
+        'entity', 'reason', 'script' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def entity(self):
-        '''The entity with which the alarm is registered.
-        '''
-        return self.data['entity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def reason(self):
-        '''The reason for the failure.
-        '''
-        return self.data['reason']
-
-    @property
-    def script(self):
-        '''The script triggered by the alarm.
-        '''
-        return self.data['script']
-
+    return obj
+    

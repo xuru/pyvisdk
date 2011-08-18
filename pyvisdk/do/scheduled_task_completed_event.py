@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.scheduled_task_event import ScheduledTaskEvent
 import logging
 
 ########################################
@@ -8,14 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ScheduledTaskCompletedEvent(ScheduledTaskEvent):
-    '''This event records the completion of a scheduled task.
-    '''
+def ScheduledTaskCompletedEvent(vim, *args, **kwargs):
+    '''This event records the completion of a scheduled task.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(ScheduledTaskCompletedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:ScheduledTaskCompletedEvent')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'entity', 'scheduledTask' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

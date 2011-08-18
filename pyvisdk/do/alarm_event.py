@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.event import Event
 import logging
 
 ########################################
@@ -8,20 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AlarmEvent(Event):
-    '''This event is an alarm events.
-    '''
+def AlarmEvent(vim, *args, **kwargs):
+    '''This event is an alarm events.'''
     
-    def __init__(self, alarm):
-        # MUST define these
-        super(AlarmEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:AlarmEvent')
     
-        self.data['alarm'] = alarm
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'alarm' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def alarm(self):
-        '''The associated alarm object.
-        '''
-        return self.data['alarm']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

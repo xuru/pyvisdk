@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dv_portgroup_policy import DVPortgroupPolicy
 import logging
 
 ########################################
@@ -8,37 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VMwareDVSPortgroupPolicy(DVPortgroupPolicy):
-    '''This class defines the VMware specific configuration for DistributedVirtualPort.
-    '''
+def VMwareDVSPortgroupPolicy(vim, *args, **kwargs):
+    '''This class defines the VMware specific configuration for
+    DistributedVirtualPort.'''
     
-    def __init__(self, securityPolicyOverrideAllowed, uplinkTeamingOverrideAllowed, vlanOverrideAllowed):
-        # MUST define these
-        super(VMwareDVSPortgroupPolicy, self).__init__()
+    obj = vim.client.factory.create('ns0:VMwareDVSPortgroupPolicy')
     
-        self.data['securityPolicyOverrideAllowed'] = securityPolicyOverrideAllowed
-        self.data['uplinkTeamingOverrideAllowed'] = uplinkTeamingOverrideAllowed
-        self.data['vlanOverrideAllowed'] = vlanOverrideAllowed
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 8:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'blockOverrideAllowed', 'livePortMovingAllowed', 'portConfigResetAtDisconnect',
+        'shapingOverrideAllowed', 'vendorConfigOverrideAllowed',
+        'securityPolicyOverrideAllowed', 'uplinkTeamingOverrideAllowed',
+        'vlanOverrideAllowed' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def securityPolicyOverrideAllowed(self):
-        '''Allow the setting of securityPolicy for an individual port to override the setting
-        in defaultPortConfig of a portgroup.
-        '''
-        return self.data['securityPolicyOverrideAllowed']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def uplinkTeamingOverrideAllowed(self):
-        '''Allow the setting of uplinkTeamingPolicy for an individual port to override the
-        setting in defaultPortConfig of a portgroup.
-        '''
-        return self.data['uplinkTeamingOverrideAllowed']
-
-    @property
-    def vlanOverrideAllowed(self):
-        '''Allow the setting of vlanId, trunk vlanId, or pvlanId for an individual port to
-        override the setting in defaultPortConfig of a portgroup.
-        '''
-        return self.data['vlanOverrideAllowed']
-
+    return obj
+    

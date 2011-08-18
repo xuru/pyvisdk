@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDhcpService(DynamicData):
-    '''A dynamic host control protocol (DHCP) service instance serves IP addresses to a
-        single virtual network subnet. The instances may be handled collectively
-        by a single server. This decision can be made during implementation.
-    '''
+def HostDhcpService(vim, *args, **kwargs):
+    '''A dynamic host control protocol (DHCP) service instance serves IP addresses to
+    a single virtual network subnet. The instances may be handled collectively by a
+    single server. This decision can be made during implementation.'''
     
-    def __init__(self, key, spec):
-        # MUST define these
-        super(HostDhcpService, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDhcpService')
     
-        self.data['key'] = key
-        self.data['spec'] = spec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'spec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''The instance ID of the DHCP service.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def spec(self):
-        '''Configurable properties for the DHCP service.
-        '''
-        return self.data['spec']
-
+    return obj
+    

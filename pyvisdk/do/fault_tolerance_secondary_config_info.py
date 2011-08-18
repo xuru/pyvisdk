@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.fault_tolerance_config_info import FaultToleranceConfigInfo
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class FaultToleranceSecondaryConfigInfo(FaultToleranceConfigInfo):
-    '''FaultToleranceSecondaryConfigInfo is a data object type containing Fault Tolerance
-        settings for a secondary virtual machine in a fault tolerance group
-    '''
+def FaultToleranceSecondaryConfigInfo(vim, *args, **kwargs):
+    '''FaultToleranceSecondaryConfigInfo is a data object type containing Fault
+    Tolerance settings for a secondary virtual machine in a fault tolerance group'''
     
-    def __init__(self, primaryVM):
-        # MUST define these
-        super(FaultToleranceSecondaryConfigInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:FaultToleranceSecondaryConfigInfo')
     
-        self.data['primaryVM'] = primaryVM
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'configPaths', 'instanceUuids', 'role', 'primaryVM' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def primaryVM(self):
-        '''
-        '''
-        return self.data['primaryVM']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

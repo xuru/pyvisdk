@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,34 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class SharesInfo(DynamicData):
-    '''Specification of shares.Shares are used to determine relative allocation between
-        resource consumers. In general, a consumer with more shares gets
-        proportionally more of the resource, subject to certain other constraints.
-    '''
+def SharesInfo(vim, *args, **kwargs):
+    '''Specification of shares.Shares are used to determine relative allocation
+    between resource consumers. In general, a consumer with more shares gets
+    proportionally more of the resource, subject to certain other constraints.'''
     
-    def __init__(self, level, shares):
-        # MUST define these
-        super(SharesInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:SharesInfo')
     
-        self.data['level'] = level
-        self.data['shares'] = shares
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'level', 'shares' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def level(self):
-        '''The allocation level. The level is a simplified view of shares. Levels map to a
-        pre-determined set of numeric values for shares. If the shares value does
-        not map to a predefined size, then the level is set as custom.
-        '''
-        return self.data['level']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def shares(self):
-        '''The number of shares allocated. Used to determine resource allocation in case of
-        resource contention. This value is only set if level is set to custom. If
-        level is not set to custom, this value is ignored. Therefore, only shares
-        with custom values can be compared.
-        '''
-        return self.data['shares']
-
+    return obj
+    

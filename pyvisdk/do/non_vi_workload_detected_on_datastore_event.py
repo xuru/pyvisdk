@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.datastore_event import DatastoreEvent
 import logging
 
 ########################################
@@ -8,14 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class NonVIWorkloadDetectedOnDatastoreEvent(DatastoreEvent):
-    '''This event records that non-VI workload is detected on the datastore.
-    '''
+def NonVIWorkloadDetectedOnDatastoreEvent(vim, *args, **kwargs):
+    '''This event records that non-VI workload is detected on the datastore.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(NonVIWorkloadDetectedOnDatastoreEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:NonVIWorkloadDetectedOnDatastoreEvent')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'datastore' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.cluster_action import ClusterAction
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterMigrationAction(ClusterAction):
-    '''Describes a single VM migration action.
-    '''
+def ClusterMigrationAction(vim, *args, **kwargs):
+    '''Describes a single VM migration action.'''
     
-    def __init__(self, drsMigration):
-        # MUST define these
-        super(ClusterMigrationAction, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterMigrationAction')
     
-        self.data['drsMigration'] = drsMigration
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'target', 'type', 'drsMigration' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def drsMigration(self):
-        '''The details of the migration action
-        '''
-        return self.data['drsMigration']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

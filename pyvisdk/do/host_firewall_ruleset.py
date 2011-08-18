@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,58 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostFirewallRuleset(DynamicData):
-    '''Data object that describes a single network ruleset that can be allowed or blocked
-        by the firewall using the HostFirewallSystem object.
-    '''
+def HostFirewallRuleset(vim, *args, **kwargs):
+    '''Data object that describes a single network ruleset that can be allowed or
+    blocked by the firewall using the HostFirewallSystem object.'''
     
-    def __init__(self, enabled, key, label, required, rule, service):
-        # MUST define these
-        super(HostFirewallRuleset, self).__init__()
+    obj = vim.client.factory.create('ns0:HostFirewallRuleset')
     
-        self.data['enabled'] = enabled
-        self.data['key'] = key
-        self.data['label'] = label
-        self.data['required'] = required
-        self.data['rule'] = rule
-        self.data['service'] = service
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'key', 'label', 'required', 'rule', 'service' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def enabled(self):
-        '''Flag indicating whether the ruleset is enabled. If the ruleset is enabled, all
-        ports specified in the ruleset are opened by the firewall.
-        '''
-        return self.data['enabled']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def key(self):
-        '''Brief identifier for the ruleset.
-        '''
-        return self.data['key']
-
-    @property
-    def label(self):
-        '''Display label for the ruleset.
-        '''
-        return self.data['label']
-
-    @property
-    def required(self):
-        '''Flag indicating whether the ruleset is required and cannot be disabled.
-        '''
-        return self.data['required']
-
-    @property
-    def rule(self):
-        '''List of rules within the ruleset.
-        '''
-        return self.data['rule']
-
-    @property
-    def service(self):
-        '''Managed service (if any) that uses this ruleset. Must be one of the services
-        listed in service.
-        '''
-        return self.data['service']
-
+    return obj
+    

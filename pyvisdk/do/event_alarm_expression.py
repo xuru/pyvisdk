@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.alarm_expression import AlarmExpression
 import logging
 
 ########################################
@@ -8,51 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class EventAlarmExpression(AlarmExpression):
-    '''An alarm expression that uses the event stream to trigger the alarm.This alarm is
-        triggered when an event matching this expression gets logged.
-    '''
+def EventAlarmExpression(vim, *args, **kwargs):
+    '''An alarm expression that uses the event stream to trigger the alarm.This alarm
+    is triggered when an event matching this expression gets logged.'''
     
-    def __init__(self, comparisons, eventType, eventTypeId, objectType, status):
-        # MUST define these
-        super(EventAlarmExpression, self).__init__()
+    obj = vim.client.factory.create('ns0:EventAlarmExpression')
     
-        self.data['comparisons'] = comparisons
-        self.data['eventType'] = eventType
-        self.data['eventTypeId'] = eventTypeId
-        self.data['objectType'] = objectType
-        self.data['status'] = status
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'comparisons', 'eventType', 'eventTypeId', 'objectType', 'status' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def comparisons(self):
-        '''The attributes/values to compare.
-        '''
-        return self.data['comparisons']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def eventType(self):
-        '''The type of the event to trigger the alarm on.
-        '''
-        return self.data['eventType']
-
-    @property
-    def eventTypeId(self):
-        '''The eventTypeId of the event to match.
-        '''
-        return self.data['eventTypeId']
-
-    @property
-    def objectType(self):
-        '''Name of the type of managed object on which the event is logged.
-        '''
-        return self.data['objectType']
-
-    @property
-    def status(self):
-        '''The alarm's new state when this condition is evaluated and satisfied. If not
-        specified then there is no change to alarm status, and all actions are
-        fired (rather than those for the transition).
-        '''
-        return self.data['status']
-
+    return obj
+    

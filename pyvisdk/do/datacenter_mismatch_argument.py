@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DatacenterMismatchArgument(DynamicData):
-    '''An input entity argument that belongs to a mismatched datacenter.
-    '''
+def DatacenterMismatchArgument(vim, *args, **kwargs):
+    '''An input entity argument that belongs to a mismatched datacenter.'''
     
-    def __init__(self, entity, inputDatacenter):
-        # MUST define these
-        super(DatacenterMismatchArgument, self).__init__()
+    obj = vim.client.factory.create('ns0:DatacenterMismatchArgument')
     
-        self.data['entity'] = entity
-        self.data['inputDatacenter'] = inputDatacenter
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'entity', 'inputDatacenter' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def entity(self):
-        '''The invalid input entity.
-        '''
-        return self.data['entity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def inputDatacenter(self):
-        '''The datacenter for this entity.
-        '''
-        return self.data['inputDatacenter']
-
+    return obj
+    

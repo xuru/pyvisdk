@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_backing_info import VirtualDeviceBackingInfo
 import logging
 
 ########################################
@@ -8,36 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDeviceURIBackingInfo(VirtualDeviceBackingInfo):
-    '''The data object type defines information for using a network socket as backing for
-        a virtual device.
-    '''
+def VirtualDeviceURIBackingInfo(vim, *args, **kwargs):
+    '''The data object type defines information for using a network socket as backing
+    for a virtual device.'''
     
-    def __init__(self, direction, proxyURI, serviceURI):
-        # MUST define these
-        super(VirtualDeviceURIBackingInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDeviceURIBackingInfo')
     
-        self.data['direction'] = direction
-        self.data['proxyURI'] = proxyURI
-        self.data['serviceURI'] = serviceURI
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'direction', 'proxyURI', 'serviceURI' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def direction(self):
-        '''The direction of the connection. For possible values see
-        VirtualDeviceURIBackingOptionDirection
-        '''
-        return self.data['direction']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def proxyURI(self):
-        '''Identifies a proxy service that provides network access to the
-        '''
-        return self.data['proxyURI']
-
-    @property
-    def serviceURI(self):
-        '''Identifies the local host or a system on the network, depending on the value of
-        '''
-        return self.data['serviceURI']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineStorageInfo(DynamicData):
+def VirtualMachineStorageInfo(vim, *args, **kwargs):
     '''Information about the amount of storage used by a virtual machine across
-        datastores that it is located on.
-    '''
+    datastores that it is located on.'''
     
-    def __init__(self, perDatastoreUsage, timestamp):
-        # MUST define these
-        super(VirtualMachineStorageInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineStorageInfo')
     
-        self.data['perDatastoreUsage'] = perDatastoreUsage
-        self.data['timestamp'] = timestamp
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'perDatastoreUsage', 'timestamp' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def perDatastoreUsage(self):
-        '''Storage space used by this virtual machine on all datastores that it is located
-        on.
-        '''
-        return self.data['perDatastoreUsage']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def timestamp(self):
-        '''Time when values in this structure were last updated.
-        '''
-        return self.data['timestamp']
-
+    return obj
+    

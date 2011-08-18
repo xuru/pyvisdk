@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.migration_event import MigrationEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class MigrationHostWarningEvent(MigrationEvent):
-    '''A migration warning that includes the destination host.
-    '''
+def MigrationHostWarningEvent(vim, *args, **kwargs):
+    '''A migration warning that includes the destination host.'''
     
-    def __init__(self, dstHost):
-        # MUST define these
-        super(MigrationHostWarningEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:MigrationHostWarningEvent')
     
-        self.data['dstHost'] = dstHost
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'fault', 'dstHost' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def dstHost(self):
-        '''The name of the destination host.
-        '''
-        return self.data['dstHost']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

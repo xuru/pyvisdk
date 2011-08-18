@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfilePolicy(DynamicData):
-    '''This data object represents a policy.
-    '''
+def ProfilePolicy(vim, *args, **kwargs):
+    '''This data object represents a policy.'''
     
-    def __init__(self, id, policyOption):
-        # MUST define these
-        super(ProfilePolicy, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfilePolicy')
     
-        self.data['id'] = id
-        self.data['policyOption'] = policyOption
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'id', 'policyOption' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def id(self):
-        '''The id of Policy
-        '''
-        return self.data['id']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def policyOption(self):
-        '''The PolicyOption for the Policy. The 'id' of the PolicyOption should be among the
-        values present in the possibleOption field of the Policy's metadata.
-        '''
-        return self.data['policyOption']
-
+    return obj
+    

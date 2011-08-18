@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dvs_event import DvsEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DvsPortCreatedEvent(DvsEvent):
-    '''New ports are created in the distributed virtual switch.
-    '''
+def DvsPortCreatedEvent(vim, *args, **kwargs):
+    '''New ports are created in the distributed virtual switch.'''
     
-    def __init__(self, portKey):
-        # MUST define these
-        super(DvsPortCreatedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DvsPortCreatedEvent')
     
-        self.data['portKey'] = portKey
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'portKey' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def portKey(self):
-        '''The key of the ports that are created.
-        '''
-        return self.data['portKey']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

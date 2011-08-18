@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,21 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmFailedRelayoutEvent(VmEvent):
+def VmFailedRelayoutEvent(vim, *args, **kwargs):
     '''This event records a specific failure to relay out a virtual machine, such as a
-        failure to access the disk.
-    '''
+    failure to access the disk.'''
     
-    def __init__(self, reason):
-        # MUST define these
-        super(VmFailedRelayoutEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmFailedRelayoutEvent')
     
-        self.data['reason'] = reason
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'reason' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def reason(self):
-        '''
-        '''
-        return self.data['reason']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

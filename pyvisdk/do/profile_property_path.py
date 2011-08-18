@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfilePropertyPath(DynamicData):
-    '''DataObject representing the path to either a Profile or a Policy.
-    '''
+def ProfilePropertyPath(vim, *args, **kwargs):
+    '''DataObject representing the path to either a Profile or a Policy.'''
     
-    def __init__(self, policyId, profilePath):
-        # MUST define these
-        super(ProfilePropertyPath, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfilePropertyPath')
     
-        self.data['policyId'] = policyId
-        self.data['profilePath'] = profilePath
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'policyId', 'profilePath' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def policyId(self):
-        '''Id of the Policy part
-        '''
-        return self.data['policyId']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def profilePath(self):
-        '''Complete path to the leaf profile
-        '''
-        return self.data['profilePath']
-
+    return obj
+    

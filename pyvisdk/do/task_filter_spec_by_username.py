@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,30 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class TaskFilterSpecByUsername(DynamicData):
+def TaskFilterSpecByUsername(vim, *args, **kwargs):
     '''This data object type enables you to filter task history according to the users
-        who performed the tasks.
-    '''
+    who performed the tasks.'''
     
-    def __init__(self, systemUser, userList):
-        # MUST define these
-        super(TaskFilterSpecByUsername, self).__init__()
+    obj = vim.client.factory.create('ns0:TaskFilterSpecByUsername')
     
-        self.data['systemUser'] = systemUser
-        self.data['userList'] = userList
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'systemUser', 'userList' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def systemUser(self):
-        '''Whether or not to filter by system user. If set to true, filters for system user
-        event.
-        '''
-        return self.data['systemUser']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def userList(self):
-        '''Specifies the username list to use in the filter. If not set, then all regular
-        user tasks are collected.
-        '''
-        return self.data['userList']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ComputeResourceConfigInfo(DynamicData):
+def ComputeResourceConfigInfo(vim, *args, **kwargs):
     '''Configuration of the compute resource; applies to both standalone hosts and
-        clusters.
-    '''
+    clusters.'''
     
-    def __init__(self, vmSwapPlacement):
-        # MUST define these
-        super(ComputeResourceConfigInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ComputeResourceConfigInfo')
     
-        self.data['vmSwapPlacement'] = vmSwapPlacement
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'vmSwapPlacement' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def vmSwapPlacement(self):
-        '''Swapfile placement policy for virtual machines within this compute resource. Any
-        policy except for "inherit" is a valid value for this property; the
-        default is "vmDirectory". This setting will be honored for each virtual
-        machine within the compute resource for which the following is true: * The
-        virtual machine is executing on a host that has the perVmSwapFiles
-        capability. * The virtual machine configuration's swapPlacement property
-        is set to "inherit".
-        '''
-        return self.data['vmSwapPlacement']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

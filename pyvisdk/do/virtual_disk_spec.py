@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDiskSpec(DynamicData):
-    '''Specification used to create or clone a virtual disk
-    '''
+def VirtualDiskSpec(vim, *args, **kwargs):
+    '''Specification used to create or clone a virtual disk'''
     
-    def __init__(self, adapterType, diskType):
-        # MUST define these
-        super(VirtualDiskSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDiskSpec')
     
-        self.data['adapterType'] = adapterType
-        self.data['diskType'] = diskType
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'adapterType', 'diskType' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def adapterType(self):
-        '''The type of the virtual disk adapter for the new virtual disk.
-        '''
-        return self.data['adapterType']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def diskType(self):
-        '''The type of the new virtual disk.
-        '''
-        return self.data['diskType']
-
+    return obj
+    

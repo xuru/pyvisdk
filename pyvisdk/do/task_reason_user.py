@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.task_reason import TaskReason
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class TaskReasonUser(TaskReason):
-    '''Indicates that the task was queued by a specific user.
-    '''
+def TaskReasonUser(vim, *args, **kwargs):
+    '''Indicates that the task was queued by a specific user.'''
     
-    def __init__(self, userName):
-        # MUST define these
-        super(TaskReasonUser, self).__init__()
+    obj = vim.client.factory.create('ns0:TaskReasonUser')
     
-        self.data['userName'] = userName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'userName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def userName(self):
-        '''Name of the user that queued the task.
-        '''
-        return self.data['userName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

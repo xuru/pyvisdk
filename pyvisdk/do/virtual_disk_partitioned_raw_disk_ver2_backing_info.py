@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_disk_raw_disk_ver2_backing_info import VirtualDiskRawDiskVer2BackingInfo
 import logging
 
 ########################################
@@ -8,23 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDiskPartitionedRawDiskVer2BackingInfo(VirtualDiskRawDiskVer2BackingInfo):
-    '''This data object type contains information about backing a virtual disk using one
-        or more partitions on a physical disk device. This type of backing is
-        supported for VMware Server.
-    '''
+def VirtualDiskPartitionedRawDiskVer2BackingInfo(vim, *args, **kwargs):
+    '''This data object type contains information about backing a virtual disk using
+    one or more partitions on a physical disk device. This type of backing is
+    supported for VMware Server.'''
     
-    def __init__(self, partition):
-        # MUST define these
-        super(VirtualDiskPartitionedRawDiskVer2BackingInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDiskPartitionedRawDiskVer2BackingInfo')
     
-        self.data['partition'] = partition
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'deviceName', 'useAutoDetect', 'changeId', 'descriptorFileName', 'uuid',
+        'partition' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def partition(self):
-        '''Array of partition indexes. This array identifies the partitions that are used on
-        the physical disk drive.
-        '''
-        return self.data['partition']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

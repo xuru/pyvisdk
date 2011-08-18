@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dvs_feature_capability import DVSFeatureCapability
 import logging
 
 ########################################
@@ -8,15 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VMwareDVSFeatureCapability(DVSFeatureCapability):
-    '''Indicators of support for version-specific DVS features that are only available on
-        a VMware-class switch.
-    '''
+def VMwareDVSFeatureCapability(vim, *args, **kwargs):
+    '''Indicators of support for version-specific DVS features that are only available
+    on a VMware-class switch.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VMwareDVSFeatureCapability, self).__init__()
+    obj = vim.client.factory.create('ns0:VMwareDVSFeatureCapability')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'networkResourceManagementSupported', 'networkResourcePoolHighShareValue',
+        'nicTeamingPolicy', 'vmDirectPathGen2Supported' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

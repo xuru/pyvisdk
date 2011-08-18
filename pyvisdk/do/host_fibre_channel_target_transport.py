@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_target_transport import HostTargetTransport
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostFibreChannelTargetTransport(HostTargetTransport):
-    '''Fibre Channel transport information about a SCSI target.
-    '''
+def HostFibreChannelTargetTransport(vim, *args, **kwargs):
+    '''Fibre Channel transport information about a SCSI target.'''
     
-    def __init__(self, nodeWorldWideName, portWorldWideName):
-        # MUST define these
-        super(HostFibreChannelTargetTransport, self).__init__()
+    obj = vim.client.factory.create('ns0:HostFibreChannelTargetTransport')
     
-        self.data['nodeWorldWideName'] = nodeWorldWideName
-        self.data['portWorldWideName'] = portWorldWideName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'nodeWorldWideName', 'portWorldWideName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def nodeWorldWideName(self):
-        '''The world wide node name of the target.
-        '''
-        return self.data['nodeWorldWideName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def portWorldWideName(self):
-        '''The world wide port name of the target.
-        '''
-        return self.data['portWorldWideName']
-
+    return obj
+    

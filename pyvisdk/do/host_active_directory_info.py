@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_directory_store_info import HostDirectoryStoreInfo
 import logging
 
 ########################################
@@ -8,38 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostActiveDirectoryInfo(HostDirectoryStoreInfo):
-    '''The HostActiveDirectoryInfo data object describes ESX host membership in an Active
-        Directory domain. If the HostAuthenticationStoreInfo.enabled property is ,
-        the host is a member of a domain and the ESX Server will set the domain
-        information properties.
-    '''
+def HostActiveDirectoryInfo(vim, *args, **kwargs):
+    '''The HostActiveDirectoryInfo data object describes ESX host membership in an
+    Active Directory domain. If the HostAuthenticationStoreInfo.enabled property is
+    , the host is a member of a domain and the ESX Server will set the domain
+    information properties.'''
     
-    def __init__(self, domainMembershipStatus, joinedDomain, trustedDomain):
-        # MUST define these
-        super(HostActiveDirectoryInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostActiveDirectoryInfo')
     
-        self.data['domainMembershipStatus'] = domainMembershipStatus
-        self.data['joinedDomain'] = joinedDomain
-        self.data['trustedDomain'] = trustedDomain
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'domainMembershipStatus', 'joinedDomain', 'trustedDomain' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def domainMembershipStatus(self):
-        '''Health information about the domain membership. See
-        HostActiveDirectoryInfoDomainMembershipStatus.
-        '''
-        return self.data['domainMembershipStatus']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def joinedDomain(self):
-        '''The domain that this host joined.
-        '''
-        return self.data['joinedDomain']
-
-    @property
-    def trustedDomain(self):
-        '''List of domains with which the
-        '''
-        return self.data['trustedDomain']
-
+    return obj
+    

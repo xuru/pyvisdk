@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.event import Event
 import logging
 
 ########################################
@@ -8,22 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LockerMisconfiguredEvent(Event):
+def LockerMisconfiguredEvent(vim, *args, **kwargs):
     '''Locker has not been configured properly. This event is fired when the datastore
-        configured to back the locker does not exist or when connectivity to the
-        datastore is lost.
-    '''
+    configured to back the locker does not exist or when connectivity to the
+    datastore is lost.'''
     
-    def __init__(self, datastore):
-        # MUST define these
-        super(LockerMisconfiguredEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:LockerMisconfiguredEvent')
     
-        self.data['datastore'] = datastore
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'datastore' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def datastore(self):
-        '''The datastore that has been configured to back the locker
-        '''
-        return self.data['datastore']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

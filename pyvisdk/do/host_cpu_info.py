@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,43 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostCpuInfo(DynamicData):
-    '''Information about the CPUs.
-    '''
+def HostCpuInfo(vim, *args, **kwargs):
+    '''Information about the CPUs.'''
     
-    def __init__(self, hz, numCpuCores, numCpuPackages, numCpuThreads):
-        # MUST define these
-        super(HostCpuInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostCpuInfo')
     
-        self.data['hz'] = hz
-        self.data['numCpuCores'] = numCpuCores
-        self.data['numCpuPackages'] = numCpuPackages
-        self.data['numCpuThreads'] = numCpuThreads
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'hz', 'numCpuCores', 'numCpuPackages', 'numCpuThreads' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def hz(self):
-        '''CPU speed per core. This might be an averaged value if the speed is not uniform
-        across all cores. The total CPU speed of the box is defined as hz *
-        numCpuCores
-        '''
-        return self.data['hz']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def numCpuCores(self):
-        '''Number of physical CPU cores on the host.
-        '''
-        return self.data['numCpuCores']
-
-    @property
-    def numCpuPackages(self):
-        '''Number of physical CPU packages on the host.
-        '''
-        return self.data['numCpuPackages']
-
-    @property
-    def numCpuThreads(self):
-        '''Number of physical CPU threads on the host.
-        '''
-        return self.data['numCpuThreads']
-
+    return obj
+    

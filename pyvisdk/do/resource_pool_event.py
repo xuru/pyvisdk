@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.event import Event
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ResourcePoolEvent(Event):
-    '''This event is the base class for all resource pool events.
-    '''
+def ResourcePoolEvent(vim, *args, **kwargs):
+    '''This event is the base class for all resource pool events.'''
     
-    def __init__(self, resourcePool):
-        # MUST define these
-        super(ResourcePoolEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:ResourcePoolEvent')
     
-        self.data['resourcePool'] = resourcePool
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'resourcePool' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def resourcePool(self):
-        '''
-        '''
-        return self.data['resourcePool']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_machine_disk_device_info import VirtualMachineDiskDeviceInfo
 import logging
 
 ########################################
@@ -8,23 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineIdeDiskDeviceInfo(VirtualMachineDiskDeviceInfo):
+def VirtualMachineIdeDiskDeviceInfo(vim, *args, **kwargs):
     '''The IdeDiskDeviceInfo class contains detailed information about a specific IDE
-        disk hardware device. These devices are for the
-        vim.vm.device.VirtualDisk.RawDiskVer2BackingInfo and
-        vim.vm.device.VirtualDisk.PartitionedRawDiskVer2BackingInfo backings.
-    '''
+    disk hardware device. These devices are for the
+    vim.vm.device.VirtualDisk.RawDiskVer2BackingInfo and
+    vim.vm.device.VirtualDisk.PartitionedRawDiskVer2BackingInfo backings.'''
     
-    def __init__(self, partitionTable):
-        # MUST define these
-        super(VirtualMachineIdeDiskDeviceInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineIdeDiskDeviceInfo')
     
-        self.data['partitionTable'] = partitionTable
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'configurationTag', 'name', 'capacity', 'vm', 'partitionTable' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def partitionTable(self):
-        '''
-        '''
-        return self.data['partitionTable']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_device_backing_option import VirtualDeviceDeviceBackingOption
 import logging
 
 ########################################
@@ -8,15 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualSCSIPassthroughDeviceBackingOption(VirtualDeviceDeviceBackingOption):
+def VirtualSCSIPassthroughDeviceBackingOption(vim, *args, **kwargs):
     '''This data object type describes the options for the
-        VirtualSCSIPassthroughDeviceBackingInfo data object type.
-    '''
+    VirtualSCSIPassthroughDeviceBackingInfo data object type.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VirtualSCSIPassthroughDeviceBackingOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualSCSIPassthroughDeviceBackingOption')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'type', 'autoDetectAvailable' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

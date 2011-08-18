@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PerfEntityMetricBase(DynamicData):
-    '''Base type for the various PerfEntityMetric encodings.
-    '''
+def PerfEntityMetricBase(vim, *args, **kwargs):
+    '''Base type for the various PerfEntityMetric encodings.'''
     
-    def __init__(self, entity):
-        # MUST define these
-        super(PerfEntityMetricBase, self).__init__()
+    obj = vim.client.factory.create('ns0:PerfEntityMetricBase')
     
-        self.data['entity'] = entity
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'entity' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def entity(self):
-        '''Performance provider ID.
-        '''
-        return self.data['entity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

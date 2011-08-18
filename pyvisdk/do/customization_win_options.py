@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.customization_options import CustomizationOptions
 import logging
 
 ########################################
@@ -8,38 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationWinOptions(CustomizationOptions):
-    '''Optional operations supported by the customization process for Windows.
-    '''
+def CustomizationWinOptions(vim, *args, **kwargs):
+    '''Optional operations supported by the customization process for Windows.'''
     
-    def __init__(self, changeSID, deleteAccounts, reboot):
-        # MUST define these
-        super(CustomizationWinOptions, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationWinOptions')
     
-        self.data['changeSID'] = changeSID
-        self.data['deleteAccounts'] = deleteAccounts
-        self.data['reboot'] = reboot
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'changeSID', 'deleteAccounts', 'reboot' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def changeSID(self):
-        '''The customization process should modify the machine's security identifier (SID).
-        For Vista OS, SID will always be modified.
-        '''
-        return self.data['changeSID']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def deleteAccounts(self):
-        '''If deleteAccounts is true, then all user accounts are removed from the system as
-        part of the customization. Mini-setup creates a new Administrator account
-        with a blank password.
-        '''
-        return self.data['deleteAccounts']
-
-    @property
-    def reboot(self):
-        '''A value of type SysprepRebootOption specifying the action that should be taken
-        after running sysprep. Defaults to "reboot".
-        '''
-        return self.data['reboot']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,28 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmResourcePoolMovedEvent(VmEvent):
+def VmResourcePoolMovedEvent(vim, *args, **kwargs):
     '''This event records when a virtual machine is moved from one resource pool to
-        another.
-    '''
+    another.'''
     
-    def __init__(self, newParent, oldParent):
-        # MUST define these
-        super(VmResourcePoolMovedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmResourcePoolMovedEvent')
     
-        self.data['newParent'] = newParent
-        self.data['oldParent'] = oldParent
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'newParent', 'oldParent' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def newParent(self):
-        '''The new parent resourcePool of the moved virtual machine.
-        '''
-        return self.data['newParent']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def oldParent(self):
-        '''The old parent resourcePool of the moved virtual machine.
-        '''
-        return self.data['oldParent']
-
+    return obj
+    

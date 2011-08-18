@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,36 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineRelocateSpecDiskLocator(DynamicData):
+def VirtualMachineRelocateSpecDiskLocator(vim, *args, **kwargs):
     '''The DiskLocator data object type specifies a virtual disk device (by ID) and a
-        datastore locator for the disk's storage.
-    '''
+    datastore locator for the disk's storage.'''
     
-    def __init__(self, datastore, diskId, diskMoveType):
-        # MUST define these
-        super(VirtualMachineRelocateSpecDiskLocator, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineRelocateSpecDiskLocator')
     
-        self.data['datastore'] = datastore
-        self.data['diskId'] = diskId
-        self.data['diskMoveType'] = diskMoveType
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'datastore', 'diskId', 'diskMoveType' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def datastore(self):
-        '''Target datastore.
-        '''
-        return self.data['datastore']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def diskId(self):
-        '''Device ID of the virtual disk.
-        '''
-        return self.data['diskId']
-
-    @property
-    def diskMoveType(self):
-        '''Manner in which to move the virtual disk to the target datastore. The set of
-        possible values is described in VirtualMachineRelocateDiskMoveOptions.
-        '''
-        return self.data['diskMoveType']
-
+    return obj
+    

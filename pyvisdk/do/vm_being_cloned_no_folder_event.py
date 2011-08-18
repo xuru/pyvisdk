@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_clone_event import VmCloneEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmBeingClonedNoFolderEvent(VmCloneEvent):
-    '''This event records a virtual machine being cloned.
-    '''
+def VmBeingClonedNoFolderEvent(vim, *args, **kwargs):
+    '''This event records a virtual machine being cloned.'''
     
-    def __init__(self, destHost, destName):
-        # MUST define these
-        super(VmBeingClonedNoFolderEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmBeingClonedNoFolderEvent')
     
-        self.data['destHost'] = destHost
-        self.data['destName'] = destName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'destHost', 'destName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def destHost(self):
-        '''The destination host to which the virtual machine is being cloned.
-        '''
-        return self.data['destHost']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def destName(self):
-        '''The name of the destination virtual machine.
-        '''
-        return self.data['destName']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_scsi_controller_option import VirtualSCSIControllerOption
 import logging
 
 ########################################
@@ -8,15 +8,27 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ParaVirtualSCSIControllerOption(VirtualSCSIControllerOption):
-    '''ParaVirtualSCSIControllerOption is the data object that contains the options for a
-        a paravirtualized SCSI controller.
-    '''
+def ParaVirtualSCSIControllerOption(vim, *args, **kwargs):
+    '''ParaVirtualSCSIControllerOption is the data object that contains the options
+    for a a paravirtualized SCSI controller.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(ParaVirtualSCSIControllerOption, self).__init__()
+    obj = vim.client.factory.create('ns0:ParaVirtualSCSIControllerOption')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 8:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
+        'defaultBackingOptionIndex', 'deprecated', 'hotRemoveSupported',
+        'licensingLimit', 'plugAndPlay', 'type', 'devices', 'supportedDevice',
+        'defaultSharedIndex', 'hotAddRemove', 'numSCSICdroms', 'numSCSIDisks',
+        'numSCSIPassthrough', 'scsiCtlrUnitNumber', 'sharing' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

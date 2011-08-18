@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.apply_profile import ApplyProfile
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class SecurityProfile(ApplyProfile):
-    '''DataObject representing Security configurations of the host
-    '''
+def SecurityProfile(vim, *args, **kwargs):
+    '''DataObject representing Security configurations of the host'''
     
-    def __init__(self, permission):
-        # MUST define these
-        super(SecurityProfile, self).__init__()
+    obj = vim.client.factory.create('ns0:SecurityProfile')
     
-        self.data['permission'] = permission
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'policy', 'permission' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def permission(self):
-        '''Permission configuration
-        '''
-        return self.data['permission']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.entity_event_argument import EntityEventArgument
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ResourcePoolEventArgument(EntityEventArgument):
-    '''The event argument is a ResourcePool object.
-    '''
+def ResourcePoolEventArgument(vim, *args, **kwargs):
+    '''The event argument is a ResourcePool object.'''
     
-    def __init__(self, resourcePool):
-        # MUST define these
-        super(ResourcePoolEventArgument, self).__init__()
+    obj = vim.client.factory.create('ns0:ResourcePoolEventArgument')
     
-        self.data['resourcePool'] = resourcePool
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name', 'resourcePool' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def resourcePool(self):
-        '''The ResourcePool object.
-        '''
-        return self.data['resourcePool']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

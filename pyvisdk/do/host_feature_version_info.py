@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostFeatureVersionInfo(DynamicData):
-    '''Feature-specific version information for a host
-    '''
+def HostFeatureVersionInfo(vim, *args, **kwargs):
+    '''Feature-specific version information for a host'''
     
-    def __init__(self, key, value):
-        # MUST define these
-        super(HostFeatureVersionInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostFeatureVersionInfo')
     
-        self.data['key'] = key
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''A unique key that identifies a feature, list of possible values are specified in
-        HostFeatureVersionKey
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def value(self):
-        '''The version string of this feature
-        '''
-        return self.data['value']
-
+    return obj
+    

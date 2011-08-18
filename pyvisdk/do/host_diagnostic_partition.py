@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,42 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDiagnosticPartition(DynamicData):
-    '''This data object type contains information about an available or active diagnostic
-        partition.
-    '''
+def HostDiagnosticPartition(vim, *args, **kwargs):
+    '''This data object type contains information about an available or active
+    diagnostic partition.'''
     
-    def __init__(self, diagnosticType, id, slots, storageType):
-        # MUST define these
-        super(HostDiagnosticPartition, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDiagnosticPartition')
     
-        self.data['diagnosticType'] = diagnosticType
-        self.data['id'] = id
-        self.data['slots'] = slots
-        self.data['storageType'] = storageType
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'diagnosticType', 'id', 'slots', 'storageType' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def diagnosticType(self):
-        '''Indicates the type of the diagnostic partition.
-        '''
-        return self.data['diagnosticType']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def id(self):
-        '''Diagnostic partition identification information.
-        '''
-        return self.data['id']
-
-    @property
-    def slots(self):
-        '''The number of slots in the diagnostic partition.
-        '''
-        return self.data['slots']
-
-    @property
-    def storageType(self):
-        '''Indicates the storage type of the diagnostic partition.
-        '''
-        return self.data['storageType']
-
+    return obj
+    

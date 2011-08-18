@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_vmxnet import VirtualVmxnet
 import logging
 
 ########################################
@@ -8,15 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualVmxnet3(VirtualVmxnet):
-    '''The VirtualVmxnet3 data object type represents an instance of the Vmxnet3 virtual
-        Ethernet adapter attached to a virtual machine.
-    '''
+def VirtualVmxnet3(vim, *args, **kwargs):
+    '''The VirtualVmxnet3 data object type represents an instance of the Vmxnet3
+    virtual Ethernet adapter attached to a virtual machine.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VirtualVmxnet3, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualVmxnet3')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'key', 'unitNumber',
+        'addressType' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

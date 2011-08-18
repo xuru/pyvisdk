@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class NetIpRouteConfigSpecGatewaySpec(DynamicData):
+def NetIpRouteConfigSpecGatewaySpec(vim, *args, **kwargs):
     '''IpRoute report an individual host, network or default destination network
-        reachable through a given gateway.
-    '''
+    reachable through a given gateway.'''
     
-    def __init__(self, device, ipAddress):
-        # MUST define these
-        super(NetIpRouteConfigSpecGatewaySpec, self).__init__()
+    obj = vim.client.factory.create('ns0:NetIpRouteConfigSpecGatewaySpec')
     
-        self.data['device'] = device
-        self.data['ipAddress'] = ipAddress
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'device', 'ipAddress' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def device(self):
-        '''
-        '''
-        return self.data['device']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def ipAddress(self):
-        '''
-        '''
-        return self.data['ipAddress']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,43 +8,30 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostNetOffloadCapabilities(DynamicData):
+def HostNetOffloadCapabilities(vim, *args, **kwargs):
     '''Offload capabilities are used to optimize virtual machine network performance.
-        When a virtual machine is transmitting on a network, some operations can
-        be offloaded either to the host or to physical hardware. This data object
-        type defines the set of offload capabilities that may be available on a
-        host.This data object type is used both to publish the list of offload
-        capabilities and to contain offload capability policy settings. The
-        network policy logic is built on a two-level inheritance scheme which
-        requires that all settings be optional. As a result, all properties on the
-        NetOffloadCapabilities object must be optional. See HostNetworkPolicy
-    '''
+    When a virtual machine is transmitting on a network, some operations can be
+    offloaded either to the host or to physical hardware. This data object type
+    defines the set of offload capabilities that may be available on a host.This
+    data object type is used both to publish the list of offload capabilities and
+    to contain offload capability policy settings. The network policy logic is
+    built on a two-level inheritance scheme which requires that all settings be
+    optional. As a result, all properties on the NetOffloadCapabilities object must
+    be optional. See HostNetworkPolicy'''
     
-    def __init__(self, csumOffload, tcpSegmentation, zeroCopyXmit):
-        # MUST define these
-        super(HostNetOffloadCapabilities, self).__init__()
+    obj = vim.client.factory.create('ns0:HostNetOffloadCapabilities')
     
-        self.data['csumOffload'] = csumOffload
-        self.data['tcpSegmentation'] = tcpSegmentation
-        self.data['zeroCopyXmit'] = zeroCopyXmit
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'csumOffload', 'tcpSegmentation', 'zeroCopyXmit' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def csumOffload(self):
-        '''(Optional) The flag to indicate whether or not checksum offloading is supported.
-        '''
-        return self.data['csumOffload']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def tcpSegmentation(self):
-        '''(Optional) The flag to indicate whether or not TCP segmentation offloading (TSO)
-        is supported.
-        '''
-        return self.data['tcpSegmentation']
-
-    @property
-    def zeroCopyXmit(self):
-        '''(Optional) The flag to indicate whether or not zero copy transmits are supported.
-        '''
-        return self.data['zeroCopyXmit']
-
+    return obj
+    

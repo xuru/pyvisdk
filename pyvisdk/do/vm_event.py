@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.event import Event
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmEvent(Event):
-    '''These are virtual machine events.
-    '''
+def VmEvent(vim, *args, **kwargs):
+    '''These are virtual machine events.'''
     
-    def __init__(self, template):
-        # MUST define these
-        super(VmEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmEvent')
     
-        self.data['template'] = template
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def template(self):
-        '''Indicates whether or not the virtual machine is marked as a template.
-        '''
-        return self.data['template']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

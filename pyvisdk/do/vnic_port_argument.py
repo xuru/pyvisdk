@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VnicPortArgument(DynamicData):
-    '''This argument records a vnic device that connects to a DVPort.
-    '''
+def VnicPortArgument(vim, *args, **kwargs):
+    '''This argument records a vnic device that connects to a DVPort.'''
     
-    def __init__(self, port, vnic):
-        # MUST define these
-        super(VnicPortArgument, self).__init__()
+    obj = vim.client.factory.create('ns0:VnicPortArgument')
     
-        self.data['port'] = port
-        self.data['vnic'] = vnic
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'port', 'vnic' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def port(self):
-        '''The DVPorts that were being used.
-        '''
-        return self.data['port']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def vnic(self):
-        '''The vnic devices that were using the DVports.
-        '''
-        return self.data['vnic']
-
+    return obj
+    

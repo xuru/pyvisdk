@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfileUpdateFailedUpdateFailure(DynamicData):
-    '''
-    '''
+def ProfileUpdateFailedUpdateFailure(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, errMsg, profilePath):
-        # MUST define these
-        super(ProfileUpdateFailedUpdateFailure, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfileUpdateFailedUpdateFailure')
     
-        self.data['errMsg'] = errMsg
-        self.data['profilePath'] = profilePath
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'errMsg', 'profilePath' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def errMsg(self):
-        '''Message which explains the problem encountered
-        '''
-        return self.data['errMsg']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def profilePath(self):
-        '''Location in the profile which has the error
-        '''
-        return self.data['profilePath']
-
+    return obj
+    

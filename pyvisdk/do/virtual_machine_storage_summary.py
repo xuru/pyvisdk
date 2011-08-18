@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,45 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineStorageSummary(DynamicData):
+def VirtualMachineStorageSummary(vim, *args, **kwargs):
     '''A subset of the storage information of this virtual machine.See
-        VirtualMachineStorageInfo for a detailed storage break-up.
-    '''
+    VirtualMachineStorageInfo for a detailed storage break-up.'''
     
-    def __init__(self, committed, timestamp, uncommitted, unshared):
-        # MUST define these
-        super(VirtualMachineStorageSummary, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineStorageSummary')
     
-        self.data['committed'] = committed
-        self.data['timestamp'] = timestamp
-        self.data['uncommitted'] = uncommitted
-        self.data['unshared'] = unshared
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'committed', 'timestamp', 'uncommitted', 'unshared' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def committed(self):
-        '''Total storage space, in bytes, committed to this virtual machine across all
-        datastores.
-        '''
-        return self.data['committed']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def timestamp(self):
-        '''Time when values in this structure were last updated.
-        '''
-        return self.data['timestamp']
-
-    @property
-    def uncommitted(self):
-        '''Additional storage space, in bytes, potentially used by this virtual machine on
-        all datastores.
-        '''
-        return self.data['uncommitted']
-
-    @property
-    def unshared(self):
-        '''Total storage space, in bytes, occupied by the virtual machine across all
-        datastores, that is not shared with any other virtual machine.
-        '''
-        return self.data['unshared']
-
+    return obj
+    

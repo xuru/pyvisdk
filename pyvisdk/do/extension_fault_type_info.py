@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ExtensionFaultTypeInfo(DynamicData):
-    '''This data object type describes fault types defined by the extension.
-    '''
+def ExtensionFaultTypeInfo(vim, *args, **kwargs):
+    '''This data object type describes fault types defined by the extension.'''
     
-    def __init__(self, faultID):
-        # MUST define these
-        super(ExtensionFaultTypeInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ExtensionFaultTypeInfo')
     
-        self.data['faultID'] = faultID
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'faultID' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def faultID(self):
-        '''The ID of the fault type. Should follow java package naming conventions for
-        uniqueness.
-        '''
-        return self.data['faultID']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ObjectContent(DynamicData):
+def ObjectContent(vim, *args, **kwargs):
     '''The ObjectContent data object type contains the contents retrieved for a single
-        managed object.
-    '''
+    managed object.'''
     
-    def __init__(self, missingSet, obj, propSet):
-        # MUST define these
-        super(ObjectContent, self).__init__()
+    obj = vim.client.factory.create('ns0:ObjectContent')
     
-        self.data['missingSet'] = missingSet
-        self.data['obj'] = obj
-        self.data['propSet'] = propSet
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'missingSet', 'obj', 'propSet' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def missingSet(self):
-        '''Properties for which values could not be retrieved and the associated fault.
-        '''
-        return self.data['missingSet']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def obj(self):
-        '''Reference to the managed object that contains properties of interest.
-        '''
-        return self.data['obj']
-
-    @property
-    def propSet(self):
-        '''Set of name-value pairs for the properties of the managed object.
-        '''
-        return self.data['propSet']
-
+    return obj
+    

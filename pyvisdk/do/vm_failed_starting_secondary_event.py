@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmFailedStartingSecondaryEvent(VmEvent):
-    '''This event records vmotion failure when starting a secondary VM.
-    '''
+def VmFailedStartingSecondaryEvent(vim, *args, **kwargs):
+    '''This event records vmotion failure when starting a secondary VM.'''
     
-    def __init__(self, reason):
-        # MUST define these
-        super(VmFailedStartingSecondaryEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmFailedStartingSecondaryEvent')
     
-        self.data['reason'] = reason
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'reason' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def reason(self):
-        '''The reason for the failure. See VmFailedStartingSecondaryEventFailureReason
-        '''
-        return self.data['reason']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

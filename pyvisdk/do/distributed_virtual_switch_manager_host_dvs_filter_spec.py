@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,23 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchManagerHostDvsFilterSpec(DynamicData):
-    '''Base class for filters to check host compatibility.
-    '''
+def DistributedVirtualSwitchManagerHostDvsFilterSpec(vim, *args, **kwargs):
+    '''Base class for filters to check host compatibility.'''
     
-    def __init__(self, inclusive):
-        # MUST define these
-        super(DistributedVirtualSwitchManagerHostDvsFilterSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchManagerHostDvsFilterSpec')
     
-        self.data['inclusive'] = inclusive
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'inclusive' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def inclusive(self):
-        '''If this flag is true, then the filter returns the hosts in the
-        DistributedVirtualSwitchManagerHostContainer that satisfy the criteria
-        specified by this filter, otherwise it returns hosts that don't meet the
-        criteria.
-        '''
-        return self.data['inclusive']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

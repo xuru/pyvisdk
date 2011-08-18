@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.action import Action
 import logging
 
 ########################################
@@ -8,43 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class SendEmailAction(Action):
-    '''This data object type defines an email that is triggered by an alarm. You can use
-        any elements of the ActionParameter enumerated list as part of your
-        strings to provide information available at runtime.
-    '''
+def SendEmailAction(vim, *args, **kwargs):
+    '''This data object type defines an email that is triggered by an alarm. You can
+    use any elements of the ActionParameter enumerated list as part of your strings
+    to provide information available at runtime.'''
     
-    def __init__(self, body, ccList, subject, toList):
-        # MUST define these
-        super(SendEmailAction, self).__init__()
+    obj = vim.client.factory.create('ns0:SendEmailAction')
     
-        self.data['body'] = body
-        self.data['ccList'] = ccList
-        self.data['subject'] = subject
-        self.data['toList'] = toList
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'body', 'ccList', 'subject', 'toList' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def body(self):
-        '''Content of the email notification.
-        '''
-        return self.data['body']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def ccList(self):
-        '''A comma-separated list of addresses that are cc'ed on the email notification.
-        '''
-        return self.data['ccList']
-
-    @property
-    def subject(self):
-        '''Subject of the email notification.
-        '''
-        return self.data['subject']
-
-    @property
-    def toList(self):
-        '''A comma-separated list of addresses to which the email notification is sent.
-        '''
-        return self.data['toList']
-
+    return obj
+    

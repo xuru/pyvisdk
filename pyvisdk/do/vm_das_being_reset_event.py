@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,22 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmDasBeingResetEvent(VmEvent):
-    '''This event records when a virtual machine is reset by HA VM Health Monitoring on
-        hosts that do not support the create screenshot api or if the
-        createscreenshot api fails.
-    '''
+def VmDasBeingResetEvent(vim, *args, **kwargs):
+    '''This event records when a virtual machine is reset by HA VM Health Monitoring
+    on hosts that do not support the create screenshot api or if the
+    createscreenshot api fails.'''
     
-    def __init__(self, reason):
-        # MUST define these
-        super(VmDasBeingResetEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmDasBeingResetEvent')
     
-        self.data['reason'] = reason
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'reason' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def reason(self):
-        '''The reason why this vm is being reset
-        '''
-        return self.data['reason']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

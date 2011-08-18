@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_controller_option import VirtualControllerOption
 import logging
 
 ########################################
@@ -8,30 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualUSBControllerOption(VirtualControllerOption):
-    '''The VirtualUSBControllerOption data object type contains the options for a virtual
-        USB Host Controller Interface.
-    '''
+def VirtualUSBControllerOption(vim, *args, **kwargs):
+    '''The VirtualUSBControllerOption data object type contains the options for a
+    virtual USB Host Controller Interface.'''
     
-    def __init__(self, autoConnectDevices, ehciSupported):
-        # MUST define these
-        super(VirtualUSBControllerOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualUSBControllerOption')
     
-        self.data['autoConnectDevices'] = autoConnectDevices
-        self.data['ehciSupported'] = ehciSupported
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
+        'defaultBackingOptionIndex', 'deprecated', 'hotRemoveSupported',
+        'licensingLimit', 'plugAndPlay', 'type', 'devices', 'supportedDevice',
+        'autoConnectDevices', 'ehciSupported' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def autoConnectDevices(self):
-        '''Flag to indicate whether or not the ability to autoconnect devices is enabled for
-        this virtual USB controller.
-        '''
-        return self.data['autoConnectDevices']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def ehciSupported(self):
-        '''Flag to indicate whether or not enhanced host controller interface (USB 2.0) is
-        available on this virtual USB controller.
-        '''
-        return self.data['ehciSupported']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,39 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DVSPolicy(DynamicData):
-    '''The switch usage policy types
-    '''
+def DVSPolicy(vim, *args, **kwargs):
+    '''The switch usage policy types'''
     
-    def __init__(self, autoPreInstallAllowed, autoUpgradeAllowed, partialUpgradeAllowed):
-        # MUST define these
-        super(DVSPolicy, self).__init__()
+    obj = vim.client.factory.create('ns0:DVSPolicy')
     
-        self.data['autoPreInstallAllowed'] = autoPreInstallAllowed
-        self.data['autoUpgradeAllowed'] = autoUpgradeAllowed
-        self.data['partialUpgradeAllowed'] = partialUpgradeAllowed
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'autoPreInstallAllowed', 'autoUpgradeAllowed', 'partialUpgradeAllowed' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def autoPreInstallAllowed(self):
-        '''Whether downloading a new proxy VirtualSwitch module to the host is allowed to be
-        automatically executed by the switch.
-        '''
-        return self.data['autoPreInstallAllowed']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def autoUpgradeAllowed(self):
-        '''Whether upgrading of the switch is allowed to be automatically executed by the
-        switch.
-        '''
-        return self.data['autoUpgradeAllowed']
-
-    @property
-    def partialUpgradeAllowed(self):
-        '''Whether to allow upgrading a switch when some of the hosts failed to install the
-        needed module. The vCenter Server will reattempt the pre-install operation
-        of the host module on those failed hosts, whenever they reconnect to
-        vCenter.
-        '''
-        return self.data['partialUpgradeAllowed']
-
+    return obj
+    

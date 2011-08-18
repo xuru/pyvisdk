@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,41 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineFileLayoutExFileInfo(DynamicData):
-    '''Basic information about a file.
-    '''
+def VirtualMachineFileLayoutExFileInfo(vim, *args, **kwargs):
+    '''Basic information about a file.'''
     
-    def __init__(self, key, name, size, type):
-        # MUST define these
-        super(VirtualMachineFileLayoutExFileInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineFileLayoutExFileInfo')
     
-        self.data['key'] = key
-        self.data['name'] = name
-        self.data['size'] = size
-        self.data['type'] = type
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'name', 'size', 'type' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''Key to reference this file.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def name(self):
-        '''Name of the file, including the complete datastore path.
-        '''
-        return self.data['name']
-
-    @property
-    def size(self):
-        '''Size of the file in bytes.
-        '''
-        return self.data['size']
-
-    @property
-    def type(self):
-        '''Type of the file. VirtualMachineFileLayoutExFileType lists all valid values.
-        '''
-        return self.data['type']
-
+    return obj
+    

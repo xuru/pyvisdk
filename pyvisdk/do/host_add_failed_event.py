@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_event import HostEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostAddFailedEvent(HostEvent):
-    '''This event records that adding a host failed.
-    '''
+def HostAddFailedEvent(vim, *args, **kwargs):
+    '''This event records that adding a host failed.'''
     
-    def __init__(self, hostname):
-        # MUST define these
-        super(HostAddFailedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:HostAddFailedEvent')
     
-        self.data['hostname'] = hostname
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'hostname' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def hostname(self):
-        '''
-        '''
-        return self.data['hostname']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

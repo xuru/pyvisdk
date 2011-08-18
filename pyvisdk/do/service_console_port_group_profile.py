@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.port_group_profile import PortGroupProfile
 import logging
 
 ########################################
@@ -8,21 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ServiceConsolePortGroupProfile(PortGroupProfile):
-    '''This data object type represents the profile for a Port Group that will be used by
-        the Service Console.
-    '''
+def ServiceConsolePortGroupProfile(vim, *args, **kwargs):
+    '''This data object type represents the profile for a Port Group that will be used
+    by the Service Console.'''
     
-    def __init__(self, ipConfig):
-        # MUST define these
-        super(ServiceConsolePortGroupProfile, self).__init__()
+    obj = vim.client.factory.create('ns0:ServiceConsolePortGroupProfile')
     
-        self.data['ipConfig'] = ipConfig
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 7:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'policy', 'key', 'name', 'networkPolicy', 'vlan', 'vswitch',
+        'ipConfig' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ipConfig(self):
-        '''The IP address configuration for the Service Console network
-        '''
-        return self.data['ipConfig']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

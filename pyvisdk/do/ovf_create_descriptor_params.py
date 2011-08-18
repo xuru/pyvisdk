@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,45 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class OvfCreateDescriptorParams(DynamicData):
-    '''Collection of parameters for createDescriptor
-    '''
+def OvfCreateDescriptorParams(vim, *args, **kwargs):
+    '''Collection of parameters for createDescriptor'''
     
-    def __init__(self, description, includeImageFiles, name, ovfFiles):
-        # MUST define these
-        super(OvfCreateDescriptorParams, self).__init__()
+    obj = vim.client.factory.create('ns0:OvfCreateDescriptorParams')
     
-        self.data['description'] = description
-        self.data['includeImageFiles'] = includeImageFiles
-        self.data['name'] = name
-        self.data['ovfFiles'] = ovfFiles
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'description', 'includeImageFiles', 'name', 'ovfFiles' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def description(self):
-        '''The contents of the Annontation section of the top-level OVF Entity. If unset, any
-        existing annotation on the entity is left unchanged.
-        '''
-        return self.data['description']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def includeImageFiles(self):
-        '''Controls whether attached image files should be included in the descriptor. This
-        applies to image files attached to VirtualCdrom and VirtualFloppy.
-        '''
-        return self.data['includeImageFiles']
-
-    @property
-    def name(self):
-        '''The ovf:id to use for the top-level OVF Entity. If unset, the entity's product
-        name is used if available. Otherwise, the VI entity name is used.
-        '''
-        return self.data['name']
-
-    @property
-    def ovfFiles(self):
-        '''Contains information about the files of the entity, if they have already been
-        downloaded. Needed to construct the References section of the descriptor.
-        '''
-        return self.data['ovfFiles']
-
+    return obj
+    

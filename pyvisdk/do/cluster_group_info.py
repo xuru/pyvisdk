@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,22 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterGroupInfo(DynamicData):
+def ClusterGroupInfo(vim, *args, **kwargs):
     '''ClusterGroupInfo is the base type for all virtual machine and host groups. All
-        virtual machines and hosts that are part of a group must be part of the
-        same cluster.
-    '''
+    virtual machines and hosts that are part of a group must be part of the same
+    cluster.'''
     
-    def __init__(self, name):
-        # MUST define these
-        super(ClusterGroupInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterGroupInfo')
     
-        self.data['name'] = name
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def name(self):
-        '''Unique name of the group.
-        '''
-        return self.data['name']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

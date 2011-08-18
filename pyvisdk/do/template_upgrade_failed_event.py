@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.template_upgrade_event import TemplateUpgradeEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class TemplateUpgradeFailedEvent(TemplateUpgradeEvent):
-    '''This event records that the template upgrade failed.
-    '''
+def TemplateUpgradeFailedEvent(vim, *args, **kwargs):
+    '''This event records that the template upgrade failed.'''
     
-    def __init__(self, reason):
-        # MUST define these
-        super(TemplateUpgradeFailedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:TemplateUpgradeFailedEvent')
     
-        self.data['reason'] = reason
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'legacyTemplate', 'reason' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def reason(self):
-        '''
-        '''
-        return self.data['reason']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

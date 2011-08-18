@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.general_event import GeneralEvent
 import logging
 
 ########################################
@@ -8,34 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ExtendedEvent(GeneralEvent):
-    '''This event is the base class for extended events.
-    '''
+def ExtendedEvent(vim, *args, **kwargs):
+    '''This event is the base class for extended events.'''
     
-    def __init__(self, data, eventTypeId, managedObject):
-        # MUST define these
-        super(ExtendedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:ExtendedEvent')
     
-        self.data['data'] = data
-        self.data['eventTypeId'] = eventTypeId
-        self.data['managedObject'] = managedObject
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'message', 'data', 'eventTypeId', 'managedObject' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def data(self):
-        '''Key/value pairs associated with event.
-        '''
-        return self.data['data']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def eventTypeId(self):
-        '''The id of the type of extended event.
-        '''
-        return self.data['eventTypeId']
-
-    @property
-    def managedObject(self):
-        '''The object on which the event was logged.
-        '''
-        return self.data['managedObject']
-
+    return obj
+    

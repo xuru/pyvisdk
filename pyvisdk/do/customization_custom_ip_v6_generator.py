@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.customization_ip_v6_generator import CustomizationIpV6Generator
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class CustomizationCustomIpV6Generator(CustomizationIpV6Generator):
-    '''Use a command-line program configured with the VirtualCenter server.
-    '''
+def CustomizationCustomIpV6Generator(vim, *args, **kwargs):
+    '''Use a command-line program configured with the VirtualCenter server.'''
     
-    def __init__(self, argument):
-        # MUST define these
-        super(CustomizationCustomIpV6Generator, self).__init__()
+    obj = vim.client.factory.create('ns0:CustomizationCustomIpV6Generator')
     
-        self.data['argument'] = argument
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'argument' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def argument(self):
-        '''An optional argument that is passed to the utility for this ipv6 address. The
-        meaning of this field is user-defined, in the script.
-        '''
-        return self.data['argument']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ResourcePoolRuntimeInfo(DynamicData):
-    '''Current runtime resource usage and state of the resource pool
-    '''
+def ResourcePoolRuntimeInfo(vim, *args, **kwargs):
+    '''Current runtime resource usage and state of the resource pool'''
     
-    def __init__(self, cpu, memory, overallStatus):
-        # MUST define these
-        super(ResourcePoolRuntimeInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ResourcePoolRuntimeInfo')
     
-        self.data['cpu'] = cpu
-        self.data['memory'] = memory
-        self.data['overallStatus'] = overallStatus
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'cpu', 'memory', 'overallStatus' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def cpu(self):
-        '''Runtime resource usage for CPU. Values are in Mhz.
-        '''
-        return self.data['cpu']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def memory(self):
-        '''Runtime resource usage for memory. Values are in bytes.
-        '''
-        return self.data['memory']
-
-    @property
-    def overallStatus(self):
-        '''Overall health of the tree. See header for description of various statuses and
-        when they are set
-        '''
-        return self.data['overallStatus']
-
+    return obj
+    

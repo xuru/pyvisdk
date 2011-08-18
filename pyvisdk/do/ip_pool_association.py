@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class IpPoolAssociation(DynamicData):
-    '''Information about a network or portgroup that is associated to an IP pool.
-    '''
+def IpPoolAssociation(vim, *args, **kwargs):
+    '''Information about a network or portgroup that is associated to an IP pool.'''
     
-    def __init__(self, network, networkName):
-        # MUST define these
-        super(IpPoolAssociation, self).__init__()
+    obj = vim.client.factory.create('ns0:IpPoolAssociation')
     
-        self.data['network'] = network
-        self.data['networkName'] = networkName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'network', 'networkName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def network(self):
-        '''The network object
-        '''
-        return self.data['network']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def networkName(self):
-        '''The name of the network or portgroup
-        '''
-        return self.data['networkName']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,49 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmDiskFileQueryFilter(DynamicData):
-    '''The filter for the virtual disk primary file.
-    '''
+def VmDiskFileQueryFilter(vim, *args, **kwargs):
+    '''The filter for the virtual disk primary file.'''
     
-    def __init__(self, controllerType, diskType, matchHardwareVersion, thin):
-        # MUST define these
-        super(VmDiskFileQueryFilter, self).__init__()
+    obj = vim.client.factory.create('ns0:VmDiskFileQueryFilter')
     
-        self.data['controllerType'] = controllerType
-        self.data['diskType'] = diskType
-        self.data['matchHardwareVersion'] = matchHardwareVersion
-        self.data['thin'] = thin
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'controllerType', 'diskType', 'matchHardwareVersion', 'thin' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def controllerType(self):
-        '''If this optional property is set, only virtual disk files that have a controller
-        type that matches one of the controller types specified are returned. If
-        no controller types are specified, this search criteria is ignored.
-        '''
-        return self.data['controllerType']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def diskType(self):
-        '''If this optional property is set, only the virtual disk primary files that match
-        one of the specified disk types are selected. If no disk types are
-        specified, this search criteria is ignored.
-        '''
-        return self.data['diskType']
-
-    @property
-    def matchHardwareVersion(self):
-        '''If this optional property is set, only virtual disk primary files that match one
-        of the specified hardware versions are selected. If no versions are
-        specified, this search criteria is ignored.
-        '''
-        return self.data['matchHardwareVersion']
-
-    @property
-    def thin(self):
-        '''This optional property can be used to filter disks based on whether they are thin-
-        provsioned or not: if set to true, only thin-provisioned disks are
-        returned, and vice-versa.
-        '''
-        return self.data['thin']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,52 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DatastoreInfo(DynamicData):
-    '''Detailed information about a datastore. This is a base type for derived types that
-        have more specific details about a datastore. See HostVmfsVolume See
-        HostNasVolume See HostLocalFileSystemVolume
-    '''
+def DatastoreInfo(vim, *args, **kwargs):
+    '''Detailed information about a datastore. This is a base type for derived types
+    that have more specific details about a datastore. See HostVmfsVolume See
+    HostNasVolume See HostLocalFileSystemVolume'''
     
-    def __init__(self, freeSpace, maxFileSize, name, timestamp, url):
-        # MUST define these
-        super(DatastoreInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:DatastoreInfo')
     
-        self.data['freeSpace'] = freeSpace
-        self.data['maxFileSize'] = maxFileSize
-        self.data['name'] = name
-        self.data['timestamp'] = timestamp
-        self.data['url'] = url
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'freeSpace', 'maxFileSize', 'name', 'timestamp', 'url' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def freeSpace(self):
-        '''Free space of this datastore, in bytes. The server periodically updates this
-        value. It can be explicitly refreshed with the Refresh operation.
-        '''
-        return self.data['freeSpace']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def maxFileSize(self):
-        '''The maximum size of a file that can reside on this file system volume.
-        '''
-        return self.data['maxFileSize']
-
-    @property
-    def name(self):
-        '''The name of the datastore.
-        '''
-        return self.data['name']
-
-    @property
-    def timestamp(self):
-        '''Time when the free-space and capacity values in DatastoreInfo and DatastoreSummary
-        were updated.
-        '''
-        return self.data['timestamp']
-
-    @property
-    def url(self):
-        '''The unique locator for the datastore.
-        '''
-        return self.data['url']
-
+    return obj
+    

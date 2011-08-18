@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dvs_event import DvsEvent
 import logging
 
 ########################################
@@ -8,48 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DvsHostStatusUpdated(DvsEvent):
-    '''A host has it's status or statusDetail updated.
-    '''
+def DvsHostStatusUpdated(vim, *args, **kwargs):
+    '''A host has it's status or statusDetail updated.'''
     
-    def __init__(self, hostMember, newStatus, newStatusDetail, oldStatus, oldStatusDetail):
-        # MUST define these
-        super(DvsHostStatusUpdated, self).__init__()
+    obj = vim.client.factory.create('ns0:DvsHostStatusUpdated')
     
-        self.data['hostMember'] = hostMember
-        self.data['newStatus'] = newStatus
-        self.data['newStatusDetail'] = newStatusDetail
-        self.data['oldStatus'] = oldStatus
-        self.data['oldStatusDetail'] = oldStatusDetail
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'hostMember', 'newStatus', 'newStatusDetail', 'oldStatus', 'oldStatusDetail' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def hostMember(self):
-        '''The host.
-        '''
-        return self.data['hostMember']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def newStatus(self):
-        '''Host's new status.
-        '''
-        return self.data['newStatus']
-
-    @property
-    def newStatusDetail(self):
-        '''Comments regarding host's new status.
-        '''
-        return self.data['newStatusDetail']
-
-    @property
-    def oldStatus(self):
-        '''Host's old status.
-        '''
-        return self.data['oldStatus']
-
-    @property
-    def oldStatusDetail(self):
-        '''Comments regarding host's old status.
-        '''
-        return self.data['oldStatusDetail']
-
+    return obj
+    

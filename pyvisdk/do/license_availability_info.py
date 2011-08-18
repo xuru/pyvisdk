@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LicenseAvailabilityInfo(DynamicData):
-    '''Describes how many licenses of a particular feature is provided by the licensing
-        source.
-    '''
+def LicenseAvailabilityInfo(vim, *args, **kwargs):
+    '''Describes how many licenses of a particular feature is provided by the
+    licensing source.'''
     
-    def __init__(self, available, feature, total):
-        # MUST define these
-        super(LicenseAvailabilityInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:LicenseAvailabilityInfo')
     
-        self.data['available'] = available
-        self.data['feature'] = feature
-        self.data['total'] = total
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'available', 'feature', 'total' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def available(self):
-        '''The number of licenses that have not yet been reserved on the source.
-        '''
-        return self.data['available']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def feature(self):
-        '''Describes the feature.
-        '''
-        return self.data['feature']
-
-    @property
-    def total(self):
-        '''Total number of licenses for this given type that are installed on the source.
-        '''
-        return self.data['total']
-
+    return obj
+    

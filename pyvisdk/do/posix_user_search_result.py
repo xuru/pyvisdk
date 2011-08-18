@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.user_search_result import UserSearchResult
 import logging
 
 ########################################
@@ -8,30 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PosixUserSearchResult(UserSearchResult):
+def PosixUserSearchResult(vim, *args, **kwargs):
     '''Searching for users and groups on POSIX systems provides User ID and Group ID
-        information, in addition to that defined in UserSearchResult.
-    '''
+    information, in addition to that defined in UserSearchResult.'''
     
-    def __init__(self, id, shellAccess):
-        # MUST define these
-        super(PosixUserSearchResult, self).__init__()
+    obj = vim.client.factory.create('ns0:PosixUserSearchResult')
     
-        self.data['id'] = id
-        self.data['shellAccess'] = shellAccess
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fullName', 'group', 'principal', 'id', 'shellAccess' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def id(self):
-        '''If the search result is for a user, then id refers to User ID. For a group, the
-        value of Group ID is assigned to id.
-        '''
-        return self.data['id']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def shellAccess(self):
-        '''If the search result is for a user, shellAccess indicates whether shell access has
-        been granted or not.
-        '''
-        return self.data['shellAccess']
-
+    return obj
+    

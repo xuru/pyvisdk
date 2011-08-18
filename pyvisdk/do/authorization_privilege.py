@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,46 +8,27 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AuthorizationPrivilege(DynamicData):
-    '''This data object type provides access to some aspect of the system. Privileges are
-        generally independent. This means a user with a privilege usually can
-        perform an associated set of actions without needing any additional
-        supporting privileges.Within each product version, privileges do not
-        change. See AuthorizationDescription for detailed information on the
-        privileges defined by the system.
-    '''
+def AuthorizationPrivilege(vim, *args, **kwargs):
+    '''This data object type provides access to some aspect of the system. Privileges
+    are generally independent. This means a user with a privilege usually can
+    perform an associated set of actions without needing any additional supporting
+    privileges.Within each product version, privileges do not change. See
+    AuthorizationDescription for detailed information on the privileges defined by
+    the system.'''
     
-    def __init__(self, name, onParent, privGroupName, privId):
-        # MUST define these
-        super(AuthorizationPrivilege, self).__init__()
+    obj = vim.client.factory.create('ns0:AuthorizationPrivilege')
     
-        self.data['name'] = name
-        self.data['onParent'] = onParent
-        self.data['privGroupName'] = privGroupName
-        self.data['privId'] = privId
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name', 'onParent', 'privGroupName', 'privId' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def name(self):
-        '''Privilege name.
-        '''
-        return self.data['name']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def onParent(self):
-        '''Determines whether or not the privilege is applied on the parent entity.
-        '''
-        return self.data['onParent']
-
-    @property
-    def privGroupName(self):
-        '''Group name.
-        '''
-        return self.data['privGroupName']
-
-    @property
-    def privId(self):
-        '''Unique identifier.
-        '''
-        return self.data['privId']
-
+    return obj
+    

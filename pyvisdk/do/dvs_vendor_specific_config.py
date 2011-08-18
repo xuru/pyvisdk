@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.inheritable_policy import InheritablePolicy
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DVSVendorSpecificConfig(InheritablePolicy):
-    '''This data object type describes vendor specific configuration.
-    '''
+def DVSVendorSpecificConfig(vim, *args, **kwargs):
+    '''This data object type describes vendor specific configuration.'''
     
-    def __init__(self, keyValue):
-        # MUST define these
-        super(DVSVendorSpecificConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:DVSVendorSpecificConfig')
     
-        self.data['keyValue'] = keyValue
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'inherited', 'keyValue' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def keyValue(self):
-        '''An opaque binary blob that stores vendor specific configuration.
-        '''
-        return self.data['keyValue']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

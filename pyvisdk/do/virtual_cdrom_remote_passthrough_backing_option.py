@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_remote_device_backing_option import VirtualDeviceRemoteDeviceBackingOption
 import logging
 
 ########################################
@@ -8,23 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualCdromRemotePassthroughBackingOption(VirtualDeviceRemoteDeviceBackingOption):
+def VirtualCdromRemotePassthroughBackingOption(vim, *args, **kwargs):
     '''The VirtualCdromOption.RemotePassthroughBackingOption data object type contains
-        the options for a remote pass-through CD-ROM device backing.Note that the
-        server cannot present a list of valid remote backing devices because it is
-        unable to scan remote hosts.
-    '''
+    the options for a remote pass-through CD-ROM device backing.Note that the
+    server cannot present a list of valid remote backing devices because it is
+    unable to scan remote hosts.'''
     
-    def __init__(self, exclusive):
-        # MUST define these
-        super(VirtualCdromRemotePassthroughBackingOption, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualCdromRemotePassthroughBackingOption')
     
-        self.data['exclusive'] = exclusive
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'type', 'autoDetectAvailable', 'exclusive' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def exclusive(self):
-        '''Flag to indicate whether or not exclusive CD-ROM device access is supported.
-        '''
-        return self.data['exclusive']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

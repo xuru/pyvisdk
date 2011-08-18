@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class NetDhcpConfigSpec(DynamicData):
-    '''Dynamic Host Configuration Protocol Configuration for IP version 4 and version 6.
-    '''
+def NetDhcpConfigSpec(vim, *args, **kwargs):
+    '''Dynamic Host Configuration Protocol Configuration for IP version 4 and version
+    6.'''
     
-    def __init__(self, ipv4, ipv6):
-        # MUST define these
-        super(NetDhcpConfigSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:NetDhcpConfigSpec')
     
-        self.data['ipv4'] = ipv4
-        self.data['ipv6'] = ipv6
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'ipv4', 'ipv6' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ipv4(self):
-        '''Configure IPv4 DHCP client settings.
-        '''
-        return self.data['ipv4']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def ipv6(self):
-        '''Configure IPv6 DHCP client settings.
-        '''
-        return self.data['ipv6']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostUnresolvedVmfsResolutionResult(DynamicData):
+def HostUnresolvedVmfsResolutionResult(vim, *args, **kwargs):
     '''When an UnresolvedVmfsVolume has been resignatured or forceMounted, we want to
-        return the original spec information along with newly created VMFS volume.
-    '''
+    return the original spec information along with newly created VMFS volume.'''
     
-    def __init__(self, fault, spec, vmfs):
-        # MUST define these
-        super(HostUnresolvedVmfsResolutionResult, self).__init__()
+    obj = vim.client.factory.create('ns0:HostUnresolvedVmfsResolutionResult')
     
-        self.data['fault'] = fault
-        self.data['spec'] = spec
-        self.data['vmfs'] = vmfs
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'fault', 'spec', 'vmfs' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def fault(self):
-        ''''fault' would be set if the operation was not successful
-        '''
-        return self.data['fault']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def spec(self):
-        '''The original UnresolvedVmfsResolutionSpec which user had specified
-        '''
-        return self.data['spec']
-
-    @property
-    def vmfs(self):
-        '''Newly created VmfsVolume
-        '''
-        return self.data['vmfs']
-
+    return obj
+    

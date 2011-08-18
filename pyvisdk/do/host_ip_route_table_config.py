@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostIpRouteTableConfig(DynamicData):
-    '''IpRouteEntry. Routing entries are individual static routes which combined with the
-        default route form all of the routing rules for a host.
-    '''
+def HostIpRouteTableConfig(vim, *args, **kwargs):
+    '''IpRouteEntry. Routing entries are individual static routes which combined with
+    the default route form all of the routing rules for a host.'''
     
-    def __init__(self, ipRoute, ipv6Route):
-        # MUST define these
-        super(HostIpRouteTableConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:HostIpRouteTableConfig')
     
-        self.data['ipRoute'] = ipRoute
-        self.data['ipv6Route'] = ipv6Route
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'ipRoute', 'ipv6Route' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ipRoute(self):
-        '''The array of Routing ops (routes to be added/removed)
-        '''
-        return self.data['ipRoute']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def ipv6Route(self):
-        '''
-        '''
-        return self.data['ipv6Route']
-
+    return obj
+    

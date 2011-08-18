@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostFirewallInfo(DynamicData):
-    '''Data object describing the firewall configuration.
-    '''
+def HostFirewallInfo(vim, *args, **kwargs):
+    '''Data object describing the firewall configuration.'''
     
-    def __init__(self, defaultPolicy, ruleset):
-        # MUST define these
-        super(HostFirewallInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostFirewallInfo')
     
-        self.data['defaultPolicy'] = defaultPolicy
-        self.data['ruleset'] = ruleset
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'defaultPolicy', 'ruleset' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def defaultPolicy(self):
-        '''Default firewall policy.
-        '''
-        return self.data['defaultPolicy']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def ruleset(self):
-        '''List of configured rulesets.
-        '''
-        return self.data['ruleset']
-
+    return obj
+    

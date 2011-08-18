@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.cluster_das_admission_control_info import ClusterDasAdmissionControlInfo
 import logging
 
 ########################################
@@ -8,24 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterFailoverLevelAdmissionControlInfo(ClusterDasAdmissionControlInfo):
+def ClusterFailoverLevelAdmissionControlInfo(vim, *args, **kwargs):
     '''The current admission control related information if the cluster was configured
-        with a FailoverLevelAdmissionControlPolicy.
-    '''
+    with a FailoverLevelAdmissionControlPolicy.'''
     
-    def __init__(self, currentFailoverLevel):
-        # MUST define these
-        super(ClusterFailoverLevelAdmissionControlInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterFailoverLevelAdmissionControlInfo')
     
-        self.data['currentFailoverLevel'] = currentFailoverLevel
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'currentFailoverLevel' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def currentFailoverLevel(self):
-        '''Current failover level. This is the number of physical host failures that can be
-        tolerated without impacting the ability to satisfy the minimums for all
-        running virtual machines. This represents the current value, as opposed to
-        desired value configured by the user.
-        '''
-        return self.data['currentFailoverLevel']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

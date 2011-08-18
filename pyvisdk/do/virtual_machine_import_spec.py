@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.import_spec import ImportSpec
 import logging
 
 ########################################
@@ -8,33 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineImportSpec(ImportSpec):
+def VirtualMachineImportSpec(vim, *args, **kwargs):
     '''A VmImportSpec is used by ResourcePool.importVApp when importing entities.It
-        provides all information needed to import a VirtualMachine. So far, this
-        coincides with VirtualMachineConfigSpec.A VmImportSpec can be contained in
-        a VirtualAppImportSpec as part of the ImportSpec for an entity.See also
-        ImportSpec.
-    '''
+    provides all information needed to import a VirtualMachine. So far, this
+    coincides with VirtualMachineConfigSpec.A VmImportSpec can be contained in a
+    VirtualAppImportSpec as part of the ImportSpec for an entity.See also
+    ImportSpec.'''
     
-    def __init__(self, configSpec, resPoolEntity):
-        # MUST define these
-        super(VirtualMachineImportSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineImportSpec')
     
-        self.data['configSpec'] = configSpec
-        self.data['resPoolEntity'] = resPoolEntity
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'entityConfig', 'configSpec', 'resPoolEntity' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def configSpec(self):
-        '''Configuration for the virtual machine.
-        '''
-        return self.data['configSpec']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def resPoolEntity(self):
-        '''If specified, this resource pool will be used as the parent resource pool and the
-        virtual machine will be made a linked child to the parent vApp. This field
-        is ignored for the root node in an ImportSpec tree.
-        '''
-        return self.data['resPoolEntity']
-
+    return obj
+    

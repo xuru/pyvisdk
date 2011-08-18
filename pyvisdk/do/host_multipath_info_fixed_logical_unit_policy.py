@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_multipath_info_logical_unit_policy import HostMultipathInfoLogicalUnitPolicy
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostMultipathInfoFixedLogicalUnitPolicy(HostMultipathInfoLogicalUnitPolicy):
+def HostMultipathInfoFixedLogicalUnitPolicy(vim, *args, **kwargs):
     '''This data object type describes a multipathing policy for a logical unit which
-        uses a preferred path whenever possible.
-    '''
+    uses a preferred path whenever possible.'''
     
-    def __init__(self, prefer):
-        # MUST define these
-        super(HostMultipathInfoFixedLogicalUnitPolicy, self).__init__()
+    obj = vim.client.factory.create('ns0:HostMultipathInfoFixedLogicalUnitPolicy')
     
-        self.data['prefer'] = prefer
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'policy', 'prefer' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def prefer(self):
-        '''Preferred path used for the
-        '''
-        return self.data['prefer']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

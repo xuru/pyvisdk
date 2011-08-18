@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmUuidAssignedEvent(VmEvent):
-    '''This event records the assignment of a new BIOS UUID to a virtual machine.
-    '''
+def VmUuidAssignedEvent(vim, *args, **kwargs):
+    '''This event records the assignment of a new BIOS UUID to a virtual machine.'''
     
-    def __init__(self, uuid):
-        # MUST define these
-        super(VmUuidAssignedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmUuidAssignedEvent')
     
-        self.data['uuid'] = uuid
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'uuid' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def uuid(self):
-        '''The new BIOS UUID.
-        '''
-        return self.data['uuid']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

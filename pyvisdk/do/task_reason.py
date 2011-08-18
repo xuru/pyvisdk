@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,15 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class TaskReason(DynamicData):
+def TaskReason(vim, *args, **kwargs):
     '''Base type for all task reasons. Task reasons represent the kind of entity
-        responsible for a task's creation.
-    '''
+    responsible for a task's creation.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(TaskReason, self).__init__()
+    obj = vim.client.factory.create('ns0:TaskReason')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [  ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

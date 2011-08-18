@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.exit_standby_mode_failed_event import ExitStandbyModeFailedEvent
 import logging
 
 ########################################
@@ -8,15 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DrsExitStandbyModeFailedEvent(ExitStandbyModeFailedEvent):
-    '''This event records that Distributed Power Managment tried to bring a host out from
-        standby mode, but the host failed to exit standby mode.
-    '''
+def DrsExitStandbyModeFailedEvent(vim, *args, **kwargs):
+    '''This event records that Distributed Power Managment tried to bring a host out
+    from standby mode, but the host failed to exit standby mode.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(DrsExitStandbyModeFailedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DrsExitStandbyModeFailedEvent')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

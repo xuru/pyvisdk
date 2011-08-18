@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.apply_profile import ApplyProfile
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class StorageProfile(ApplyProfile):
-    '''DataObject representing the storage configuration
-    '''
+def StorageProfile(vim, *args, **kwargs):
+    '''DataObject representing the storage configuration'''
     
-    def __init__(self, nasStorage):
-        # MUST define these
-        super(StorageProfile, self).__init__()
+    obj = vim.client.factory.create('ns0:StorageProfile')
     
-        self.data['nasStorage'] = nasStorage
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'policy', 'nasStorage' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def nasStorage(self):
-        '''The set of NAS storage profiles.
-        '''
-        return self.data['nasStorage']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

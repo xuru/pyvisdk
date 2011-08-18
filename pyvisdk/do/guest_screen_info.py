@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class GuestScreenInfo(DynamicData):
-    '''
-    '''
+def GuestScreenInfo(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, height, width):
-        # MUST define these
-        super(GuestScreenInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:GuestScreenInfo')
     
-        self.data['height'] = height
-        self.data['width'] = width
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'height', 'width' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def height(self):
-        '''Height of the screen in pixels.
-        '''
-        return self.data['height']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def width(self):
-        '''Width of the screen in pixels.
-        '''
-        return self.data['width']
-
+    return obj
+    

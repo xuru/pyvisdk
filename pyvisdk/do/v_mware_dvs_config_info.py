@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dvs_config_info import DVSConfigInfo
 import logging
 
 ########################################
@@ -8,34 +8,27 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VMwareDVSConfigInfo(DVSConfigInfo):
-    '''This class defines the VMware specific configuration for DistributedVirtualSwitch.
-    '''
+def VMwareDVSConfigInfo(vim, *args, **kwargs):
+    '''This class defines the VMware specific configuration for
+    DistributedVirtualSwitch.'''
     
-    def __init__(self, linkDiscoveryProtocolConfig, maxMtu, pvlanConfig):
-        # MUST define these
-        super(VMwareDVSConfigInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VMwareDVSConfigInfo')
     
-        self.data['linkDiscoveryProtocolConfig'] = linkDiscoveryProtocolConfig
-        self.data['maxMtu'] = maxMtu
-        self.data['pvlanConfig'] = pvlanConfig
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'configVersion', 'contact', 'createTime', 'defaultPortConfig', 'description',
+        'extensionKey', 'host', 'maxPorts', 'name', 'networkResourceManagementEnabled',
+        'numPorts', 'numStandalonePorts', 'policy', 'productInfo', 'targetInfo',
+        'uplinkPortgroup', 'uplinkPortPolicy', 'uuid', 'vendorSpecificConfig',
+        'linkDiscoveryProtocolConfig', 'maxMtu', 'pvlanConfig' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def linkDiscoveryProtocolConfig(self):
-        '''See LinkDiscoveryProtocolConfig.
-        '''
-        return self.data['linkDiscoveryProtocolConfig']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def maxMtu(self):
-        '''The maximum MTU in the switch.
-        '''
-        return self.data['maxMtu']
-
-    @property
-    def pvlanConfig(self):
-        '''The PVLAN configured in the switch.
-        '''
-        return self.data['pvlanConfig']
-
+    return obj
+    

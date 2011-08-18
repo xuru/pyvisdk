@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.option_type import OptionType
 import logging
 
 ########################################
@@ -8,35 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LongOption(OptionType):
+def LongOption(vim, *args, **kwargs):
     '''The LongOption data object type is used to define the minimum, maximum, and
-        default values for a 64-bit long option.
-    '''
+    default values for a 64-bit long option.'''
     
-    def __init__(self, defaultValue, max, min):
-        # MUST define these
-        super(LongOption, self).__init__()
+    obj = vim.client.factory.create('ns0:LongOption')
     
-        self.data['defaultValue'] = defaultValue
-        self.data['max'] = max
-        self.data['min'] = min
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'valueIsReadonly', 'defaultValue', 'max', 'min' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def defaultValue(self):
-        '''The default value.
-        '''
-        return self.data['defaultValue']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def max(self):
-        '''The maximum value.
-        '''
-        return self.data['max']
-
-    @property
-    def min(self):
-        '''The minimum value.
-        '''
-        return self.data['min']
-
+    return obj
+    

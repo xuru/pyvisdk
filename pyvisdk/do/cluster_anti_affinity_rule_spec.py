@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.cluster_rule_info import ClusterRuleInfo
 import logging
 
 ########################################
@@ -8,21 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterAntiAffinityRuleSpec(ClusterRuleInfo):
-    '''The ClusterAntiAffinityRuleSpec data object defines a set of virtual machines. DRS
-        will attempt to schedule the virtual machines to run on different hosts.
-    '''
+def ClusterAntiAffinityRuleSpec(vim, *args, **kwargs):
+    '''The ClusterAntiAffinityRuleSpec data object defines a set of virtual machines.
+    DRS will attempt to schedule the virtual machines to run on different hosts.'''
     
-    def __init__(self, vm):
-        # MUST define these
-        super(ClusterAntiAffinityRuleSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterAntiAffinityRuleSpec')
     
-        self.data['vm'] = vm
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'inCompliance', 'key', 'mandatory', 'name', 'status', 'userCreated',
+        'vm' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def vm(self):
-        '''List of virtual machine references.
-        '''
-        return self.data['vm']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

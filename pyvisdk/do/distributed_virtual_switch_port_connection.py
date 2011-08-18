@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,50 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchPortConnection(DynamicData):
+def DistributedVirtualSwitchPortConnection(vim, *args, **kwargs):
     '''The class that represents a connection or an association between
-        DistributedVirtualPort and a vNIC or pNIC.
-    '''
+    DistributedVirtualPort and a vNIC or pNIC.'''
     
-    def __init__(self, connectionCookie, portgroupKey, portKey, switchUuid):
-        # MUST define these
-        super(DistributedVirtualSwitchPortConnection, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchPortConnection')
     
-        self.data['connectionCookie'] = connectionCookie
-        self.data['portgroupKey'] = portgroupKey
-        self.data['portKey'] = portKey
-        self.data['switchUuid'] = switchUuid
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'connectionCookie', 'portgroupKey', 'portKey', 'switchUuid' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def connectionCookie(self):
-        '''The cookie that represents this portConnection instance for the port. The value of
-        this property is generated from the implementation. Any value set in a
-        reconfiguring operation is ignored.
-        '''
-        return self.data['connectionCookie']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def portgroupKey(self):
-        '''The key of portgroup. If specified, this object represents a connection or an
-        association between a DistributedVirtualPortgroup and a vNIC/pNIC. In this
-        case, setting of portKey is not necessary for a early-binding portgroup
-        and is not allowed for a late-binding portgroup. The portKey property will
-        be populated by the implementation at the time of port binding.
-        '''
-        return self.data['portgroupKey']
-
-    @property
-    def portKey(self):
-        '''The key of the port. If specified, this object represents a connection or an
-        association between an individual DistributedVirtualPort and a vNIC/pNIC.
-        See portgroupKey for more information on populating this property.
-        '''
-        return self.data['portKey']
-
-    @property
-    def switchUuid(self):
-        '''The UUID of the switch.
-        '''
-        return self.data['switchUuid']
-
+    return obj
+    

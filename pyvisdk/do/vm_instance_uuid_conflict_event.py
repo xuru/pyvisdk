@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,28 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmInstanceUuidConflictEvent(VmEvent):
-    '''This event records a conflict of virtual machine instance UUIDs.
-    '''
+def VmInstanceUuidConflictEvent(vim, *args, **kwargs):
+    '''This event records a conflict of virtual machine instance UUIDs.'''
     
-    def __init__(self, conflictedVm, instanceUuid):
-        # MUST define these
-        super(VmInstanceUuidConflictEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmInstanceUuidConflictEvent')
     
-        self.data['conflictedVm'] = conflictedVm
-        self.data['instanceUuid'] = instanceUuid
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'conflictedVm', 'instanceUuid' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def conflictedVm(self):
-        '''The virtual machine whose instance UUID conflicts with the current virtual
-        machine's instance UUID.
-        '''
-        return self.data['conflictedVm']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def instanceUuid(self):
-        '''The instance UUID in conflict.
-        '''
-        return self.data['instanceUuid']
-
+    return obj
+    

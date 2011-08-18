@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.distributed_virtual_switch_manager_host_dvs_filter_spec import DistributedVirtualSwitchManagerHostDvsFilterSpec
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchManagerHostDvsMembershipFilter(DistributedVirtualSwitchManagerHostDvsFilterSpec):
+def DistributedVirtualSwitchManagerHostDvsMembershipFilter(vim, *args, **kwargs):
     '''Check host compatibility against all hosts in the DVS (or not in the DVS if
-        inclusive flag in base class is false)
-    '''
+    inclusive flag in base class is false)'''
     
-    def __init__(self, distributedVirtualSwitch):
-        # MUST define these
-        super(DistributedVirtualSwitchManagerHostDvsMembershipFilter, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchManagerHostDvsMembershipFilter')
     
-        self.data['distributedVirtualSwitch'] = distributedVirtualSwitch
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'inclusive', 'distributedVirtualSwitch' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def distributedVirtualSwitch(self):
-        '''
-        '''
-        return self.data['distributedVirtualSwitch']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

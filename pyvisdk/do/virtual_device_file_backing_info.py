@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_backing_info import VirtualDeviceBackingInfo
 import logging
 
 ########################################
@@ -8,30 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDeviceFileBackingInfo(VirtualDeviceBackingInfo):
-    '''is a data object type for information about file backing for a device in a virtual
-        machine.
-    '''
+def VirtualDeviceFileBackingInfo(vim, *args, **kwargs):
+    '''is a data object type for information about file backing for a device in a
+    virtual machine.'''
     
-    def __init__(self, datastore, fileName):
-        # MUST define these
-        super(VirtualDeviceFileBackingInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDeviceFileBackingInfo')
     
-        self.data['datastore'] = datastore
-        self.data['fileName'] = fileName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'datastore', 'fileName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def datastore(self):
-        '''Reference to the datastore managed object where this file is stored. If the file
-        is not located on a datastore, then this reference is null. This is not
-        used for configuration.
-        '''
-        return self.data['datastore']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def fileName(self):
-        '''Filename for the host file used in this backing.
-        '''
-        return self.data['fileName']
-
+    return obj
+    

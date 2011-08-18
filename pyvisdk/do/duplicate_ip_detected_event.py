@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_event import HostEvent
 import logging
 
 ########################################
@@ -8,28 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DuplicateIpDetectedEvent(HostEvent):
-    '''This event records that a duplicate IP address has been observed in conflict with
-        the vmotion or IP storage interface configured on the host.
-    '''
+def DuplicateIpDetectedEvent(vim, *args, **kwargs):
+    '''This event records that a duplicate IP address has been observed in conflict
+    with the vmotion or IP storage interface configured on the host.'''
     
-    def __init__(self, duplicateIP, macAddress):
-        # MUST define these
-        super(DuplicateIpDetectedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DuplicateIpDetectedEvent')
     
-        self.data['duplicateIP'] = duplicateIP
-        self.data['macAddress'] = macAddress
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'duplicateIP', 'macAddress' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def duplicateIP(self):
-        '''The Duplicate IP address detected.
-        '''
-        return self.data['duplicateIP']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def macAddress(self):
-        '''The MAC associated with duplicate IP.
-        '''
-        return self.data['macAddress']
-
+    return obj
+    

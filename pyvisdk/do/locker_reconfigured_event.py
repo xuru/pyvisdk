@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.event import Event
 import logging
 
 ########################################
@@ -8,29 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LockerReconfiguredEvent(Event):
-    '''Locker was reconfigured to a new location.
-    '''
+def LockerReconfiguredEvent(vim, *args, **kwargs):
+    '''Locker was reconfigured to a new location.'''
     
-    def __init__(self, newDatastore, oldDatastore):
-        # MUST define these
-        super(LockerReconfiguredEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:LockerReconfiguredEvent')
     
-        self.data['newDatastore'] = newDatastore
-        self.data['oldDatastore'] = oldDatastore
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'newDatastore', 'oldDatastore' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def newDatastore(self):
-        '''The datastore that is now used to back the locker. This field is not set if no
-        datastore is currently backing the locker.
-        '''
-        return self.data['newDatastore']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def oldDatastore(self):
-        '''The datastore that was previously backing the locker. This field is not set if a
-        datastore was not backing the locker previously.
-        '''
-        return self.data['oldDatastore']
-
+    return obj
+    

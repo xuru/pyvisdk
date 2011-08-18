@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.alarm_action import AlarmAction
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class GroupAlarmAction(AlarmAction):
+def GroupAlarmAction(vim, *args, **kwargs):
     '''This data object type describes a group of actions that occur when the alarm is
-        triggered. These actions are not necessarily executed in order.
-    '''
+    triggered. These actions are not necessarily executed in order.'''
     
-    def __init__(self, action):
-        # MUST define these
-        super(GroupAlarmAction, self).__init__()
+    obj = vim.client.factory.create('ns0:GroupAlarmAction')
     
-        self.data['action'] = action
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'action' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def action(self):
-        '''The list of alarm actions that occur when the alarm is triggered.
-        '''
-        return self.data['action']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

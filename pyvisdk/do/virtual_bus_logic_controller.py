@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_scsi_controller import VirtualSCSIController
 import logging
 
 ########################################
@@ -8,15 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualBusLogicController(VirtualSCSIController):
+def VirtualBusLogicController(vim, *args, **kwargs):
     '''VirtualBusLogicController is the data object that represents a BusLogic SCSI
-        controller.
-    '''
+    controller.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(VirtualBusLogicController, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualBusLogicController')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'key', 'unitNumber',
+        'busNumber', 'device', 'hotAddRemove', 'scsiCtlrUnitNumber', 'sharedBus' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

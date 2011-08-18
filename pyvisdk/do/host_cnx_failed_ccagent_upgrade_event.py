@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_event import HostEvent
 import logging
 
 ########################################
@@ -8,15 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostCnxFailedCcagentUpgradeEvent(HostEvent):
+def HostCnxFailedCcagentUpgradeEvent(vim, *args, **kwargs):
     '''This event records a failure to connect to a host due to a conflict with an
-        upgrade or installation of the host agent.
-    '''
+    upgrade or installation of the host agent.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(HostCnxFailedCcagentUpgradeEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:HostCnxFailedCcagentUpgradeEvent')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

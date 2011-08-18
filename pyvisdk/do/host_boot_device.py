@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostBootDevice(DynamicData):
-    '''The HostBootDevice data object represents a boot device on the host system.
-    '''
+def HostBootDevice(vim, *args, **kwargs):
+    '''The HostBootDevice data object represents a boot device on the host system.'''
     
-    def __init__(self, description, key):
-        # MUST define these
-        super(HostBootDevice, self).__init__()
+    obj = vim.client.factory.create('ns0:HostBootDevice')
     
-        self.data['description'] = description
-        self.data['key'] = key
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'description', 'key' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def description(self):
-        '''The description of the boot device.
-        '''
-        return self.data['description']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def key(self):
-        '''The identifier for the boot device.
-        '''
-        return self.data['key']
-
+    return obj
+    

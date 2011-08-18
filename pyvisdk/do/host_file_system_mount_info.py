@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,37 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostFileSystemMountInfo(DynamicData):
+def HostFileSystemMountInfo(vim, *args, **kwargs):
     '''The HostFileSystemMountInfo data object describes a host mount point for a file
-        system.
-    '''
+    system.'''
     
-    def __init__(self, mountInfo, volume, vStorageSupport):
-        # MUST define these
-        super(HostFileSystemMountInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostFileSystemMountInfo')
     
-        self.data['mountInfo'] = mountInfo
-        self.data['volume'] = volume
-        self.data['vStorageSupport'] = vStorageSupport
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'mountInfo', 'volume', 'vStorageSupport' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def mountInfo(self):
-        '''Information about the mount point.
-        '''
-        return self.data['mountInfo']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def volume(self):
-        '''Information about the mounted volume.
-        '''
-        return self.data['volume']
-
-    @property
-    def vStorageSupport(self):
-        '''vStorage hardware acceleration support status. This property represents the
-        volume's capability for storage acceleration. See
-        FileSystemMountInfoVStorageSupportStatus for valid values.
-        '''
-        return self.data['vStorageSupport']
-
+    return obj
+    

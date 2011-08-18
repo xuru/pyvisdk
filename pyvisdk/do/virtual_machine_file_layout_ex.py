@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,49 +8,27 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineFileLayoutEx(DynamicData):
+def VirtualMachineFileLayoutEx(vim, *args, **kwargs):
     '''Detailed description of files that make up a virtual machine on disk. The file
-        layout is broken into 4 major sections:* Configuration: Files stored in
-        the configuration directory * Log: Files stored in the log directory *
-        Disk: Files stored relative to a disk configuration file * Snapshot:
-        Stored in the snapshot directoryOften the same directory is used for
-        configuration, log, disk and snapshots.
-    '''
+    layout is broken into 4 major sections:* Configuration: Files stored in the
+    configuration directory * Log: Files stored in the log directory * Disk: Files
+    stored relative to a disk configuration file * Snapshot: Stored in the snapshot
+    directoryOften the same directory is used for configuration, log, disk and
+    snapshots.'''
     
-    def __init__(self, disk, file, snapshot, timestamp):
-        # MUST define these
-        super(VirtualMachineFileLayoutEx, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineFileLayoutEx')
     
-        self.data['disk'] = disk
-        self.data['file'] = file
-        self.data['snapshot'] = snapshot
-        self.data['timestamp'] = timestamp
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'disk', 'file', 'snapshot', 'timestamp' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def disk(self):
-        '''Layout of each virtual disk attached to the virtual machine.
-        '''
-        return self.data['disk']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def file(self):
-        '''Information about all the files that constitute the virtual machine including
-        configuration files, disks, swap file, suspend file, log files, core
-        files, memory file etc. VirtualMachineFileLayoutExFileType lists the
-        different file-types that make a virtual machine.
-        '''
-        return self.data['file']
-
-    @property
-    def snapshot(self):
-        '''Layout of each snapshot of the virtual machine.
-        '''
-        return self.data['snapshot']
-
-    @property
-    def timestamp(self):
-        '''Time when values in this structure were last updated.
-        '''
-        return self.data['timestamp']
-
+    return obj
+    

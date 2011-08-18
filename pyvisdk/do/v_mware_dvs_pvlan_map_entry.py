@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,37 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VMwareDVSPvlanMapEntry(DynamicData):
-    '''The class represents a PVLAN id.
-    '''
+def VMwareDVSPvlanMapEntry(vim, *args, **kwargs):
+    '''The class represents a PVLAN id.'''
     
-    def __init__(self, primaryVlanId, pvlanType, secondaryVlanId):
-        # MUST define these
-        super(VMwareDVSPvlanMapEntry, self).__init__()
+    obj = vim.client.factory.create('ns0:VMwareDVSPvlanMapEntry')
     
-        self.data['primaryVlanId'] = primaryVlanId
-        self.data['pvlanType'] = pvlanType
-        self.data['secondaryVlanId'] = secondaryVlanId
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'primaryVlanId', 'pvlanType', 'secondaryVlanId' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def primaryVlanId(self):
-        '''The primary VLAN ID. The VLAN IDs of 0 and 4095 are reserved and cannot be used in
-        this property.
-        '''
-        return self.data['primaryVlanId']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def pvlanType(self):
-        '''The type of PVLAN. See VmwareDistributedVirtualSwitchPvlanPortType for valid
-        values.
-        '''
-        return self.data['pvlanType']
-
-    @property
-    def secondaryVlanId(self):
-        '''The secondary VLAN ID. The VLAN IDs of 0 and 4095 are reserved and cannot be used
-        in this property.
-        '''
-        return self.data['secondaryVlanId']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.migration_event import MigrationEvent
 import logging
 
 ########################################
@@ -8,14 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class MigrationWarningEvent(MigrationEvent):
-    '''A migration warning.
-    '''
+def MigrationWarningEvent(vim, *args, **kwargs):
+    '''A migration warning.'''
     
-    def __init__(self, ):
-        # MUST define these
-        super(MigrationWarningEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:MigrationWarningEvent')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'fault' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

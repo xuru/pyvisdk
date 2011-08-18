@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDevice(DynamicData):
-    '''This data object type defines a device on the host.
-    '''
+def HostDevice(vim, *args, **kwargs):
+    '''This data object type defines a device on the host.'''
     
-    def __init__(self, deviceName, deviceType):
-        # MUST define these
-        super(HostDevice, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDevice')
     
-        self.data['deviceName'] = deviceName
-        self.data['deviceType'] = deviceType
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'deviceName', 'deviceType' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def deviceName(self):
-        '''The name of the device on the host. For example, /dev/cdrom or
-        \\serverX\device_name.
-        '''
-        return self.data['deviceName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def deviceType(self):
-        '''Device type when available: floppy, mouse, cdrom, disk, scsi device, or adapter.
-        '''
-        return self.data['deviceType']
-
+    return obj
+    

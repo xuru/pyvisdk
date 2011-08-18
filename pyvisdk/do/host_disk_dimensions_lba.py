@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,29 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDiskDimensionsLba(DynamicData):
+def HostDiskDimensionsLba(vim, *args, **kwargs):
     '''This data object type describes the logical block addressing system that uses
-        block numbers and block sizes to refer to a block. This scheme is employed
-        by SCSI. If a SCSI disk is not involved, then blockSize is 512 bytes.
-    '''
+    block numbers and block sizes to refer to a block. This scheme is employed by
+    SCSI. If a SCSI disk is not involved, then blockSize is 512 bytes.'''
     
-    def __init__(self, block, blockSize):
-        # MUST define these
-        super(HostDiskDimensionsLba, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDiskDimensionsLba')
     
-        self.data['block'] = block
-        self.data['blockSize'] = blockSize
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'block', 'blockSize' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def block(self):
-        '''The number of blocks.
-        '''
-        return self.data['block']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def blockSize(self):
-        '''The size of the blocks.
-        '''
-        return self.data['blockSize']
-
+    return obj
+    

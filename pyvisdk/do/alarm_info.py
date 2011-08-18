@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.alarm_spec import AlarmSpec
 import logging
 
 ########################################
@@ -8,55 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AlarmInfo(AlarmSpec):
-    '''Attributes of an alarm.
-    '''
+def AlarmInfo(vim, *args, **kwargs):
+    '''Attributes of an alarm.'''
     
-    def __init__(self, alarm, creationEventId, entity, key, lastModifiedTime, lastModifiedUser):
-        # MUST define these
-        super(AlarmInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:AlarmInfo')
     
-        self.data['alarm'] = alarm
-        self.data['creationEventId'] = creationEventId
-        self.data['entity'] = entity
-        self.data['key'] = key
-        self.data['lastModifiedTime'] = lastModifiedTime
-        self.data['lastModifiedUser'] = lastModifiedUser
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 6:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'action', 'actionFrequency', 'description', 'enabled', 'expression', 'name',
+        'setting', 'alarm', 'creationEventId', 'entity', 'key', 'lastModifiedTime',
+        'lastModifiedUser' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def alarm(self):
-        '''The alarm object.
-        '''
-        return self.data['alarm']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def creationEventId(self):
-        '''The event ID that records the alarm creation.
-        '''
-        return self.data['creationEventId']
-
-    @property
-    def entity(self):
-        '''The entity on which the alarm is registered.
-        '''
-        return self.data['entity']
-
-    @property
-    def key(self):
-        '''The unique key.
-        '''
-        return self.data['key']
-
-    @property
-    def lastModifiedTime(self):
-        '''The time the alarm was created or modified.
-        '''
-        return self.data['lastModifiedTime']
-
-    @property
-    def lastModifiedUser(self):
-        '''User name that modified the alarm most recently.
-        '''
-        return self.data['lastModifiedUser']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,53 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LicenseAssignmentManagerLicenseAssignment(DynamicData):
-    '''
-    '''
+def LicenseAssignmentManagerLicenseAssignment(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, assignedLicense, entityDisplayName, entityId, properties, scope):
-        # MUST define these
-        super(LicenseAssignmentManagerLicenseAssignment, self).__init__()
+    obj = vim.client.factory.create('ns0:LicenseAssignmentManagerLicenseAssignment')
     
-        self.data['assignedLicense'] = assignedLicense
-        self.data['entityDisplayName'] = entityDisplayName
-        self.data['entityId'] = entityId
-        self.data['properties'] = properties
-        self.data['scope'] = scope
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'assignedLicense', 'entityDisplayName', 'entityId', 'properties', 'scope' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def assignedLicense(self):
-        '''License assigned to the entity
-        '''
-        return self.data['assignedLicense']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def entityDisplayName(self):
-        '''Display name of the entity
-        '''
-        return self.data['entityDisplayName']
-
-    @property
-    def entityId(self):
-        '''Id for the entity
-        '''
-        return self.data['entityId']
-
-    @property
-    def properties(self):
-        '''Additional properties associated with this assignment Some of the properties are:
-        "inUseFeatures" -- Features in the license key that are being used by the
-        entity "ProductName" -- Name of the entity. Should match the product name
-        of the assigned license. "ProductVersion" -- Version of the entity. Should
-        match the product version of the assigned license. "Evaluation" --
-        EvaluationInfo object representing the evaluation left for the entity.
-        '''
-        return self.data['properties']
-
-    @property
-    def scope(self):
-        '''Scope of the entityId
-        '''
-        return self.data['scope']
-
+    return obj
+    

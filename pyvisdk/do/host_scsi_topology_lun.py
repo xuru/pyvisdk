@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,34 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostScsiTopologyLun(DynamicData):
-    '''This data object type describes the SCSI logical unit.
-    '''
+def HostScsiTopologyLun(vim, *args, **kwargs):
+    '''This data object type describes the SCSI logical unit.'''
     
-    def __init__(self, key, lun, scsiLun):
-        # MUST define these
-        super(HostScsiTopologyLun, self).__init__()
+    obj = vim.client.factory.create('ns0:HostScsiTopologyLun')
     
-        self.data['key'] = key
-        self.data['lun'] = lun
-        self.data['scsiLun'] = scsiLun
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'lun', 'scsiLun' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''The identifier for the SCSI Lun
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def lun(self):
-        '''The logical unit number of the SCSI logical unit.
-        '''
-        return self.data['lun']
-
-    @property
-    def scsiLun(self):
-        '''The link to data for this SCSI logical unit.
-        '''
-        return self.data['scsiLun']
-
+    return obj
+    

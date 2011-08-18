@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.entity_event_argument import EntityEventArgument
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class NetworkEventArgument(EntityEventArgument):
-    '''The event argument is a Network object.
-    '''
+def NetworkEventArgument(vim, *args, **kwargs):
+    '''The event argument is a Network object.'''
     
-    def __init__(self, network):
-        # MUST define these
-        super(NetworkEventArgument, self).__init__()
+    obj = vim.client.factory.create('ns0:NetworkEventArgument')
     
-        self.data['network'] = network
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name', 'network' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def network(self):
-        '''The Network object.
-        '''
-        return self.data['network']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

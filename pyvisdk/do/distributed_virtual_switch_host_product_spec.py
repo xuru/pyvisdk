@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DistributedVirtualSwitchHostProductSpec(DynamicData):
-    '''This data object type is a subset of AboutInfo. An object of this type can be used
-        to describe the specification for a host.
-    '''
+def DistributedVirtualSwitchHostProductSpec(vim, *args, **kwargs):
+    '''This data object type is a subset of AboutInfo. An object of this type can be
+    used to describe the specification for a host.'''
     
-    def __init__(self, productLineId, version):
-        # MUST define these
-        super(DistributedVirtualSwitchHostProductSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:DistributedVirtualSwitchHostProductSpec')
     
-        self.data['productLineId'] = productLineId
-        self.data['version'] = version
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'productLineId', 'version' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def productLineId(self):
-        '''The product-line name.
-        '''
-        return self.data['productLineId']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def version(self):
-        '''Dot-separated version string. For example, "1.2".
-        '''
-        return self.data['version']
-
+    return obj
+    

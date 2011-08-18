@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dvs_event import DvsEvent
 import logging
 
 ########################################
@@ -8,20 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DvsHostWentOutOfSyncEvent(DvsEvent):
-    '''The DVS configuration on the host diverged from that of the Virtual Center Server.
-    '''
+def DvsHostWentOutOfSyncEvent(vim, *args, **kwargs):
+    '''The DVS configuration on the host diverged from that of the Virtual Center
+    Server.'''
     
-    def __init__(self, hostOutOfSync):
-        # MUST define these
-        super(DvsHostWentOutOfSyncEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DvsHostWentOutOfSyncEvent')
     
-        self.data['hostOutOfSync'] = hostOutOfSync
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'hostOutOfSync' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def hostOutOfSync(self):
-        '''The host that went out of sync.
-        '''
-        return self.data['hostOutOfSync']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

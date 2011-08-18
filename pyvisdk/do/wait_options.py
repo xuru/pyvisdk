@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,31 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class WaitOptions(DynamicData):
-    '''Options for WaitForUpdatesEx.
-    '''
+def WaitOptions(vim, *args, **kwargs):
+    '''Options for WaitForUpdatesEx.'''
     
-    def __init__(self, maxObjectUpdates, maxWaitSeconds):
-        # MUST define these
-        super(WaitOptions, self).__init__()
+    obj = vim.client.factory.create('ns0:WaitOptions')
     
-        self.data['maxObjectUpdates'] = maxObjectUpdates
-        self.data['maxWaitSeconds'] = maxWaitSeconds
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'maxObjectUpdates', 'maxWaitSeconds' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def maxObjectUpdates(self):
-        '''The maximum number of ObjectUpdate entries that should be returned in a single
-        result from WaitForUpdatesEx. See truncated
-        '''
-        return self.data['maxObjectUpdates']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def maxWaitSeconds(self):
-        '''The number of seconds the PropertyCollector should wait before returning null.
-        Returning updates may take longer if the actual calculation time exceeds
-        maxWaitSeconds. Additionally PropertyCollector policy may cause it to
-        return null sooner than maxWaitSeconds.
-        '''
-        return self.data['maxWaitSeconds']
-
+    return obj
+    

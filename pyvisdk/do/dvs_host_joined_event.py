@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dvs_event import DvsEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DvsHostJoinedEvent(DvsEvent):
-    '''A host joined the distributed virtual switch.
-    '''
+def DvsHostJoinedEvent(vim, *args, **kwargs):
+    '''A host joined the distributed virtual switch.'''
     
-    def __init__(self, hostJoined):
-        # MUST define these
-        super(DvsHostJoinedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:DvsHostJoinedEvent')
     
-        self.data['hostJoined'] = hostJoined
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'hostJoined' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def hostJoined(self):
-        '''The host that joined DVS.
-        '''
-        return self.data['hostJoined']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

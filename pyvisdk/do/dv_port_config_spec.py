@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,63 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DVPortConfigSpec(DynamicData):
-    '''Specification to reconfigure a DistributedVirtualPort.
-    '''
+def DVPortConfigSpec(vim, *args, **kwargs):
+    '''Specification to reconfigure a DistributedVirtualPort.'''
     
-    def __init__(self, configVersion, description, key, name, operation, scope, setting):
-        # MUST define these
-        super(DVPortConfigSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:DVPortConfigSpec')
     
-        self.data['configVersion'] = configVersion
-        self.data['description'] = description
-        self.data['key'] = key
-        self.data['name'] = name
-        self.data['operation'] = operation
-        self.data['scope'] = scope
-        self.data['setting'] = setting
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'configVersion', 'description', 'key', 'name', 'operation', 'scope', 'setting' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def configVersion(self):
-        '''The version string of the configuration.
-        '''
-        return self.data['configVersion']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def description(self):
-        '''The description string of the port.
-        '''
-        return self.data['description']
-
-    @property
-    def key(self):
-        '''The key of the port to be reconfigured.
-        '''
-        return self.data['key']
-
-    @property
-    def name(self):
-        '''The name of the port.
-        '''
-        return self.data['name']
-
-    @property
-    def operation(self):
-        '''The operation to remove or modify the existing ports. The valid values are: * edit
-        * remove
-        '''
-        return self.data['operation']
-
-    @property
-    def scope(self):
-        '''The eligible entities that can connect to the port, for detail see scope.
-        '''
-        return self.data['scope']
-
-    @property
-    def setting(self):
-        '''The network setting of the port.
-        '''
-        return self.data['setting']
-
+    return obj
+    

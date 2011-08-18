@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class KeyAnyValue(DynamicData):
-    '''Non-localized key/value pair in which the the value can be of any type.
-    '''
+def KeyAnyValue(vim, *args, **kwargs):
+    '''Non-localized key/value pair in which the the value can be of any type.'''
     
-    def __init__(self, key, value):
-        # MUST define these
-        super(KeyAnyValue, self).__init__()
+    obj = vim.client.factory.create('ns0:KeyAnyValue')
     
-        self.data['key'] = key
-        self.data['value'] = value
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'value' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''the key
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def value(self):
-        '''the value
-        '''
-        return self.data['value']
-
+    return obj
+    

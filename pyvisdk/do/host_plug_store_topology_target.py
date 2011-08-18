@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostPlugStoreTopologyTarget(DynamicData):
-    '''This data object represents target information.
-    '''
+def HostPlugStoreTopologyTarget(vim, *args, **kwargs):
+    '''This data object represents target information.'''
     
-    def __init__(self, key, transport):
-        # MUST define these
-        super(HostPlugStoreTopologyTarget, self).__init__()
+    obj = vim.client.factory.create('ns0:HostPlugStoreTopologyTarget')
     
-        self.data['key'] = key
-        self.data['transport'] = transport
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'transport' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''The identifier of the target. This will be a string representing the transport
-        information of the target.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def transport(self):
-        '''Detailed, transport-specific information about the target of a path.
-        '''
-        return self.data['transport']
-
+    return obj
+    

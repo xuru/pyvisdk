@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.vm_event import VmEvent
 import logging
 
 ########################################
@@ -8,34 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmWwnConflictEvent(VmEvent):
-    '''This event records a conflict of virtual machine WWNs (World Wide Name).
-    '''
+def VmWwnConflictEvent(vim, *args, **kwargs):
+    '''This event records a conflict of virtual machine WWNs (World Wide Name).'''
     
-    def __init__(self, conflictedHosts, conflictedVms, wwn):
-        # MUST define these
-        super(VmWwnConflictEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:VmWwnConflictEvent')
     
-        self.data['conflictedHosts'] = conflictedHosts
-        self.data['conflictedVms'] = conflictedVms
-        self.data['wwn'] = wwn
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'template', 'conflictedHosts', 'conflictedVms', 'wwn' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def conflictedHosts(self):
-        '''The host whose physical WWN conflicts with the current virtual machine's WWN.
-        '''
-        return self.data['conflictedHosts']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def conflictedVms(self):
-        '''The virtual machine whose WWN conflicts with the current virtual machine's WWN.
-        '''
-        return self.data['conflictedVms']
-
-    @property
-    def wwn(self):
-        '''The WWN in conflict.
-        '''
-        return self.data['wwn']
-
+    return obj
+    

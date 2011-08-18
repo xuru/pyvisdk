@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,79 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LicenseFeatureInfo(DynamicData):
-    '''A single feature that can be licensed. This information is immutable.
-    '''
+def LicenseFeatureInfo(vim, *args, **kwargs):
+    '''A single feature that can be licensed. This information is immutable.'''
     
-    def __init__(self, costUnit, dependentKey, edition, expiresOn, featureDescription, featureName, key, sourceRestriction, state):
-        # MUST define these
-        super(LicenseFeatureInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:LicenseFeatureInfo')
     
-        self.data['costUnit'] = costUnit
-        self.data['dependentKey'] = dependentKey
-        self.data['edition'] = edition
-        self.data['expiresOn'] = expiresOn
-        self.data['featureDescription'] = featureDescription
-        self.data['featureName'] = featureName
-        self.data['key'] = key
-        self.data['sourceRestriction'] = sourceRestriction
-        self.data['state'] = state
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'costUnit', 'dependentKey', 'edition', 'expiresOn', 'featureDescription',
+        'featureName', 'key', 'sourceRestriction', 'state' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def costUnit(self):
-        '''Each license has a cost associated with it and the value of costUnit specifies the
-        applicable unit.
-        '''
-        return self.data['costUnit']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def dependentKey(self):
-        '''Report List of feature keys used by this edition.
-        '''
-        return self.data['dependentKey']
-
-    @property
-    def edition(self):
-        '''Flag to indicate whether the feature is an edition.
-        '''
-        return self.data['edition']
-
-    @property
-    def expiresOn(self):
-        '''Date representing the expiration date
-        '''
-        return self.data['expiresOn']
-
-    @property
-    def featureDescription(self):
-        '''A human readable description of what function this feature enables.
-        '''
-        return self.data['featureDescription']
-
-    @property
-    def featureName(self):
-        '''The display string for the feature name.
-        '''
-        return self.data['featureName']
-
-    @property
-    def key(self):
-        '''Unique identifier for license as defined in License source data. Max length of
-        this string is 64 characters of ASCII/ISO Latin-1 character set.
-        '''
-        return self.data['key']
-
-    @property
-    def sourceRestriction(self):
-        '''Describe any restriction on the source of a license for this feature.
-        '''
-        return self.data['sourceRestriction']
-
-    @property
-    def state(self):
-        '''Describes the state of the feature based on the current edition license. This
-        property is unset for an edition license.
-        '''
-        return self.data['state']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,34 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DVSCreateSpec(DynamicData):
-    '''Specification to reconfigure a DistributedVirtualSwitch.
-    '''
+def DVSCreateSpec(vim, *args, **kwargs):
+    '''Specification to reconfigure a DistributedVirtualSwitch.'''
     
-    def __init__(self, capability, configSpec, productInfo):
-        # MUST define these
-        super(DVSCreateSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:DVSCreateSpec')
     
-        self.data['capability'] = capability
-        self.data['configSpec'] = configSpec
-        self.data['productInfo'] = productInfo
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'capability', 'configSpec', 'productInfo' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def capability(self):
-        '''The capability of the switch.
-        '''
-        return self.data['capability']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def configSpec(self):
-        '''The configuration spec.
-        '''
-        return self.data['configSpec']
-
-    @property
-    def productInfo(self):
-        '''The product information for the implementation of the switch.
-        '''
-        return self.data['productInfo']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.license_event import LicenseEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class InvalidEditionEvent(LicenseEvent):
-    '''This event records if the edition is set to an invalid value.
-    '''
+def InvalidEditionEvent(vim, *args, **kwargs):
+    '''This event records if the edition is set to an invalid value.'''
     
-    def __init__(self, feature):
-        # MUST define these
-        super(InvalidEditionEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:InvalidEditionEvent')
     
-        self.data['feature'] = feature
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'feature' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def feature(self):
-        '''
-        '''
-        return self.data['feature']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

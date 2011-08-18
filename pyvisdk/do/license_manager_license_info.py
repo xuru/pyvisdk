@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,69 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class LicenseManagerLicenseInfo(DynamicData):
-    '''Encapsulates information about a license
-    '''
+def LicenseManagerLicenseInfo(vim, *args, **kwargs):
+    '''Encapsulates information about a license'''
     
-    def __init__(self, costUnit, editionKey, labels, licenseKey, name, properties, total, used):
-        # MUST define these
-        super(LicenseManagerLicenseInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:LicenseManagerLicenseInfo')
     
-        self.data['costUnit'] = costUnit
-        self.data['editionKey'] = editionKey
-        self.data['labels'] = labels
-        self.data['licenseKey'] = licenseKey
-        self.data['name'] = name
-        self.data['properties'] = properties
-        self.data['total'] = total
-        self.data['used'] = used
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'costUnit', 'editionKey', 'labels', 'licenseKey', 'name', 'properties',
+        'total', 'used' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def costUnit(self):
-        '''The cost unit for this license
-        '''
-        return self.data['costUnit']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def editionKey(self):
-        '''Edition key.
-        '''
-        return self.data['editionKey']
-
-    @property
-    def labels(self):
-        '''Key-value lables for this license
-        '''
-        return self.data['labels']
-
-    @property
-    def licenseKey(self):
-        '''Key for the license. E.g. serial number.
-        '''
-        return self.data['licenseKey']
-
-    @property
-    def name(self):
-        '''Display name for the license
-        '''
-        return self.data['name']
-
-    @property
-    def properties(self):
-        '''Additional properties associated with this license
-        '''
-        return self.data['properties']
-
-    @property
-    def total(self):
-        '''Total number of units contain in the license
-        '''
-        return self.data['total']
-
-    @property
-    def used(self):
-        '''Number of units used from this license
-        '''
-        return self.data['used']
-
+    return obj
+    

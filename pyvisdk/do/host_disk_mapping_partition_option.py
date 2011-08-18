@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,35 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDiskMappingPartitionOption(DynamicData):
-    '''The PhysicalPartitionOption data class contains the options for a partition on a
-        physical disk.
-    '''
+def HostDiskMappingPartitionOption(vim, *args, **kwargs):
+    '''The PhysicalPartitionOption data class contains the options for a partition on
+    a physical disk.'''
     
-    def __init__(self, capacityInKb, fileSystem, name):
-        # MUST define these
-        super(HostDiskMappingPartitionOption, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDiskMappingPartitionOption')
     
-        self.data['capacityInKb'] = capacityInKb
-        self.data['fileSystem'] = fileSystem
-        self.data['name'] = name
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'capacityInKb', 'fileSystem', 'name' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def capacityInKb(self):
-        '''Partition capacity, in KB.
-        '''
-        return self.data['capacityInKb']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def fileSystem(self):
-        '''File system, if the partition is formatted.
-        '''
-        return self.data['fileSystem']
-
-    @property
-    def name(self):
-        '''Partition name.
-        '''
-        return self.data['name']
-
+    return obj
+    

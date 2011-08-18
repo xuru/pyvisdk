@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_dns_config import HostDnsConfig
 import logging
 
 ########################################
@@ -8,20 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDnsConfigSpec(HostDnsConfig):
-    '''Dataobject for configuring the DNS settings on the host.
-    '''
+def HostDnsConfigSpec(vim, *args, **kwargs):
+    '''Dataobject for configuring the DNS settings on the host.'''
     
-    def __init__(self, virtualNicConnection):
-        # MUST define these
-        super(HostDnsConfigSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDnsConfigSpec')
     
-        self.data['virtualNicConnection'] = virtualNicConnection
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'address', 'dhcp', 'domainName', 'hostName', 'searchDomain',
+        'virtualNicDevice', 'virtualNicConnection' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def virtualNicConnection(self):
-        '''Choose a Virtual nic based on what it is connected to.
-        '''
-        return self.data['virtualNicConnection']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

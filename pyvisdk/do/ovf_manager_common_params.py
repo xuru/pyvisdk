@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,39 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class OvfManagerCommonParams(DynamicData):
-    '''A common super-class for basic OVF descriptor parameters
-    '''
+def OvfManagerCommonParams(vim, *args, **kwargs):
+    '''A common super-class for basic OVF descriptor parameters'''
     
-    def __init__(self, deploymentOption, locale, msgBundle):
-        # MUST define these
-        super(OvfManagerCommonParams, self).__init__()
+    obj = vim.client.factory.create('ns0:OvfManagerCommonParams')
     
-        self.data['deploymentOption'] = deploymentOption
-        self.data['locale'] = locale
-        self.data['msgBundle'] = msgBundle
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'deploymentOption', 'locale', 'msgBundle' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def deploymentOption(self):
-        '''The key of the chosen deployment option. If empty, the default option is chosen.
-        The list of possible deployment options is returned in the result of
-        parseDescriptor.
-        '''
-        return self.data['deploymentOption']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def locale(self):
-        '''The locale-identifier to choose from the descriptor. If empty, the default locale
-        on the server is used.
-        '''
-        return self.data['locale']
-
-    @property
-    def msgBundle(self):
-        '''An optional set of localization strings to be used. The server will use these
-        message strings to localize information in the result and in error and
-        warning messages.
-        '''
-        return self.data['msgBundle']
-
+    return obj
+    

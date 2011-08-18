@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,22 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmConfigFileQueryFilter(DynamicData):
-    '''The filter for the virtual machine configuration file.
-    '''
+def VmConfigFileQueryFilter(vim, *args, **kwargs):
+    '''The filter for the virtual machine configuration file.'''
     
-    def __init__(self, matchConfigVersion):
-        # MUST define these
-        super(VmConfigFileQueryFilter, self).__init__()
+    obj = vim.client.factory.create('ns0:VmConfigFileQueryFilter')
     
-        self.data['matchConfigVersion'] = matchConfigVersion
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'matchConfigVersion' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def matchConfigVersion(self):
-        '''If this property is set, only the virtual machine configuration files that match
-        one of the specified configuration versions are selected. If no versions
-        are specified, this search criteria is ignored.
-        '''
-        return self.data['matchConfigVersion']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

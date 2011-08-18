@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,51 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineBootOptions(DynamicData):
+def VirtualMachineBootOptions(vim, *args, **kwargs):
     '''The VirtualMachineBootOptions data object defines the boot-time behavior of a
-        virtual machine.You can use the delay options to specify a time interval
-        during which you can enter the virtual machine BIOS setup. These options
-        provide a solution for the situation that occurs when the console attaches
-        to the virtual machine after the boot sequence has passed the BIOS setup
-        entry point.
-    '''
+    virtual machine.You can use the delay options to specify a time interval during
+    which you can enter the virtual machine BIOS setup. These options provide a
+    solution for the situation that occurs when the console attaches to the virtual
+    machine after the boot sequence has passed the BIOS setup entry point.'''
     
-    def __init__(self, bootDelay, bootRetryDelay, bootRetryEnabled, enterBIOSSetup):
-        # MUST define these
-        super(VirtualMachineBootOptions, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineBootOptions')
     
-        self.data['bootDelay'] = bootDelay
-        self.data['bootRetryDelay'] = bootRetryDelay
-        self.data['bootRetryEnabled'] = bootRetryEnabled
-        self.data['enterBIOSSetup'] = enterBIOSSetup
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'bootDelay', 'bootRetryDelay', 'bootRetryEnabled', 'enterBIOSSetup' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def bootDelay(self):
-        '''Delay in milliseconds before starting the boot sequence. The boot delay specifies
-        a time interval between virtual machine power on or restart and the
-        beginning of the boot sequence.
-        '''
-        return self.data['bootDelay']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def bootRetryDelay(self):
-        '''Delay in milliseconds before a boot retry. The boot retry delay specifies a time
-        interval between virtual machine boot failure and the subsequent attempt
-        to boot again. The virtual machine uses this value only if
-        bootRetryEnabled is true.
-        '''
-        return self.data['bootRetryDelay']
-
-    @property
-    def bootRetryEnabled(self):
-        '''If set to
-        '''
-        return self.data['bootRetryEnabled']
-
-    @property
-    def enterBIOSSetup(self):
-        '''If set to
-        '''
-        return self.data['enterBIOSSetup']
-
+    return obj
+    

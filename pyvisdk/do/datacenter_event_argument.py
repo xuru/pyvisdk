@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.entity_event_argument import EntityEventArgument
 import logging
 
 ########################################
@@ -8,20 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class DatacenterEventArgument(EntityEventArgument):
-    '''The event argument is a Datacenter object.
-    '''
+def DatacenterEventArgument(vim, *args, **kwargs):
+    '''The event argument is a Datacenter object.'''
     
-    def __init__(self, datacenter):
-        # MUST define these
-        super(DatacenterEventArgument, self).__init__()
+    obj = vim.client.factory.create('ns0:DatacenterEventArgument')
     
-        self.data['datacenter'] = datacenter
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name', 'datacenter' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def datacenter(self):
-        '''The Datacenter object.
-        '''
-        return self.data['datacenter']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

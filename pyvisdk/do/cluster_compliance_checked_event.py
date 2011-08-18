@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.cluster_event import ClusterEvent
 import logging
 
 ########################################
@@ -8,20 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ClusterComplianceCheckedEvent(ClusterEvent):
-    '''This event records that a compliance check was triggered on the cluster.
-    '''
+def ClusterComplianceCheckedEvent(vim, *args, **kwargs):
+    '''This event records that a compliance check was triggered on the cluster.'''
     
-    def __init__(self, profile):
-        # MUST define these
-        super(ClusterComplianceCheckedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:ClusterComplianceCheckedEvent')
     
-        self.data['profile'] = profile
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'profile' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def profile(self):
-        '''
-        '''
-        return self.data['profile']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

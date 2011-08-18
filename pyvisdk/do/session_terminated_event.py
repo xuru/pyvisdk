@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.session_event import SessionEvent
 import logging
 
 ########################################
@@ -8,27 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class SessionTerminatedEvent(SessionEvent):
-    '''This event records the termination of a session.
-    '''
+def SessionTerminatedEvent(vim, *args, **kwargs):
+    '''This event records the termination of a session.'''
     
-    def __init__(self, sessionId, terminatedUsername):
-        # MUST define these
-        super(SessionTerminatedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:SessionTerminatedEvent')
     
-        self.data['sessionId'] = sessionId
-        self.data['terminatedUsername'] = terminatedUsername
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'sessionId', 'terminatedUsername' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def sessionId(self):
-        '''The unique identifier of the terminated session.
-        '''
-        return self.data['sessionId']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def terminatedUsername(self):
-        '''The name of the user owning the terminated session.
-        '''
-        return self.data['terminatedUsername']
-
+    return obj
+    

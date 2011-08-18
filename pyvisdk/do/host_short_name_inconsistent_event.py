@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_das_event import HostDasEvent
 import logging
 
 ########################################
@@ -8,29 +8,26 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostShortNameInconsistentEvent(HostDasEvent):
-    '''This event records that host name resolution returned different names on the host.
-        Please check your host's network configuration and your DNS configuration.
-        There may be duplicate entries.
-    '''
+def HostShortNameInconsistentEvent(vim, *args, **kwargs):
+    '''This event records that host name resolution returned different names on the
+    host. Please check your host's network configuration and your DNS
+    configuration. There may be duplicate entries.'''
     
-    def __init__(self, shortName, shortName2):
-        # MUST define these
-        super(HostShortNameInconsistentEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:HostShortNameInconsistentEvent')
     
-        self.data['shortName'] = shortName
-        self.data['shortName2'] = shortName2
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'shortName', 'shortName2' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def shortName(self):
-        '''
-        '''
-        return self.data['shortName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def shortName2(self):
-        '''
-        '''
-        return self.data['shortName2']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.apply_profile import ApplyProfile
 import logging
 
 ########################################
@@ -8,14 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class NumPortsProfile(ApplyProfile):
-    '''
-    '''
+def NumPortsProfile(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, ):
-        # MUST define these
-        super(NumPortsProfile, self).__init__()
+    obj = vim.client.factory.create('ns0:NumPortsProfile')
     
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'enabled', 'policy' ]
+    
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
+    
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    
+    return obj
     

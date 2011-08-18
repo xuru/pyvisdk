@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class StorageIORMInfo(DynamicData):
-    '''Configuration of storage I/O resource management.
-    '''
+def StorageIORMInfo(vim, *args, **kwargs):
+    '''Configuration of storage I/O resource management.'''
     
-    def __init__(self, congestionThreshold, enabled):
-        # MUST define these
-        super(StorageIORMInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:StorageIORMInfo')
     
-        self.data['congestionThreshold'] = congestionThreshold
-        self.data['enabled'] = enabled
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'congestionThreshold', 'enabled' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def congestionThreshold(self):
-        '''The latency beyond which the storage array is considered congested.
-        '''
-        return self.data['congestionThreshold']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def enabled(self):
-        '''Flag indicating whether or not the service is enabled.
-        '''
-        return self.data['enabled']
-
+    return obj
+    

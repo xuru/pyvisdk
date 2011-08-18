@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,31 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class NetIpStackInfo(DynamicData):
-    '''Protocol version independent reporting data object for IP stack.
-    '''
+def NetIpStackInfo(vim, *args, **kwargs):
+    '''Protocol version independent reporting data object for IP stack.'''
     
-    def __init__(self, defaultRouter, neighbor):
-        # MUST define these
-        super(NetIpStackInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:NetIpStackInfo')
     
-        self.data['defaultRouter'] = defaultRouter
-        self.data['neighbor'] = neighbor
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'defaultRouter', 'neighbor' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def defaultRouter(self):
-        '''Zero one or more entries of discovered IP routers that are directly reachable from
-        a an interface on this system. This property maps to RFC 4293
-        ipDefaultRouterTable.
-        '''
-        return self.data['defaultRouter']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def neighbor(self):
-        '''Zero, one or more entries of neighbors discovered using ARP or NDP. This
-        information is used to help diagnose connectivity or performance issues.
-        This property maps to RFC 4293 ipNetToPhysicalTable.
-        '''
-        return self.data['neighbor']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,37 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostVirtualSwitchConfig(DynamicData):
+def HostVirtualSwitchConfig(vim, *args, **kwargs):
     '''This data object type describes the VirtualSwitch configuration containing both
-        the configurable properties on a VirtualSwitch and identification
-        information.
-    '''
+    the configurable properties on a VirtualSwitch and identification information.'''
     
-    def __init__(self, changeOperation, name, spec):
-        # MUST define these
-        super(HostVirtualSwitchConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:HostVirtualSwitchConfig')
     
-        self.data['changeOperation'] = changeOperation
-        self.data['name'] = name
-        self.data['spec'] = spec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'changeOperation', 'name', 'spec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def changeOperation(self):
-        '''This property indicates the change operation to apply on this configuration
-        specification.
-        '''
-        return self.data['changeOperation']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def name(self):
-        '''The name of the virtual switch. Maximum length is 32 characters.
-        '''
-        return self.data['name']
-
-    @property
-    def spec(self):
-        '''The specification of the VirtualSwitch.
-        '''
-        return self.data['spec']
-
+    return obj
+    

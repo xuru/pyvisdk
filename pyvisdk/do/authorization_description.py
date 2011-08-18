@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AuthorizationDescription(DynamicData):
-    '''Static strings for authorization.
-    '''
+def AuthorizationDescription(vim, *args, **kwargs):
+    '''Static strings for authorization.'''
     
-    def __init__(self, privilege, privilegeGroup):
-        # MUST define these
-        super(AuthorizationDescription, self).__init__()
+    obj = vim.client.factory.create('ns0:AuthorizationDescription')
     
-        self.data['privilege'] = privilege
-        self.data['privilegeGroup'] = privilegeGroup
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'privilege', 'privilegeGroup' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def privilege(self):
-        '''Description of the privilege.
-        '''
-        return self.data['privilege']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def privilegeGroup(self):
-        '''Description of a category of similar privileges, grouped together for convenience.
-        '''
-        return self.data['privilegeGroup']
-
+    return obj
+    

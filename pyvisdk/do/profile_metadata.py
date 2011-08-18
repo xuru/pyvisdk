@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ProfileMetadata(DynamicData):
-    '''This data object represents the metadata information of a Profile.
-    '''
+def ProfileMetadata(vim, *args, **kwargs):
+    '''This data object represents the metadata information of a Profile.'''
     
-    def __init__(self, description, key):
-        # MUST define these
-        super(ProfileMetadata, self).__init__()
+    obj = vim.client.factory.create('ns0:ProfileMetadata')
     
-        self.data['description'] = description
-        self.data['key'] = key
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'description', 'key' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def description(self):
-        '''Property which describes the profile
-        '''
-        return self.data['description']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def key(self):
-        '''Type of the Profile
-        '''
-        return self.data['key']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,42 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostDateTimeSystemTimeZone(DynamicData):
-    '''
-    '''
+def HostDateTimeSystemTimeZone(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, description, gmtOffset, key, name):
-        # MUST define these
-        super(HostDateTimeSystemTimeZone, self).__init__()
+    obj = vim.client.factory.create('ns0:HostDateTimeSystemTimeZone')
     
-        self.data['description'] = description
-        self.data['gmtOffset'] = gmtOffset
-        self.data['key'] = key
-        self.data['name'] = name
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'description', 'gmtOffset', 'key', 'name' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def description(self):
-        '''Description of the time zone.
-        '''
-        return self.data['description']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def gmtOffset(self):
-        '''The GMT offset in seconds that is currently applicable to the timezone (with
-        respect to the current time on the host).
-        '''
-        return self.data['gmtOffset']
-
-    @property
-    def key(self):
-        '''The identifier for the time zone.
-        '''
-        return self.data['key']
-
-    @property
-    def name(self):
-        '''The time zone name.
-        '''
-        return self.data['name']
-
+    return obj
+    

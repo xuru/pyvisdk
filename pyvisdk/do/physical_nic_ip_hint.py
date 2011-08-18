@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.physical_nic_hint import PhysicalNicHint
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class PhysicalNicIpHint(PhysicalNicHint):
+def PhysicalNicIpHint(vim, *args, **kwargs):
     '''This data object type describes a network in network hint where the network is
-        specified using IP addresses, for example, 10.27.49.1-10.27.49.254
-    '''
+    specified using IP addresses, for example, 10.27.49.1-10.27.49.254'''
     
-    def __init__(self, ipSubnet):
-        # MUST define these
-        super(PhysicalNicIpHint, self).__init__()
+    obj = vim.client.factory.create('ns0:PhysicalNicIpHint')
     
-        self.data['ipSubnet'] = ipSubnet
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'vlanId', 'ipSubnet' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ipSubnet(self):
-        '''The network IP addresses.
-        '''
-        return self.data['ipSubnet']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

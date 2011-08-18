@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.task_scheduler import TaskScheduler
 import logging
 
 ########################################
@@ -8,25 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class RecurrentTaskScheduler(TaskScheduler):
+def RecurrentTaskScheduler(vim, *args, **kwargs):
     '''The RecurrentTaskScheduler data object is the base type for the hierarchy that
-        includes hourly, daily, weekly, and monthly task schedulers.
-    '''
+    includes hourly, daily, weekly, and monthly task schedulers.'''
     
-    def __init__(self, interval):
-        # MUST define these
-        super(RecurrentTaskScheduler, self).__init__()
+    obj = vim.client.factory.create('ns0:RecurrentTaskScheduler')
     
-        self.data['interval'] = interval
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'activeTime', 'expireTime', 'interval' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def interval(self):
-        '''How often to run the scheduled task. The value must be greater than or equal to 1.
-        The default value is 1. The interval acts as a multiplier for the unit of
-        time associated with a particular scheduler (hours, days, weeks, or
-        months). For example, setting the HourlyTaskScheduler interval to 4 causes
-        the task to run every 4 hours.
-        '''
-        return self.data['interval']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

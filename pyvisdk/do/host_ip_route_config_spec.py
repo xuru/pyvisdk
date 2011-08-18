@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_ip_route_config import HostIpRouteConfig
 import logging
 
 ########################################
@@ -8,29 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostIpRouteConfigSpec(HostIpRouteConfig):
-    '''Dataobject specifying the configuration for IpRoute
-    '''
+def HostIpRouteConfigSpec(vim, *args, **kwargs):
+    '''Dataobject specifying the configuration for IpRoute'''
     
-    def __init__(self, gatewayDeviceConnection, ipV6GatewayDeviceConnection):
-        # MUST define these
-        super(HostIpRouteConfigSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:HostIpRouteConfigSpec')
     
-        self.data['gatewayDeviceConnection'] = gatewayDeviceConnection
-        self.data['ipV6GatewayDeviceConnection'] = ipV6GatewayDeviceConnection
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'defaultGateway', 'gatewayDevice', 'ipV6DefaultGateway', 'ipV6GatewayDevice',
+        'gatewayDeviceConnection', 'ipV6GatewayDeviceConnection' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def gatewayDeviceConnection(self):
-        '''Choose a gateway device based on what the VirtualNic is connected to. This applies
-        to service console gateway only, it is ignored otherwise.
-        '''
-        return self.data['gatewayDeviceConnection']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def ipV6GatewayDeviceConnection(self):
-        '''The ipv6 gateway device based on what the VirtualNic is connected to. This applies
-        to service console gateway only, it is ignored otherwise.
-        '''
-        return self.data['ipV6GatewayDeviceConnection']
-
+    return obj
+    

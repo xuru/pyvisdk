@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,28 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualMachineFileLayoutSnapshotLayout(DynamicData):
-    '''Enumerates the set of files that make up a snapshot or redo-point
-    '''
+def VirtualMachineFileLayoutSnapshotLayout(vim, *args, **kwargs):
+    '''Enumerates the set of files that make up a snapshot or redo-point'''
     
-    def __init__(self, key, snapshotFile):
-        # MUST define these
-        super(VirtualMachineFileLayoutSnapshotLayout, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualMachineFileLayoutSnapshotLayout')
     
-        self.data['key'] = key
-        self.data['snapshotFile'] = snapshotFile
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'snapshotFile' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''Identification of the snapshot
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def snapshotFile(self):
-        '''A list of files that make up the snapshot state. These are relative paths from the
-        snapshotDirectory. A slash is always used as a separator.
-        '''
-        return self.data['snapshotFile']
-
+    return obj
+    

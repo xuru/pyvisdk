@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,43 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class UpdateSet(DynamicData):
-    '''A set of updates that represent the changes since a prior call to CheckForUpdates,
-        WaitForUpdates, or WaitForUpdatesEx.
-    '''
+def UpdateSet(vim, *args, **kwargs):
+    '''A set of updates that represent the changes since a prior call to
+    CheckForUpdates, WaitForUpdates, or WaitForUpdatesEx.'''
     
-    def __init__(self, filterSet, truncated, version):
-        # MUST define these
-        super(UpdateSet, self).__init__()
+    obj = vim.client.factory.create('ns0:UpdateSet')
     
-        self.data['filterSet'] = filterSet
-        self.data['truncated'] = truncated
-        self.data['version'] = version
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'filterSet', 'truncated', 'version' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def filterSet(self):
-        '''Set of managed object updates detected by specific filters. Updates are reported
-        in sets. Each set is associated with a reference to a filter that detected
-        the updates in the set.
-        '''
-        return self.data['filterSet']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def truncated(self):
-        '''If true, this UpdateSet contains results from a suspended change calculation,
-        which places restrictions on the use of version.
-        '''
-        return self.data['truncated']
-
-    @property
-    def version(self):
-        '''New data version to pass in the next call to CheckForUpdates, WaitForUpdates, or
-        WaitForUpdatesEx. These versions, although they are opaque, are strongly
-        ordered in the sense that passing a version to WaitForUpdates,
-        CheckForUpdates or WaitForUpdatesEx requests updates that reflect changes
-        in the objects selected by the Filter that happened after the specified
-        version.
-        '''
-        return self.data['version']
-
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.scheduled_task_event import ScheduledTaskEvent
 import logging
 
 ########################################
@@ -8,20 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class ScheduledTaskEmailCompletedEvent(ScheduledTaskEvent):
-    '''This event records the sending of a notification via email for a scheduled task.
-    '''
+def ScheduledTaskEmailCompletedEvent(vim, *args, **kwargs):
+    '''This event records the sending of a notification via email for a scheduled
+    task.'''
     
-    def __init__(self, to):
-        # MUST define these
-        super(ScheduledTaskEmailCompletedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:ScheduledTaskEmailCompletedEvent')
     
-        self.data['to'] = to
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
+        'entity', 'scheduledTask', 'to' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def to(self):
-        '''The destination email address.
-        '''
-        return self.data['to']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

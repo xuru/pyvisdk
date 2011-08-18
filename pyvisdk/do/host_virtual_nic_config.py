@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,44 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostVirtualNicConfig(DynamicData):
-    '''This data object type describes the VirtualNic configuration representing both the
-        configured properties on a VirtualNic and identification information.
-    '''
+def HostVirtualNicConfig(vim, *args, **kwargs):
+    '''This data object type describes the VirtualNic configuration representing both
+    the configured properties on a VirtualNic and identification information.'''
     
-    def __init__(self, changeOperation, device, portgroup, spec):
-        # MUST define these
-        super(HostVirtualNicConfig, self).__init__()
+    obj = vim.client.factory.create('ns0:HostVirtualNicConfig')
     
-        self.data['changeOperation'] = changeOperation
-        self.data['device'] = device
-        self.data['portgroup'] = portgroup
-        self.data['spec'] = spec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'changeOperation', 'device', 'portgroup', 'spec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def changeOperation(self):
-        '''The change operation to apply on this configuration specification.
-        '''
-        return self.data['changeOperation']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def device(self):
-        '''VirtualNic device to which configuration applies.
-        '''
-        return self.data['device']
-
-    @property
-    def portgroup(self):
-        '''If the vnic is connecting to a vSwitch, this property is the name of portgroup
-        connected. If the vnic is connecting to a DistributedVirtualSwitch, this
-        property is ignored.
-        '''
-        return self.data['portgroup']
-
-    @property
-    def spec(self):
-        '''The specification of the virtual network adapter.
-        '''
-        return self.data['spec']
-
+    return obj
+    

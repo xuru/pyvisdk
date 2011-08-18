@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.task_scheduler import TaskScheduler
 import logging
 
 ########################################
@@ -8,22 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AfterStartupTaskScheduler(TaskScheduler):
+def AfterStartupTaskScheduler(vim, *args, **kwargs):
     '''The AfterStartupTaskScheduler data object establishes the time that a scheduled
-        task will run after the vCenter server restarts.
-    '''
+    task will run after the vCenter server restarts.'''
     
-    def __init__(self, minute):
-        # MUST define these
-        super(AfterStartupTaskScheduler, self).__init__()
+    obj = vim.client.factory.create('ns0:AfterStartupTaskScheduler')
     
-        self.data['minute'] = minute
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'activeTime', 'expireTime', 'minute' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def minute(self):
-        '''The delay in minutes after vCenter server is restarted. The value must be greater
-        than or equal to 0.
-        '''
-        return self.data['minute']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class OptionType(DynamicData):
-    '''The base data object type for all options.
-    '''
+def OptionType(vim, *args, **kwargs):
+    '''The base data object type for all options.'''
     
-    def __init__(self, valueIsReadonly):
-        # MUST define these
-        super(OptionType, self).__init__()
+    obj = vim.client.factory.create('ns0:OptionType')
     
-        self.data['valueIsReadonly'] = valueIsReadonly
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'valueIsReadonly' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def valueIsReadonly(self):
-        '''The flag to indicate whether or not a user can modify a value belonging to this
-        option type. If the flag is not set, the value can be modified.
-        '''
-        return self.data['valueIsReadonly']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,21 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmConfigFileQueryFlags(DynamicData):
-    '''
-    '''
+def VmConfigFileQueryFlags(vim, *args, **kwargs):
+    ''''''
     
-    def __init__(self, configVersion):
-        # MUST define these
-        super(VmConfigFileQueryFlags, self).__init__()
+    obj = vim.client.factory.create('ns0:VmConfigFileQueryFlags')
     
-        self.data['configVersion'] = configVersion
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'configVersion' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def configVersion(self):
-        '''The flag to indicate whether or not the configuration file version number is
-        returned.
-        '''
-        return self.data['configVersion']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

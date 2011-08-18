@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.element_description import ElementDescription
 import logging
 
 ########################################
@@ -8,25 +8,27 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class OptionDef(ElementDescription):
+def OptionDef(vim, *args, **kwargs):
     '''Describes a user-defined option. The name of each option is identified by the
-        "key" property, inherited from the ElementDescription data object type.
-        You can indicate the property's position in a hierarchy by using a dot-
-        separated notation. The string preceding the first dot is the top of the
-        hierarchy. The hierarchy descends to a new sublevel with each dot. For
-        example, "Ethernet.NetworkConnection.Bridged".
-    '''
+    "key" property, inherited from the ElementDescription data object type. You can
+    indicate the property's position in a hierarchy by using a dot-separated
+    notation. The string preceding the first dot is the top of the hierarchy. The
+    hierarchy descends to a new sublevel with each dot. For example,
+    "Ethernet.NetworkConnection.Bridged".'''
     
-    def __init__(self, optionType):
-        # MUST define these
-        super(OptionDef, self).__init__()
+    obj = vim.client.factory.create('ns0:OptionDef')
     
-        self.data['optionType'] = optionType
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'label', 'summary', 'key', 'optionType' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def optionType(self):
-        '''The option type which defines allowed values.
-        '''
-        return self.data['optionType']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

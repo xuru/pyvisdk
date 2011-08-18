@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,27 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostVMotionInfo(DynamicData):
-    '''This data object type describes VMotion host configuration data objects.
-    '''
+def HostVMotionInfo(vim, *args, **kwargs):
+    '''This data object type describes VMotion host configuration data objects.'''
     
-    def __init__(self, ipConfig, netConfig):
-        # MUST define these
-        super(HostVMotionInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:HostVMotionInfo')
     
-        self.data['ipConfig'] = ipConfig
-        self.data['netConfig'] = netConfig
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'ipConfig', 'netConfig' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def ipConfig(self):
-        '''IP configuration of the VMotion VirtualNic.
-        '''
-        return self.data['ipConfig']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def netConfig(self):
-        '''VMotion network configuration.
-        '''
-        return self.data['netConfig']
-
+    return obj
+    

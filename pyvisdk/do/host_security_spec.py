@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,34 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostSecuritySpec(DynamicData):
-    '''DataObject used for configuring the Security settings
-    '''
+def HostSecuritySpec(vim, *args, **kwargs):
+    '''DataObject used for configuring the Security settings'''
     
-    def __init__(self, addPermission, adminPassword, removePermission):
-        # MUST define these
-        super(HostSecuritySpec, self).__init__()
+    obj = vim.client.factory.create('ns0:HostSecuritySpec')
     
-        self.data['addPermission'] = addPermission
-        self.data['adminPassword'] = adminPassword
-        self.data['removePermission'] = removePermission
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'addPermission', 'adminPassword', 'removePermission' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def addPermission(self):
-        '''Permissions to add
-        '''
-        return self.data['addPermission']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def adminPassword(self):
-        '''Administrator password to configure
-        '''
-        return self.data['adminPassword']
-
-    @property
-    def removePermission(self):
-        '''Permissions to remove
-        '''
-        return self.data['removePermission']
-
+    return obj
+    

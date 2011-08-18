@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.alarm_event import AlarmEvent
 import logging
 
 ########################################
@@ -8,41 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class AlarmStatusChangedEvent(AlarmEvent):
-    '''This event records a status change for an alarm.
-    '''
+def AlarmStatusChangedEvent(vim, *args, **kwargs):
+    '''This event records a status change for an alarm.'''
     
-    def __init__(self, entity, from, source, to):
-        # MUST define these
-        super(AlarmStatusChangedEvent, self).__init__()
+    obj = vim.client.factory.create('ns0:AlarmStatusChangedEvent')
     
-        self.data['entity'] = entity
-        self.data['from'] = from
-        self.data['source'] = source
-        self.data['to'] = to
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 6:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'chainId', 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds',
+        'dvs', 'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'alarm',
+        'entity', 'from_', 'source', 'to' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def entity(self):
-        '''The entity with which the alarm is registered.
-        '''
-        return self.data['entity']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def from_(self):
-        '''The original alarm status.
-        '''
-        return self.data['from']
-
-    @property
-    def source(self):
-        '''The entity for which the alarm status has been changed.
-        '''
-        return self.data['source']
-
-    @property
-    def to(self):
-        '''The new alarm status.
-        '''
-        return self.data['to']
-
+    return obj
+    

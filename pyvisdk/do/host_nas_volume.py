@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.host_file_system_volume import HostFileSystemVolume
 import logging
 
 ########################################
@@ -8,34 +8,22 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostNasVolume(HostFileSystemVolume):
-    '''This data object type describes the NAS volume. Applies to both NFS and CIFS.
-    '''
+def HostNasVolume(vim, *args, **kwargs):
+    '''This data object type describes the NAS volume. Applies to both NFS and CIFS.'''
     
-    def __init__(self, remoteHost, remotePath, userName):
-        # MUST define these
-        super(HostNasVolume, self).__init__()
+    obj = vim.client.factory.create('ns0:HostNasVolume')
     
-        self.data['remoteHost'] = remoteHost
-        self.data['remotePath'] = remotePath
-        self.data['userName'] = userName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'capacity', 'name', 'type', 'remoteHost', 'remotePath', 'userName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def remoteHost(self):
-        '''The host that runs the NFS/CIFS server.
-        '''
-        return self.data['remoteHost']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def remotePath(self):
-        '''The remote path of NFS/CIFS mount point.
-        '''
-        return self.data['remotePath']
-
-    @property
-    def userName(self):
-        '''In case of CIFS, the user name used while connecting to the server.
-        '''
-        return self.data['userName']
-
+    return obj
+    

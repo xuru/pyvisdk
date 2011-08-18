@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.import_spec import ImportSpec
 import logging
 
 ########################################
@@ -8,43 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualAppImportSpec(ImportSpec):
-    '''A VAppImportSpec is used by ResourcePool.importVApp when importing vApps (single
-        VM or multi-VM).It provides all information needed to import a
-        VirtualApp.See also ImportSpec.
-    '''
+def VirtualAppImportSpec(vim, *args, **kwargs):
+    '''A VAppImportSpec is used by ResourcePool.importVApp when importing vApps
+    (single VM or multi-VM).It provides all information needed to import a
+    VirtualApp.See also ImportSpec.'''
     
-    def __init__(self, child, name, resourcePoolSpec, vAppConfigSpec):
-        # MUST define these
-        super(VirtualAppImportSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualAppImportSpec')
     
-        self.data['child'] = child
-        self.data['name'] = name
-        self.data['resourcePoolSpec'] = resourcePoolSpec
-        self.data['vAppConfigSpec'] = vAppConfigSpec
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'entityConfig', 'child', 'name', 'resourcePoolSpec', 'vAppConfigSpec' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def child(self):
-        '''Contains a list of children (VirtualMachines and VirtualApps).
-        '''
-        return self.data['child']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def name(self):
-        '''The name of the vApp
-        '''
-        return self.data['name']
-
-    @property
-    def resourcePoolSpec(self):
-        '''Resource pool specification.
-        '''
-        return self.data['resourcePoolSpec']
-
-    @property
-    def vAppConfigSpec(self):
-        '''vApp configuration
-        '''
-        return self.data['vAppConfigSpec']
-
+    return obj
+    

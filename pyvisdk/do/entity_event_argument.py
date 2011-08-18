@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.event_argument import EventArgument
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class EntityEventArgument(EventArgument):
-    '''The event argument is a managed entity object.Subclasses of this type distinguish
-        the different managed entities referenced in event objects.
-    '''
+def EntityEventArgument(vim, *args, **kwargs):
+    '''The event argument is a managed entity object.Subclasses of this type
+    distinguish the different managed entities referenced in event objects.'''
     
-    def __init__(self, name):
-        # MUST define these
-        super(EntityEventArgument, self).__init__()
+    obj = vim.client.factory.create('ns0:EntityEventArgument')
     
-        self.data['name'] = name
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'name' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def name(self):
-        '''Name of the entity, including its full path from the root of the inventory.
-        '''
-        return self.data['name']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

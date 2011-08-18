@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,40 +8,25 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class HostPortGroupPort(DynamicData):
+def HostPortGroupPort(vim, *args, **kwargs):
     '''A Port data object type is a runtime representation of network connectivity
-        between a network service or virtual machine and a virtual switch. This is
-        different from a port group in that the port group represents the
-        configuration aspects of the network connection. The Port object provides
-        runtime statistics.
-    '''
+    between a network service or virtual machine and a virtual switch. This is
+    different from a port group in that the port group represents the configuration
+    aspects of the network connection. The Port object provides runtime statistics.'''
     
-    def __init__(self, key, mac, type):
-        # MUST define these
-        super(HostPortGroupPort, self).__init__()
+    obj = vim.client.factory.create('ns0:HostPortGroupPort')
     
-        self.data['key'] = key
-        self.data['mac'] = mac
-        self.data['type'] = type
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 0:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'key', 'mac', 'type' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def key(self):
-        '''The linkable identifier.
-        '''
-        return self.data['key']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
-    @property
-    def mac(self):
-        '''The Media Access Control (MAC) address of network service of the virtual machine
-        connected on this port.
-        '''
-        return self.data['mac']
-
-    @property
-    def type(self):
-        '''The type of component connected on this port. Must be one of the values of
-        PortGroupConnecteeType.
-        '''
-        return self.data['type']
-
+    return obj
+    

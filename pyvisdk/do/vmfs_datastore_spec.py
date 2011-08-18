@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.dynamic_data import DynamicData
 import logging
 
 ########################################
@@ -8,22 +8,24 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VmfsDatastoreSpec(DynamicData):
+def VmfsDatastoreSpec(vim, *args, **kwargs):
     '''Base class for VMFS datastore addition specification. Used as a generic way to
-        point to one of the creation specifications that can be used to apply a
-        specification to effect the creation or extension of a VMFS datastore.
-    '''
+    point to one of the creation specifications that can be used to apply a
+    specification to effect the creation or extension of a VMFS datastore.'''
     
-    def __init__(self, diskUuid):
-        # MUST define these
-        super(VmfsDatastoreSpec, self).__init__()
+    obj = vim.client.factory.create('ns0:VmfsDatastoreSpec')
     
-        self.data['diskUuid'] = diskUuid
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'diskUuid' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def diskUuid(self):
-        '''The UUID of the SCSI disk on which the VMFS datastore is located.
-        '''
-        return self.data['diskUuid']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    

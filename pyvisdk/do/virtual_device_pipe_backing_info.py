@@ -1,5 +1,5 @@
+# -*- coding: ascii -*-
 
-from pyvisdk.do.virtual_device_backing_info import VirtualDeviceBackingInfo
 import logging
 
 ########################################
@@ -8,21 +8,23 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class VirtualDevicePipeBackingInfo(VirtualDeviceBackingInfo):
-    '''The data object type defines information for using a named pipe as backing for a
-        device in a virtual machine.
-    '''
+def VirtualDevicePipeBackingInfo(vim, *args, **kwargs):
+    '''The data object type defines information for using a named pipe as backing for
+    a device in a virtual machine.'''
     
-    def __init__(self, pipeName):
-        # MUST define these
-        super(VirtualDevicePipeBackingInfo, self).__init__()
+    obj = vim.client.factory.create('ns0:VirtualDevicePipeBackingInfo')
     
-        self.data['pipeName'] = pipeName
+    # do some validation checking...
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        
+    args_list = [ 'pipeName' ]
     
+    for name, arg in zip(args_list, args):
+        setattr(obj, name, arg)
     
-    @property
-    def pipeName(self):
-        '''Pipe name for the host pipe associated with this backing.
-        '''
-        return self.data['pipeName']
+    for name, value in kwargs.items():
+        setattr(obj, name, value)
 
+    return obj
+    
