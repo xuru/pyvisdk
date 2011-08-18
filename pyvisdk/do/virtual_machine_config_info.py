@@ -1,6 +1,7 @@
 # -*- coding: ascii -*-
 
 import logging
+from pyvisdk.exceptions import InvalidArgumentError
 
 ########################################
 # Automatically generated, do not edit.
@@ -17,25 +18,29 @@ def VirtualMachineConfigInfo(vim, *args, **kwargs):
     
     # do some validation checking...
     if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
         
-    args_list = [ 'alternateGuestName', 'annotation', 'bootOptions', 'changeTrackingEnabled',
-        'changeVersion', 'consolePreferences', 'cpuAffinity', 'cpuAllocation',
-        'cpuFeatureMask', 'cpuHotAddEnabled', 'cpuHotRemoveEnabled', 'datastoreUrl',
-        'defaultPowerOps', 'extraConfig', 'files', 'flags', 'ftInfo', 'guestFullName',
-        'guestId', 'hardware', 'hotPlugMemoryIncrementSize', 'hotPlugMemoryLimit',
-        'instanceUuid', 'locationId', 'memoryAffinity', 'memoryAllocation',
-        'memoryHotAddEnabled', 'modified', 'name', 'networkShaper',
-        'npivDesiredNodeWwns', 'npivDesiredPortWwns', 'npivNodeWorldWideName',
-        'npivOnNonRdmDisks', 'npivPortWorldWideName', 'npivTemporaryDisabled',
-        'npivWorldWideNameType', 'swapPlacement', 'template', 'tools', 'uuid',
-        'vAppConfig', 'vAssertsEnabled', 'version' ]
+    signature = [ 'alternateGuestName' ]
+    inherited = [ 'annotation', 'bootOptions', 'changeTrackingEnabled', 'changeVersion',
+        'consolePreferences', 'cpuAffinity', 'cpuAllocation', 'cpuFeatureMask',
+        'cpuHotAddEnabled', 'cpuHotRemoveEnabled', 'datastoreUrl', 'defaultPowerOps',
+        'extraConfig', 'files', 'flags', 'ftInfo', 'guestFullName', 'guestId',
+        'hardware', 'hotPlugMemoryIncrementSize', 'hotPlugMemoryLimit', 'instanceUuid',
+        'locationId', 'memoryAffinity', 'memoryAllocation', 'memoryHotAddEnabled',
+        'modified', 'name', 'networkShaper', 'npivDesiredNodeWwns',
+        'npivDesiredPortWwns', 'npivNodeWorldWideName', 'npivOnNonRdmDisks',
+        'npivPortWorldWideName', 'npivTemporaryDisabled', 'npivWorldWideNameType',
+        'swapPlacement', 'template', 'tools', 'uuid', 'vAppConfig', 'vAssertsEnabled',
+        'version' ]
     
-    for name, arg in zip(args_list, args):
+    for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        setattr(obj, name, value)
+        if name in signature + inherited:
+            setattr(obj, name, value)
+        else:
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
 
     return obj
     

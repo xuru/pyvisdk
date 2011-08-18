@@ -1,6 +1,7 @@
 # -*- coding: ascii -*-
 
 import logging
+from pyvisdk.exceptions import InvalidArgumentError
 
 ########################################
 # Automatically generated, do not edit.
@@ -15,16 +16,20 @@ def UserSession(vim, *args, **kwargs):
     
     # do some validation checking...
     if (len(args) + len(kwargs)) < 7:
-        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        raise IndexError('Expected at least 8 arguments got: %d' % len(args))
         
-    args_list = [ 'fullName', 'key', 'lastActiveTime', 'locale', 'loginTime', 'messageLocale',
+    signature = [ 'fullName', 'key', 'lastActiveTime', 'locale', 'loginTime', 'messageLocale',
         'userName' ]
+    inherited = [  ]
     
-    for name, arg in zip(args_list, args):
+    for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        setattr(obj, name, value)
+        if name in signature + inherited:
+            setattr(obj, name, value)
+        else:
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
 
     return obj
     

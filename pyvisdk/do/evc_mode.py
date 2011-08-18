@@ -1,6 +1,7 @@
 # -*- coding: ascii -*-
 
 import logging
+from pyvisdk.exceptions import InvalidArgumentError
 
 ########################################
 # Automatically generated, do not edit.
@@ -21,35 +22,34 @@ def EVCMode(vim, *args, **kwargs):
     it for compatible operation. Hosts that are not compatible are not allowed to
     join the cluster.The inherited key property is a string value that uniquely
     identifies an EVC mode. The vCenter Server assigns the key value; the vSphere
-    API uses the key to identify modes in summary and information objects:*
-    ClusterComputeResourceSummary.currentEVCModeKey *
-    HostListSummary.currentEVCModeKey * HostListSummary.maxEVCModeKey *
-    VirtualMachineRuntimeInfo.minRequiredEVCModeKeyThe inherited label and summary
-    properties are human-readable strings.You can use the track and vendorTier
-    properties to determine feature-superset relationships between modes without
-    examining the individual feature bits in guaranteedCPUFeatures. The CPU feature
-    baseline of mode A is a superset of mode B's baseline if and only if:*
-    modeA.track is the same as or a superset of modeB.track * modeA.vendorTier is
-    equal to or greater than modeB.vendorTierUse the track and vendorTier
-    properties only for the purpose of feature-superset calculations as described
-    above. Do not use them to infer the presence or absence of specific features.
-    The property values for a given mode may change across releases as the set of
-    available EVC modes changes, to better represent mode relationships.'''
+    API uses the key to identify modes in summary and information objects:The
+    inherited label and summary properties are human-readable strings.You can use
+    the track and vendorTier properties to determine feature-superset relationships
+    between modes without examining the individual feature bits in
+    guaranteedCPUFeatures. The CPU feature baseline of mode A is a superset of mode
+    B's baseline if and only if:Use the track and vendorTier properties only for
+    the purpose of feature-superset calculations as described above. Do not use
+    them to infer the presence or absence of specific features. The property values
+    for a given mode may change across releases as the set of available EVC modes
+    changes, to better represent mode relationships.'''
     
     obj = vim.client.factory.create('ns0:EVCMode')
     
     # do some validation checking...
     if (len(args) + len(kwargs)) < 3:
-        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    args_list = [ 'label', 'summary', 'key', 'guaranteedCPUFeatures', 'track', 'vendor',
-        'vendorTier' ]
+    signature = [ 'label', 'summary', 'key' ]
+    inherited = [ 'guaranteedCPUFeatures', 'track', 'vendor', 'vendorTier' ]
     
-    for name, arg in zip(args_list, args):
+    for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        setattr(obj, name, value)
+        if name in signature + inherited:
+            setattr(obj, name, value)
+        else:
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
 
     return obj
     

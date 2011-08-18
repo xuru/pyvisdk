@@ -1,6 +1,7 @@
 # -*- coding: ascii -*-
 
 import logging
+from pyvisdk.exceptions import InvalidArgumentError
 
 ########################################
 # Automatically generated, do not edit.
@@ -18,34 +19,28 @@ def ClusterDasAamHostInfo(vim, *args, **kwargs):
     with the vCenter Server.When the host downloads the HA agent, the host
     configures the agent to communicate with other agents in the cluster. A host
     that joins the cluster communicates with an existing primary host to complete
-    its configuration (except when you are adding the first host to the cluster).*
-    The first five hosts added to the cluster are designated as primary hosts. All
-    subsequent hosts are designated as secondary hosts. * If a primary host is
-    removed from the cluster, the vCenter Server promotes another host to primary
-    status. * There must be at least one functional primary host for VMware HA to
-    operate correctly. If there is not an available primary host (no response),
-    host configuration for HA will fail. If there is a total cluster failure, HA
-    will begin restarting virtual machines as soon as one host recovers and its HA
-    agent is up and running.One of the primary hosts assumes the role of the active
-    primary host. The active primary host responsibilities include the following
-    activities:* Decides where to restart virtual machines. * Tracks failed restart
-    attempts. * Determines when it is appropriate to continue attempts to restart a
-    virtual machine.If the active primary host fails, another primary host replaces
-    it.'''
+    its configuration (except when you are adding the first host to the
+    cluster).One of the primary hosts assumes the role of the active primary host.
+    The active primary host responsibilities include the following activities:If
+    the active primary host fails, another primary host replaces it.'''
     
     obj = vim.client.factory.create('ns0:ClusterDasAamHostInfo')
     
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 0 arguments got: %d' % len(args))
+        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    args_list = [ 'hostDasState', 'primaryHosts' ]
+    signature = [  ]
+    inherited = [ 'hostDasState', 'primaryHosts' ]
     
-    for name, arg in zip(args_list, args):
+    for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        setattr(obj, name, value)
+        if name in signature + inherited:
+            setattr(obj, name, value)
+        else:
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
 
     return obj
     
