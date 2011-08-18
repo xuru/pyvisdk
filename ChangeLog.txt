@@ -1,3 +1,44 @@
+Version 0.7 (Aug 18, 2011)
+--------------------------
+Core Updates
+============
+* Added locale option for the login method.
+* Changed `getHosts` to `:py:meth:getHostSystems`
+* Removed `getVirtualMachinesIter` as it queries the full list anyway.
+* Core now uses it's own managed objects.
+* `:py:meth:getObjectProperties` now takes a parent as an argument instead of a collector.
+* Now uses data objects for the specs
+* Added the method `:py:meth:pyvisdk.new` to `:py:mod:pyvisdk` to shortcut the creation of Vim objects.  Used mostly for testing.
+
+Data Objects and Managed Objects
+================================
+* When methods are called off Managed Objects, arguments that are managed objects make sure the reference is used.
+* The return values of methods now return pyvisdk managed objects instead of suds objects (except Retrieve Properties)
+* If the name is passed in, but the ref isn't passed in to the managed object, it will search for the managed object.
+* All managed objects have name as a property now.
+* When updating a property, if the data returned is a list of one element, it will return just the one element instead.
+* Added getDecendants method on all managed objects.
+* Updated data objects to make sure it uses the signature arguments before inherited arguments.
+* Changed from generating the data objects as classes, and instead, generate a factory method that creates the data object for you.
+* Updated documentation.
+
+App
+===
+* Updated the options to use all the options available in the perl SDK
+* Added more commandline switchs to match the SDK
+
+Other Updates
+=============
+* Added automatically generated code for all data objects using Scrapy.
+* Added all enumerations to pyvisdk.enums.
+* Added samples directory to implement some of the same samples as the SDK.
+* Added dataflake.cache and enum to the list of install_requires.
+* Added ipython buildout recipe.
+* Added buildout configuration to build the library.
+* Added third party package enum 0.4.4 (http://pypi.python.org/pypi/enum/0.4.4).
+* Changed around the docs directory to seperate the source and build areas.
+* Updated test cases to reflect the new generated code.
+
 
 Version 0.6 (Aug 1, 2011)
 -------------------------

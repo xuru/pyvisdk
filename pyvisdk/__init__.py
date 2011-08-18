@@ -1,4 +1,4 @@
-__version__ = '0.5'
+__version__ = '0.7'
 Version = __version__ # for backware compatibility
 
 from vim import Vim
