@@ -141,7 +141,7 @@ class EnumValue(object):
         return self._index
 
     def __repr__(self):
-        return "EnumValue(%(_enumtype)r, %(_index)r, %(_key)r)" % vars(self)
+        return str(self.key)
 
     def __hash__(self):
         return hash(self._index)
