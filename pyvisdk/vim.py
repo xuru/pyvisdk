@@ -20,17 +20,23 @@ class Vim(pyvisdk.core.VimBase):
         self.username = None
         self.password = None
         
-    def login(self, username, password):
+    def login(self, username, password, locale=None):
         """
         Log into the vmware server.
         """
         self.username = username
         self.password = password
         
+        if not locale:
+            if hasattr(self.session_manager, 'defaultLocale'):
+                locale = self.session_manager.defaultLocale
+            else:
+                locale = 'en_US'
+        
         if self.verbose > 5:
             self.displayAbout()
 
-        self.client.service.Login(self.service_content.sessionManager, self.username, self.password)
+        self.session_manager.Login(self.username, self.password, locale)
         if self.verbose > 2:
             log.info("Successfully logged into %s" % self.client.url)
         self.loggedin = True
@@ -39,7 +45,7 @@ class Vim(pyvisdk.core.VimBase):
         """
         Log out of the vmware server.
         """
-        self.client.service.Logout(self.service_content.sessionManager)
+        self.session_manager.Logout(self.username, self.password)
         self.loggedin = False
 
     def relogin(self):
@@ -64,6 +70,9 @@ class Vim(pyvisdk.core.VimBase):
         print "  OS: %s" % self.service_content.about.osType
         print "  License: %s %s" % (
                 self.service_content.about.licenseProductName, self.service_content.about.licenseProductVersion)
+        print "  Current Sessions: "
+        for session in self.session_manager.sessionList:
+            print "%-30s %-20s Last Active: %-20s Logged In: %-20s" % ("%s(%s)" % (session.fullName, session.userName), session.key, session.lastActiveType, session.loginTime)
         print "=" * 40
         
     def getApiType(self):
@@ -78,14 +87,13 @@ class Vim(pyvisdk.core.VimBase):
     #------------------------------------------------------------
     # Hosts
     #------------------------------------------------------------
-    def getHosts(self):
+    def getHostSystems(self):
         """
         Get all the hosts on the server
         
         :rtype: :py:class:`HostSystem`
         """
-        mo = self.getDecendentsByName(_type=ManagedObjectTypes.HostSystem, properties=["name"]) #@UndefinedVariable
-        return [HostSystem(self, name=mo[0].propSet[0].val, ref=x.obj) for x in mo]
+        return self.getDecendentsByName(_type=ManagedObjectTypes.HostSystem, properties=["name"]) #@UndefinedVariable
     
     def getHostSystem(self, _name=None):
         """
@@ -93,8 +101,7 @@ class Vim(pyvisdk.core.VimBase):
         
         :rtype: :py:class:`HostSystem`
         """
-        mo = self.getDecendentsByName(_type=ManagedObjectTypes.HostSystem, properties=["name"], name=_name) #@UndefinedVariable
-        return HostSystem(self, name=mo.propSet[0].val, ref=mo.obj)
+        return self.getDecendentsByName(_type=ManagedObjectTypes.HostSystem, properties=["name"], name=_name) #@UndefinedVariable
     
     #------------------------------------------------------------
     # Datacenters
@@ -105,8 +112,7 @@ class Vim(pyvisdk.core.VimBase):
         
         :rtype: :py:class:`Datacenter`
         """
-        mo = self.getDecendentsByName(_type=ManagedObjectTypes.Datacenter, properties=["name"]) #@UndefinedVariable
-        return [Datacenter(self, name=mo[0].propSet[0].val, ref=x.obj) for x in mo]
+        return self.getDecendentsByName(_type=ManagedObjectTypes.Datacenter, properties=["name"]) #@UndefinedVariable
     
     def getDatacenter(self, _name):
         """
@@ -114,8 +120,7 @@ class Vim(pyvisdk.core.VimBase):
         
         :rtype: :py:class:`Datacenter`
         """
-        mo = self.getDecendentsByName(_type=ManagedObjectTypes.Datacenter, properties=["name"], name=_name) #@UndefinedVariable
-        return Datacenter(self, name=mo.propSet[0].val, ref=mo.obj)
+        return self.getDecendentsByName(_type=ManagedObjectTypes.Datacenter, properties=["name"], name=_name) #@UndefinedVariable
 
     #------------------------------------------------------------
     # Virtual Machines
@@ -126,8 +131,7 @@ class Vim(pyvisdk.core.VimBase):
         
         :rtype: :py:class:`VirtualMachine`
         """
-        mo = self.getDecendentsByName(_type=ManagedObjectTypes.VirtualMachine, properties=["name", "runtime.powerState"], name=_name) #@UndefinedVariable
-        return VirtualMachine(self, name=mo.propSet[0].val, ref=mo.obj)
+        return self.getDecendentsByName(_type=ManagedObjectTypes.VirtualMachine, properties=["name", "runtime.powerState"], name=_name) #@UndefinedVariable
         
     def getVirtualMachines(self):
         """
@@ -135,19 +139,8 @@ class Vim(pyvisdk.core.VimBase):
         
         :rtype: :py:class:`VirtualMachine`
         """
-        mo = self.getDecendentsByName(_type=ManagedObjectTypes.VirtualMachine, properties=["name", "runtime.powerState"]) #@UndefinedVariable
-        return [VirtualMachine(self, name=x.propSet[0].val, ref=x.obj) for x in mo]
+        return self.getDecendentsByName(_type=ManagedObjectTypes.VirtualMachine, properties=["name", "runtime.powerState"]) #@UndefinedVariable
    
-    def getVirtualMachinesIter(self):
-        """
-        Get all the virtual machines on the server
-        
-        :rtype: :py:class:`VirtualMachine`
-        """
-        refs = self.getDecendentsByName(_type=ManagedObjectTypes.VirtualMachine, properties=["name", "runtime.powerState"]) #@UndefinedVariable
-        for _ref in refs:
-            yield VirtualMachine(self, name=_ref.propSet[0].val, ref=_ref.obj)
-    
     #------------------------------------------------------------
     # Hierarchy
     #------------------------------------------------------------
