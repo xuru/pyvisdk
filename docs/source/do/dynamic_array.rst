@@ -1,9 +1,8 @@
-
+# -*- coding: ascii -*-
 
 ========================================
 DynamicArray
 ========================================
-
 
 
 .. autoclass:: pyvisdk.do.dynamic_array.DynamicArray
