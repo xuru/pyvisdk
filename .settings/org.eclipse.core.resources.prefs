@@ -1,4 +1,4 @@
-#Thu Aug 18 14:12:12 CDT 2011
+#Thu Aug 18 16:45:38 CDT 2011
 eclipse.preferences.version=1
 encoding//pyvisdk/do/about_info.py=ascii
 encoding//pyvisdk/do/alarm_action.py=ascii
@@ -41,4 +41,6 @@ encoding//pyvisdk/do/virtual_pc_net32.py=ascii
 encoding//pyvisdk/do/virtual_scsi_passthrough_device_backing_info.py=ascii
 encoding//pyvisdk/do/virtual_vmxnet3.py=ascii
 encoding//pyvisdk/do/vmware_distributed_virtual_switch_vlan_id_spec.py=ascii
+encoding//pyvisdk/mo/alarm.py=ascii
+encoding//pyvisdk/mo/performance_manager.py=ascii
 encoding//pyvisdk/thirdparty/enum.py=utf-8
