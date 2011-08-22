@@ -34,17 +34,5 @@ help:
 docs: 
 	rm -rf $(API_DOC_DIR)
 	./bin/docs
-	mkdir /tmp/pyvisdk_docs
-	cd /tmp/pyvisdk_docs
-	git clone git@github.com:xuru/pyvisdk.git
-	cd pyvisdk
-	git symbolic-ref HEAD refs/heads/gh-pages
-	rm .git/index
-	git clean -fdx
-	cp -rf ${PROJ_DIR}/docs/html/* .
-	git commit -a -m "Automated documentation build"
-	git push origin gh-pages
-	cd ${PROJ_DIR}
-	rm -rf /tmp/pyvisdk_docs
 
 .PHONY: help all build test clean docs
