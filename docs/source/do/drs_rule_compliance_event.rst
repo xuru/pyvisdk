@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DrsRuleComplianceEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ DrsRuleComplianceEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.drs_rule_compliance_event.DrsRuleComplianceEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.drs_rule_compliance_event.DrsRuleComplianceEvent
+    

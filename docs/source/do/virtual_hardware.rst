@@ -1,22 +1,35 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualHardware
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.virtual_machine_config_info.VirtualMachineConfigInfo`
+    :py:class:`~pyvisdk.do.virtual_machine_config_info.VirtualMachineConfigInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.virtual_device.VirtualDevice`
+    :py:class:`~pyvisdk.do.virtual_device.VirtualDevice`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.virtual_hardware.VirtualHardware
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_hardware.VirtualHardware
+    
+    .. py:attribute:: device
+    
+        The set of virtual devices belonging to the virtual machine. This list is unordered.
+        
+    
+    .. py:attribute:: memoryMB
+    
+        Memory size, in MB.
+        
+    
+    .. py:attribute:: numCPU
+    
+        Number of virtual CPUs present in this virtual machine.
+        
+    

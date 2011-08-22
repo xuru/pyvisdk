@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostDiskPartitionInfo
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_disk_partition_layout.HostDiskPartitionLayout`,
-    :py:class:`~pyvisdk.mo.host_disk_partition_spec.HostDiskPartitionSpec`
+    :py:class:`~pyvisdk.do.host_disk_partition_layout.HostDiskPartitionLayout`,
+    :py:class:`~pyvisdk.do.host_disk_partition_spec.HostDiskPartitionSpec`
     
 .. describe:: Extends
     
@@ -16,9 +15,24 @@ HostDiskPartitionInfo
     
 .. describe:: Returned by
     
-    ComputeDiskPartitionInfo, ComputeDiskPartitionInfoForResize,
-    RetrieveDiskPartitionInfo
+    :py:meth:`~pyvisdk.do.compute_disk_partition_info.ComputeDiskPartitionInfo`,
+    :py:meth:`~pyvisdk.do.compute_disk_partition_info_for_resize.ComputeDiskPartitionInfoForResize`,
+    :py:meth:`~pyvisdk.do.retrieve_disk_partition_info.RetrieveDiskPartitionInfo`
     
-.. autoclass:: pyvisdk.do.host_disk_partition_info.HostDiskPartitionInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_disk_partition_info.HostDiskPartitionInfo
+    
+    .. py:attribute:: deviceName
+    
+        The device name of the disk to which this partition information corresponds.
+        
+    
+    .. py:attribute:: layout
+    
+        A convenient format for describing disk layout. This layout specification can be converted to a Specification object.
+        
+    
+    .. py:attribute:: spec
+    
+        The detailed disk partition specification. Use this specification for manipulating the file system.
+        
+    

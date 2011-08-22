@@ -1,18 +1,26 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 GuestScreenInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.guest_info.GuestInfo`
+    :py:class:`~pyvisdk.do.guest_info.GuestInfo`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.guest_screen_info.GuestScreenInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.guest_screen_info.GuestScreenInfo
+    
+    .. py:attribute:: height
+    
+        Height of the screen in pixels.
+        
+    
+    .. py:attribute:: width
+    
+        Width of the screen in pixels.
+        
+    

@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterDpmHostConfigSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.cluster_config_spec_ex.ClusterConfigSpecEx`
+    :py:class:`~pyvisdk.do.cluster_config_spec_ex.ClusterConfigSpecEx`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.cluster_dpm_host_config_info.ClusterDpmHostConfigInfo`
+    :py:class:`~pyvisdk.do.cluster_dpm_host_config_info.ClusterDpmHostConfigInfo`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ ClusterDpmHostConfigSpec
     
     :py:class:`~pyvisdk.mo.array_update_spec.ArrayUpdateSpec`
     
-.. autoclass:: pyvisdk.do.cluster_dpm_host_config_spec.ClusterDpmHostConfigSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_dpm_host_config_spec.ClusterDpmHostConfigSpec
+    
+    .. py:attribute:: info
+    
+        
+        
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsHostVNicProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.network_profile.NetworkProfile`
+    :py:class:`~pyvisdk.do.network_profile.NetworkProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,5 @@ DvsHostVNicProfile
     
     :py:class:`~pyvisdk.mo.dvs_v_nic_profile.DvsVNicProfile`
     
-.. autoclass:: pyvisdk.do.dvs_host_v_nic_profile.DvsHostVNicProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_host_v_nic_profile.DvsHostVNicProfile
+    

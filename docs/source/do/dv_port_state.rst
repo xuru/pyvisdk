@@ -1,19 +1,18 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DVPortState
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_port.DistributedVirtualPort`
+    :py:class:`~pyvisdk.do.distributed_virtual_port.DistributedVirtualPort`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_keyed_opaque_blob.DistributedVirtualSwitchKeyedOpaqueBlob`,
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_port_statistics.DistributedVirtualSwitchPortStatistics`,
-    :py:class:`~pyvisdk.mo.dv_port_status.DVPortStatus`
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_keyed_opaque_blob.DistributedVirtualSwitchKeyedOpaqueBlob`,
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_port_statistics.DistributedVirtualSwitchPortStatistics`,
+    :py:class:`~pyvisdk.do.dv_port_status.DVPortStatus`
     
 .. describe:: Since
     
@@ -23,6 +22,20 @@ DVPortState
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.dv_port_state.DVPortState
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dv_port_state.DVPortState
+    
+    .. py:attribute:: runtimeInfo
+    
+        The run time information of the port. This property is set only when the port is running.
+        
+    
+    .. py:attribute:: stats
+    
+        Statistics of the port.
+        
+    
+    .. py:attribute:: vendorSpecificState
+    
+        An opaque binary blob that stores vendor specific runtime state data.
+        
+    

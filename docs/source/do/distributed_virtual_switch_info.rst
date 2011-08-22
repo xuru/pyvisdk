@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DistributedVirtualSwitchInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.config_target.ConfigTarget`,
-    :py:class:`~pyvisdk.mo.dvs_manager_dvs_config_target.DVSManagerDvsConfigTarget`
+    :py:class:`~pyvisdk.do.config_target.ConfigTarget`,
+    :py:class:`~pyvisdk.do.dvs_manager_dvs_config_target.DVSManagerDvsConfigTarget`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch`
+    :py:class:`~pyvisdk.do.distributed_virtual_switch.DistributedVirtualSwitch`
     
 .. describe:: Since
     
@@ -22,6 +21,20 @@ DistributedVirtualSwitchInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.distributed_virtual_switch_info.DistributedVirtualSwitchInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.distributed_virtual_switch_info.DistributedVirtualSwitchInfo
+    
+    .. py:attribute:: distributedVirtualSwitch
+    
+        The switch.
+        
+    
+    .. py:attribute:: switchName
+    
+        The name of the switch.
+        
+    
+    .. py:attribute:: switchUuid
+    
+        The UUID of the switch.
+        
+    

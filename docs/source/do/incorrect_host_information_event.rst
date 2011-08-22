@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 IncorrectHostInformationEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ IncorrectHostInformationEvent
     
     :py:class:`~pyvisdk.mo.license_event.LicenseEvent`
     
-.. autoclass:: pyvisdk.do.incorrect_host_information_event.IncorrectHostInformationEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.incorrect_host_information_event.IncorrectHostInformationEvent
+    

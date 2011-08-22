@@ -1,18 +1,26 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 AccountCreatedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_account_spec.HostAccountSpec`
+    :py:class:`~pyvisdk.do.host_account_spec.HostAccountSpec`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.account_created_event.AccountCreatedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.account_created_event.AccountCreatedEvent
+    
+    .. py:attribute:: group
+    
+        
+        
+    
+    .. py:attribute:: spec
+    
+        
+        
+    

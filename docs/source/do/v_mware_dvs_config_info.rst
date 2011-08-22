@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VMwareDVSConfigInfo
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.link_discovery_protocol_config.LinkDiscoveryProtocolConfig`,
-    :py:class:`~pyvisdk.mo.v_mware_dvs_pvlan_map_entry.VMwareDVSPvlanMapEntry`
+    :py:class:`~pyvisdk.do.link_discovery_protocol_config.LinkDiscoveryProtocolConfig`,
+    :py:class:`~pyvisdk.do.v_mware_dvs_pvlan_map_entry.VMwareDVSPvlanMapEntry`
     
 .. describe:: Since
     
@@ -18,6 +17,20 @@ VMwareDVSConfigInfo
     
     :py:class:`~pyvisdk.mo.dvs_config_info.DVSConfigInfo`
     
-.. autoclass:: pyvisdk.do.v_mware_dvs_config_info.VMwareDVSConfigInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.v_mware_dvs_config_info.VMwareDVSConfigInfo
+    
+    .. py:attribute:: linkDiscoveryProtocolConfig
+    
+        See LinkDiscoveryProtocolConfig.
+        
+    
+    .. py:attribute:: maxMtu
+    
+        The maximum MTU in the switch.
+        
+    
+    .. py:attribute:: pvlanConfig
+    
+        The PVLAN configured in the switch.
+        
+    

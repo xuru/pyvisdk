@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostMultipathInfoLogicalUnitStorageArrayTypePolicy
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_multipath_info_logical_unit.HostMultipathInfoLogicalUnit`
+    :py:class:`~pyvisdk.do.host_multipath_info_logical_unit.HostMultipathInfoLogicalUnit`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ HostMultipathInfoLogicalUnitStorageArrayTypePolicy
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_multipath_info_logical_unit_storage_array_type_policy.HostMultipathInfoLogicalUnitStorageArrayTypePolicy
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_multipath_info_logical_unit_storage_array_type_policy.HostMultipathInfoLogicalUnitStorageArrayTypePolicy
+    
+    .. py:attribute:: policy
+    
+        The string indicates the storage array type policy.
+        
+    

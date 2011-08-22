@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfileCreatedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ ProfileCreatedEvent
     
     :py:class:`~pyvisdk.mo.profile_event.ProfileEvent`
     
-.. autoclass:: pyvisdk.do.profile_created_event.ProfileCreatedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_created_event.ProfileCreatedEvent
+    

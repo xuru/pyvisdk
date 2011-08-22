@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostIpRouteOp
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_ip_route_table_config.HostIpRouteTableConfig`
+    :py:class:`~pyvisdk.do.host_ip_route_table_config.HostIpRouteTableConfig`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_ip_route_entry.HostIpRouteEntry`
+    :py:class:`~pyvisdk.do.host_ip_route_entry.HostIpRouteEntry`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ HostIpRouteOp
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_ip_route_op.HostIpRouteOp
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_ip_route_op.HostIpRouteOp
+    
+    .. py:attribute:: changeOperation
+    
+        This property indicates the change operation to apply on this configuration specification.
+        
+    
+    .. py:attribute:: route
+    
+        The routing entry itself
+        
+    

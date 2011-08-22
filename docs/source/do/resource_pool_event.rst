@@ -1,23 +1,29 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ResourcePoolEvent
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    ResourcePoolCreatedEvent, ResourcePoolDestroyedEvent, ResourcePoolMovedEvent,
-    ResourcePoolReconfiguredEvent, ResourceViolatedEvent
+    :py:class:`~pyvisdk.do.resource_pool_created_event.ResourcePoolCreatedEvent`,
+    :py:class:`~pyvisdk.do.resource_pool_destroyed_event.ResourcePoolDestroyedEvent`,
+    :py:class:`~pyvisdk.do.resource_pool_moved_event.ResourcePoolMovedEvent`,
+    :py:class:`~pyvisdk.do.resource_pool_reconfigured_event.ResourcePoolReconfiguredEvent`,
+    :py:class:`~pyvisdk.do.resource_violated_event.ResourceViolatedEvent`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.resource_pool_event_argument.ResourcePoolEventArgument`
+    :py:class:`~pyvisdk.do.resource_pool_event_argument.ResourcePoolEventArgument`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.event.Event`
     
-.. autoclass:: pyvisdk.do.resource_pool_event.ResourcePoolEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.resource_pool_event.ResourcePoolEvent
+    
+    .. py:attribute:: resourcePool
+    
+        
+        
+    

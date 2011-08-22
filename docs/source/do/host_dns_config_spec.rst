@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostDnsConfigSpec
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_virtual_nic_connection.HostVirtualNicConnection`
+    :py:class:`~pyvisdk.do.host_virtual_nic_connection.HostVirtualNicConnection`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ HostDnsConfigSpec
     
     :py:class:`~pyvisdk.mo.host_dns_config.HostDnsConfig`
     
-.. autoclass:: pyvisdk.do.host_dns_config_spec.HostDnsConfigSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_dns_config_spec.HostDnsConfigSpec
+    
+    .. py:attribute:: virtualNicConnection
+    
+        Choose a Virtual nic based on what it is connected to.
+        
+    

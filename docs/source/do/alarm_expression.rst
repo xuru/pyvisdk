@@ -1,16 +1,15 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 AlarmExpression
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.alarm_manager.AlarmManager`,
-    :py:class:`~pyvisdk.mo.alarm_spec.AlarmSpec`,
-    :py:class:`~pyvisdk.mo.and_alarm_expression.AndAlarmExpression`,
-    :py:class:`~pyvisdk.mo.or_alarm_expression.OrAlarmExpression`
+    :py:class:`~pyvisdk.do.alarm_manager.AlarmManager`,
+    :py:class:`~pyvisdk.do.alarm_spec.AlarmSpec`,
+    :py:class:`~pyvisdk.do.and_alarm_expression.AndAlarmExpression`,
+    :py:class:`~pyvisdk.do.or_alarm_expression.OrAlarmExpression`
     
 .. describe:: Extends
     
@@ -18,9 +17,11 @@ AlarmExpression
     
 .. describe:: Extended by
     
-    AndAlarmExpression, EventAlarmExpression, MetricAlarmExpression,
-    OrAlarmExpression, StateAlarmExpression
+    :py:class:`~pyvisdk.do.and_alarm_expression.AndAlarmExpression`,
+    :py:class:`~pyvisdk.do.event_alarm_expression.EventAlarmExpression`,
+    :py:class:`~pyvisdk.do.metric_alarm_expression.MetricAlarmExpression`,
+    :py:class:`~pyvisdk.do.or_alarm_expression.OrAlarmExpression`,
+    :py:class:`~pyvisdk.do.state_alarm_expression.StateAlarmExpression`
     
-.. autoclass:: pyvisdk.do.alarm_expression.AlarmExpression
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.alarm_expression.AlarmExpression
+    

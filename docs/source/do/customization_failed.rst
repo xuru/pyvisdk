@@ -1,14 +1,15 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationFailed
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    CustomizationLinuxIdentityFailed, CustomizationNetworkSetupFailed,
-    CustomizationSysprepFailed, CustomizationUnknownFailure
+    :py:class:`~pyvisdk.do.customization_linux_identity_failed.CustomizationLinuxIdentityFailed`,
+    :py:class:`~pyvisdk.do.customization_network_setup_failed.CustomizationNetworkSetupFailed`,
+    :py:class:`~pyvisdk.do.customization_sysprep_failed.CustomizationSysprepFailed`,
+    :py:class:`~pyvisdk.do.customization_unknown_failure.CustomizationUnknownFailure`
     
 .. describe:: Since
     
@@ -18,6 +19,5 @@ CustomizationFailed
     
     :py:class:`~pyvisdk.mo.customization_event.CustomizationEvent`
     
-.. autoclass:: pyvisdk.do.customization_failed.CustomizationFailed
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_failed.CustomizationFailed
+    

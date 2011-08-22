@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 RetrieveResult
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.object_content.ObjectContent`
+    :py:class:`~pyvisdk.do.object_content.ObjectContent`
     
 .. describe:: Since
     
@@ -19,8 +18,18 @@ RetrieveResult
     
 .. describe:: Returned by
     
-    ContinueRetrievePropertiesEx, RetrievePropertiesEx
+    :py:meth:`~pyvisdk.do.continue_retrieve_properties_ex.ContinueRetrievePropertiesEx`,
+    :py:meth:`~pyvisdk.do.retrieve_properties_ex.RetrievePropertiesEx`
     
-.. autoclass:: pyvisdk.do.retrieve_result.RetrieveResult
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.retrieve_result.RetrieveResult
+    
+    .. py:attribute:: objects
+    
+        retrieved objects.
+        
+    
+    .. py:attribute:: token
+    
+        A token used to retrieve further retrieve results.
+        
+    

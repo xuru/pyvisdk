@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostProxySwitchConfig
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_network_config.HostNetworkConfig`
+    :py:class:`~pyvisdk.do.host_network_config.HostNetworkConfig`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_proxy_switch_spec.HostProxySwitchSpec`
+    :py:class:`~pyvisdk.do.host_proxy_switch_spec.HostProxySwitchSpec`
     
 .. describe:: Since
     
@@ -21,6 +20,20 @@ HostProxySwitchConfig
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_proxy_switch_config.HostProxySwitchConfig
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_proxy_switch_config.HostProxySwitchConfig
+    
+    .. py:attribute:: changeOperation
+    
+        This property indicates the change operation to apply on this configuration specification. Valid values are: * edit * remove
+        
+    
+    .. py:attribute:: spec
+    
+        The specification of the HostProxySwitch.
+        
+    
+    .. py:attribute:: uuid
+    
+        The uuid of the DistributedVirtualSwitch that the HostProxySwitch is a part of.
+        
+    

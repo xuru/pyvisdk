@@ -1,13 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DatacenterEvent
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    DatacenterCreatedEvent, DatacenterRenamedEvent
+    :py:class:`~pyvisdk.do.datacenter_created_event.DatacenterCreatedEvent`,
+    :py:class:`~pyvisdk.do.datacenter_renamed_event.DatacenterRenamedEvent`
     
 .. describe:: Since
     
@@ -17,6 +17,5 @@ DatacenterEvent
     
     :py:class:`~pyvisdk.mo.event.Event`
     
-.. autoclass:: pyvisdk.do.datacenter_event.DatacenterEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.datacenter_event.DatacenterEvent
+    

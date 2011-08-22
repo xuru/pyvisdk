@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 StorageProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_apply_profile.HostApplyProfile`
+    :py:class:`~pyvisdk.do.host_apply_profile.HostApplyProfile`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.nas_storage_profile.NasStorageProfile`
+    :py:class:`~pyvisdk.do.nas_storage_profile.NasStorageProfile`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ StorageProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.storage_profile.StorageProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.storage_profile.StorageProfile
+    
+    .. py:attribute:: nasStorage
+    
+        The set of NAS storage profiles.
+        
+    

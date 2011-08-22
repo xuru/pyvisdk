@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DrsRuleViolationEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ DrsRuleViolationEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.drs_rule_violation_event.DrsRuleViolationEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.drs_rule_violation_event.DrsRuleViolationEvent
+    

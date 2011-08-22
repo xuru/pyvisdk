@@ -1,19 +1,18 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualSwitchProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.network_profile.NetworkProfile`
+    :py:class:`~pyvisdk.do.network_profile.NetworkProfile`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.link_profile.LinkProfile`,
-    :py:class:`~pyvisdk.mo.network_policy_profile.NetworkPolicyProfile`,
-    :py:class:`~pyvisdk.mo.num_ports_profile.NumPortsProfile`
+    :py:class:`~pyvisdk.do.link_profile.LinkProfile`,
+    :py:class:`~pyvisdk.do.network_policy_profile.NetworkPolicyProfile`,
+    :py:class:`~pyvisdk.do.num_ports_profile.NumPortsProfile`
     
 .. describe:: Since
     
@@ -23,6 +22,30 @@ VirtualSwitchProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.virtual_switch_profile.VirtualSwitchProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_switch_profile.VirtualSwitchProfile
+    
+    .. py:attribute:: key
+    
+        The linkable identifier.
+        
+    
+    .. py:attribute:: link
+    
+        The links that are connected to the virtual switch.
+        
+    
+    .. py:attribute:: name
+    
+        The name of the virtual switch.
+        
+    
+    .. py:attribute:: networkPolicy
+    
+        The network policy applicable on the virtual switch.
+        
+    
+    .. py:attribute:: numPorts
+    
+        The number of ports on the virtual switch.
+        
+    

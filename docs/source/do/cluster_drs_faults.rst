@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterDrsFaults
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.cluster_compute_resource.ClusterComputeResource`
+    :py:class:`~pyvisdk.do.cluster_compute_resource.ClusterComputeResource`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.cluster_drs_faults_faults_by_vm.ClusterDrsFaultsFaultsByVm`
+    :py:class:`~pyvisdk.do.cluster_drs_faults_faults_by_vm.ClusterDrsFaultsFaultsByVm`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ ClusterDrsFaults
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.cluster_drs_faults.ClusterDrsFaults
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_drs_faults.ClusterDrsFaults
+    
+    .. py:attribute:: faultsByVm
+    
+        The faults grouped by VMs that DRS was trying to migrate.
+        
+    
+    .. py:attribute:: reason
+    
+        A reason code explaining why this set of recommendations were attempted by DRS when it generated the faults.
+        
+    

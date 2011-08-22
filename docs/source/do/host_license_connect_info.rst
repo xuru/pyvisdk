@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostLicenseConnectInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_connect_info.HostConnectInfo`
+    :py:class:`~pyvisdk.do.host_connect_info.HostConnectInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.license_manager_evaluation_info.LicenseManagerEvaluationInfo`,
-    :py:class:`~pyvisdk.mo.license_manager_license_info.LicenseManagerLicenseInfo`
+    :py:class:`~pyvisdk.do.license_manager_evaluation_info.LicenseManagerEvaluationInfo`,
+    :py:class:`~pyvisdk.do.license_manager_license_info.LicenseManagerLicenseInfo`
     
 .. describe:: Since
     
@@ -22,6 +21,15 @@ HostLicenseConnectInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_license_connect_info.HostLicenseConnectInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_license_connect_info.HostLicenseConnectInfo
+    
+    .. py:attribute:: evaluation
+    
+        Evaluation information.
+        
+    
+    .. py:attribute:: license
+    
+        License information.
+        
+    

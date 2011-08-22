@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostSystemIdentificationInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_hardware_summary.HostHardwareSummary`,
-    :py:class:`~pyvisdk.mo.host_system_info.HostSystemInfo`
+    :py:class:`~pyvisdk.do.host_hardware_summary.HostHardwareSummary`,
+    :py:class:`~pyvisdk.do.host_system_info.HostSystemInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.element_description.ElementDescription`
+    :py:class:`~pyvisdk.do.element_description.ElementDescription`
     
 .. describe:: Since
     
@@ -22,6 +21,15 @@ HostSystemIdentificationInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_system_identification_info.HostSystemIdentificationInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_system_identification_info.HostSystemIdentificationInfo
+    
+    .. py:attribute:: identifierType
+    
+        The description of the identifying information.
+        
+    
+    .. py:attribute:: identifierValue
+    
+        The system identification information
+        
+    

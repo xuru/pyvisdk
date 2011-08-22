@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualNicManagerNetConfig
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_virtual_nic_manager_info.HostVirtualNicManagerInfo`
+    :py:class:`~pyvisdk.do.host_virtual_nic_manager_info.HostVirtualNicManagerInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_virtual_nic.HostVirtualNic`
+    :py:class:`~pyvisdk.do.host_virtual_nic.HostVirtualNic`
     
 .. describe:: Since
     
@@ -23,8 +22,27 @@ VirtualNicManagerNetConfig
     
 .. describe:: Returned by
     
-    QueryNetConfig
+    :py:meth:`~pyvisdk.do.query_net_config.QueryNetConfig`
     
-.. autoclass:: pyvisdk.do.virtual_nic_manager_net_config.VirtualNicManagerNetConfig
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_nic_manager_net_config.VirtualNicManagerNetConfig
+    
+    .. py:attribute:: candidateVnic
+    
+        List of VirtualNic objects that may be used. This will be a subset of the list of VirtualNics in vnic.
+        
+    
+    .. py:attribute:: multiSelectAllowed
+    
+        Whether multiple nics can be selected for this nicType.
+        
+    
+    .. py:attribute:: nicType
+    
+        The NicType of this NetConfig.
+        
+    
+    .. py:attribute:: selectedVnic
+    
+        List of VirtualNic objects that are selected for use.
+        
+    

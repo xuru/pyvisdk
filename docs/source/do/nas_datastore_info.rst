@@ -1,18 +1,21 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NasDatastoreInfo
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_nas_volume.HostNasVolume`
+    :py:class:`~pyvisdk.do.host_nas_volume.HostNasVolume`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.datastore_info.DatastoreInfo`
     
-.. autoclass:: pyvisdk.do.nas_datastore_info.NasDatastoreInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.nas_datastore_info.NasDatastoreInfo
+    
+    .. py:attribute:: nas
+    
+        The NFS mount information for the datastore. May not be available when the datastore is not accessible.
+        
+    

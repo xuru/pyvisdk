@@ -1,21 +1,20 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostIpRouteTableConfig
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    UpdateIpRouteTableConfig
+    :py:meth:`~pyvisdk.do.update_ip_route_table_config.UpdateIpRouteTableConfig`
     
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_network_config.HostNetworkConfig`
+    :py:class:`~pyvisdk.do.host_network_config.HostNetworkConfig`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_ip_route_op.HostIpRouteOp`
+    :py:class:`~pyvisdk.do.host_ip_route_op.HostIpRouteOp`
     
 .. describe:: Since
     
@@ -25,6 +24,15 @@ HostIpRouteTableConfig
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_ip_route_table_config.HostIpRouteTableConfig
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_ip_route_table_config.HostIpRouteTableConfig
+    
+    .. py:attribute:: ipRoute
+    
+        The array of Routing ops (routes to be added/removed)
+        
+    
+    .. py:attribute:: ipv6Route
+    
+        
+        
+    

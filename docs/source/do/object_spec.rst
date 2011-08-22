@@ -1,22 +1,35 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ObjectSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.property_filter_spec.PropertyFilterSpec`
+    :py:class:`~pyvisdk.do.property_filter_spec.PropertyFilterSpec`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.selection_spec.SelectionSpec`
+    :py:class:`~pyvisdk.do.selection_spec.SelectionSpec`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.object_spec.ObjectSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.object_spec.ObjectSpec
+    
+    .. py:attribute:: obj
+    
+        Starting object.
+        
+    
+    .. py:attribute:: selectSet
+    
+        Set of selections to specify additional objects to filter.
+        
+    
+    .. py:attribute:: skip
+    
+        Flag to specify whether or not to report this managed object's properties. If the flag is true, the filter will not report this managed object's properties.
+        
+    

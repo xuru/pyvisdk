@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfilePolicy
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
+    :py:class:`~pyvisdk.do.apply_profile.ApplyProfile`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.policy_option.PolicyOption`
+    :py:class:`~pyvisdk.do.policy_option.PolicyOption`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ ProfilePolicy
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.profile_policy.ProfilePolicy
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_policy.ProfilePolicy
+    
+    .. py:attribute:: id
+    
+        The id of Policy
+        
+    
+    .. py:attribute:: policyOption
+    
+        The PolicyOption for the Policy. The 'id' of the PolicyOption should be among the values present in the possibleOption field of the Policy's metadata.
+        
+    

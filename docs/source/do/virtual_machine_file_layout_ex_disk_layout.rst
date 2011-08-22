@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualMachineFileLayoutExDiskLayout
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.virtual_machine_file_layout_ex.VirtualMachineFileLayoutEx`,
-    :py:class:`~pyvisdk.mo.virtual_machine_file_layout_ex_snapshot_layout.VirtualMachineFileLayoutExSnapshotLayout`
+    :py:class:`~pyvisdk.do.virtual_machine_file_layout_ex.VirtualMachineFileLayoutEx`,
+    :py:class:`~pyvisdk.do.virtual_machine_file_layout_ex_snapshot_layout.VirtualMachineFileLayoutExSnapshotLayout`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.virtual_machine_file_layout_ex_disk_unit.VirtualMachineFileLayoutExDiskUnit`
+    :py:class:`~pyvisdk.do.virtual_machine_file_layout_ex_disk_unit.VirtualMachineFileLayoutExDiskUnit`
     
 .. describe:: Since
     
@@ -22,6 +21,15 @@ VirtualMachineFileLayoutExDiskLayout
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.virtual_machine_file_layout_ex_disk_layout.VirtualMachineFileLayoutExDiskLayout
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_machine_file_layout_ex_disk_layout.VirtualMachineFileLayoutExDiskLayout
+    
+    .. py:attribute:: chain
+    
+        The disk-unit chain that makes up this virtual disk.
+        
+    
+    .. py:attribute:: key
+    
+        Identifier for the virtual disk in device.
+        
+    

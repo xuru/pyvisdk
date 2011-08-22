@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ResourceAllocationOption
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.resource_config_option.ResourceConfigOption`
+    :py:class:`~pyvisdk.do.resource_config_option.ResourceConfigOption`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.shares_option.SharesOption`
+    :py:class:`~pyvisdk.do.shares_option.SharesOption`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ ResourceAllocationOption
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.resource_allocation_option.ResourceAllocationOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.resource_allocation_option.ResourceAllocationOption
+    
+    .. py:attribute:: sharesOption
+    
+        Default value and value range for shares.
+        
+    

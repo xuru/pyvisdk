@@ -1,20 +1,19 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 LicenseSource
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    ConfigureLicenseSource
+    :py:meth:`~pyvisdk.do.configure_license_source.ConfigureLicenseSource`
     
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_license_spec.HostLicenseSpec`,
-    :py:class:`~pyvisdk.mo.license_manager.LicenseManager`,
-    :py:class:`~pyvisdk.mo.license_source_unavailable.LicenseSourceUnavailable`,
-    :py:class:`~pyvisdk.mo.license_usage_info.LicenseUsageInfo`
+    :py:class:`~pyvisdk.do.host_license_spec.HostLicenseSpec`,
+    :py:class:`~pyvisdk.do.license_manager.LicenseManager`,
+    :py:class:`~pyvisdk.do.license_source_unavailable.LicenseSourceUnavailable`,
+    :py:class:`~pyvisdk.do.license_usage_info.LicenseUsageInfo`
     
 .. describe:: Extends
     
@@ -22,8 +21,9 @@ LicenseSource
     
 .. describe:: Extended by
     
-    EvaluationLicenseSource, LicenseServerSource, LocalLicenseSource
+    :py:class:`~pyvisdk.do.evaluation_license_source.EvaluationLicenseSource`,
+    :py:class:`~pyvisdk.do.license_server_source.LicenseServerSource`,
+    :py:class:`~pyvisdk.do.local_license_source.LocalLicenseSource`
     
-.. autoclass:: pyvisdk.do.license_source.LicenseSource
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.license_source.LicenseSource
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 IScsiBootFailureEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ IScsiBootFailureEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.i_scsi_boot_failure_event.IScsiBootFailureEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.i_scsi_boot_failure_event.IScsiBootFailureEvent
+    

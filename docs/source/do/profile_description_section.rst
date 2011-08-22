@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfileDescriptionSection
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.profile_description.ProfileDescription`
+    :py:class:`~pyvisdk.do.profile_description.ProfileDescription`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.extended_element_description.ExtendedElementDescription`,
-    :py:class:`~pyvisdk.mo.localizable_message.LocalizableMessage`
+    :py:class:`~pyvisdk.do.extended_element_description.ExtendedElementDescription`,
+    :py:class:`~pyvisdk.do.localizable_message.LocalizableMessage`
     
 .. describe:: Since
     
@@ -22,6 +21,15 @@ ProfileDescriptionSection
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.profile_description_section.ProfileDescriptionSection
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_description_section.ProfileDescriptionSection
+    
+    .. py:attribute:: description
+    
+        property describing this section.
+        
+    
+    .. py:attribute:: message
+    
+        List of messages that make up the section
+        
+    

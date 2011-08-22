@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 EventAlarmExpressionComparison
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.event_alarm_expression.EventAlarmExpression`
+    :py:class:`~pyvisdk.do.event_alarm_expression.EventAlarmExpression`
     
 .. describe:: Since
     
@@ -17,6 +16,20 @@ EventAlarmExpressionComparison
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.event_alarm_expression_comparison.EventAlarmExpressionComparison
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.event_alarm_expression_comparison.EventAlarmExpressionComparison
+    
+    .. py:attribute:: attributeName
+    
+        The attribute of the event to compare
+        
+    
+    .. py:attribute:: operator
+    
+        An operator from the list above
+        
+    
+    .. py:attribute:: value
+    
+        The value to compare against
+        
+    

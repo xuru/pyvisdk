@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmfsDatastoreBaseOption
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.vmfs_datastore_option.VmfsDatastoreOption`
+    :py:class:`~pyvisdk.do.vmfs_datastore_option.VmfsDatastoreOption`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_disk_partition_layout.HostDiskPartitionLayout`
+    :py:class:`~pyvisdk.do.host_disk_partition_layout.HostDiskPartitionLayout`
     
 .. describe:: Extends
     
@@ -19,8 +18,13 @@ VmfsDatastoreBaseOption
     
 .. describe:: Extended by
     
-    VmfsDatastoreMultipleExtentOption, VmfsDatastoreSingleExtentOption
+    :py:class:`~pyvisdk.do.vmfs_datastore_multiple_extent_option.VmfsDatastoreMultipleExtentOption`,
+    :py:class:`~pyvisdk.do.vmfs_datastore_single_extent_option.VmfsDatastoreSingleExtentOption`
     
-.. autoclass:: pyvisdk.do.vmfs_datastore_base_option.VmfsDatastoreBaseOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vmfs_datastore_base_option.VmfsDatastoreBaseOption
+    
+    .. py:attribute:: layout
+    
+        The partition table layout that the disk will have if this provisioning option is selected.
+        
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 LockerMisconfiguredEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.datastore_event_argument.DatastoreEventArgument`
+    :py:class:`~pyvisdk.do.datastore_event_argument.DatastoreEventArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ LockerMisconfiguredEvent
     
     :py:class:`~pyvisdk.mo.event.Event`
     
-.. autoclass:: pyvisdk.do.locker_misconfigured_event.LockerMisconfiguredEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.locker_misconfigured_event.LockerMisconfiguredEvent
+    
+    .. py:attribute:: datastore
+    
+        The datastore that has been configured to back the locker
+        
+    

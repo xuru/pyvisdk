@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DrsVmPoweredOnEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ DrsVmPoweredOnEvent
     
     :py:class:`~pyvisdk.mo.vm_powered_on_event.VmPoweredOnEvent`
     
-.. autoclass:: pyvisdk.do.drs_vm_powered_on_event.DrsVmPoweredOnEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.drs_vm_powered_on_event.DrsVmPoweredOnEvent
+    

@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 IpRouteProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.network_profile.NetworkProfile`
+    :py:class:`~pyvisdk.do.network_profile.NetworkProfile`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.static_route_profile.StaticRouteProfile`
+    :py:class:`~pyvisdk.do.static_route_profile.StaticRouteProfile`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ IpRouteProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.ip_route_profile.IpRouteProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.ip_route_profile.IpRouteProfile
+    
+    .. py:attribute:: staticRoute
+    
+        Static routes that need to be configured
+        
+    

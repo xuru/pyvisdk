@@ -1,18 +1,26 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostDiskMappingOption
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_disk_mapping_partition_option.HostDiskMappingPartitionOption`
+    :py:class:`~pyvisdk.do.host_disk_mapping_partition_option.HostDiskMappingPartitionOption`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_disk_mapping_option.HostDiskMappingOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_disk_mapping_option.HostDiskMappingOption
+    
+    .. py:attribute:: name
+    
+        Host resource name.
+        
+    
+    .. py:attribute:: physicalPartition
+    
+        Array of valid partitions on this physical disk. There is no default for this array.
+        
+    

@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ComplianceFailure
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.compliance_result.ComplianceResult`
+    :py:class:`~pyvisdk.do.compliance_result.ComplianceResult`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.localizable_message.LocalizableMessage`
+    :py:class:`~pyvisdk.do.localizable_message.LocalizableMessage`
     
 .. describe:: Since
     
@@ -21,6 +20,20 @@ ComplianceFailure
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.compliance_failure.ComplianceFailure
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.compliance_failure.ComplianceFailure
+    
+    .. py:attribute:: expressionName
+    
+        Name of the Expression which generated the ComplianceFailure
+        
+    
+    .. py:attribute:: failureType
+    
+        String uniquely identifying the failure.
+        
+    
+    .. py:attribute:: message
+    
+        Message which describes the compliance failures message.key serves as a key to the localized message catalog.
+        
+    

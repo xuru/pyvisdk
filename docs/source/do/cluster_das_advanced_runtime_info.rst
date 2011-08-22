@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterDasAdvancedRuntimeInfo
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    ClusterDasFailoverLevelAdvancedRuntimeInfo
+    :py:class:`~pyvisdk.do.cluster_das_failover_level_advanced_runtime_info.ClusterDasFailoverLevelAdvancedRuntimeInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.cluster_das_host_info.ClusterDasHostInfo`
+    :py:class:`~pyvisdk.do.cluster_das_host_info.ClusterDasHostInfo`
     
 .. describe:: Since
     
@@ -23,8 +22,12 @@ ClusterDasAdvancedRuntimeInfo
     
 .. describe:: Returned by
     
-    RetrieveDasAdvancedRuntimeInfo
+    :py:meth:`~pyvisdk.do.retrieve_das_advanced_runtime_info.RetrieveDasAdvancedRuntimeInfo`
     
-.. autoclass:: pyvisdk.do.cluster_das_advanced_runtime_info.ClusterDasAdvancedRuntimeInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_das_advanced_runtime_info.ClusterDasAdvancedRuntimeInfo
+    
+    .. py:attribute:: dasHostInfo
+    
+        The information pertaining to the HA agents on the hosts
+        
+    

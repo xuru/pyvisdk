@@ -1,17 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ComputeResourceConfigSpec
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    AddStandaloneHost_Task, ReconfigureComputeResource_Task
+    :py:meth:`~pyvisdk.do.add_standalone_host__task.AddStandaloneHost_Task`,
+    :py:meth:`~pyvisdk.do.reconfigure_compute_resource__task.ReconfigureComputeResource_Task`
     
 .. describe:: Extended by
     
-    ClusterConfigSpecEx
+    :py:class:`~pyvisdk.do.cluster_config_spec_ex.ClusterConfigSpecEx`
     
 .. describe:: Since
     
@@ -21,6 +21,10 @@ ComputeResourceConfigSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.compute_resource_config_spec.ComputeResourceConfigSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.compute_resource_config_spec.ComputeResourceConfigSpec
+    
+    .. py:attribute:: vmSwapPlacement
+    
+        New setting for the swapfile placement policy. Any change to this policy will affect virtual machines that subsequently power on or resume from a suspended state in this compute resource, or that migrate to a host in this compute resource while powered on; virtual machines that are currently powered on in this compute resource will not yet be affected.
+        
+    

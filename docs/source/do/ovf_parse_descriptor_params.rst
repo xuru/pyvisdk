@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 OvfParseDescriptorParams
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    ParseDescriptor
+    :py:meth:`~pyvisdk.do.parse_descriptor.ParseDescriptor`
     
 .. describe:: Since
     
@@ -17,6 +16,5 @@ OvfParseDescriptorParams
     
     :py:class:`~pyvisdk.mo.ovf_manager_common_params.OvfManagerCommonParams`
     
-.. autoclass:: pyvisdk.do.ovf_parse_descriptor_params.OvfParseDescriptorParams
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.ovf_parse_descriptor_params.OvfParseDescriptorParams
+    

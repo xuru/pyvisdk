@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 StorageIORMConfigOption
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.bool_option.BoolOption`,
-    :py:class:`~pyvisdk.mo.int_option.IntOption`
+    :py:class:`~pyvisdk.do.bool_option.BoolOption`,
+    :py:class:`~pyvisdk.do.int_option.IntOption`
     
 .. describe:: Since
     
@@ -20,8 +19,17 @@ StorageIORMConfigOption
     
 .. describe:: Returned by
     
-    QueryIORMConfigOption
+    :py:meth:`~pyvisdk.do.query_iorm_config_option.QueryIORMConfigOption`
     
-.. autoclass:: pyvisdk.do.storage_iorm_config_option.StorageIORMConfigOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.storage_iorm_config_option.StorageIORMConfigOption
+    
+    .. py:attribute:: congestionThresholdOption
+    
+        congestionThresholdOption defines value range which can be used for congestionThreshold
+        
+    
+    .. py:attribute:: enabledOption
+    
+        enabledOption provides default state value for enabled
+        
+    

@@ -1,19 +1,18 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HealthSystemRuntime
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_health_status_system.HostHealthStatusSystem`,
-    :py:class:`~pyvisdk.mo.host_runtime_info.HostRuntimeInfo`
+    :py:class:`~pyvisdk.do.host_health_status_system.HostHealthStatusSystem`,
+    :py:class:`~pyvisdk.do.host_runtime_info.HostRuntimeInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_hardware_status_info.HostHardwareStatusInfo`,
-    :py:class:`~pyvisdk.mo.host_system_health_info.HostSystemHealthInfo`
+    :py:class:`~pyvisdk.do.host_hardware_status_info.HostHardwareStatusInfo`,
+    :py:class:`~pyvisdk.do.host_system_health_info.HostSystemHealthInfo`
     
 .. describe:: Since
     
@@ -23,6 +22,15 @@ HealthSystemRuntime
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.health_system_runtime.HealthSystemRuntime
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.health_system_runtime.HealthSystemRuntime
+    
+    .. py:attribute:: hardwareStatusInfo
+    
+        Available hardware health information
+        
+    
+    .. py:attribute:: systemHealthInfo
+    
+        Available system health information
+        
+    

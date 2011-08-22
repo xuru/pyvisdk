@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmRemoteConsoleDisconnectedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VmRemoteConsoleDisconnectedEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_remote_console_disconnected_event.VmRemoteConsoleDisconnectedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_remote_console_disconnected_event.VmRemoteConsoleDisconnectedEvent
+    

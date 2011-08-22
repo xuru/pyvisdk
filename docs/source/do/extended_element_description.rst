@@ -1,21 +1,20 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ExtendedElementDescription
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.profile_description_section.ProfileDescriptionSection`,
-    :py:class:`~pyvisdk.mo.profile_expression_metadata.ProfileExpressionMetadata`,
-    :py:class:`~pyvisdk.mo.profile_parameter_metadata.ProfileParameterMetadata`,
-    :py:class:`~pyvisdk.mo.profile_policy_metadata.ProfilePolicyMetadata`,
-    :py:class:`~pyvisdk.mo.profile_policy_option_metadata.ProfilePolicyOptionMetadata`
+    :py:class:`~pyvisdk.do.profile_description_section.ProfileDescriptionSection`,
+    :py:class:`~pyvisdk.do.profile_expression_metadata.ProfileExpressionMetadata`,
+    :py:class:`~pyvisdk.do.profile_parameter_metadata.ProfileParameterMetadata`,
+    :py:class:`~pyvisdk.do.profile_policy_metadata.ProfilePolicyMetadata`,
+    :py:class:`~pyvisdk.do.profile_policy_option_metadata.ProfilePolicyOptionMetadata`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.key_any_value.KeyAnyValue`
+    :py:class:`~pyvisdk.do.key_any_value.KeyAnyValue`
     
 .. describe:: Since
     
@@ -25,6 +24,15 @@ ExtendedElementDescription
     
     :py:class:`~pyvisdk.mo.element_description.ElementDescription`
     
-.. autoclass:: pyvisdk.do.extended_element_description.ExtendedElementDescription
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.extended_element_description.ExtendedElementDescription
+    
+    .. py:attribute:: messageArg
+    
+        Provides named arguments that can be used to localize the message in the catalog.
+        
+    
+    .. py:attribute:: messageCatalogKeyPrefix
+    
+        Key to the localized message string in the catalog. If the localized string contains parameters, values to the parameters will be provided in #messageArg. E.g: If the message in the catalog is "IP address is {address}", value for "address" will be provided by #messageArg. Both summary and label in ElementDescription will have a corresponding entry in the message catalog with the keys .summary and .label respectively. ElementDescription.summary and ElementDescription.label will contain the strings in server locale.
+        
+    

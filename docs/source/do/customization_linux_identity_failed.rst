@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationLinuxIdentityFailed
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ CustomizationLinuxIdentityFailed
     
     :py:class:`~pyvisdk.mo.customization_failed.CustomizationFailed`
     
-.. autoclass:: pyvisdk.do.customization_linux_identity_failed.CustomizationLinuxIdentityFailed
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_linux_identity_failed.CustomizationLinuxIdentityFailed
+    

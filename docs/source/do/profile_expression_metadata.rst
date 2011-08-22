@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfileExpressionMetadata
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.extended_element_description.ExtendedElementDescription`,
-    :py:class:`~pyvisdk.mo.profile_parameter_metadata.ProfileParameterMetadata`
+    :py:class:`~pyvisdk.do.extended_element_description.ExtendedElementDescription`,
+    :py:class:`~pyvisdk.do.profile_parameter_metadata.ProfileParameterMetadata`
     
 .. describe:: Since
     
@@ -20,8 +19,17 @@ ProfileExpressionMetadata
     
 .. describe:: Returned by
     
-    QueryExpressionMetadata
+    :py:meth:`~pyvisdk.do.query_expression_metadata.QueryExpressionMetadata`
     
-.. autoclass:: pyvisdk.do.profile_expression_metadata.ProfileExpressionMetadata
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_expression_metadata.ProfileExpressionMetadata
+    
+    .. py:attribute:: expressionId
+    
+        Id of the SimpleExpression
+        
+    
+    .. py:attribute:: parameter
+    
+        Parameters that can be specified for this SimpleExpression
+        
+    

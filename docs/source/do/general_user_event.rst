@@ -1,18 +1,21 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 GeneralUserEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.managed_entity_event_argument.ManagedEntityEventArgument`
+    :py:class:`~pyvisdk.do.managed_entity_event_argument.ManagedEntityEventArgument`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.general_event.GeneralEvent`
     
-.. autoclass:: pyvisdk.do.general_user_event.GeneralUserEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.general_user_event.GeneralUserEvent
+    
+    .. py:attribute:: entity
+    
+        The entity on which the event was logged.
+        
+    

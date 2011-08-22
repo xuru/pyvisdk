@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostVirtualSwitchBridge
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_virtual_switch_spec.HostVirtualSwitchSpec`
+    :py:class:`~pyvisdk.do.host_virtual_switch_spec.HostVirtualSwitchSpec`
     
 .. describe:: Extends
     
@@ -15,9 +14,9 @@ HostVirtualSwitchBridge
     
 .. describe:: Extended by
     
-    HostVirtualSwitchAutoBridge, HostVirtualSwitchBondBridge,
-    HostVirtualSwitchSimpleBridge
+    :py:class:`~pyvisdk.do.host_virtual_switch_auto_bridge.HostVirtualSwitchAutoBridge`,
+    :py:class:`~pyvisdk.do.host_virtual_switch_bond_bridge.HostVirtualSwitchBondBridge`,
+    :py:class:`~pyvisdk.do.host_virtual_switch_simple_bridge.HostVirtualSwitchSimpleBridge`
     
-.. autoclass:: pyvisdk.do.host_virtual_switch_bridge.HostVirtualSwitchBridge
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_virtual_switch_bridge.HostVirtualSwitchBridge
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostBootDeviceInfo
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_boot_device.HostBootDevice`
+    :py:class:`~pyvisdk.do.host_boot_device.HostBootDevice`
     
 .. describe:: Since
     
@@ -19,8 +18,17 @@ HostBootDeviceInfo
     
 .. describe:: Returned by
     
-    QueryBootDevices
+    :py:meth:`~pyvisdk.do.query_boot_devices.QueryBootDevices`
     
-.. autoclass:: pyvisdk.do.host_boot_device_info.HostBootDeviceInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_boot_device_info.HostBootDeviceInfo
+    
+    .. py:attribute:: bootDevices
+    
+        The list of boot devices present on the host
+        
+    
+    .. py:attribute:: currentBootDeviceKey
+    
+        The key of the current boot device that the host is configured to boot. This property is unset if the current boot device is disabled.
+        
+    

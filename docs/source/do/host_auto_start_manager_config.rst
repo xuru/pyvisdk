@@ -1,28 +1,36 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostAutoStartManagerConfig
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    ReconfigureAutostart
+    :py:meth:`~pyvisdk.do.reconfigure_autostart.ReconfigureAutostart`
     
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_auto_start_manager.HostAutoStartManager`,
-    :py:class:`~pyvisdk.mo.host_config_info.HostConfigInfo`
+    :py:class:`~pyvisdk.do.host_auto_start_manager.HostAutoStartManager`,
+    :py:class:`~pyvisdk.do.host_config_info.HostConfigInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.auto_start_defaults.AutoStartDefaults`,
-    :py:class:`~pyvisdk.mo.auto_start_power_info.AutoStartPowerInfo`
+    :py:class:`~pyvisdk.do.auto_start_defaults.AutoStartDefaults`,
+    :py:class:`~pyvisdk.do.auto_start_power_info.AutoStartPowerInfo`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_auto_start_manager_config.HostAutoStartManagerConfig
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_auto_start_manager_config.HostAutoStartManagerConfig
+    
+    .. py:attribute:: defaults
+    
+        System defaults for auto-start/auto-stop.
+        
+    
+    .. py:attribute:: powerInfo
+    
+        Lists the auto-start/auto-stop configuration. If a virtual machine is not mentioned in this array, it does not participate in auto-start/auto-stop operations.
+        
+    

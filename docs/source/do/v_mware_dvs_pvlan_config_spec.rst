@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VMwareDVSPvlanConfigSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.v_mware_dvs_config_spec.VMwareDVSConfigSpec`
+    :py:class:`~pyvisdk.do.v_mware_dvs_config_spec.VMwareDVSConfigSpec`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.v_mware_dvs_pvlan_map_entry.VMwareDVSPvlanMapEntry`
+    :py:class:`~pyvisdk.do.v_mware_dvs_pvlan_map_entry.VMwareDVSPvlanMapEntry`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ VMwareDVSPvlanConfigSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.v_mware_dvs_pvlan_config_spec.VMwareDVSPvlanConfigSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.v_mware_dvs_pvlan_config_spec.VMwareDVSPvlanConfigSpec
+    
+    .. py:attribute:: operation
+    
+        Operation type. See ConfigSpecOperation for valid values, except for the "edit" value, which is not supported.
+        
+    
+    .. py:attribute:: pvlanEntry
+    
+        The PVLAN entry to be added or removed.
+        
+    

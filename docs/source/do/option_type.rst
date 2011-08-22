@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 OptionType
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.option_def.OptionDef`
+    :py:class:`~pyvisdk.do.option_def.OptionDef`
     
 .. describe:: Extends
     
@@ -15,8 +14,17 @@ OptionType
     
 .. describe:: Extended by
     
-    BoolOption, ChoiceOption, FloatOption, IntOption, LongOption, StringOption
+    :py:class:`~pyvisdk.do.bool_option.BoolOption`,
+    :py:class:`~pyvisdk.do.choice_option.ChoiceOption`,
+    :py:class:`~pyvisdk.do.float_option.FloatOption`,
+    :py:class:`~pyvisdk.do.int_option.IntOption`,
+    :py:class:`~pyvisdk.do.long_option.LongOption`,
+    :py:class:`~pyvisdk.do.string_option.StringOption`
     
-.. autoclass:: pyvisdk.do.option_type.OptionType
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.option_type.OptionType
+    
+    .. py:attribute:: valueIsReadonly
+    
+        The flag to indicate whether or not a user can modify a value belonging to this option type. If the flag is not set, the value can be modified.
+        
+    

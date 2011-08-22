@@ -1,15 +1,14 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DVSContactInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.dvs_config_info.DVSConfigInfo`,
-    :py:class:`~pyvisdk.mo.dvs_config_spec.DVSConfigSpec`,
-    :py:class:`~pyvisdk.mo.dvs_summary.DVSSummary`
+    :py:class:`~pyvisdk.do.dvs_config_info.DVSConfigInfo`,
+    :py:class:`~pyvisdk.do.dvs_config_spec.DVSConfigSpec`,
+    :py:class:`~pyvisdk.do.dvs_summary.DVSSummary`
     
 .. describe:: Since
     
@@ -19,6 +18,15 @@ DVSContactInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.dvs_contact_info.DVSContactInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_contact_info.DVSContactInfo
+    
+    .. py:attribute:: contact
+    
+        The contact information for the person.
+        
+    
+    .. py:attribute:: name
+    
+        The name of the person who is responsible for the switch.
+        
+    

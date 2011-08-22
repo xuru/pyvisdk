@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 SelectionSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.object_spec.ObjectSpec`,
-    :py:class:`~pyvisdk.mo.traversal_spec.TraversalSpec`
+    :py:class:`~pyvisdk.do.object_spec.ObjectSpec`,
+    :py:class:`~pyvisdk.do.traversal_spec.TraversalSpec`
     
 .. describe:: Extends
     
@@ -16,8 +15,12 @@ SelectionSpec
     
 .. describe:: Extended by
     
-    TraversalSpec
+    :py:class:`~pyvisdk.do.traversal_spec.TraversalSpec`
     
-.. autoclass:: pyvisdk.do.selection_spec.SelectionSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.selection_spec.SelectionSpec
+    
+    .. py:attribute:: name
+    
+        Name of the selection specification.
+        
+    

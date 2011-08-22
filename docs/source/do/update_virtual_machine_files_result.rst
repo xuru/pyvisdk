@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 UpdateVirtualMachineFilesResult
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.update_virtual_machine_files_result_failed_vm_file_info.UpdateVirtualMachineFilesResultFailedVmFileInfo`
+    :py:class:`~pyvisdk.do.update_virtual_machine_files_result_failed_vm_file_info.UpdateVirtualMachineFilesResultFailedVmFileInfo`
     
 .. describe:: Since
     
@@ -19,8 +18,12 @@ UpdateVirtualMachineFilesResult
     
 .. describe:: Returned by
     
-    UpdateVirtualMachineFiles_Task
+    :py:meth:`~pyvisdk.do.update_virtual_machine_files__task.UpdateVirtualMachineFiles_Task`
     
-.. autoclass:: pyvisdk.do.update_virtual_machine_files_result.UpdateVirtualMachineFilesResult
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.update_virtual_machine_files_result.UpdateVirtualMachineFilesResult
+    
+    .. py:attribute:: failedVmFile
+    
+        The list of virtual machines files the server has attempted to update but failed to update.
+        
+    

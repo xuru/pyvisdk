@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostPrimaryAgentNotShortNameEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ HostPrimaryAgentNotShortNameEvent
     
     :py:class:`~pyvisdk.mo.host_das_event.HostDasEvent`
     
-.. autoclass:: pyvisdk.do.host_primary_agent_not_short_name_event.HostPrimaryAgentNotShortNameEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_primary_agent_not_short_name_event.HostPrimaryAgentNotShortNameEvent
+    
+    .. py:attribute:: primaryAgent
+    
+        
+        
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsPortLinkDownEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ DvsPortLinkDownEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_port_link_down_event.DvsPortLinkDownEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_port_link_down_event.DvsPortLinkDownEvent
+    
+    .. py:attribute:: portKey
+    
+        The port key.
+        
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DrsRecoveredFromFailureEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ DrsRecoveredFromFailureEvent
     
     :py:class:`~pyvisdk.mo.cluster_event.ClusterEvent`
     
-.. autoclass:: pyvisdk.do.drs_recovered_from_failure_event.DrsRecoveredFromFailureEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.drs_recovered_from_failure_event.DrsRecoveredFromFailureEvent
+    

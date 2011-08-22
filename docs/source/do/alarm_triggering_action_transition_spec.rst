@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 AlarmTriggeringActionTransitionSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.alarm_triggering_action.AlarmTriggeringAction`
+    :py:class:`~pyvisdk.do.alarm_triggering_action.AlarmTriggeringAction`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.managed_entity_status.ManagedEntityStatus`
+    :py:class:`~pyvisdk.do.managed_entity_status.ManagedEntityStatus`
     
 .. describe:: Since
     
@@ -21,6 +20,20 @@ AlarmTriggeringActionTransitionSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.alarm_triggering_action_transition_spec.AlarmTriggeringActionTransitionSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.alarm_triggering_action_transition_spec.AlarmTriggeringActionTransitionSpec
+    
+    .. py:attribute:: finalState
+    
+        The state to which the alarm must transition for the action to fire. Valid choices are red, yellow, and green.
+        
+    
+    .. py:attribute:: repeats
+    
+        Whether or not the action repeats, as per the actionFrequency defined in the enclosing Alarm.
+        
+    
+    .. py:attribute:: startState
+    
+        The state from which the alarm must transition for the action to fire. Valid choices are red, yellow and green.
+        
+    

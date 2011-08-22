@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualVmxnetOption
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    VirtualVmxnet2Option, VirtualVmxnet3Option
+    :py:class:`~pyvisdk.do.virtual_vmxnet2_option.VirtualVmxnet2Option`,
+    :py:class:`~pyvisdk.do.virtual_vmxnet3_option.VirtualVmxnet3Option`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.virtual_ethernet_card_option.VirtualEthernetCardOption`
     
-.. autoclass:: pyvisdk.do.virtual_vmxnet_option.VirtualVmxnetOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_vmxnet_option.VirtualVmxnetOption
+    

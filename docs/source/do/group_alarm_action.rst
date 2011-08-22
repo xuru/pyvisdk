@@ -1,18 +1,21 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 GroupAlarmAction
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.alarm_action.AlarmAction`
+    :py:class:`~pyvisdk.do.alarm_action.AlarmAction`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.alarm_action.AlarmAction`
     
-.. autoclass:: pyvisdk.do.group_alarm_action.GroupAlarmAction
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.group_alarm_action.GroupAlarmAction
+    
+    .. py:attribute:: action
+    
+        The list of alarm actions that occur when the alarm is triggered.
+        
+    

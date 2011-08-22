@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 KernelModuleSectionInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.kernel_module_info.KernelModuleInfo`
+    :py:class:`~pyvisdk.do.kernel_module_info.KernelModuleInfo`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ KernelModuleSectionInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.kernel_module_section_info.KernelModuleSectionInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.kernel_module_section_info.KernelModuleSectionInfo
+    
+    .. py:attribute:: address
+    
+        Base address of section.
+        
+    
+    .. py:attribute:: length
+    
+        Section length.
+        
+    

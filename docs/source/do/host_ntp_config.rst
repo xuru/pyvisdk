@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostNtpConfig
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_date_time_config.HostDateTimeConfig`,
-    :py:class:`~pyvisdk.mo.host_date_time_info.HostDateTimeInfo`
+    :py:class:`~pyvisdk.do.host_date_time_config.HostDateTimeConfig`,
+    :py:class:`~pyvisdk.do.host_date_time_info.HostDateTimeInfo`
     
 .. describe:: Since
     
@@ -18,6 +17,10 @@ HostNtpConfig
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_ntp_config.HostNtpConfig
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_ntp_config.HostNtpConfig
+    
+    .. py:attribute:: server
+    
+        List of time servers, specified as either IP addresses or fully qualified domain names (FQDNs).
+        
+    

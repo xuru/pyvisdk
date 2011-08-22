@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsUpgradeAvailableEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_product_spec.DistributedVirtualSwitchProductSpec`
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_product_spec.DistributedVirtualSwitchProductSpec`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ DvsUpgradeAvailableEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_upgrade_available_event.DvsUpgradeAvailableEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_upgrade_available_event.DvsUpgradeAvailableEvent
+    
+    .. py:attribute:: productInfo
+    
+        The product info of the upgrade.
+        
+    

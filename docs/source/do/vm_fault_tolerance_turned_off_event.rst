@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmFaultToleranceTurnedOffEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VmFaultToleranceTurnedOffEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_fault_tolerance_turned_off_event.VmFaultToleranceTurnedOffEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_fault_tolerance_turned_off_event.VmFaultToleranceTurnedOffEvent
+    

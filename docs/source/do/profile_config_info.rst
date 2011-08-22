@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfileConfigInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.profile.Profile`
+    :py:class:`~pyvisdk.do.profile.Profile`
     
 .. describe:: Since
     
@@ -19,8 +18,23 @@ ProfileConfigInfo
     
 .. describe:: Extended by
     
-    ClusterProfileConfigInfo, HostProfileConfigInfo
+    :py:class:`~pyvisdk.do.cluster_profile_config_info.ClusterProfileConfigInfo`,
+    :py:class:`~pyvisdk.do.host_profile_config_info.HostProfileConfigInfo`
     
-.. autoclass:: pyvisdk.do.profile_config_info.ProfileConfigInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_config_info.ProfileConfigInfo
+    
+    .. py:attribute:: annotation
+    
+        User Provided description of the profile
+        
+    
+    .. py:attribute:: enabled
+    
+        Flag indicating if the Profile is enabled
+        
+    
+    .. py:attribute:: name
+    
+        Name of the profile
+        
+    

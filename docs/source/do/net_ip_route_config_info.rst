@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NetIpRouteConfigInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.guest_stack_info.GuestStackInfo`
+    :py:class:`~pyvisdk.do.guest_stack_info.GuestStackInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.net_ip_route_config_info_ip_route.NetIpRouteConfigInfoIpRoute`
+    :py:class:`~pyvisdk.do.net_ip_route_config_info_ip_route.NetIpRouteConfigInfoIpRoute`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ NetIpRouteConfigInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.net_ip_route_config_info.NetIpRouteConfigInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.net_ip_route_config_info.NetIpRouteConfigInfo
+    
+    .. py:attribute:: ipRoute
+    
+        IP routing table for all address families.
+        
+    

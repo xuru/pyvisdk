@@ -1,23 +1,31 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmConfigFileQuery
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    TemplateConfigFileQuery
+    :py:class:`~pyvisdk.do.template_config_file_query.TemplateConfigFileQuery`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.vm_config_file_query_filter.VmConfigFileQueryFilter`,
-    :py:class:`~pyvisdk.mo.vm_config_file_query_flags.VmConfigFileQueryFlags`
+    :py:class:`~pyvisdk.do.vm_config_file_query_filter.VmConfigFileQueryFilter`,
+    :py:class:`~pyvisdk.do.vm_config_file_query_flags.VmConfigFileQueryFlags`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.file_query.FileQuery`
     
-.. autoclass:: pyvisdk.do.vm_config_file_query.VmConfigFileQuery
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_config_file_query.VmConfigFileQuery
+    
+    .. py:attribute:: details
+    
+        The details specification for the virtual machine configuration file query.
+        
+    
+    .. py:attribute:: filter
+    
+        The filter specification for the virtual machine configuration file query.
+        
+    

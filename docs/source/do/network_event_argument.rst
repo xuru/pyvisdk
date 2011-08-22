@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NetworkEventArgument
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.event.Event`
+    :py:class:`~pyvisdk.do.event.Event`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.network.Network`
+    :py:class:`~pyvisdk.do.network.Network`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ NetworkEventArgument
     
     :py:class:`~pyvisdk.mo.entity_event_argument.EntityEventArgument`
     
-.. autoclass:: pyvisdk.do.network_event_argument.NetworkEventArgument
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.network_event_argument.NetworkEventArgument
+    
+    .. py:attribute:: network
+    
+        The Network object.
+        
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationSysprepFailed
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,15 @@ CustomizationSysprepFailed
     
     :py:class:`~pyvisdk.mo.customization_failed.CustomizationFailed`
     
-.. autoclass:: pyvisdk.do.customization_sysprep_failed.CustomizationSysprepFailed
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_sysprep_failed.CustomizationSysprepFailed
+    
+    .. py:attribute:: sysprepVersion
+    
+        The version string for the sysprep files that were included in the customization package.
+        
+    
+    .. py:attribute:: systemVersion
+    
+        The version string for the system
+        
+    

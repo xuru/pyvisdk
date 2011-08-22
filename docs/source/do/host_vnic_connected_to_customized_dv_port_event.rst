@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostVnicConnectedToCustomizedDVPortEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.vnic_port_argument.VnicPortArgument`
+    :py:class:`~pyvisdk.do.vnic_port_argument.VnicPortArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ HostVnicConnectedToCustomizedDVPortEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.host_vnic_connected_to_customized_dv_port_event.HostVnicConnectedToCustomizedDVPortEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_vnic_connected_to_customized_dv_port_event.HostVnicConnectedToCustomizedDVPortEvent
+    
+    .. py:attribute:: vnic
+    
+        Information about the vnic that is using the DVport.
+        
+    

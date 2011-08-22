@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostExtraNetworksEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ HostExtraNetworksEvent
     
     :py:class:`~pyvisdk.mo.host_das_event.HostDasEvent`
     
-.. autoclass:: pyvisdk.do.host_extra_networks_event.HostExtraNetworksEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_extra_networks_event.HostExtraNetworksEvent
+    
+    .. py:attribute:: ips
+    
+        The comma-separated list of extra networks
+        
+    

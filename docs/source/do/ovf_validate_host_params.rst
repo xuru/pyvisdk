@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 OvfValidateHostParams
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    ValidateHost
+    :py:meth:`~pyvisdk.do.validate_host.ValidateHost`
     
 .. describe:: Since
     
@@ -17,6 +16,5 @@ OvfValidateHostParams
     
     :py:class:`~pyvisdk.mo.ovf_manager_common_params.OvfManagerCommonParams`
     
-.. autoclass:: pyvisdk.do.ovf_validate_host_params.OvfValidateHostParams
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.ovf_validate_host_params.OvfValidateHostParams
+    

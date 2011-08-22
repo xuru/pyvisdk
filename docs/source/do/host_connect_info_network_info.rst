@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostConnectInfoNetworkInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_connect_info.HostConnectInfo`
+    :py:class:`~pyvisdk.do.host_connect_info.HostConnectInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.network_summary.NetworkSummary`
+    :py:class:`~pyvisdk.do.network_summary.NetworkSummary`
     
 .. describe:: Extends
     
@@ -19,8 +18,12 @@ HostConnectInfoNetworkInfo
     
 .. describe:: Extended by
     
-    HostNewNetworkConnectInfo
+    :py:class:`~pyvisdk.do.host_new_network_connect_info.HostNewNetworkConnectInfo`
     
-.. autoclass:: pyvisdk.do.host_connect_info_network_info.HostConnectInfoNetworkInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_connect_info_network_info.HostConnectInfoNetworkInfo
+    
+    .. py:attribute:: summary
+    
+        Basic network information, such as network name. The managed object reference is not set.
+        
+    

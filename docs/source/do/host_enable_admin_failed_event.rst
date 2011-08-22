@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostEnableAdminFailedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.permission.Permission`
+    :py:class:`~pyvisdk.do.permission.Permission`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ HostEnableAdminFailedEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.host_enable_admin_failed_event.HostEnableAdminFailedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_enable_admin_failed_event.HostEnableAdminFailedEvent
+    
+    .. py:attribute:: permissions
+    
+        
+        
+    

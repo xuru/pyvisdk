@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostIpRouteTableInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_network_info.HostNetworkInfo`
+    :py:class:`~pyvisdk.do.host_network_info.HostNetworkInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_ip_route_entry.HostIpRouteEntry`
+    :py:class:`~pyvisdk.do.host_ip_route_entry.HostIpRouteEntry`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ HostIpRouteTableInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_ip_route_table_info.HostIpRouteTableInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_ip_route_table_info.HostIpRouteTableInfo
+    
+    .. py:attribute:: ipRoute
+    
+        The array of IpRouteEntry
+        
+    
+    .. py:attribute:: ipv6Route
+    
+        
+        
+    

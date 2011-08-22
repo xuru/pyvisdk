@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualLsiLogicSASController
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VirtualLsiLogicSASController
     
     :py:class:`~pyvisdk.mo.virtual_scsi_controller.VirtualSCSIController`
     
-.. autoclass:: pyvisdk.do.virtual_lsi_logic_sas_controller.VirtualLsiLogicSASController
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_lsi_logic_sas_controller.VirtualLsiLogicSASController
+    

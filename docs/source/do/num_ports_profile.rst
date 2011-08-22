@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NumPortsProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.virtual_switch_profile.VirtualSwitchProfile`
+    :py:class:`~pyvisdk.do.virtual_switch_profile.VirtualSwitchProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,5 @@ NumPortsProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.num_ports_profile.NumPortsProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.num_ports_profile.NumPortsProfile
+    

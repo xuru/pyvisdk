@@ -1,22 +1,25 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmMigratedEvent
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    DrsVmMigratedEvent
+    :py:class:`~pyvisdk.do.drs_vm_migrated_event.DrsVmMigratedEvent`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_event_argument.HostEventArgument`
+    :py:class:`~pyvisdk.do.host_event_argument.HostEventArgument`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_migrated_event.VmMigratedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_migrated_event.VmMigratedEvent
+    
+    .. py:attribute:: sourceHost
+    
+        The source host. (Because this is after a successful migration, the destination host is recorded in the inherited "host" property.)
+        
+    

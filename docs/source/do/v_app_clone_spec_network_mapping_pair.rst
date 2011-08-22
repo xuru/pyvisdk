@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VAppCloneSpecNetworkMappingPair
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.v_app_clone_spec.VAppCloneSpec`
+    :py:class:`~pyvisdk.do.v_app_clone_spec.VAppCloneSpec`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.network.Network`
+    :py:class:`~pyvisdk.do.network.Network`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ VAppCloneSpecNetworkMappingPair
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.v_app_clone_spec_network_mapping_pair.VAppCloneSpecNetworkMappingPair
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.v_app_clone_spec_network_mapping_pair.VAppCloneSpecNetworkMappingPair
+    
+    .. py:attribute:: destination
+    
+        The destination network
+        
+    
+    .. py:attribute:: source
+    
+        The source network
+        
+    

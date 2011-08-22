@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 OptionProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_apply_profile.HostApplyProfile`
+    :py:class:`~pyvisdk.do.host_apply_profile.HostApplyProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ OptionProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.option_profile.OptionProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.option_profile.OptionProfile
+    
+    .. py:attribute:: key
+    
+        The linkable identifier
+        
+    

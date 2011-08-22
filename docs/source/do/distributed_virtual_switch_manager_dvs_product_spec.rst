@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DistributedVirtualSwitchManagerDvsProductSpec
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    QueryDvsCheckCompatibility
+    :py:meth:`~pyvisdk.do.query_dvs_check_compatibility.QueryDvsCheckCompatibility`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch`,
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_product_spec.DistributedVirtualSwitchProductSpec`
+    :py:class:`~pyvisdk.do.distributed_virtual_switch.DistributedVirtualSwitch`,
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_product_spec.DistributedVirtualSwitchProductSpec`
     
 .. describe:: Since
     
@@ -22,6 +21,15 @@ DistributedVirtualSwitchManagerDvsProductSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.distributed_virtual_switch_manager_dvs_product_spec.DistributedVirtualSwitchManagerDvsProductSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.distributed_virtual_switch_manager_dvs_product_spec.DistributedVirtualSwitchManagerDvsProductSpec
+    
+    .. py:attribute:: distributedVirtualSwitch
+    
+        Get ProductSpec from the existing DVS
+        
+    
+    .. py:attribute:: newSwitchProductSpec
+    
+        The ProductSpec for new DVS
+        
+    

@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostDhcpServiceConfig
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_network_config.HostNetworkConfig`
+    :py:class:`~pyvisdk.do.host_network_config.HostNetworkConfig`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_dhcp_service_spec.HostDhcpServiceSpec`
+    :py:class:`~pyvisdk.do.host_dhcp_service_spec.HostDhcpServiceSpec`
     
 .. describe:: Since
     
@@ -21,6 +20,20 @@ HostDhcpServiceConfig
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_dhcp_service_config.HostDhcpServiceConfig
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_dhcp_service_config.HostDhcpServiceConfig
+    
+    .. py:attribute:: changeOperation
+    
+        Indicates the change operation to apply on this configuration specification.
+        
+    
+    .. py:attribute:: key
+    
+        The instance ID of the DHCP service.
+        
+    
+    .. py:attribute:: spec
+    
+        Specification of the DHCP service.
+        
+    

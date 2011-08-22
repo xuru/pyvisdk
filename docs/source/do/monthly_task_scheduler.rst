@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 MonthlyTaskScheduler
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    MonthlyByDayTaskScheduler, MonthlyByWeekdayTaskScheduler
+    :py:class:`~pyvisdk.do.monthly_by_day_task_scheduler.MonthlyByDayTaskScheduler`,
+    :py:class:`~pyvisdk.do.monthly_by_weekday_task_scheduler.MonthlyByWeekdayTaskScheduler`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.daily_task_scheduler.DailyTaskScheduler`
     
-.. autoclass:: pyvisdk.do.monthly_task_scheduler.MonthlyTaskScheduler
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.monthly_task_scheduler.MonthlyTaskScheduler
+    

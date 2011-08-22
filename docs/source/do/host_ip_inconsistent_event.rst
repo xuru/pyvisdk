@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostIpInconsistentEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,15 @@ HostIpInconsistentEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.host_ip_inconsistent_event.HostIpInconsistentEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_ip_inconsistent_event.HostIpInconsistentEvent
+    
+    .. py:attribute:: ipAddress
+    
+        
+        
+    
+    .. py:attribute:: ipAddress2
+    
+        
+        
+    

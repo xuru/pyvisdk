@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 FileBackedVirtualDiskSpec
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ FileBackedVirtualDiskSpec
     
     :py:class:`~pyvisdk.mo.virtual_disk_spec.VirtualDiskSpec`
     
-.. autoclass:: pyvisdk.do.file_backed_virtual_disk_spec.FileBackedVirtualDiskSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.file_backed_virtual_disk_spec.FileBackedVirtualDiskSpec
+    
+    .. py:attribute:: capacityKb
+    
+        Specify the capacity of the virtual disk in Kb.
+        
+    

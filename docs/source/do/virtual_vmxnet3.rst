@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualVmxnet3
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VirtualVmxnet3
     
     :py:class:`~pyvisdk.mo.virtual_vmxnet.VirtualVmxnet`
     
-.. autoclass:: pyvisdk.do.virtual_vmxnet3.VirtualVmxnet3
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_vmxnet3.VirtualVmxnet3
+    

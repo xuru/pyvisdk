@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostDatastoreConnectInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_connect_info.HostConnectInfo`
+    :py:class:`~pyvisdk.do.host_connect_info.HostConnectInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.datastore_summary.DatastoreSummary`
+    :py:class:`~pyvisdk.do.datastore_summary.DatastoreSummary`
     
 .. describe:: Extends
     
@@ -19,8 +18,13 @@ HostDatastoreConnectInfo
     
 .. describe:: Extended by
     
-    HostDatastoreExistsConnectInfo, HostDatastoreNameConflictConnectInfo
+    :py:class:`~pyvisdk.do.host_datastore_exists_connect_info.HostDatastoreExistsConnectInfo`,
+    :py:class:`~pyvisdk.do.host_datastore_name_conflict_connect_info.HostDatastoreNameConflictConnectInfo`
     
-.. autoclass:: pyvisdk.do.host_datastore_connect_info.HostDatastoreConnectInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_datastore_connect_info.HostDatastoreConnectInfo
+    
+    .. py:attribute:: summary
+    
+        Basic datastore information. The managed object reference is not set.
+        
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 LicenseRestrictedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ LicenseRestrictedEvent
     
     :py:class:`~pyvisdk.mo.license_event.LicenseEvent`
     
-.. autoclass:: pyvisdk.do.license_restricted_event.LicenseRestrictedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.license_restricted_event.LicenseRestrictedEvent
+    

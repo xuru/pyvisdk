@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsPortJoinPortgroupEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,20 @@ DvsPortJoinPortgroupEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_port_join_portgroup_event.DvsPortJoinPortgroupEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_port_join_portgroup_event.DvsPortJoinPortgroupEvent
+    
+    .. py:attribute:: portgroupKey
+    
+        The portgroup key.
+        
+    
+    .. py:attribute:: portgroupName
+    
+        The portgroup name.
+        
+    
+    .. py:attribute:: portKey
+    
+        The port key.
+        
+    

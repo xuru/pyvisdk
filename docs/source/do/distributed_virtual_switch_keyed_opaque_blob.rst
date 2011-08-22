@@ -1,20 +1,19 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DistributedVirtualSwitchKeyedOpaqueBlob
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_host_member_config_info.DistributedVirtualSwitchHostMemberConfigInfo`,
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_host_member_config_spec.DistributedVirtualSwitchHostMemberConfigSpec`,
-    :py:class:`~pyvisdk.mo.dv_portgroup_config_info.DVPortgroupConfigInfo`,
-    :py:class:`~pyvisdk.mo.dv_portgroup_config_spec.DVPortgroupConfigSpec`,
-    :py:class:`~pyvisdk.mo.dv_port_state.DVPortState`,
-    :py:class:`~pyvisdk.mo.dvs_config_info.DVSConfigInfo`,
-    :py:class:`~pyvisdk.mo.dvs_config_spec.DVSConfigSpec`,
-    :py:class:`~pyvisdk.mo.dvs_vendor_specific_config.DVSVendorSpecificConfig`
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_host_member_config_info.DistributedVirtualSwitchHostMemberConfigInfo`,
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_host_member_config_spec.DistributedVirtualSwitchHostMemberConfigSpec`,
+    :py:class:`~pyvisdk.do.dv_portgroup_config_info.DVPortgroupConfigInfo`,
+    :py:class:`~pyvisdk.do.dv_portgroup_config_spec.DVPortgroupConfigSpec`,
+    :py:class:`~pyvisdk.do.dv_port_state.DVPortState`,
+    :py:class:`~pyvisdk.do.dvs_config_info.DVSConfigInfo`,
+    :py:class:`~pyvisdk.do.dvs_config_spec.DVSConfigSpec`,
+    :py:class:`~pyvisdk.do.dvs_vendor_specific_config.DVSVendorSpecificConfig`
     
 .. describe:: Since
     
@@ -24,6 +23,15 @@ DistributedVirtualSwitchKeyedOpaqueBlob
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.distributed_virtual_switch_keyed_opaque_blob.DistributedVirtualSwitchKeyedOpaqueBlob
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.distributed_virtual_switch_keyed_opaque_blob.DistributedVirtualSwitchKeyedOpaqueBlob
+    
+    .. py:attribute:: key
+    
+        A key that identifies the opaque binary blob.
+        
+    
+    .. py:attribute:: opaqueData
+    
+        The opaque data. It is recommended that base64 encoding be used for binary data.
+        
+    

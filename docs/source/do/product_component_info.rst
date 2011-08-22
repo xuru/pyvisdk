@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProductComponentInfo
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -15,8 +14,27 @@ ProductComponentInfo
     
 .. describe:: Returned by
     
-    RetrieveProductComponents
+    :py:meth:`~pyvisdk.do.retrieve_product_components.RetrieveProductComponents`
     
-.. autoclass:: pyvisdk.do.product_component_info.ProductComponentInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.product_component_info.ProductComponentInfo
+    
+    .. py:attribute:: id
+    
+        Opaque identifier that is unique for this product component
+        
+    
+    .. py:attribute:: name
+    
+        Canonical name of product component
+        
+    
+    .. py:attribute:: release
+    
+        Release property is a number which increments with each new release of product. Product release may not rev version but release number is always incremented.
+        
+    
+    .. py:attribute:: version
+    
+        Version of product component
+        
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostDirectoryStoreInfo
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    HostActiveDirectoryInfo
+    :py:class:`~pyvisdk.do.host_active_directory_info.HostActiveDirectoryInfo`
     
 .. describe:: Since
     
@@ -17,6 +16,5 @@ HostDirectoryStoreInfo
     
     :py:class:`~pyvisdk.mo.host_authentication_store_info.HostAuthenticationStoreInfo`
     
-.. autoclass:: pyvisdk.do.host_directory_store_info.HostDirectoryStoreInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_directory_store_info.HostDirectoryStoreInfo
+    

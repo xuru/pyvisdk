@@ -1,16 +1,15 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfilePropertyPath
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.compliance_locator.ComplianceLocator`,
-    :py:class:`~pyvisdk.mo.profile_deferred_policy_option_parameter.ProfileDeferredPolicyOptionParameter`,
-    :py:class:`~pyvisdk.mo.profile_execute_error.ProfileExecuteError`,
-    :py:class:`~pyvisdk.mo.profile_update_failed_update_failure.ProfileUpdateFailedUpdateFailure`
+    :py:class:`~pyvisdk.do.compliance_locator.ComplianceLocator`,
+    :py:class:`~pyvisdk.do.profile_deferred_policy_option_parameter.ProfileDeferredPolicyOptionParameter`,
+    :py:class:`~pyvisdk.do.profile_execute_error.ProfileExecuteError`,
+    :py:class:`~pyvisdk.do.profile_update_failed_update_failure.ProfileUpdateFailedUpdateFailure`
     
 .. describe:: Since
     
@@ -20,6 +19,15 @@ ProfilePropertyPath
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.profile_property_path.ProfilePropertyPath
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_property_path.ProfilePropertyPath
+    
+    .. py:attribute:: policyId
+    
+        Id of the Policy part
+        
+    
+    .. py:attribute:: profilePath
+    
+        Complete path to the leaf profile
+        
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfileReferenceHostChangedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_system.HostSystem`
+    :py:class:`~pyvisdk.do.host_system.HostSystem`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ ProfileReferenceHostChangedEvent
     
     :py:class:`~pyvisdk.mo.profile_event.ProfileEvent`
     
-.. autoclass:: pyvisdk.do.profile_reference_host_changed_event.ProfileReferenceHostChangedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_reference_host_changed_event.ProfileReferenceHostChangedEvent
+    
+    .. py:attribute:: referenceHost
+    
+        The newly associated reference host with this profile
+        
+    

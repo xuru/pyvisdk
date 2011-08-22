@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterHostGroup
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_system.HostSystem`
+    :py:class:`~pyvisdk.do.host_system.HostSystem`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ ClusterHostGroup
     
     :py:class:`~pyvisdk.mo.cluster_group_info.ClusterGroupInfo`
     
-.. autoclass:: pyvisdk.do.cluster_host_group.ClusterHostGroup
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_host_group.ClusterHostGroup
+    
+    .. py:attribute:: host
+    
+        List of hosts that are part of this group. A host group can contain zero or more hosts.
+        
+    

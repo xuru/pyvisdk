@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DiskChangeExtent
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.disk_change_info.DiskChangeInfo`
+    :py:class:`~pyvisdk.do.disk_change_info.DiskChangeInfo`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ DiskChangeExtent
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.disk_change_extent.DiskChangeExtent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.disk_change_extent.DiskChangeExtent
+    
+    .. py:attribute:: length
+    
+        Length (in bytes) of modified area
+        
+    
+    .. py:attribute:: start
+    
+        Start offset (in bytes) of modified area
+        
+    

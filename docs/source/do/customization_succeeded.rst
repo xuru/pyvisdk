@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationSucceeded
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ CustomizationSucceeded
     
     :py:class:`~pyvisdk.mo.customization_event.CustomizationEvent`
     
-.. autoclass:: pyvisdk.do.customization_succeeded.CustomizationSucceeded
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_succeeded.CustomizationSucceeded
+    

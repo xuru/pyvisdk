@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationIpV6Generator
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.customization_ip_settings_ip_v6_address_spec.CustomizationIPSettingsIpV6AddressSpec`
+    :py:class:`~pyvisdk.do.customization_ip_settings_ip_v6_address_spec.CustomizationIPSettingsIpV6AddressSpec`
     
 .. describe:: Since
     
@@ -19,10 +18,12 @@ CustomizationIpV6Generator
     
 .. describe:: Extended by
     
-    CustomizationAutoIpV6Generator, CustomizationCustomIpV6Generator,
-    CustomizationDhcpIpV6Generator, CustomizationFixedIpV6,
-    CustomizationStatelessIpV6Generator, CustomizationUnknownIpV6Generator
+    :py:class:`~pyvisdk.do.customization_auto_ip_v6_generator.CustomizationAutoIpV6Generator`,
+    :py:class:`~pyvisdk.do.customization_custom_ip_v6_generator.CustomizationCustomIpV6Generator`,
+    :py:class:`~pyvisdk.do.customization_dhcp_ip_v6_generator.CustomizationDhcpIpV6Generator`,
+    :py:class:`~pyvisdk.do.customization_fixed_ip_v6.CustomizationFixedIpV6`,
+    :py:class:`~pyvisdk.do.customization_stateless_ip_v6_generator.CustomizationStatelessIpV6Generator`,
+    :py:class:`~pyvisdk.do.customization_unknown_ip_v6_generator.CustomizationUnknownIpV6Generator`
     
-.. autoclass:: pyvisdk.do.customization_ip_v6_generator.CustomizationIpV6Generator
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_ip_v6_generator.CustomizationIpV6Generator
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmShutdownOnIsolationEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_event_argument.HostEventArgument`
+    :py:class:`~pyvisdk.do.host_event_argument.HostEventArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ VmShutdownOnIsolationEvent
     
     :py:class:`~pyvisdk.mo.vm_powered_off_event.VmPoweredOffEvent`
     
-.. autoclass:: pyvisdk.do.vm_shutdown_on_isolation_event.VmShutdownOnIsolationEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_shutdown_on_isolation_event.VmShutdownOnIsolationEvent
+    
+    .. py:attribute:: isolatedHost
+    
+        The isolated host on which a virtual machine was shutdown.
+        
+    
+    .. py:attribute:: shutdownResult
+    
+        Indicates if the shutdown was successful. If the shutdown failed, the virtual machine was powered off. see Operation
+        
+    

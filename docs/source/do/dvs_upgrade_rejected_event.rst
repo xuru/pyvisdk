@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsUpgradeRejectedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_product_spec.DistributedVirtualSwitchProductSpec`
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_product_spec.DistributedVirtualSwitchProductSpec`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ DvsUpgradeRejectedEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_upgrade_rejected_event.DvsUpgradeRejectedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_upgrade_rejected_event.DvsUpgradeRejectedEvent
+    
+    .. py:attribute:: productInfo
+    
+        The product info of the upgrade.
+        
+    

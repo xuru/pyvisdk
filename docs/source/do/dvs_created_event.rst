@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsCreatedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.folder_event_argument.FolderEventArgument`
+    :py:class:`~pyvisdk.do.folder_event_argument.FolderEventArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ DvsCreatedEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_created_event.DvsCreatedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_created_event.DvsCreatedEvent
+    
+    .. py:attribute:: parent
+    
+        The folder where the DistributedVirtualSwitch is created.
+        
+    

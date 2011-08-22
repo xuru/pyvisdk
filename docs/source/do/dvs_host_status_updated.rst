@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsHostStatusUpdated
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_event_argument.HostEventArgument`
+    :py:class:`~pyvisdk.do.host_event_argument.HostEventArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,30 @@ DvsHostStatusUpdated
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_host_status_updated.DvsHostStatusUpdated
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_host_status_updated.DvsHostStatusUpdated
+    
+    .. py:attribute:: hostMember
+    
+        The host.
+        
+    
+    .. py:attribute:: newStatus
+    
+        Host's new status.
+        
+    
+    .. py:attribute:: newStatusDetail
+    
+        Comments regarding host's new status.
+        
+    
+    .. py:attribute:: oldStatus
+    
+        Host's old status.
+        
+    
+    .. py:attribute:: oldStatusDetail
+    
+        Comments regarding host's old status.
+        
+    

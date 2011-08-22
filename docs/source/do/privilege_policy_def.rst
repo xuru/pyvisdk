@@ -1,17 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 PrivilegePolicyDef
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    AddCustomFieldDef, AddCustomFieldDef
+    :py:meth:`~pyvisdk.do.add_custom_field_def.AddCustomFieldDef`,
+    :py:meth:`~pyvisdk.do.add_custom_field_def.AddCustomFieldDef`
     
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.custom_field_def.CustomFieldDef`
+    :py:class:`~pyvisdk.do.custom_field_def.CustomFieldDef`
     
 .. describe:: Since
     
@@ -21,6 +21,25 @@ PrivilegePolicyDef
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.privilege_policy_def.PrivilegePolicyDef
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.privilege_policy_def.PrivilegePolicyDef
+    
+    .. py:attribute:: createPrivilege
+    
+        Name of privilege required for creation.
+        
+    
+    .. py:attribute:: deletePrivilege
+    
+        Name of privilege required for deleting.
+        
+    
+    .. py:attribute:: readPrivilege
+    
+        Name of privilege required for reading.
+        
+    
+    .. py:attribute:: updatePrivilege
+    
+        Name of privilege required for updating.
+        
+    

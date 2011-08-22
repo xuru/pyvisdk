@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterNotAttemptedVmInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.cluster_power_on_vm_result.ClusterPowerOnVmResult`
+    :py:class:`~pyvisdk.do.cluster_power_on_vm_result.ClusterPowerOnVmResult`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.virtual_machine.VirtualMachine`
+    :py:class:`~pyvisdk.do.virtual_machine.VirtualMachine`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ ClusterNotAttemptedVmInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.cluster_not_attempted_vm_info.ClusterNotAttemptedVmInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_not_attempted_vm_info.ClusterNotAttemptedVmInfo
+    
+    .. py:attribute:: fault
+    
+        The exception returned.
+        
+    
+    .. py:attribute:: vm
+    
+        The virtual machine that can not be powered on.
+        
+    

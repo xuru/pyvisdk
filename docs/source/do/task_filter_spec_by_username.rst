@@ -1,18 +1,26 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 TaskFilterSpecByUsername
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.task_filter_spec.TaskFilterSpec`
+    :py:class:`~pyvisdk.do.task_filter_spec.TaskFilterSpec`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.task_filter_spec_by_username.TaskFilterSpecByUsername
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.task_filter_spec_by_username.TaskFilterSpecByUsername
+    
+    .. py:attribute:: systemUser
+    
+        Whether or not to filter by system user. If set to true, filters for system user event.
+        
+    
+    .. py:attribute:: userList
+    
+        Specifies the username list to use in the filter. If not set, then all regular user tasks are collected.
+        
+    

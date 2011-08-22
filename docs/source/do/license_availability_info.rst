@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 LicenseAvailabilityInfo
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.license_feature_info.LicenseFeatureInfo`
+    :py:class:`~pyvisdk.do.license_feature_info.LicenseFeatureInfo`
     
 .. describe:: Extends
     
@@ -15,8 +14,22 @@ LicenseAvailabilityInfo
     
 .. describe:: Returned by
     
-    QueryLicenseSourceAvailability
+    :py:meth:`~pyvisdk.do.query_license_source_availability.QueryLicenseSourceAvailability`
     
-.. autoclass:: pyvisdk.do.license_availability_info.LicenseAvailabilityInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.license_availability_info.LicenseAvailabilityInfo
+    
+    .. py:attribute:: available
+    
+        The number of licenses that have not yet been reserved on the source.
+        
+    
+    .. py:attribute:: feature
+    
+        Describes the feature.
+        
+    
+    .. py:attribute:: total
+    
+        Total number of licenses for this given type that are installed on the source.
+        
+    

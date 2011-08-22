@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationStartedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ CustomizationStartedEvent
     
     :py:class:`~pyvisdk.mo.customization_event.CustomizationEvent`
     
-.. autoclass:: pyvisdk.do.customization_started_event.CustomizationStartedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_started_event.CustomizationStartedEvent
+    

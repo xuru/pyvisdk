@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfilePolicyMetadata
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.extended_element_description.ExtendedElementDescription`,
-    :py:class:`~pyvisdk.mo.profile_policy_option_metadata.ProfilePolicyOptionMetadata`
+    :py:class:`~pyvisdk.do.extended_element_description.ExtendedElementDescription`,
+    :py:class:`~pyvisdk.do.profile_policy_option_metadata.ProfilePolicyOptionMetadata`
     
 .. describe:: Since
     
@@ -20,8 +19,17 @@ ProfilePolicyMetadata
     
 .. describe:: Returned by
     
-    QueryPolicyMetadata
+    :py:meth:`~pyvisdk.do.query_policy_metadata.QueryPolicyMetadata`
     
-.. autoclass:: pyvisdk.do.profile_policy_metadata.ProfilePolicyMetadata
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_policy_metadata.ProfilePolicyMetadata
+    
+    .. py:attribute:: id
+    
+        Identifier of the Policy.
+        
+    
+    .. py:attribute:: possibleOption
+    
+        The possible policy options that can be set for a policy of the given kind.
+        
+    

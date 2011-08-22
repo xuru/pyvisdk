@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterFailoverResourcesAdmissionControlInfo
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,15 @@ ClusterFailoverResourcesAdmissionControlInfo
     
     :py:class:`~pyvisdk.mo.cluster_das_admission_control_info.ClusterDasAdmissionControlInfo`
     
-.. autoclass:: pyvisdk.do.cluster_failover_resources_admission_control_info.ClusterFailoverResourcesAdmissionControlInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_failover_resources_admission_control_info.ClusterFailoverResourcesAdmissionControlInfo
+    
+    .. py:attribute:: currentCpuFailoverResourcesPercent
+    
+        The percentage of cpu resources in the cluster available for failover.
+        
+    
+    .. py:attribute:: currentMemoryFailoverResourcesPercent
+    
+        The percentage of memory resources in the cluster available for failover.
+        
+    

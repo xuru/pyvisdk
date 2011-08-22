@@ -1,27 +1,50 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostDiagnosticPartitionCreateSpec
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    CreateDiagnosticPartition
+    :py:meth:`~pyvisdk.do.create_diagnostic_partition.CreateDiagnosticPartition`
     
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_diagnostic_partition_create_description.HostDiagnosticPartitionCreateDescription`
+    :py:class:`~pyvisdk.do.host_diagnostic_partition_create_description.HostDiagnosticPartitionCreateDescription`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_disk_partition_spec.HostDiskPartitionSpec`,
-    :py:class:`~pyvisdk.mo.host_scsi_disk_partition.HostScsiDiskPartition`
+    :py:class:`~pyvisdk.do.host_disk_partition_spec.HostDiskPartitionSpec`,
+    :py:class:`~pyvisdk.do.host_scsi_disk_partition.HostScsiDiskPartition`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec
+    
+    .. py:attribute:: active
+    
+        Indicates if the created diagnostic partition should be made the active diagnostic partition. If not supplied, the system will decide whether or not the created specification is active.
+        
+    
+    .. py:attribute:: diagnosticType
+    
+        Indicates the type of the diagnostic partition to be created.
+        
+    
+    .. py:attribute:: id
+    
+        Diagnostic partition identification information.
+        
+    
+    .. py:attribute:: partition
+    
+        Partitioning specification.
+        
+    
+    .. py:attribute:: storageType
+    
+        Indicates the storage type where the diagnostic partition will be created.
+        
+    

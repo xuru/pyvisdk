@@ -1,14 +1,22 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DatastoreRenamedEvent
-========================================
+================================================================================
 
 
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.datastore_event.DatastoreEvent`
     
-.. autoclass:: pyvisdk.do.datastore_renamed_event.DatastoreRenamedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.datastore_renamed_event.DatastoreRenamedEvent
+    
+    .. py:attribute:: newName
+    
+        The new datastore name.
+        
+    
+    .. py:attribute:: oldName
+    
+        The old datastore name.
+        
+    

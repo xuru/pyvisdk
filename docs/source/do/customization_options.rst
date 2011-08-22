@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationOptions
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.customization_spec.CustomizationSpec`
+    :py:class:`~pyvisdk.do.customization_spec.CustomizationSpec`
     
 .. describe:: Extends
     
@@ -15,8 +14,8 @@ CustomizationOptions
     
 .. describe:: Extended by
     
-    CustomizationLinuxOptions, CustomizationWinOptions
+    :py:class:`~pyvisdk.do.customization_linux_options.CustomizationLinuxOptions`,
+    :py:class:`~pyvisdk.do.customization_win_options.CustomizationWinOptions`
     
-.. autoclass:: pyvisdk.do.customization_options.CustomizationOptions
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_options.CustomizationOptions
+    

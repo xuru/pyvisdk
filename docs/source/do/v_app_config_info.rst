@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VAppConfigInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.virtual_app.VirtualApp`
+    :py:class:`~pyvisdk.do.virtual_app.VirtualApp`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.v_app_entity_config_info.VAppEntityConfigInfo`
+    :py:class:`~pyvisdk.do.v_app_entity_config_info.VAppEntityConfigInfo`
     
 .. describe:: Since
     
@@ -21,6 +20,20 @@ VAppConfigInfo
     
     :py:class:`~pyvisdk.mo.vm_config_info.VmConfigInfo`
     
-.. autoclass:: pyvisdk.do.v_app_config_info.VAppConfigInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.v_app_config_info.VAppConfigInfo
+    
+    .. py:attribute:: annotation
+    
+        Description for the vApp.
+        
+    
+    .. py:attribute:: entityConfig
+    
+        Configuration of sub-entities (virtual machine or vApp).
+        
+    
+    .. py:attribute:: instanceUuid
+    
+        vCenter-specific 128-bit UUID of a vApp, represented as a hexademical string. This identifier is used by vCenter to uniquely identify all vApp instances.
+        
+    

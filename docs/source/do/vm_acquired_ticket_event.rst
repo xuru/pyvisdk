@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmAcquiredTicketEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ VmAcquiredTicketEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_acquired_ticket_event.VmAcquiredTicketEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_acquired_ticket_event.VmAcquiredTicketEvent
+    
+    .. py:attribute:: ticketType
+    
+        The type of the ticket
+        
+    

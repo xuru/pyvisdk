@@ -1,23 +1,31 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 EventFilterSpecByEntity
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.event_filter_spec.EventFilterSpec`
+    :py:class:`~pyvisdk.do.event_filter_spec.EventFilterSpec`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.event_filter_spec_recursion_option.EventFilterSpecRecursionOption`,
-    :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`
+    :py:class:`~pyvisdk.do.event_filter_spec_recursion_option.EventFilterSpecRecursionOption`,
+    :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.event_filter_spec_by_entity.EventFilterSpecByEntity
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.event_filter_spec_by_entity.EventFilterSpecByEntity
+    
+    .. py:attribute:: entity
+    
+        The managed entity to which the event pertains.
+        
+    
+    .. py:attribute:: recursion
+    
+        Specification of related managed entities in the inventory hierarchy.
+        
+    

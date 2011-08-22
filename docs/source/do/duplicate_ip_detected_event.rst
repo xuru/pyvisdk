@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DuplicateIpDetectedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,15 @@ DuplicateIpDetectedEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.duplicate_ip_detected_event.DuplicateIpDetectedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.duplicate_ip_detected_event.DuplicateIpDetectedEvent
+    
+    .. py:attribute:: duplicateIP
+    
+        The Duplicate IP address detected.
+        
+    
+    .. py:attribute:: macAddress
+    
+        The MAC associated with duplicate IP.
+        
+    

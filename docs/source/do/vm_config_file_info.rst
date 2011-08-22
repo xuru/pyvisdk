@@ -1,18 +1,21 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmConfigFileInfo
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    TemplateConfigFileInfo
+    :py:class:`~pyvisdk.do.template_config_file_info.TemplateConfigFileInfo`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.file_info.FileInfo`
     
-.. autoclass:: pyvisdk.do.vm_config_file_info.VmConfigFileInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_config_file_info.VmConfigFileInfo
+    
+    .. py:attribute:: configVersion
+    
+        
+        
+    

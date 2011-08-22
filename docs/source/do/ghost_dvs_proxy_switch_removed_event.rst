@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 GhostDvsProxySwitchRemovedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ GhostDvsProxySwitchRemovedEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.ghost_dvs_proxy_switch_removed_event.GhostDvsProxySwitchRemovedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.ghost_dvs_proxy_switch_removed_event.GhostDvsProxySwitchRemovedEvent
+    
+    .. py:attribute:: switchUuid
+    
+        The list of ghost DVS proxy switch uuid that were removed.
+        
+    

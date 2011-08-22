@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DasClusterIsolatedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ DasClusterIsolatedEvent
     
     :py:class:`~pyvisdk.mo.cluster_event.ClusterEvent`
     
-.. autoclass:: pyvisdk.do.das_cluster_isolated_event.DasClusterIsolatedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.das_cluster_isolated_event.DasClusterIsolatedEvent
+    

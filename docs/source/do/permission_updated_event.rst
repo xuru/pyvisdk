@@ -1,18 +1,26 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 PermissionUpdatedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.role_event_argument.RoleEventArgument`
+    :py:class:`~pyvisdk.do.role_event_argument.RoleEventArgument`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.permission_event.PermissionEvent`
     
-.. autoclass:: pyvisdk.do.permission_updated_event.PermissionUpdatedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.permission_updated_event.PermissionUpdatedEvent
+    
+    .. py:attribute:: propagate
+    
+        Whether or not the permission applies to sub-entities.
+        
+    
+    .. py:attribute:: role
+    
+        The associated role.
+        
+    

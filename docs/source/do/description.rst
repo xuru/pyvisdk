@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 Description
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.authorization_role.AuthorizationRole`,
-    :py:class:`~pyvisdk.mo.diagnostic_manager_log_descriptor.DiagnosticManagerLogDescriptor`,
-    :py:class:`~pyvisdk.mo.extension.Extension`,
-    :py:class:`~pyvisdk.mo.extension_client_info.ExtensionClientInfo`,
-    :py:class:`~pyvisdk.mo.extension_server_info.ExtensionServerInfo`,
-    :py:class:`~pyvisdk.mo.virtual_device.VirtualDevice`
+    :py:class:`~pyvisdk.do.authorization_role.AuthorizationRole`,
+    :py:class:`~pyvisdk.do.diagnostic_manager_log_descriptor.DiagnosticManagerLogDescriptor`,
+    :py:class:`~pyvisdk.do.extension.Extension`,
+    :py:class:`~pyvisdk.do.extension_client_info.ExtensionClientInfo`,
+    :py:class:`~pyvisdk.do.extension_server_info.ExtensionServerInfo`,
+    :py:class:`~pyvisdk.do.virtual_device.VirtualDevice`
     
 .. describe:: Extends
     
@@ -20,8 +19,20 @@ Description
     
 .. describe:: Extended by
     
-    ElementDescription, ExtendedDescription, MethodDescription, TypeDescription
+    :py:class:`~pyvisdk.do.element_description.ElementDescription`,
+    :py:class:`~pyvisdk.do.extended_description.ExtendedDescription`,
+    :py:class:`~pyvisdk.do.method_description.MethodDescription`,
+    :py:class:`~pyvisdk.do.type_description.TypeDescription`
     
-.. autoclass:: pyvisdk.do.description.Description
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.description.Description
+    
+    .. py:attribute:: label
+    
+        Display label.
+        
+    
+    .. py:attribute:: summary
+    
+        Summary description.
+        
+    

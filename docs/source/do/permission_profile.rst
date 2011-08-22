@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 PermissionProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.security_profile.SecurityProfile`
+    :py:class:`~pyvisdk.do.security_profile.SecurityProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ PermissionProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.permission_profile.PermissionProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.permission_profile.PermissionProfile
+    
+    .. py:attribute:: key
+    
+        
+        
+    

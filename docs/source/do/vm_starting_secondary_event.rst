@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmStartingSecondaryEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VmStartingSecondaryEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_starting_secondary_event.VmStartingSecondaryEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_starting_secondary_event.VmStartingSecondaryEvent
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NetIpRouteConfigSpec
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.net_ip_route_config_spec_ip_route_spec.NetIpRouteConfigSpecIpRouteSpec`
+    :py:class:`~pyvisdk.do.net_ip_route_config_spec_ip_route_spec.NetIpRouteConfigSpecIpRouteSpec`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ NetIpRouteConfigSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.net_ip_route_config_spec.NetIpRouteConfigSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.net_ip_route_config_spec.NetIpRouteConfigSpec
+    
+    .. py:attribute:: ipRoute
+    
+        The set of updates to apply to the routing table.
+        
+    

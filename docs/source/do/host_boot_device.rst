@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostBootDevice
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_boot_device_info.HostBootDeviceInfo`
+    :py:class:`~pyvisdk.do.host_boot_device_info.HostBootDeviceInfo`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ HostBootDevice
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_boot_device.HostBootDevice
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_boot_device.HostBootDevice
+    
+    .. py:attribute:: description
+    
+        The description of the boot device.
+        
+    
+    .. py:attribute:: key
+    
+        The identifier for the boot device.
+        
+    

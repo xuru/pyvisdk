@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationIdentitySettings
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.customization_spec.CustomizationSpec`
+    :py:class:`~pyvisdk.do.customization_spec.CustomizationSpec`
     
 .. describe:: Extends
     
@@ -15,8 +14,9 @@ CustomizationIdentitySettings
     
 .. describe:: Extended by
     
-    CustomizationLinuxPrep, CustomizationSysprep, CustomizationSysprepText
+    :py:class:`~pyvisdk.do.customization_linux_prep.CustomizationLinuxPrep`,
+    :py:class:`~pyvisdk.do.customization_sysprep.CustomizationSysprep`,
+    :py:class:`~pyvisdk.do.customization_sysprep_text.CustomizationSysprepText`
     
-.. autoclass:: pyvisdk.do.customization_identity_settings.CustomizationIdentitySettings
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_identity_settings.CustomizationIdentitySettings
+    

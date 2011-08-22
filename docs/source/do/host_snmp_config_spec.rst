@@ -1,21 +1,20 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostSnmpConfigSpec
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    ReconfigureSnmpAgent
+    :py:meth:`~pyvisdk.do.reconfigure_snmp_agent.ReconfigureSnmpAgent`
     
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_snmp_system.HostSnmpSystem`
+    :py:class:`~pyvisdk.do.host_snmp_system.HostSnmpSystem`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_snmp_destination.HostSnmpDestination`
+    :py:class:`~pyvisdk.do.host_snmp_destination.HostSnmpDestination`
     
 .. describe:: Since
     
@@ -25,6 +24,25 @@ HostSnmpConfigSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_snmp_config_spec.HostSnmpConfigSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_snmp_config_spec.HostSnmpConfigSpec
+    
+    .. py:attribute:: enabled
+    
+        
+        
+    
+    .. py:attribute:: port
+    
+        
+        
+    
+    .. py:attribute:: readOnlyCommunities
+    
+        
+        
+    
+    .. py:attribute:: trapTargets
+    
+        
+        
+    

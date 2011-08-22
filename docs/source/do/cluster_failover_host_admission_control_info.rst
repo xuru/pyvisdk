@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterFailoverHostAdmissionControlInfo
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.cluster_failover_host_admission_control_info_host_status.ClusterFailoverHostAdmissionControlInfoHostStatus`
+    :py:class:`~pyvisdk.do.cluster_failover_host_admission_control_info_host_status.ClusterFailoverHostAdmissionControlInfoHostStatus`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ ClusterFailoverHostAdmissionControlInfo
     
     :py:class:`~pyvisdk.mo.cluster_das_admission_control_info.ClusterDasAdmissionControlInfo`
     
-.. autoclass:: pyvisdk.do.cluster_failover_host_admission_control_info.ClusterFailoverHostAdmissionControlInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_failover_host_admission_control_info.ClusterFailoverHostAdmissionControlInfo
+    
+    .. py:attribute:: hostStatus
+    
+        Status of the failover hosts in the cluster.
+        
+    

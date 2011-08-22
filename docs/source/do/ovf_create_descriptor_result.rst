@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 OvfCreateDescriptorResult
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.localized_method_fault.LocalizedMethodFault`
+    :py:class:`~pyvisdk.do.localized_method_fault.LocalizedMethodFault`
     
 .. describe:: Since
     
@@ -19,8 +18,27 @@ OvfCreateDescriptorResult
     
 .. describe:: Returned by
     
-    CreateDescriptor
+    :py:meth:`~pyvisdk.do.create_descriptor.CreateDescriptor`
     
-.. autoclass:: pyvisdk.do.ovf_create_descriptor_result.OvfCreateDescriptorResult
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.ovf_create_descriptor_result.OvfCreateDescriptorResult
+    
+    .. py:attribute:: error
+    
+        Errors that happened during processing.
+        
+    
+    .. py:attribute:: includeImageFiles
+    
+        Returns true if there are ISO or Floppy images attached to one or more VMs.
+        
+    
+    .. py:attribute:: ovfDescriptor
+    
+        The OVF descriptor for the entity.
+        
+    
+    .. py:attribute:: warning
+    
+        Non-fatal warnings from the processing.
+        
+    

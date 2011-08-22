@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmfsDatastoreSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.vmfs_datastore_option.VmfsDatastoreOption`
+    :py:class:`~pyvisdk.do.vmfs_datastore_option.VmfsDatastoreOption`
     
 .. describe:: Extends
     
@@ -15,8 +14,14 @@ VmfsDatastoreSpec
     
 .. describe:: Extended by
     
-    VmfsDatastoreCreateSpec, VmfsDatastoreExpandSpec, VmfsDatastoreExtendSpec
+    :py:class:`~pyvisdk.do.vmfs_datastore_create_spec.VmfsDatastoreCreateSpec`,
+    :py:class:`~pyvisdk.do.vmfs_datastore_expand_spec.VmfsDatastoreExpandSpec`,
+    :py:class:`~pyvisdk.do.vmfs_datastore_extend_spec.VmfsDatastoreExtendSpec`
     
-.. autoclass:: pyvisdk.do.vmfs_datastore_spec.VmfsDatastoreSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vmfs_datastore_spec.VmfsDatastoreSpec
+    
+    .. py:attribute:: diskUuid
+    
+        The UUID of the SCSI disk on which the VMFS datastore is located.
+        
+    

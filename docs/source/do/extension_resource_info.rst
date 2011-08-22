@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ExtensionResourceInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.extension.Extension`
+    :py:class:`~pyvisdk.do.extension.Extension`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.key_value.KeyValue`
+    :py:class:`~pyvisdk.do.key_value.KeyValue`
     
 .. describe:: Since
     
@@ -21,6 +20,20 @@ ExtensionResourceInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.extension_resource_info.ExtensionResourceInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.extension_resource_info.ExtensionResourceInfo
+    
+    .. py:attribute:: data
+    
+        
+        
+    
+    .. py:attribute:: locale
+    
+        
+        
+    
+    .. py:attribute:: module
+    
+        Module for a resource type and other message or fault resources. Examples: "task" for task, "event" for event and "auth" for "privilege".
+        
+    

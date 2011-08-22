@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfileDescription
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.profile.Profile`
+    :py:class:`~pyvisdk.do.profile.Profile`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.profile_description_section.ProfileDescriptionSection`
+    :py:class:`~pyvisdk.do.profile_description_section.ProfileDescriptionSection`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ ProfileDescription
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.profile_description.ProfileDescription
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_description.ProfileDescription
+    
+    .. py:attribute:: section
+    
+        Sections which make up the Description.
+        
+    

@@ -1,17 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsVNicProfile
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    DvsHostVNicProfile, DvsServiceConsoleVNicProfile
+    :py:class:`~pyvisdk.do.dvs_host_v_nic_profile.DvsHostVNicProfile`,
+    :py:class:`~pyvisdk.do.dvs_service_console_v_nic_profile.DvsServiceConsoleVNicProfile`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.ip_address_profile.IpAddressProfile`
+    :py:class:`~pyvisdk.do.ip_address_profile.IpAddressProfile`
     
 .. describe:: Since
     
@@ -21,6 +21,15 @@ DvsVNicProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.dvs_v_nic_profile.DvsVNicProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_v_nic_profile.DvsVNicProfile
+    
+    .. py:attribute:: ipConfig
+    
+        IP address for DVS VNic
+        
+    
+    .. py:attribute:: key
+    
+        The linkable identifier
+        
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsPortConnectedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_port_connectee.DistributedVirtualSwitchPortConnectee`
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_port_connectee.DistributedVirtualSwitchPortConnectee`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ DvsPortConnectedEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_port_connected_event.DvsPortConnectedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_port_connected_event.DvsPortConnectedEvent
+    
+    .. py:attribute:: connectee
+    
+        The port's connectee.
+        
+    
+    .. py:attribute:: portKey
+    
+        The port key.
+        
+    

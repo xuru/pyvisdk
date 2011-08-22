@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostAdminDisableEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ HostAdminDisableEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.host_admin_disable_event.HostAdminDisableEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_admin_disable_event.HostAdminDisableEvent
+    

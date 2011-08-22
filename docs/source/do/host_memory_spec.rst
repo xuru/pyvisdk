@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostMemorySpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_config_spec.HostConfigSpec`
+    :py:class:`~pyvisdk.do.host_config_spec.HostConfigSpec`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ HostMemorySpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_memory_spec.HostMemorySpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_memory_spec.HostMemorySpec
+    
+    .. py:attribute:: serviceConsoleReservation
+    
+        Service Console reservation in bytes.
+        
+    

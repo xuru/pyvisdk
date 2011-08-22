@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostProxySwitchSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_proxy_switch.HostProxySwitch`,
-    :py:class:`~pyvisdk.mo.host_proxy_switch_config.HostProxySwitchConfig`
+    :py:class:`~pyvisdk.do.host_proxy_switch.HostProxySwitch`,
+    :py:class:`~pyvisdk.do.host_proxy_switch_config.HostProxySwitchConfig`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_host_member_backing.DistributedVirtualSwitchHostMemberBacking`
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_host_member_backing.DistributedVirtualSwitchHostMemberBacking`
     
 .. describe:: Since
     
@@ -22,6 +21,10 @@ HostProxySwitchSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_proxy_switch_spec.HostProxySwitchSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_proxy_switch_spec.HostProxySwitchSpec
+    
+    .. py:attribute:: backing
+    
+        The specification describes how physical network adapters are bridged to the switch.
+        
+    

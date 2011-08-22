@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NumericRange
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.dv_port_status.DVPortStatus`,
-    :py:class:`~pyvisdk.mo.vmware_distributed_virtual_switch_trunk_vlan_spec.VmwareDistributedVirtualSwitchTrunkVlanSpec`
+    :py:class:`~pyvisdk.do.dv_port_status.DVPortStatus`,
+    :py:class:`~pyvisdk.do.vmware_distributed_virtual_switch_trunk_vlan_spec.VmwareDistributedVirtualSwitchTrunkVlanSpec`
     
 .. describe:: Since
     
@@ -18,6 +17,15 @@ NumericRange
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.numeric_range.NumericRange
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.numeric_range.NumericRange
+    
+    .. py:attribute:: end
+    
+        The ending number (inclusive).
+        
+    
+    .. py:attribute:: start
+    
+        The starting number.
+        
+    

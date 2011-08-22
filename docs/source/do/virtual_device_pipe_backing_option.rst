@@ -1,18 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualDevicePipeBackingOption
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    VirtualSerialPortPipeBackingOption
+    :py:class:`~pyvisdk.do.virtual_serial_port_pipe_backing_option.VirtualSerialPortPipeBackingOption`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.virtual_device_backing_option.VirtualDeviceBackingOption`
     
-.. autoclass:: pyvisdk.do.virtual_device_pipe_backing_option.VirtualDevicePipeBackingOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_device_pipe_backing_option.VirtualDevicePipeBackingOption
+    

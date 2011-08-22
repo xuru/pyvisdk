@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostMultipathInfoLogicalUnitPolicy
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    SetMultipathLunPolicy
+    :py:meth:`~pyvisdk.do.set_multipath_lun_policy.SetMultipathLunPolicy`
     
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_multipath_info_logical_unit.HostMultipathInfoLogicalUnit`
+    :py:class:`~pyvisdk.do.host_multipath_info_logical_unit.HostMultipathInfoLogicalUnit`
     
 .. describe:: Extends
     
@@ -19,8 +18,12 @@ HostMultipathInfoLogicalUnitPolicy
     
 .. describe:: Extended by
     
-    HostMultipathInfoFixedLogicalUnitPolicy
+    :py:class:`~pyvisdk.do.host_multipath_info_fixed_logical_unit_policy.HostMultipathInfoFixedLogicalUnitPolicy`
     
-.. autoclass:: pyvisdk.do.host_multipath_info_logical_unit_policy.HostMultipathInfoLogicalUnitPolicy
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_multipath_info_logical_unit_policy.HostMultipathInfoLogicalUnitPolicy
+    
+    .. py:attribute:: policy
+    
+        The string representing the multipath policy. Valid strings include: *
+        
+    

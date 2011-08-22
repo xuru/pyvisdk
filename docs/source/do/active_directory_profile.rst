@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ActiveDirectoryProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.authentication_profile.AuthenticationProfile`
+    :py:class:`~pyvisdk.do.authentication_profile.AuthenticationProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,5 @@ ActiveDirectoryProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.active_directory_profile.ActiveDirectoryProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.active_directory_profile.ActiveDirectoryProfile
+    

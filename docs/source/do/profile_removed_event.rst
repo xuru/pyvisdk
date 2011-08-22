@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfileRemovedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ ProfileRemovedEvent
     
     :py:class:`~pyvisdk.mo.profile_event.ProfileEvent`
     
-.. autoclass:: pyvisdk.do.profile_removed_event.ProfileRemovedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_removed_event.ProfileRemovedEvent
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DatacenterRenamedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,15 @@ DatacenterRenamedEvent
     
     :py:class:`~pyvisdk.mo.datacenter_event.DatacenterEvent`
     
-.. autoclass:: pyvisdk.do.datacenter_renamed_event.DatacenterRenamedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.datacenter_renamed_event.DatacenterRenamedEvent
+    
+    .. py:attribute:: newName
+    
+        The new datacenter name.
+        
+    
+    .. py:attribute:: oldName
+    
+        The old datacenter name.
+        
+    

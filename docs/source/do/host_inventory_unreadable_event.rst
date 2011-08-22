@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostInventoryUnreadableEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ HostInventoryUnreadableEvent
     
     :py:class:`~pyvisdk.mo.event.Event`
     
-.. autoclass:: pyvisdk.do.host_inventory_unreadable_event.HostInventoryUnreadableEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_inventory_unreadable_event.HostInventoryUnreadableEvent
+    

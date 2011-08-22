@@ -1,22 +1,45 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 AuthorizationRole
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.authorization_manager.AuthorizationManager`
+    :py:class:`~pyvisdk.do.authorization_manager.AuthorizationManager`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.description.Description`
+    :py:class:`~pyvisdk.do.description.Description`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.authorization_role.AuthorizationRole
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.authorization_role.AuthorizationRole
+    
+    .. py:attribute:: info
+    
+        Displayable role information.
+        
+    
+    .. py:attribute:: name
+    
+        System-defined or user-defined role name.
+        
+    
+    .. py:attribute:: privilege
+    
+        Privileges provided by this role, by privilege identifier.
+        
+    
+    .. py:attribute:: roleId
+    
+        Unique role identifier.
+        
+    
+    .. py:attribute:: system
+    
+        Whether or not the role is system-defined. System-defined roles cannot be changed.
+        
+    

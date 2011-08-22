@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostWwnChangedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,25 @@ HostWwnChangedEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.host_wwn_changed_event.HostWwnChangedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_wwn_changed_event.HostWwnChangedEvent
+    
+    .. py:attribute:: newNodeWwns
+    
+        The new node WWN.
+        
+    
+    .. py:attribute:: newPortWwns
+    
+        The new port WWN.
+        
+    
+    .. py:attribute:: oldNodeWwns
+    
+        The old node WWN.
+        
+    
+    .. py:attribute:: oldPortWwns
+    
+        The old port WWN.
+        
+    

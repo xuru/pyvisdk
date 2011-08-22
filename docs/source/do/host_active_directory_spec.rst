@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostActiveDirectorySpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_active_directory.HostActiveDirectory`
+    :py:class:`~pyvisdk.do.host_active_directory.HostActiveDirectory`
     
 .. describe:: Since
     
@@ -17,6 +16,20 @@ HostActiveDirectorySpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_active_directory_spec.HostActiveDirectorySpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_active_directory_spec.HostActiveDirectorySpec
+    
+    .. py:attribute:: domainName
+    
+        Domain name.
+        
+    
+    .. py:attribute:: password
+    
+        Password for the Active Directory account.
+        
+    
+    .. py:attribute:: userName
+    
+        Name of an Active Directory account with the authority to add a host to the domain.
+        
+    

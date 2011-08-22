@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualPCIPassthroughOption
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VirtualPCIPassthroughOption
     
     :py:class:`~pyvisdk.mo.virtual_device_option.VirtualDeviceOption`
     
-.. autoclass:: pyvisdk.do.virtual_pci_passthrough_option.VirtualPCIPassthroughOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_pci_passthrough_option.VirtualPCIPassthroughOption
+    

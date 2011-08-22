@@ -1,14 +1,22 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostVMotionConfig
-========================================
+================================================================================
 
 
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_v_motion_config.HostVMotionConfig
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_v_motion_config.HostVMotionConfig
+    
+    .. py:attribute:: enabled
+    
+        Flag to indicate whether or not VMotion is enabled.
+        
+    
+    .. py:attribute:: vmotionNicKey
+    
+        Key of the VirtualNic used for VMotion.
+        
+    

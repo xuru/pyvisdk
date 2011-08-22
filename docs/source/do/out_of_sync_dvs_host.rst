@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 OutOfSyncDvsHost
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.dvs_out_of_sync_host_argument.DvsOutOfSyncHostArgument`
+    :py:class:`~pyvisdk.do.dvs_out_of_sync_host_argument.DvsOutOfSyncHostArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ OutOfSyncDvsHost
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.out_of_sync_dvs_host.OutOfSyncDvsHost
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.out_of_sync_dvs_host.OutOfSyncDvsHost
+    
+    .. py:attribute:: hostOutOfSync
+    
+        The host that went out of sync.
+        
+    

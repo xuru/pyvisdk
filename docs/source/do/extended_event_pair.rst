@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ExtendedEventPair
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.extended_event.ExtendedEvent`
+    :py:class:`~pyvisdk.do.extended_event.ExtendedEvent`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ ExtendedEventPair
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.extended_event_pair.ExtendedEventPair
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.extended_event_pair.ExtendedEventPair
+    
+    .. py:attribute:: key
+    
+        
+        
+    
+    .. py:attribute:: value
+    
+        
+        
+    

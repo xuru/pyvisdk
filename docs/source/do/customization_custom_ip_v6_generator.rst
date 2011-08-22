@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationCustomIpV6Generator
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ CustomizationCustomIpV6Generator
     
     :py:class:`~pyvisdk.mo.customization_ip_v6_generator.CustomizationIpV6Generator`
     
-.. autoclass:: pyvisdk.do.customization_custom_ip_v6_generator.CustomizationCustomIpV6Generator
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_custom_ip_v6_generator.CustomizationCustomIpV6Generator
+    
+    .. py:attribute:: argument
+    
+        An optional argument that is passed to the utility for this ipv6 address. The meaning of this field is user-defined, in the script.
+        
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationNetworkSetupFailed
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ CustomizationNetworkSetupFailed
     
     :py:class:`~pyvisdk.mo.customization_failed.CustomizationFailed`
     
-.. autoclass:: pyvisdk.do.customization_network_setup_failed.CustomizationNetworkSetupFailed
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_network_setup_failed.CustomizationNetworkSetupFailed
+    

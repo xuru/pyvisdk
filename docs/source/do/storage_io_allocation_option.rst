@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 StorageIOAllocationOption
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.virtual_disk_option.VirtualDiskOption`
+    :py:class:`~pyvisdk.do.virtual_disk_option.VirtualDiskOption`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.long_option.LongOption`,
-    :py:class:`~pyvisdk.mo.shares_option.SharesOption`
+    :py:class:`~pyvisdk.do.long_option.LongOption`,
+    :py:class:`~pyvisdk.do.shares_option.SharesOption`
     
 .. describe:: Since
     
@@ -22,6 +21,15 @@ StorageIOAllocationOption
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.storage_io_allocation_option.StorageIOAllocationOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.storage_io_allocation_option.StorageIOAllocationOption
+    
+    .. py:attribute:: limitOption
+    
+        limitOptions defines a range of values allowed to be used for storage IO limit limit.
+        
+    
+    .. py:attribute:: sharesOption
+    
+        sharesOption defines a range of values allowed to be used to specify allocated io shares shares.
+        
+    

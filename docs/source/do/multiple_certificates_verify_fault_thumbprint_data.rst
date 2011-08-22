@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 MultipleCertificatesVerifyFaultThumbprintData
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.multiple_certificates_verify_fault.MultipleCertificatesVerifyFault`
+    :py:class:`~pyvisdk.do.multiple_certificates_verify_fault.MultipleCertificatesVerifyFault`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ MultipleCertificatesVerifyFaultThumbprintData
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.multiple_certificates_verify_fault_thumbprint_data.MultipleCertificatesVerifyFaultThumbprintData
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.multiple_certificates_verify_fault_thumbprint_data.MultipleCertificatesVerifyFaultThumbprintData
+    
+    .. py:attribute:: port
+    
+        The port used by the service.
+        
+    
+    .. py:attribute:: thumbprint
+    
+        The SSL thumbprint of the host's certificate used by the service.
+        
+    

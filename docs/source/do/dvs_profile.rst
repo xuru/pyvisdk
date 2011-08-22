@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.network_profile.NetworkProfile`
+    :py:class:`~pyvisdk.do.network_profile.NetworkProfile`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.pnic_uplink_profile.PnicUplinkProfile`
+    :py:class:`~pyvisdk.do.pnic_uplink_profile.PnicUplinkProfile`
     
 .. describe:: Since
     
@@ -21,6 +20,20 @@ DvsProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.dvs_profile.DvsProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_profile.DvsProfile
+    
+    .. py:attribute:: key
+    
+        The linkable identifier
+        
+    
+    .. py:attribute:: name
+    
+        Unique identifier for the Distributed Virtual Switch
+        
+    
+    .. py:attribute:: uplink
+    
+        Mapping of PNICs to Uplinks
+        
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsPortLeavePortgroupEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,20 @@ DvsPortLeavePortgroupEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_port_leave_portgroup_event.DvsPortLeavePortgroupEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_port_leave_portgroup_event.DvsPortLeavePortgroupEvent
+    
+    .. py:attribute:: portgroupKey
+    
+        The portgroup key.
+        
+    
+    .. py:attribute:: portgroupName
+    
+        The portgroup name.
+        
+    
+    .. py:attribute:: portKey
+    
+        The port key.
+        
+    

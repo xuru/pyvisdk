@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmInstanceUuidConflictEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.vm_event_argument.VmEventArgument`
+    :py:class:`~pyvisdk.do.vm_event_argument.VmEventArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ VmInstanceUuidConflictEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_instance_uuid_conflict_event.VmInstanceUuidConflictEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_instance_uuid_conflict_event.VmInstanceUuidConflictEvent
+    
+    .. py:attribute:: conflictedVm
+    
+        The virtual machine whose instance UUID conflicts with the current virtual machine's instance UUID.
+        
+    
+    .. py:attribute:: instanceUuid
+    
+        The instance UUID in conflict.
+        
+    

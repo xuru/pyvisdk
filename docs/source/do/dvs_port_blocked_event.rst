@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsPortBlockedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,15 @@ DvsPortBlockedEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_port_blocked_event.DvsPortBlockedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_port_blocked_event.DvsPortBlockedEvent
+    
+    .. py:attribute:: portKey
+    
+        The port key.
+        
+    
+    .. py:attribute:: statusDetail
+    
+        Reason for port's current status
+        
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ExtendedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.extended_event_pair.ExtendedEventPair`
+    :py:class:`~pyvisdk.do.extended_event_pair.ExtendedEventPair`
     
 .. describe:: Since
     
@@ -17,6 +16,20 @@ ExtendedEvent
     
     :py:class:`~pyvisdk.mo.general_event.GeneralEvent`
     
-.. autoclass:: pyvisdk.do.extended_event.ExtendedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.extended_event.ExtendedEvent
+    
+    .. py:attribute:: data
+    
+        Key/value pairs associated with event.
+        
+    
+    .. py:attribute:: eventTypeId
+    
+        The id of the type of extended event.
+        
+    
+    .. py:attribute:: managedObject
+    
+        The object on which the event was logged.
+        
+    

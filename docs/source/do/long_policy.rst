@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 LongPolicy
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.dvs_traffic_shaping_policy.DVSTrafficShapingPolicy`
+    :py:class:`~pyvisdk.do.dvs_traffic_shaping_policy.DVSTrafficShapingPolicy`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ LongPolicy
     
     :py:class:`~pyvisdk.mo.inheritable_policy.InheritablePolicy`
     
-.. autoclass:: pyvisdk.do.long_policy.LongPolicy
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.long_policy.LongPolicy
+    
+    .. py:attribute:: value
+    
+        The boolean value that is either set or inherited.
+        
+    

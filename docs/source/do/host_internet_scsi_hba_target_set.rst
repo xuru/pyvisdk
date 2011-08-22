@@ -1,19 +1,19 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostInternetScsiHbaTargetSet
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    UpdateInternetScsiAdvancedOptions, UpdateInternetScsiAuthenticationProperties,
-    UpdateInternetScsiDigestProperties
+    :py:meth:`~pyvisdk.do.update_internet_scsi_advanced_options.UpdateInternetScsiAdvancedOptions`,
+    :py:meth:`~pyvisdk.do.update_internet_scsi_authentication_properties.UpdateInternetScsiAuthenticationProperties`,
+    :py:meth:`~pyvisdk.do.update_internet_scsi_digest_properties.UpdateInternetScsiDigestProperties`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_internet_scsi_hba_send_target.HostInternetScsiHbaSendTarget`,
-    :py:class:`~pyvisdk.mo.host_internet_scsi_hba_static_target.HostInternetScsiHbaStaticTarget`
+    :py:class:`~pyvisdk.do.host_internet_scsi_hba_send_target.HostInternetScsiHbaSendTarget`,
+    :py:class:`~pyvisdk.do.host_internet_scsi_hba_static_target.HostInternetScsiHbaStaticTarget`
     
 .. describe:: Since
     
@@ -23,6 +23,15 @@ HostInternetScsiHbaTargetSet
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_internet_scsi_hba_target_set.HostInternetScsiHbaTargetSet
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_internet_scsi_hba_target_set.HostInternetScsiHbaTargetSet
+    
+    .. py:attribute:: sendTargets
+    
+        
+        
+    
+    .. py:attribute:: staticTargets
+    
+        
+        
+    

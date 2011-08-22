@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmNoCompatibleHostForSecondaryEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VmNoCompatibleHostForSecondaryEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_no_compatible_host_for_secondary_event.VmNoCompatibleHostForSecondaryEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_no_compatible_host_for_secondary_event.VmNoCompatibleHostForSecondaryEvent
+    

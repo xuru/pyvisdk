@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostProfileAppliedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.profile_event_argument.ProfileEventArgument`
+    :py:class:`~pyvisdk.do.profile_event_argument.ProfileEventArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ HostProfileAppliedEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.host_profile_applied_event.HostProfileAppliedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_profile_applied_event.HostProfileAppliedEvent
+    
+    .. py:attribute:: profile
+    
+        Link to the profile which was applied
+        
+    

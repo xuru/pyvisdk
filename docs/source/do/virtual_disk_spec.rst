@@ -1,17 +1,18 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualDiskSpec
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    CopyVirtualDisk_Task, CreateVirtualDisk_Task
+    :py:meth:`~pyvisdk.do.copy_virtual_disk__task.CopyVirtualDisk_Task`,
+    :py:meth:`~pyvisdk.do.create_virtual_disk__task.CreateVirtualDisk_Task`
     
 .. describe:: Extended by
     
-    DeviceBackedVirtualDiskSpec, FileBackedVirtualDiskSpec
+    :py:class:`~pyvisdk.do.device_backed_virtual_disk_spec.DeviceBackedVirtualDiskSpec`,
+    :py:class:`~pyvisdk.do.file_backed_virtual_disk_spec.FileBackedVirtualDiskSpec`
     
 .. describe:: Since
     
@@ -21,6 +22,15 @@ VirtualDiskSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.virtual_disk_spec.VirtualDiskSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_disk_spec.VirtualDiskSpec
+    
+    .. py:attribute:: adapterType
+    
+        The type of the virtual disk adapter for the new virtual disk.
+        
+    
+    .. py:attribute:: diskType
+    
+        The type of the new virtual disk.
+        
+    

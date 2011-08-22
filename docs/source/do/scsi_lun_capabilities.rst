@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ScsiLunCapabilities
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.scsi_lun.ScsiLun`
+    :py:class:`~pyvisdk.do.scsi_lun.ScsiLun`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ ScsiLunCapabilities
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.scsi_lun_capabilities.ScsiLunCapabilities
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.scsi_lun_capabilities.ScsiLunCapabilities
+    
+    .. py:attribute:: updateDisplayNameSupported
+    
+        Can the display name of the SCSI device be updated?
+        
+    

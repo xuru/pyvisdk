@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ParaVirtualSCSIController
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ ParaVirtualSCSIController
     
     :py:class:`~pyvisdk.mo.virtual_scsi_controller.VirtualSCSIController`
     
-.. autoclass:: pyvisdk.do.para_virtual_scsi_controller.ParaVirtualSCSIController
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.para_virtual_scsi_controller.ParaVirtualSCSIController
+    

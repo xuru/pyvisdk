@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostHardwareStatusInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.health_system_runtime.HealthSystemRuntime`
+    :py:class:`~pyvisdk.do.health_system_runtime.HealthSystemRuntime`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_hardware_element_info.HostHardwareElementInfo`,
-    :py:class:`~pyvisdk.mo.host_storage_element_info.HostStorageElementInfo`
+    :py:class:`~pyvisdk.do.host_hardware_element_info.HostHardwareElementInfo`,
+    :py:class:`~pyvisdk.do.host_storage_element_info.HostStorageElementInfo`
     
 .. describe:: Since
     
@@ -22,6 +21,20 @@ HostHardwareStatusInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_hardware_status_info.HostHardwareStatusInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_hardware_status_info.HostHardwareStatusInfo
+    
+    .. py:attribute:: cpuStatusInfo
+    
+        Status of the CPU packages
+        
+    
+    .. py:attribute:: memoryStatusInfo
+    
+        Status of the physical memory
+        
+    
+    .. py:attribute:: storageStatusInfo
+    
+        Status of the physical storage system
+        
+    

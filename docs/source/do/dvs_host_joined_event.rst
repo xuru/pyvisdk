@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsHostJoinedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_event_argument.HostEventArgument`
+    :py:class:`~pyvisdk.do.host_event_argument.HostEventArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ DvsHostJoinedEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_host_joined_event.DvsHostJoinedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_host_joined_event.DvsHostJoinedEvent
+    
+    .. py:attribute:: hostJoined
+    
+        The host that joined DVS.
+        
+    

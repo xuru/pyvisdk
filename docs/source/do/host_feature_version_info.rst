@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostFeatureVersionInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_config_info.HostConfigInfo`,
-    :py:class:`~pyvisdk.mo.host_config_summary.HostConfigSummary`
+    :py:class:`~pyvisdk.do.host_config_info.HostConfigInfo`,
+    :py:class:`~pyvisdk.do.host_config_summary.HostConfigSummary`
     
 .. describe:: Since
     
@@ -18,6 +17,15 @@ HostFeatureVersionInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_feature_version_info.HostFeatureVersionInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_feature_version_info.HostFeatureVersionInfo
+    
+    .. py:attribute:: key
+    
+        A unique key that identifies a feature, list of possible values are specified in HostFeatureVersionKey
+        
+    
+    .. py:attribute:: value
+    
+        The version string of this feature
+        
+    

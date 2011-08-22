@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ObjectContent
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.retrieve_result.RetrieveResult`
+    :py:class:`~pyvisdk.do.retrieve_result.RetrieveResult`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.dynamic_property.DynamicProperty`,
-    :py:class:`~pyvisdk.mo.missing_property.MissingProperty`
+    :py:class:`~pyvisdk.do.dynamic_property.DynamicProperty`,
+    :py:class:`~pyvisdk.do.missing_property.MissingProperty`
     
 .. describe:: Extends
     
@@ -20,8 +19,22 @@ ObjectContent
     
 .. describe:: Returned by
     
-    RetrieveProperties
+    :py:meth:`~pyvisdk.do.retrieve_properties.RetrieveProperties`
     
-.. autoclass:: pyvisdk.do.object_content.ObjectContent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.object_content.ObjectContent
+    
+    .. py:attribute:: missingSet
+    
+        Properties for which values could not be retrieved and the associated fault.
+        
+    
+    .. py:attribute:: obj
+    
+        Reference to the managed object that contains properties of interest.
+        
+    
+    .. py:attribute:: propSet
+    
+        Set of name-value pairs for the properties of the managed object.
+        
+    

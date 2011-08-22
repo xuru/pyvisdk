@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VnicPortArgument
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_vnic_connected_to_customized_dv_port_event.HostVnicConnectedToCustomizedDVPortEvent`,
-    :py:class:`~pyvisdk.mo.vm_powering_on_with_customized_dv_port_event.VmPoweringOnWithCustomizedDVPortEvent`
+    :py:class:`~pyvisdk.do.host_vnic_connected_to_customized_dv_port_event.HostVnicConnectedToCustomizedDVPortEvent`,
+    :py:class:`~pyvisdk.do.vm_powering_on_with_customized_dv_port_event.VmPoweringOnWithCustomizedDVPortEvent`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_port_connection.DistributedVirtualSwitchPortConnection`
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_port_connection.DistributedVirtualSwitchPortConnection`
     
 .. describe:: Since
     
@@ -22,6 +21,15 @@ VnicPortArgument
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.vnic_port_argument.VnicPortArgument
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vnic_port_argument.VnicPortArgument
+    
+    .. py:attribute:: port
+    
+        The DVPorts that were being used.
+        
+    
+    .. py:attribute:: vnic
+    
+        The vnic devices that were using the DVports.
+        
+    

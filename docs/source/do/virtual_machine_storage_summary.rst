@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualMachineStorageSummary
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.virtual_machine_summary.VirtualMachineSummary`
+    :py:class:`~pyvisdk.do.virtual_machine_summary.VirtualMachineSummary`
     
 .. describe:: Since
     
@@ -17,6 +16,25 @@ VirtualMachineStorageSummary
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.virtual_machine_storage_summary.VirtualMachineStorageSummary
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_machine_storage_summary.VirtualMachineStorageSummary
+    
+    .. py:attribute:: committed
+    
+        Total storage space, in bytes, committed to this virtual machine across all datastores.
+        
+    
+    .. py:attribute:: timestamp
+    
+        Time when values in this structure were last updated.
+        
+    
+    .. py:attribute:: uncommitted
+    
+        Additional storage space, in bytes, potentially used by this virtual machine on all datastores.
+        
+    
+    .. py:attribute:: unshared
+    
+        Total storage space, in bytes, occupied by the virtual machine across all datastores, that is not shared with any other virtual machine.
+        
+    

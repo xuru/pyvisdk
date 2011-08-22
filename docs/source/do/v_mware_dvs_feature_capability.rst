@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VMwareDVSFeatureCapability
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VMwareDVSFeatureCapability
     
     :py:class:`~pyvisdk.mo.dvs_feature_capability.DVSFeatureCapability`
     
-.. autoclass:: pyvisdk.do.v_mware_dvs_feature_capability.VMwareDVSFeatureCapability
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.v_mware_dvs_feature_capability.VMwareDVSFeatureCapability
+    

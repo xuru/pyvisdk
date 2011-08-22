@@ -1,22 +1,30 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 PerformanceDescription
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.performance_manager.PerformanceManager`
+    :py:class:`~pyvisdk.do.performance_manager.PerformanceManager`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.element_description.ElementDescription`
+    :py:class:`~pyvisdk.do.element_description.ElementDescription`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.performance_description.PerformanceDescription
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.performance_description.PerformanceDescription
+    
+    .. py:attribute:: counterType
+    
+        Identifies the type of the counter.
+        
+    
+    .. py:attribute:: statsType
+    
+        Identifies the type of statistic.
+        
+    

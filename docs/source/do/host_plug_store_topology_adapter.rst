@@ -1,19 +1,18 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostPlugStoreTopologyAdapter
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_plug_store_topology.HostPlugStoreTopology`,
-    :py:class:`~pyvisdk.mo.host_plug_store_topology_path.HostPlugStoreTopologyPath`
+    :py:class:`~pyvisdk.do.host_plug_store_topology.HostPlugStoreTopology`,
+    :py:class:`~pyvisdk.do.host_plug_store_topology_path.HostPlugStoreTopologyPath`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_host_bus_adapter.HostHostBusAdapter`,
-    :py:class:`~pyvisdk.mo.host_plug_store_topology_path.HostPlugStoreTopologyPath`
+    :py:class:`~pyvisdk.do.host_host_bus_adapter.HostHostBusAdapter`,
+    :py:class:`~pyvisdk.do.host_plug_store_topology_path.HostPlugStoreTopologyPath`
     
 .. describe:: Since
     
@@ -23,6 +22,20 @@ HostPlugStoreTopologyAdapter
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_plug_store_topology_adapter.HostPlugStoreTopologyAdapter
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_plug_store_topology_adapter.HostPlugStoreTopologyAdapter
+    
+    .. py:attribute:: adapter
+    
+        The link to the host bus adapter for this inebtrface.
+        
+    
+    .. py:attribute:: key
+    
+        The identifier for the host bus adapter.
+        
+    
+    .. py:attribute:: path
+    
+        The list of paths to which the host bus adapter is associated.
+        
+    

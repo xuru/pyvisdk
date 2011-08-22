@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmPoweredOffEvent
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    VmPowerOffOnIsolationEvent, VmShutdownOnIsolationEvent
+    :py:class:`~pyvisdk.do.vm_power_off_on_isolation_event.VmPowerOffOnIsolationEvent`,
+    :py:class:`~pyvisdk.do.vm_shutdown_on_isolation_event.VmShutdownOnIsolationEvent`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_powered_off_event.VmPoweredOffEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_powered_off_event.VmPoweredOffEvent
+    

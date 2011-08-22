@@ -1,26 +1,38 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ScheduledTaskEvent
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    ScheduledTaskCompletedEvent, ScheduledTaskCreatedEvent,
-    ScheduledTaskEmailCompletedEvent, ScheduledTaskEmailFailedEvent,
-    ScheduledTaskFailedEvent, ScheduledTaskReconfiguredEvent,
-    ScheduledTaskRemovedEvent, ScheduledTaskStartedEvent
+    :py:class:`~pyvisdk.do.scheduled_task_completed_event.ScheduledTaskCompletedEvent`,
+    :py:class:`~pyvisdk.do.scheduled_task_created_event.ScheduledTaskCreatedEvent`,
+    :py:class:`~pyvisdk.do.scheduled_task_email_completed_event.ScheduledTaskEmailCompletedEvent`,
+    :py:class:`~pyvisdk.do.scheduled_task_email_failed_event.ScheduledTaskEmailFailedEvent`,
+    :py:class:`~pyvisdk.do.scheduled_task_failed_event.ScheduledTaskFailedEvent`,
+    :py:class:`~pyvisdk.do.scheduled_task_reconfigured_event.ScheduledTaskReconfiguredEvent`,
+    :py:class:`~pyvisdk.do.scheduled_task_removed_event.ScheduledTaskRemovedEvent`,
+    :py:class:`~pyvisdk.do.scheduled_task_started_event.ScheduledTaskStartedEvent`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.managed_entity_event_argument.ManagedEntityEventArgument`,
-    :py:class:`~pyvisdk.mo.scheduled_task_event_argument.ScheduledTaskEventArgument`
+    :py:class:`~pyvisdk.do.managed_entity_event_argument.ManagedEntityEventArgument`,
+    :py:class:`~pyvisdk.do.scheduled_task_event_argument.ScheduledTaskEventArgument`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.event.Event`
     
-.. autoclass:: pyvisdk.do.scheduled_task_event.ScheduledTaskEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.scheduled_task_event.ScheduledTaskEvent
+    
+    .. py:attribute:: entity
+    
+        The entity on which the scheduled task registered.
+        
+    
+    .. py:attribute:: scheduledTask
+    
+        The scheduled task object.
+        
+    

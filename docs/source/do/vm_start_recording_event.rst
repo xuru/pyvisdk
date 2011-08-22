@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmStartRecordingEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VmStartRecordingEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_start_recording_event.VmStartRecordingEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_start_recording_event.VmStartRecordingEvent
+    

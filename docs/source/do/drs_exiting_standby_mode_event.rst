@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DrsExitingStandbyModeEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ DrsExitingStandbyModeEvent
     
     :py:class:`~pyvisdk.mo.exiting_standby_mode_event.ExitingStandbyModeEvent`
     
-.. autoclass:: pyvisdk.do.drs_exiting_standby_mode_event.DrsExitingStandbyModeEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.drs_exiting_standby_mode_event.DrsExitingStandbyModeEvent
+    

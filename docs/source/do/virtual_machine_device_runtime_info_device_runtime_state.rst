@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualMachineDeviceRuntimeInfoDeviceRuntimeState
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.virtual_machine_device_runtime_info.VirtualMachineDeviceRuntimeInfo`
+    :py:class:`~pyvisdk.do.virtual_machine_device_runtime_info.VirtualMachineDeviceRuntimeInfo`
     
 .. describe:: Since
     
@@ -19,8 +18,7 @@ VirtualMachineDeviceRuntimeInfoDeviceRuntimeState
     
 .. describe:: Extended by
     
-    VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeState
+    :py:class:`~pyvisdk.do.virtual_machine_device_runtime_info_virtual_ethernet_card_runtime_state.VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeState`
     
-.. autoclass:: pyvisdk.do.virtual_machine_device_runtime_info_device_runtime_state.VirtualMachineDeviceRuntimeInfoDeviceRuntimeState
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_machine_device_runtime_info_device_runtime_state.VirtualMachineDeviceRuntimeInfoDeviceRuntimeState
+    

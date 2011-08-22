@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DatastoreMountPathDatastorePair
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    UpdateVirtualMachineFiles_Task
+    :py:meth:`~pyvisdk.do.update_virtual_machine_files__task.UpdateVirtualMachineFiles_Task`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.datastore.Datastore`
+    :py:class:`~pyvisdk.do.datastore.Datastore`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ DatastoreMountPathDatastorePair
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.datastore_mount_path_datastore_pair.DatastoreMountPathDatastorePair
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.datastore_mount_path_datastore_pair.DatastoreMountPathDatastorePair
+    
+    .. py:attribute:: datastore
+    
+        The resignatured or remounted datastore corresponding to the oldMountPath
+        
+    
+    .. py:attribute:: oldMountPath
+    
+        Old file path where file system volume is mounted, which should be path value in HostMountInfo
+        
+    

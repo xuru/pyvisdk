@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostSecuritySpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_config_spec.HostConfigSpec`
+    :py:class:`~pyvisdk.do.host_config_spec.HostConfigSpec`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.permission.Permission`
+    :py:class:`~pyvisdk.do.permission.Permission`
     
 .. describe:: Since
     
@@ -21,6 +20,20 @@ HostSecuritySpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_security_spec.HostSecuritySpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_security_spec.HostSecuritySpec
+    
+    .. py:attribute:: addPermission
+    
+        Permissions to add
+        
+    
+    .. py:attribute:: adminPassword
+    
+        Administrator password to configure
+        
+    
+    .. py:attribute:: removePermission
+    
+        Permissions to remove
+        
+    

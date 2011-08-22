@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 FirewallProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_apply_profile.HostApplyProfile`
+    :py:class:`~pyvisdk.do.host_apply_profile.HostApplyProfile`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.firewall_profile_ruleset_profile.FirewallProfileRulesetProfile`
+    :py:class:`~pyvisdk.do.firewall_profile_ruleset_profile.FirewallProfileRulesetProfile`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ FirewallProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.firewall_profile.FirewallProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.firewall_profile.FirewallProfile
+    
+    .. py:attribute:: ruleset
+    
+        List of Rulesets that will be configured for the profile.
+        
+    

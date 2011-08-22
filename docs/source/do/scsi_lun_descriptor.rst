@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ScsiLunDescriptor
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.scsi_lun.ScsiLun`
+    :py:class:`~pyvisdk.do.scsi_lun.ScsiLun`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ ScsiLunDescriptor
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.scsi_lun_descriptor.ScsiLunDescriptor
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.scsi_lun_descriptor.ScsiLunDescriptor
+    
+    .. py:attribute:: id
+    
+        The identifier represented as a string.
+        
+    
+    .. py:attribute:: quality
+    
+        An indicator of the utility of the descriptor as an identifier that is stable, unique, and correlatable.
+        
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DistributedVirtualSwitchManagerHostContainerFilter
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_manager_host_container.DistributedVirtualSwitchManagerHostContainer`
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_manager_host_container.DistributedVirtualSwitchManagerHostContainer`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ DistributedVirtualSwitchManagerHostContainerFilter
     
     :py:class:`~pyvisdk.mo.distributed_virtual_switch_manager_host_dvs_filter_spec.DistributedVirtualSwitchManagerHostDvsFilterSpec`
     
-.. autoclass:: pyvisdk.do.distributed_virtual_switch_manager_host_container_filter.DistributedVirtualSwitchManagerHostContainerFilter
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.distributed_virtual_switch_manager_host_container_filter.DistributedVirtualSwitchManagerHostContainerFilter
+    
+    .. py:attribute:: hostContainer
+    
+        Container of hosts that are part of the filter.
+        
+    

@@ -1,16 +1,24 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DynamicProperty
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`,
-    :py:class:`~pyvisdk.mo.method_fault.MethodFault`,
-    :py:class:`~pyvisdk.mo.object_content.ObjectContent`
+    :py:class:`~pyvisdk.do.dynamic_data.DynamicData`,
+    :py:class:`~pyvisdk.do.method_fault.MethodFault`,
+    :py:class:`~pyvisdk.do.object_content.ObjectContent`
     
-.. autoclass:: pyvisdk.do.dynamic_property.DynamicProperty
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dynamic_property.DynamicProperty
+    
+    .. py:attribute:: name
+    
+        Path to the property.
+        
+    
+    .. py:attribute:: val
+    
+        Value of the property.
+        
+    

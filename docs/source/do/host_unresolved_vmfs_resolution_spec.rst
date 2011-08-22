@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostUnresolvedVmfsResolutionSpec
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    ResolveMultipleUnresolvedVmfsVolumes
+    :py:meth:`~pyvisdk.do.resolve_multiple_unresolved_vmfs_volumes.ResolveMultipleUnresolvedVmfsVolumes`
     
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_unresolved_vmfs_resolution_result.HostUnresolvedVmfsResolutionResult`
+    :py:class:`~pyvisdk.do.host_unresolved_vmfs_resolution_result.HostUnresolvedVmfsResolutionResult`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ HostUnresolvedVmfsResolutionSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_unresolved_vmfs_resolution_spec.HostUnresolvedVmfsResolutionSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_unresolved_vmfs_resolution_spec.HostUnresolvedVmfsResolutionSpec
+    
+    .. py:attribute:: extentDevicePath
+    
+        List of device paths each specifying a VMFS extent.
+        
+    
+    .. py:attribute:: uuidResolution
+    
+        When set to Resignature, new Uuid is assigned to the VMFS volume. When set to 'forceMount', existing uuid is assigned to the Vmfs volume and Vmfs volumes metadata doesn't change.
+        
+    

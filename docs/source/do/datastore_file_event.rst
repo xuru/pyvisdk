@@ -1,13 +1,14 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DatastoreFileEvent
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    DatastoreFileCopiedEvent, DatastoreFileDeletedEvent, DatastoreFileMovedEvent
+    :py:class:`~pyvisdk.do.datastore_file_copied_event.DatastoreFileCopiedEvent`,
+    :py:class:`~pyvisdk.do.datastore_file_deleted_event.DatastoreFileDeletedEvent`,
+    :py:class:`~pyvisdk.do.datastore_file_moved_event.DatastoreFileMovedEvent`
     
 .. describe:: Since
     
@@ -17,6 +18,10 @@ DatastoreFileEvent
     
     :py:class:`~pyvisdk.mo.datastore_event.DatastoreEvent`
     
-.. autoclass:: pyvisdk.do.datastore_file_event.DatastoreFileEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.datastore_file_event.DatastoreFileEvent
+    
+    .. py:attribute:: targetFile
+    
+        Datastore path of the target file or directory.
+        
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterHostRecommendation
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_system.HostSystem`
+    :py:class:`~pyvisdk.do.host_system.HostSystem`
     
 .. describe:: Extends
     
@@ -15,8 +14,17 @@ ClusterHostRecommendation
     
 .. describe:: Returned by
     
-    RecommendHostsForVm
+    :py:meth:`~pyvisdk.do.recommend_hosts_for_vm.RecommendHostsForVm`
     
-.. autoclass:: pyvisdk.do.cluster_host_recommendation.ClusterHostRecommendation
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_host_recommendation.ClusterHostRecommendation
+    
+    .. py:attribute:: host
+    
+        The recommended host.
+        
+    
+    .. py:attribute:: rating
+    
+        Rating for the recommendation. Ratings range from 1 to 5, and the higher the rating, the stronger DRS suggests this host is picked for the operation.
+        
+    

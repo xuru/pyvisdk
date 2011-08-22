@@ -1,26 +1,25 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 LocalizableMessage
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    SetTaskDescription
+    :py:meth:`~pyvisdk.do.set_task_description.SetTaskDescription`
     
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.compliance_failure.ComplianceFailure`,
-    :py:class:`~pyvisdk.mo.host_profile_manager_config_task_list.HostProfileManagerConfigTaskList`,
-    :py:class:`~pyvisdk.mo.profile_description_section.ProfileDescriptionSection`,
-    :py:class:`~pyvisdk.mo.profile_execute_error.ProfileExecuteError`,
-    :py:class:`~pyvisdk.mo.profile_update_failed_update_failure.ProfileUpdateFailedUpdateFailure`,
-    :py:class:`~pyvisdk.mo.task_info.TaskInfo`
+    :py:class:`~pyvisdk.do.compliance_failure.ComplianceFailure`,
+    :py:class:`~pyvisdk.do.host_profile_manager_config_task_list.HostProfileManagerConfigTaskList`,
+    :py:class:`~pyvisdk.do.profile_description_section.ProfileDescriptionSection`,
+    :py:class:`~pyvisdk.do.profile_execute_error.ProfileExecuteError`,
+    :py:class:`~pyvisdk.do.profile_update_failed_update_failure.ProfileUpdateFailedUpdateFailure`,
+    :py:class:`~pyvisdk.do.task_info.TaskInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.key_any_value.KeyAnyValue`
+    :py:class:`~pyvisdk.do.key_any_value.KeyAnyValue`
     
 .. describe:: Since
     
@@ -30,6 +29,20 @@ LocalizableMessage
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.localizable_message.LocalizableMessage
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.localizable_message.LocalizableMessage
+    
+    .. py:attribute:: arg
+    
+        If the localized message contains variables, messageArg will provide the values for the arguments. e.g: If the message is "IP address is {address}", value for "address" will be provided by #arg.
+        
+    
+    .. py:attribute:: key
+    
+        Unique key identifying the message in the localized message catalog.
+        
+    
+    .. py:attribute:: message
+    
+        Message in server locale. This message need not be localized.
+        
+    

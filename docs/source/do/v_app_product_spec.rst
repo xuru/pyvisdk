@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VAppProductSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.vm_config_spec.VmConfigSpec`
+    :py:class:`~pyvisdk.do.vm_config_spec.VmConfigSpec`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.v_app_product_info.VAppProductInfo`
+    :py:class:`~pyvisdk.do.v_app_product_info.VAppProductInfo`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ VAppProductSpec
     
     :py:class:`~pyvisdk.mo.array_update_spec.ArrayUpdateSpec`
     
-.. autoclass:: pyvisdk.do.v_app_product_spec.VAppProductSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.v_app_product_spec.VAppProductSpec
+    
+    .. py:attribute:: info
+    
+        
+        
+    

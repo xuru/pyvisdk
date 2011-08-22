@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmAcquiredMksTicketEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VmAcquiredMksTicketEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_acquired_mks_ticket_event.VmAcquiredMksTicketEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_acquired_mks_ticket_event.VmAcquiredMksTicketEvent
+    

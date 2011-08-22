@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 UnlicensedVirtualMachinesEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,15 @@ UnlicensedVirtualMachinesEvent
     
     :py:class:`~pyvisdk.mo.license_event.LicenseEvent`
     
-.. autoclass:: pyvisdk.do.unlicensed_virtual_machines_event.UnlicensedVirtualMachinesEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.unlicensed_virtual_machines_event.UnlicensedVirtualMachinesEvent
+    
+    .. py:attribute:: available
+    
+        
+        
+    
+    .. py:attribute:: unlicensed
+    
+        
+        
+    

@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterDasFailoverLevelAdvancedRuntimeInfoHostSlots
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.cluster_das_failover_level_advanced_runtime_info.ClusterDasFailoverLevelAdvancedRuntimeInfo`
+    :py:class:`~pyvisdk.do.cluster_das_failover_level_advanced_runtime_info.ClusterDasFailoverLevelAdvancedRuntimeInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_system.HostSystem`
+    :py:class:`~pyvisdk.do.host_system.HostSystem`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ ClusterDasFailoverLevelAdvancedRuntimeInfoHostSlots
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.cluster_das_failover_level_advanced_runtime_info_host_slots.ClusterDasFailoverLevelAdvancedRuntimeInfoHostSlots
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_das_failover_level_advanced_runtime_info_host_slots.ClusterDasFailoverLevelAdvancedRuntimeInfoHostSlots
+    
+    .. py:attribute:: host
+    
+        The reference to the host.
+        
+    
+    .. py:attribute:: slots
+    
+        The number of slots in this host.
+        
+    

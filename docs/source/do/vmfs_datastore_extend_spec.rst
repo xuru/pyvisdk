@@ -1,23 +1,31 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmfsDatastoreExtendSpec
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    ExtendVmfsDatastore
+    :py:meth:`~pyvisdk.do.extend_vmfs_datastore.ExtendVmfsDatastore`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_disk_partition_spec.HostDiskPartitionSpec`,
-    :py:class:`~pyvisdk.mo.host_scsi_disk_partition.HostScsiDiskPartition`
+    :py:class:`~pyvisdk.do.host_disk_partition_spec.HostDiskPartitionSpec`,
+    :py:class:`~pyvisdk.do.host_scsi_disk_partition.HostScsiDiskPartition`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.vmfs_datastore_spec.VmfsDatastoreSpec`
     
-.. autoclass:: pyvisdk.do.vmfs_datastore_extend_spec.VmfsDatastoreExtendSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vmfs_datastore_extend_spec.VmfsDatastoreExtendSpec
+    
+    .. py:attribute:: extent
+    
+        Extents to append to VMFS.
+        
+    
+    .. py:attribute:: partition
+    
+        Partitioning specification.
+        
+    

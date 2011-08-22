@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostStorageOperationalInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_storage_element_info.HostStorageElementInfo`
+    :py:class:`~pyvisdk.do.host_storage_element_info.HostStorageElementInfo`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ HostStorageOperationalInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_storage_operational_info.HostStorageOperationalInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_storage_operational_info.HostStorageOperationalInfo
+    
+    .. py:attribute:: property_
+    
+        The property of interest for the storage element
+        
+    
+    .. py:attribute:: value
+    
+        The property value for the storage element
+        
+    

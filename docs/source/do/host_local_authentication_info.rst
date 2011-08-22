@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostLocalAuthenticationInfo
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ HostLocalAuthenticationInfo
     
     :py:class:`~pyvisdk.mo.host_authentication_store_info.HostAuthenticationStoreInfo`
     
-.. autoclass:: pyvisdk.do.host_local_authentication_info.HostLocalAuthenticationInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_local_authentication_info.HostLocalAuthenticationInfo
+    

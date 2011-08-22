@@ -1,23 +1,36 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 TaskDescription
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.task_manager.TaskManager`
+    :py:class:`~pyvisdk.do.task_manager.TaskManager`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.element_description.ElementDescription`,
-    :py:class:`~pyvisdk.mo.type_description.TypeDescription`
+    :py:class:`~pyvisdk.do.element_description.ElementDescription`,
+    :py:class:`~pyvisdk.do.type_description.TypeDescription`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.task_description.TaskDescription
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.task_description.TaskDescription
+    
+    .. py:attribute:: methodInfo
+    
+        Display label and summary for all tasks
+        
+    
+    .. py:attribute:: reason
+    
+        Kind of entity responsible for creating this task.
+        
+    
+    .. py:attribute:: state
+    
+        TaskInfo State enum
+        
+    

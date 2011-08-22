@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DVSManagerDvsConfigTarget
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_portgroup_info.DistributedVirtualPortgroupInfo`,
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_info.DistributedVirtualSwitchInfo`
+    :py:class:`~pyvisdk.do.distributed_virtual_portgroup_info.DistributedVirtualPortgroupInfo`,
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_info.DistributedVirtualSwitchInfo`
     
 .. describe:: Since
     
@@ -20,8 +19,17 @@ DVSManagerDvsConfigTarget
     
 .. describe:: Returned by
     
-    QueryDvsConfigTarget
+    :py:meth:`~pyvisdk.do.query_dvs_config_target.QueryDvsConfigTarget`
     
-.. autoclass:: pyvisdk.do.dvs_manager_dvs_config_target.DVSManagerDvsConfigTarget
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_manager_dvs_config_target.DVSManagerDvsConfigTarget
+    
+    .. py:attribute:: distributedVirtualPortgroup
+    
+        List of any DistributedVirtualPortgroup available for host vNIC connection.
+        
+    
+    .. py:attribute:: distributedVirtualSwitch
+    
+        List of any DistributedVirtualSwitch available for host vNIC connection.
+        
+    

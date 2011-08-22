@@ -1,14 +1,15 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DVPortgroupEvent
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    DVPortgroupCreatedEvent, DVPortgroupDestroyedEvent,
-    DVPortgroupReconfiguredEvent, DVPortgroupRenamedEvent
+    :py:class:`~pyvisdk.do.dv_portgroup_created_event.DVPortgroupCreatedEvent`,
+    :py:class:`~pyvisdk.do.dv_portgroup_destroyed_event.DVPortgroupDestroyedEvent`,
+    :py:class:`~pyvisdk.do.dv_portgroup_reconfigured_event.DVPortgroupReconfiguredEvent`,
+    :py:class:`~pyvisdk.do.dv_portgroup_renamed_event.DVPortgroupRenamedEvent`
     
 .. describe:: Since
     
@@ -18,6 +19,5 @@ DVPortgroupEvent
     
     :py:class:`~pyvisdk.mo.event.Event`
     
-.. autoclass:: pyvisdk.do.dv_portgroup_event.DVPortgroupEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dv_portgroup_event.DVPortgroupEvent
+    

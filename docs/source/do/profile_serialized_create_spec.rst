@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfileSerializedCreateSpec
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ ProfileSerializedCreateSpec
     
     :py:class:`~pyvisdk.mo.profile_create_spec.ProfileCreateSpec`
     
-.. autoclass:: pyvisdk.do.profile_serialized_create_spec.ProfileSerializedCreateSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_serialized_create_spec.ProfileSerializedCreateSpec
+    
+    .. py:attribute:: profileConfigString
+    
+        Represenation of the profile in the string form
+        
+    

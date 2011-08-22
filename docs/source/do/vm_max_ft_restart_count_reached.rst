@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmMaxFTRestartCountReached
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VmMaxFTRestartCountReached
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_max_ft_restart_count_reached.VmMaxFTRestartCountReached
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_max_ft_restart_count_reached.VmMaxFTRestartCountReached
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmInstanceUuidAssignedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ VmInstanceUuidAssignedEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_instance_uuid_assigned_event.VmInstanceUuidAssignedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_instance_uuid_assigned_event.VmInstanceUuidAssignedEvent
+    
+    .. py:attribute:: instanceUuid
+    
+        The new instance UUID.
+        
+    

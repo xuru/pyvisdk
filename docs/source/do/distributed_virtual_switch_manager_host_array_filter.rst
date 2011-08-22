@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DistributedVirtualSwitchManagerHostArrayFilter
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_system.HostSystem`
+    :py:class:`~pyvisdk.do.host_system.HostSystem`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ DistributedVirtualSwitchManagerHostArrayFilter
     
     :py:class:`~pyvisdk.mo.distributed_virtual_switch_manager_host_dvs_filter_spec.DistributedVirtualSwitchManagerHostDvsFilterSpec`
     
-.. autoclass:: pyvisdk.do.distributed_virtual_switch_manager_host_array_filter.DistributedVirtualSwitchManagerHostArrayFilter
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.distributed_virtual_switch_manager_host_array_filter.DistributedVirtualSwitchManagerHostArrayFilter
+    
+    .. py:attribute:: host
+    
+        List of hosts to consider.
+        
+    

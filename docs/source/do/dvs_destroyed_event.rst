@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsDestroyedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ DvsDestroyedEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_destroyed_event.DvsDestroyedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_destroyed_event.DvsDestroyedEvent
+    

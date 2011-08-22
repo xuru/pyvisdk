@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsRenamedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,15 @@ DvsRenamedEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_renamed_event.DvsRenamedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_renamed_event.DvsRenamedEvent
+    
+    .. py:attribute:: newName
+    
+        The new DistributedVirtualSwitch name.
+        
+    
+    .. py:attribute:: oldName
+    
+        The old DistributedVirtualSwitch name.
+        
+    

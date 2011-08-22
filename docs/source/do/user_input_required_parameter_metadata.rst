@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 UserInputRequiredParameterMetadata
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.profile_parameter_metadata.ProfileParameterMetadata`
+    :py:class:`~pyvisdk.do.profile_parameter_metadata.ProfileParameterMetadata`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ UserInputRequiredParameterMetadata
     
     :py:class:`~pyvisdk.mo.profile_policy_option_metadata.ProfilePolicyOptionMetadata`
     
-.. autoclass:: pyvisdk.do.user_input_required_parameter_metadata.UserInputRequiredParameterMetadata
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.user_input_required_parameter_metadata.UserInputRequiredParameterMetadata
+    
+    .. py:attribute:: userInputParameter
+    
+        
+        
+    

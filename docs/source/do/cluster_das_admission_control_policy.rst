@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterDasAdmissionControlPolicy
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.cluster_das_config_info.ClusterDasConfigInfo`
+    :py:class:`~pyvisdk.do.cluster_das_config_info.ClusterDasConfigInfo`
     
 .. describe:: Since
     
@@ -19,10 +18,9 @@ ClusterDasAdmissionControlPolicy
     
 .. describe:: Extended by
     
-    ClusterFailoverHostAdmissionControlPolicy,
-    ClusterFailoverLevelAdmissionControlPolicy,
-    ClusterFailoverResourcesAdmissionControlPolicy
+    :py:class:`~pyvisdk.do.cluster_failover_host_admission_control_policy.ClusterFailoverHostAdmissionControlPolicy`,
+    :py:class:`~pyvisdk.do.cluster_failover_level_admission_control_policy.ClusterFailoverLevelAdmissionControlPolicy`,
+    :py:class:`~pyvisdk.do.cluster_failover_resources_admission_control_policy.ClusterFailoverResourcesAdmissionControlPolicy`
     
-.. autoclass:: pyvisdk.do.cluster_das_admission_control_policy.ClusterDasAdmissionControlPolicy
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_das_admission_control_policy.ClusterDasAdmissionControlPolicy
+    

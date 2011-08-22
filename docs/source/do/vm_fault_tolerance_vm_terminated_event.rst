@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmFaultToleranceVmTerminatedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ VmFaultToleranceVmTerminatedEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_fault_tolerance_vm_terminated_event.VmFaultToleranceVmTerminatedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_fault_tolerance_vm_terminated_event.VmFaultToleranceVmTerminatedEvent
+    
+    .. py:attribute:: reason
+    
+        
+        
+    

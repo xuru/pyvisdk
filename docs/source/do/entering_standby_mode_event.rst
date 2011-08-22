@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 EnteringStandbyModeEvent
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    DrsEnteringStandbyModeEvent
+    :py:class:`~pyvisdk.do.drs_entering_standby_mode_event.DrsEnteringStandbyModeEvent`
     
 .. describe:: Since
     
@@ -17,6 +16,5 @@ EnteringStandbyModeEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.entering_standby_mode_event.EnteringStandbyModeEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.entering_standby_mode_event.EnteringStandbyModeEvent
+    

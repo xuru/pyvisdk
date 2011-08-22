@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsReconfiguredEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.dvs_config_spec.DVSConfigSpec`
+    :py:class:`~pyvisdk.do.dvs_config_spec.DVSConfigSpec`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ DvsReconfiguredEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_reconfigured_event.DvsReconfiguredEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_reconfigured_event.DvsReconfiguredEvent
+    
+    .. py:attribute:: configSpec
+    
+        The reconfiguration spec.
+        
+    

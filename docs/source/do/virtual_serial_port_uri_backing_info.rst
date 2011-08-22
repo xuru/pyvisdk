@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualSerialPortURIBackingInfo
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VirtualSerialPortURIBackingInfo
     
     :py:class:`~pyvisdk.mo.virtual_device_uri_backing_info.VirtualDeviceURIBackingInfo`
     
-.. autoclass:: pyvisdk.do.virtual_serial_port_uri_backing_info.VirtualSerialPortURIBackingInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_serial_port_uri_backing_info.VirtualSerialPortURIBackingInfo
+    

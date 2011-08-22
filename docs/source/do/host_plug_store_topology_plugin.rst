@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostPlugStoreTopologyPlugin
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_plug_store_topology.HostPlugStoreTopology`
+    :py:class:`~pyvisdk.do.host_plug_store_topology.HostPlugStoreTopology`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_plug_store_topology_device.HostPlugStoreTopologyDevice`,
-    :py:class:`~pyvisdk.mo.host_plug_store_topology_path.HostPlugStoreTopologyPath`
+    :py:class:`~pyvisdk.do.host_plug_store_topology_device.HostPlugStoreTopologyDevice`,
+    :py:class:`~pyvisdk.do.host_plug_store_topology_path.HostPlugStoreTopologyPath`
     
 .. describe:: Since
     
@@ -22,6 +21,25 @@ HostPlugStoreTopologyPlugin
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_plug_store_topology_plugin.HostPlugStoreTopologyPlugin
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_plug_store_topology_plugin.HostPlugStoreTopologyPlugin
+    
+    .. py:attribute:: claimedPath
+    
+        The set of paths claimed by this plugin. Not every claimed path will necessarily appear as part of a Device. Claimed paths will only appear under Devices if the device identifier of the path matches up with the device identifier exposed by the Device.
+        
+    
+    .. py:attribute:: device
+    
+        The set of devices formed by this plugin.
+        
+    
+    .. py:attribute:: key
+    
+        The identifier of the plugin.
+        
+    
+    .. py:attribute:: name
+    
+        The name of the plugin.
+        
+    

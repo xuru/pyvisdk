@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DVPortgroupRenamedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,15 @@ DVPortgroupRenamedEvent
     
     :py:class:`~pyvisdk.mo.dv_portgroup_event.DVPortgroupEvent`
     
-.. autoclass:: pyvisdk.do.dv_portgroup_renamed_event.DVPortgroupRenamedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dv_portgroup_renamed_event.DVPortgroupRenamedEvent
+    
+    .. py:attribute:: newName
+    
+        The new portgroup name.
+        
+    
+    .. py:attribute:: oldName
+    
+        The old portgroup name.
+        
+    

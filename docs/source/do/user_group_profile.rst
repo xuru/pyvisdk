@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 UserGroupProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_apply_profile.HostApplyProfile`
+    :py:class:`~pyvisdk.do.host_apply_profile.HostApplyProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ UserGroupProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.user_group_profile.UserGroupProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.user_group_profile.UserGroupProfile
+    
+    .. py:attribute:: key
+    
+        The linkable identifier
+        
+    

@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterActionHistory
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.cluster_compute_resource.ClusterComputeResource`
+    :py:class:`~pyvisdk.do.cluster_compute_resource.ClusterComputeResource`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.cluster_action.ClusterAction`
+    :py:class:`~pyvisdk.do.cluster_action.ClusterAction`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ ClusterActionHistory
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.cluster_action_history.ClusterActionHistory
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_action_history.ClusterActionHistory
+    
+    .. py:attribute:: action
+    
+        The action that was executed recently.
+        
+    
+    .. py:attribute:: time
+    
+        The time when the action was executed.
+        
+    

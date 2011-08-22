@@ -1,21 +1,20 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostDateTimeConfig
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    UpdateDateTimeConfig
+    :py:meth:`~pyvisdk.do.update_date_time_config.UpdateDateTimeConfig`
     
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_config_spec.HostConfigSpec`
+    :py:class:`~pyvisdk.do.host_config_spec.HostConfigSpec`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_ntp_config.HostNtpConfig`
+    :py:class:`~pyvisdk.do.host_ntp_config.HostNtpConfig`
     
 .. describe:: Since
     
@@ -25,6 +24,15 @@ HostDateTimeConfig
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_date_time_config.HostDateTimeConfig
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_date_time_config.HostDateTimeConfig
+    
+    .. py:attribute:: ntpConfig
+    
+        The NTP configuration on the host.
+        
+    
+    .. py:attribute:: timeZone
+    
+        The time zone of the host. Must be one of the values of key
+        
+    

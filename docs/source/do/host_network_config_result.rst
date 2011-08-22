@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostNetworkConfigResult
-========================================
+================================================================================
 
 
 .. describe:: Extends
@@ -11,8 +10,17 @@ HostNetworkConfigResult
     
 .. describe:: Returned by
     
-    UpdateNetworkConfig
+    :py:meth:`~pyvisdk.do.update_network_config.UpdateNetworkConfig`
     
-.. autoclass:: pyvisdk.do.host_network_config_result.HostNetworkConfigResult
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_network_config_result.HostNetworkConfigResult
+    
+    .. py:attribute:: consoleVnicDevice
+    
+        Service console virtual network adapter keys.
+        
+    
+    .. py:attribute:: vnicDevice
+    
+        Virtual network adapter keys.
+        
+    

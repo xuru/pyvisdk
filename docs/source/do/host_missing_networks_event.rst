@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostMissingNetworksEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ HostMissingNetworksEvent
     
     :py:class:`~pyvisdk.mo.host_das_event.HostDasEvent`
     
-.. autoclass:: pyvisdk.do.host_missing_networks_event.HostMissingNetworksEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_missing_networks_event.HostMissingNetworksEvent
+    
+    .. py:attribute:: ips
+    
+        
+        
+    

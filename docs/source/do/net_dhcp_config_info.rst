@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NetDhcpConfigInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.guest_stack_info.GuestStackInfo`,
-    :py:class:`~pyvisdk.mo.net_ip_config_info.NetIpConfigInfo`
+    :py:class:`~pyvisdk.do.guest_stack_info.GuestStackInfo`,
+    :py:class:`~pyvisdk.do.net_ip_config_info.NetIpConfigInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.net_dhcp_config_info_dhcp_options.NetDhcpConfigInfoDhcpOptions`
+    :py:class:`~pyvisdk.do.net_dhcp_config_info_dhcp_options.NetDhcpConfigInfoDhcpOptions`
     
 .. describe:: Since
     
@@ -22,6 +21,15 @@ NetDhcpConfigInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.net_dhcp_config_info.NetDhcpConfigInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.net_dhcp_config_info.NetDhcpConfigInfo
+    
+    .. py:attribute:: ipv4
+    
+        IPv4 DHCP client settings.
+        
+    
+    .. py:attribute:: ipv6
+    
+        IPv6 DHCP client settings.
+        
+    

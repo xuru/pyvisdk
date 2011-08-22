@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostPciPassthruConfig
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    UpdatePassthruConfig
+    :py:meth:`~pyvisdk.do.update_passthru_config.UpdatePassthruConfig`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ HostPciPassthruConfig
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_pci_passthru_config.HostPciPassthruConfig
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_pci_passthru_config.HostPciPassthruConfig
+    
+    .. py:attribute:: id
+    
+        The name ID of this PCI, composed of "bus:slot.function".
+        
+    
+    .. py:attribute:: passthruEnabled
+    
+        Whether passThru is has been configured for this device
+        
+    

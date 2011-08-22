@@ -1,14 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualSerialPort
-========================================
+================================================================================
 
 
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.virtual_device.VirtualDevice`
     
-.. autoclass:: pyvisdk.do.virtual_serial_port.VirtualSerialPort
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_serial_port.VirtualSerialPort
+    
+    .. py:attribute:: yieldOnPoll
+    
+        Enables CPU yield behavior. If you set
+        
+    

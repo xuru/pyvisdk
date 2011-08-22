@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationFixedIpV6
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,15 @@ CustomizationFixedIpV6
     
     :py:class:`~pyvisdk.mo.customization_ip_v6_generator.CustomizationIpV6Generator`
     
-.. autoclass:: pyvisdk.do.customization_fixed_ip_v6.CustomizationFixedIpV6
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_fixed_ip_v6.CustomizationFixedIpV6
+    
+    .. py:attribute:: ipAddress
+    
+        
+        
+    
+    .. py:attribute:: subnetMask
+    
+        
+        
+    

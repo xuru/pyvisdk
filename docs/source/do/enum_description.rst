@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 EnumDescription
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.event_description.EventDescription`
+    :py:class:`~pyvisdk.do.event_description.EventDescription`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.element_description.ElementDescription`
+    :py:class:`~pyvisdk.do.element_description.ElementDescription`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ EnumDescription
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.enum_description.EnumDescription
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.enum_description.EnumDescription
+    
+    .. py:attribute:: key
+    
+        Type of enumeration being described.
+        
+    
+    .. py:attribute:: tags
+    
+        Element descriptions of all the tags for that enumerated type.
+        
+    

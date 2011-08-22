@@ -1,14 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostCnxFailedNetworkErrorEvent
-========================================
+================================================================================
 
 
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.host_cnx_failed_network_error_event.HostCnxFailedNetworkErrorEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_cnx_failed_network_error_event.HostCnxFailedNetworkErrorEvent
+    

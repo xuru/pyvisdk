@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualMachineMemoryReservationSpec
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    ReconfigureVirtualMachineReservation
+    :py:meth:`~pyvisdk.do.reconfigure_virtual_machine_reservation.ReconfigureVirtualMachineReservation`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ VirtualMachineMemoryReservationSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.virtual_machine_memory_reservation_spec.VirtualMachineMemoryReservationSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_machine_memory_reservation_spec.VirtualMachineMemoryReservationSpec
+    
+    .. py:attribute:: allocationPolicy
+    
+        Policy for allocating additional memory for virtual machines.
+        
+    
+    .. py:attribute:: virtualMachineReserved
+    
+        The amount of memory reserved for all running virtual machines, in bytes.
+        
+    

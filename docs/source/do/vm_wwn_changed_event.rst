@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmWwnChangedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,25 @@ VmWwnChangedEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_wwn_changed_event.VmWwnChangedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_wwn_changed_event.VmWwnChangedEvent
+    
+    .. py:attribute:: newNodeWwns
+    
+        The new node WWN.
+        
+    
+    .. py:attribute:: newPortWwns
+    
+        The new port WWN.
+        
+    
+    .. py:attribute:: oldNodeWwns
+    
+        The old node WWN.
+        
+    
+    .. py:attribute:: oldPortWwns
+    
+        The old port WWN.
+        
+    

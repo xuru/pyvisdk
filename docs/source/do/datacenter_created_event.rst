@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DatacenterCreatedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.folder_event_argument.FolderEventArgument`
+    :py:class:`~pyvisdk.do.folder_event_argument.FolderEventArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ DatacenterCreatedEvent
     
     :py:class:`~pyvisdk.mo.datacenter_event.DatacenterEvent`
     
-.. autoclass:: pyvisdk.do.datacenter_created_event.DatacenterCreatedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.datacenter_created_event.DatacenterCreatedEvent
+    
+    .. py:attribute:: parent
+    
+        The folder where the datacenter is created.
+        
+    

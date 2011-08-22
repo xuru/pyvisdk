@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 StorageIORMConfigSpec
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    ConfigureDatastoreIORM_Task
+    :py:meth:`~pyvisdk.do.configure_datastore_iorm__task.ConfigureDatastoreIORM_Task`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ StorageIORMConfigSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.storage_iorm_config_spec.StorageIORMConfigSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.storage_iorm_config_spec.StorageIORMConfigSpec
+    
+    .. py:attribute:: congestionThreshold
+    
+        The latency beyond which the storage array is considered congested.
+        
+    
+    .. py:attribute:: enabled
+    
+        Flag indicating whether or not the service is enabled.
+        
+    

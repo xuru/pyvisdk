@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfilePolicyOptionMetadata
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.profile_policy_metadata.ProfilePolicyMetadata`
+    :py:class:`~pyvisdk.do.profile_policy_metadata.ProfilePolicyMetadata`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.extended_element_description.ExtendedElementDescription`,
-    :py:class:`~pyvisdk.mo.profile_parameter_metadata.ProfileParameterMetadata`
+    :py:class:`~pyvisdk.do.extended_element_description.ExtendedElementDescription`,
+    :py:class:`~pyvisdk.do.profile_parameter_metadata.ProfileParameterMetadata`
     
 .. describe:: Since
     
@@ -24,8 +23,18 @@ ProfilePolicyOptionMetadata
     
 .. describe:: Extended by
     
-    ProfileCompositePolicyOptionMetadata, UserInputRequiredParameterMetadata
+    :py:class:`~pyvisdk.do.profile_composite_policy_option_metadata.ProfileCompositePolicyOptionMetadata`,
+    :py:class:`~pyvisdk.do.user_input_required_parameter_metadata.UserInputRequiredParameterMetadata`
     
-.. autoclass:: pyvisdk.do.profile_policy_option_metadata.ProfilePolicyOptionMetadata
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_policy_option_metadata.ProfilePolicyOptionMetadata
+    
+    .. py:attribute:: id
+    
+        The id of the PolicyOption id.key Identifies the PolicyOption type. id.label contains a brief localizable message describing the PolicyOption. id.summary contains a localizable summary of the PolicyOption. Summary information can contain embedded variable names which can be replaced with values from #parameter.
+        
+    
+    .. py:attribute:: parameter
+    
+        Metadata about the parameters of the PolicyOption. The parameter can be a derived class of PolicyOptionParameterMetadata too.
+        
+    

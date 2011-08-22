@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VMwareUplinkPortOrderPolicy
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.vmware_uplink_port_teaming_policy.VmwareUplinkPortTeamingPolicy`
+    :py:class:`~pyvisdk.do.vmware_uplink_port_teaming_policy.VmwareUplinkPortTeamingPolicy`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ VMwareUplinkPortOrderPolicy
     
     :py:class:`~pyvisdk.mo.inheritable_policy.InheritablePolicy`
     
-.. autoclass:: pyvisdk.do.v_mware_uplink_port_order_policy.VMwareUplinkPortOrderPolicy
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.v_mware_uplink_port_order_policy.VMwareUplinkPortOrderPolicy
+    
+    .. py:attribute:: activeUplinkPort
+    
+        List of active uplink ports used for load balancing.
+        
+    
+    .. py:attribute:: standbyUplinkPort
+    
+        Standby uplink ports used for failover.
+        
+    

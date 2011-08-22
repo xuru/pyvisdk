@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 UpdateVirtualMachineFilesResultFailedVmFileInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.update_virtual_machine_files_result.UpdateVirtualMachineFilesResult`
+    :py:class:`~pyvisdk.do.update_virtual_machine_files_result.UpdateVirtualMachineFilesResult`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.localized_method_fault.LocalizedMethodFault`
+    :py:class:`~pyvisdk.do.localized_method_fault.LocalizedMethodFault`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ UpdateVirtualMachineFilesResultFailedVmFileInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.update_virtual_machine_files_result_failed_vm_file_info.UpdateVirtualMachineFilesResultFailedVmFileInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.update_virtual_machine_files_result_failed_vm_file_info.UpdateVirtualMachineFilesResultFailedVmFileInfo
+    
+    .. py:attribute:: fault
+    
+        The reason why the update failed.
+        
+    
+    .. py:attribute:: vmFile
+    
+        The file path
+        
+    

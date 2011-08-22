@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterProfileConfigInfo
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.compliance_profile.ComplianceProfile`
+    :py:class:`~pyvisdk.do.compliance_profile.ComplianceProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ ClusterProfileConfigInfo
     
     :py:class:`~pyvisdk.mo.profile_config_info.ProfileConfigInfo`
     
-.. autoclass:: pyvisdk.do.cluster_profile_config_info.ClusterProfileConfigInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_profile_config_info.ClusterProfileConfigInfo
+    
+    .. py:attribute:: complyProfile
+    
+        Compliance profile for the cluster
+        
+    

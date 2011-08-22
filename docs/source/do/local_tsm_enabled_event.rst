@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 LocalTSMEnabledEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ LocalTSMEnabledEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.local_tsm_enabled_event.LocalTSMEnabledEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.local_tsm_enabled_event.LocalTSMEnabledEvent
+    

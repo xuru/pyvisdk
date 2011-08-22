@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmFailedStartingSecondaryEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ VmFailedStartingSecondaryEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_failed_starting_secondary_event.VmFailedStartingSecondaryEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_failed_starting_secondary_event.VmFailedStartingSecondaryEvent
+    
+    .. py:attribute:: reason
+    
+        The reason for the failure. See VmFailedStartingSecondaryEventFailureReason
+        
+    

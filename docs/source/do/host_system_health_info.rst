@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostSystemHealthInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.health_system_runtime.HealthSystemRuntime`
+    :py:class:`~pyvisdk.do.health_system_runtime.HealthSystemRuntime`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_numeric_sensor_info.HostNumericSensorInfo`
+    :py:class:`~pyvisdk.do.host_numeric_sensor_info.HostNumericSensorInfo`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ HostSystemHealthInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_system_health_info.HostSystemHealthInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_system_health_info.HostSystemHealthInfo
+    
+    .. py:attribute:: numericSensorInfo
+    
+        Health information provided by the power probes.
+        
+    

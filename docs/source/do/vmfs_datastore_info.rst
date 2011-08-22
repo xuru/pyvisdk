@@ -1,18 +1,21 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmfsDatastoreInfo
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_vmfs_volume.HostVmfsVolume`
+    :py:class:`~pyvisdk.do.host_vmfs_volume.HostVmfsVolume`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.datastore_info.DatastoreInfo`
     
-.. autoclass:: pyvisdk.do.vmfs_datastore_info.VmfsDatastoreInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vmfs_datastore_info.VmfsDatastoreInfo
+    
+    .. py:attribute:: vmfs
+    
+        The VMFS volume information for the datastore. May not be available when the datastore is not accessible.
+        
+    

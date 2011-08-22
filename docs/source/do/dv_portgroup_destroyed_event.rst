@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DVPortgroupDestroyedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ DVPortgroupDestroyedEvent
     
     :py:class:`~pyvisdk.mo.dv_portgroup_event.DVPortgroupEvent`
     
-.. autoclass:: pyvisdk.do.dv_portgroup_destroyed_event.DVPortgroupDestroyedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dv_portgroup_destroyed_event.DVPortgroupDestroyedEvent
+    

@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostAuthenticationStoreInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_authentication_manager_info.HostAuthenticationManagerInfo`,
-    :py:class:`~pyvisdk.mo.host_authentication_store.HostAuthenticationStore`
+    :py:class:`~pyvisdk.do.host_authentication_manager_info.HostAuthenticationManagerInfo`,
+    :py:class:`~pyvisdk.do.host_authentication_store.HostAuthenticationStore`
     
 .. describe:: Since
     
@@ -20,8 +19,13 @@ HostAuthenticationStoreInfo
     
 .. describe:: Extended by
     
-    HostDirectoryStoreInfo, HostLocalAuthenticationInfo
+    :py:class:`~pyvisdk.do.host_directory_store_info.HostDirectoryStoreInfo`,
+    :py:class:`~pyvisdk.do.host_local_authentication_info.HostLocalAuthenticationInfo`
     
-.. autoclass:: pyvisdk.do.host_authentication_store_info.HostAuthenticationStoreInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_authentication_store_info.HostAuthenticationStoreInfo
+    
+    .. py:attribute:: enabled
+    
+        Indicates whether the authentication store is configured. * Host Active Directory authentication -
+        
+    

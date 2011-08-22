@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 TaskReason
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.task_info.TaskInfo`
+    :py:class:`~pyvisdk.do.task_info.TaskInfo`
     
 .. describe:: Extends
     
@@ -15,8 +14,10 @@ TaskReason
     
 .. describe:: Extended by
     
-    TaskReasonAlarm, TaskReasonSchedule, TaskReasonSystem, TaskReasonUser
+    :py:class:`~pyvisdk.do.task_reason_alarm.TaskReasonAlarm`,
+    :py:class:`~pyvisdk.do.task_reason_schedule.TaskReasonSchedule`,
+    :py:class:`~pyvisdk.do.task_reason_system.TaskReasonSystem`,
+    :py:class:`~pyvisdk.do.task_reason_user.TaskReasonUser`
     
-.. autoclass:: pyvisdk.do.task_reason.TaskReason
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.task_reason.TaskReason
+    

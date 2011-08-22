@@ -1,19 +1,18 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterDpmHostConfigInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.cluster_config_info_ex.ClusterConfigInfoEx`,
-    :py:class:`~pyvisdk.mo.cluster_dpm_host_config_spec.ClusterDpmHostConfigSpec`
+    :py:class:`~pyvisdk.do.cluster_config_info_ex.ClusterConfigInfoEx`,
+    :py:class:`~pyvisdk.do.cluster_dpm_host_config_spec.ClusterDpmHostConfigSpec`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.dpm_behavior.DpmBehavior`,
-    :py:class:`~pyvisdk.mo.host_system.HostSystem`
+    :py:class:`~pyvisdk.do.dpm_behavior.DpmBehavior`,
+    :py:class:`~pyvisdk.do.host_system.HostSystem`
     
 .. describe:: Since
     
@@ -23,6 +22,20 @@ ClusterDpmHostConfigInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.cluster_dpm_host_config_info.ClusterDpmHostConfigInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_dpm_host_config_info.ClusterDpmHostConfigInfo
+    
+    .. py:attribute:: behavior
+    
+        Specifies the particular DPM behavior for this host.
+        
+    
+    .. py:attribute:: enabled
+    
+        Flag to indicate whether or not VirtualCenter is allowed to perform any power related operations or recommendations for this host. If this flag is false, the host is effectively excluded from DPM service.
+        
+    
+    .. py:attribute:: key
+    
+        Reference to the host.
+        
+    

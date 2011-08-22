@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 EvaluationLicenseSource
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ EvaluationLicenseSource
     
     :py:class:`~pyvisdk.mo.license_source.LicenseSource`
     
-.. autoclass:: pyvisdk.do.evaluation_license_source.EvaluationLicenseSource
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.evaluation_license_source.EvaluationLicenseSource
+    
+    .. py:attribute:: remainingHours
+    
+        The number of remaining hours before product evaluation expires
+        
+    

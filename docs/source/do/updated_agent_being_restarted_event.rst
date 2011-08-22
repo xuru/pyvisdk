@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 UpdatedAgentBeingRestartedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ UpdatedAgentBeingRestartedEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.updated_agent_being_restarted_event.UpdatedAgentBeingRestartedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.updated_agent_being_restarted_event.UpdatedAgentBeingRestartedEvent
+    

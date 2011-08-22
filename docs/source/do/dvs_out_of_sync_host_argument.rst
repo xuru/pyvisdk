@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsOutOfSyncHostArgument
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.dvs_host_went_out_of_sync_event.DvsHostWentOutOfSyncEvent`,
-    :py:class:`~pyvisdk.mo.out_of_sync_dvs_host.OutOfSyncDvsHost`
+    :py:class:`~pyvisdk.do.dvs_host_went_out_of_sync_event.DvsHostWentOutOfSyncEvent`,
+    :py:class:`~pyvisdk.do.out_of_sync_dvs_host.OutOfSyncDvsHost`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_event_argument.HostEventArgument`
+    :py:class:`~pyvisdk.do.host_event_argument.HostEventArgument`
     
 .. describe:: Since
     
@@ -22,6 +21,15 @@ DvsOutOfSyncHostArgument
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.dvs_out_of_sync_host_argument.DvsOutOfSyncHostArgument
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_out_of_sync_host_argument.DvsOutOfSyncHostArgument
+    
+    .. py:attribute:: configParamters
+    
+        The DVS configuration parameters that are different between Virtual Center server and the host.
+        
+    
+    .. py:attribute:: outOfSyncHost
+    
+        The host.
+        
+    

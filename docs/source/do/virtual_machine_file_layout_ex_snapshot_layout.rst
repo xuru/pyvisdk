@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualMachineFileLayoutExSnapshotLayout
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.virtual_machine_file_layout_ex.VirtualMachineFileLayoutEx`
+    :py:class:`~pyvisdk.do.virtual_machine_file_layout_ex.VirtualMachineFileLayoutEx`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.virtual_machine_file_layout_ex_disk_layout.VirtualMachineFileLayoutExDiskLayout`,
-    :py:class:`~pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot`
+    :py:class:`~pyvisdk.do.virtual_machine_file_layout_ex_disk_layout.VirtualMachineFileLayoutExDiskLayout`,
+    :py:class:`~pyvisdk.do.virtual_machine_snapshot.VirtualMachineSnapshot`
     
 .. describe:: Since
     
@@ -22,6 +21,20 @@ VirtualMachineFileLayoutExSnapshotLayout
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.virtual_machine_file_layout_ex_snapshot_layout.VirtualMachineFileLayoutExSnapshotLayout
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_machine_file_layout_ex_snapshot_layout.VirtualMachineFileLayoutExSnapshotLayout
+    
+    .. py:attribute:: dataKey
+    
+        Key to the snapshot data file in file.
+        
+    
+    .. py:attribute:: disk
+    
+        Layout of each virtual disk of the virtual machine when the snapshot was taken.
+        
+    
+    .. py:attribute:: key
+    
+        Reference to the snapshot.
+        
+    

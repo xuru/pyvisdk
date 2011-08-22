@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterDasAdmissionControlInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.cluster_compute_resource_summary.ClusterComputeResourceSummary`
+    :py:class:`~pyvisdk.do.cluster_compute_resource_summary.ClusterComputeResourceSummary`
     
 .. describe:: Since
     
@@ -19,10 +18,9 @@ ClusterDasAdmissionControlInfo
     
 .. describe:: Extended by
     
-    ClusterFailoverHostAdmissionControlInfo,
-    ClusterFailoverLevelAdmissionControlInfo,
-    ClusterFailoverResourcesAdmissionControlInfo
+    :py:class:`~pyvisdk.do.cluster_failover_host_admission_control_info.ClusterFailoverHostAdmissionControlInfo`,
+    :py:class:`~pyvisdk.do.cluster_failover_level_admission_control_info.ClusterFailoverLevelAdmissionControlInfo`,
+    :py:class:`~pyvisdk.do.cluster_failover_resources_admission_control_info.ClusterFailoverResourcesAdmissionControlInfo`
     
-.. autoclass:: pyvisdk.do.cluster_das_admission_control_info.ClusterDasAdmissionControlInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_das_admission_control_info.ClusterDasAdmissionControlInfo
+    

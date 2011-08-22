@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 AlarmAction
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.alarm_spec.AlarmSpec`,
-    :py:class:`~pyvisdk.mo.group_alarm_action.GroupAlarmAction`
+    :py:class:`~pyvisdk.do.alarm_spec.AlarmSpec`,
+    :py:class:`~pyvisdk.do.group_alarm_action.GroupAlarmAction`
     
 .. describe:: Extends
     
@@ -16,8 +15,8 @@ AlarmAction
     
 .. describe:: Extended by
     
-    AlarmTriggeringAction, GroupAlarmAction
+    :py:class:`~pyvisdk.do.alarm_triggering_action.AlarmTriggeringAction`,
+    :py:class:`~pyvisdk.do.group_alarm_action.GroupAlarmAction`
     
-.. autoclass:: pyvisdk.do.alarm_action.AlarmAction
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.alarm_action.AlarmAction
+    

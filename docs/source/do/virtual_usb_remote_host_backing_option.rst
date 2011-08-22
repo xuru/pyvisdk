@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualUSBRemoteHostBackingOption
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VirtualUSBRemoteHostBackingOption
     
     :py:class:`~pyvisdk.mo.virtual_device_device_backing_option.VirtualDeviceDeviceBackingOption`
     
-.. autoclass:: pyvisdk.do.virtual_usb_remote_host_backing_option.VirtualUSBRemoteHostBackingOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_usb_remote_host_backing_option.VirtualUSBRemoteHostBackingOption
+    

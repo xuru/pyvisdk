@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DVSNameArrayUplinkPortPolicy
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ DVSNameArrayUplinkPortPolicy
     
     :py:class:`~pyvisdk.mo.dvs_uplink_port_policy.DVSUplinkPortPolicy`
     
-.. autoclass:: pyvisdk.do.dvs_name_array_uplink_port_policy.DVSNameArrayUplinkPortPolicy
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_name_array_uplink_port_policy.DVSNameArrayUplinkPortPolicy
+    
+    .. py:attribute:: uplinkPortName
+    
+        The uniform name of uplink ports on each host.
+        
+    

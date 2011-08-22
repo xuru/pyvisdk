@@ -1,14 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DrsEnabledEvent
-========================================
+================================================================================
 
 
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.cluster_event.ClusterEvent`
     
-.. autoclass:: pyvisdk.do.drs_enabled_event.DrsEnabledEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.drs_enabled_event.DrsEnabledEvent
+    
+    .. py:attribute:: behavior
+    
+        The DRS automation level in (DrsBehavior)
+        
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterProfileCreateSpec
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    ClusterProfileConfigSpec
+    :py:class:`~pyvisdk.do.cluster_profile_config_spec.ClusterProfileConfigSpec`
     
 .. describe:: Since
     
@@ -17,6 +16,5 @@ ClusterProfileCreateSpec
     
     :py:class:`~pyvisdk.mo.profile_create_spec.ProfileCreateSpec`
     
-.. autoclass:: pyvisdk.do.cluster_profile_create_spec.ClusterProfileCreateSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_profile_create_spec.ClusterProfileCreateSpec
+    

@@ -1,23 +1,36 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostScsiTopologyInterface
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_scsi_topology.HostScsiTopology`
+    :py:class:`~pyvisdk.do.host_scsi_topology.HostScsiTopology`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_host_bus_adapter.HostHostBusAdapter`,
-    :py:class:`~pyvisdk.mo.host_scsi_topology_target.HostScsiTopologyTarget`
+    :py:class:`~pyvisdk.do.host_host_bus_adapter.HostHostBusAdapter`,
+    :py:class:`~pyvisdk.do.host_scsi_topology_target.HostScsiTopologyTarget`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_scsi_topology_interface.HostScsiTopologyInterface
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_scsi_topology_interface.HostScsiTopologyInterface
+    
+    .. py:attribute:: adapter
+    
+        The link to data for this SCSI interface.
+        
+    
+    .. py:attribute:: key
+    
+        The identifier for the SCSI interface
+        
+    
+    .. py:attribute:: target
+    
+        The list of targets to which the SCSI interface is associated.
+        
+    

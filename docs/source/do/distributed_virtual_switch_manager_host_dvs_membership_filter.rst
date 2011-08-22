@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DistributedVirtualSwitchManagerHostDvsMembershipFilter
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch`
+    :py:class:`~pyvisdk.do.distributed_virtual_switch.DistributedVirtualSwitch`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ DistributedVirtualSwitchManagerHostDvsMembershipFilter
     
     :py:class:`~pyvisdk.mo.distributed_virtual_switch_manager_host_dvs_filter_spec.DistributedVirtualSwitchManagerHostDvsFilterSpec`
     
-.. autoclass:: pyvisdk.do.distributed_virtual_switch_manager_host_dvs_membership_filter.DistributedVirtualSwitchManagerHostDvsMembershipFilter
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.distributed_virtual_switch_manager_host_dvs_membership_filter.DistributedVirtualSwitchManagerHostDvsMembershipFilter
+    
+    .. py:attribute:: distributedVirtualSwitch
+    
+        
+        
+    

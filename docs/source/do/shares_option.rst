@@ -1,19 +1,18 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 SharesOption
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.resource_allocation_option.ResourceAllocationOption`,
-    :py:class:`~pyvisdk.mo.storage_io_allocation_option.StorageIOAllocationOption`
+    :py:class:`~pyvisdk.do.resource_allocation_option.ResourceAllocationOption`,
+    :py:class:`~pyvisdk.do.storage_io_allocation_option.StorageIOAllocationOption`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.int_option.IntOption`,
-    :py:class:`~pyvisdk.mo.shares_level.SharesLevel`
+    :py:class:`~pyvisdk.do.int_option.IntOption`,
+    :py:class:`~pyvisdk.do.shares_level.SharesLevel`
     
 .. describe:: Since
     
@@ -23,6 +22,15 @@ SharesOption
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.shares_option.SharesOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.shares_option.SharesOption
+    
+    .. py:attribute:: defaultLevel
+    
+        Default value for level
+        
+    
+    .. py:attribute:: sharesOption
+    
+        Value range which can be used for share definition in shares
+        
+    

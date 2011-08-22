@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DatabaseSizeParam
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    EstimateDatabaseSize
+    :py:meth:`~pyvisdk.do.estimate_database_size.EstimateDatabaseSize`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.inventory_description.InventoryDescription`,
-    :py:class:`~pyvisdk.mo.performance_statistics_description.PerformanceStatisticsDescription`
+    :py:class:`~pyvisdk.do.inventory_description.InventoryDescription`,
+    :py:class:`~pyvisdk.do.performance_statistics_description.PerformanceStatisticsDescription`
     
 .. describe:: Since
     
@@ -22,6 +21,15 @@ DatabaseSizeParam
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.database_size_param.DatabaseSizeParam
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.database_size_param.DatabaseSizeParam
+    
+    .. py:attribute:: inventoryDesc
+    
+        Object to capture inventory description
+        
+    
+    .. py:attribute:: perfStatsDesc
+    
+        Object to capture performance statistics related parameters
+        
+    

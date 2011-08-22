@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 GhostDvsProxySwitchDetectedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ GhostDvsProxySwitchDetectedEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.ghost_dvs_proxy_switch_detected_event.GhostDvsProxySwitchDetectedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.ghost_dvs_proxy_switch_detected_event.GhostDvsProxySwitchDetectedEvent
+    
+    .. py:attribute:: switchUuid
+    
+        The list of ghost DVS proxy switch uuids that were found.
+        
+    

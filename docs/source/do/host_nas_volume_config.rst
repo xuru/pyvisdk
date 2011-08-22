@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostNasVolumeConfig
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_config_spec.HostConfigSpec`
+    :py:class:`~pyvisdk.do.host_config_spec.HostConfigSpec`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_nas_volume_spec.HostNasVolumeSpec`
+    :py:class:`~pyvisdk.do.host_nas_volume_spec.HostNasVolumeSpec`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ HostNasVolumeConfig
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_nas_volume_config.HostNasVolumeConfig
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_nas_volume_config.HostNasVolumeConfig
+    
+    .. py:attribute:: changeOperation
+    
+        Indicates the change operation to apply on this configuration specification.
+        
+    
+    .. py:attribute:: spec
+    
+        The specification volume.
+        
+    

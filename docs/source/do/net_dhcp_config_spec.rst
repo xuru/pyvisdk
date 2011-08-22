@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NetDhcpConfigSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.net_ip_config_spec.NetIpConfigSpec`
+    :py:class:`~pyvisdk.do.net_ip_config_spec.NetIpConfigSpec`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.net_dhcp_config_spec_dhcp_options_spec.NetDhcpConfigSpecDhcpOptionsSpec`
+    :py:class:`~pyvisdk.do.net_dhcp_config_spec_dhcp_options_spec.NetDhcpConfigSpecDhcpOptionsSpec`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ NetDhcpConfigSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.net_dhcp_config_spec.NetDhcpConfigSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.net_dhcp_config_spec.NetDhcpConfigSpec
+    
+    .. py:attribute:: ipv4
+    
+        Configure IPv4 DHCP client settings.
+        
+    
+    .. py:attribute:: ipv6
+    
+        Configure IPv6 DHCP client settings.
+        
+    

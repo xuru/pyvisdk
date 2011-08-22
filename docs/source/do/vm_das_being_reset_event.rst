@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmDasBeingResetEvent
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    VmDasBeingResetWithScreenshotEvent
+    :py:class:`~pyvisdk.do.vm_das_being_reset_with_screenshot_event.VmDasBeingResetWithScreenshotEvent`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ VmDasBeingResetEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_das_being_reset_event.VmDasBeingResetEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_das_being_reset_event.VmDasBeingResetEvent
+    
+    .. py:attribute:: reason
+    
+        The reason why this vm is being reset
+        
+    

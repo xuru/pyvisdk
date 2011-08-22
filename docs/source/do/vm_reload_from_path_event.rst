@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmReloadFromPathEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ VmReloadFromPathEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_reload_from_path_event.VmReloadFromPathEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_reload_from_path_event.VmReloadFromPathEvent
+    
+    .. py:attribute:: configPath
+    
+        
+        
+    

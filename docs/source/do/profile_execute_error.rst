@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfileExecuteError
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.profile_execute_result.ProfileExecuteResult`
+    :py:class:`~pyvisdk.do.profile_execute_result.ProfileExecuteResult`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.profile_property_path.ProfilePropertyPath`
+    :py:class:`~pyvisdk.do.profile_property_path.ProfilePropertyPath`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ ProfileExecuteError
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.profile_execute_error.ProfileExecuteError
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_execute_error.ProfileExecuteError
+    
+    .. py:attribute:: message
+    
+        Message describing the error
+        
+    
+    .. py:attribute:: path
+    
+        Path where the error occurred
+        
+    

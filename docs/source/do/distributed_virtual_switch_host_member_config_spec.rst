@@ -1,19 +1,18 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DistributedVirtualSwitchHostMemberConfigSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.dvs_config_spec.DVSConfigSpec`
+    :py:class:`~pyvisdk.do.dvs_config_spec.DVSConfigSpec`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_host_member_backing.DistributedVirtualSwitchHostMemberBacking`,
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_keyed_opaque_blob.DistributedVirtualSwitchKeyedOpaqueBlob`,
-    :py:class:`~pyvisdk.mo.host_system.HostSystem`
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_host_member_backing.DistributedVirtualSwitchHostMemberBacking`,
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_keyed_opaque_blob.DistributedVirtualSwitchKeyedOpaqueBlob`,
+    :py:class:`~pyvisdk.do.host_system.HostSystem`
     
 .. describe:: Since
     
@@ -23,6 +22,30 @@ DistributedVirtualSwitchHostMemberConfigSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.distributed_virtual_switch_host_member_config_spec.DistributedVirtualSwitchHostMemberConfigSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.distributed_virtual_switch_host_member_config_spec.DistributedVirtualSwitchHostMemberConfigSpec
+    
+    .. py:attribute:: backing
+    
+        Indicating whether to select individual physical NICs or an existing vSwitch.
+        
+    
+    .. py:attribute:: host
+    
+        The host to join the DistributedVirtualSwitch in creating a HostMember or identify the existing HostMember to be reconfigured.
+        
+    
+    .. py:attribute:: maxProxySwitchPorts
+    
+        The maximum number of ports allowed to be created in the proxy switch.
+        
+    
+    .. py:attribute:: operation
+    
+        The host member operation type. See ConfigSpecOperation for valid values.
+        
+    
+    .. py:attribute:: vendorSpecificConfig
+    
+        An opaque binary blob that stores vendor specific configuration.
+        
+    

@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualDeviceURIBackingOption
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    VirtualSerialPortURIBackingOption
+    :py:class:`~pyvisdk.do.virtual_serial_port_uri_backing_option.VirtualSerialPortURIBackingOption`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.choice_option.ChoiceOption`
+    :py:class:`~pyvisdk.do.choice_option.ChoiceOption`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ VirtualDeviceURIBackingOption
     
     :py:class:`~pyvisdk.mo.virtual_device_backing_option.VirtualDeviceBackingOption`
     
-.. autoclass:: pyvisdk.do.virtual_device_uri_backing_option.VirtualDeviceURIBackingOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_device_uri_backing_option.VirtualDeviceURIBackingOption
+    
+    .. py:attribute:: directions
+    
+        List of possible directions. Valid directions are: * server * client
+        
+    

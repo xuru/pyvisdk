@@ -1,17 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostProfileConfigSpec
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    UpdateHostProfile
+    :py:meth:`~pyvisdk.do.update_host_profile.UpdateHostProfile`
     
 .. describe:: Extended by
     
-    HostProfileCompleteConfigSpec, HostProfileHostBasedConfigSpec
+    :py:class:`~pyvisdk.do.host_profile_complete_config_spec.HostProfileCompleteConfigSpec`,
+    :py:class:`~pyvisdk.do.host_profile_host_based_config_spec.HostProfileHostBasedConfigSpec`
     
 .. describe:: Since
     
@@ -21,6 +21,5 @@ HostProfileConfigSpec
     
     :py:class:`~pyvisdk.mo.profile_create_spec.ProfileCreateSpec`
     
-.. autoclass:: pyvisdk.do.host_profile_config_spec.HostProfileConfigSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_profile_config_spec.HostProfileConfigSpec
+    

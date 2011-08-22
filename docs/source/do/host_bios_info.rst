@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostBIOSInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_hardware_info.HostHardwareInfo`
+    :py:class:`~pyvisdk.do.host_hardware_info.HostHardwareInfo`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ HostBIOSInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_bios_info.HostBIOSInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_bios_info.HostBIOSInfo
+    
+    .. py:attribute:: biosVersion
+    
+        The current BIOS version of the physical chassis
+        
+    
+    .. py:attribute:: releaseDate
+    
+        The release date for the BIOS.
+        
+    

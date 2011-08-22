@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmEndReplayingEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VmEndReplayingEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_end_replaying_event.VmEndReplayingEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_end_replaying_event.VmEndReplayingEvent
+    

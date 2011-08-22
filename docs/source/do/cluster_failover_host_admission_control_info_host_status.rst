@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterFailoverHostAdmissionControlInfoHostStatus
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.cluster_failover_host_admission_control_info.ClusterFailoverHostAdmissionControlInfo`
+    :py:class:`~pyvisdk.do.cluster_failover_host_admission_control_info.ClusterFailoverHostAdmissionControlInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_system.HostSystem`,
-    :py:class:`~pyvisdk.mo.managed_entity_status.ManagedEntityStatus`
+    :py:class:`~pyvisdk.do.host_system.HostSystem`,
+    :py:class:`~pyvisdk.do.managed_entity_status.ManagedEntityStatus`
     
 .. describe:: Since
     
@@ -22,6 +21,15 @@ ClusterFailoverHostAdmissionControlInfoHostStatus
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.cluster_failover_host_admission_control_info_host_status.ClusterFailoverHostAdmissionControlInfoHostStatus
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_failover_host_admission_control_info_host_status.ClusterFailoverHostAdmissionControlInfoHostStatus
+    
+    .. py:attribute:: host
+    
+        The failover host.
+        
+    
+    .. py:attribute:: status
+    
+        The status of the failover host. The status is green for a connected host with no VMware HA errors and no virtual machines running on it. The status is yellow for a connected host with no VMware HA errors and some virtual machines running on it. The status red for a disconnected or not responding host, a host that is in maintenance or standby mode or that has a VMware HA error on it.
+        
+    

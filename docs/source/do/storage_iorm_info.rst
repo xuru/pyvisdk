@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 StorageIORMInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.datastore.Datastore`
+    :py:class:`~pyvisdk.do.datastore.Datastore`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ StorageIORMInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.storage_iorm_info.StorageIORMInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.storage_iorm_info.StorageIORMInfo
+    
+    .. py:attribute:: congestionThreshold
+    
+        The latency beyond which the storage array is considered congested.
+        
+    
+    .. py:attribute:: enabled
+    
+        Flag indicating whether or not the service is enabled.
+        
+    

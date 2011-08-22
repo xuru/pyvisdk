@@ -1,19 +1,32 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostMountInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.datastore_host_mount.DatastoreHostMount`,
-    :py:class:`~pyvisdk.mo.host_file_system_mount_info.HostFileSystemMountInfo`
+    :py:class:`~pyvisdk.do.datastore_host_mount.DatastoreHostMount`,
+    :py:class:`~pyvisdk.do.host_file_system_mount_info.HostFileSystemMountInfo`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_mount_info.HostMountInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_mount_info.HostMountInfo
+    
+    .. py:attribute:: accessible
+    
+        Flag that indicates if the datastore is currently accessible from the host.
+        
+    
+    .. py:attribute:: accessMode
+    
+        Access mode to the underlying file system for this host.
+        
+    
+    .. py:attribute:: path
+    
+        Local file path where file system volume is mounted, if applicable. This path identifies the file system volume from the point of view of the host.
+        
+    

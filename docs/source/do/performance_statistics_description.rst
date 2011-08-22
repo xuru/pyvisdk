@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 PerformanceStatisticsDescription
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.database_size_param.DatabaseSizeParam`
+    :py:class:`~pyvisdk.do.database_size_param.DatabaseSizeParam`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.perf_interval.PerfInterval`
+    :py:class:`~pyvisdk.do.perf_interval.PerfInterval`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ PerformanceStatisticsDescription
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.performance_statistics_description.PerformanceStatisticsDescription
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.performance_statistics_description.PerformanceStatisticsDescription
+    
+    .. py:attribute:: intervals
+    
+        Historic interval setting. Default value is the same as the historic interval settings of the current instance of running VC.
+        
+    

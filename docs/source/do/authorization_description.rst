@@ -1,22 +1,30 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 AuthorizationDescription
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.authorization_manager.AuthorizationManager`
+    :py:class:`~pyvisdk.do.authorization_manager.AuthorizationManager`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.element_description.ElementDescription`
+    :py:class:`~pyvisdk.do.element_description.ElementDescription`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.authorization_description.AuthorizationDescription
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.authorization_description.AuthorizationDescription
+    
+    .. py:attribute:: privilege
+    
+        Description of the privilege.
+        
+    
+    .. py:attribute:: privilegeGroup
+    
+        Description of a category of similar privileges, grouped together for convenience.
+        
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualMachineFileLayoutExFileInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.virtual_machine_file_layout_ex.VirtualMachineFileLayoutEx`
+    :py:class:`~pyvisdk.do.virtual_machine_file_layout_ex.VirtualMachineFileLayoutEx`
     
 .. describe:: Since
     
@@ -17,6 +16,25 @@ VirtualMachineFileLayoutExFileInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.virtual_machine_file_layout_ex_file_info.VirtualMachineFileLayoutExFileInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_machine_file_layout_ex_file_info.VirtualMachineFileLayoutExFileInfo
+    
+    .. py:attribute:: key
+    
+        Key to reference this file.
+        
+    
+    .. py:attribute:: name
+    
+        Name of the file, including the complete datastore path.
+        
+    
+    .. py:attribute:: size
+    
+        Size of the file in bytes.
+        
+    
+    .. py:attribute:: type
+    
+        Type of the file. VirtualMachineFileLayoutExFileType lists all valid values.
+        
+    

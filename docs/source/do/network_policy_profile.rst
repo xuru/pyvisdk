@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NetworkPolicyProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.port_group_profile.PortGroupProfile`,
-    :py:class:`~pyvisdk.mo.virtual_switch_profile.VirtualSwitchProfile`
+    :py:class:`~pyvisdk.do.port_group_profile.PortGroupProfile`,
+    :py:class:`~pyvisdk.do.virtual_switch_profile.VirtualSwitchProfile`
     
 .. describe:: Since
     
@@ -18,6 +17,5 @@ NetworkPolicyProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.network_policy_profile.NetworkPolicyProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.network_policy_profile.NetworkPolicyProfile
+    

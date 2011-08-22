@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ComplianceLocator
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_profile_config_info.HostProfileConfigInfo`
+    :py:class:`~pyvisdk.do.host_profile_config_info.HostProfileConfigInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.profile_property_path.ProfilePropertyPath`
+    :py:class:`~pyvisdk.do.profile_property_path.ProfilePropertyPath`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ ComplianceLocator
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.compliance_locator.ComplianceLocator
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.compliance_locator.ComplianceLocator
+    
+    .. py:attribute:: applyPath
+    
+        Complete path to the profile/policy which was responsible for the generation of the ComplianceExpression. [ProfilePath + policyId] will uniquely identify a Policy.
+        
+    
+    .. py:attribute:: expressionName
+    
+        Exression for which the Locator corresponds to
+        
+    

@@ -1,14 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualKeyboard
-========================================
+================================================================================
 
 
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.virtual_device.VirtualDevice`
     
-.. autoclass:: pyvisdk.do.virtual_keyboard.VirtualKeyboard
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_keyboard.VirtualKeyboard
+    

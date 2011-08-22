@@ -1,22 +1,35 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostScsiTopologyLun
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_scsi_topology_target.HostScsiTopologyTarget`
+    :py:class:`~pyvisdk.do.host_scsi_topology_target.HostScsiTopologyTarget`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.scsi_lun.ScsiLun`
+    :py:class:`~pyvisdk.do.scsi_lun.ScsiLun`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_scsi_topology_lun.HostScsiTopologyLun
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_scsi_topology_lun.HostScsiTopologyLun
+    
+    .. py:attribute:: key
+    
+        The identifier for the SCSI Lun
+        
+    
+    .. py:attribute:: lun
+    
+        The logical unit number of the SCSI logical unit.
+        
+    
+    .. py:attribute:: scsiLun
+    
+        The link to data for this SCSI logical unit.
+        
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmStartReplayingEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VmStartReplayingEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_start_replaying_event.VmStartReplayingEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_start_replaying_event.VmStartReplayingEvent
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmDasBeingResetWithScreenshotEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ VmDasBeingResetWithScreenshotEvent
     
     :py:class:`~pyvisdk.mo.vm_das_being_reset_event.VmDasBeingResetEvent`
     
-.. autoclass:: pyvisdk.do.vm_das_being_reset_with_screenshot_event.VmDasBeingResetWithScreenshotEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_das_being_reset_with_screenshot_event.VmDasBeingResetWithScreenshotEvent
+    
+    .. py:attribute:: screenshotFilePath
+    
+        The datastore path of the screenshot taken before resetting.
+        
+    

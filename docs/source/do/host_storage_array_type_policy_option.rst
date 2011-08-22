@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostStorageArrayTypePolicyOption
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.element_description.ElementDescription`
+    :py:class:`~pyvisdk.do.element_description.ElementDescription`
     
 .. describe:: Since
     
@@ -19,8 +18,12 @@ HostStorageArrayTypePolicyOption
     
 .. describe:: Returned by
     
-    QueryStorageArrayTypePolicyOptions
+    :py:meth:`~pyvisdk.do.query_storage_array_type_policy_options.QueryStorageArrayTypePolicyOptions`
     
-.. autoclass:: pyvisdk.do.host_storage_array_type_policy_option.HostStorageArrayTypePolicyOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_storage_array_type_policy_option.HostStorageArrayTypePolicyOption
+    
+    .. py:attribute:: policy
+    
+        Description of the paths selection policy. Use the key as the identifier.
+        
+    

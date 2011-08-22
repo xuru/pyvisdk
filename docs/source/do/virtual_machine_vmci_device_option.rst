@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualMachineVMCIDeviceOption
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.bool_option.BoolOption`
+    :py:class:`~pyvisdk.do.bool_option.BoolOption`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ VirtualMachineVMCIDeviceOption
     
     :py:class:`~pyvisdk.mo.virtual_device_option.VirtualDeviceOption`
     
-.. autoclass:: pyvisdk.do.virtual_machine_vmci_device_option.VirtualMachineVMCIDeviceOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_machine_vmci_device_option.VirtualMachineVMCIDeviceOption
+    
+    .. py:attribute:: allowUnrestrictedCommunication
+    
+        Indicates support for VMCI communication and specifies the default operation. If defaultValue is set to true, the virtual machine can participate in VMCI communication with all other virtual machines on the host. Otherwise, VMCI communication will be restricted to trusted services such as the hypervisor on the host.
+        
+    

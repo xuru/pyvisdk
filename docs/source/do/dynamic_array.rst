@@ -1,10 +1,18 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DynamicArray
-========================================
+================================================================================
 
 
-.. autoclass:: pyvisdk.do.dynamic_array.DynamicArray
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dynamic_array.DynamicArray
+    
+    .. py:attribute:: dynamicType
+    
+        Reserved.
+        
+    
+    .. py:attribute:: val
+    
+        Array of dynamic values.
+        
+    

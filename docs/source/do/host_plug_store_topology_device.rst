@@ -1,20 +1,19 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostPlugStoreTopologyDevice
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_plug_store_topology.HostPlugStoreTopology`,
-    :py:class:`~pyvisdk.mo.host_plug_store_topology_path.HostPlugStoreTopologyPath`,
-    :py:class:`~pyvisdk.mo.host_plug_store_topology_plugin.HostPlugStoreTopologyPlugin`
+    :py:class:`~pyvisdk.do.host_plug_store_topology.HostPlugStoreTopology`,
+    :py:class:`~pyvisdk.do.host_plug_store_topology_path.HostPlugStoreTopologyPath`,
+    :py:class:`~pyvisdk.do.host_plug_store_topology_plugin.HostPlugStoreTopologyPlugin`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_plug_store_topology_path.HostPlugStoreTopologyPath`,
-    :py:class:`~pyvisdk.mo.scsi_lun.ScsiLun`
+    :py:class:`~pyvisdk.do.host_plug_store_topology_path.HostPlugStoreTopologyPath`,
+    :py:class:`~pyvisdk.do.scsi_lun.ScsiLun`
     
 .. describe:: Since
     
@@ -24,6 +23,20 @@ HostPlugStoreTopologyDevice
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_plug_store_topology_device.HostPlugStoreTopologyDevice
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_plug_store_topology_device.HostPlugStoreTopologyDevice
+    
+    .. py:attribute:: key
+    
+        Linkable identifier.
+        
+    
+    .. py:attribute:: lun
+    
+        The SCSI device corresponding to logical unit.
+        
+    
+    .. py:attribute:: path
+    
+        The array of paths available to access this LogicalUnit.
+        
+    

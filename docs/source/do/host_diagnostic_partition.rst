@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostDiagnosticPartition
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_config_info.HostConfigInfo`,
-    :py:class:`~pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem`
+    :py:class:`~pyvisdk.do.host_config_info.HostConfigInfo`,
+    :py:class:`~pyvisdk.do.host_diagnostic_system.HostDiagnosticSystem`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_scsi_disk_partition.HostScsiDiskPartition`
+    :py:class:`~pyvisdk.do.host_scsi_disk_partition.HostScsiDiskPartition`
     
 .. describe:: Extends
     
@@ -20,8 +19,27 @@ HostDiagnosticPartition
     
 .. describe:: Returned by
     
-    QueryAvailablePartition
+    :py:meth:`~pyvisdk.do.query_available_partition.QueryAvailablePartition`
     
-.. autoclass:: pyvisdk.do.host_diagnostic_partition.HostDiagnosticPartition
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_diagnostic_partition.HostDiagnosticPartition
+    
+    .. py:attribute:: diagnosticType
+    
+        Indicates the type of the diagnostic partition.
+        
+    
+    .. py:attribute:: id
+    
+        Diagnostic partition identification information.
+        
+    
+    .. py:attribute:: slots
+    
+        The number of slots in the diagnostic partition.
+        
+    
+    .. py:attribute:: storageType
+    
+        Indicates the storage type of the diagnostic partition.
+        
+    

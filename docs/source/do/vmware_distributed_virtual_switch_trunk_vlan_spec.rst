@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmwareDistributedVirtualSwitchTrunkVlanSpec
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.numeric_range.NumericRange`
+    :py:class:`~pyvisdk.do.numeric_range.NumericRange`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ VmwareDistributedVirtualSwitchTrunkVlanSpec
     
     :py:class:`~pyvisdk.mo.vmware_distributed_virtual_switch_vlan_spec.VmwareDistributedVirtualSwitchVlanSpec`
     
-.. autoclass:: pyvisdk.do.vmware_distributed_virtual_switch_trunk_vlan_spec.VmwareDistributedVirtualSwitchTrunkVlanSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vmware_distributed_virtual_switch_trunk_vlan_spec.VmwareDistributedVirtualSwitchTrunkVlanSpec
+    
+    .. py:attribute:: vlanId
+    
+        The VlanId range for the trunk port. The valid VlanId range is from 0 to 4094.
+        
+    

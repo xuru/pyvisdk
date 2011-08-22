@@ -1,21 +1,17 @@
 
-
-========================================
+================================================================================
 UserDirectory
-========================================
-
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.service_content.ServiceContent`
-
-
+    :py:class:`~pyvisdk.do.service_content.ServiceContent`
+    
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.user_search_result.UserSearchResult`
-
-
-.. autoclass:: pyvisdk.mo.user_directory.UserDirectory
+    :py:class:`~pyvisdk.do.user_search_result.UserSearchResult`
+    
+.. 'autoclass':: pyvisdk.mo.user_directory.UserDirectory
     :members:
     :inherited-members:

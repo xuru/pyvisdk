@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ExtensionPrivilegeInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.extension.Extension`
+    :py:class:`~pyvisdk.do.extension.Extension`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ ExtensionPrivilegeInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.extension_privilege_info.ExtensionPrivilegeInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.extension_privilege_info.ExtensionPrivilegeInfo
+    
+    .. py:attribute:: privGroupName
+    
+        Hierarchical group name. Each level of the grouping hierarchy is separated by a "." so group names may not include a ".". privGroupName.
+        
+    
+    .. py:attribute:: privID
+    
+        The ID of the privilege. The format should be "<group name>.<privilege name>". The group name should be the same as the privGroupName property.
+        
+    

@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HttpNfcLeaseDatastoreLeaseInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.http_nfc_lease_info.HttpNfcLeaseInfo`
+    :py:class:`~pyvisdk.do.http_nfc_lease_info.HttpNfcLeaseInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.http_nfc_lease_host_info.HttpNfcLeaseHostInfo`
+    :py:class:`~pyvisdk.do.http_nfc_lease_host_info.HttpNfcLeaseHostInfo`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ HttpNfcLeaseDatastoreLeaseInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.http_nfc_lease_datastore_lease_info.HttpNfcLeaseDatastoreLeaseInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.http_nfc_lease_datastore_lease_info.HttpNfcLeaseDatastoreLeaseInfo
+    
+    .. py:attribute:: datastoreKey
+    
+        Datastore key.
+        
+    
+    .. py:attribute:: hosts
+    
+        List of hosts connected to this datastore and covered by this lease. The hosts in this list are multi-POST-capable, and any one of them can be used to transfer disks on this datastore.
+        
+    

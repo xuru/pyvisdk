@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostPciPassthruInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_config_info.HostConfigInfo`,
-    :py:class:`~pyvisdk.mo.host_pci_passthru_system.HostPciPassthruSystem`
+    :py:class:`~pyvisdk.do.host_config_info.HostConfigInfo`,
+    :py:class:`~pyvisdk.do.host_pci_passthru_system.HostPciPassthruSystem`
     
 .. describe:: Since
     
@@ -18,6 +17,30 @@ HostPciPassthruInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_pci_passthru_info.HostPciPassthruInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_pci_passthru_info.HostPciPassthruInfo
+    
+    .. py:attribute:: dependentDevice
+    
+        Device which needs to be unclaimed by vmkernel (may be bridge)
+        
+    
+    .. py:attribute:: id
+    
+        The name ID of this PCI, composed of "bus:slot.function".
+        
+    
+    .. py:attribute:: passthruActive
+    
+        Whether passThru is active for this device (meaning enabled + rebooted)
+        
+    
+    .. py:attribute:: passthruCapable
+    
+        Whether passThru is even possible for this device (decided by vmkctl)
+        
+    
+    .. py:attribute:: passthruEnabled
+    
+        Whether passThru has been configured by the user
+        
+    

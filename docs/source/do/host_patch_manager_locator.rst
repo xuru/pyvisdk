@@ -1,13 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostPatchManagerLocator
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    InstallHostPatch_Task, ScanHostPatch_Task
+    :py:meth:`~pyvisdk.do.install_host_patch__task.InstallHostPatch_Task`,
+    :py:meth:`~pyvisdk.do.scan_host_patch__task.ScanHostPatch_Task`
     
 .. describe:: Since
     
@@ -17,6 +17,15 @@ HostPatchManagerLocator
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_patch_manager_locator.HostPatchManagerLocator
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_patch_manager_locator.HostPatchManagerLocator
+    
+    .. py:attribute:: proxy
+    
+        The proxy setting required to access the URL from the host. If unset, a direct URL connection will be attempted.
+        
+    
+    .. py:attribute:: url
+    
+        The URL that will be used to access the patch repository.
+        
+    

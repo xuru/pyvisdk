@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmSecondaryDisabledEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VmSecondaryDisabledEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_secondary_disabled_event.VmSecondaryDisabledEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_secondary_disabled_event.VmSecondaryDisabledEvent
+    

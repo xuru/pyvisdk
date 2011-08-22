@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostMonitoringStateChangedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ HostMonitoringStateChangedEvent
     
     :py:class:`~pyvisdk.mo.cluster_event.ClusterEvent`
     
-.. autoclass:: pyvisdk.do.host_monitoring_state_changed_event.HostMonitoringStateChangedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_monitoring_state_changed_event.HostMonitoringStateChangedEvent
+    
+    .. py:attribute:: state
+    
+        The service state in ClusterDasConfigInfoServiceState
+        
+    

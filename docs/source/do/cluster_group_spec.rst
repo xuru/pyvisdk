@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterGroupSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.cluster_config_spec_ex.ClusterConfigSpecEx`
+    :py:class:`~pyvisdk.do.cluster_config_spec_ex.ClusterConfigSpecEx`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.cluster_group_info.ClusterGroupInfo`
+    :py:class:`~pyvisdk.do.cluster_group_info.ClusterGroupInfo`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ ClusterGroupSpec
     
     :py:class:`~pyvisdk.mo.array_update_spec.ArrayUpdateSpec`
     
-.. autoclass:: pyvisdk.do.cluster_group_spec.ClusterGroupSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_group_spec.ClusterGroupSpec
+    
+    .. py:attribute:: info
+    
+        
+        
+    

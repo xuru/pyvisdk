@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VimAccountPasswordChangedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VimAccountPasswordChangedEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.vim_account_password_changed_event.VimAccountPasswordChangedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vim_account_password_changed_event.VimAccountPasswordChangedEvent
+    

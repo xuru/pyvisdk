@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CreateTaskAction
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,15 @@ CreateTaskAction
     
     :py:class:`~pyvisdk.mo.action.Action`
     
-.. autoclass:: pyvisdk.do.create_task_action.CreateTaskAction
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.create_task_action.CreateTaskAction
+    
+    .. py:attribute:: cancelable
+    
+        Whether the task should be cancelable.
+        
+    
+    .. py:attribute:: taskTypeId
+    
+        Extension registered task type identifier for type of task being created.
+        
+    

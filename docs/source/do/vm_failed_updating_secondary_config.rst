@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmFailedUpdatingSecondaryConfig
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VmFailedUpdatingSecondaryConfig
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_failed_updating_secondary_config.VmFailedUpdatingSecondaryConfig
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_failed_updating_secondary_config.VmFailedUpdatingSecondaryConfig
+    

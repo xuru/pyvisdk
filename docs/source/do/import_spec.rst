@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ImportSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.ovf_create_import_spec_result.OvfCreateImportSpecResult`,
-    :py:class:`~pyvisdk.mo.virtual_app_import_spec.VirtualAppImportSpec`
+    :py:class:`~pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult`,
+    :py:class:`~pyvisdk.do.virtual_app_import_spec.VirtualAppImportSpec`
     
 .. describe:: Since
     
@@ -16,7 +15,8 @@ ImportSpec
     
 .. describe:: Extended by
     
-    VirtualAppImportSpec, VirtualMachineImportSpec
+    :py:class:`~pyvisdk.do.virtual_app_import_spec.VirtualAppImportSpec`,
+    :py:class:`~pyvisdk.do.virtual_machine_import_spec.VirtualMachineImportSpec`
     
 .. describe:: Extends
     
@@ -24,12 +24,16 @@ ImportSpec
     
 .. describe:: Parameter to
     
-    ImportVApp
+    :py:meth:`~pyvisdk.do.import_v_app.ImportVApp`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.v_app_entity_config_info.VAppEntityConfigInfo`
+    :py:class:`~pyvisdk.do.v_app_entity_config_info.VAppEntityConfigInfo`
     
-.. autoclass:: pyvisdk.do.import_spec.ImportSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.import_spec.ImportSpec
+    
+    .. py:attribute:: entityConfig
+    
+        Configuration of sub-entities (virtual machine or vApp). This is used for sub-entities of a vApp that could be a virtual machine or a vApp.
+        
+    

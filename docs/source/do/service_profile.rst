@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ServiceProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_apply_profile.HostApplyProfile`
+    :py:class:`~pyvisdk.do.host_apply_profile.HostApplyProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ ServiceProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.service_profile.ServiceProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.service_profile.ServiceProfile
+    
+    .. py:attribute:: key
+    
+        The linkable identifier
+        
+    

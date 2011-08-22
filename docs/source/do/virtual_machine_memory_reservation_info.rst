@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualMachineMemoryReservationInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_config_info.HostConfigInfo`,
-    :py:class:`~pyvisdk.mo.host_memory_system.HostMemorySystem`
+    :py:class:`~pyvisdk.do.host_config_info.HostConfigInfo`,
+    :py:class:`~pyvisdk.do.host_memory_system.HostMemorySystem`
     
 .. describe:: Since
     
@@ -18,6 +17,25 @@ VirtualMachineMemoryReservationInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.virtual_machine_memory_reservation_info.VirtualMachineMemoryReservationInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_machine_memory_reservation_info.VirtualMachineMemoryReservationInfo
+    
+    .. py:attribute:: allocationPolicy
+    
+        Policy for allocating additional memory for virtual machines.
+        
+    
+    .. py:attribute:: virtualMachineMax
+    
+        The maximum amount of memory reserved for all running virtual machines, in bytes.
+        
+    
+    .. py:attribute:: virtualMachineMin
+    
+        The minimum amount of memory reserved for all running virtual machines, in bytes.
+        
+    
+    .. py:attribute:: virtualMachineReserved
+    
+        The amount of memory reserved for all running virtual machines, in bytes.
+        
+    

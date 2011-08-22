@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostInventoryFullEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ HostInventoryFullEvent
     
     :py:class:`~pyvisdk.mo.license_event.LicenseEvent`
     
-.. autoclass:: pyvisdk.do.host_inventory_full_event.HostInventoryFullEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_inventory_full_event.HostInventoryFullEvent
+    
+    .. py:attribute:: capacity
+    
+        
+        
+    

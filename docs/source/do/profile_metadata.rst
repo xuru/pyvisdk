@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfileMetadata
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.extended_description.ExtendedDescription`
+    :py:class:`~pyvisdk.do.extended_description.ExtendedDescription`
     
 .. describe:: Since
     
@@ -19,8 +18,17 @@ ProfileMetadata
     
 .. describe:: Returned by
     
-    QueryHostProfileMetadata
+    :py:meth:`~pyvisdk.do.query_host_profile_metadata.QueryHostProfileMetadata`
     
-.. autoclass:: pyvisdk.do.profile_metadata.ProfileMetadata
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_metadata.ProfileMetadata
+    
+    .. py:attribute:: description
+    
+        Property which describes the profile
+        
+    
+    .. py:attribute:: key
+    
+        Type of the Profile
+        
+    

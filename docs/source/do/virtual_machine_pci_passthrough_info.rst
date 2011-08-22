@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualMachinePciPassthroughInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.config_target.ConfigTarget`
+    :py:class:`~pyvisdk.do.config_target.ConfigTarget`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_pci_device.HostPciDevice`
+    :py:class:`~pyvisdk.do.host_pci_device.HostPciDevice`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ VirtualMachinePciPassthroughInfo
     
     :py:class:`~pyvisdk.mo.virtual_machine_target_info.VirtualMachineTargetInfo`
     
-.. autoclass:: pyvisdk.do.virtual_machine_pci_passthrough_info.VirtualMachinePciPassthroughInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_machine_pci_passthrough_info.VirtualMachinePciPassthroughInfo
+    
+    .. py:attribute:: pciDevice
+    
+        Details of the PCI device, including vendor, class and device identification information.
+        
+    
+    .. py:attribute:: systemId
+    
+        The ID of the system the PCI device is attached to.
+        
+    

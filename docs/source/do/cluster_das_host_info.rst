@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterDasHostInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.cluster_das_advanced_runtime_info.ClusterDasAdvancedRuntimeInfo`
+    :py:class:`~pyvisdk.do.cluster_das_advanced_runtime_info.ClusterDasAdvancedRuntimeInfo`
     
 .. describe:: Since
     
@@ -19,8 +18,7 @@ ClusterDasHostInfo
     
 .. describe:: Extended by
     
-    ClusterDasAamHostInfo
+    :py:class:`~pyvisdk.do.cluster_das_aam_host_info.ClusterDasAamHostInfo`
     
-.. autoclass:: pyvisdk.do.cluster_das_host_info.ClusterDasHostInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_das_host_info.ClusterDasHostInfo
+    

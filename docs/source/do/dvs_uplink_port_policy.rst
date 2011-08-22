@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DVSUplinkPortPolicy
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.dvs_config_info.DVSConfigInfo`,
-    :py:class:`~pyvisdk.mo.dvs_config_spec.DVSConfigSpec`
+    :py:class:`~pyvisdk.do.dvs_config_info.DVSConfigInfo`,
+    :py:class:`~pyvisdk.do.dvs_config_spec.DVSConfigSpec`
     
 .. describe:: Since
     
@@ -20,8 +19,7 @@ DVSUplinkPortPolicy
     
 .. describe:: Extended by
     
-    DVSNameArrayUplinkPortPolicy
+    :py:class:`~pyvisdk.do.dvs_name_array_uplink_port_policy.DVSNameArrayUplinkPortPolicy`
     
-.. autoclass:: pyvisdk.do.dvs_uplink_port_policy.DVSUplinkPortPolicy
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_uplink_port_policy.DVSUplinkPortPolicy
+    

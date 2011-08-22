@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 Action
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.alarm_triggering_action.AlarmTriggeringAction`,
-    :py:class:`~pyvisdk.mo.scheduled_task_spec.ScheduledTaskSpec`
+    :py:class:`~pyvisdk.do.alarm_triggering_action.AlarmTriggeringAction`,
+    :py:class:`~pyvisdk.do.scheduled_task_spec.ScheduledTaskSpec`
     
 .. describe:: Extends
     
@@ -16,8 +15,11 @@ Action
     
 .. describe:: Extended by
     
-    CreateTaskAction, MethodAction, RunScriptAction, SendEmailAction, SendSNMPAction
+    :py:class:`~pyvisdk.do.create_task_action.CreateTaskAction`,
+    :py:class:`~pyvisdk.do.method_action.MethodAction`,
+    :py:class:`~pyvisdk.do.run_script_action.RunScriptAction`,
+    :py:class:`~pyvisdk.do.send_email_action.SendEmailAction`,
+    :py:class:`~pyvisdk.do.send_snmp_action.SendSNMPAction`
     
-.. autoclass:: pyvisdk.do.action.Action
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.action.Action
+    

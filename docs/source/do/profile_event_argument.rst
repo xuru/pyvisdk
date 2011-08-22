@@ -1,20 +1,19 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfileEventArgument
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.cluster_compliance_checked_event.ClusterComplianceCheckedEvent`,
-    :py:class:`~pyvisdk.mo.host_compliance_checked_event.HostComplianceCheckedEvent`,
-    :py:class:`~pyvisdk.mo.host_profile_applied_event.HostProfileAppliedEvent`,
-    :py:class:`~pyvisdk.mo.profile_event.ProfileEvent`
+    :py:class:`~pyvisdk.do.cluster_compliance_checked_event.ClusterComplianceCheckedEvent`,
+    :py:class:`~pyvisdk.do.host_compliance_checked_event.HostComplianceCheckedEvent`,
+    :py:class:`~pyvisdk.do.host_profile_applied_event.HostProfileAppliedEvent`,
+    :py:class:`~pyvisdk.do.profile_event.ProfileEvent`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.profile.Profile`
+    :py:class:`~pyvisdk.do.profile.Profile`
     
 .. describe:: Since
     
@@ -24,6 +23,15 @@ ProfileEventArgument
     
     :py:class:`~pyvisdk.mo.event_argument.EventArgument`
     
-.. autoclass:: pyvisdk.do.profile_event_argument.ProfileEventArgument
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_event_argument.ProfileEventArgument
+    
+    .. py:attribute:: name
+    
+        
+        
+    
+    .. py:attribute:: profile
+    
+        
+        
+    

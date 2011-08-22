@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualUSBUSBBackingInfo
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VirtualUSBUSBBackingInfo
     
     :py:class:`~pyvisdk.mo.virtual_device_device_backing_info.VirtualDeviceDeviceBackingInfo`
     
-.. autoclass:: pyvisdk.do.virtual_usbusb_backing_info.VirtualUSBUSBBackingInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_usbusb_backing_info.VirtualUSBUSBBackingInfo
+    

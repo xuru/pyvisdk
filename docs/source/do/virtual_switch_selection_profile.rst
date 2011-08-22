@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualSwitchSelectionProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.port_group_profile.PortGroupProfile`
+    :py:class:`~pyvisdk.do.port_group_profile.PortGroupProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,5 @@ VirtualSwitchSelectionProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.virtual_switch_selection_profile.VirtualSwitchSelectionProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_switch_selection_profile.VirtualSwitchSelectionProfile
+    

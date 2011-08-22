@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationUnknownFailure
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ CustomizationUnknownFailure
     
     :py:class:`~pyvisdk.mo.customization_failed.CustomizationFailed`
     
-.. autoclass:: pyvisdk.do.customization_unknown_failure.CustomizationUnknownFailure
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_unknown_failure.CustomizationUnknownFailure
+    

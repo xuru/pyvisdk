@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 PerfEntityMetricBase
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.perf_composite_metric.PerfCompositeMetric`
+    :py:class:`~pyvisdk.do.perf_composite_metric.PerfCompositeMetric`
     
 .. describe:: Extends
     
@@ -15,12 +14,17 @@ PerfEntityMetricBase
     
 .. describe:: Extended by
     
-    PerfEntityMetric, PerfEntityMetricCSV
+    :py:class:`~pyvisdk.do.perf_entity_metric.PerfEntityMetric`,
+    :py:class:`~pyvisdk.do.perf_entity_metric_csv.PerfEntityMetricCSV`
     
 .. describe:: Returned by
     
-    QueryPerf
+    :py:meth:`~pyvisdk.do.query_perf.QueryPerf`
     
-.. autoclass:: pyvisdk.do.perf_entity_metric_base.PerfEntityMetricBase
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.perf_entity_metric_base.PerfEntityMetricBase
+    
+    .. py:attribute:: entity
+    
+        Performance provider ID.
+        
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsPortEnteredPassthruEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ DvsPortEnteredPassthruEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_port_entered_passthru_event.DvsPortEnteredPassthruEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_port_entered_passthru_event.DvsPortEnteredPassthruEvent
+    
+    .. py:attribute:: portKey
+    
+        The port key.
+        
+    

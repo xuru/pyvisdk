@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterVmGroup
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.virtual_machine.VirtualMachine`
+    :py:class:`~pyvisdk.do.virtual_machine.VirtualMachine`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ ClusterVmGroup
     
     :py:class:`~pyvisdk.mo.cluster_group_info.ClusterGroupInfo`
     
-.. autoclass:: pyvisdk.do.cluster_vm_group.ClusterVmGroup
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_vm_group.ClusterVmGroup
+    
+    .. py:attribute:: vm
+    
+        List of virtual machines that are part of this group. A virtual machine group can contain zero or more virtual machines.
+        
+    

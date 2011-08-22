@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmTimedoutStartingSecondaryEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ VmTimedoutStartingSecondaryEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_timedout_starting_secondary_event.VmTimedoutStartingSecondaryEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_timedout_starting_secondary_event.VmTimedoutStartingSecondaryEvent
+    
+    .. py:attribute:: timeout
+    
+        The duration of the timeout in milliseconds.
+        
+    

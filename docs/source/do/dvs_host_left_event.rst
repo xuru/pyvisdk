@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsHostLeftEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_event_argument.HostEventArgument`
+    :py:class:`~pyvisdk.do.host_event_argument.HostEventArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ DvsHostLeftEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_host_left_event.DvsHostLeftEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_host_left_event.DvsHostLeftEvent
+    
+    .. py:attribute:: hostLeft
+    
+        The host that left DVS.
+        
+    

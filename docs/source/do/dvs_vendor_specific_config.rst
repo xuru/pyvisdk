@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DVSVendorSpecificConfig
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.dv_port_setting.DVPortSetting`
+    :py:class:`~pyvisdk.do.dv_port_setting.DVPortSetting`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch_keyed_opaque_blob.DistributedVirtualSwitchKeyedOpaqueBlob`
+    :py:class:`~pyvisdk.do.distributed_virtual_switch_keyed_opaque_blob.DistributedVirtualSwitchKeyedOpaqueBlob`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ DVSVendorSpecificConfig
     
     :py:class:`~pyvisdk.mo.inheritable_policy.InheritablePolicy`
     
-.. autoclass:: pyvisdk.do.dvs_vendor_specific_config.DVSVendorSpecificConfig
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_vendor_specific_config.DVSVendorSpecificConfig
+    
+    .. py:attribute:: keyValue
+    
+        An opaque binary blob that stores vendor specific configuration.
+        
+    

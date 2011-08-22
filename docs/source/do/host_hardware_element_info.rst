@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostHardwareElementInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_hardware_status_info.HostHardwareStatusInfo`
+    :py:class:`~pyvisdk.do.host_hardware_status_info.HostHardwareStatusInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.element_description.ElementDescription`
+    :py:class:`~pyvisdk.do.element_description.ElementDescription`
     
 .. describe:: Since
     
@@ -23,8 +22,17 @@ HostHardwareElementInfo
     
 .. describe:: Extended by
     
-    HostStorageElementInfo
+    :py:class:`~pyvisdk.do.host_storage_element_info.HostStorageElementInfo`
     
-.. autoclass:: pyvisdk.do.host_hardware_element_info.HostHardwareElementInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_hardware_element_info.HostHardwareElementInfo
+    
+    .. py:attribute:: name
+    
+        The name of the physical element
+        
+    
+    .. py:attribute:: status
+    
+        The operational status of the physical element. The status is one of the values specified in HostHardwareElementStatus.
+        
+    

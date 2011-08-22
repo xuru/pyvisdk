@@ -1,13 +1,14 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationEvent
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    CustomizationFailed, CustomizationStartedEvent, CustomizationSucceeded
+    :py:class:`~pyvisdk.do.customization_failed.CustomizationFailed`,
+    :py:class:`~pyvisdk.do.customization_started_event.CustomizationStartedEvent`,
+    :py:class:`~pyvisdk.do.customization_succeeded.CustomizationSucceeded`
     
 .. describe:: Since
     
@@ -17,6 +18,10 @@ CustomizationEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.customization_event.CustomizationEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_event.CustomizationEvent
+    
+    .. py:attribute:: logLocation
+    
+        The location of the in-guest customization log which will contain details of the customization operation.
+        
+    

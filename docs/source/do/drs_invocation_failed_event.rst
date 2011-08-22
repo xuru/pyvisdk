@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DrsInvocationFailedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ DrsInvocationFailedEvent
     
     :py:class:`~pyvisdk.mo.cluster_event.ClusterEvent`
     
-.. autoclass:: pyvisdk.do.drs_invocation_failed_event.DrsInvocationFailedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.drs_invocation_failed_event.DrsInvocationFailedEvent
+    

@@ -1,18 +1,21 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 MigrationHostErrorEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_event_argument.HostEventArgument`
+    :py:class:`~pyvisdk.do.host_event_argument.HostEventArgument`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.migration_event.MigrationEvent`
     
-.. autoclass:: pyvisdk.do.migration_host_error_event.MigrationHostErrorEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.migration_host_error_event.MigrationHostErrorEvent
+    
+    .. py:attribute:: dstHost
+    
+        The name of the destination host.
+        
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 RemoteTSMEnabledEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ RemoteTSMEnabledEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.remote_tsm_enabled_event.RemoteTSMEnabledEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.remote_tsm_enabled_event.RemoteTSMEnabledEvent
+    

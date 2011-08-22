@@ -1,26 +1,25 @@
 
-
-========================================
+================================================================================
 ProfileManager
-========================================
-
+================================================================================
 
 
 .. describe:: Extended by
     
-    ClusterProfileManager, HostProfileManager
-
-
+    :py:class:`~pyvisdk.do.cluster_profile_manager.ClusterProfileManager`,
+    :py:class:`~pyvisdk.do.host_profile_manager.HostProfileManager`
+    
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`, :py:class:`~pyvisdk.mo.profile.Profile`, :py:class:`~pyvisdk.mo.profile_create_spec.ProfileCreateSpec`, :py:class:`~pyvisdk.mo.profile_policy_metadata.ProfilePolicyMetadata`
-
-
+    :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`,
+    :py:class:`~pyvisdk.do.profile.Profile`,
+    :py:class:`~pyvisdk.do.profile_create_spec.ProfileCreateSpec`,
+    :py:class:`~pyvisdk.do.profile_policy_metadata.ProfilePolicyMetadata`
+    
 .. describe:: Since
     
     vSphere API 4.0
-
-
-.. autoclass:: pyvisdk.mo.profile_manager.ProfileManager
+    
+.. 'autoclass':: pyvisdk.mo.profile_manager.ProfileManager
     :members:
     :inherited-members:

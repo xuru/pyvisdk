@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationUnknownIpV6Generator
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ CustomizationUnknownIpV6Generator
     
     :py:class:`~pyvisdk.mo.customization_ip_v6_generator.CustomizationIpV6Generator`
     
-.. autoclass:: pyvisdk.do.customization_unknown_ip_v6_generator.CustomizationUnknownIpV6Generator
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_unknown_ip_v6_generator.CustomizationUnknownIpV6Generator
+    

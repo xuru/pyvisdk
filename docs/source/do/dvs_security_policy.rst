@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DVSSecurityPolicy
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.v_mware_dvs_port_setting.VMwareDVSPortSetting`
+    :py:class:`~pyvisdk.do.v_mware_dvs_port_setting.VMwareDVSPortSetting`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.bool_policy.BoolPolicy`
+    :py:class:`~pyvisdk.do.bool_policy.BoolPolicy`
     
 .. describe:: Since
     
@@ -21,6 +20,20 @@ DVSSecurityPolicy
     
     :py:class:`~pyvisdk.mo.inheritable_policy.InheritablePolicy`
     
-.. autoclass:: pyvisdk.do.dvs_security_policy.DVSSecurityPolicy
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_security_policy.DVSSecurityPolicy
+    
+    .. py:attribute:: allowPromiscuous
+    
+        The flag to indicate whether or not all traffic is seen on the port.
+        
+    
+    .. py:attribute:: forgedTransmits
+    
+        The flag to indicate whether or not the virtual network adapter should be allowed to send network traffic with a different MAC address than that of the virtual network adapter.
+        
+    
+    .. py:attribute:: macChanges
+    
+        The flag to indicate whether or not the Media Access Control (MAC) address can be changed.
+        
+    

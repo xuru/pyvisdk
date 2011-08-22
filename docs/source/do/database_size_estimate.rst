@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DatabaseSizeEstimate
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -15,8 +14,12 @@ DatabaseSizeEstimate
     
 .. describe:: Returned by
     
-    EstimateDatabaseSize
+    :py:meth:`~pyvisdk.do.estimate_database_size.EstimateDatabaseSize`
     
-.. autoclass:: pyvisdk.do.database_size_estimate.DatabaseSizeEstimate
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.database_size_estimate.DatabaseSizeEstimate
+    
+    .. py:attribute:: size
+    
+        The estimated size required in MB
+        
+    

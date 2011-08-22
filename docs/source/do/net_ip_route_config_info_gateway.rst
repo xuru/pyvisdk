@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NetIpRouteConfigInfoGateway
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.net_ip_route_config_info_ip_route.NetIpRouteConfigInfoIpRoute`
+    :py:class:`~pyvisdk.do.net_ip_route_config_info_ip_route.NetIpRouteConfigInfoIpRoute`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ NetIpRouteConfigInfoGateway
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.net_ip_route_config_info_gateway.NetIpRouteConfigInfoGateway
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.net_ip_route_config_info_gateway.NetIpRouteConfigInfoGateway
+    
+    .. py:attribute:: device
+    
+        
+        
+    
+    .. py:attribute:: ipAddress
+    
+        
+        
+    

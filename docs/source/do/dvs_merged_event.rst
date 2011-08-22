@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsMergedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.dvs_event_argument.DvsEventArgument`
+    :py:class:`~pyvisdk.do.dvs_event_argument.DvsEventArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ DvsMergedEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_merged_event.DvsMergedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_merged_event.DvsMergedEvent
+    
+    .. py:attribute:: destinationDvs
+    
+        The destination DVS.
+        
+    
+    .. py:attribute:: sourceDvs
+    
+        The source DVS.
+        
+    

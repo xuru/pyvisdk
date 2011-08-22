@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostPathSelectionPolicyOption
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.element_description.ElementDescription`
+    :py:class:`~pyvisdk.do.element_description.ElementDescription`
     
 .. describe:: Since
     
@@ -19,8 +18,12 @@ HostPathSelectionPolicyOption
     
 .. describe:: Returned by
     
-    QueryPathSelectionPolicyOptions
+    :py:meth:`~pyvisdk.do.query_path_selection_policy_options.QueryPathSelectionPolicyOptions`
     
-.. autoclass:: pyvisdk.do.host_path_selection_policy_option.HostPathSelectionPolicyOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_path_selection_policy_option.HostPathSelectionPolicyOption
+    
+    .. py:attribute:: policy
+    
+        Description of the paths selection policy. Use the key as the identifier.
+        
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DeviceBackedVirtualDiskSpec
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ DeviceBackedVirtualDiskSpec
     
     :py:class:`~pyvisdk.mo.virtual_disk_spec.VirtualDiskSpec`
     
-.. autoclass:: pyvisdk.do.device_backed_virtual_disk_spec.DeviceBackedVirtualDiskSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.device_backed_virtual_disk_spec.DeviceBackedVirtualDiskSpec
+    
+    .. py:attribute:: device
+    
+        The deviceName of the backing device
+        
+    

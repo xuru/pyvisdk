@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostForceMountedInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_vmfs_volume.HostVmfsVolume`
+    :py:class:`~pyvisdk.do.host_vmfs_volume.HostVmfsVolume`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ HostForceMountedInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_force_mounted_info.HostForceMountedInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_force_mounted_info.HostForceMountedInfo
+    
+    .. py:attribute:: mounted
+    
+        Indicates if the volume is currently mounted on the host
+        
+    
+    .. py:attribute:: persist
+    
+        Indicates if the vmfsExtent information persistent across host reboots.
+        
+    

@@ -1,21 +1,20 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfileDeferredPolicyOptionParameter
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    ExecuteHostProfile
+    :py:meth:`~pyvisdk.do.execute_host_profile.ExecuteHostProfile`
     
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.profile_execute_result.ProfileExecuteResult`
+    :py:class:`~pyvisdk.do.profile_execute_result.ProfileExecuteResult`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.profile_property_path.ProfilePropertyPath`
+    :py:class:`~pyvisdk.do.profile_property_path.ProfilePropertyPath`
     
 .. describe:: Since
     
@@ -25,6 +24,15 @@ ProfileDeferredPolicyOptionParameter
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.profile_deferred_policy_option_parameter.ProfileDeferredPolicyOptionParameter
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_deferred_policy_option_parameter.ProfileDeferredPolicyOptionParameter
+    
+    .. py:attribute:: inputPath
+    
+        Complete path to the Policy for which the User input is specified.
+        
+    
+    .. py:attribute:: parameter
+    
+        Parameters that needed userInput.
+        
+    

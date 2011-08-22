@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DrsExitStandbyModeFailedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ DrsExitStandbyModeFailedEvent
     
     :py:class:`~pyvisdk.mo.exit_standby_mode_failed_event.ExitStandbyModeFailedEvent`
     
-.. autoclass:: pyvisdk.do.drs_exit_standby_mode_failed_event.DrsExitStandbyModeFailedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.drs_exit_standby_mode_failed_event.DrsExitStandbyModeFailedEvent
+    

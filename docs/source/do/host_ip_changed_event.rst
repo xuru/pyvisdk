@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostIpChangedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,15 @@ HostIpChangedEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.host_ip_changed_event.HostIpChangedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_ip_changed_event.HostIpChangedEvent
+    
+    .. py:attribute:: newIP
+    
+        New IP address of the host.
+        
+    
+    .. py:attribute:: oldIP
+    
+        Old IP address of the host.
+        
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsPortUnblockedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ DvsPortUnblockedEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_port_unblocked_event.DvsPortUnblockedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_port_unblocked_event.DvsPortUnblockedEvent
+    
+    .. py:attribute:: portKey
+    
+        The port key.
+        
+    

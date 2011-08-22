@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 PolicyOption
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.composite_policy_option.CompositePolicyOption`,
-    :py:class:`~pyvisdk.mo.profile_policy.ProfilePolicy`
+    :py:class:`~pyvisdk.do.composite_policy_option.CompositePolicyOption`,
+    :py:class:`~pyvisdk.do.profile_policy.ProfilePolicy`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.key_any_value.KeyAnyValue`
+    :py:class:`~pyvisdk.do.key_any_value.KeyAnyValue`
     
 .. describe:: Since
     
@@ -24,8 +23,17 @@ PolicyOption
     
 .. describe:: Extended by
     
-    CompositePolicyOption
+    :py:class:`~pyvisdk.do.composite_policy_option.CompositePolicyOption`
     
-.. autoclass:: pyvisdk.do.policy_option.PolicyOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.policy_option.PolicyOption
+    
+    .. py:attribute:: id
+    
+        The id of the PolicyOption
+        
+    
+    .. py:attribute:: parameter
+    
+        The parameters to the PolicyOption. Any parameter that is not marked as optional in the PolicyOption's metadata needs to be included here.
+        
+    

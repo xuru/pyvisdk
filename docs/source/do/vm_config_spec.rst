@@ -1,20 +1,19 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmConfigSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.virtual_machine_config_spec.VirtualMachineConfigSpec`
+    :py:class:`~pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.v_app_ip_assignment_info.VAppIPAssignmentInfo`,
-    :py:class:`~pyvisdk.mo.v_app_ovf_section_spec.VAppOvfSectionSpec`,
-    :py:class:`~pyvisdk.mo.v_app_product_spec.VAppProductSpec`,
-    :py:class:`~pyvisdk.mo.v_app_property_spec.VAppPropertySpec`
+    :py:class:`~pyvisdk.do.v_app_ip_assignment_info.VAppIPAssignmentInfo`,
+    :py:class:`~pyvisdk.do.v_app_ovf_section_spec.VAppOvfSectionSpec`,
+    :py:class:`~pyvisdk.do.v_app_product_spec.VAppProductSpec`,
+    :py:class:`~pyvisdk.do.v_app_property_spec.VAppPropertySpec`
     
 .. describe:: Since
     
@@ -26,8 +25,47 @@ VmConfigSpec
     
 .. describe:: Extended by
     
-    VAppConfigSpec
+    :py:class:`~pyvisdk.do.v_app_config_spec.VAppConfigSpec`
     
-.. autoclass:: pyvisdk.do.vm_config_spec.VmConfigSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_config_spec.VmConfigSpec
+    
+    .. py:attribute:: eula
+    
+        End User Liceses Agreements.
+        
+    
+    .. py:attribute:: installBootRequired
+    
+        If this is on a VirtualMachine object, it specifies whether the VM needs an initial boot before the deployment is complete. If this is on a vApp object, it indicates than one or more VMs needs an initial reboot. This flag is automatically reset once the reboot has happened.
+        
+    
+    .. py:attribute:: installBootStopDelay
+    
+        Specifies the delay in seconds to wait for the VM to power off after the initial boot (used only if installBootRequired is true). A value of 0 means wait forever.
+        
+    
+    .. py:attribute:: ipAssignment
+    
+        IP assignment policy and DHCP support configuration.
+        
+    
+    .. py:attribute:: ovfEnvironmentTransport
+    
+        List the transports to use for properties. Supported values are: iso and com.vmware.guestInfo.
+        
+    
+    .. py:attribute:: ovfSection
+    
+        List of uninterpreted OVF meta-data sections.
+        
+    
+    .. py:attribute:: product
+    
+        Information about the product.
+        
+    
+    .. py:attribute:: property_
+    
+        List of properties.
+        
+    

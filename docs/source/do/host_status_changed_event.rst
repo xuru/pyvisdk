@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostStatusChangedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ HostStatusChangedEvent
     
     :py:class:`~pyvisdk.mo.cluster_status_changed_event.ClusterStatusChangedEvent`
     
-.. autoclass:: pyvisdk.do.host_status_changed_event.HostStatusChangedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_status_changed_event.HostStatusChangedEvent
+    

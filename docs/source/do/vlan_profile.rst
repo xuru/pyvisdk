@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VlanProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.port_group_profile.PortGroupProfile`
+    :py:class:`~pyvisdk.do.port_group_profile.PortGroupProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,5 @@ VlanProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.vlan_profile.VlanProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vlan_profile.VlanProfile
+    

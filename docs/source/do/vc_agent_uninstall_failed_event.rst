@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VcAgentUninstallFailedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ VcAgentUninstallFailedEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.vc_agent_uninstall_failed_event.VcAgentUninstallFailedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vc_agent_uninstall_failed_event.VcAgentUninstallFailedEvent
+    
+    .. py:attribute:: reason
+    
+        The reason why the uninstall failed, if known. See AgentInstallFailedReason
+        
+    

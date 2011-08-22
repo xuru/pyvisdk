@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterDasHostRecommendation
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_system.HostSystem`
+    :py:class:`~pyvisdk.do.host_system.HostSystem`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ ClusterDasHostRecommendation
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.cluster_das_host_recommendation.ClusterDasHostRecommendation
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_das_host_recommendation.ClusterDasHostRecommendation
+    
+    .. py:attribute:: drsRating
+    
+        Rating as computed by DRS for a DRS-enabled cluster. Rating range from 1 to 5, and the higher the rating, the stronger DRS suggests this host is picked for the operation.
+        
+    
+    .. py:attribute:: host
+    
+        The recommended host.
+        
+    

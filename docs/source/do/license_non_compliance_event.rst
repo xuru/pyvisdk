@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 LicenseNonComplianceEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ LicenseNonComplianceEvent
     
     :py:class:`~pyvisdk.mo.license_event.LicenseEvent`
     
-.. autoclass:: pyvisdk.do.license_non_compliance_event.LicenseNonComplianceEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.license_non_compliance_event.LicenseNonComplianceEvent
+    
+    .. py:attribute:: url
+    
+        Gives the url at which more details about non-compliance can be found.
+        
+    

@@ -1,16 +1,15 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomFieldValue
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject`,
-    :py:class:`~pyvisdk.mo.host_list_summary.HostListSummary`,
-    :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`,
-    :py:class:`~pyvisdk.mo.virtual_machine_summary.VirtualMachineSummary`
+    :py:class:`~pyvisdk.do.extensible_managed_object.ExtensibleManagedObject`,
+    :py:class:`~pyvisdk.do.host_list_summary.HostListSummary`,
+    :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`,
+    :py:class:`~pyvisdk.do.virtual_machine_summary.VirtualMachineSummary`
     
 .. describe:: Extends
     
@@ -18,8 +17,12 @@ CustomFieldValue
     
 .. describe:: Extended by
     
-    CustomFieldStringValue
+    :py:class:`~pyvisdk.do.custom_field_string_value.CustomFieldStringValue`
     
-.. autoclass:: pyvisdk.do.custom_field_value.CustomFieldValue
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.custom_field_value.CustomFieldValue
+    
+    .. py:attribute:: key
+    
+        The ID of the field to which this value belongs.
+        
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NonVIWorkloadDetectedOnDatastoreEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ NonVIWorkloadDetectedOnDatastoreEvent
     
     :py:class:`~pyvisdk.mo.datastore_event.DatastoreEvent`
     
-.. autoclass:: pyvisdk.do.non_vi_workload_detected_on_datastore_event.NonVIWorkloadDetectedOnDatastoreEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.non_vi_workload_detected_on_datastore_event.NonVIWorkloadDetectedOnDatastoreEvent
+    

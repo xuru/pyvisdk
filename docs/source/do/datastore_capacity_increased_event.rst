@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DatastoreCapacityIncreasedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,15 @@ DatastoreCapacityIncreasedEvent
     
     :py:class:`~pyvisdk.mo.datastore_event.DatastoreEvent`
     
-.. autoclass:: pyvisdk.do.datastore_capacity_increased_event.DatastoreCapacityIncreasedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.datastore_capacity_increased_event.DatastoreCapacityIncreasedEvent
+    
+    .. py:attribute:: newCapacity
+    
+        The new datastore capacity.
+        
+    
+    .. py:attribute:: oldCapacity
+    
+        The old datastore capacity.
+        
+    

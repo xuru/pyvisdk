@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationIpGenerator
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.customization_ip_settings.CustomizationIPSettings`
+    :py:class:`~pyvisdk.do.customization_ip_settings.CustomizationIPSettings`
     
 .. describe:: Extends
     
@@ -15,9 +14,10 @@ CustomizationIpGenerator
     
 .. describe:: Extended by
     
-    CustomizationCustomIpGenerator, CustomizationDhcpIpGenerator,
-    CustomizationFixedIp, CustomizationUnknownIpGenerator
+    :py:class:`~pyvisdk.do.customization_custom_ip_generator.CustomizationCustomIpGenerator`,
+    :py:class:`~pyvisdk.do.customization_dhcp_ip_generator.CustomizationDhcpIpGenerator`,
+    :py:class:`~pyvisdk.do.customization_fixed_ip.CustomizationFixedIp`,
+    :py:class:`~pyvisdk.do.customization_unknown_ip_generator.CustomizationUnknownIpGenerator`
     
-.. autoclass:: pyvisdk.do.customization_ip_generator.CustomizationIpGenerator
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_ip_generator.CustomizationIpGenerator
+    

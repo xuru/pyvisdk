@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomFieldEvent
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    CustomFieldDefEvent, CustomFieldValueChangedEvent
+    :py:class:`~pyvisdk.do.custom_field_def_event.CustomFieldDefEvent`,
+    :py:class:`~pyvisdk.do.custom_field_value_changed_event.CustomFieldValueChangedEvent`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.event.Event`
     
-.. autoclass:: pyvisdk.do.custom_field_event.CustomFieldEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.custom_field_event.CustomFieldEvent
+    

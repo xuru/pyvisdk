@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualMachineVMIROM
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VirtualMachineVMIROM
     
     :py:class:`~pyvisdk.mo.virtual_device.VirtualDevice`
     
-.. autoclass:: pyvisdk.do.virtual_machine_vmirom.VirtualMachineVMIROM
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_machine_vmirom.VirtualMachineVMIROM
+    

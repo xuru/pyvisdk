@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostIsolationIpPingFailedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ HostIsolationIpPingFailedEvent
     
     :py:class:`~pyvisdk.mo.host_das_event.HostDasEvent`
     
-.. autoclass:: pyvisdk.do.host_isolation_ip_ping_failed_event.HostIsolationIpPingFailedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_isolation_ip_ping_failed_event.HostIsolationIpPingFailedEvent
+    
+    .. py:attribute:: isolationIp
+    
+        
+        
+    

@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostFlagInfo
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    UpdateFlags
+    :py:meth:`~pyvisdk.do.update_flags.UpdateFlags`
     
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_config_info.HostConfigInfo`
+    :py:class:`~pyvisdk.do.host_config_info.HostConfigInfo`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ HostFlagInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_flag_info.HostFlagInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_flag_info.HostFlagInfo
+    
+    .. py:attribute:: backgroundSnapshotsEnabled
+    
+        Flag to specify whether background snapshots are enabled.
+        
+    

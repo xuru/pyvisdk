@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 PhysicalNicProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.network_profile.NetworkProfile`
+    :py:class:`~pyvisdk.do.network_profile.NetworkProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ PhysicalNicProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.physical_nic_profile.PhysicalNicProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.physical_nic_profile.PhysicalNicProfile
+    
+    .. py:attribute:: key
+    
+        The linkable identifier
+        
+    

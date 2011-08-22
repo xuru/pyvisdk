@@ -1,14 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostAddFailedEvent
-========================================
+================================================================================
 
 
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.host_add_failed_event.HostAddFailedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_add_failed_event.HostAddFailedEvent
+    
+    .. py:attribute:: hostname
+    
+        
+        
+    

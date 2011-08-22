@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NasStorageProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.storage_profile.StorageProfile`
+    :py:class:`~pyvisdk.do.storage_profile.StorageProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ NasStorageProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.nas_storage_profile.NasStorageProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.nas_storage_profile.NasStorageProfile
+    
+    .. py:attribute:: key
+    
+        The linkable identifier
+        
+    

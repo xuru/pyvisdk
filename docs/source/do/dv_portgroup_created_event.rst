@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DVPortgroupCreatedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ DVPortgroupCreatedEvent
     
     :py:class:`~pyvisdk.mo.dv_portgroup_event.DVPortgroupEvent`
     
-.. autoclass:: pyvisdk.do.dv_portgroup_created_event.DVPortgroupCreatedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dv_portgroup_created_event.DVPortgroupCreatedEvent
+    

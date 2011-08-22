@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ExtensionServerInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.extension.Extension`
+    :py:class:`~pyvisdk.do.extension.Extension`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.description.Description`
+    :py:class:`~pyvisdk.do.description.Description`
     
 .. describe:: Since
     
@@ -21,6 +20,35 @@ ExtensionServerInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.extension_server_info.ExtensionServerInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.extension_server_info.ExtensionServerInfo
+    
+    .. py:attribute:: adminEmail
+    
+        Extension administrator email addresses.
+        
+    
+    .. py:attribute:: company
+    
+        Company information.
+        
+    
+    .. py:attribute:: description
+    
+        Server description.
+        
+    
+    .. py:attribute:: serverThumbprint
+    
+        Thumbprint of the extension server certificate presented to clients
+        
+    
+    .. py:attribute:: type
+    
+        Type of server (examples may include SOAP, REST, HTTP, etc.).
+        
+    
+    .. py:attribute:: url
+    
+        Server url.
+        
+    

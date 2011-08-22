@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationDhcpIpV6Generator
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ CustomizationDhcpIpV6Generator
     
     :py:class:`~pyvisdk.mo.customization_ip_v6_generator.CustomizationIpV6Generator`
     
-.. autoclass:: pyvisdk.do.customization_dhcp_ip_v6_generator.CustomizationDhcpIpV6Generator
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_dhcp_ip_v6_generator.CustomizationDhcpIpV6Generator
+    

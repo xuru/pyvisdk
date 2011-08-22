@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostMemoryProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_apply_profile.HostApplyProfile`
+    :py:class:`~pyvisdk.do.host_apply_profile.HostApplyProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,5 @@ HostMemoryProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.host_memory_profile.HostMemoryProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_memory_profile.HostMemoryProfile
+    

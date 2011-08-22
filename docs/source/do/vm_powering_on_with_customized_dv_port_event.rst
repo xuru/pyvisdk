@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmPoweringOnWithCustomizedDVPortEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.vnic_port_argument.VnicPortArgument`
+    :py:class:`~pyvisdk.do.vnic_port_argument.VnicPortArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ VmPoweringOnWithCustomizedDVPortEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_powering_on_with_customized_dv_port_event.VmPoweringOnWithCustomizedDVPortEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_powering_on_with_customized_dv_port_event.VmPoweringOnWithCustomizedDVPortEvent
+    
+    .. py:attribute:: vnic
+    
+        The list of vnic that were using the DVports.
+        
+    

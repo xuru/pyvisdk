@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ExtensionHealthInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.extension.Extension`
+    :py:class:`~pyvisdk.do.extension.Extension`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ ExtensionHealthInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.extension_health_info.ExtensionHealthInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.extension_health_info.ExtensionHealthInfo
+    
+    .. py:attribute:: url
+    
+        
+        
+    

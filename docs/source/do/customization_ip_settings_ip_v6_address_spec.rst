@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationIPSettingsIpV6AddressSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.customization_ip_settings.CustomizationIPSettings`
+    :py:class:`~pyvisdk.do.customization_ip_settings.CustomizationIPSettings`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.customization_ip_v6_generator.CustomizationIpV6Generator`
+    :py:class:`~pyvisdk.do.customization_ip_v6_generator.CustomizationIpV6Generator`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ CustomizationIPSettingsIpV6AddressSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.customization_ip_settings_ip_v6_address_spec.CustomizationIPSettingsIpV6AddressSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_ip_settings_ip_v6_address_spec.CustomizationIPSettingsIpV6AddressSpec
+    
+    .. py:attribute:: gateway
+    
+        gateways
+        
+    
+    .. py:attribute:: ip
+    
+        ipv6 address generators
+        
+    

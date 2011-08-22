@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsEventArgument
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.dvs_merged_event.DvsMergedEvent`,
-    :py:class:`~pyvisdk.mo.event.Event`
+    :py:class:`~pyvisdk.do.dvs_merged_event.DvsMergedEvent`,
+    :py:class:`~pyvisdk.do.event.Event`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch`
+    :py:class:`~pyvisdk.do.distributed_virtual_switch.DistributedVirtualSwitch`
     
 .. describe:: Since
     
@@ -22,6 +21,10 @@ DvsEventArgument
     
     :py:class:`~pyvisdk.mo.entity_event_argument.EntityEventArgument`
     
-.. autoclass:: pyvisdk.do.dvs_event_argument.DvsEventArgument
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_event_argument.DvsEventArgument
+    
+    .. py:attribute:: dvs
+    
+        The distributed virtual switch object.
+        
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 TaskTimeoutEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ TaskTimeoutEvent
     
     :py:class:`~pyvisdk.mo.task_event.TaskEvent`
     
-.. autoclass:: pyvisdk.do.task_timeout_event.TaskTimeoutEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.task_timeout_event.TaskTimeoutEvent
+    

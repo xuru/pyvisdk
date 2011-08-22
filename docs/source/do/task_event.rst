@@ -1,22 +1,25 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 TaskEvent
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    TaskTimeoutEvent
+    :py:class:`~pyvisdk.do.task_timeout_event.TaskTimeoutEvent`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.task_info.TaskInfo`
+    :py:class:`~pyvisdk.do.task_info.TaskInfo`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.event.Event`
     
-.. autoclass:: pyvisdk.do.task_event.TaskEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.task_event.TaskEvent
+    
+    .. py:attribute:: info
+    
+        The information about the task.
+        
+    

@@ -1,15 +1,14 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 TypeDescription
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.alarm_description.AlarmDescription`,
-    :py:class:`~pyvisdk.mo.scheduled_task_description.ScheduledTaskDescription`,
-    :py:class:`~pyvisdk.mo.task_description.TaskDescription`
+    :py:class:`~pyvisdk.do.alarm_description.AlarmDescription`,
+    :py:class:`~pyvisdk.do.scheduled_task_description.ScheduledTaskDescription`,
+    :py:class:`~pyvisdk.do.task_description.TaskDescription`
     
 .. describe:: Extends
     
@@ -17,8 +16,12 @@ TypeDescription
     
 .. describe:: Extended by
     
-    ScheduledTaskDetail
+    :py:class:`~pyvisdk.do.scheduled_task_detail.ScheduledTaskDetail`
     
-.. autoclass:: pyvisdk.do.type_description.TypeDescription
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.type_description.TypeDescription
+    
+    .. py:attribute:: key
+    
+        Type being described
+        
+    

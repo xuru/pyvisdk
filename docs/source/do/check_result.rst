@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CheckResult
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_system.HostSystem`,
-    :py:class:`~pyvisdk.mo.virtual_machine.VirtualMachine`
+    :py:class:`~pyvisdk.do.host_system.HostSystem`,
+    :py:class:`~pyvisdk.do.virtual_machine.VirtualMachine`
     
 .. describe:: Since
     
@@ -20,9 +19,30 @@ CheckResult
     
 .. describe:: Returned by
     
-    CheckCompatibility_Task, CheckMigrate_Task, CheckRelocate_Task,
-    QueryVMotionCompatibilityEx_Task
+    :py:meth:`~pyvisdk.do.check_compatibility__task.CheckCompatibility_Task`,
+    :py:meth:`~pyvisdk.do.check_migrate__task.CheckMigrate_Task`,
+    :py:meth:`~pyvisdk.do.check_relocate__task.CheckRelocate_Task`,
+    :py:meth:`~pyvisdk.do.query_v_motion_compatibility_ex__task.QueryVMotionCompatibilityEx_Task`
     
-.. autoclass:: pyvisdk.do.check_result.CheckResult
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.check_result.CheckResult
+    
+    .. py:attribute:: error
+    
+        A list of faults representing problems which are fatal to the operation. For VirtualMachineProvisioningChecker an error means that the given provisioning operation would fail. For VirtualMachineCompatibilityChecker an error means that either a power-on of this virtual machine would fail, or that the virtual machine would not run correctly once powered-on.
+        
+    
+    .. py:attribute:: host
+    
+        The host involved in the testing.
+        
+    
+    .. py:attribute:: vm
+    
+        The virtual machine involved in the testing.
+        
+    
+    .. py:attribute:: warning
+    
+        A list of faults representing problems which may require attention, but which are not fatal.
+        
+    

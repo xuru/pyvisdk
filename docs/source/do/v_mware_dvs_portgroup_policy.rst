@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VMwareDVSPortgroupPolicy
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,20 @@ VMwareDVSPortgroupPolicy
     
     :py:class:`~pyvisdk.mo.dv_portgroup_policy.DVPortgroupPolicy`
     
-.. autoclass:: pyvisdk.do.v_mware_dvs_portgroup_policy.VMwareDVSPortgroupPolicy
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.v_mware_dvs_portgroup_policy.VMwareDVSPortgroupPolicy
+    
+    .. py:attribute:: securityPolicyOverrideAllowed
+    
+        Allow the setting of securityPolicy for an individual port to override the setting in defaultPortConfig of a portgroup.
+        
+    
+    .. py:attribute:: uplinkTeamingOverrideAllowed
+    
+        Allow the setting of uplinkTeamingPolicy for an individual port to override the setting in defaultPortConfig of a portgroup.
+        
+    
+    .. py:attribute:: vlanOverrideAllowed
+    
+        Allow the setting of vlanId, trunk vlanId, or pvlanId for an individual port to override the setting in defaultPortConfig of a portgroup.
+        
+    

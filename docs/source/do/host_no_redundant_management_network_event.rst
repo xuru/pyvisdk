@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostNoRedundantManagementNetworkEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ HostNoRedundantManagementNetworkEvent
     
     :py:class:`~pyvisdk.mo.host_das_event.HostDasEvent`
     
-.. autoclass:: pyvisdk.do.host_no_redundant_management_network_event.HostNoRedundantManagementNetworkEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_no_redundant_management_network_event.HostNoRedundantManagementNetworkEvent
+    

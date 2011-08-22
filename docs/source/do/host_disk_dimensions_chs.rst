@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostDiskDimensionsChs
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_disk_partition_spec.HostDiskPartitionSpec`
+    :py:class:`~pyvisdk.do.host_disk_partition_spec.HostDiskPartitionSpec`
     
 .. describe:: Extends
     
@@ -15,8 +14,22 @@ HostDiskDimensionsChs
     
 .. describe:: Returned by
     
-    QueryVirtualDiskGeometry
+    :py:meth:`~pyvisdk.do.query_virtual_disk_geometry.QueryVirtualDiskGeometry`
     
-.. autoclass:: pyvisdk.do.host_disk_dimensions_chs.HostDiskDimensionsChs
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_disk_dimensions_chs.HostDiskDimensionsChs
+    
+    .. py:attribute:: cylinder
+    
+        The number of cylinders.
+        
+    
+    .. py:attribute:: head
+    
+        The number of heads per cylinders.
+        
+    
+    .. py:attribute:: sector
+    
+        The number of sectors per head.
+        
+    

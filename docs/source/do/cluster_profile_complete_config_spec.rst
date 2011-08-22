@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterProfileCompleteConfigSpec
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.compliance_profile.ComplianceProfile`
+    :py:class:`~pyvisdk.do.compliance_profile.ComplianceProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ ClusterProfileCompleteConfigSpec
     
     :py:class:`~pyvisdk.mo.cluster_profile_config_spec.ClusterProfileConfigSpec`
     
-.. autoclass:: pyvisdk.do.cluster_profile_complete_config_spec.ClusterProfileCompleteConfigSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_profile_complete_config_spec.ClusterProfileCompleteConfigSpec
+    
+    .. py:attribute:: complyProfile
+    
+        User defined compliance profile for the cluster. If unset, clear the complyProfile.
+        
+    

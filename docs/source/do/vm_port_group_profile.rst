@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmPortGroupProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.network_profile.NetworkProfile`
+    :py:class:`~pyvisdk.do.network_profile.NetworkProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,5 @@ VmPortGroupProfile
     
     :py:class:`~pyvisdk.mo.port_group_profile.PortGroupProfile`
     
-.. autoclass:: pyvisdk.do.vm_port_group_profile.VmPortGroupProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_port_group_profile.VmPortGroupProfile
+    

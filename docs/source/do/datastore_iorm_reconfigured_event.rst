@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DatastoreIORMReconfiguredEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ DatastoreIORMReconfiguredEvent
     
     :py:class:`~pyvisdk.mo.datastore_event.DatastoreEvent`
     
-.. autoclass:: pyvisdk.do.datastore_iorm_reconfigured_event.DatastoreIORMReconfiguredEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.datastore_iorm_reconfigured_event.DatastoreIORMReconfiguredEvent
+    

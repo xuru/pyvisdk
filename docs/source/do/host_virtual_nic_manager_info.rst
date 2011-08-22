@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostVirtualNicManagerInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_config_info.HostConfigInfo`,
-    :py:class:`~pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager`
+    :py:class:`~pyvisdk.do.host_config_info.HostConfigInfo`,
+    :py:class:`~pyvisdk.do.host_virtual_nic_manager.HostVirtualNicManager`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.virtual_nic_manager_net_config.VirtualNicManagerNetConfig`
+    :py:class:`~pyvisdk.do.virtual_nic_manager_net_config.VirtualNicManagerNetConfig`
     
 .. describe:: Since
     
@@ -22,6 +21,10 @@ HostVirtualNicManagerInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_virtual_nic_manager_info.HostVirtualNicManagerInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_virtual_nic_manager_info.HostVirtualNicManagerInfo
+    
+    .. py:attribute:: netConfig
+    
+        List of VirtualNicManager network configuration.
+        
+    

@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostNoAvailableNetworksEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ HostNoAvailableNetworksEvent
     
     :py:class:`~pyvisdk.mo.host_das_event.HostDasEvent`
     
-.. autoclass:: pyvisdk.do.host_no_available_networks_event.HostNoAvailableNetworksEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_no_available_networks_event.HostNoAvailableNetworksEvent
+    
+    .. py:attribute:: ips
+    
+        The comma-separated list of used networks
+        
+    

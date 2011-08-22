@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ExtensionTaskTypeInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.extension.Extension`
+    :py:class:`~pyvisdk.do.extension.Extension`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ ExtensionTaskTypeInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.extension_task_type_info.ExtensionTaskTypeInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.extension_task_type_info.ExtensionTaskTypeInfo
+    
+    .. py:attribute:: taskID
+    
+        The ID of the task type. Should follow java package naming conventions for uniqueness.
+        
+    

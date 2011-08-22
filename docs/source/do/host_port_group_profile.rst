@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostPortGroupProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.network_profile.NetworkProfile`
+    :py:class:`~pyvisdk.do.network_profile.NetworkProfile`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.ip_address_profile.IpAddressProfile`
+    :py:class:`~pyvisdk.do.ip_address_profile.IpAddressProfile`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ HostPortGroupProfile
     
     :py:class:`~pyvisdk.mo.port_group_profile.PortGroupProfile`
     
-.. autoclass:: pyvisdk.do.host_port_group_profile.HostPortGroupProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_port_group_profile.HostPortGroupProfile
+    
+    .. py:attribute:: ipConfig
+    
+        The IP address configuration for the Host network
+        
+    

@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostNatService
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_network_info.HostNetworkInfo`
+    :py:class:`~pyvisdk.do.host_network_info.HostNetworkInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_nat_service_spec.HostNatServiceSpec`
+    :py:class:`~pyvisdk.do.host_nat_service_spec.HostNatServiceSpec`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ HostNatService
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_nat_service.HostNatService
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_nat_service.HostNatService
+    
+    .. py:attribute:: key
+    
+        The instance ID of the NAT service.
+        
+    
+    .. py:attribute:: spec
+    
+        The configurable properties for the NatService object.
+        
+    

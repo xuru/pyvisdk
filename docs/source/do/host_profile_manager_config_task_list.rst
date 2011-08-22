@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostProfileManagerConfigTaskList
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_config_spec.HostConfigSpec`,
-    :py:class:`~pyvisdk.mo.localizable_message.LocalizableMessage`
+    :py:class:`~pyvisdk.do.host_config_spec.HostConfigSpec`,
+    :py:class:`~pyvisdk.do.localizable_message.LocalizableMessage`
     
 .. describe:: Since
     
@@ -20,8 +19,17 @@ HostProfileManagerConfigTaskList
     
 .. describe:: Returned by
     
-    GenerateConfigTaskList
+    :py:meth:`~pyvisdk.do.generate_config_task_list.GenerateConfigTaskList`
     
-.. autoclass:: pyvisdk.do.host_profile_manager_config_task_list.HostProfileManagerConfigTaskList
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_profile_manager_config_task_list.HostProfileManagerConfigTaskList
+    
+    .. py:attribute:: configSpec
+    
+        ConfigSpec describing a list of tasks that will be performed on the host to carry out HostProfile application.
+        
+    
+    .. py:attribute:: taskDescription
+    
+        Description of tasks that will to be performed on the host to carry out HostProfile application.
+        
+    

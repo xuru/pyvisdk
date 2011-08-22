@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsPortDeletedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ DvsPortDeletedEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_port_deleted_event.DvsPortDeletedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_port_deleted_event.DvsPortDeletedEvent
+    
+    .. py:attribute:: portKey
+    
+        The key of the ports that are deleted.
+        
+    

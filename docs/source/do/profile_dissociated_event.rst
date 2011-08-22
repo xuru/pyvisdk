@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ProfileDissociatedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ ProfileDissociatedEvent
     
     :py:class:`~pyvisdk.mo.profile_event.ProfileEvent`
     
-.. autoclass:: pyvisdk.do.profile_dissociated_event.ProfileDissociatedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.profile_dissociated_event.ProfileDissociatedEvent
+    

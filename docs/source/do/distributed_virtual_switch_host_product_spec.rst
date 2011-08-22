@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DistributedVirtualSwitchHostProductSpec
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.dvs_capability.DVSCapability`
+    :py:class:`~pyvisdk.do.dvs_capability.DVSCapability`
     
 .. describe:: Since
     
@@ -19,8 +18,17 @@ DistributedVirtualSwitchHostProductSpec
     
 .. describe:: Returned by
     
-    QueryDvsCompatibleHostSpec
+    :py:meth:`~pyvisdk.do.query_dvs_compatible_host_spec.QueryDvsCompatibleHostSpec`
     
-.. autoclass:: pyvisdk.do.distributed_virtual_switch_host_product_spec.DistributedVirtualSwitchHostProductSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.distributed_virtual_switch_host_product_spec.DistributedVirtualSwitchHostProductSpec
+    
+    .. py:attribute:: productLineId
+    
+        The product-line name.
+        
+    
+    .. py:attribute:: version
+    
+        Dot-separated version string. For example, "1.2".
+        
+    

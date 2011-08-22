@@ -1,14 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 OnceTaskScheduler
-========================================
+================================================================================
 
 
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.task_scheduler.TaskScheduler`
     
-.. autoclass:: pyvisdk.do.once_task_scheduler.OnceTaskScheduler
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.once_task_scheduler.OnceTaskScheduler
+    
+    .. py:attribute:: runAt
+    
+        The time a task will run. If you do not set the time, it executes immediately.
+        
+    

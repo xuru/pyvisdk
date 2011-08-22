@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostShortNameToIpFailedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ HostShortNameToIpFailedEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.host_short_name_to_ip_failed_event.HostShortNameToIpFailedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_short_name_to_ip_failed_event.HostShortNameToIpFailedEvent
+    
+    .. py:attribute:: shortName
+    
+        
+        
+    

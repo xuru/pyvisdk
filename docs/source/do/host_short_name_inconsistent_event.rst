@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostShortNameInconsistentEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,15 @@ HostShortNameInconsistentEvent
     
     :py:class:`~pyvisdk.mo.host_das_event.HostDasEvent`
     
-.. autoclass:: pyvisdk.do.host_short_name_inconsistent_event.HostShortNameInconsistentEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_short_name_inconsistent_event.HostShortNameInconsistentEvent
+    
+    .. py:attribute:: shortName
+    
+        
+        
+    
+    .. py:attribute:: shortName2
+    
+        
+        
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostUnresolvedVmfsResignatureSpec
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    ResignatureUnresolvedVmfsVolume_Task
+    :py:meth:`~pyvisdk.do.resignature_unresolved_vmfs_volume__task.ResignatureUnresolvedVmfsVolume_Task`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ HostUnresolvedVmfsResignatureSpec
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_unresolved_vmfs_resignature_spec.HostUnresolvedVmfsResignatureSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_unresolved_vmfs_resignature_spec.HostUnresolvedVmfsResignatureSpec
+    
+    .. py:attribute:: extentDevicePath
+    
+        List of device path each specifying VMFS extents.
+        
+    

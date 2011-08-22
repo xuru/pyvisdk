@@ -1,19 +1,19 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmCloneEvent
-========================================
+================================================================================
 
 
 .. describe:: Extended by
     
-    VmBeingClonedEvent, VmBeingClonedNoFolderEvent, VmClonedEvent,
-    VmCloneFailedEvent
+    :py:class:`~pyvisdk.do.vm_being_cloned_event.VmBeingClonedEvent`,
+    :py:class:`~pyvisdk.do.vm_being_cloned_no_folder_event.VmBeingClonedNoFolderEvent`,
+    :py:class:`~pyvisdk.do.vm_cloned_event.VmClonedEvent`,
+    :py:class:`~pyvisdk.do.vm_clone_failed_event.VmCloneFailedEvent`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_clone_event.VmCloneEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_clone_event.VmCloneEvent
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ExtensionFaultTypeInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.extension.Extension`
+    :py:class:`~pyvisdk.do.extension.Extension`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ ExtensionFaultTypeInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.extension_fault_type_info.ExtensionFaultTypeInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.extension_fault_type_info.ExtensionFaultTypeInfo
+    
+    .. py:attribute:: faultID
+    
+        The ID of the fault type. Should follow java package naming conventions for uniqueness.
+        
+    

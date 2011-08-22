@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterRecommendation
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.cluster_compute_resource.ClusterComputeResource`,
-    :py:class:`~pyvisdk.mo.cluster_power_on_vm_result.ClusterPowerOnVmResult`
+    :py:class:`~pyvisdk.do.cluster_compute_resource.ClusterComputeResource`,
+    :py:class:`~pyvisdk.do.cluster_power_on_vm_result.ClusterPowerOnVmResult`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.cluster_action.ClusterAction`
+    :py:class:`~pyvisdk.do.cluster_action.ClusterAction`
     
 .. describe:: Since
     
@@ -22,6 +21,50 @@ ClusterRecommendation
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.cluster_recommendation.ClusterRecommendation
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_recommendation.ClusterRecommendation
+    
+    .. py:attribute:: action
+    
+        List of actions that are executed as part of this recommendation
+        
+    
+    .. py:attribute:: key
+    
+        Key to identify the recommendation when calling applyRecommendation.
+        
+    
+    .. py:attribute:: prerequisite
+    
+        This recommendation may depend on some other recommendations. The prerequisite recommendations are listed by their keys.
+        
+    
+    .. py:attribute:: rating
+    
+        A rating of the recommendation. Valid values range from 1 (lowest confidence) to 5 (highest confidence).
+        
+    
+    .. py:attribute:: reason
+    
+        A reason code explaining why this set of migrations is being suggested.
+        
+    
+    .. py:attribute:: reasonText
+    
+        Text that provides more information about the reason code for the suggested set of migrations.
+        
+    
+    .. py:attribute:: target
+    
+        The target object of this recommendation.
+        
+    
+    .. py:attribute:: time
+    
+        The time this recommendation was computed.
+        
+    
+    .. py:attribute:: type
+    
+        Type of the recommendation. This differentiates between various of recommendations aimed at achieving different goals.
+        
+    

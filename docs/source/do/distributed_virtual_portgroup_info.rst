@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DistributedVirtualPortgroupInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.config_target.ConfigTarget`,
-    :py:class:`~pyvisdk.mo.dvs_manager_dvs_config_target.DVSManagerDvsConfigTarget`
+    :py:class:`~pyvisdk.do.config_target.ConfigTarget`,
+    :py:class:`~pyvisdk.do.dvs_manager_dvs_config_target.DVSManagerDvsConfigTarget`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.distributed_virtual_portgroup.DistributedVirtualPortgroup`
+    :py:class:`~pyvisdk.do.distributed_virtual_portgroup.DistributedVirtualPortgroup`
     
 .. describe:: Since
     
@@ -22,6 +21,40 @@ DistributedVirtualPortgroupInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.distributed_virtual_portgroup_info.DistributedVirtualPortgroupInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.distributed_virtual_portgroup_info.DistributedVirtualPortgroupInfo
+    
+    .. py:attribute:: portgroup
+    
+        The portgroup.
+        
+    
+    .. py:attribute:: portgroupKey
+    
+        The key of the portgroup.
+        
+    
+    .. py:attribute:: portgroupName
+    
+        The name of the portgroup.
+        
+    
+    .. py:attribute:: portgroupType
+    
+        The type of portgroup. See DistributedVirtualPortgroupPortgroupType
+        
+    
+    .. py:attribute:: switchName
+    
+        The name of the switch.
+        
+    
+    .. py:attribute:: switchUuid
+    
+        The UUID of the switch.
+        
+    
+    .. py:attribute:: uplinkPortgroup
+    
+        Whether this portgroup is an uplink portgroup.
+        
+    

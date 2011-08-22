@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualMachineFileLayoutExDiskUnit
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.virtual_machine_file_layout_ex_disk_layout.VirtualMachineFileLayoutExDiskLayout`
+    :py:class:`~pyvisdk.do.virtual_machine_file_layout_ex_disk_layout.VirtualMachineFileLayoutExDiskLayout`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ VirtualMachineFileLayoutExDiskUnit
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.virtual_machine_file_layout_ex_disk_unit.VirtualMachineFileLayoutExDiskUnit
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_machine_file_layout_ex_disk_unit.VirtualMachineFileLayoutExDiskUnit
+    
+    .. py:attribute:: fileKey
+    
+        Array of keys of the files that make up the disk unit. Values here correspond to property key in file.
+        
+    

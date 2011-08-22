@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostOvercommittedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ HostOvercommittedEvent
     
     :py:class:`~pyvisdk.mo.cluster_overcommitted_event.ClusterOvercommittedEvent`
     
-.. autoclass:: pyvisdk.do.host_overcommitted_event.HostOvercommittedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_overcommitted_event.HostOvercommittedEvent
+    

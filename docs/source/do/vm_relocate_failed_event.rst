@@ -1,19 +1,27 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmRelocateFailedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_event_argument.HostEventArgument`,
-    :py:class:`~pyvisdk.mo.localized_method_fault.LocalizedMethodFault`
+    :py:class:`~pyvisdk.do.host_event_argument.HostEventArgument`,
+    :py:class:`~pyvisdk.do.localized_method_fault.LocalizedMethodFault`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.vm_relocate_spec_event.VmRelocateSpecEvent`
     
-.. autoclass:: pyvisdk.do.vm_relocate_failed_event.VmRelocateFailedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_relocate_failed_event.VmRelocateFailedEvent
+    
+    .. py:attribute:: destHost
+    
+        The destination host to which the virtual machine is being relocated.
+        
+    
+    .. py:attribute:: reason
+    
+        The reason why this relocate operation failed.
+        
+    

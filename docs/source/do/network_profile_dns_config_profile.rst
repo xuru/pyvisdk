@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NetworkProfileDnsConfigProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.network_profile.NetworkProfile`
+    :py:class:`~pyvisdk.do.network_profile.NetworkProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,5 @@ NetworkProfileDnsConfigProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.network_profile_dns_config_profile.NetworkProfileDnsConfigProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.network_profile_dns_config_profile.NetworkProfileDnsConfigProfile
+    

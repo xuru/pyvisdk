@@ -1,15 +1,14 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualAppImportSpec
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.import_spec.ImportSpec`,
-    :py:class:`~pyvisdk.mo.resource_config_spec.ResourceConfigSpec`,
-    :py:class:`~pyvisdk.mo.v_app_config_spec.VAppConfigSpec`
+    :py:class:`~pyvisdk.do.import_spec.ImportSpec`,
+    :py:class:`~pyvisdk.do.resource_config_spec.ResourceConfigSpec`,
+    :py:class:`~pyvisdk.do.v_app_config_spec.VAppConfigSpec`
     
 .. describe:: Since
     
@@ -19,6 +18,25 @@ VirtualAppImportSpec
     
     :py:class:`~pyvisdk.mo.import_spec.ImportSpec`
     
-.. autoclass:: pyvisdk.do.virtual_app_import_spec.VirtualAppImportSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_app_import_spec.VirtualAppImportSpec
+    
+    .. py:attribute:: child
+    
+        Contains a list of children (VirtualMachines and VirtualApps).
+        
+    
+    .. py:attribute:: name
+    
+        The name of the vApp
+        
+    
+    .. py:attribute:: resourcePoolSpec
+    
+        Resource pool specification.
+        
+    
+    .. py:attribute:: vAppConfigSpec
+    
+        vApp configuration
+        
+    

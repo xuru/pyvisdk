@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 PasswordField
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ PasswordField
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.password_field.PasswordField
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.password_field.PasswordField
+    
+    .. py:attribute:: value
+    
+        
+        
+    

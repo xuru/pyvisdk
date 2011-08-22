@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NetBIOSConfigInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.guest_nic_info.GuestNicInfo`
+    :py:class:`~pyvisdk.do.guest_nic_info.GuestNicInfo`
     
 .. describe:: Since
     
@@ -19,8 +18,12 @@ NetBIOSConfigInfo
     
 .. describe:: Extended by
     
-    WinNetBIOSConfigInfo
+    :py:class:`~pyvisdk.do.win_net_bios_config_info.WinNetBIOSConfigInfo`
     
-.. autoclass:: pyvisdk.do.net_bios_config_info.NetBIOSConfigInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.net_bios_config_info.NetBIOSConfigInfo
+    
+    .. py:attribute:: mode
+    
+        NetBIOS configuration mode. The supported values are described by NetBIOSConfigInfoMode.
+        
+    

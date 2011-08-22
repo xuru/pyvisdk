@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmMessageErrorEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.virtual_machine_message.VirtualMachineMessage`
+    :py:class:`~pyvisdk.do.virtual_machine_message.VirtualMachineMessage`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ VmMessageErrorEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_message_error_event.VmMessageErrorEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_message_error_event.VmMessageErrorEvent
+    
+    .. py:attribute:: message
+    
+        A raw message returned by the virtualization platform.
+        
+    
+    .. py:attribute:: messageInfo
+    
+        
+        
+    

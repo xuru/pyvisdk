@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 PnicUplinkProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.dvs_profile.DvsProfile`
+    :py:class:`~pyvisdk.do.dvs_profile.DvsProfile`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ PnicUplinkProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.pnic_uplink_profile.PnicUplinkProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.pnic_uplink_profile.PnicUplinkProfile
+    
+    .. py:attribute:: key
+    
+        The linkable identifier
+        
+    

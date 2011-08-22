@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 NoDatastoresConfiguredEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ NoDatastoresConfiguredEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.no_datastores_configured_event.NoDatastoresConfiguredEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.no_datastores_configured_event.NoDatastoresConfiguredEvent
+    

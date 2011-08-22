@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DvsPortCreatedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ DvsPortCreatedEvent
     
     :py:class:`~pyvisdk.mo.dvs_event.DvsEvent`
     
-.. autoclass:: pyvisdk.do.dvs_port_created_event.DvsPortCreatedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.dvs_port_created_event.DvsPortCreatedEvent
+    
+    .. py:attribute:: portKey
+    
+        The key of the ports that are created.
+        
+    

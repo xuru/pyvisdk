@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 Tag
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`
+    :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ Tag
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.tag.Tag
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.tag.Tag
+    
+    .. py:attribute:: key
+    
+        The tag key in human readable form.
+        
+    

@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 IpPoolAssociation
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.ip_pool.IpPool`
+    :py:class:`~pyvisdk.do.ip_pool.IpPool`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.network.Network`
+    :py:class:`~pyvisdk.do.network.Network`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ IpPoolAssociation
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.ip_pool_association.IpPoolAssociation
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.ip_pool_association.IpPoolAssociation
+    
+    .. py:attribute:: network
+    
+        The network object
+        
+    
+    .. py:attribute:: networkName
+    
+        The name of the network or portgroup
+        
+    

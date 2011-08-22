@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VmDasResetFailedEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VmDasResetFailedEvent
     
     :py:class:`~pyvisdk.mo.vm_event.VmEvent`
     
-.. autoclass:: pyvisdk.do.vm_das_reset_failed_event.VmDasResetFailedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vm_das_reset_failed_event.VmDasResetFailedEvent
+    

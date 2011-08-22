@@ -1,28 +1,41 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostSystemResourceInfo
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    UpdateSystemResources
+    :py:meth:`~pyvisdk.do.update_system_resources.UpdateSystemResources`
     
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_config_info.HostConfigInfo`,
-    :py:class:`~pyvisdk.mo.host_system.HostSystem`,
-    :py:class:`~pyvisdk.mo.host_system_resource_info.HostSystemResourceInfo`
+    :py:class:`~pyvisdk.do.host_config_info.HostConfigInfo`,
+    :py:class:`~pyvisdk.do.host_system.HostSystem`,
+    :py:class:`~pyvisdk.do.host_system_resource_info.HostSystemResourceInfo`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.resource_config_spec.ResourceConfigSpec`
+    :py:class:`~pyvisdk.do.resource_config_spec.ResourceConfigSpec`
     
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_system_resource_info.HostSystemResourceInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_system_resource_info.HostSystemResourceInfo
+    
+    .. py:attribute:: child
+    
+        List of child resource groups.
+        
+    
+    .. py:attribute:: config
+    
+        Configuration of this system resource group.
+        
+    
+    .. py:attribute:: key
+    
+        ID of the system resource group.
+        
+    

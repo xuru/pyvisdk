@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HttpNfcLeaseHostInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.http_nfc_lease_datastore_lease_info.HttpNfcLeaseDatastoreLeaseInfo`
+    :py:class:`~pyvisdk.do.http_nfc_lease_datastore_lease_info.HttpNfcLeaseDatastoreLeaseInfo`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ HttpNfcLeaseHostInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.http_nfc_lease_host_info.HttpNfcLeaseHostInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.http_nfc_lease_host_info.HttpNfcLeaseHostInfo
+    
+    .. py:attribute:: sslThumbprint
+    
+        SSL thumbprint for the host the URL refers to. Empty if no SSL thumbprint is available or needed.
+        
+    
+    .. py:attribute:: url
+    
+        The host url will be of the form
+        
+    

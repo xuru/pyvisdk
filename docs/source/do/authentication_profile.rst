@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 AuthenticationProfile
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_apply_profile.HostApplyProfile`
+    :py:class:`~pyvisdk.do.host_apply_profile.HostApplyProfile`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.active_directory_profile.ActiveDirectoryProfile`
+    :py:class:`~pyvisdk.do.active_directory_profile.ActiveDirectoryProfile`
     
 .. describe:: Since
     
@@ -21,6 +20,10 @@ AuthenticationProfile
     
     :py:class:`~pyvisdk.mo.apply_profile.ApplyProfile`
     
-.. autoclass:: pyvisdk.do.authentication_profile.AuthenticationProfile
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.authentication_profile.AuthenticationProfile
+    
+    .. py:attribute:: activeDirectory
+    
+        Profile representing the Active Directory configuration
+        
+    

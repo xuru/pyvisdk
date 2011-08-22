@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VMFSDatastoreExtendedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.datastore_event_argument.DatastoreEventArgument`
+    :py:class:`~pyvisdk.do.datastore_event_argument.DatastoreEventArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ VMFSDatastoreExtendedEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.vmfs_datastore_extended_event.VMFSDatastoreExtendedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.vmfs_datastore_extended_event.VMFSDatastoreExtendedEvent
+    
+    .. py:attribute:: datastore
+    
+        The associated datastore.
+        
+    

@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostMultipathStateInfoPath
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_multipath_state_info.HostMultipathStateInfo`
+    :py:class:`~pyvisdk.do.host_multipath_state_info.HostMultipathStateInfo`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ HostMultipathStateInfoPath
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_multipath_state_info_path.HostMultipathStateInfoPath
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_multipath_state_info_path.HostMultipathStateInfoPath
+    
+    .. py:attribute:: name
+    
+        Name of path.
+        
+    
+    .. py:attribute:: pathState
+    
+        The state of the path. Must be one of the values of MultipathState.
+        
+    

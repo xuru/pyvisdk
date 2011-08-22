@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostNonCompliantEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ HostNonCompliantEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.host_non_compliant_event.HostNonCompliantEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_non_compliant_event.HostNonCompliantEvent
+    

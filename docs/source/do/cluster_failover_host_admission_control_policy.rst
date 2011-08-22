@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterFailoverHostAdmissionControlPolicy
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_system.HostSystem`
+    :py:class:`~pyvisdk.do.host_system.HostSystem`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ ClusterFailoverHostAdmissionControlPolicy
     
     :py:class:`~pyvisdk.mo.cluster_das_admission_control_policy.ClusterDasAdmissionControlPolicy`
     
-.. autoclass:: pyvisdk.do.cluster_failover_host_admission_control_policy.ClusterFailoverHostAdmissionControlPolicy
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_failover_host_admission_control_policy.ClusterFailoverHostAdmissionControlPolicy
+    
+    .. py:attribute:: failoverHosts
+    
+        List of references to failover hosts.
+        
+    

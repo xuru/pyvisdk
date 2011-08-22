@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterComplianceCheckedEvent
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.profile_event_argument.ProfileEventArgument`
+    :py:class:`~pyvisdk.do.profile_event_argument.ProfileEventArgument`
     
 .. describe:: Since
     
@@ -17,6 +16,10 @@ ClusterComplianceCheckedEvent
     
     :py:class:`~pyvisdk.mo.cluster_event.ClusterEvent`
     
-.. autoclass:: pyvisdk.do.cluster_compliance_checked_event.ClusterComplianceCheckedEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_compliance_checked_event.ClusterComplianceCheckedEvent
+    
+    .. py:attribute:: profile
+    
+        
+        
+    

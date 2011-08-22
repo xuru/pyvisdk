@@ -1,18 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 PowerSystemInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_config_info.HostConfigInfo`,
-    :py:class:`~pyvisdk.mo.host_power_system.HostPowerSystem`
+    :py:class:`~pyvisdk.do.host_config_info.HostConfigInfo`,
+    :py:class:`~pyvisdk.do.host_power_system.HostPowerSystem`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.host_power_policy.HostPowerPolicy`
+    :py:class:`~pyvisdk.do.host_power_policy.HostPowerPolicy`
     
 .. describe:: Since
     
@@ -22,6 +21,10 @@ PowerSystemInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.power_system_info.PowerSystemInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.power_system_info.PowerSystemInfo
+    
+    .. py:attribute:: currentPolicy
+    
+        Currently selected host power management policy. This property can have one of the values from availablePolicy.
+        
+    

@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualMachineImportSpec
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.resource_pool.ResourcePool`,
-    :py:class:`~pyvisdk.mo.virtual_machine_config_spec.VirtualMachineConfigSpec`
+    :py:class:`~pyvisdk.do.resource_pool.ResourcePool`,
+    :py:class:`~pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec`
     
 .. describe:: Since
     
@@ -18,6 +17,15 @@ VirtualMachineImportSpec
     
     :py:class:`~pyvisdk.mo.import_spec.ImportSpec`
     
-.. autoclass:: pyvisdk.do.virtual_machine_import_spec.VirtualMachineImportSpec
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_machine_import_spec.VirtualMachineImportSpec
+    
+    .. py:attribute:: configSpec
+    
+        Configuration for the virtual machine.
+        
+    
+    .. py:attribute:: resPoolEntity
+    
+        If specified, this resource pool will be used as the parent resource pool and the virtual machine will be made a linked child to the parent vApp. This field is ignored for the root node in an ImportSpec tree.
+        
+    

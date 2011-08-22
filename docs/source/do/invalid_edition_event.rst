@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 InvalidEditionEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,10 @@ InvalidEditionEvent
     
     :py:class:`~pyvisdk.mo.license_event.LicenseEvent`
     
-.. autoclass:: pyvisdk.do.invalid_edition_event.InvalidEditionEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.invalid_edition_event.InvalidEditionEvent
+    
+    .. py:attribute:: feature
+    
+        
+        
+    

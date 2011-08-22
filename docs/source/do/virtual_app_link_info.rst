@@ -1,21 +1,20 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualAppLinkInfo
-========================================
+================================================================================
 
 
 .. describe:: Parameter to
     
-    UpdateLinkedChildren
+    :py:meth:`~pyvisdk.do.update_linked_children.UpdateLinkedChildren`
     
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.virtual_app.VirtualApp`
+    :py:class:`~pyvisdk.do.virtual_app.VirtualApp`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`
+    :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`
     
 .. describe:: Since
     
@@ -25,6 +24,15 @@ VirtualAppLinkInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.virtual_app_link_info.VirtualAppLinkInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_app_link_info.VirtualAppLinkInfo
+    
+    .. py:attribute:: destroyWithParent
+    
+        Whether the entity should be removed, when this vApp is removed
+        
+    
+    .. py:attribute:: key
+    
+        The key contains a reference to the entity that is linked to this vApp
+        
+    

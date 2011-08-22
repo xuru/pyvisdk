@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 DatastoreInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.datastore.Datastore`
+    :py:class:`~pyvisdk.do.datastore.Datastore`
     
 .. describe:: Extends
     
@@ -15,8 +14,34 @@ DatastoreInfo
     
 .. describe:: Extended by
     
-    LocalDatastoreInfo, NasDatastoreInfo, VmfsDatastoreInfo
+    :py:class:`~pyvisdk.do.local_datastore_info.LocalDatastoreInfo`,
+    :py:class:`~pyvisdk.do.nas_datastore_info.NasDatastoreInfo`,
+    :py:class:`~pyvisdk.do.vmfs_datastore_info.VmfsDatastoreInfo`
     
-.. autoclass:: pyvisdk.do.datastore_info.DatastoreInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.datastore_info.DatastoreInfo
+    
+    .. py:attribute:: freeSpace
+    
+        Free space of this datastore, in bytes. The server periodically updates this value. It can be explicitly refreshed with the Refresh operation.
+        
+    
+    .. py:attribute:: maxFileSize
+    
+        The maximum size of a file that can reside on this file system volume.
+        
+    
+    .. py:attribute:: name
+    
+        The name of the datastore.
+        
+    
+    .. py:attribute:: timestamp
+    
+        Time when the free-space and capacity values in DatastoreInfo and DatastoreSummary were updated.
+        
+    
+    .. py:attribute:: url
+    
+        The unique locator for the datastore.
+        
+    

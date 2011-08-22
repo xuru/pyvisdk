@@ -1,15 +1,14 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 LicenseUsageInfo
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.license_feature_info.LicenseFeatureInfo`,
-    :py:class:`~pyvisdk.mo.license_reservation_info.LicenseReservationInfo`,
-    :py:class:`~pyvisdk.mo.license_source.LicenseSource`
+    :py:class:`~pyvisdk.do.license_feature_info.LicenseFeatureInfo`,
+    :py:class:`~pyvisdk.do.license_reservation_info.LicenseReservationInfo`,
+    :py:class:`~pyvisdk.do.license_source.LicenseSource`
     
 .. describe:: Extends
     
@@ -17,8 +16,27 @@ LicenseUsageInfo
     
 .. describe:: Returned by
     
-    QueryLicenseUsage
+    :py:meth:`~pyvisdk.do.query_license_usage.QueryLicenseUsage`
     
-.. autoclass:: pyvisdk.do.license_usage_info.LicenseUsageInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.license_usage_info.LicenseUsageInfo
+    
+    .. py:attribute:: featureInfo
+    
+        Includes all the features that are referenced in the reservation array.
+        
+    
+    .. py:attribute:: reservationInfo
+    
+        A list of feature reservations.
+        
+    
+    .. py:attribute:: source
+    
+        The source from which licensing data is acquired.
+        
+    
+    .. py:attribute:: sourceAvailable
+    
+        Returns whether or not the source is currently available.
+        
+    

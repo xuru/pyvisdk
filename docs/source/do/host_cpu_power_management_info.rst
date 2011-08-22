@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostCpuPowerManagementInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_hardware_info.HostHardwareInfo`
+    :py:class:`~pyvisdk.do.host_hardware_info.HostHardwareInfo`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ HostCpuPowerManagementInfo
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_cpu_power_management_info.HostCpuPowerManagementInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_cpu_power_management_info.HostCpuPowerManagementInfo
+    
+    .. py:attribute:: currentPolicy
+    
+        Information about current CPU power management policy.
+        
+    
+    .. py:attribute:: hardwareSupport
+    
+        Information about supported CPU power management.
+        
+    

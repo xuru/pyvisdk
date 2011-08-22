@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 VirtualPCIPassthroughDeviceBackingOption
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ VirtualPCIPassthroughDeviceBackingOption
     
     :py:class:`~pyvisdk.mo.virtual_device_device_backing_option.VirtualDeviceDeviceBackingOption`
     
-.. autoclass:: pyvisdk.do.virtual_pci_passthrough_device_backing_option.VirtualPCIPassthroughDeviceBackingOption
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.virtual_pci_passthrough_device_backing_option.VirtualPCIPassthroughDeviceBackingOption
+    

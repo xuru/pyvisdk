@@ -1,14 +1,17 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 CustomizationFixedName
-========================================
+================================================================================
 
 
 .. describe:: Extends
     
     :py:class:`~pyvisdk.mo.customization_name.CustomizationName`
     
-.. autoclass:: pyvisdk.do.customization_fixed_name.CustomizationFixedName
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.customization_fixed_name.CustomizationFixedName
+    
+    .. py:attribute:: name
+    
+        The virtual machine name specified by the client.
+        
+    

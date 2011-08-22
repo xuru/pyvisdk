@@ -1,8 +1,7 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostUserWorldSwapNotEnabledEvent
-========================================
+================================================================================
 
 
 .. describe:: Since
@@ -13,6 +12,5 @@ HostUserWorldSwapNotEnabledEvent
     
     :py:class:`~pyvisdk.mo.host_event.HostEvent`
     
-.. autoclass:: pyvisdk.do.host_user_world_swap_not_enabled_event.HostUserWorldSwapNotEnabledEvent
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_user_world_swap_not_enabled_event.HostUserWorldSwapNotEnabledEvent
+    

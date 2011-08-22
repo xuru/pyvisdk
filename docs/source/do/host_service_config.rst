@@ -1,13 +1,12 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 HostServiceConfig
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.host_config_spec.HostConfigSpec`
+    :py:class:`~pyvisdk.do.host_config_spec.HostConfigSpec`
     
 .. describe:: Since
     
@@ -17,6 +16,15 @@ HostServiceConfig
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.host_service_config.HostServiceConfig
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.host_service_config.HostServiceConfig
+    
+    .. py:attribute:: serviceId
+    
+        Key of the service to configure.
+        
+    
+    .. py:attribute:: startupPolicy
+    
+        Startup policy which defines how the service be configured. See
+        
+    

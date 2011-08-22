@@ -1,14 +1,13 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ClusterGroupInfo
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.cluster_config_info_ex.ClusterConfigInfoEx`,
-    :py:class:`~pyvisdk.mo.cluster_group_spec.ClusterGroupSpec`
+    :py:class:`~pyvisdk.do.cluster_config_info_ex.ClusterConfigInfoEx`,
+    :py:class:`~pyvisdk.do.cluster_group_spec.ClusterGroupSpec`
     
 .. describe:: Since
     
@@ -20,8 +19,13 @@ ClusterGroupInfo
     
 .. describe:: Extended by
     
-    ClusterHostGroup, ClusterVmGroup
+    :py:class:`~pyvisdk.do.cluster_host_group.ClusterHostGroup`,
+    :py:class:`~pyvisdk.do.cluster_vm_group.ClusterVmGroup`
     
-.. autoclass:: pyvisdk.do.cluster_group_info.ClusterGroupInfo
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.cluster_group_info.ClusterGroupInfo
+    
+    .. py:attribute:: name
+    
+        Unique name of the group.
+        
+    

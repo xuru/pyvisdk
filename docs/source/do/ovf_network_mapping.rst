@@ -1,17 +1,16 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 OvfNetworkMapping
-========================================
+================================================================================
 
 
 .. describe:: Property of
     
-    :py:class:`~pyvisdk.mo.ovf_create_import_spec_params.OvfCreateImportSpecParams`
+    :py:class:`~pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams`
     
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.network.Network`
+    :py:class:`~pyvisdk.do.network.Network`
     
 .. describe:: Since
     
@@ -21,6 +20,15 @@ OvfNetworkMapping
     
     :py:class:`~pyvisdk.mo.dynamic_data.DynamicData`
     
-.. autoclass:: pyvisdk.do.ovf_network_mapping.OvfNetworkMapping
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.ovf_network_mapping.OvfNetworkMapping
+    
+    .. py:attribute:: name
+    
+        
+        
+    
+    .. py:attribute:: network
+    
+        
+        
+    

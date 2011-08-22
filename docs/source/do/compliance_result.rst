@@ -1,15 +1,14 @@
-# -*- coding: ascii -*-
 
-========================================
+================================================================================
 ComplianceResult
-========================================
+================================================================================
 
 
 .. describe:: See also
     
-    :py:class:`~pyvisdk.mo.compliance_failure.ComplianceFailure`,
-    :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`,
-    :py:class:`~pyvisdk.mo.profile.Profile`
+    :py:class:`~pyvisdk.do.compliance_failure.ComplianceFailure`,
+    :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`,
+    :py:class:`~pyvisdk.do.profile.Profile`
     
 .. describe:: Since
     
@@ -21,8 +20,34 @@ ComplianceResult
     
 .. describe:: Returned by
     
-    CheckCompliance_Task, CheckProfileCompliance_Task, QueryComplianceStatus
+    :py:meth:`~pyvisdk.do.check_compliance__task.CheckCompliance_Task`,
+    :py:meth:`~pyvisdk.do.check_profile_compliance__task.CheckProfileCompliance_Task`,
+    :py:meth:`~pyvisdk.do.query_compliance_status.QueryComplianceStatus`
     
-.. autoclass:: pyvisdk.do.compliance_result.ComplianceResult
-    :members:
-    :inherited-members:
+.. class:: pyvisdk.do.compliance_result.ComplianceResult
+    
+    .. py:attribute:: checkTime
+    
+        Time at which compliance check was last run on the entity
+        
+    
+    .. py:attribute:: complianceStatus
+    
+        Indicates the compliance status of the entity. See
+        
+    
+    .. py:attribute:: entity
+    
+        Entity on which the compliance check was carried out. Entity can be a Cluster, Host and so on.
+        
+    
+    .. py:attribute:: failure
+    
+        If complianceStatus is non-compliant, failure will contain additional information about the compliance errors.
+        
+    
+    .. py:attribute:: profile
+    
+        Profile for which the ComplianceResult applies
+        
+    
