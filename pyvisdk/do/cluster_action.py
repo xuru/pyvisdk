@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,11 +14,11 @@ def ClusterAction(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:ClusterAction')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'target', 'type' ]
+    signature = [ 'type' ]
+    inherited = [ 'target' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

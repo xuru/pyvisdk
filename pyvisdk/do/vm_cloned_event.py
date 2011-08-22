@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,12 +14,12 @@ def VmClonedEvent(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VmClonedEvent')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 3:
-        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 6:
+        raise IndexError('Expected at least 7 arguments got: %d' % len(args))
         
-    signature = [ 'chainId', 'template', 'sourceVm' ]
-    inherited = [ 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds', 'dvs',
-        'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm' ]
+    signature = [ 'chainId', 'createdTime', 'key', 'userName', 'template', 'sourceVm' ]
+    inherited = [ 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
+        'fullFormattedMessage', 'host', 'net', 'vm' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,11 +14,11 @@ def NasDatastoreInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:NasDatastoreInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 3:
-        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
         
-    signature = [ 'freeSpace', 'maxFileSize', 'name' ]
-    inherited = [ 'timestamp', 'url', 'nas' ]
+    signature = [ 'freeSpace', 'maxFileSize', 'name', 'url' ]
+    inherited = [ 'timestamp', 'nas' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

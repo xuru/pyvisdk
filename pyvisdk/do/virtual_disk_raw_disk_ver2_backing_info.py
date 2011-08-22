@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,11 +15,11 @@ def VirtualDiskRawDiskVer2BackingInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualDiskRawDiskVer2BackingInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
         
-    signature = [ 'deviceName' ]
-    inherited = [ 'useAutoDetect', 'changeId', 'descriptorFileName', 'uuid' ]
+    signature = [ 'deviceName', 'descriptorFileName' ]
+    inherited = [ 'useAutoDetect', 'changeId', 'uuid' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

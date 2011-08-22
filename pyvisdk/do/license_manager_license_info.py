@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,11 +14,11 @@ def LicenseManagerLicenseInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:LicenseManagerLicenseInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 2:
-        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 6 arguments got: %d' % len(args))
         
-    signature = [ 'costUnit', 'editionKey' ]
-    inherited = [ 'labels', 'licenseKey', 'name', 'properties', 'total', 'used' ]
+    signature = [ 'costUnit', 'editionKey', 'licenseKey', 'name', 'total' ]
+    inherited = [ 'labels', 'properties', 'used' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

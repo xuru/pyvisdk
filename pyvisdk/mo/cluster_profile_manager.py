@@ -10,10 +10,11 @@ import logging
 log = logging.getLogger(__name__)
 
 class ClusterProfileManager(ProfileManager):
-    '''
-    '''
+    ''''''
+    
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ClusterProfileManager):
-        # MUST define these
         super(ClusterProfileManager, self).__init__(core, name=name, ref=ref, type=type)
+    
+    
     
     

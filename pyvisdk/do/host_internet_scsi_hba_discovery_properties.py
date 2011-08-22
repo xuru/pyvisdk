@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,13 +15,12 @@ def HostInternetScsiHbaDiscoveryProperties(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostInternetScsiHbaDiscoveryProperties')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
         
-    signature = [ 'iSnsDiscoveryEnabled' ]
-    inherited = [ 'iSnsDiscoveryMethod', 'iSnsHost', 'sendTargetsDiscoveryEnabled',
-        'slpDiscoveryEnabled', 'slpDiscoveryMethod', 'slpHost',
+    signature = [ 'iSnsDiscoveryEnabled', 'sendTargetsDiscoveryEnabled', 'slpDiscoveryEnabled',
         'staticTargetDiscoveryEnabled' ]
+    inherited = [ 'iSnsDiscoveryMethod', 'iSnsHost', 'slpDiscoveryMethod', 'slpHost' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

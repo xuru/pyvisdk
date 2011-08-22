@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,12 +15,12 @@ def DatastoreCapacityIncreasedEvent(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:DatastoreCapacityIncreasedEvent')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 3:
-        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 6:
+        raise IndexError('Expected at least 7 arguments got: %d' % len(args))
         
-    signature = [ 'chainId', 'newCapacity', 'oldCapacity' ]
-    inherited = [ 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds', 'dvs',
-        'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'datastore' ]
+    signature = [ 'chainId', 'createdTime', 'key', 'userName', 'newCapacity', 'oldCapacity' ]
+    inherited = [ 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
+        'fullFormattedMessage', 'host', 'net', 'vm', 'datastore' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

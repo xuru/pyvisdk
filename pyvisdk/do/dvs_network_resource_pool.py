@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,11 +15,11 @@ def DVSNetworkResourcePool(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:DVSNetworkResourcePool')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 2:
-        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [ 'allocationInfo', 'configVersion' ]
-    inherited = [ 'description', 'key', 'name' ]
+    signature = [ 'allocationInfo', 'configVersion', 'key' ]
+    inherited = [ 'description', 'name' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

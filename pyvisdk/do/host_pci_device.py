@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,11 +15,12 @@ def HostPciDevice(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostPciDevice')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 6:
-        raise IndexError('Expected at least 7 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 11:
+        raise IndexError('Expected at least 12 arguments got: %d' % len(args))
         
-    signature = [ 'bus', 'classId', 'deviceId', 'deviceName', 'function', 'id' ]
-    inherited = [ 'parentBridge', 'slot', 'subDeviceId', 'subVendorId', 'vendorId', 'vendorName' ]
+    signature = [ 'bus', 'classId', 'deviceId', 'deviceName', 'function', 'id', 'slot',
+        'subDeviceId', 'subVendorId', 'vendorId', 'vendorName' ]
+    inherited = [ 'parentBridge' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

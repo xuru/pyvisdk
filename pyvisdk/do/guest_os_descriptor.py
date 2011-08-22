@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,17 +15,17 @@ def GuestOsDescriptor(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:GuestOsDescriptor')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 18:
+        raise IndexError('Expected at least 19 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'cpuFeatureMask', 'family', 'fullName', 'id', 'recommendedColorDepth',
-        'recommendedDiskController', 'recommendedDiskSizeMB',
-        'recommendedEthernetCard', 'recommendedMemMB', 'recommendedSCSIController',
+    signature = [ 'family', 'fullName', 'id', 'recommendedColorDepth',
+        'recommendedDiskController', 'recommendedDiskSizeMB', 'recommendedMemMB',
         'supportedDiskControllerList', 'supportedEthernetCard', 'supportedMaxCPUs',
         'supportedMaxMemMB', 'supportedMinMemMB', 'supportedNumDisks',
         'supportsCpuHotAdd', 'supportsCpuHotRemove', 'supportsMemoryHotAdd',
-        'supportsSlaveDisk', 'supportsVMI', 'supportsWakeOnLan' ]
+        'supportsVMI', 'supportsWakeOnLan' ]
+    inherited = [ 'cpuFeatureMask', 'recommendedEthernetCard', 'recommendedSCSIController',
+        'supportsSlaveDisk' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

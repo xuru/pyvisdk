@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -17,11 +16,11 @@ def HostDiskPartitionBlockRange(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostDiskPartitionBlockRange')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [ 'end' ]
-    inherited = [ 'partition', 'start', 'type' ]
+    signature = [ 'end', 'start', 'type' ]
+    inherited = [ 'partition' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

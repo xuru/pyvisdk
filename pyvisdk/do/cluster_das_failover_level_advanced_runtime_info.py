@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -17,12 +16,12 @@ def ClusterDasFailoverLevelAdvancedRuntimeInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:ClusterDasFailoverLevelAdvancedRuntimeInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 7:
+        raise IndexError('Expected at least 8 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'dasHostInfo', 'hostSlots', 'slotInfo', 'totalGoodHosts', 'totalHosts',
-        'totalSlots', 'totalVms', 'unreservedSlots', 'usedSlots' ]
+    signature = [ 'slotInfo', 'totalGoodHosts', 'totalHosts', 'totalSlots', 'totalVms',
+        'unreservedSlots', 'usedSlots' ]
+    inherited = [ 'dasHostInfo', 'hostSlots' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

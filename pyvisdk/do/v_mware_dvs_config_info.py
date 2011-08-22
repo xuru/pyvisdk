@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,14 +15,15 @@ def VMwareDVSConfigInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VMwareDVSConfigInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 4:
-        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 13:
+        raise IndexError('Expected at least 14 arguments got: %d' % len(args))
         
-    signature = [ 'configVersion', 'contact', 'createTime', 'defaultPortConfig' ]
-    inherited = [ 'description', 'extensionKey', 'host', 'maxPorts', 'name',
-        'networkResourceManagementEnabled', 'numPorts', 'numStandalonePorts', 'policy',
-        'productInfo', 'targetInfo', 'uplinkPortgroup', 'uplinkPortPolicy', 'uuid',
-        'vendorSpecificConfig', 'linkDiscoveryProtocolConfig', 'maxMtu', 'pvlanConfig' ]
+    signature = [ 'configVersion', 'contact', 'createTime', 'defaultPortConfig', 'maxPorts',
+        'name', 'networkResourceManagementEnabled', 'numPorts', 'numStandalonePorts',
+        'productInfo', 'uplinkPortPolicy', 'uuid', 'maxMtu' ]
+    inherited = [ 'description', 'extensionKey', 'host', 'policy', 'targetInfo',
+        'uplinkPortgroup', 'vendorSpecificConfig', 'linkDiscoveryProtocolConfig',
+        'pvlanConfig' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

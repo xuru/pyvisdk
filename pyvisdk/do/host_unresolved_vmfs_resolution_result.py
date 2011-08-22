@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,11 +15,11 @@ def HostUnresolvedVmfsResolutionResult(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostUnresolvedVmfsResolutionResult')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'fault', 'spec', 'vmfs' ]
+    signature = [ 'spec' ]
+    inherited = [ 'fault', 'vmfs' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

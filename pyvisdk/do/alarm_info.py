@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,13 +14,12 @@ def AlarmInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:AlarmInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 6:
-        raise IndexError('Expected at least 7 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 10:
+        raise IndexError('Expected at least 11 arguments got: %d' % len(args))
         
-    signature = [ 'alarm', 'creationEventId', 'entity', 'key', 'lastModifiedTime',
-        'lastModifiedUser' ]
-    inherited = [ 'action', 'actionFrequency', 'description', 'enabled', 'expression', 'name',
-        'setting' ]
+    signature = [ 'description', 'enabled', 'expression', 'name', 'alarm', 'creationEventId',
+        'entity', 'key', 'lastModifiedTime', 'lastModifiedUser' ]
+    inherited = [ 'action', 'actionFrequency', 'setting' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

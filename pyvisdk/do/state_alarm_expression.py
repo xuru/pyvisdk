@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -29,11 +28,11 @@ def StateAlarmExpression(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:StateAlarmExpression')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [ 'operator' ]
-    inherited = [ 'red', 'statePath', 'type', 'yellow' ]
+    signature = [ 'operator', 'statePath', 'type' ]
+    inherited = [ 'red', 'yellow' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

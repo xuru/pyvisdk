@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,11 +15,12 @@ def HostNatServiceSpec(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostNatServiceSpec')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 4:
-        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 6:
+        raise IndexError('Expected at least 7 arguments got: %d' % len(args))
         
-    signature = [ 'activeFtp', 'allowAnyOui', 'configPort', 'ipGatewayAddress' ]
-    inherited = [ 'nameService', 'portForward', 'udpTimeout', 'virtualSwitch' ]
+    signature = [ 'activeFtp', 'allowAnyOui', 'configPort', 'ipGatewayAddress', 'udpTimeout',
+        'virtualSwitch' ]
+    inherited = [ 'nameService', 'portForward' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

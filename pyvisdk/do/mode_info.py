@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -17,11 +16,11 @@ def ModeInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:ModeInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'admin', 'browse', 'full', 'modify', 'read', 'use' ]
+    signature = [ 'full', 'modify', 'read', 'use' ]
+    inherited = [ 'admin', 'browse' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,13 +15,13 @@ def ClusterComputeResourceSummary(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:ClusterComputeResourceSummary')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 9:
-        raise IndexError('Expected at least 10 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 11:
+        raise IndexError('Expected at least 12 arguments got: %d' % len(args))
         
     signature = [ 'effectiveCpu', 'effectiveMemory', 'numCpuCores', 'numCpuThreads',
-        'numEffectiveHosts', 'numHosts', 'overallStatus', 'totalCpu', 'totalMemory' ]
-    inherited = [ 'admissionControlInfo', 'currentBalance', 'currentEVCModeKey',
-        'currentFailoverLevel', 'numVmotions', 'targetBalance' ]
+        'numEffectiveHosts', 'numHosts', 'overallStatus', 'totalCpu', 'totalMemory',
+        'currentFailoverLevel', 'numVmotions' ]
+    inherited = [ 'admissionControlInfo', 'currentBalance', 'currentEVCModeKey', 'targetBalance' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

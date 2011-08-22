@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,12 +14,12 @@ def HostHardwareSummary(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostHardwareSummary')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 9:
-        raise IndexError('Expected at least 10 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 11:
+        raise IndexError('Expected at least 12 arguments got: %d' % len(args))
         
     signature = [ 'cpuMhz', 'cpuModel', 'memorySize', 'model', 'numCpuCores', 'numCpuPkgs',
-        'numCpuThreads', 'numHBAs', 'numNics' ]
-    inherited = [ 'otherIdentifyingInfo', 'uuid', 'vendor' ]
+        'numCpuThreads', 'numHBAs', 'numNics', 'uuid', 'vendor' ]
+    inherited = [ 'otherIdentifyingInfo' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

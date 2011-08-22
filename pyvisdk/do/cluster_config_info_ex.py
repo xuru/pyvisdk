@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,12 +15,11 @@ def ClusterConfigInfoEx(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:ClusterConfigInfoEx')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 2:
-        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [ 'vmSwapPlacement', 'dasConfig' ]
-    inherited = [ 'dasVmConfig', 'dpmConfigInfo', 'dpmHostConfig', 'drsConfig', 'drsVmConfig',
-        'group', 'rule' ]
+    signature = [ 'vmSwapPlacement', 'dasConfig', 'drsConfig' ]
+    inherited = [ 'dasVmConfig', 'dpmConfigInfo', 'dpmHostConfig', 'drsVmConfig', 'group', 'rule' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

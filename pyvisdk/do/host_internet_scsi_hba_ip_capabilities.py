@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,13 +14,14 @@ def HostInternetScsiHbaIPCapabilities(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostInternetScsiHbaIPCapabilities')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 2:
-        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 6:
+        raise IndexError('Expected at least 7 arguments got: %d' % len(args))
         
-    signature = [ 'addressSettable', 'alternateDnsServerAddressSettable' ]
-    inherited = [ 'arpRedirectSettable', 'defaultGatewaySettable', 'hostNameAsTargetAddress',
-        'ipConfigurationMethodSettable', 'ipv6Supported', 'mtuSettable',
-        'nameAliasSettable', 'primaryDnsServerAddressSettable', 'subnetMaskSettable' ]
+    signature = [ 'addressSettable', 'alternateDnsServerAddressSettable',
+        'defaultGatewaySettable', 'ipConfigurationMethodSettable',
+        'primaryDnsServerAddressSettable', 'subnetMaskSettable' ]
+    inherited = [ 'arpRedirectSettable', 'hostNameAsTargetAddress', 'ipv6Supported',
+        'mtuSettable', 'nameAliasSettable' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

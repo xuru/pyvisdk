@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -17,29 +16,28 @@ def HostCapability(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostCapability')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 5:
-        raise IndexError('Expected at least 6 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 35:
+        raise IndexError('Expected at least 36 arguments got: %d' % len(args))
         
     signature = [ 'backgroundSnapshotsSupported', 'cloneFromSnapshotSupported',
         'cpuMemoryResourceConfigurationSupported', 'datastorePrincipalSupported',
-        'deltaDiskBackingsSupported' ]
-    inherited = [ 'ftCompatibilityIssues', 'ftSupported', 'highGuestMemSupported',
-        'ipmiSupported', 'iscsiSupported', 'localSwapDatastoreSupported',
-        'loginBySSLThumbprintSupported', 'maintenanceModeSupported', 'maxRunningVMs',
-        'maxSupportedVcpus', 'maxSupportedVMs', 'nfsSupported', 'nicTeamingSupported',
-        'perVMNetworkTrafficShapingSupported', 'perVmSwapFiles',
-        'preAssignedPCIUnitNumbersSupported', 'rebootSupported',
+        'deltaDiskBackingsSupported', 'ftSupported', 'highGuestMemSupported',
+        'iscsiSupported', 'localSwapDatastoreSupported', 'maintenanceModeSupported',
+        'nfsSupported', 'nicTeamingSupported', 'perVMNetworkTrafficShapingSupported',
+        'perVmSwapFiles', 'preAssignedPCIUnitNumbersSupported', 'rebootSupported',
         'recordReplaySupported', 'recursiveResourcePoolsSupported',
-        'replayCompatibilityIssues', 'replayUnsupportedReason',
         'restrictedSnapshotRelocateSupported', 'sanSupported',
         'scaledScreenshotSupported', 'screenshotSupported', 'shutdownSupported',
         'standbySupported', 'storageIORMSupported', 'storageVMotionSupported',
-        'supportedCpuFeature', 'suspendedRelocateSupported', 'tpmSupported',
-        'unsharedSwapVMotionSupported', 'virtualExecUsageSupported',
-        'vlanTaggingSupported', 'vmDirectPathGen2Supported',
-        'vmDirectPathGen2UnsupportedReason',
-        'vmDirectPathGen2UnsupportedReasonExtended', 'vmotionSupported',
+        'suspendedRelocateSupported', 'tpmSupported', 'unsharedSwapVMotionSupported',
+        'virtualExecUsageSupported', 'vlanTaggingSupported',
+        'vmDirectPathGen2Supported', 'vmotionSupported',
         'vmotionWithStorageVMotionSupported', 'vStorageCapable' ]
+    inherited = [ 'ftCompatibilityIssues', 'ipmiSupported', 'loginBySSLThumbprintSupported',
+        'maxRunningVMs', 'maxSupportedVcpus', 'maxSupportedVMs',
+        'replayCompatibilityIssues', 'replayUnsupportedReason', 'supportedCpuFeature',
+        'vmDirectPathGen2UnsupportedReason',
+        'vmDirectPathGen2UnsupportedReasonExtended' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

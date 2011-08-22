@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,11 +14,11 @@ def ScheduledTaskSpec(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:ScheduledTaskSpec')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 4:
-        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 6 arguments got: %d' % len(args))
         
-    signature = [ 'action', 'description', 'enabled', 'name' ]
-    inherited = [ 'notification', 'scheduler' ]
+    signature = [ 'action', 'description', 'enabled', 'name', 'scheduler' ]
+    inherited = [ 'notification' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

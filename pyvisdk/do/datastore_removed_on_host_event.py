@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,12 +15,12 @@ def DatastoreRemovedOnHostEvent(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:DatastoreRemovedOnHostEvent')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 2:
-        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 6 arguments got: %d' % len(args))
         
-    signature = [ 'chainId', 'datastore' ]
-    inherited = [ 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds', 'dvs',
-        'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm' ]
+    signature = [ 'chainId', 'createdTime', 'key', 'userName', 'datastore' ]
+    inherited = [ 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
+        'fullFormattedMessage', 'host', 'net', 'vm' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

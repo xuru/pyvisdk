@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -17,12 +16,11 @@ def CustomizationSysprep(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:CustomizationSysprep')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'guiRunOnce', 'guiUnattended', 'identification', 'licenseFilePrintData',
-        'userData' ]
+    signature = [ 'guiUnattended', 'identification', 'userData' ]
+    inherited = [ 'guiRunOnce', 'licenseFilePrintData' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

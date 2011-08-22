@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -18,12 +17,11 @@ def OvfFile(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:OvfFile')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'capacity', 'chunkSize', 'compressionMethod', 'deviceId', 'path',
-        'populatedSize', 'size' ]
+    signature = [ 'deviceId', 'path', 'size' ]
+    inherited = [ 'capacity', 'chunkSize', 'compressionMethod', 'populatedSize' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

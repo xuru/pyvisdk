@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,12 +14,12 @@ def DVPortStatus(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:DVPortStatus')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
         
-    signature = [ 'blocked' ]
-    inherited = [ 'linkPeer', 'linkUp', 'macAddress', 'mtu', 'statusDetail', 'trunkingMode',
-        'vlanIds', 'vmDirectPathGen2Active', 'vmDirectPathGen2InactiveReasonExtended',
+    signature = [ 'blocked', 'linkUp' ]
+    inherited = [ 'linkPeer', 'macAddress', 'mtu', 'statusDetail', 'trunkingMode', 'vlanIds',
+        'vmDirectPathGen2Active', 'vmDirectPathGen2InactiveReasonExtended',
         'vmDirectPathGen2InactiveReasonNetwork', 'vmDirectPathGen2InactiveReasonOther' ]
     
     for name, arg in zip(signature+inherited, args):

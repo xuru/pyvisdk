@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -17,21 +16,21 @@ def VirtualMachineConfigInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualMachineConfigInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 13:
+        raise IndexError('Expected at least 14 arguments got: %d' % len(args))
         
-    signature = [ 'alternateGuestName' ]
-    inherited = [ 'annotation', 'bootOptions', 'changeTrackingEnabled', 'changeVersion',
-        'consolePreferences', 'cpuAffinity', 'cpuAllocation', 'cpuFeatureMask',
-        'cpuHotAddEnabled', 'cpuHotRemoveEnabled', 'datastoreUrl', 'defaultPowerOps',
-        'extraConfig', 'files', 'flags', 'ftInfo', 'guestFullName', 'guestId',
-        'hardware', 'hotPlugMemoryIncrementSize', 'hotPlugMemoryLimit', 'instanceUuid',
-        'locationId', 'memoryAffinity', 'memoryAllocation', 'memoryHotAddEnabled',
-        'modified', 'name', 'networkShaper', 'npivDesiredNodeWwns',
-        'npivDesiredPortWwns', 'npivNodeWorldWideName', 'npivOnNonRdmDisks',
-        'npivPortWorldWideName', 'npivTemporaryDisabled', 'npivWorldWideNameType',
-        'swapPlacement', 'template', 'tools', 'uuid', 'vAppConfig', 'vAssertsEnabled',
+    signature = [ 'alternateGuestName', 'changeVersion', 'defaultPowerOps', 'files', 'flags',
+        'guestFullName', 'guestId', 'hardware', 'modified', 'name', 'template', 'uuid',
         'version' ]
+    inherited = [ 'annotation', 'bootOptions', 'changeTrackingEnabled', 'consolePreferences',
+        'cpuAffinity', 'cpuAllocation', 'cpuFeatureMask', 'cpuHotAddEnabled',
+        'cpuHotRemoveEnabled', 'datastoreUrl', 'extraConfig', 'ftInfo',
+        'hotPlugMemoryIncrementSize', 'hotPlugMemoryLimit', 'instanceUuid',
+        'locationId', 'memoryAffinity', 'memoryAllocation', 'memoryHotAddEnabled',
+        'networkShaper', 'npivDesiredNodeWwns', 'npivDesiredPortWwns',
+        'npivNodeWorldWideName', 'npivOnNonRdmDisks', 'npivPortWorldWideName',
+        'npivTemporaryDisabled', 'npivWorldWideNameType', 'swapPlacement', 'tools',
+        'vAppConfig', 'vAssertsEnabled' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

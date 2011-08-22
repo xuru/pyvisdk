@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,12 +15,11 @@ def DVSFeatureCapability(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:DVSFeatureCapability')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
         
-    signature = [ 'networkResourceManagementSupported' ]
-    inherited = [ 'networkResourcePoolHighShareValue', 'nicTeamingPolicy',
-        'vmDirectPathGen2Supported' ]
+    signature = [ 'networkResourceManagementSupported', 'vmDirectPathGen2Supported' ]
+    inherited = [ 'networkResourcePoolHighShareValue', 'nicTeamingPolicy' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

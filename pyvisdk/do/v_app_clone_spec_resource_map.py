@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -17,11 +16,11 @@ def VAppCloneSpecResourceMap(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VAppCloneSpecResourceMap')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'location', 'parent', 'resourceSpec', 'source' ]
+    signature = [ 'source' ]
+    inherited = [ 'location', 'parent', 'resourceSpec' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

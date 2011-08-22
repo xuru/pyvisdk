@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,11 +14,11 @@ def HostNasVolumeSpec(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostNasVolumeSpec')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 2:
-        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
         
-    signature = [ 'accessMode', 'localPath' ]
-    inherited = [ 'password', 'remoteHost', 'remotePath', 'type', 'userName' ]
+    signature = [ 'accessMode', 'localPath', 'remoteHost', 'remotePath' ]
+    inherited = [ 'password', 'type', 'userName' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

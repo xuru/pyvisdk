@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,12 +15,11 @@ def ClusterRecommendation(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:ClusterRecommendation')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 6:
+        raise IndexError('Expected at least 7 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'action', 'key', 'prerequisite', 'rating', 'reason', 'reasonText', 'target',
-        'time', 'type' ]
+    signature = [ 'key', 'rating', 'reason', 'reasonText', 'time', 'type' ]
+    inherited = [ 'action', 'prerequisite', 'target' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

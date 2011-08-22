@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,14 +15,14 @@ def TaskInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:TaskInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 2:
-        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 9:
+        raise IndexError('Expected at least 10 arguments got: %d' % len(args))
         
-    signature = [ 'cancelable', 'cancelled' ]
-    inherited = [ 'changeTag', 'completeTime', 'description', 'descriptionId', 'entity',
-        'entityName', 'error', 'eventChainId', 'key', 'locked', 'name',
-        'parentTaskKey', 'progress', 'queueTime', 'reason', 'result', 'rootTaskKey',
-        'startTime', 'state', 'task' ]
+    signature = [ 'cancelable', 'cancelled', 'descriptionId', 'eventChainId', 'key', 'queueTime',
+        'reason', 'state', 'task' ]
+    inherited = [ 'changeTag', 'completeTime', 'description', 'entity', 'entityName', 'error',
+        'locked', 'name', 'parentTaskKey', 'progress', 'result', 'rootTaskKey',
+        'startTime' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

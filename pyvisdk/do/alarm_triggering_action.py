@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -18,11 +17,11 @@ def AlarmTriggeringAction(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:AlarmTriggeringAction')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 3:
-        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 6 arguments got: %d' % len(args))
         
-    signature = [ 'action', 'green2yellow', 'red2yellow' ]
-    inherited = [ 'transitionSpecs', 'yellow2green', 'yellow2red' ]
+    signature = [ 'action', 'green2yellow', 'red2yellow', 'yellow2green', 'yellow2red' ]
+    inherited = [ 'transitionSpecs' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

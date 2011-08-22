@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -17,11 +16,11 @@ def HostConnectInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostConnectInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'clusterSupported', 'datastore', 'host', 'license', 'network', 'serverIp',
+    signature = [ 'host' ]
+    inherited = [ 'clusterSupported', 'datastore', 'license', 'network', 'serverIp',
         'vimAccountNameRequired', 'vm' ]
     
     for name, arg in zip(signature+inherited, args):

@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,13 +14,13 @@ def ScheduledTaskInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:ScheduledTaskInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 4:
-        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 11:
+        raise IndexError('Expected at least 12 arguments got: %d' % len(args))
         
-    signature = [ 'action', 'description', 'enabled', 'name' ]
-    inherited = [ 'notification', 'scheduler', 'activeTask', 'entity', 'error',
-        'lastModifiedTime', 'lastModifiedUser', 'nextRunTime', 'prevRunTime',
-        'progress', 'result', 'scheduledTask', 'state', 'taskObject' ]
+    signature = [ 'action', 'description', 'enabled', 'name', 'scheduler', 'entity',
+        'lastModifiedTime', 'lastModifiedUser', 'scheduledTask', 'state', 'taskObject' ]
+    inherited = [ 'notification', 'activeTask', 'error', 'nextRunTime', 'prevRunTime',
+        'progress', 'result' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

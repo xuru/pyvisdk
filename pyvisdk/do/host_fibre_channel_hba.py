@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,11 +14,12 @@ def HostFibreChannelHba(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostFibreChannelHba')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 6:
-        raise IndexError('Expected at least 7 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 8:
+        raise IndexError('Expected at least 9 arguments got: %d' % len(args))
         
-    signature = [ 'bus', 'device', 'nodeWorldWideName', 'portType', 'portWorldWideName', 'speed' ]
-    inherited = [ 'driver', 'key', 'model', 'pci', 'status' ]
+    signature = [ 'bus', 'device', 'model', 'status', 'nodeWorldWideName', 'portType',
+        'portWorldWideName', 'speed' ]
+    inherited = [ 'driver', 'key', 'pci' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

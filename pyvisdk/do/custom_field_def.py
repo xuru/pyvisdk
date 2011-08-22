@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,12 +14,11 @@ def CustomFieldDef(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:CustomFieldDef')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'fieldDefPrivileges', 'fieldInstancePrivileges', 'key', 'managedObjectType',
-        'name', 'type' ]
+    signature = [ 'key', 'name', 'type' ]
+    inherited = [ 'fieldDefPrivileges', 'fieldInstancePrivileges', 'managedObjectType' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

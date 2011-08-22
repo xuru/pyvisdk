@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,11 +15,11 @@ def PosixUserSearchResult(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:PosixUserSearchResult')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [ 'id' ]
-    inherited = [ 'fullName', 'group', 'principal', 'shellAccess' ]
+    signature = [ 'group', 'principal', 'id' ]
+    inherited = [ 'fullName', 'shellAccess' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

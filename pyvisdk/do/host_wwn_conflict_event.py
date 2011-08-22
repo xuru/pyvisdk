@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,13 +14,12 @@ def HostWwnConflictEvent(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostWwnConflictEvent')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 6 arguments got: %d' % len(args))
         
-    signature = [ 'chainId' ]
-    inherited = [ 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds', 'dvs',
-        'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm',
-        'conflictedHosts', 'conflictedVms', 'wwn' ]
+    signature = [ 'chainId', 'createdTime', 'key', 'userName', 'wwn' ]
+    inherited = [ 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
+        'fullFormattedMessage', 'host', 'net', 'vm', 'conflictedHosts', 'conflictedVms' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

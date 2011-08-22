@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,12 +15,12 @@ def VirtualBusLogicController(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualBusLogicController')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [ 'busNumber' ]
-    inherited = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'key', 'unitNumber',
-        'device', 'hotAddRemove', 'scsiCtlrUnitNumber', 'sharedBus' ]
+    signature = [ 'key', 'busNumber', 'sharedBus' ]
+    inherited = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'unitNumber',
+        'device', 'hotAddRemove', 'scsiCtlrUnitNumber' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

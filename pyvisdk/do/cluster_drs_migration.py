@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,12 +14,12 @@ def ClusterDrsMigration(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:ClusterDrsMigration')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 6 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'cpuLoad', 'destination', 'destinationCpuLoad', 'destinationMemoryLoad', 'key',
-        'memoryLoad', 'source', 'sourceCpuLoad', 'sourceMemoryLoad', 'time', 'vm' ]
+    signature = [ 'destination', 'key', 'source', 'time', 'vm' ]
+    inherited = [ 'cpuLoad', 'destinationCpuLoad', 'destinationMemoryLoad', 'memoryLoad',
+        'sourceCpuLoad', 'sourceMemoryLoad' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

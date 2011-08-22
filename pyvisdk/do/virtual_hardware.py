@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,11 +15,11 @@ def VirtualHardware(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualHardware')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'device', 'memoryMB', 'numCPU' ]
+    signature = [ 'memoryMB', 'numCPU' ]
+    inherited = [ 'device' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

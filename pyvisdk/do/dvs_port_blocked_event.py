@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,12 +14,12 @@ def DvsPortBlockedEvent(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:DvsPortBlockedEvent')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 2:
-        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 6 arguments got: %d' % len(args))
         
-    signature = [ 'chainId', 'portKey' ]
-    inherited = [ 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds', 'dvs',
-        'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'statusDetail' ]
+    signature = [ 'chainId', 'createdTime', 'key', 'userName', 'portKey' ]
+    inherited = [ 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
+        'fullFormattedMessage', 'host', 'net', 'vm', 'statusDetail' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,12 +15,13 @@ def AboutInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:AboutInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 4:
-        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 9:
+        raise IndexError('Expected at least 10 arguments got: %d' % len(args))
         
-    signature = [ 'apiType', 'apiVersion', 'build', 'fullName' ]
+    signature = [ 'apiType', 'apiVersion', 'build', 'fullName', 'name', 'osType',
+        'productLineId', 'vendor', 'version' ]
     inherited = [ 'instanceUuid', 'licenseProductName', 'licenseProductVersion', 'localeBuild',
-        'localeVersion', 'name', 'osType', 'productLineId', 'vendor', 'version' ]
+        'localeVersion' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,14 +14,14 @@ def VirtualBusLogicControllerOption(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualBusLogicControllerOption')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 8:
-        raise IndexError('Expected at least 9 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 12:
+        raise IndexError('Expected at least 13 arguments got: %d' % len(args))
         
-    signature = [ 'devices', 'defaultSharedIndex', 'hotAddRemove', 'numSCSICdroms',
-        'numSCSIDisks', 'numSCSIPassthrough', 'scsiCtlrUnitNumber', 'sharing' ]
+    signature = [ 'deprecated', 'hotRemoveSupported', 'plugAndPlay', 'type', 'devices',
+        'defaultSharedIndex', 'hotAddRemove', 'numSCSICdroms', 'numSCSIDisks',
+        'numSCSIPassthrough', 'scsiCtlrUnitNumber', 'sharing' ]
     inherited = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
-        'defaultBackingOptionIndex', 'deprecated', 'hotRemoveSupported',
-        'licensingLimit', 'plugAndPlay', 'type', 'supportedDevice' ]
+        'defaultBackingOptionIndex', 'licensingLimit', 'supportedDevice' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -17,14 +16,14 @@ def HostScsiDisk(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostScsiDisk')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 4:
-        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 7:
+        raise IndexError('Expected at least 8 arguments got: %d' % len(args))
         
-    signature = [ 'deviceName', 'deviceType', 'capacity', 'devicePath' ]
+    signature = [ 'deviceName', 'deviceType', 'lunType', 'operationalState', 'uuid', 'capacity',
+        'devicePath' ]
     inherited = [ 'alternateName', 'canonicalName', 'capabilities', 'descriptor', 'displayName',
-        'durableName', 'key', 'lunType', 'model', 'operationalState', 'queueDepth',
-        'revision', 'scsiLevel', 'serialNumber', 'standardInquiry', 'uuid', 'vendor',
-        'vStorageSupport' ]
+        'durableName', 'key', 'model', 'queueDepth', 'revision', 'scsiLevel',
+        'serialNumber', 'standardInquiry', 'vendor', 'vStorageSupport' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

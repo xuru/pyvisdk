@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,12 +15,11 @@ def PerfCounterInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:PerfCounterInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 6:
+        raise IndexError('Expected at least 7 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'associatedCounterId', 'groupInfo', 'key', 'level', 'nameInfo',
-        'perDeviceLevel', 'rollupType', 'statsType', 'unitInfo' ]
+    signature = [ 'groupInfo', 'key', 'nameInfo', 'rollupType', 'statsType', 'unitInfo' ]
+    inherited = [ 'associatedCounterId', 'level', 'perDeviceLevel' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

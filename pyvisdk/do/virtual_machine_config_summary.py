@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,14 +14,13 @@ def VirtualMachineConfigSummary(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualMachineConfigSummary')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [  ]
+    signature = [ 'name', 'template', 'vmPathName' ]
     inherited = [ 'annotation', 'cpuReservation', 'ftInfo', 'guestFullName', 'guestId',
         'installBootRequired', 'instanceUuid', 'memoryReservation', 'memorySizeMB',
-        'name', 'numCpu', 'numEthernetCards', 'numVirtualDisks', 'product', 'template',
-        'uuid', 'vmPathName' ]
+        'numCpu', 'numEthernetCards', 'numVirtualDisks', 'product', 'uuid' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

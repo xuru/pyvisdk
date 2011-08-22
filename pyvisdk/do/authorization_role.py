@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,11 +15,11 @@ def AuthorizationRole(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:AuthorizationRole')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 2:
-        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
         
-    signature = [ 'info', 'name' ]
-    inherited = [ 'privilege', 'roleId', 'system' ]
+    signature = [ 'info', 'name', 'roleId', 'system' ]
+    inherited = [ 'privilege' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

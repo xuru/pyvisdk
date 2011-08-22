@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,12 +14,12 @@ def DVSSummary(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:DVSSummary')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'contact', 'description', 'host', 'hostMember', 'name', 'numPorts',
-        'portgroupName', 'productInfo', 'uuid', 'vm' ]
+    signature = [ 'name', 'numPorts', 'uuid' ]
+    inherited = [ 'contact', 'description', 'host', 'hostMember', 'portgroupName', 'productInfo',
+        'vm' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

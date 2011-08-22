@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,12 +14,11 @@ def HostInternetScsiHbaAuthenticationCapabilities(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostInternetScsiHbaAuthenticationCapabilities')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 2:
-        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
         
-    signature = [ 'chapAuthSettable', 'krb5AuthSettable' ]
-    inherited = [ 'mutualChapSettable', 'spkmAuthSettable', 'srpAuthSettable',
-        'targetChapSettable', 'targetMutualChapSettable' ]
+    signature = [ 'chapAuthSettable', 'krb5AuthSettable', 'spkmAuthSettable', 'srpAuthSettable' ]
+    inherited = [ 'mutualChapSettable', 'targetChapSettable', 'targetMutualChapSettable' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

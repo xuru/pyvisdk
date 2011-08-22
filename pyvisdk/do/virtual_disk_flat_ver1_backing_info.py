@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -18,12 +17,11 @@ def VirtualDiskFlatVer1BackingInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualDiskFlatVer1BackingInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'datastore', 'fileName', 'contentId', 'diskMode', 'parent', 'split',
-        'writeThrough' ]
+    signature = [ 'fileName', 'diskMode' ]
+    inherited = [ 'datastore', 'contentId', 'parent', 'split', 'writeThrough' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

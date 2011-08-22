@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -20,20 +19,19 @@ def ServiceContent(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:ServiceContent')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [ 'about' ]
+    signature = [ 'about', 'propertyCollector', 'rootFolder' ]
     inherited = [ 'accountManager', 'alarmManager', 'authorizationManager',
         'clusterProfileManager', 'complianceManager', 'customFieldsManager',
         'customizationSpecManager', 'diagnosticManager', 'dvSwitchManager',
         'eventManager', 'extensionManager', 'fileManager', 'hostProfileManager',
         'ipPoolManager', 'licenseManager', 'localizationManager', 'ovfManager',
-        'perfManager', 'propertyCollector', 'rootFolder', 'scheduledTaskManager',
-        'searchIndex', 'sessionManager', 'setting', 'snmpSystem',
-        'storageResourceManager', 'taskManager', 'userDirectory', 'viewManager',
-        'virtualDiskManager', 'virtualizationManager', 'vmCompatibilityChecker',
-        'vmProvisioningChecker' ]
+        'perfManager', 'scheduledTaskManager', 'searchIndex', 'sessionManager',
+        'setting', 'snmpSystem', 'storageResourceManager', 'taskManager',
+        'userDirectory', 'viewManager', 'virtualDiskManager', 'virtualizationManager',
+        'vmCompatibilityChecker', 'vmProvisioningChecker' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

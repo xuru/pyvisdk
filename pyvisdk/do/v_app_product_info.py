@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,11 +15,11 @@ def VAppProductInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VAppProductInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'appUrl', 'classId', 'fullVersion', 'instanceId', 'key', 'name', 'productUrl',
+    signature = [ 'key' ]
+    inherited = [ 'appUrl', 'classId', 'fullVersion', 'instanceId', 'name', 'productUrl',
         'vendor', 'vendorUrl', 'version' ]
     
     for name, arg in zip(signature+inherited, args):

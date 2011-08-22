@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,12 +14,11 @@ def HostRuntimeInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostRuntimeInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'bootTime', 'connectionState', 'healthSystemRuntime', 'inMaintenanceMode',
-        'powerState', 'standbyMode', 'tpmPcrValues' ]
+    signature = [ 'connectionState', 'inMaintenanceMode', 'powerState' ]
+    inherited = [ 'bootTime', 'healthSystemRuntime', 'standbyMode', 'tpmPcrValues' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

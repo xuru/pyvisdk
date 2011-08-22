@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -27,11 +26,11 @@ def VirtualUSBController(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualUSBController')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
         
-    signature = [ 'busNumber' ]
-    inherited = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'key', 'unitNumber',
+    signature = [ 'key', 'busNumber' ]
+    inherited = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'unitNumber',
         'device', 'autoConnectDevices', 'ehciEnabled' ]
     
     for name, arg in zip(signature+inherited, args):

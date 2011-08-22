@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -17,13 +16,13 @@ def GuestInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:GuestInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
         
-    signature = [  ]
+    signature = [ 'guestState' ]
     inherited = [ 'appHeartbeatStatus', 'disk', 'guestFamily', 'guestFullName', 'guestId',
-        'guestState', 'hostName', 'ipAddress', 'ipStack', 'net', 'screen',
-        'toolsRunningStatus', 'toolsStatus', 'toolsVersion', 'toolsVersionStatus' ]
+        'hostName', 'ipAddress', 'ipStack', 'net', 'screen', 'toolsRunningStatus',
+        'toolsStatus', 'toolsVersion', 'toolsVersionStatus' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

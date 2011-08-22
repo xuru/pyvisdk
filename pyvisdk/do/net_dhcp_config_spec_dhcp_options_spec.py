@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,11 +14,11 @@ def NetDhcpConfigSpecDhcpOptionsSpec(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:NetDhcpConfigSpecDhcpOptionsSpec')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 2:
+        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
         
-    signature = [ 'config' ]
-    inherited = [ 'enable', 'operation' ]
+    signature = [ 'config', 'operation' ]
+    inherited = [ 'enable' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

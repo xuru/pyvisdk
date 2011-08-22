@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,16 +14,15 @@ def HostInternetScsiHba(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostInternetScsiHba')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 2:
-        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 12:
+        raise IndexError('Expected at least 13 arguments got: %d' % len(args))
         
-    signature = [ 'bus', 'device' ]
-    inherited = [ 'driver', 'key', 'model', 'pci', 'status', 'advancedOptions',
-        'authenticationCapabilities', 'authenticationProperties',
-        'configuredSendTarget', 'configuredStaticTarget', 'currentSpeedMb',
-        'digestCapabilities', 'digestProperties', 'discoveryCapabilities',
-        'discoveryProperties', 'ipCapabilities', 'ipProperties', 'iScsiAlias',
-        'iScsiName', 'isSoftwareBased', 'maxSpeedMb', 'supportedAdvancedOptions' ]
+    signature = [ 'bus', 'device', 'model', 'status', 'authenticationCapabilities',
+        'authenticationProperties', 'discoveryCapabilities', 'discoveryProperties',
+        'ipCapabilities', 'ipProperties', 'iScsiName', 'isSoftwareBased' ]
+    inherited = [ 'driver', 'key', 'pci', 'advancedOptions', 'configuredSendTarget',
+        'configuredStaticTarget', 'currentSpeedMb', 'digestCapabilities',
+        'digestProperties', 'iScsiAlias', 'maxSpeedMb', 'supportedAdvancedOptions' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

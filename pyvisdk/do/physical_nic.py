@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,14 +15,14 @@ def PhysicalNic(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:PhysicalNic')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 6 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'autoNegotiateSupported', 'device', 'driver', 'key', 'linkSpeed', 'mac', 'pci',
+    signature = [ 'device', 'mac', 'pci', 'spec', 'wakeOnLanSupported' ]
+    inherited = [ 'autoNegotiateSupported', 'driver', 'key', 'linkSpeed',
         'resourcePoolSchedulerAllowed', 'resourcePoolSchedulerDisallowedReason',
-        'spec', 'validLinkSpecification', 'vmDirectPathGen2Supported',
-        'vmDirectPathGen2SupportedMode', 'wakeOnLanSupported' ]
+        'validLinkSpecification', 'vmDirectPathGen2Supported',
+        'vmDirectPathGen2SupportedMode' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

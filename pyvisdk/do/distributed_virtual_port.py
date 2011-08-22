@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,12 +14,12 @@ def DistributedVirtualPort(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:DistributedVirtualPort')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 2:
-        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 6 arguments got: %d' % len(args))
         
-    signature = [ 'config', 'conflict' ]
-    inherited = [ 'conflictPortKey', 'connectee', 'connectionCookie', 'dvsUuid', 'key',
-        'lastStatusChange', 'portgroupKey', 'proxyHost', 'state' ]
+    signature = [ 'config', 'conflict', 'dvsUuid', 'key', 'lastStatusChange' ]
+    inherited = [ 'conflictPortKey', 'connectee', 'connectionCookie', 'portgroupKey',
+        'proxyHost', 'state' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

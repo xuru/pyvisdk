@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,12 +14,12 @@ def CustomizationIPSettings(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:CustomizationIPSettings')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'dnsDomain', 'dnsServerList', 'gateway', 'ip', 'ipV6Spec', 'netBIOS',
-        'primaryWINS', 'secondaryWINS', 'subnetMask' ]
+    signature = [ 'ip' ]
+    inherited = [ 'dnsDomain', 'dnsServerList', 'gateway', 'ipV6Spec', 'netBIOS', 'primaryWINS',
+        'secondaryWINS', 'subnetMask' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

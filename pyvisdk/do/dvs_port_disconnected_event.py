@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,13 +14,12 @@ def DvsPortDisconnectedEvent(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:DvsPortDisconnectedEvent')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 6 arguments got: %d' % len(args))
         
-    signature = [ 'chainId' ]
-    inherited = [ 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds', 'dvs',
-        'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm', 'connectee',
-        'portKey' ]
+    signature = [ 'chainId', 'createdTime', 'key', 'userName', 'portKey' ]
+    inherited = [ 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
+        'fullFormattedMessage', 'host', 'net', 'vm', 'connectee' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

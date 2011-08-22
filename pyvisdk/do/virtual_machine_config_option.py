@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -24,13 +23,13 @@ def VirtualMachineConfigOption(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualMachineConfigOption')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 2:
-        raise IndexError('Expected at least 3 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 8:
+        raise IndexError('Expected at least 9 arguments got: %d' % len(args))
         
-    signature = [ 'capabilities', 'datastore' ]
-    inherited = [ 'defaultDevice', 'description', 'guestOSDefaultIndex', 'guestOSDescriptor',
-        'hardwareOptions', 'supportedMonitorType', 'supportedOvfEnvironmentTransport',
-        'supportedOvfInstallTransport', 'version' ]
+    signature = [ 'capabilities', 'datastore', 'description', 'guestOSDefaultIndex',
+        'guestOSDescriptor', 'hardwareOptions', 'supportedMonitorType', 'version' ]
+    inherited = [ 'defaultDevice', 'supportedOvfEnvironmentTransport',
+        'supportedOvfInstallTransport' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

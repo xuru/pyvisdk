@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,11 +14,11 @@ def ProfileExecuteResult(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:ProfileExecuteResult')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 1:
+        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'configSpec', 'error', 'inapplicablePath', 'requireInput', 'status' ]
+    signature = [ 'status' ]
+    inherited = [ 'configSpec', 'error', 'inapplicablePath', 'requireInput' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

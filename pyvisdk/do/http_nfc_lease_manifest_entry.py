@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,11 +14,11 @@ def HttpNfcLeaseManifestEntry(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HttpNfcLeaseManifestEntry')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'capacity', 'disk', 'key', 'populatedSize', 'sha1', 'size' ]
+    signature = [ 'disk', 'key', 'sha1', 'size' ]
+    inherited = [ 'capacity', 'populatedSize' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

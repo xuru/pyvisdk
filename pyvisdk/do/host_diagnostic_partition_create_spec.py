@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,11 +15,11 @@ def HostDiagnosticPartitionCreateSpec(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostDiagnosticPartitionCreateSpec')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'active', 'diagnosticType', 'id', 'partition', 'storageType' ]
+    signature = [ 'diagnosticType', 'id', 'partition', 'storageType' ]
+    inherited = [ 'active' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

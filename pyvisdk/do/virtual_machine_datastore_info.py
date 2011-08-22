@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,11 +14,11 @@ def VirtualMachineDatastoreInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualMachineDatastoreInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 4:
-        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 6 arguments got: %d' % len(args))
         
-    signature = [ 'capability', 'datastore', 'maxFileSize', 'mode' ]
-    inherited = [ 'configurationTag', 'name' ]
+    signature = [ 'name', 'capability', 'datastore', 'maxFileSize', 'mode' ]
+    inherited = [ 'configurationTag' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

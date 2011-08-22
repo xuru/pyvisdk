@@ -10,66 +10,52 @@ import logging
 log = logging.getLogger(__name__)
 
 class ComputeResource(ManagedEntity):
-    '''Represents a set of physical compute resources for a set of virtual machines.The
-        base type ComputeResource, when instantiated by calling
-        AddStandaloneHost_Task, represents a single host. The subclass
-        ClusterComputeResource represents a cluster of hosts and adds distributed
-        management features such as availability and resource scheduling.A
-        ComputeResource always has a root ResourcePool associated with it. Certain
-        types of clusters such as those with VMware DRS enabled and standalone
-        hosts (ESX Server 3) support the creation of ResourcePool hierarchies.
-    '''
+    '''Represents a set of physical compute resources for a set of virtual
+    machines.The base type ComputeResource, when instantiated by calling
+    AddStandaloneHost_Task, represents a single host. The subclass
+    ClusterComputeResource represents a cluster of hosts and adds distributed
+    management features such as availability and resource scheduling.A
+    ComputeResource always has a root ResourcePool associated with it. Certain
+    types of clusters such as those with VMware DRS enabled and standalone hosts
+    (ESX Server 3) support the creation of ResourcePool hierarchies.'''
+    
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ComputeResource):
-        # MUST define these
         super(ComputeResource, self).__init__(core, name=name, ref=ref, type=type)
     
     
     @property
     def configurationEx(self):
         '''Configuration of the compute resource; applies to both standalone hosts and
-        clusters. For a cluster this property will return a ClusterConfigInfoEx
-        object.
-        '''
+    clusters. For a cluster this property will return a ClusterConfigInfoEx object.'''
         return self.update('configurationEx')
-
     @property
     def datastore(self):
         '''The datastore property is the subset of datastore objects in the datacenter
-        available in this ComputeResource.
-        '''
+    available in this ComputeResource.'''
         return self.update('datastore')
-
     @property
     def environmentBrowser(self):
-        '''The environment browser object that identifies the environments that are supported
-        on this compute resource.
-        '''
+        '''The environment browser object that identifies the environments that are
+    supported on this compute resource.'''
         return self.update('environmentBrowser')
-
     @property
     def host(self):
-        '''List of hosts that are part of this compute resource. If the compute resource is a
-        standalone type, then this list contains just one element.
-        '''
+        '''List of hosts that are part of this compute resource. If the compute resource
+    is a standalone type, then this list contains just one element.'''
         return self.update('host')
-
     @property
     def network(self):
         '''The subset of network objects available in the datacenter that is available in
-        this ComputeResource.
-        '''
+    this ComputeResource.'''
         return self.update('network')
-
     @property
     def resourcePool(self):
-        '''Reference to root resource pool.
-        '''
+        '''Reference to root resource pool.'''
         return self.update('resourcePool')
-
     @property
     def summary(self):
         '''Basic runtime information about a compute resource. This information is used on
-        summary screens and in list views.
-        '''
+    summary screens and in list views.'''
         return self.update('summary')
-
+    
+    

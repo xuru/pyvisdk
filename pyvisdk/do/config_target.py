@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,15 +15,14 @@ def ConfigTarget(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:ConfigTarget')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
         
-    signature = [  ]
+    signature = [ 'maxMemMBOptimalPerf', 'numCpuCores', 'numCpus', 'numNumaNodes' ]
     inherited = [ 'autoVmotion', 'cdRom', 'datastore', 'distributedVirtualPortgroup',
         'distributedVirtualSwitch', 'floppy', 'ideDisk', 'legacyNetworkInfo',
-        'maxMemMBOptimalPerf', 'network', 'numCpuCores', 'numCpus', 'numNumaNodes',
-        'parallel', 'pciPassthrough', 'resourcePool', 'scsiDisk', 'scsiPassthrough',
-        'serial', 'sound', 'usb' ]
+        'network', 'parallel', 'pciPassthrough', 'resourcePool', 'scsiDisk',
+        'scsiPassthrough', 'serial', 'sound', 'usb' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,12 +14,12 @@ def VirtualMachineSnapshotTree(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualMachineSnapshotTree')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 8:
+        raise IndexError('Expected at least 9 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'backupManifest', 'childSnapshotList', 'createTime', 'description', 'id',
-        'name', 'quiesced', 'replaySupported', 'snapshot', 'state', 'vm' ]
+    signature = [ 'createTime', 'description', 'id', 'name', 'quiesced', 'snapshot', 'state',
+        'vm' ]
+    inherited = [ 'backupManifest', 'childSnapshotList', 'replaySupported' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,15 +15,14 @@ def VirtualMachineRuntimeInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualMachineRuntimeInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 6:
+        raise IndexError('Expected at least 7 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'bootTime', 'cleanPowerOff', 'connectionState', 'device',
-        'faultToleranceState', 'host', 'maxCpuUsage', 'maxMemoryUsage',
-        'memoryOverhead', 'minRequiredEVCModeKey', 'needSecondaryReason',
-        'numMksConnections', 'powerState', 'question', 'recordReplayState',
-        'suspendInterval', 'suspendTime', 'toolsInstallerMounted' ]
+    signature = [ 'connectionState', 'faultToleranceState', 'numMksConnections', 'powerState',
+        'recordReplayState', 'toolsInstallerMounted' ]
+    inherited = [ 'bootTime', 'cleanPowerOff', 'device', 'host', 'maxCpuUsage', 'maxMemoryUsage',
+        'memoryOverhead', 'minRequiredEVCModeKey', 'needSecondaryReason', 'question',
+        'suspendInterval', 'suspendTime' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

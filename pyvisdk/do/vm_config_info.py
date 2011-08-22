@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,12 +14,11 @@ def VmConfigInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VmConfigInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 3:
+        raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'eula', 'installBootRequired', 'installBootStopDelay', 'ipAssignment',
-        'ovfEnvironmentTransport', 'ovfSection', 'product', 'property_' ]
+    signature = [ 'installBootRequired', 'installBootStopDelay', 'ipAssignment' ]
+    inherited = [ 'eula', 'ovfEnvironmentTransport', 'ovfSection', 'product', 'property_' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

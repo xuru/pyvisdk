@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,12 +14,12 @@ def VmFailedMigrateEvent(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VmFailedMigrateEvent')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 4:
-        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 7:
+        raise IndexError('Expected at least 8 arguments got: %d' % len(args))
         
-    signature = [ 'chainId', 'template', 'destHost', 'reason' ]
-    inherited = [ 'changeTag', 'computeResource', 'createdTime', 'datacenter', 'ds', 'dvs',
-        'fullFormattedMessage', 'host', 'key', 'net', 'userName', 'vm' ]
+    signature = [ 'chainId', 'createdTime', 'key', 'userName', 'template', 'destHost', 'reason' ]
+    inherited = [ 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
+        'fullFormattedMessage', 'host', 'net', 'vm' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

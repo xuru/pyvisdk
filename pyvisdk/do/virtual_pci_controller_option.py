@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,16 +14,16 @@ def VirtualPCIControllerOption(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualPCIControllerOption')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 11:
-        raise IndexError('Expected at least 12 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 15:
+        raise IndexError('Expected at least 16 arguments got: %d' % len(args))
         
-    signature = [ 'devices', 'numEthernetCards', 'numParaVirtualSCSIControllers',
+    signature = [ 'deprecated', 'hotRemoveSupported', 'plugAndPlay', 'type', 'devices',
+        'numEthernetCards', 'numParaVirtualSCSIControllers',
         'numPCIPassthroughDevices', 'numSasSCSIControllers', 'numSCSIControllers',
         'numSoundCards', 'numVideoCards', 'numVmciDevices', 'numVmiRoms',
         'numVmxnet3EthernetCards' ]
     inherited = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
-        'defaultBackingOptionIndex', 'deprecated', 'hotRemoveSupported',
-        'licensingLimit', 'plugAndPlay', 'type', 'supportedDevice' ]
+        'defaultBackingOptionIndex', 'licensingLimit', 'supportedDevice' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -13,10 +12,12 @@ def ClusterVmHostRuleInfo(vim, *args, **kwargs):
     '''A ClusterVmHostRuleInfo object identifies virtual machines and host groups that
     determine virtual machine placement. The virtual machines and hosts referenced
     by a VM-Host rule must be in the same cluster.A VM-Host rule identifies the
-    following groups.ClusterVmHostRuleInfo stores only the names of the relevant
-    virtual machine and host groups. The group contents are stored in the virtual
-    machine and host group objects.When you modify a VM-Host rule, only the fields
-    that are specified are set.'''
+    following groups.* A virtual machine group (ClusterVmGroup). * Two host groups
+    - an affine host group and an anti-affine host group (ClusterHostGroup). At
+    least one of the groups must contain one or more hosts.ClusterVmHostRuleInfo
+    stores only the names of the relevant virtual machine and host groups. The
+    group contents are stored in the virtual machine and host group objects.When
+    you modify a VM-Host rule, only the fields that are specified are set.'''
     
     obj = vim.client.factory.create('ns0:ClusterVmHostRuleInfo')
     

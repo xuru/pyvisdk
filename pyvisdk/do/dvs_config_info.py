@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -15,14 +14,14 @@ def DVSConfigInfo(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:DVSConfigInfo')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 4:
-        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 12:
+        raise IndexError('Expected at least 13 arguments got: %d' % len(args))
         
-    signature = [ 'configVersion', 'contact', 'createTime', 'defaultPortConfig' ]
-    inherited = [ 'description', 'extensionKey', 'host', 'maxPorts', 'name',
-        'networkResourceManagementEnabled', 'numPorts', 'numStandalonePorts', 'policy',
-        'productInfo', 'targetInfo', 'uplinkPortgroup', 'uplinkPortPolicy', 'uuid',
-        'vendorSpecificConfig' ]
+    signature = [ 'configVersion', 'contact', 'createTime', 'defaultPortConfig', 'maxPorts',
+        'name', 'networkResourceManagementEnabled', 'numPorts', 'numStandalonePorts',
+        'productInfo', 'uplinkPortPolicy', 'uuid' ]
+    inherited = [ 'description', 'extensionKey', 'host', 'policy', 'targetInfo',
+        'uplinkPortgroup', 'vendorSpecificConfig' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

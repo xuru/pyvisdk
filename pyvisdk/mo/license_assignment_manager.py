@@ -1,6 +1,6 @@
 
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
-from pyvisdk.base.base_entity import BaseEntity
+from pyvisdk.mo.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -10,50 +10,32 @@ import logging
 log = logging.getLogger(__name__)
 
 class LicenseAssignmentManager(BaseEntity):
-    '''
-    '''
+    ''''''
+    
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.LicenseAssignmentManager):
-        # MUST define these
         super(LicenseAssignmentManager, self).__init__(core, name=name, ref=ref, type=type)
     
     
-
-    def QueryAssignedLicenses(self, entityId):
+    
+    
+    
+    def QueryAssignedLicenses(self):
         '''Get information about all the licenses associated with an entity
-
-        :param entityId: ID of the entity. E.g. HostSystem.
-
-
-        :rtype: LicenseAssignmentManagerLicenseAssignment[] 
-
+        :rtype: 
+        :returns: 
         '''
-        
-        return self.delegate("QueryAssignedLicenses")(entityId)
-        
-
-    def RemoveAssignedLicense(self, entityId):
+        return self.delegate("QueryAssignedLicenses")()
+    
+    def RemoveAssignedLicense(self):
         '''Remove licenses associated with an entity
-
-        :param entityId: ID of the entity. E.g. HostSystem.
-
+        :rtype: None
+        :returns: 
         '''
-        
-        return self.delegate("RemoveAssignedLicense")(entityId)
-        
-
-    def UpdateAssignedLicense(self, entity, licenseKey, entityDisplayName):
+        return self.delegate("RemoveAssignedLicense")()
+    
+    def UpdateAssignedLicense(self):
         '''Update the license associated with an entity
-
-        :param entity: ID of the entity. E.g. HostSystem.
-
-        :param licenseKey: A license.
-
-        :param entityDisplayName: Display name for the entity
-
-
-        :rtype: LicenseManagerLicenseInfo 
-
+        :rtype: 
+        :returns: 
         '''
-        
-        return self.delegate("UpdateAssignedLicense")(entity,licenseKey,entityDisplayName)
-        
+        return self.delegate("UpdateAssignedLicense")()

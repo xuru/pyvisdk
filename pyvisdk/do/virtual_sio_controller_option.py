@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,13 +15,13 @@ def VirtualSIOControllerOption(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualSIOControllerOption')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 4:
-        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 8:
+        raise IndexError('Expected at least 9 arguments got: %d' % len(args))
         
-    signature = [ 'devices', 'numFloppyDrives', 'numParallelPorts', 'numSerialPorts' ]
+    signature = [ 'deprecated', 'hotRemoveSupported', 'plugAndPlay', 'type', 'devices',
+        'numFloppyDrives', 'numParallelPorts', 'numSerialPorts' ]
     inherited = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
-        'defaultBackingOptionIndex', 'deprecated', 'hotRemoveSupported',
-        'licensingLimit', 'plugAndPlay', 'type', 'supportedDevice' ]
+        'defaultBackingOptionIndex', 'licensingLimit', 'supportedDevice' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

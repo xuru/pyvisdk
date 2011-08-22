@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,13 +15,12 @@ def Extension(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:Extension')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 0:
-        raise IndexError('Expected at least 1 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 4:
+        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'client', 'company', 'description', 'eventList', 'faultList', 'healthInfo',
-        'key', 'lastHeartbeatTime', 'privilegeList', 'resourceList', 'server',
-        'subjectName', 'taskList', 'type', 'version' ]
+    signature = [ 'description', 'key', 'lastHeartbeatTime', 'version' ]
+    inherited = [ 'client', 'company', 'eventList', 'faultList', 'healthInfo', 'privilegeList',
+        'resourceList', 'server', 'subjectName', 'taskList', 'type' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

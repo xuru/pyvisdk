@@ -1,6 +1,6 @@
 
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
-from pyvisdk.base.base_entity import BaseEntity
+from pyvisdk.mo.base_entity import BaseEntity
 import logging
 
 ########################################
@@ -10,74 +10,49 @@ import logging
 log = logging.getLogger(__name__)
 
 class CustomFieldsManager(BaseEntity):
-    '''The CustomFieldsManager object is used to add and remove custom fields to managed
-        entities.The custom fields values set on managed entities are available
-        through the customValue property and through the summary objects for
-        VirtualMachine and HostSystem. They are not available directly through
-        this managed object.This functionality is only available through
-        VirtualCenter.
-    '''
+    '''The CustomFieldsManager object is used to add and remove custom fields to
+    managed entities.The custom fields values set on managed entities are available
+    through the customValue property and through the summary objects for
+    VirtualMachine and HostSystem. They are not available directly through this
+    managed object.This functionality is only available through VirtualCenter.'''
+    
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.CustomFieldsManager):
-        # MUST define these
         super(CustomFieldsManager, self).__init__(core, name=name, ref=ref, type=type)
     
     
     @property
     def field(self):
-        '''List of custom fields defined on this server. The fields are sorted by name.
-        '''
+        '''List of custom fields defined on this server. The fields are sorted by name.'''
         return self.update('field')
-
-
-    def AddCustomFieldDef(self, name, moType, fieldDefPolicy, fieldPolicy):
+    
+    
+    
+    def AddCustomFieldDef(self):
         '''Creates a new custom field. If the moType is specified, the field will only be
         available for that type of managed object.
-
-        :param name: The name of the field.
-
-        :param moType: The managed object type to which this field will applyVI API 2.5
-
-        :param fieldDefPolicy: Privilege policy to apply to FieldDef being createdVI API 2.5
-
-        :param fieldPolicy: Privilege policy to apply to instances of fieldVI API 2.5
-
-
-        :rtype: CustomFieldDef 
-
+        :rtype: 
+        :returns: 
         '''
-        
-        return self.delegate("AddCustomFieldDef")(name,moType,fieldDefPolicy,fieldPolicy)
-        
-
-    def RemoveCustomFieldDef(self, key):
+        return self.delegate("AddCustomFieldDef")()
+    
+    def RemoveCustomFieldDef(self):
         '''Removes a custom field. This also removes all values assigned to this custom
         field.
-
-        :param key: The unique key for the field definition.
-
+        :rtype: None
+        :returns: 
         '''
-        
-        return self.delegate("RemoveCustomFieldDef")(key)
-        
-
-    def RenameCustomFieldDef(self, key, name):
+        return self.delegate("RemoveCustomFieldDef")()
+    
+    def RenameCustomFieldDef(self):
         '''Renames a custom field.
-
-        :param key: The unique key for the field definition.
-
-        :param name: The new name for the field.
-
+        :rtype: None
+        :returns: 
         '''
-        
-        return self.delegate("RenameCustomFieldDef")(key,name)
-        
-
-    def SetField(self, entity):
+        return self.delegate("RenameCustomFieldDef")()
+    
+    def SetField(self):
         '''Assigns a value to a custom field on an entity.
-
-        :param entity: to a ManagedEntity
-
+        :rtype: None
+        :returns: 
         '''
-        
-        return self.delegate("SetField")(entity)
-        
+        return self.delegate("SetField")()

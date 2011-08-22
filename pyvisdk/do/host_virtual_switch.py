@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -17,11 +16,11 @@ def HostVirtualSwitch(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:HostVirtualSwitch')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 1:
-        raise IndexError('Expected at least 2 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 6 arguments got: %d' % len(args))
         
-    signature = [ 'key' ]
-    inherited = [ 'mtu', 'name', 'numPorts', 'numPortsAvailable', 'pnic', 'portgroup', 'spec' ]
+    signature = [ 'key', 'name', 'numPorts', 'numPortsAvailable', 'spec' ]
+    inherited = [ 'mtu', 'pnic', 'portgroup' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -16,11 +15,15 @@ def ClusterDrsVmConfigSpec(vim, *args, **kwargs):
     ReconfigureComputeResource_Task.If is used to incrementally update the cluster
     configuration (i.e., the parameter is true), then three operations are provided
     for updating the DRS configuration for a virtual machine. These operations are
-    listed below (see ArrayUpdateSpec for more information on these operations).If,
-    instead, this method is used to overwrite the cluster configuration (i.e., the
-    parameter is false) thereby creating a new configuration, only the add
-    operation is allowed. In this case, creates a DRS configuration for a virtual
-    machine in the new cluster configuration.'''
+    listed below (see ArrayUpdateSpec for more information on these operations).*
+    add: add a configuration for the virtual machine, overwritting the existing
+    configuration if one exists * edit: incrmentally update the existing
+    configuration; an existing configuration must exist * remove: remove the
+    existing configuration; an existing configuration must existIf, instead, this
+    method is used to overwrite the cluster configuration (i.e., the parameter is
+    false) thereby creating a new configuration, only the add operation is allowed.
+    In this case, creates a DRS configuration for a virtual machine in the new
+    cluster configuration.'''
     
     obj = vim.client.factory.create('ns0:ClusterDrsVmConfigSpec')
     

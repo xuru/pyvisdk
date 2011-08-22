@@ -1,4 +1,3 @@
-# -*- coding: ascii -*-
 
 import logging
 from pyvisdk.exceptions import InvalidArgumentError
@@ -12,7 +11,9 @@ log = logging.getLogger(__name__)
 def ArrayUpdateSpec(vim, *args, **kwargs):
     '''An ArrayUpdateSpec data object type is a common superclass for supporting
     incremental updates to arrays.The common code pattern is:The ArrayUpdateSpec
-    contains the following:'''
+    contains the following:* : the type of operation being performed. * : In the
+    case of a remove operation, the key value that identifies the array to be
+    removed.'''
     
     obj = vim.client.factory.create('ns0:ArrayUpdateSpec')
     
