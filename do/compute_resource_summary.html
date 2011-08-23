@@ -1,0 +1,201 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.126. ComputeResourceSummary &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.127. ConfigTarget" href="config_target.html" />
+    <link rel="prev" title="4.125. ComputeResourceEventArgument" href="compute_resource_event_argument.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="config_target.html" title="4.127. ConfigTarget"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="compute_resource_event_argument.html" title="4.125. ComputeResourceEventArgument"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="computeresourcesummary">
+<h1>4.126. ComputeResourceSummary<a class="headerlink" href="#computeresourcesummary" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ComputeResource</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntityStatus</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extended by</tt></dt>
+<dd><p><a class="reference internal" href="cluster_compute_resource_summary.html#pyvisdk.do.cluster_compute_resource_summary.ClusterComputeResourceSummary" title="pyvisdk.do.cluster_compute_resource_summary.ClusterComputeResourceSummary"><tt class="xref py py-class docutils literal"><span class="pre">ClusterComputeResourceSummary</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.compute_resource_summary.ComputeResourceSummary">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.compute_resource_summary.</tt><tt class="descname">ComputeResourceSummary</tt><a class="headerlink" href="#pyvisdk.do.compute_resource_summary.ComputeResourceSummary" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.compute_resource_summary.ComputeResourceSummary.effectiveCpu">
+<tt class="descname">effectiveCpu</tt><a class="headerlink" href="#pyvisdk.do.compute_resource_summary.ComputeResourceSummary.effectiveCpu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Effective CPU resources (in MHz) available to run virtual machines. This is the aggregated effective resource level from all running hosts. Hosts that are in maintenance mode or are unresponsive are not counted. Resources used by the VMware Service Console are not included in the aggregate. This value represents the amount of resources available for the root resource pool for running virtual machines.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.compute_resource_summary.ComputeResourceSummary.effectiveMemory">
+<tt class="descname">effectiveMemory</tt><a class="headerlink" href="#pyvisdk.do.compute_resource_summary.ComputeResourceSummary.effectiveMemory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Effective memory resources (in MB) available to run virtual machines. This is the aggregated effective resource level from all running hosts. Hosts that are in maintenance mode or are unresponsive are not counted. Resources used by the VMware Service Console are not included in the aggregate. This value represents the amount of resources available for the root resource pool for running virtual machines.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.compute_resource_summary.ComputeResourceSummary.numCpuCores">
+<tt class="descname">numCpuCores</tt><a class="headerlink" href="#pyvisdk.do.compute_resource_summary.ComputeResourceSummary.numCpuCores" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of physical CPU cores. Physical CPU cores are the processors contained by a CPU package.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.compute_resource_summary.ComputeResourceSummary.numCpuThreads">
+<tt class="descname">numCpuThreads</tt><a class="headerlink" href="#pyvisdk.do.compute_resource_summary.ComputeResourceSummary.numCpuThreads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregated number of CPU threads.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.compute_resource_summary.ComputeResourceSummary.numEffectiveHosts">
+<tt class="descname">numEffectiveHosts</tt><a class="headerlink" href="#pyvisdk.do.compute_resource_summary.ComputeResourceSummary.numEffectiveHosts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of effective hosts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.compute_resource_summary.ComputeResourceSummary.numHosts">
+<tt class="descname">numHosts</tt><a class="headerlink" href="#pyvisdk.do.compute_resource_summary.ComputeResourceSummary.numHosts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of hosts.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.compute_resource_summary.ComputeResourceSummary.overallStatus">
+<tt class="descname">overallStatus</tt><a class="headerlink" href="#pyvisdk.do.compute_resource_summary.ComputeResourceSummary.overallStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overall alarm status.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.compute_resource_summary.ComputeResourceSummary.totalCpu">
+<tt class="descname">totalCpu</tt><a class="headerlink" href="#pyvisdk.do.compute_resource_summary.ComputeResourceSummary.totalCpu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregated CPU resources of all hosts, in MHz.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.compute_resource_summary.ComputeResourceSummary.totalMemory">
+<tt class="descname">totalMemory</tt><a class="headerlink" href="#pyvisdk.do.compute_resource_summary.ComputeResourceSummary.totalMemory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregated memory resources of all hosts, in bytes.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="compute_resource_event_argument.html"
+                        title="previous chapter">4.125. ComputeResourceEventArgument</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="config_target.html"
+                        title="next chapter">4.127. ConfigTarget</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/compute_resource_summary.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="config_target.html" title="4.127. ConfigTarget"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="compute_resource_event_argument.html" title="4.125. ComputeResourceEventArgument"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

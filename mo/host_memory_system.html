@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.42. HostMemorySystem &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.43. HostNetworkSystem" href="host_network_system.html" />
@@ -58,69 +58,21 @@
 <dl class="describe">
 <dt>
 <tt class="descname">Property of</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostConfigManager</span></tt></p>
+<dd><p><a class="reference internal" href="../do/host_config_manager.html#pyvisdk.do.host_config_manager.HostConfigManager" title="pyvisdk.do.host_config_manager.HostConfigManager"><tt class="xref py py-class docutils literal"><span class="pre">HostConfigManager</span></tt></a></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">See also</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ServiceConsoleReservationInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineMemoryReservationInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineMemoryReservationSpec</span></tt></p>
+<dd><p><a class="reference internal" href="../do/service_console_reservation_info.html#pyvisdk.do.service_console_reservation_info.ServiceConsoleReservationInfo" title="pyvisdk.do.service_console_reservation_info.ServiceConsoleReservationInfo"><tt class="xref py py-class docutils literal"><span class="pre">ServiceConsoleReservationInfo</span></tt></a>,
+<a class="reference internal" href="../do/virtual_machine_memory_reservation_info.html#pyvisdk.do.virtual_machine_memory_reservation_info.VirtualMachineMemoryReservationInfo" title="pyvisdk.do.virtual_machine_memory_reservation_info.VirtualMachineMemoryReservationInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineMemoryReservationInfo</span></tt></a>,
+<a class="reference internal" href="../do/virtual_machine_memory_reservation_spec.html#pyvisdk.do.virtual_machine_memory_reservation_spec.VirtualMachineMemoryReservationSpec" title="pyvisdk.do.virtual_machine_memory_reservation_spec.VirtualMachineMemoryReservationSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineMemoryReservationSpec</span></tt></a></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Extends</tt></dt>
-<dd><p><a class="reference internal" href="extensible_managed_object.html#pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject" title="pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject"><tt class="xref py py-class docutils literal"><span class="pre">ExtensibleManagedObject</span></tt></a></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="pyvisdk.mo.host_memory_system.HostMemorySystem">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.host_memory_system.</tt><tt class="descname">HostMemorySystem</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='HostMemorySystem'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_memory_system.html#HostMemorySystem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_memory_system.HostMemorySystem" title="Permalink to this definition">¶</a></dt>
-<dd><p>Properties</p>
-<dl class="method">
-<dt id="pyvisdk.mo.host_memory_system.HostMemorySystem.ReconfigureServiceConsoleReservation">
-<tt class="descname">ReconfigureServiceConsoleReservation</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_memory_system.html#HostMemorySystem.ReconfigureServiceConsoleReservation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_memory_system.HostMemorySystem.ReconfigureServiceConsoleReservation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the configured service console memory reservation. This change affects only
-the serviceConsoleReservedCfg property. The configuration change
-propagates to the other properties after the next boot.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.host_memory_system.HostMemorySystem.ReconfigureVirtualMachineReservation">
-<tt class="descname">ReconfigureVirtualMachineReservation</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_memory_system.html#HostMemorySystem.ReconfigureVirtualMachineReservation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_memory_system.HostMemorySystem.ReconfigureVirtualMachineReservation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updates the virtual machine reservation information.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_memory_system.HostMemorySystem.availableField">
-<tt class="descname">availableField</tt><a class="headerlink" href="#pyvisdk.mo.host_memory_system.HostMemorySystem.availableField" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of custom field definitions that are valid for the object&#8217;s type. The fields
-are sorted by name.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_memory_system.HostMemorySystem.consoleReservationInfo">
-<tt class="descname">consoleReservationInfo</tt><a class="reference internal" href="../modules/pyvisdk/mo/host_memory_system.html#HostMemorySystem.consoleReservationInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_memory_system.HostMemorySystem.consoleReservationInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Service console reservation information for the memory manager. The existence of
-this data object indicates if the service console memory reservation must
-be configured for this host.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_memory_system.HostMemorySystem.value">
-<tt class="descname">value</tt><a class="headerlink" href="#pyvisdk.mo.host_memory_system.HostMemorySystem.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of custom field values. Each value uses a key to associate an instance of a
-CustomFieldStringValue with a custom field definition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_memory_system.HostMemorySystem.virtualMachineReservationInfo">
-<tt class="descname">virtualMachineReservationInfo</tt><a class="reference internal" href="../modules/pyvisdk/mo/host_memory_system.html#HostMemorySystem.virtualMachineReservationInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_memory_system.HostMemorySystem.virtualMachineReservationInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Virtual machine reservation information for the memory manager. The existence of
-this data object indicates if the virtual machine memory reservation must
-be configured for this host.</p>
-</dd></dl>
-
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ExtensibleManagedObject</span></tt></p>
 </dd></dl>
 
 </div>
@@ -139,7 +91,7 @@ be configured for this host.</p>
                         title="next chapter">3.43. HostNetworkSystem</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/mo/host_memory_system.txt"
+    <li><a href="../_sources/mo/host_memory_system.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

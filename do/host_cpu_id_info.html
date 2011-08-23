@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.458. HostCpuIdInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.459. HostCpuInfo" href="host_cpu_info.html" />
+    <link rel="prev" title="4.457. HostConnectionLostEvent" href="host_connection_lost_event.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_cpu_info.html" title="4.459. HostCpuInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_connection_lost_event.html" title="4.457. HostConnectionLostEvent"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hostcpuidinfo">
+<h1>4.458. HostCpuIdInfo<a class="headerlink" href="#hostcpuidinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="evc_mode.html#pyvisdk.do.evc_mode.EVCMode" title="pyvisdk.do.evc_mode.EVCMode"><tt class="xref py py-class docutils literal"><span class="pre">EVCMode</span></tt></a>,
+<a class="reference internal" href="guest_os_descriptor.html#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor" title="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor"><tt class="xref py py-class docutils literal"><span class="pre">GuestOsDescriptor</span></tt></a>,
+<a class="reference internal" href="host_capability.html#pyvisdk.do.host_capability.HostCapability" title="pyvisdk.do.host_capability.HostCapability"><tt class="xref py py-class docutils literal"><span class="pre">HostCapability</span></tt></a>,
+<a class="reference internal" href="host_cpu_package.html#pyvisdk.do.host_cpu_package.HostCpuPackage" title="pyvisdk.do.host_cpu_package.HostCpuPackage"><tt class="xref py py-class docutils literal"><span class="pre">HostCpuPackage</span></tt></a>,
+<a class="reference internal" href="host_hardware_info.html#pyvisdk.do.host_hardware_info.HostHardwareInfo" title="pyvisdk.do.host_hardware_info.HostHardwareInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostHardwareInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_config_info.html#pyvisdk.do.virtual_machine_config_info.VirtualMachineConfigInfo" title="pyvisdk.do.virtual_machine_config_info.VirtualMachineConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineConfigInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_cpu_id_info_spec.html#pyvisdk.do.virtual_machine_cpu_id_info_spec.VirtualMachineCpuIdInfoSpec" title="pyvisdk.do.virtual_machine_cpu_id_info_spec.VirtualMachineCpuIdInfoSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineCpuIdInfoSpec</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.host_cpu_id_info.HostCpuIdInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.host_cpu_id_info.</tt><tt class="descname">HostCpuIdInfo</tt><a class="headerlink" href="#pyvisdk.do.host_cpu_id_info.HostCpuIdInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.host_cpu_id_info.HostCpuIdInfo.eax">
+<tt class="descname">eax</tt><a class="headerlink" href="#pyvisdk.do.host_cpu_id_info.HostCpuIdInfo.eax" title="Permalink to this definition">¶</a></dt>
+<dd><p>String representing the required EAX bits.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_cpu_id_info.HostCpuIdInfo.ebx">
+<tt class="descname">ebx</tt><a class="headerlink" href="#pyvisdk.do.host_cpu_id_info.HostCpuIdInfo.ebx" title="Permalink to this definition">¶</a></dt>
+<dd><p>String representing the required EBX bits.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_cpu_id_info.HostCpuIdInfo.ecx">
+<tt class="descname">ecx</tt><a class="headerlink" href="#pyvisdk.do.host_cpu_id_info.HostCpuIdInfo.ecx" title="Permalink to this definition">¶</a></dt>
+<dd><p>String representing the required ECX bits.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_cpu_id_info.HostCpuIdInfo.edx">
+<tt class="descname">edx</tt><a class="headerlink" href="#pyvisdk.do.host_cpu_id_info.HostCpuIdInfo.edx" title="Permalink to this definition">¶</a></dt>
+<dd><p>String representing the required EDX bits.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_cpu_id_info.HostCpuIdInfo.level">
+<tt class="descname">level</tt><a class="headerlink" href="#pyvisdk.do.host_cpu_id_info.HostCpuIdInfo.level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level (EAX input to CPUID).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_cpu_id_info.HostCpuIdInfo.vendor">
+<tt class="descname">vendor</tt><a class="headerlink" href="#pyvisdk.do.host_cpu_id_info.HostCpuIdInfo.vendor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used if this mask is for a particular vendor.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_connection_lost_event.html"
+                        title="previous chapter">4.457. HostConnectionLostEvent</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_cpu_info.html"
+                        title="next chapter">4.459. HostCpuInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/host_cpu_id_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_cpu_info.html" title="4.459. HostCpuInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_connection_lost_event.html" title="4.457. HostConnectionLostEvent"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

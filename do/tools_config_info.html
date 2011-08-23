@@ -1,0 +1,190 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1012. ToolsConfigInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1013. TraversalSpec" href="traversal_spec.html" />
+    <link rel="prev" title="4.1011. TimedOutHostOperationEvent" href="timed_out_host_operation_event.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="traversal_spec.html" title="4.1013. TraversalSpec"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="timed_out_host_operation_event.html" title="4.1011. TimedOutHostOperationEvent"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="toolsconfiginfo">
+<h1>4.1012. ToolsConfigInfo<a class="headerlink" href="#toolsconfiginfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="virtual_machine_config_info.html#pyvisdk.do.virtual_machine_config_info.VirtualMachineConfigInfo" title="pyvisdk.do.virtual_machine_config_info.VirtualMachineConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineConfigInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_config_spec.html#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec" title="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineConfigSpec</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.tools_config_info.ToolsConfigInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.tools_config_info.</tt><tt class="descname">ToolsConfigInfo</tt><a class="headerlink" href="#pyvisdk.do.tools_config_info.ToolsConfigInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.tools_config_info.ToolsConfigInfo.afterPowerOn">
+<tt class="descname">afterPowerOn</tt><a class="headerlink" href="#pyvisdk.do.tools_config_info.ToolsConfigInfo.afterPowerOn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to specify whether or not scripts should run after the virtual machine powers on.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.tools_config_info.ToolsConfigInfo.afterResume">
+<tt class="descname">afterResume</tt><a class="headerlink" href="#pyvisdk.do.tools_config_info.ToolsConfigInfo.afterResume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to specify whether or not scripts should run after the virtual machine resumes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.tools_config_info.ToolsConfigInfo.beforeGuestReboot">
+<tt class="descname">beforeGuestReboot</tt><a class="headerlink" href="#pyvisdk.do.tools_config_info.ToolsConfigInfo.beforeGuestReboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to specify whether or not scripts should run before the virtual machine reboots.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.tools_config_info.ToolsConfigInfo.beforeGuestShutdown">
+<tt class="descname">beforeGuestShutdown</tt><a class="headerlink" href="#pyvisdk.do.tools_config_info.ToolsConfigInfo.beforeGuestShutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to specify whether or not scripts should run before the virtual machine powers off.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.tools_config_info.ToolsConfigInfo.beforeGuestStandby">
+<tt class="descname">beforeGuestStandby</tt><a class="headerlink" href="#pyvisdk.do.tools_config_info.ToolsConfigInfo.beforeGuestStandby" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to specify whether or not scripts should run before the virtual machine suspends.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.tools_config_info.ToolsConfigInfo.pendingCustomization">
+<tt class="descname">pendingCustomization</tt><a class="headerlink" href="#pyvisdk.do.tools_config_info.ToolsConfigInfo.pendingCustomization" title="Permalink to this definition">¶</a></dt>
+<dd><p>When set, this indicates that a customization operation is pending on the VM. The value represents the filename of the customization package on the host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.tools_config_info.ToolsConfigInfo.syncTimeWithHost">
+<tt class="descname">syncTimeWithHost</tt><a class="headerlink" href="#pyvisdk.do.tools_config_info.ToolsConfigInfo.syncTimeWithHost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not the tools program will sync time with the host time.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.tools_config_info.ToolsConfigInfo.toolsUpgradePolicy">
+<tt class="descname">toolsUpgradePolicy</tt><a class="headerlink" href="#pyvisdk.do.tools_config_info.ToolsConfigInfo.toolsUpgradePolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tools upgrade policy setting for the virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.tools_config_info.ToolsConfigInfo.toolsVersion">
+<tt class="descname">toolsVersion</tt><a class="headerlink" href="#pyvisdk.do.tools_config_info.ToolsConfigInfo.toolsVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Version of VMware Tools installed on the guest operating system.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="timed_out_host_operation_event.html"
+                        title="previous chapter">4.1011. TimedOutHostOperationEvent</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="traversal_spec.html"
+                        title="next chapter">4.1013. TraversalSpec</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/tools_config_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="traversal_spec.html" title="4.1013. TraversalSpec"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="timed_out_host_operation_event.html" title="4.1011. TimedOutHostOperationEvent"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

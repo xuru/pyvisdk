@@ -1,0 +1,235 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.407. GuestInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.408. GuestNicInfo" href="guest_nic_info.html" />
+    <link rel="prev" title="4.406. GuestDiskInfo" href="guest_disk_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="guest_nic_info.html" title="4.408. GuestNicInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="guest_disk_info.html" title="4.406. GuestDiskInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="guestinfo">
+<h1>4.407. GuestInfo<a class="headerlink" href="#guestinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="guest_disk_info.html#pyvisdk.do.guest_disk_info.GuestDiskInfo" title="pyvisdk.do.guest_disk_info.GuestDiskInfo"><tt class="xref py py-class docutils literal"><span class="pre">GuestDiskInfo</span></tt></a>,
+<a class="reference internal" href="guest_nic_info.html#pyvisdk.do.guest_nic_info.GuestNicInfo" title="pyvisdk.do.guest_nic_info.GuestNicInfo"><tt class="xref py py-class docutils literal"><span class="pre">GuestNicInfo</span></tt></a>,
+<a class="reference internal" href="guest_screen_info.html#pyvisdk.do.guest_screen_info.GuestScreenInfo" title="pyvisdk.do.guest_screen_info.GuestScreenInfo"><tt class="xref py py-class docutils literal"><span class="pre">GuestScreenInfo</span></tt></a>,
+<a class="reference internal" href="guest_stack_info.html#pyvisdk.do.guest_stack_info.GuestStackInfo" title="pyvisdk.do.guest_stack_info.GuestStackInfo"><tt class="xref py py-class docutils literal"><span class="pre">GuestStackInfo</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineToolsStatus</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.guest_info.GuestInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.guest_info.</tt><tt class="descname">GuestInfo</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.appHeartbeatStatus">
+<tt class="descname">appHeartbeatStatus</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.appHeartbeatStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Application heartbeat status. Please see VirtualMachineAppHeartbeatStatusType</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.disk">
+<tt class="descname">disk</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guest information about disks, if known.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.guestFamily">
+<tt class="descname">guestFamily</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.guestFamily" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guest operating system family, if known.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.guestFullName">
+<tt class="descname">guestFullName</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.guestFullName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guest operating system full name, if known.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.guestId">
+<tt class="descname">guestId</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.guestId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guest operating system identifier (short name), if known.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.guestState">
+<tt class="descname">guestState</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.guestState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operation mode of guest operating system. One of: * &#8220;running&#8221; - Guest is running normally. * &#8220;shuttingdown&#8221; - Guest has a pending shutdown command. * &#8220;resetting&#8221; - Guest has a pending reset command. * &#8220;standby&#8221; - Guest has a pending standby command. * &#8220;notrunning&#8221; - Guest is not running. * &#8220;unknown&#8221; - Guest information is not available.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.hostName">
+<tt class="descname">hostName</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.hostName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hostname of the guest operating system, if known.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.ipAddress">
+<tt class="descname">ipAddress</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.ipAddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primary IP address assigned to the guest operating system, if known.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.ipStack">
+<tt class="descname">ipStack</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.ipStack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guest information about IP networking stack, if known.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.net">
+<tt class="descname">net</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.net" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guest information about network adapters, if known.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.screen">
+<tt class="descname">screen</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.screen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guest screen resolution info, if known.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.toolsRunningStatus">
+<tt class="descname">toolsRunningStatus</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.toolsRunningStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current running status of VMware Tools in the guest operating system, if known. The set of possible values is described in VirtualMachineToolsRunningStatus</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.toolsStatus">
+<tt class="descname">toolsStatus</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.toolsStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current status of VMware Tools in the guest operating system, if known.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.toolsVersion">
+<tt class="descname">toolsVersion</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.toolsVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current version of VMware Tools, if known.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_info.GuestInfo.toolsVersionStatus">
+<tt class="descname">toolsVersionStatus</tt><a class="headerlink" href="#pyvisdk.do.guest_info.GuestInfo.toolsVersionStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current version status of VMware Tools in the guest operating system, if known. The set of possible values is described in VirtualMachineToolsVersionStatus</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="guest_disk_info.html"
+                        title="previous chapter">4.406. GuestDiskInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="guest_nic_info.html"
+                        title="next chapter">4.408. GuestNicInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/guest_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="guest_nic_info.html" title="4.408. GuestNicInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="guest_disk_info.html" title="4.406. GuestDiskInfo"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

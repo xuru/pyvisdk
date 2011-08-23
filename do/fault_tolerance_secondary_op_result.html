@@ -1,0 +1,167 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.381. FaultToleranceSecondaryOpResult &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.382. FileBackedVirtualDiskSpec" href="file_backed_virtual_disk_spec.html" />
+    <link rel="prev" title="4.380. FaultToleranceSecondaryConfigInfo" href="fault_tolerance_secondary_config_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="file_backed_virtual_disk_spec.html" title="4.382. FileBackedVirtualDiskSpec"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="fault_tolerance_secondary_config_info.html" title="4.380. FaultToleranceSecondaryConfigInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="faulttolerancesecondaryopresult">
+<h1>4.381. FaultToleranceSecondaryOpResult<a class="headerlink" href="#faulttolerancesecondaryopresult" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="cluster_power_on_vm_result.html#pyvisdk.do.cluster_power_on_vm_result.ClusterPowerOnVmResult" title="pyvisdk.do.cluster_power_on_vm_result.ClusterPowerOnVmResult"><tt class="xref py py-class docutils literal"><span class="pre">ClusterPowerOnVmResult</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CreateSecondaryVM_Task()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">EnableSecondaryVM_Task()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.fault_tolerance_secondary_op_result.FaultToleranceSecondaryOpResult">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.fault_tolerance_secondary_op_result.</tt><tt class="descname">FaultToleranceSecondaryOpResult</tt><a class="headerlink" href="#pyvisdk.do.fault_tolerance_secondary_op_result.FaultToleranceSecondaryOpResult" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.fault_tolerance_secondary_op_result.FaultToleranceSecondaryOpResult.powerOnAttempted">
+<tt class="descname">powerOnAttempted</tt><a class="headerlink" href="#pyvisdk.do.fault_tolerance_secondary_op_result.FaultToleranceSecondaryOpResult.powerOnAttempted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether an attempt was made to power on the secondary. If an attempt was made, powerOnResult will report the status of this attempt.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.fault_tolerance_secondary_op_result.FaultToleranceSecondaryOpResult.powerOnResult">
+<tt class="descname">powerOnResult</tt><a class="headerlink" href="#pyvisdk.do.fault_tolerance_secondary_op_result.FaultToleranceSecondaryOpResult.powerOnResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>The powerOnResult property reports the outcome of powering on the Secondary VirtualMachine if a power on was required. A power on will be attempted if the Primary Virtual Machine is powered on when the operation is performed. This object is only reported if powerOnAttempted is true. If the outcome of the power-on attempt is not successful, the returned ClusterPowerOnVmResult object will include an instance of ClusterNotAttemptedVmInfo whereas if the attempt was successful, then an instance of ClusterAttemptedVmInfo is returned. When ClusterAttemptedVmInfo is returned, its task property is only set if the cluster is a HA-only cluster.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.fault_tolerance_secondary_op_result.FaultToleranceSecondaryOpResult.vm">
+<tt class="descname">vm</tt><a class="headerlink" href="#pyvisdk.do.fault_tolerance_secondary_op_result.FaultToleranceSecondaryOpResult.vm" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Secondary VirtualMachine</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fault_tolerance_secondary_config_info.html"
+                        title="previous chapter">4.380. FaultToleranceSecondaryConfigInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="file_backed_virtual_disk_spec.html"
+                        title="next chapter">4.382. FileBackedVirtualDiskSpec</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/fault_tolerance_secondary_op_result.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="file_backed_virtual_disk_spec.html" title="4.382. FileBackedVirtualDiskSpec"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="fault_tolerance_secondary_config_info.html" title="4.380. FaultToleranceSecondaryConfigInfo"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

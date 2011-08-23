@@ -1,0 +1,255 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1189. VirtualMachineQuickStats &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1190. VirtualMachineRelocateSpec" href="virtual_machine_relocate_spec.html" />
+    <link rel="prev" title="4.1188. VirtualMachineQuestionInfo" href="virtual_machine_question_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_relocate_spec.html" title="4.1190. VirtualMachineRelocateSpec"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_question_info.html" title="4.1188. VirtualMachineQuestionInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualmachinequickstats">
+<h1>4.1189. VirtualMachineQuickStats<a class="headerlink" href="#virtualmachinequickstats" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="virtual_machine_summary.html#pyvisdk.do.virtual_machine_summary.VirtualMachineSummary" title="pyvisdk.do.virtual_machine_summary.VirtualMachineSummary"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineSummary</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntityStatus</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.virtual_machine_quick_stats.</tt><tt class="descname">VirtualMachineQuickStats</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.balloonedMemory">
+<tt class="descname">balloonedMemory</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.balloonedMemory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the balloon driver in the VM, in MB. The host will inflate the balloon driver to reclaim physical memory from the VM. This is a sign that there is memory pressure on the host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.compressedMemory">
+<tt class="descname">compressedMemory</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.compressedMemory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The amount of compressed memory currently consumed by VM, in Kb.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.consumedOverheadMemory">
+<tt class="descname">consumedOverheadMemory</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.consumedOverheadMemory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The amount of consumed overhead memory, in MB, for this VM.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.distributedCpuEntitlement">
+<tt class="descname">distributedCpuEntitlement</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.distributedCpuEntitlement" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the amount of CPU resource, in MHz, that this VM is entitled to, as calculated by DRS. Valid only for a VM managed by DRS.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.distributedMemoryEntitlement">
+<tt class="descname">distributedMemoryEntitlement</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.distributedMemoryEntitlement" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the amount of memory, in MB, that this VM is entitled to, as calculated by DRS. Valid only for a VM managed by DRS.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.ftLatencyStatus">
+<tt class="descname">ftLatencyStatus</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.ftLatencyStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>The latency status of the fault tolerance VM. ftLatencyStatus is determined by the value of ftSecondaryLatency. ftLatencyStatus is: green, if ftSecondaryLatency is less than or equal to 2 seconds; yellow, if ftSecondaryLatency is greater than 2 seconds, and less than or equal to 6 seconds; red, if ftSecondaryLatency is greater than 6 seconds; gray, if ftSecondaryLatency is unknown.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.ftLogBandwidth">
+<tt class="descname">ftLogBandwidth</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.ftLogBandwidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>The network bandwidth used for logging between the primary and secondary fault tolerance VMs. The unit is kilobytes per second.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.ftSecondaryLatency">
+<tt class="descname">ftSecondaryLatency</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.ftSecondaryLatency" title="Permalink to this definition">¶</a></dt>
+<dd><p>The amount of time in wallclock that the VCPU of the secondary fault tolerance VM is behind the VCPU of the primary VM. The unit is millisecond.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.guestHeartbeatStatus">
+<tt class="descname">guestHeartbeatStatus</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.guestHeartbeatStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guest operating system heartbeat metric. See guestHeartbeatStatus for a description.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.guestMemoryUsage">
+<tt class="descname">guestMemoryUsage</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.guestMemoryUsage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guest memory utilization statistics, in MB. This is also known as active guest memory. The number can be between 0 and the configured memory size of the virtual machine. Valid while the virtual machine is running.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.hostMemoryUsage">
+<tt class="descname">hostMemoryUsage</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.hostMemoryUsage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Host memory utilization statistics, in MB. This is also known as consumed host memory. This is between 0 and the configured resource limit. Valid while the virtual machine is running. This includes the overhead memory of the VM.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.overallCpuDemand">
+<tt class="descname">overallCpuDemand</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.overallCpuDemand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic CPU performance statistics, in MHz. Valid while the virtual machine is running.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.overallCpuUsage">
+<tt class="descname">overallCpuUsage</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.overallCpuUsage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic CPU performance statistics, in MHz. Valid while the virtual machine is running.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.privateMemory">
+<tt class="descname">privateMemory</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.privateMemory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The portion of memory, in MB, that is granted to this VM from non-shared host memory.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.sharedMemory">
+<tt class="descname">sharedMemory</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.sharedMemory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The portion of memory, in MB, that is granted to this VM from host memory that is shared between VMs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.staticCpuEntitlement">
+<tt class="descname">staticCpuEntitlement</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.staticCpuEntitlement" title="Permalink to this definition">¶</a></dt>
+<dd><p>The static CPU resource entitlement for a virtual machine. This value is calculated based on this virtual machine&#8217;s resource reservations, shares and limit, and doesn&#8217;t take into account current usage. This is the worst case CPU allocation for this virtual machine, that is, the amount of CPU resource this virtual machine would receive if all virtual machines running in the cluster went to maximum consumption. Units are MHz.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.staticMemoryEntitlement">
+<tt class="descname">staticMemoryEntitlement</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.staticMemoryEntitlement" title="Permalink to this definition">¶</a></dt>
+<dd><p>The static memory resource entitlement for a virtual machine. This value is calculated based on this virtual machine&#8217;s resource reservations, shares and limit, and doesn&#8217;t take into account current usage. This is the worst case memory allocation for this virtual machine, that is, the amount of memory this virtual machine would receive if all virtual machines running in the cluster went to maximum consumption. Units are MB.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.swappedMemory">
+<tt class="descname">swappedMemory</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.swappedMemory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The portion of memory, in MB, that is granted to this VM from the host&#8217;s swap space. This is a sign that there is memory pressure on the host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.uptimeSeconds">
+<tt class="descname">uptimeSeconds</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_quick_stats.VirtualMachineQuickStats.uptimeSeconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>The system uptime of the VM in seconds.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_machine_question_info.html"
+                        title="previous chapter">4.1188. VirtualMachineQuestionInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_machine_relocate_spec.html"
+                        title="next chapter">4.1190. VirtualMachineRelocateSpec</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/virtual_machine_quick_stats.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_relocate_spec.html" title="4.1190. VirtualMachineRelocateSpec"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_question_info.html" title="4.1188. VirtualMachineQuestionInfo"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

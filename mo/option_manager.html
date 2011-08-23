@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.65. OptionManager &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.66. OvfManager" href="ovf_manager.html" />
@@ -58,56 +58,15 @@
 <dl class="describe">
 <dt>
 <tt class="descname">Property of</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostConfigManager</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ServiceContent</span></tt></p>
+<dd><p><a class="reference internal" href="../do/host_config_manager.html#pyvisdk.do.host_config_manager.HostConfigManager" title="pyvisdk.do.host_config_manager.HostConfigManager"><tt class="xref py py-class docutils literal"><span class="pre">HostConfigManager</span></tt></a>,
+<a class="reference internal" href="../do/service_content.html#pyvisdk.do.service_content.ServiceContent" title="pyvisdk.do.service_content.ServiceContent"><tt class="xref py py-class docutils literal"><span class="pre">ServiceContent</span></tt></a></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">See also</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">OptionDef</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">OptionValue</span></tt></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="pyvisdk.mo.option_manager.OptionManager">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.option_manager.</tt><tt class="descname">OptionManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='OptionManager'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/option_manager.html#OptionManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.option_manager.OptionManager" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="pyvisdk.mo.option_manager.OptionManager.QueryOptions">
-<tt class="descname">QueryOptions</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/option_manager.html#OptionManager.QueryOptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.option_manager.OptionManager.QueryOptions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a specific node or nodes in the option hierarchy.This method might require
-any of the following privileges depending on where the property fits in
-the inventory tree.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">OptionValue[]</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.option_manager.OptionManager.UpdateOptions">
-<tt class="descname">UpdateOptions</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/option_manager.html#OptionManager.UpdateOptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.option_manager.OptionManager.UpdateOptions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updates one or more properties. These properties are changed atomically: either
-all are applied or none are.A nested option setting can be named using a
-dot notation; for example, system.cacheSize.This method might require any
-of the following privileges depending on where the property fits in the
-inventory tree.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.option_manager.OptionManager.setting">
-<tt class="descname">setting</tt><a class="reference internal" href="../modules/pyvisdk/mo/option_manager.html#OptionManager.setting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.option_manager.OptionManager.setting" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of the current settings for the key/value pair options.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.option_manager.OptionManager.supportedOption">
-<tt class="descname">supportedOption</tt><a class="reference internal" href="../modules/pyvisdk/mo/option_manager.html#OptionManager.supportedOption"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.option_manager.OptionManager.supportedOption" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of supported key/value pair options including their type information.</p>
-</dd></dl>
-
+<dd><p><a class="reference internal" href="../do/option_def.html#pyvisdk.do.option_def.OptionDef" title="pyvisdk.do.option_def.OptionDef"><tt class="xref py py-class docutils literal"><span class="pre">OptionDef</span></tt></a>,
+<a class="reference internal" href="../do/option_value.html#pyvisdk.do.option_value.OptionValue" title="pyvisdk.do.option_value.OptionValue"><tt class="xref py py-class docutils literal"><span class="pre">OptionValue</span></tt></a></p>
 </dd></dl>
 
 </div>
@@ -126,7 +85,7 @@ inventory tree.</p>
                         title="next chapter">3.66. OvfManager</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/mo/option_manager.txt"
+    <li><a href="../_sources/mo/option_manager.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

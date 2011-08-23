@@ -1,0 +1,179 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.682. HostUnresolvedVmfsVolume &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.683. HostUnresolvedVmfsVolumeResolveStatus" href="host_unresolved_vmfs_volume_resolve_status.html" />
+    <link rel="prev" title="4.681. HostUnresolvedVmfsResolutionSpec" href="host_unresolved_vmfs_resolution_spec.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_unresolved_vmfs_volume_resolve_status.html" title="4.683. HostUnresolvedVmfsVolumeResolveStatus"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_unresolved_vmfs_resolution_spec.html" title="4.681. HostUnresolvedVmfsResolutionSpec"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hostunresolvedvmfsvolume">
+<h1>4.682. HostUnresolvedVmfsVolume<a class="headerlink" href="#hostunresolvedvmfsvolume" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="host_unresolved_vmfs_extent.html#pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent" title="pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent"><tt class="xref py py-class docutils literal"><span class="pre">HostUnresolvedVmfsExtent</span></tt></a>,
+<a class="reference internal" href="host_unresolved_vmfs_volume_resolve_status.html#pyvisdk.do.host_unresolved_vmfs_volume_resolve_status.HostUnresolvedVmfsVolumeResolveStatus" title="pyvisdk.do.host_unresolved_vmfs_volume_resolve_status.HostUnresolvedVmfsVolumeResolveStatus"><tt class="xref py py-class docutils literal"><span class="pre">HostUnresolvedVmfsVolumeResolveStatus</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">QueryUnresolvedVmfsVolume()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">QueryUnresolvedVmfsVolumes()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.host_unresolved_vmfs_volume.HostUnresolvedVmfsVolume">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.host_unresolved_vmfs_volume.</tt><tt class="descname">HostUnresolvedVmfsVolume</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_volume.HostUnresolvedVmfsVolume" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.host_unresolved_vmfs_volume.HostUnresolvedVmfsVolume.extent">
+<tt class="descname">extent</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_volume.HostUnresolvedVmfsVolume.extent" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of detected copies of VMFS extents.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_unresolved_vmfs_volume.HostUnresolvedVmfsVolume.resolveStatus">
+<tt class="descname">resolveStatus</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_volume.HostUnresolvedVmfsVolume.resolveStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information related to how the volume might be resolved.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_unresolved_vmfs_volume.HostUnresolvedVmfsVolume.totalBlocks">
+<tt class="descname">totalBlocks</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_volume.HostUnresolvedVmfsVolume.totalBlocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of blocks in this volume.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_unresolved_vmfs_volume.HostUnresolvedVmfsVolume.vmfsLabel">
+<tt class="descname">vmfsLabel</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_volume.HostUnresolvedVmfsVolume.vmfsLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>The detected VMFS label name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_unresolved_vmfs_volume.HostUnresolvedVmfsVolume.vmfsUuid">
+<tt class="descname">vmfsUuid</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_volume.HostUnresolvedVmfsVolume.vmfsUuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>The detected VMFS UUID</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_unresolved_vmfs_resolution_spec.html"
+                        title="previous chapter">4.681. HostUnresolvedVmfsResolutionSpec</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_unresolved_vmfs_volume_resolve_status.html"
+                        title="next chapter">4.683. HostUnresolvedVmfsVolumeResolveStatus</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/host_unresolved_vmfs_volume.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_unresolved_vmfs_volume_resolve_status.html" title="4.683. HostUnresolvedVmfsVolumeResolveStatus"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_unresolved_vmfs_resolution_spec.html" title="4.681. HostUnresolvedVmfsResolutionSpec"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

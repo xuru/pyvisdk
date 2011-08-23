@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.distributed_virtual_switch_manager &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.distributed_virtual_switch_manager</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.base_entity</span> <span class="kn">import</span> <span class="n">BaseEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">DistributedVirtualSwitchManager</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="DistributedVirtualSwitchManager"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch_manager.html#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager">[docs]</a>    <span class="sd">&#39;&#39;&#39;The interface to provide relevant information about DistributedVirtualSwitch.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">DistributedVirtualSwitchManager</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DistributedVirtualSwitchManager</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+
+    <span class="k">def</span> <span class="nf">QueryAvailableDvsSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="DistributedVirtualSwitchManager.QueryAvailableDvsSpec"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch_manager.html#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryAvailableDvsSpec">[docs]</a>        <span class="sd">&#39;&#39;&#39;This operation returns a list of switch product specifications that are supported</span>
+<span class="sd">        by the vCenter Server.</span>
+
+<span class="sd">        :rtype: DistributedVirtualSwitchProductSpec[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryAvailableDvsSpec&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryCompatibleHostForExistingDvs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="n">recursive</span><span class="p">,</span> <span class="n">dvs</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitchManager.QueryCompatibleHostForExistingDvs"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch_manager.html#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryCompatibleHostForExistingDvs">[docs]</a>        <span class="sd">&#39;&#39;&#39;This operation returns a list of hosts that are compatible with the given</span>
+<span class="sd">        DistributedVirtualSwitch product specification.</span>
+
+<span class="sd">        :param container: to a ManagedEntityWhere to look for hosts. Supported types of objects for this</span>
+<span class="sd">        parameter are Datacenter, ComputeResource and Folder.</span>
+
+<span class="sd">        :param recursive: Whether to search for hosts in the subfolders, if applicable. In the case when</span>
+<span class="sd">        container is a Datacenter, the recursive flag is applied to its</span>
+<span class="sd">        HostFolder.</span>
+
+<span class="sd">        :param dvs: to a DistributedVirtualSwitchSearch the host based on the specification published</span>
+<span class="sd">        in the compatibleHostComponentProductInfo of a DistributedVirtualSwitch.</span>
+<span class="sd">        If not set, it is assumed to be the specification that a</span>
+<span class="sd">        DistributedVirtualSwitch would have if it is created with the default</span>
+<span class="sd">        DistributedVirtualSwitchProductSpec.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference[] to a HostSystem[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryCompatibleHostForExistingDvs&quot;</span><span class="p">)(</span><span class="n">container</span><span class="p">,</span><span class="n">recursive</span><span class="p">,</span><span class="n">dvs</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryCompatibleHostForNewDvs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="n">recursive</span><span class="p">,</span> <span class="n">switchProductSpec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitchManager.QueryCompatibleHostForNewDvs"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch_manager.html#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryCompatibleHostForNewDvs">[docs]</a>        <span class="sd">&#39;&#39;&#39;This operation returns a list of hosts that are compatible with the given</span>
+<span class="sd">        DistributedVirtualSwitch product specification.</span>
+
+<span class="sd">        :param container: to a ManagedEntityWhere to look for hosts. Supported types of objects for this</span>
+<span class="sd">        parameter are Datacenter, ComputeResource and Folder.</span>
+
+<span class="sd">        :param recursive: Whether to search for hosts in the subfolders, if applicable. In the case when</span>
+<span class="sd">        container is a Datacenter, the recursive flag is applied to its</span>
+<span class="sd">        HostFolder.</span>
+
+<span class="sd">        :param switchProductSpec: The productSpec of a DistributedVirtualSwitch. If not set, it is assumed to be the</span>
+<span class="sd">        default one used for DistributedVirtualSwitch creation.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference[] to a HostSystem[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryCompatibleHostForNewDvs&quot;</span><span class="p">)(</span><span class="n">container</span><span class="p">,</span><span class="n">recursive</span><span class="p">,</span><span class="n">switchProductSpec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryDvsByUuid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitchManager.QueryDvsByUuid"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch_manager.html#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsByUuid">[docs]</a>        <span class="sd">&#39;&#39;&#39;This operation returns a DistributedVirtualSwitch given a UUID.</span>
+
+<span class="sd">        :rtype: ManagedObjectReference to a DistributedVirtualSwitch </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryDvsByUuid&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryDvsCheckCompatibility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hostContainer</span><span class="p">,</span> <span class="n">dvsProductSpec</span><span class="p">,</span> <span class="n">hostFilterSpec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitchManager.QueryDvsCheckCompatibility"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch_manager.html#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsCheckCompatibility">[docs]</a>        <span class="sd">&#39;&#39;&#39;This operation returns a list of compatibility results. Each compatibility result</span>
+<span class="sd">        is an object that has a host property and optionally a fault which would</span>
+<span class="sd">        be populated only if that host is not compatible with a given</span>
+<span class="sd">        dvsProductSpec. All filters in hostFilerSpecs are ANDed to derive the</span>
+<span class="sd">        intersection of hosts against which compatibility is checked. If caller</span>
+<span class="sd">        did not have view privileges on the host entity in an element of the</span>
+<span class="sd">        CompatibilityResult array, then that entire element would be removed from</span>
+<span class="sd">        the CompatibilityResult array. Typical uses:* For the createDVS situation,</span>
+<span class="sd">        hostFilterSpec is of type HostDvsFilterSpec and DvsProductSpec will have</span>
+<span class="sd">        newSwitchProductSpec set. * For the Add-Host-To-DVS situation, you can use</span>
+<span class="sd">        either HostDvsFilterSpec or HostDvsMembershipFilter with inclusive being</span>
+<span class="sd">        false, and pass the DVS in DvsProductSpec. * For the Upgrade-DVS</span>
+<span class="sd">        situation, you can use either HostDvsFilterSpec or HostDvsMembershipFilter</span>
+<span class="sd">        with inclusive being true, and pass the new desired ProductSpec for DVS in</span>
+<span class="sd">        newSwitchProductSpec.</span>
+
+<span class="sd">        :param hostContainer: The container of hosts on which we check the compatibility. This container can be</span>
+<span class="sd">        a datacenter, folder, or computeResource. We can also include all the</span>
+<span class="sd">        hosts in the hierarchy with container as root of the tree.</span>
+
+<span class="sd">        :param dvsProductSpec: The productSpec of a DistributedVirtualSwitch. If not set, it is assumed to be the</span>
+<span class="sd">        default one used for DistributedVirtualSwitch creation for current</span>
+<span class="sd">        version.</span>
+
+<span class="sd">        :param hostFilterSpec: The hosts against which to check compatibility. This is a filterSpec and users can</span>
+<span class="sd">        use this to specify all hosts in a container (datacenter, folder, or</span>
+<span class="sd">        computeResource), an array of hosts, or hosts that might or might not be a</span>
+<span class="sd">        DVS member.</span>
+
+
+<span class="sd">        :rtype: DistributedVirtualSwitchManagerCompatibilityResult[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryDvsCheckCompatibility&quot;</span><span class="p">)(</span><span class="n">hostContainer</span><span class="p">,</span><span class="n">dvsProductSpec</span><span class="p">,</span><span class="n">hostFilterSpec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryDvsCompatibleHostSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">switchProductSpec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitchManager.QueryDvsCompatibleHostSpec"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch_manager.html#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsCompatibleHostSpec">[docs]</a>        <span class="sd">&#39;&#39;&#39;This operation returns a list of host product specifications that are compatible</span>
+<span class="sd">        with the given DistributedVirtualSwitch product specification.</span>
+
+<span class="sd">        :param switchProductSpec: The productSpec of a DistributedVirtualSwitch. If not set, it is assumed to be the</span>
+<span class="sd">        default one used for DistributedVirtualSwitch creation.</span>
+
+
+<span class="sd">        :rtype: DistributedVirtualSwitchHostProductSpec[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryDvsCompatibleHostSpec&quot;</span><span class="p">)(</span><span class="n">switchProductSpec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryDvsConfigTarget</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">dvs</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitchManager.QueryDvsConfigTarget"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch_manager.html#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsConfigTarget">[docs]</a>        <span class="sd">&#39;&#39;&#39;This operation returns the DistributedVirtualSwitch or DistributedVirtualPortgroup</span>
+<span class="sd">        config target on a host.</span>
+
+<span class="sd">        :param host: to a HostSystemThe host on which the query is to be made. If called directly on</span>
+<span class="sd">        the host this parameter need not be specified.</span>
+
+<span class="sd">        :param dvs: to a DistributedVirtualSwitchThe distributed virtual switch on which the query is</span>
+<span class="sd">        to be made. If unspecified the config target will encompass all the</span>
+<span class="sd">        distributed virtual switches available on the host.</span>
+
+
+<span class="sd">        :rtype: DVSManagerDvsConfigTarget </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryDvsConfigTarget&quot;</span><span class="p">)(</span><span class="n">host</span><span class="p">,</span><span class="n">dvs</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryDvsFeatureCapability</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">switchProductSpec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="DistributedVirtualSwitchManager.QueryDvsFeatureCapability"><a class="viewcode-back" href="../../../mo/distributed_virtual_switch_manager.html#pyvisdk.mo.distributed_virtual_switch_manager.DistributedVirtualSwitchManager.QueryDvsFeatureCapability">[docs]</a>        <span class="sd">&#39;&#39;&#39;This operation indicates which version-specific DVS features are available for the</span>
+<span class="sd">        given DistributedVirtualSwitch product specification.</span>
+
+<span class="sd">        :param switchProductSpec: The productSpec of a DistributedVirtualSwitch. If not set, it is assumed to be the</span>
+<span class="sd">        default one used for DistributedVirtualSwitch creation.</span>
+
+
+<span class="sd">        :rtype: DVSFeatureCapability </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryDvsFeatureCapability&quot;</span><span class="p">)(</span><span class="n">switchProductSpec</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

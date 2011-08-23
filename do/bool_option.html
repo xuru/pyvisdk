@@ -1,0 +1,164 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.44. BoolOption &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.45. BoolPolicy" href="bool_policy.html" />
+    <link rel="prev" title="4.43. BadUsernameSessionEvent" href="bad_username_session_event.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bool_policy.html" title="4.45. BoolPolicy"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bad_username_session_event.html" title="4.43. BadUsernameSessionEvent"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="booloption">
+<h1>4.44. BoolOption<a class="headerlink" href="#booloption" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="storage_iorm_config_option.html#pyvisdk.do.storage_iorm_config_option.StorageIORMConfigOption" title="pyvisdk.do.storage_iorm_config_option.StorageIORMConfigOption"><tt class="xref py py-class docutils literal"><span class="pre">StorageIORMConfigOption</span></tt></a>,
+<a class="reference internal" href="virtual_cdrom_passthrough_backing_option.html#pyvisdk.do.virtual_cdrom_passthrough_backing_option.VirtualCdromPassthroughBackingOption" title="pyvisdk.do.virtual_cdrom_passthrough_backing_option.VirtualCdromPassthroughBackingOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualCdromPassthroughBackingOption</span></tt></a>,
+<a class="reference internal" href="virtual_cdrom_remote_passthrough_backing_option.html#pyvisdk.do.virtual_cdrom_remote_passthrough_backing_option.VirtualCdromRemotePassthroughBackingOption" title="pyvisdk.do.virtual_cdrom_remote_passthrough_backing_option.VirtualCdromRemotePassthroughBackingOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualCdromRemotePassthroughBackingOption</span></tt></a>,
+<a class="reference internal" href="virtual_device_connect_option.html#pyvisdk.do.virtual_device_connect_option.VirtualDeviceConnectOption" title="pyvisdk.do.virtual_device_connect_option.VirtualDeviceConnectOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualDeviceConnectOption</span></tt></a>,
+<a class="reference internal" href="virtual_device_device_backing_option.html#pyvisdk.do.virtual_device_device_backing_option.VirtualDeviceDeviceBackingOption" title="pyvisdk.do.virtual_device_device_backing_option.VirtualDeviceDeviceBackingOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualDeviceDeviceBackingOption</span></tt></a>,
+<a class="reference internal" href="virtual_device_option.html#pyvisdk.do.virtual_device_option.VirtualDeviceOption" title="pyvisdk.do.virtual_device_option.VirtualDeviceOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualDeviceOption</span></tt></a>,
+<a class="reference internal" href="virtual_device_remote_device_backing_option.html#pyvisdk.do.virtual_device_remote_device_backing_option.VirtualDeviceRemoteDeviceBackingOption" title="pyvisdk.do.virtual_device_remote_device_backing_option.VirtualDeviceRemoteDeviceBackingOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualDeviceRemoteDeviceBackingOption</span></tt></a>,
+<a class="reference internal" href="virtual_disk_flat_ver1_backing_option.html#pyvisdk.do.virtual_disk_flat_ver1_backing_option.VirtualDiskFlatVer1BackingOption" title="pyvisdk.do.virtual_disk_flat_ver1_backing_option.VirtualDiskFlatVer1BackingOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualDiskFlatVer1BackingOption</span></tt></a>,
+<a class="reference internal" href="virtual_disk_flat_ver2_backing_option.html#pyvisdk.do.virtual_disk_flat_ver2_backing_option.VirtualDiskFlatVer2BackingOption" title="pyvisdk.do.virtual_disk_flat_ver2_backing_option.VirtualDiskFlatVer2BackingOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualDiskFlatVer2BackingOption</span></tt></a>,
+<a class="reference internal" href="virtual_disk_sparse_ver1_backing_option.html#pyvisdk.do.virtual_disk_sparse_ver1_backing_option.VirtualDiskSparseVer1BackingOption" title="pyvisdk.do.virtual_disk_sparse_ver1_backing_option.VirtualDiskSparseVer1BackingOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualDiskSparseVer1BackingOption</span></tt></a>,
+<a class="reference internal" href="virtual_disk_sparse_ver2_backing_option.html#pyvisdk.do.virtual_disk_sparse_ver2_backing_option.VirtualDiskSparseVer2BackingOption" title="pyvisdk.do.virtual_disk_sparse_ver2_backing_option.VirtualDiskSparseVer2BackingOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualDiskSparseVer2BackingOption</span></tt></a>,
+<a class="reference internal" href="virtual_ethernet_card_option.html#pyvisdk.do.virtual_ethernet_card_option.VirtualEthernetCardOption" title="pyvisdk.do.virtual_ethernet_card_option.VirtualEthernetCardOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualEthernetCardOption</span></tt></a>,
+<a class="reference internal" href="virtual_machine_vmci_device_option.html#pyvisdk.do.virtual_machine_vmci_device_option.VirtualMachineVMCIDeviceOption" title="pyvisdk.do.virtual_machine_vmci_device_option.VirtualMachineVMCIDeviceOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineVMCIDeviceOption</span></tt></a>,
+<a class="reference internal" href="virtual_scsi_controller_option.html#pyvisdk.do.virtual_scsi_controller_option.VirtualSCSIControllerOption" title="pyvisdk.do.virtual_scsi_controller_option.VirtualSCSIControllerOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualSCSIControllerOption</span></tt></a>,
+<a class="reference internal" href="virtual_serial_port_option.html#pyvisdk.do.virtual_serial_port_option.VirtualSerialPortOption" title="pyvisdk.do.virtual_serial_port_option.VirtualSerialPortOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualSerialPortOption</span></tt></a>,
+<a class="reference internal" href="virtual_serial_port_pipe_backing_option.html#pyvisdk.do.virtual_serial_port_pipe_backing_option.VirtualSerialPortPipeBackingOption" title="pyvisdk.do.virtual_serial_port_pipe_backing_option.VirtualSerialPortPipeBackingOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualSerialPortPipeBackingOption</span></tt></a>,
+<a class="reference internal" href="virtual_usb_controller_option.html#pyvisdk.do.virtual_usb_controller_option.VirtualUSBControllerOption" title="pyvisdk.do.virtual_usb_controller_option.VirtualUSBControllerOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualUSBControllerOption</span></tt></a>,
+<a class="reference internal" href="virtual_video_card_option.html#pyvisdk.do.virtual_video_card_option.VirtualVideoCardOption" title="pyvisdk.do.virtual_video_card_option.VirtualVideoCardOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualVideoCardOption</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">OptionType</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.bool_option.BoolOption">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.bool_option.</tt><tt class="descname">BoolOption</tt><a class="headerlink" href="#pyvisdk.do.bool_option.BoolOption" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.bool_option.BoolOption.defaultValue">
+<tt class="descname">defaultValue</tt><a class="headerlink" href="#pyvisdk.do.bool_option.BoolOption.defaultValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default value for the option.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.bool_option.BoolOption.supported">
+<tt class="descname">supported</tt><a class="headerlink" href="#pyvisdk.do.bool_option.BoolOption.supported" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether or not the option is supported.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bad_username_session_event.html"
+                        title="previous chapter">4.43. BadUsernameSessionEvent</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bool_policy.html"
+                        title="next chapter">4.45. BoolPolicy</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/bool_option.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bool_policy.html" title="4.45. BoolPolicy"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bad_username_session_event.html" title="4.43. BadUsernameSessionEvent"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

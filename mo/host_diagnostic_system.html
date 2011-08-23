@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.34. HostDiagnosticSystem &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.35. HostDirectoryStore" href="host_directory_store.html" />
@@ -58,100 +58,17 @@
 <dl class="describe">
 <dt>
 <tt class="descname">Property of</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostConfigManager</span></tt></p>
+<dd><p><a class="reference internal" href="../do/host_config_manager.html#pyvisdk.do.host_config_manager.HostConfigManager" title="pyvisdk.do.host_config_manager.HostConfigManager"><tt class="xref py py-class docutils literal"><span class="pre">HostConfigManager</span></tt></a></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">See also</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostDiagnosticPartition</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostDiagnosticPartitionCreateDescription</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostDiagnosticPartitionCreateOption</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostDiagnosticPartitionCreateSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostScsiDiskPartition</span></tt></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.host_diagnostic_system.</tt><tt class="descname">HostDiagnosticSystem</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='HostDiagnosticSystem'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_diagnostic_system.html#HostDiagnosticSystem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem.CreateDiagnosticPartition">
-<tt class="descname">CreateDiagnosticPartition</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_diagnostic_system.html#HostDiagnosticSystem.CreateDiagnosticPartition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem.CreateDiagnosticPartition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a diagnostic partition according to the provided create specification. On
-success, this method will create the partition and make the partition the
-active diagnostic partition if specified. On failure, the diagnostic
-partition may exist but may not be active if the partition was supposed to
-be made active.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem.QueryAvailablePartition">
-<tt class="descname">QueryAvailablePartition</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_diagnostic_system.html#HostDiagnosticSystem.QueryAvailablePartition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem.QueryAvailablePartition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves a list of available diagnostic partitions. The server will provide the
-list in order of preference. In general, local diagnostic partitions are
-better than shared diagnostic partitions because of the impossibility of
-multiple servers sharing the same partition. The most preferred diagnostic
-partition will be first in the array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">HostDiagnosticPartition[]</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem.QueryPartitionCreateDesc">
-<tt class="descname">QueryPartitionCreateDesc</tt><big>(</big><em>diskUuid</em>, <em>diagnosticType</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_diagnostic_system.html#HostDiagnosticSystem.QueryPartitionCreateDesc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem.QueryPartitionCreateDesc" title="Permalink to this definition">¶</a></dt>
-<dd><p>For a disk, query for the diagnostic partition creation description. The
-description details how the diagnostic partition will be created on the
-disk and provides a creation specification that is needed to invoke the
-create operation.See HostScsiDiskSee uuid</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>diskUuid</strong> &#8211; See HostScsiDiskSee uuid</li>
-<li><strong>diagnosticType</strong> &#8211; See HostScsiDiskSee uuid</li>
-</ul>
-</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">HostDiagnosticPartitionCreateDescription</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem.QueryPartitionCreateOptions">
-<tt class="descname">QueryPartitionCreateOptions</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_diagnostic_system.html#HostDiagnosticSystem.QueryPartitionCreateOptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem.QueryPartitionCreateOptions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves a list of disks that can be used to contain a diagnostic partition. This
-list will contain disks that have sufficient space to contain a diagnostic
-partition of the specific type.The choices will be returned in the order
-that is most preferable as determined by the system.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">HostDiagnosticPartitionCreateOption[]</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem.SelectActivePartition">
-<tt class="descname">SelectActivePartition</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_diagnostic_system.html#HostDiagnosticSystem.SelectActivePartition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem.SelectActivePartition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Changes the active diagnostic partition to a different partition. Setting a NULL
-partition will result in unsetting the diagnostic partition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem.activePartition">
-<tt class="descname">activePartition</tt><a class="reference internal" href="../modules/pyvisdk/mo/host_diagnostic_system.html#HostDiagnosticSystem.activePartition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_diagnostic_system.HostDiagnosticSystem.activePartition" title="Permalink to this definition">¶</a></dt>
-<dd><p>The currently active diagnostic partition.</p>
-</dd></dl>
-
+<dd><p><a class="reference internal" href="../do/host_diagnostic_partition.html#pyvisdk.do.host_diagnostic_partition.HostDiagnosticPartition" title="pyvisdk.do.host_diagnostic_partition.HostDiagnosticPartition"><tt class="xref py py-class docutils literal"><span class="pre">HostDiagnosticPartition</span></tt></a>,
+<a class="reference internal" href="../do/host_diagnostic_partition_create_description.html#pyvisdk.do.host_diagnostic_partition_create_description.HostDiagnosticPartitionCreateDescription" title="pyvisdk.do.host_diagnostic_partition_create_description.HostDiagnosticPartitionCreateDescription"><tt class="xref py py-class docutils literal"><span class="pre">HostDiagnosticPartitionCreateDescription</span></tt></a>,
+<a class="reference internal" href="../do/host_diagnostic_partition_create_option.html#pyvisdk.do.host_diagnostic_partition_create_option.HostDiagnosticPartitionCreateOption" title="pyvisdk.do.host_diagnostic_partition_create_option.HostDiagnosticPartitionCreateOption"><tt class="xref py py-class docutils literal"><span class="pre">HostDiagnosticPartitionCreateOption</span></tt></a>,
+<a class="reference internal" href="../do/host_diagnostic_partition_create_spec.html#pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec" title="pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec"><tt class="xref py py-class docutils literal"><span class="pre">HostDiagnosticPartitionCreateSpec</span></tt></a>,
+<a class="reference internal" href="../do/host_scsi_disk_partition.html#pyvisdk.do.host_scsi_disk_partition.HostScsiDiskPartition" title="pyvisdk.do.host_scsi_disk_partition.HostScsiDiskPartition"><tt class="xref py py-class docutils literal"><span class="pre">HostScsiDiskPartition</span></tt></a></p>
 </dd></dl>
 
 </div>
@@ -170,7 +87,7 @@ partition will result in unsetting the diagnostic partition.</p>
                         title="next chapter">3.35. HostDirectoryStore</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/mo/host_diagnostic_system.txt"
+    <li><a href="../_sources/mo/host_diagnostic_system.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

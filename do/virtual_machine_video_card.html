@@ -1,0 +1,153 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1206. VirtualMachineVideoCard &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1207. VirtualMachineVMCIDevice" href="virtual_machine_vmci_device.html" />
+    <link rel="prev" title="4.1205. VirtualMachineUsbInfo" href="virtual_machine_usb_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_vmci_device.html" title="4.1207. VirtualMachineVMCIDevice"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_usb_info.html" title="4.1205. VirtualMachineUsbInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualmachinevideocard">
+<h1>4.1206. VirtualMachineVideoCard<a class="headerlink" href="#virtualmachinevideocard" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">VirtualDevice</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.virtual_machine_video_card.VirtualMachineVideoCard">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.virtual_machine_video_card.</tt><tt class="descname">VirtualMachineVideoCard</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_video_card.VirtualMachineVideoCard" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_video_card.VirtualMachineVideoCard.enable3DSupport">
+<tt class="descname">enable3DSupport</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_video_card.VirtualMachineVideoCard.enable3DSupport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to indicate whether the virtual video card supports 3D functions. This property can only be updated when the virtual machine is powered off.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_video_card.VirtualMachineVideoCard.numDisplays">
+<tt class="descname">numDisplays</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_video_card.VirtualMachineVideoCard.numDisplays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the number of supported monitors. The number of displays X the maximum resolution of each display is bounded by the video RAM size of the virtual video card. This property can only be updated when the virtual machine is powered off.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_video_card.VirtualMachineVideoCard.useAutoDetect">
+<tt class="descname">useAutoDetect</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_video_card.VirtualMachineVideoCard.useAutoDetect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to indicate whether the display settings of the host on which the virtual machine is running should be used to automatically determine the display settings of the virtual machine&#8217;s video card. This setting takes effect at virtual machine power-on time. If this value is set to TRUE, numDisplays will be ignored.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_video_card.VirtualMachineVideoCard.videoRamSizeInKB">
+<tt class="descname">videoRamSizeInKB</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_video_card.VirtualMachineVideoCard.videoRamSizeInKB" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the framebuffer for a virtual machine.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_machine_usb_info.html"
+                        title="previous chapter">4.1205. VirtualMachineUsbInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_machine_vmci_device.html"
+                        title="next chapter">4.1207. VirtualMachineVMCIDevice</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/virtual_machine_video_card.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_vmci_device.html" title="4.1207. VirtualMachineVMCIDevice"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_usb_info.html" title="4.1205. VirtualMachineUsbInfo"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

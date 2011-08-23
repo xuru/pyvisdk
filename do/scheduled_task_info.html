@@ -1,0 +1,216 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.956. ScheduledTaskInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.957. ScheduledTaskReconfiguredEvent" href="scheduled_task_reconfigured_event.html" />
+    <link rel="prev" title="4.955. ScheduledTaskFailedEvent" href="scheduled_task_failed_event.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="scheduled_task_reconfigured_event.html" title="4.957. ScheduledTaskReconfiguredEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="scheduled_task_failed_event.html" title="4.955. ScheduledTaskFailedEvent"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="scheduledtaskinfo">
+<h1>4.956. ScheduledTaskInfo<a class="headerlink" href="#scheduledtaskinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ScheduledTask</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">ScheduledTask</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">Task</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">TaskInfoState</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ScheduledTaskSpec</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.scheduled_task_info.ScheduledTaskInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.scheduled_task_info.</tt><tt class="descname">ScheduledTaskInfo</tt><a class="headerlink" href="#pyvisdk.do.scheduled_task_info.ScheduledTaskInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.activeTask">
+<tt class="descname">activeTask</tt><a class="headerlink" href="#pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.activeTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>The running task instance when the scheduled task state is &#8220;running&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.entity">
+<tt class="descname">entity</tt><a class="headerlink" href="#pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The entity on which related events will be logged. If the task is scheduled on a ManagedEntity, this field will also reflect the same ManagedEntity. If task is scheduled on a ManagedObject, this field will have information about the entity on which the events will be logged on behalf of the ManagedObject. ManagedObject itself will be denoted by taskObject</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.error">
+<tt class="descname">error</tt><a class="headerlink" href="#pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>The fault code when the scheduled task state is &#8220;error&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.lastModifiedTime">
+<tt class="descname">lastModifiedTime</tt><a class="headerlink" href="#pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.lastModifiedTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time the scheduled task is created or modified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.lastModifiedUser">
+<tt class="descname">lastModifiedUser</tt><a class="headerlink" href="#pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.lastModifiedUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Last user that modified the scheduled task.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.nextRunTime">
+<tt class="descname">nextRunTime</tt><a class="headerlink" href="#pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.nextRunTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The next time the scheduled task will run.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.prevRunTime">
+<tt class="descname">prevRunTime</tt><a class="headerlink" href="#pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.prevRunTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The last time the scheduled task ran.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.progress">
+<tt class="descname">progress</tt><a class="headerlink" href="#pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.progress" title="Permalink to this definition">¶</a></dt>
+<dd><p>The task progress when the scheduled task state is &#8220;running&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.result">
+<tt class="descname">result</tt><a class="headerlink" href="#pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.result" title="Permalink to this definition">¶</a></dt>
+<dd><p>The operation result when the scheduled task state is &#8220;success&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.scheduledTask">
+<tt class="descname">scheduledTask</tt><a class="headerlink" href="#pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.scheduledTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scheduled task object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.state">
+<tt class="descname">state</tt><a class="headerlink" href="#pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scheduled task state.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.taskObject">
+<tt class="descname">taskObject</tt><a class="headerlink" href="#pyvisdk.do.scheduled_task_info.ScheduledTaskInfo.taskObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>The object on which the scheduled task is defined. This field will have information about either the ManagedEntity or the ManagedObject on which the scheduled task is defined.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scheduled_task_failed_event.html"
+                        title="previous chapter">4.955. ScheduledTaskFailedEvent</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scheduled_task_reconfigured_event.html"
+                        title="next chapter">4.957. ScheduledTaskReconfiguredEvent</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/scheduled_task_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="scheduled_task_reconfigured_event.html" title="4.957. ScheduledTaskReconfiguredEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="scheduled_task_failed_event.html" title="4.955. ScheduledTaskFailedEvent"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

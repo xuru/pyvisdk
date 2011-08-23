@@ -1,0 +1,153 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.225. DiagnosticManagerBundleInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.226. DiagnosticManagerLogDescriptor" href="diagnostic_manager_log_descriptor.html" />
+    <link rel="prev" title="4.224. DeviceBackedVirtualDiskSpec" href="device_backed_virtual_disk_spec.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="diagnostic_manager_log_descriptor.html" title="4.226. DiagnosticManagerLogDescriptor"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="device_backed_virtual_disk_spec.html" title="4.224. DeviceBackedVirtualDiskSpec"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="diagnosticmanagerbundleinfo">
+<h1>4.225. DiagnosticManagerBundleInfo<a class="headerlink" href="#diagnosticmanagerbundleinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">GenerateLogBundles_Task()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.diagnostic_manager_bundle_info.DiagnosticManagerBundleInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.diagnostic_manager_bundle_info.</tt><tt class="descname">DiagnosticManagerBundleInfo</tt><a class="headerlink" href="#pyvisdk.do.diagnostic_manager_bundle_info.DiagnosticManagerBundleInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.diagnostic_manager_bundle_info.DiagnosticManagerBundleInfo.system">
+<tt class="descname">system</tt><a class="headerlink" href="#pyvisdk.do.diagnostic_manager_bundle_info.DiagnosticManagerBundleInfo.system" title="Permalink to this definition">¶</a></dt>
+<dd><p>The host to which this diagnostic bundle belongs. If this is for the default server, then it is not set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.diagnostic_manager_bundle_info.DiagnosticManagerBundleInfo.url">
+<tt class="descname">url</tt><a class="headerlink" href="#pyvisdk.do.diagnostic_manager_bundle_info.DiagnosticManagerBundleInfo.url" title="Permalink to this definition">¶</a></dt>
+<dd><p>The location from which the diagnostic bundle can be downloaded. The host part of the URL is returned as &#8216;*&#8217; if the hostname to be used is the name of the server to which the call was made. For example, if the call is made to vcsrv1.domain1.com, and the bundle is available for download from <a class="reference external" href="http://vcsrv1.domain1.com/diagnostics/bundle.zip">http://vcsrv1.domain1.com/diagnostics/bundle.zip</a>, the URL returned may be <a class="reference external" href="http://">http://</a> * /diagnostics/bundle.zip. The client replaces the asterisk with the server name on which it invoked the call.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="device_backed_virtual_disk_spec.html"
+                        title="previous chapter">4.224. DeviceBackedVirtualDiskSpec</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="diagnostic_manager_log_descriptor.html"
+                        title="next chapter">4.226. DiagnosticManagerLogDescriptor</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/diagnostic_manager_bundle_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="diagnostic_manager_log_descriptor.html" title="4.226. DiagnosticManagerLogDescriptor"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="device_backed_virtual_disk_spec.html" title="4.224. DeviceBackedVirtualDiskSpec"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

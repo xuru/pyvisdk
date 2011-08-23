@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1145. VirtualMachineCapability &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1146. VirtualMachineCdromInfo" href="virtual_machine_cdrom_info.html" />
+    <link rel="prev" title="4.1144. VirtualMachineBootOptions" href="virtual_machine_boot_options.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_cdrom_info.html" title="4.1146. VirtualMachineCdromInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_boot_options.html" title="4.1144. VirtualMachineBootOptions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualmachinecapability">
+<h1>4.1145. VirtualMachineCapability<a class="headerlink" href="#virtualmachinecapability" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt>,
+<a class="reference internal" href="virtual_machine_config_option.html#pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption" title="pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineConfigOption</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.virtual_machine_capability.</tt><tt class="descname">VirtualMachineCapability</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.bootOptionsSupported">
+<tt class="descname">bootOptionsSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.bootOptionsSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether boot options can be configured for this virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.bootRetryOptionsSupported">
+<tt class="descname">bootRetryOptionsSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.bootRetryOptionsSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether automatic boot retry can be configured for this virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.changeTrackingSupported">
+<tt class="descname">changeTrackingSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.changeTrackingSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates that change tracking is supported for virtual disks of this virtual machine. However, even if change tracking is supported, it might not be available for all disks of the virtual machine. For example, passthru raw disk mappings or disks backed by any Ver1BackingInfo cannot be tracked.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.consolePreferencesSupported">
+<tt class="descname">consolePreferencesSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.consolePreferencesSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether console preferences can be set for this virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.cpuFeatureMaskSupported">
+<tt class="descname">cpuFeatureMaskSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.cpuFeatureMaskSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether CPU feature requirements masks can be set for this virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.disableSnapshotsSupported">
+<tt class="descname">disableSnapshotsSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.disableSnapshotsSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not snapshots can be disabled.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.diskSharesSupported">
+<tt class="descname">diskSharesSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.diskSharesSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether resource settings for disks can be applied to this virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.lockSnapshotsSupported">
+<tt class="descname">lockSnapshotsSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.lockSnapshotsSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not the snapshot tree can be locked.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.memorySnapshotsSupported">
+<tt class="descname">memorySnapshotsSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.memorySnapshotsSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not a virtual machine supports memory snapshots.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.multipleSnapshotsSupported">
+<tt class="descname">multipleSnapshotsSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.multipleSnapshotsSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not a virtual machine supports multiple snapshots. This value is not set when the virtual machine is unavailable, for instance, when it is being created or deleted.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.npivWwnOnNonRdmVmSupported">
+<tt class="descname">npivWwnOnNonRdmVmSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.npivWwnOnNonRdmVmSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Supports assigning NPIV WWN to virtual machines that don&#8217;t have RDM disks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.poweredOffSnapshotsSupported">
+<tt class="descname">poweredOffSnapshotsSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.poweredOffSnapshotsSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not a virtual machine supports snapshot operations in poweredOff state. This flag doesn&#8217;t affect vim.VirtualMachine.GetSnapshot, which is always supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.quiescedSnapshotsSupported">
+<tt class="descname">quiescedSnapshotsSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.quiescedSnapshotsSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not a virtual machine supports quiesced snapshots.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.recordReplaySupported">
+<tt class="descname">recordReplaySupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.recordReplaySupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether record and replay functionality is supported on this virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.revertToSnapshotSupported">
+<tt class="descname">revertToSnapshotSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.revertToSnapshotSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not a virtual machine supports reverting to a snapshot.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.s1AcpiManagementSupported">
+<tt class="descname">s1AcpiManagementSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.s1AcpiManagementSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not a virtual machine supports ACPI S1 settings management.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.settingDisplayTopologySupported">
+<tt class="descname">settingDisplayTopologySupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.settingDisplayTopologySupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether of not this virtual machine supports setting the display topology of the console window. This capability depends on the guest operating system configured for this virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.settingScreenResolutionSupported">
+<tt class="descname">settingScreenResolutionSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.settingScreenResolutionSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether of not this virtual machine supports setting the screen resolution of the console window. This capability depends on the guest operating system configured for this virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.settingVideoRamSizeSupported">
+<tt class="descname">settingVideoRamSizeSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.settingVideoRamSizeSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether the video ram size of this virtual machine can be configured.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.snapshotConfigSupported">
+<tt class="descname">snapshotConfigSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.snapshotConfigSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not a virtual machine supports snapshot config.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.snapshotOperationsSupported">
+<tt class="descname">snapshotOperationsSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.snapshotOperationsSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not a virtual machine supports snapshot operations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.swapPlacementSupported">
+<tt class="descname">swapPlacementSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.swapPlacementSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether the virtual machine has a configurable swapfile placement policy.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.toolsAutoUpdateSupported">
+<tt class="descname">toolsAutoUpdateSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.toolsAutoUpdateSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Supports tools auto-update.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.toolsSyncTimeSupported">
+<tt class="descname">toolsSyncTimeSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.toolsSyncTimeSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether asking tools to sync time with the host is supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.virtualMmuUsageSupported">
+<tt class="descname">virtualMmuUsageSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.virtualMmuUsageSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not the use of nested page table hardware support can be explicitly set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.vmNpivWwnDisableSupported">
+<tt class="descname">vmNpivWwnDisableSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.vmNpivWwnDisableSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether the NPIV disabling operation is supported the virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.vmNpivWwnSupported">
+<tt class="descname">vmNpivWwnSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.vmNpivWwnSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Supports virtual machine NPIV WWN.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.vmNpivWwnUpdateSupported">
+<tt class="descname">vmNpivWwnUpdateSupported</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability.vmNpivWwnUpdateSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether the update of NPIV WWNs are supported on the virtual machine.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_machine_boot_options.html"
+                        title="previous chapter">4.1144. VirtualMachineBootOptions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_machine_cdrom_info.html"
+                        title="next chapter">4.1146. VirtualMachineCdromInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/virtual_machine_capability.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_cdrom_info.html" title="4.1146. VirtualMachineCdromInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_boot_options.html" title="4.1144. VirtualMachineBootOptions"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

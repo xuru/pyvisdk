@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.843. OvfParseDescriptorResult &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.844. OvfResourceMap" href="ovf_resource_map.html" />
+    <link rel="prev" title="4.842. OvfParseDescriptorParams" href="ovf_parse_descriptor_params.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ovf_resource_map.html" title="4.844. OvfResourceMap"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ovf_parse_descriptor_params.html" title="4.842. OvfParseDescriptorParams"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="ovfparsedescriptorresult">
+<h1>4.843. OvfParseDescriptorResult<a class="headerlink" href="#ovfparsedescriptorresult" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="key_value.html#pyvisdk.do.key_value.KeyValue" title="pyvisdk.do.key_value.KeyValue"><tt class="xref py py-class docutils literal"><span class="pre">KeyValue</span></tt></a>,
+<a class="reference internal" href="ovf_deployment_option.html#pyvisdk.do.ovf_deployment_option.OvfDeploymentOption" title="pyvisdk.do.ovf_deployment_option.OvfDeploymentOption"><tt class="xref py py-class docutils literal"><span class="pre">OvfDeploymentOption</span></tt></a>,
+<a class="reference internal" href="ovf_network_info.html#pyvisdk.do.ovf_network_info.OvfNetworkInfo" title="pyvisdk.do.ovf_network_info.OvfNetworkInfo"><tt class="xref py py-class docutils literal"><span class="pre">OvfNetworkInfo</span></tt></a>,
+<a class="reference internal" href="v_app_product_info.html#pyvisdk.do.v_app_product_info.VAppProductInfo" title="pyvisdk.do.v_app_product_info.VAppProductInfo"><tt class="xref py py-class docutils literal"><span class="pre">VAppProductInfo</span></tt></a>,
+<a class="reference internal" href="v_app_property_info.html#pyvisdk.do.v_app_property_info.VAppPropertyInfo" title="pyvisdk.do.v_app_property_info.VAppPropertyInfo"><tt class="xref py py-class docutils literal"><span class="pre">VAppPropertyInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">ParseDescriptor()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.ovf_parse_descriptor_result.</tt><tt class="descname">OvfParseDescriptorResult</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.annotation">
+<tt class="descname">annotation</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.annotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>The annotation info contained in the OVF</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.approximateDownloadSize">
+<tt class="descname">approximateDownloadSize</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.approximateDownloadSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>The OVF Manager&#8217;s best guess as to the total amount of data that must be transferred to download the entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.approximateFlatDeploymentSize">
+<tt class="descname">approximateFlatDeploymentSize</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.approximateFlatDeploymentSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>The OVF Manager&#8217;s best guess as to the total amount of space required to deploy the entity if using flat disks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.approximateSparseDeploymentSize">
+<tt class="descname">approximateSparseDeploymentSize</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.approximateSparseDeploymentSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>The OVF Manager&#8217;s best guess as to the total amount of space required to deploy the entity using sparse disks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.defaultDeploymentOption">
+<tt class="descname">defaultDeploymentOption</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.defaultDeploymentOption" title="Permalink to this definition">¶</a></dt>
+<dd><p>The key of the default deployment option. Empty only if there are no deployment options.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.defaultEntityName">
+<tt class="descname">defaultEntityName</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.defaultEntityName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default name to use for the entity, if a product name is not specified. This is the ID of the OVF top-level entity, or taken from a ProductSection.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.deploymentOption">
+<tt class="descname">deploymentOption</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.deploymentOption" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of possible deployment options.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.entityName">
+<tt class="descname">entityName</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.entityName" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of the child entities contained in this package and their location in the vApp hierarchy. Each entry is a (key,value) pair, where the key is the display name, and the value is a unique path identifier for the entity in the vApp. The path is constructed by appending the id of each entity of the path down to the entity, separated by slashes. For example, the path for a child of the root entity with id = &#8220;vm1&#8221;, would simply be &#8220;vm1&#8221;. If the vm is the child of a VirtualSystemCollection called &#8220;webTier&#8221;, then the path would be &#8220;webTier/vm&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.error">
+<tt class="descname">error</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Errors that happened during processing. Something will be wrong with the result.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.eula">
+<tt class="descname">eula</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.eula" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of all EULAs contained in the OVF</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.ipAllocationScheme">
+<tt class="descname">ipAllocationScheme</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.ipAllocationScheme" title="Permalink to this definition">¶</a></dt>
+<dd><p>The kind of IP allocation supported by the guest.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.ipProtocols">
+<tt class="descname">ipProtocols</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.ipProtocols" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IP protocols supported by the guest.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.network">
+<tt class="descname">network</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.network" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of networks required by the OVF</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.productInfo">
+<tt class="descname">productInfo</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.productInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>The product info contained in the OVF</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.property_">
+<tt class="descname">property_</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.property_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metadata about the properties contained in the OVF</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.virtualApp">
+<tt class="descname">virtualApp</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.virtualApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the OVF contains a vApp (containing one or more vApps and/or virtual machines), as opposed to a single virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.warning">
+<tt class="descname">warning</tt><a class="headerlink" href="#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult.warning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Non-fatal warnings from the processing. The result will be valid, but the user may choose to reject it based on these warnings.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ovf_parse_descriptor_params.html"
+                        title="previous chapter">4.842. OvfParseDescriptorParams</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ovf_resource_map.html"
+                        title="next chapter">4.844. OvfResourceMap</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/ovf_parse_descriptor_result.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ovf_resource_map.html" title="4.844. OvfResourceMap"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ovf_parse_descriptor_params.html" title="4.842. OvfParseDescriptorParams"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

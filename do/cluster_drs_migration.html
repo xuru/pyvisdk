@@ -1,0 +1,210 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.83. ClusterDrsMigration &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.84. ClusterDrsRecommendation" href="cluster_drs_recommendation.html" />
+    <link rel="prev" title="4.82. ClusterDrsFaultsFaultsByVm" href="cluster_drs_faults_faults_by_vm.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cluster_drs_recommendation.html" title="4.84. ClusterDrsRecommendation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cluster_drs_faults_faults_by_vm.html" title="4.82. ClusterDrsFaultsFaultsByVm"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="clusterdrsmigration">
+<h1>4.83. ClusterDrsMigration<a class="headerlink" href="#clusterdrsmigration" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ClusterComputeResource</span></tt>,
+<a class="reference internal" href="cluster_drs_recommendation.html#pyvisdk.do.cluster_drs_recommendation.ClusterDrsRecommendation" title="pyvisdk.do.cluster_drs_recommendation.ClusterDrsRecommendation"><tt class="xref py py-class docutils literal"><span class="pre">ClusterDrsRecommendation</span></tt></a>,
+<a class="reference internal" href="cluster_migration_action.html#pyvisdk.do.cluster_migration_action.ClusterMigrationAction" title="pyvisdk.do.cluster_migration_action.ClusterMigrationAction"><tt class="xref py py-class docutils literal"><span class="pre">ClusterMigrationAction</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.cluster_drs_migration.ClusterDrsMigration">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.cluster_drs_migration.</tt><tt class="descname">ClusterDrsMigration</tt><a class="headerlink" href="#pyvisdk.do.cluster_drs_migration.ClusterDrsMigration" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.cpuLoad">
+<tt class="descname">cpuLoad</tt><a class="headerlink" href="#pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.cpuLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current CPU load for the virtual machine, in MHz. This property is only populated for recommendations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.destination">
+<tt class="descname">destination</tt><a class="headerlink" href="#pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destination host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.destinationCpuLoad">
+<tt class="descname">destinationCpuLoad</tt><a class="headerlink" href="#pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.destinationCpuLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current CPU load on the destination host, in MHz.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.destinationMemoryLoad">
+<tt class="descname">destinationMemoryLoad</tt><a class="headerlink" href="#pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.destinationMemoryLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current memory usage on the destination host, in bytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.key">
+<tt class="descname">key</tt><a class="headerlink" href="#pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unique key that identifies this recommendation. This is used as an argument to ComputeResource.applyRecommendation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.memoryLoad">
+<tt class="descname">memoryLoad</tt><a class="headerlink" href="#pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.memoryLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current memory load for the virtual machine, in bytes. This field is only populated for recommendations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.source">
+<tt class="descname">source</tt><a class="headerlink" href="#pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Source host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.sourceCpuLoad">
+<tt class="descname">sourceCpuLoad</tt><a class="headerlink" href="#pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.sourceCpuLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current CPU load on the source host, in MHz.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.sourceMemoryLoad">
+<tt class="descname">sourceMemoryLoad</tt><a class="headerlink" href="#pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.sourceMemoryLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current memory usage on the source host, in bytes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.time">
+<tt class="descname">time</tt><a class="headerlink" href="#pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time this recommendation was computed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.vm">
+<tt class="descname">vm</tt><a class="headerlink" href="#pyvisdk.do.cluster_drs_migration.ClusterDrsMigration.vm" title="Permalink to this definition">¶</a></dt>
+<dd><p>The virtual machine selected for migration.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cluster_drs_faults_faults_by_vm.html"
+                        title="previous chapter">4.82. ClusterDrsFaultsFaultsByVm</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cluster_drs_recommendation.html"
+                        title="next chapter">4.84. ClusterDrsRecommendation</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/cluster_drs_migration.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cluster_drs_recommendation.html" title="4.84. ClusterDrsRecommendation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cluster_drs_faults_faults_by_vm.html" title="4.82. ClusterDrsFaultsFaultsByVm"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

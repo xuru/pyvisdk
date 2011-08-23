@@ -1,0 +1,190 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.250. DistributedVirtualSwitchPortCriteria &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.251. DistributedVirtualSwitchPortStatistics" href="distributed_virtual_switch_port_statistics.html" />
+    <link rel="prev" title="4.249. DistributedVirtualSwitchPortConnection" href="distributed_virtual_switch_port_connection.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="distributed_virtual_switch_port_statistics.html" title="4.251. DistributedVirtualSwitchPortStatistics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="distributed_virtual_switch_port_connection.html" title="4.249. DistributedVirtualSwitchPortConnection"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="distributedvirtualswitchportcriteria">
+<h1>4.250. DistributedVirtualSwitchPortCriteria<a class="headerlink" href="#distributedvirtualswitchportcriteria" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">FetchDVPortKeys()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">FetchDVPorts()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.distributed_virtual_switch_port_criteria.</tt><tt class="descname">DistributedVirtualSwitchPortCriteria</tt><a class="headerlink" href="#pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria.active">
+<tt class="descname">active</tt><a class="headerlink" href="#pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria.active" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, only the active ports are qualified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria.connected">
+<tt class="descname">connected</tt><a class="headerlink" href="#pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria.connected" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, only the connected ports are qualified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria.inside">
+<tt class="descname">inside</tt><a class="headerlink" href="#pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria.inside" title="Permalink to this definition">¶</a></dt>
+<dd><p>If unset, all ports in the switch are qualified. If set to true, only ports inside portgroupKey or any portgroup, if not set, are qualified. If set to false, only ports outside portgroupKey or any portgroup, if not set, are qualified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria.portgroupKey">
+<tt class="descname">portgroupKey</tt><a class="headerlink" href="#pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria.portgroupKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>The keys of the portgroup that is used for the scope of inside. If this property is unset, it means any portgroup. If inside is unset, this property is ignored.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria.portKey">
+<tt class="descname">portKey</tt><a class="headerlink" href="#pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria.portKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, only the ports of which the key is in the array are qualified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria.scope">
+<tt class="descname">scope</tt><a class="headerlink" href="#pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria.scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, only the ports of which the scope covers the entity are qualified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria.uplinkPort">
+<tt class="descname">uplinkPort</tt><a class="headerlink" href="#pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria.uplinkPort" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set to true, only the uplink ports are qualified. If set to false, only non-uplink ports are qualified.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="distributed_virtual_switch_port_connection.html"
+                        title="previous chapter">4.249. DistributedVirtualSwitchPortConnection</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="distributed_virtual_switch_port_statistics.html"
+                        title="next chapter">4.251. DistributedVirtualSwitchPortStatistics</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/distributed_virtual_switch_port_criteria.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="distributed_virtual_switch_port_statistics.html" title="4.251. DistributedVirtualSwitchPortStatistics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="distributed_virtual_switch_port_connection.html" title="4.249. DistributedVirtualSwitchPortConnection"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

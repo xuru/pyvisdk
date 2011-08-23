@@ -1,0 +1,188 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.712. HttpNfcLeaseDeviceUrl &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.713. HttpNfcLeaseHostInfo" href="http_nfc_lease_host_info.html" />
+    <link rel="prev" title="4.711. HttpNfcLeaseDatastoreLeaseInfo" href="http_nfc_lease_datastore_lease_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="http_nfc_lease_host_info.html" title="4.713. HttpNfcLeaseHostInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="http_nfc_lease_datastore_lease_info.html" title="4.711. HttpNfcLeaseDatastoreLeaseInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="httpnfcleasedeviceurl">
+<h1>4.712. HttpNfcLeaseDeviceUrl<a class="headerlink" href="#httpnfcleasedeviceurl" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="http_nfc_lease_info.html#pyvisdk.do.http_nfc_lease_info.HttpNfcLeaseInfo" title="pyvisdk.do.http_nfc_lease_info.HttpNfcLeaseInfo"><tt class="xref py py-class docutils literal"><span class="pre">HttpNfcLeaseInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.http_nfc_lease_device_url.</tt><tt class="descname">HttpNfcLeaseDeviceUrl</tt><a class="headerlink" href="#pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.datastoreKey">
+<tt class="descname">datastoreKey</tt><a class="headerlink" href="#pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.datastoreKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Key for the datastore this disk is on. This is used to look up hosts which can be used to multi-POST disk contents, in the host map of the lease.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.disk">
+<tt class="descname">disk</tt><a class="headerlink" href="#pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optional value to specify if the attached file is a disk in vmdk format.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.fileSize">
+<tt class="descname">fileSize</tt><a class="headerlink" href="#pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.fileSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the size of the file backing for this device. This property is only set for non-disk file backings.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.importKey">
+<tt class="descname">importKey</tt><a class="headerlink" href="#pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.importKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the device based on the names in an ImportSpec. This is only set for import leases.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.key">
+<tt class="descname">key</tt><a class="headerlink" href="#pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>The immutable identifier for the device. This is set for both import/export leases.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.sslThumbprint">
+<tt class="descname">sslThumbprint</tt><a class="headerlink" href="#pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.sslThumbprint" title="Permalink to this definition">¶</a></dt>
+<dd><p>SSL thumbprint for the host the URL refers to. Empty if no SSL thumbprint is available or needed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.targetId">
+<tt class="descname">targetId</tt><a class="headerlink" href="#pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.targetId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Id for this target. This only used for multi-POSTing, where a single HTTP POST is applied to multiple targets.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.url">
+<tt class="descname">url</tt><a class="headerlink" href="#pyvisdk.do.http_nfc_lease_device_url.HttpNfcLeaseDeviceUrl.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="http_nfc_lease_datastore_lease_info.html"
+                        title="previous chapter">4.711. HttpNfcLeaseDatastoreLeaseInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="http_nfc_lease_host_info.html"
+                        title="next chapter">4.713. HttpNfcLeaseHostInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/http_nfc_lease_device_url.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="http_nfc_lease_host_info.html" title="4.713. HttpNfcLeaseHostInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="http_nfc_lease_datastore_lease_info.html" title="4.711. HttpNfcLeaseDatastoreLeaseInfo"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

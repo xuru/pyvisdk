@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.588. HostNetCapabilities &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.589. HostNetOffloadCapabilities" href="host_net_offload_capabilities.html" />
+    <link rel="prev" title="4.587. HostNatServiceSpec" href="host_nat_service_spec.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_net_offload_capabilities.html" title="4.589. HostNetOffloadCapabilities"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_nat_service_spec.html" title="4.587. HostNatServiceSpec"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hostnetcapabilities">
+<h1>4.588. HostNetCapabilities<a class="headerlink" href="#hostnetcapabilities" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="host_config_info.html#pyvisdk.do.host_config_info.HostConfigInfo" title="pyvisdk.do.host_config_info.HostConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostConfigInfo</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">HostNetworkSystem</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.host_net_capabilities.HostNetCapabilities">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.host_net_capabilities.</tt><tt class="descname">HostNetCapabilities</tt><a class="headerlink" href="#pyvisdk.do.host_net_capabilities.HostNetCapabilities" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.host_net_capabilities.HostNetCapabilities.canSetPhysicalNicLinkSpeed">
+<tt class="descname">canSetPhysicalNicLinkSpeed</tt><a class="headerlink" href="#pyvisdk.do.host_net_capabilities.HostNetCapabilities.canSetPhysicalNicLinkSpeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether or not a physical network adapter&#8217;s link speed and duplex settings can be changed through this API. For a hosted product, the host uses its physical network adapters for network connectivity. Configuration of link speed is done through regular host operations. In ESX Server, the configuration can be changed through this API.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_net_capabilities.HostNetCapabilities.dhcpOnVnicSupported">
+<tt class="descname">dhcpOnVnicSupported</tt><a class="headerlink" href="#pyvisdk.do.host_net_capabilities.HostNetCapabilities.dhcpOnVnicSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>This flag indicates whether or not the host is able to support dhcp configuration for vnics.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_net_capabilities.HostNetCapabilities.dnsConfigSupported">
+<tt class="descname">dnsConfigSupported</tt><a class="headerlink" href="#pyvisdk.do.host_net_capabilities.HostNetCapabilities.dnsConfigSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether DNS configuration for the host is supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_net_capabilities.HostNetCapabilities.ipRouteConfigSupported">
+<tt class="descname">ipRouteConfigSupported</tt><a class="headerlink" href="#pyvisdk.do.host_net_capabilities.HostNetCapabilities.ipRouteConfigSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether ip route configuration for the host is supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_net_capabilities.HostNetCapabilities.ipV6Supported">
+<tt class="descname">ipV6Supported</tt><a class="headerlink" href="#pyvisdk.do.host_net_capabilities.HostNetCapabilities.ipV6Supported" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether the host is capable of communicating using ipv6 protocol</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_net_capabilities.HostNetCapabilities.maxPortGroupsPerVswitch">
+<tt class="descname">maxPortGroupsPerVswitch</tt><a class="headerlink" href="#pyvisdk.do.host_net_capabilities.HostNetCapabilities.maxPortGroupsPerVswitch" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum number of port groups supported per virtual switch. This property will not be set if this value is unlimited.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_net_capabilities.HostNetCapabilities.nicTeamingPolicy">
+<tt class="descname">nicTeamingPolicy</tt><a class="headerlink" href="#pyvisdk.do.host_net_capabilities.HostNetCapabilities.nicTeamingPolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>The available teaming policies if the platform supports network adapter teaming.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_net_capabilities.HostNetCapabilities.supportsNetworkHints">
+<tt class="descname">supportsNetworkHints</tt><a class="headerlink" href="#pyvisdk.do.host_net_capabilities.HostNetCapabilities.supportsNetworkHints" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether or not the host is able to support the querying of network hints.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_net_capabilities.HostNetCapabilities.supportsNicTeaming">
+<tt class="descname">supportsNicTeaming</tt><a class="headerlink" href="#pyvisdk.do.host_net_capabilities.HostNetCapabilities.supportsNicTeaming" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether or not network adapter teaming is available. Multiple network adapters can be bridged to a virtual switch through a BondBridge. Also, network adapter teaming policies such as failover order and detection are enabled.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_net_capabilities.HostNetCapabilities.supportsVlan">
+<tt class="descname">supportsVlan</tt><a class="headerlink" href="#pyvisdk.do.host_net_capabilities.HostNetCapabilities.supportsVlan" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether or not VLANs can be configured on PortGroups attached to VirtualSwitch objects. This allows VLANs for virtual machines without requiring special VLAN capable hardware switches.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_net_capabilities.HostNetCapabilities.usesServiceConsoleNic">
+<tt class="descname">usesServiceConsoleNic</tt><a class="headerlink" href="#pyvisdk.do.host_net_capabilities.HostNetCapabilities.usesServiceConsoleNic" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether or not a service console network adapter is used or required. This means that the system software has two TCP/IP stacks. As a result, at least two types of VirtualNics may be created &#8211; the normal VirtualNic and the service console VirtualNic. If this is not set, then only the VirtualNic type is supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_net_capabilities.HostNetCapabilities.vnicConfigSupported">
+<tt class="descname">vnicConfigSupported</tt><a class="headerlink" href="#pyvisdk.do.host_net_capabilities.HostNetCapabilities.vnicConfigSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether vnic configuration is supported. This means that operations to add, remove, update virtualNic are supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_net_capabilities.HostNetCapabilities.vswitchConfigSupported">
+<tt class="descname">vswitchConfigSupported</tt><a class="headerlink" href="#pyvisdk.do.host_net_capabilities.HostNetCapabilities.vswitchConfigSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether virtual switch configuration is supported. This means that operations to add, remove, update virtual switches are supported.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_nat_service_spec.html"
+                        title="previous chapter">4.587. HostNatServiceSpec</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_net_offload_capabilities.html"
+                        title="next chapter">4.589. HostNetOffloadCapabilities</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/host_net_capabilities.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_net_offload_capabilities.html" title="4.589. HostNetOffloadCapabilities"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_nat_service_spec.html" title="4.587. HostNatServiceSpec"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

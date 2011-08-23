@@ -1,0 +1,183 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1110. VirtualDiskSparseVer2BackingInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1111. VirtualDiskSparseVer2BackingOption" href="virtual_disk_sparse_ver2_backing_option.html" />
+    <link rel="prev" title="4.1109. VirtualDiskSparseVer1BackingOption" href="virtual_disk_sparse_ver1_backing_option.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_disk_sparse_ver2_backing_option.html" title="4.1111. VirtualDiskSparseVer2BackingOption"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_disk_sparse_ver1_backing_option.html" title="4.1109. VirtualDiskSparseVer1BackingOption"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualdisksparsever2backinginfo">
+<h1>4.1110. VirtualDiskSparseVer2BackingInfo<a class="headerlink" href="#virtualdisksparsever2backinginfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="#pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo" title="pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualDiskSparseVer2BackingInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">VirtualDeviceFileBackingInfo</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.virtual_disk_sparse_ver2_backing_info.</tt><tt class="descname">VirtualDiskSparseVer2BackingInfo</tt><a class="headerlink" href="#pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.changeId">
+<tt class="descname">changeId</tt><a class="headerlink" href="#pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.changeId" title="Permalink to this definition">¶</a></dt>
+<dd><p>The change ID of the virtual disk for the corresponding snapshot or virtual machine. This can be used to track incremental changes to a virtual disk. See QueryChangedDiskAreas.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.contentId">
+<tt class="descname">contentId</tt><a class="headerlink" href="#pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.contentId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Content ID of the virtual disk file, if available.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.diskMode">
+<tt class="descname">diskMode</tt><a class="headerlink" href="#pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.diskMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>The disk persistence mode. Valid modes are: * persistent * independent_persistent * independent_nonpersistent</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.parent">
+<tt class="descname">parent</tt><a class="headerlink" href="#pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>The parent of this virtual disk file, if this is a delta disk backing. This will be unset if this is not a delta disk backing.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.spaceUsedInKB">
+<tt class="descname">spaceUsedInKB</tt><a class="headerlink" href="#pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.spaceUsedInKB" title="Permalink to this definition">¶</a></dt>
+<dd><p>The space in use for this sparse disk. This information is provided when retrieving configuration information for an exisiting virtual machine. The client cannot modify this information using reconfigure on a virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.split">
+<tt class="descname">split</tt><a class="headerlink" href="#pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to indicate the type of virtual disk file: split or monolithic. If true, the virtual disk is stored in multiple files, each 2GB.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.uuid">
+<tt class="descname">uuid</tt><a class="headerlink" href="#pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disk UUID for the virtual disk, if available.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.writeThrough">
+<tt class="descname">writeThrough</tt><a class="headerlink" href="#pyvisdk.do.virtual_disk_sparse_ver2_backing_info.VirtualDiskSparseVer2BackingInfo.writeThrough" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to indicate whether writes should go directly to the file system or should be buffered.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_disk_sparse_ver1_backing_option.html"
+                        title="previous chapter">4.1109. VirtualDiskSparseVer1BackingOption</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_disk_sparse_ver2_backing_option.html"
+                        title="next chapter">4.1111. VirtualDiskSparseVer2BackingOption</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/virtual_disk_sparse_ver2_backing_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_disk_sparse_ver2_backing_option.html" title="4.1111. VirtualDiskSparseVer2BackingOption"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_disk_sparse_ver1_backing_option.html" title="4.1109. VirtualDiskSparseVer1BackingOption"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

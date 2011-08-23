@@ -1,0 +1,197 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.156. CustomizationIPSettings &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.157. CustomizationIPSettingsIpV6AddressSpec" href="customization_ip_settings_ip_v6_address_spec.html" />
+    <link rel="prev" title="4.155. CustomizationIpGenerator" href="customization_ip_generator.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="customization_ip_settings_ip_v6_address_spec.html" title="4.157. CustomizationIPSettingsIpV6AddressSpec"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="customization_ip_generator.html" title="4.155. CustomizationIpGenerator"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="customizationipsettings">
+<h1>4.156. CustomizationIPSettings<a class="headerlink" href="#customizationipsettings" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="customization_adapter_mapping.html#pyvisdk.do.customization_adapter_mapping.CustomizationAdapterMapping" title="pyvisdk.do.customization_adapter_mapping.CustomizationAdapterMapping"><tt class="xref py py-class docutils literal"><span class="pre">CustomizationAdapterMapping</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="customization_ip_generator.html#pyvisdk.do.customization_ip_generator.CustomizationIpGenerator" title="pyvisdk.do.customization_ip_generator.CustomizationIpGenerator"><tt class="xref py py-class docutils literal"><span class="pre">CustomizationIpGenerator</span></tt></a>,
+<a class="reference internal" href="customization_ip_settings_ip_v6_address_spec.html#pyvisdk.do.customization_ip_settings_ip_v6_address_spec.CustomizationIPSettingsIpV6AddressSpec" title="pyvisdk.do.customization_ip_settings_ip_v6_address_spec.CustomizationIPSettingsIpV6AddressSpec"><tt class="xref py py-class docutils literal"><span class="pre">CustomizationIPSettingsIpV6AddressSpec</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">CustomizationNetBIOSMode</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.customization_ip_settings.CustomizationIPSettings">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.customization_ip_settings.</tt><tt class="descname">CustomizationIPSettings</tt><a class="headerlink" href="#pyvisdk.do.customization_ip_settings.CustomizationIPSettings" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.customization_ip_settings.CustomizationIPSettings.dnsDomain">
+<tt class="descname">dnsDomain</tt><a class="headerlink" href="#pyvisdk.do.customization_ip_settings.CustomizationIPSettings.dnsDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>A DNS domain suffix such as vmware.com.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_ip_settings.CustomizationIPSettings.dnsServerList">
+<tt class="descname">dnsServerList</tt><a class="headerlink" href="#pyvisdk.do.customization_ip_settings.CustomizationIPSettings.dnsServerList" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of server IP addresses to use for DNS lookup in a Windows guest operating system. In Windows, these settings are adapter-specific, whereas in Linux, they are global. As a result, the Linux guest customization process ignores this setting and looks for its DNS servers in the globalIPSettings object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_ip_settings.CustomizationIPSettings.gateway">
+<tt class="descname">gateway</tt><a class="headerlink" href="#pyvisdk.do.customization_ip_settings.CustomizationIPSettings.gateway" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a virtual network adapter with a static IP address, this data object type contains a list of gateways, in order of preference.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_ip_settings.CustomizationIPSettings.ip">
+<tt class="descname">ip</tt><a class="headerlink" href="#pyvisdk.do.customization_ip_settings.CustomizationIPSettings.ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specification to obtain a unique IP address for this virtual network adapter.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_ip_settings.CustomizationIPSettings.ipV6Spec">
+<tt class="descname">ipV6Spec</tt><a class="headerlink" href="#pyvisdk.do.customization_ip_settings.CustomizationIPSettings.ipV6Spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>This contains the IpGenerator, subnet mask and gateway info for all the ipv6 addresses associated with the virtual network adapter.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_ip_settings.CustomizationIPSettings.netBIOS">
+<tt class="descname">netBIOS</tt><a class="headerlink" href="#pyvisdk.do.customization_ip_settings.CustomizationIPSettings.netBIOS" title="Permalink to this definition">¶</a></dt>
+<dd><p>NetBIOS setting for Windows.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_ip_settings.CustomizationIPSettings.primaryWINS">
+<tt class="descname">primaryWINS</tt><a class="headerlink" href="#pyvisdk.do.customization_ip_settings.CustomizationIPSettings.primaryWINS" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IP address of the primary WINS server. This property is ignored for Linux guest operating systems.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_ip_settings.CustomizationIPSettings.secondaryWINS">
+<tt class="descname">secondaryWINS</tt><a class="headerlink" href="#pyvisdk.do.customization_ip_settings.CustomizationIPSettings.secondaryWINS" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IP address of the secondary WINS server. This property is ignored for Linux guest operating systems.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_ip_settings.CustomizationIPSettings.subnetMask">
+<tt class="descname">subnetMask</tt><a class="headerlink" href="#pyvisdk.do.customization_ip_settings.CustomizationIPSettings.subnetMask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subnet mask for this virtual network adapter.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="customization_ip_generator.html"
+                        title="previous chapter">4.155. CustomizationIpGenerator</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="customization_ip_settings_ip_v6_address_spec.html"
+                        title="next chapter">4.157. CustomizationIPSettingsIpV6AddressSpec</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/customization_ip_settings.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="customization_ip_settings_ip_v6_address_spec.html" title="4.157. CustomizationIPSettingsIpV6AddressSpec"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="customization_ip_generator.html" title="4.155. CustomizationIpGenerator"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

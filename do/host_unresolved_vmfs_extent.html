@@ -1,0 +1,195 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.678. HostUnresolvedVmfsExtent &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.679. HostUnresolvedVmfsResignatureSpec" href="host_unresolved_vmfs_resignature_spec.html" />
+    <link rel="prev" title="4.677. HostTpmDigestInfo" href="host_tpm_digest_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_unresolved_vmfs_resignature_spec.html" title="4.679. HostUnresolvedVmfsResignatureSpec"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_tpm_digest_info.html" title="4.677. HostTpmDigestInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hostunresolvedvmfsextent">
+<h1>4.678. HostUnresolvedVmfsExtent<a class="headerlink" href="#hostunresolvedvmfsextent" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="host_unresolved_vmfs_volume.html#pyvisdk.do.host_unresolved_vmfs_volume.HostUnresolvedVmfsVolume" title="pyvisdk.do.host_unresolved_vmfs_volume.HostUnresolvedVmfsVolume"><tt class="xref py py-class docutils literal"><span class="pre">HostUnresolvedVmfsVolume</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="host_scsi_disk_partition.html#pyvisdk.do.host_scsi_disk_partition.HostScsiDiskPartition" title="pyvisdk.do.host_scsi_disk_partition.HostScsiDiskPartition"><tt class="xref py py-class docutils literal"><span class="pre">HostScsiDiskPartition</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.host_unresolved_vmfs_extent.</tt><tt class="descname">HostUnresolvedVmfsExtent</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.device">
+<tt class="descname">device</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.device" title="Permalink to this definition">¶</a></dt>
+<dd><p>The device information</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.devicePath">
+<tt class="descname">devicePath</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.devicePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>The device path of an VMFS extent</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.endBlock">
+<tt class="descname">endBlock</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.endBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Index of the last block that this extent provides.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.isHeadExtent">
+<tt class="descname">isHeadExtent</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.isHeadExtent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is this a copy of the head extent of the VMFS volume?</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.ordinal">
+<tt class="descname">ordinal</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.ordinal" title="Permalink to this definition">¶</a></dt>
+<dd><p>A number indicating the order of an extent in a volume. An extent with a lower ordinal value than another extent provides a range of blocks to a volume at an earlier block address range. Extents with the same ordinal provide the same range of blocks to a volume. A zero ordinal indicates that the extent is a head extent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.reason">
+<tt class="descname">reason</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reason as to why the partition is marked as copy of a VMFS volume&#8217;s extent. Possible reasons are the disk id is not matching with what the scsi inq is saying or disk uuid is not matching</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.startBlock">
+<tt class="descname">startBlock</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.startBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Index of the first block that this extent provides.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.vmfsUuid">
+<tt class="descname">vmfsUuid</tt><a class="headerlink" href="#pyvisdk.do.host_unresolved_vmfs_extent.HostUnresolvedVmfsExtent.vmfsUuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>The UUID of the VMFS volume read from to the partition.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_tpm_digest_info.html"
+                        title="previous chapter">4.677. HostTpmDigestInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_unresolved_vmfs_resignature_spec.html"
+                        title="next chapter">4.679. HostUnresolvedVmfsResignatureSpec</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/host_unresolved_vmfs_extent.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_unresolved_vmfs_resignature_spec.html" title="4.679. HostUnresolvedVmfsResignatureSpec"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_tpm_digest_info.html" title="4.677. HostTpmDigestInfo"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

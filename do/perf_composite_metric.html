@@ -1,0 +1,153 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.850. PerfCompositeMetric &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.851. PerfCounterInfo" href="perf_counter_info.html" />
+    <link rel="prev" title="4.849. PasswordField" href="password_field.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="perf_counter_info.html" title="4.851. PerfCounterInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="password_field.html" title="4.849. PasswordField"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="perfcompositemetric">
+<h1>4.850. PerfCompositeMetric<a class="headerlink" href="#perfcompositemetric" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="perf_entity_metric_base.html#pyvisdk.do.perf_entity_metric_base.PerfEntityMetricBase" title="pyvisdk.do.perf_entity_metric_base.PerfEntityMetricBase"><tt class="xref py py-class docutils literal"><span class="pre">PerfEntityMetricBase</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">QueryPerfComposite()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.perf_composite_metric.PerfCompositeMetric">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.perf_composite_metric.</tt><tt class="descname">PerfCompositeMetric</tt><a class="headerlink" href="#pyvisdk.do.perf_composite_metric.PerfCompositeMetric" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.perf_composite_metric.PerfCompositeMetric.childEntity">
+<tt class="descname">childEntity</tt><a class="headerlink" href="#pyvisdk.do.perf_composite_metric.PerfCompositeMetric.childEntity" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of metrics of performance providers that comprise the aggregated entity. For example, Host is an aggregated entity for virtual machines and virtual machine Folders. ResourcePools are aggregate entities for virtual machines. Host, Folder, and Cluster are aggregate entities for hosts in the cluster or folder.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.perf_composite_metric.PerfCompositeMetric.entity">
+<tt class="descname">entity</tt><a class="headerlink" href="#pyvisdk.do.perf_composite_metric.PerfCompositeMetric.entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The aggregated entity performance metrics. If it exists, the PerfSampleInfo list of the aggregate entity is a complete list of PerfSampleInfo that could be contained in PerfSampleInfo lists of child entities.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="password_field.html"
+                        title="previous chapter">4.849. PasswordField</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="perf_counter_info.html"
+                        title="next chapter">4.851. PerfCounterInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/perf_composite_metric.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="perf_counter_info.html" title="4.851. PerfCounterInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="password_field.html" title="4.849. PasswordField"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

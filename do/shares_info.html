@@ -1,0 +1,156 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.978. SharesInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.979. SharesOption" href="shares_option.html" />
+    <link rel="prev" title="4.977. SessionTerminatedEvent" href="session_terminated_event.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="shares_option.html" title="4.979. SharesOption"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="session_terminated_event.html" title="4.977. SessionTerminatedEvent"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="sharesinfo">
+<h1>4.978. SharesInfo<a class="headerlink" href="#sharesinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="dvs_network_resource_pool_allocation_info.html#pyvisdk.do.dvs_network_resource_pool_allocation_info.DVSNetworkResourcePoolAllocationInfo" title="pyvisdk.do.dvs_network_resource_pool_allocation_info.DVSNetworkResourcePoolAllocationInfo"><tt class="xref py py-class docutils literal"><span class="pre">DVSNetworkResourcePoolAllocationInfo</span></tt></a>,
+<a class="reference internal" href="resource_allocation_info.html#pyvisdk.do.resource_allocation_info.ResourceAllocationInfo" title="pyvisdk.do.resource_allocation_info.ResourceAllocationInfo"><tt class="xref py py-class docutils literal"><span class="pre">ResourceAllocationInfo</span></tt></a>,
+<a class="reference internal" href="storage_io_allocation_info.html#pyvisdk.do.storage_io_allocation_info.StorageIOAllocationInfo" title="pyvisdk.do.storage_io_allocation_info.StorageIOAllocationInfo"><tt class="xref py py-class docutils literal"><span class="pre">StorageIOAllocationInfo</span></tt></a>,
+<a class="reference internal" href="virtual_disk.html#pyvisdk.do.virtual_disk.VirtualDisk" title="pyvisdk.do.virtual_disk.VirtualDisk"><tt class="xref py py-class docutils literal"><span class="pre">VirtualDisk</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">SharesLevel</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.shares_info.SharesInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.shares_info.</tt><tt class="descname">SharesInfo</tt><a class="headerlink" href="#pyvisdk.do.shares_info.SharesInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.shares_info.SharesInfo.level">
+<tt class="descname">level</tt><a class="headerlink" href="#pyvisdk.do.shares_info.SharesInfo.level" title="Permalink to this definition">¶</a></dt>
+<dd><p>The allocation level. The level is a simplified view of shares. Levels map to a pre-determined set of numeric values for shares. If the shares value does not map to a predefined size, then the level is set as custom.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.shares_info.SharesInfo.shares">
+<tt class="descname">shares</tt><a class="headerlink" href="#pyvisdk.do.shares_info.SharesInfo.shares" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of shares allocated. Used to determine resource allocation in case of resource contention. This value is only set if level is set to custom. If level is not set to custom, this value is ignored. Therefore, only shares with custom values can be compared.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="session_terminated_event.html"
+                        title="previous chapter">4.977. SessionTerminatedEvent</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="shares_option.html"
+                        title="next chapter">4.979. SharesOption</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/shares_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="shares_option.html" title="4.979. SharesOption"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="session_terminated_event.html" title="4.977. SessionTerminatedEvent"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

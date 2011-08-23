@@ -1,0 +1,197 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.706. HostVmfsVolume &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.707. HostVnicConnectedToCustomizedDVPortEvent" href="host_vnic_connected_to_customized_dv_port_event.html" />
+    <link rel="prev" title="4.705. HostVmfsSpec" href="host_vmfs_spec.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_vnic_connected_to_customized_dv_port_event.html" title="4.707. HostVnicConnectedToCustomizedDVPortEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_vmfs_spec.html" title="4.705. HostVmfsSpec"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hostvmfsvolume">
+<h1>4.706. HostVmfsVolume<a class="headerlink" href="#hostvmfsvolume" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="host_unresolved_vmfs_resolution_result.html#pyvisdk.do.host_unresolved_vmfs_resolution_result.HostUnresolvedVmfsResolutionResult" title="pyvisdk.do.host_unresolved_vmfs_resolution_result.HostUnresolvedVmfsResolutionResult"><tt class="xref py py-class docutils literal"><span class="pre">HostUnresolvedVmfsResolutionResult</span></tt></a>,
+<a class="reference internal" href="vmfs_datastore_info.html#pyvisdk.do.vmfs_datastore_info.VmfsDatastoreInfo" title="pyvisdk.do.vmfs_datastore_info.VmfsDatastoreInfo"><tt class="xref py py-class docutils literal"><span class="pre">VmfsDatastoreInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="host_force_mounted_info.html#pyvisdk.do.host_force_mounted_info.HostForceMountedInfo" title="pyvisdk.do.host_force_mounted_info.HostForceMountedInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostForceMountedInfo</span></tt></a>,
+<a class="reference internal" href="host_scsi_disk_partition.html#pyvisdk.do.host_scsi_disk_partition.HostScsiDiskPartition" title="pyvisdk.do.host_scsi_disk_partition.HostScsiDiskPartition"><tt class="xref py py-class docutils literal"><span class="pre">HostScsiDiskPartition</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostFileSystemVolume</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">FormatVmfs()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.host_vmfs_volume.HostVmfsVolume">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.host_vmfs_volume.</tt><tt class="descname">HostVmfsVolume</tt><a class="headerlink" href="#pyvisdk.do.host_vmfs_volume.HostVmfsVolume" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.host_vmfs_volume.HostVmfsVolume.blockSizeMb">
+<tt class="descname">blockSizeMb</tt><a class="headerlink" href="#pyvisdk.do.host_vmfs_volume.HostVmfsVolume.blockSizeMb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block size of VMFS. Determines maximum file size. The maximum number of blocks is typically fixed with each specific version of VMFS. To increase the maximum size of a VMFS file, increase the block size.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_vmfs_volume.HostVmfsVolume.extent">
+<tt class="descname">extent</tt><a class="headerlink" href="#pyvisdk.do.host_vmfs_volume.HostVmfsVolume.extent" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of partition names that comprise this disk&#8217;s VMFS extents.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_vmfs_volume.HostVmfsVolume.forceMountedInfo">
+<tt class="descname">forceMountedInfo</tt><a class="headerlink" href="#pyvisdk.do.host_vmfs_volume.HostVmfsVolume.forceMountedInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information about &#8216;forceMounted&#8217; VmfsVolume. When the system detects a copy of a VmfsVolume, it will not be auto-mounted on the host and it will be detected as &#8216;UnresolvedVmfsVolume&#8217;. If user decides to &#8216;forceMount&#8217; the VmfsVolume on the host, forceMountedInfo will be populated. It will not be set for automounted VMFS volumes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_vmfs_volume.HostVmfsVolume.majorVersion">
+<tt class="descname">majorVersion</tt><a class="headerlink" href="#pyvisdk.do.host_vmfs_volume.HostVmfsVolume.majorVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Major version number of VMFS.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_vmfs_volume.HostVmfsVolume.maxBlocks">
+<tt class="descname">maxBlocks</tt><a class="headerlink" href="#pyvisdk.do.host_vmfs_volume.HostVmfsVolume.maxBlocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum number of blocks. Determines maximum file size along with blockSize. See information about the blockSize.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_vmfs_volume.HostVmfsVolume.uuid">
+<tt class="descname">uuid</tt><a class="headerlink" href="#pyvisdk.do.host_vmfs_volume.HostVmfsVolume.uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>The universally unique identifier assigned to VMFS.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_vmfs_volume.HostVmfsVolume.version">
+<tt class="descname">version</tt><a class="headerlink" href="#pyvisdk.do.host_vmfs_volume.HostVmfsVolume.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Version string. Contains major and minor version numbers.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_vmfs_volume.HostVmfsVolume.vmfsUpgradable">
+<tt class="descname">vmfsUpgradable</tt><a class="headerlink" href="#pyvisdk.do.host_vmfs_volume.HostVmfsVolume.vmfsUpgradable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Can the filesystem be upgraded to a newer version.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_vmfs_spec.html"
+                        title="previous chapter">4.705. HostVmfsSpec</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_vnic_connected_to_customized_dv_port_event.html"
+                        title="next chapter">4.707. HostVnicConnectedToCustomizedDVPortEvent</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/host_vmfs_volume.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_vnic_connected_to_customized_dv_port_event.html" title="4.707. HostVnicConnectedToCustomizedDVPortEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_vmfs_spec.html" title="4.705. HostVmfsSpec"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

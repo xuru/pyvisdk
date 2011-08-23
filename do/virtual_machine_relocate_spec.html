@@ -1,0 +1,188 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1190. VirtualMachineRelocateSpec &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1191. VirtualMachineRelocateSpecDiskLocator" href="virtual_machine_relocate_spec_disk_locator.html" />
+    <link rel="prev" title="4.1189. VirtualMachineQuickStats" href="virtual_machine_quick_stats.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_relocate_spec_disk_locator.html" title="4.1191. VirtualMachineRelocateSpecDiskLocator"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_quick_stats.html" title="4.1189. VirtualMachineQuickStats"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualmachinerelocatespec">
+<h1>4.1190. VirtualMachineRelocateSpec<a class="headerlink" href="#virtualmachinerelocatespec" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CheckRelocate_Task()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">RelocateVM_Task()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="virtual_machine_clone_spec.html#pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec" title="pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineCloneSpec</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">Datastore</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">ResourcePool</span></tt>,
+<a class="reference internal" href="virtual_machine_relocate_spec_disk_locator.html#pyvisdk.do.virtual_machine_relocate_spec_disk_locator.VirtualMachineRelocateSpecDiskLocator" title="pyvisdk.do.virtual_machine_relocate_spec_disk_locator.VirtualMachineRelocateSpecDiskLocator"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineRelocateSpecDiskLocator</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineRelocateTransformation</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.virtual_machine_relocate_spec.</tt><tt class="descname">VirtualMachineRelocateSpec</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec.datastore">
+<tt class="descname">datastore</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec.datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>The datastore where the virtual machine should be located. If not specified, the current datastore is used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec.disk">
+<tt class="descname">disk</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec.disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>An optional list that allows specifying the datastore location for each virtual disk.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec.diskMoveType">
+<tt class="descname">diskMoveType</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec.diskMoveType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manner in which to move the virtual disk to the target datastore. The set of possible values is described in VirtualMachineRelocateDiskMoveOptions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec.host">
+<tt class="descname">host</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec.host" title="Permalink to this definition">¶</a></dt>
+<dd><p>The target host for the virtual machine. If not specified, * if resource pool is not specified, current host is used. * if resource pool is specified, and the target pool represents a stand-alone host, the host is used. * if resource pool is specified, and the target pool represents a DRS-enabled cluster, a host selected by DRS is used. * if resource pool is specified and the target pool represents a cluster without DRS enabled, an InvalidArgument exception be thrown.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec.pool">
+<tt class="descname">pool</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec.pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>The resource pool to which this virtual machine should be attached. For a relocate or clone operation to a virtual machine, if the argument is not supplied, the current resource pool of virtual machine is used. For a clone operation to a template, this argument is ignored. For a clone operation from a template to a virtual machine, this argument is required.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec.transform">
+<tt class="descname">transform</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transformation to perform on the disks. The backend is free to ignore this hint if it is not valid for the current operation. This can be used by clients, for example, to create sparse disks for templates.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_machine_quick_stats.html"
+                        title="previous chapter">4.1189. VirtualMachineQuickStats</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_machine_relocate_spec_disk_locator.html"
+                        title="next chapter">4.1191. VirtualMachineRelocateSpecDiskLocator</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/virtual_machine_relocate_spec.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_relocate_spec_disk_locator.html" title="4.1191. VirtualMachineRelocateSpecDiskLocator"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_quick_stats.html" title="4.1189. VirtualMachineQuickStats"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

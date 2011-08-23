@@ -1,0 +1,201 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1033. VAppCloneSpec &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1034. VAppCloneSpecNetworkMappingPair" href="v_app_clone_spec_network_mapping_pair.html" />
+    <link rel="prev" title="4.1032. UserUpgradeEvent" href="user_upgrade_event.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v_app_clone_spec_network_mapping_pair.html" title="4.1034. VAppCloneSpecNetworkMappingPair"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="user_upgrade_event.html" title="4.1032. UserUpgradeEvent"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="vappclonespec">
+<h1>4.1033. VAppCloneSpec<a class="headerlink" href="#vappclonespec" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CloneVApp_Task()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">Datastore</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">Folder</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt>,
+<a class="reference internal" href="key_value.html#pyvisdk.do.key_value.KeyValue" title="pyvisdk.do.key_value.KeyValue"><tt class="xref py py-class docutils literal"><span class="pre">KeyValue</span></tt></a>,
+<a class="reference internal" href="resource_config_spec.html#pyvisdk.do.resource_config_spec.ResourceConfigSpec" title="pyvisdk.do.resource_config_spec.ResourceConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">ResourceConfigSpec</span></tt></a>,
+<a class="reference internal" href="v_app_clone_spec_network_mapping_pair.html#pyvisdk.do.v_app_clone_spec_network_mapping_pair.VAppCloneSpecNetworkMappingPair" title="pyvisdk.do.v_app_clone_spec_network_mapping_pair.VAppCloneSpecNetworkMappingPair"><tt class="xref py py-class docutils literal"><span class="pre">VAppCloneSpecNetworkMappingPair</span></tt></a>,
+<a class="reference internal" href="v_app_clone_spec_resource_map.html#pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap" title="pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap"><tt class="xref py py-class docutils literal"><span class="pre">VAppCloneSpecResourceMap</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.v_app_clone_spec.VAppCloneSpec">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.v_app_clone_spec.</tt><tt class="descname">VAppCloneSpec</tt><a class="headerlink" href="#pyvisdk.do.v_app_clone_spec.VAppCloneSpec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.v_app_clone_spec.VAppCloneSpec.host">
+<tt class="descname">host</tt><a class="headerlink" href="#pyvisdk.do.v_app_clone_spec.VAppCloneSpec.host" title="Permalink to this definition">¶</a></dt>
+<dd><p>The target host for the virtual machines. This is often not a required parameter. If not specified, the behavior is as follows: * If the target pool represents a stand-alone host, that host is used. * If the target pool represents a DRS-enabled cluster, a host selected by DRS is used. * If the target pool represents a cluster without DRS enabled or a DRS-enabled cluster in manual mode, an InvalidArgument exception is thrown.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_clone_spec.VAppCloneSpec.location">
+<tt class="descname">location</tt><a class="headerlink" href="#pyvisdk.do.v_app_clone_spec.VAppCloneSpec.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Location where the destination vApp must be stored</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_clone_spec.VAppCloneSpec.networkMapping">
+<tt class="descname">networkMapping</tt><a class="headerlink" href="#pyvisdk.do.v_app_clone_spec.VAppCloneSpec.networkMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Network mappings. See NetworkMappingPair.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_clone_spec.VAppCloneSpec.property_">
+<tt class="descname">property_</tt><a class="headerlink" href="#pyvisdk.do.v_app_clone_spec.VAppCloneSpec.property_" title="Permalink to this definition">¶</a></dt>
+<dd><p>A set of property values to override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_clone_spec.VAppCloneSpec.provisioning">
+<tt class="descname">provisioning</tt><a class="headerlink" href="#pyvisdk.do.v_app_clone_spec.VAppCloneSpec.provisioning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify how the VMs in the vApp should be provisioned.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_clone_spec.VAppCloneSpec.resourceMapping">
+<tt class="descname">resourceMapping</tt><a class="headerlink" href="#pyvisdk.do.v_app_clone_spec.VAppCloneSpec.resourceMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>The resource configuration for the cloned vApp.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_clone_spec.VAppCloneSpec.resourceSpec">
+<tt class="descname">resourceSpec</tt><a class="headerlink" href="#pyvisdk.do.v_app_clone_spec.VAppCloneSpec.resourceSpec" title="Permalink to this definition">¶</a></dt>
+<dd><p>The resource configuration for the vApp.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_clone_spec.VAppCloneSpec.vmFolder">
+<tt class="descname">vmFolder</tt><a class="headerlink" href="#pyvisdk.do.v_app_clone_spec.VAppCloneSpec.vmFolder" title="Permalink to this definition">¶</a></dt>
+<dd><p>The VM Folder to associate the vApp with</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="user_upgrade_event.html"
+                        title="previous chapter">4.1032. UserUpgradeEvent</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="v_app_clone_spec_network_mapping_pair.html"
+                        title="next chapter">4.1034. VAppCloneSpecNetworkMappingPair</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/v_app_clone_spec.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v_app_clone_spec_network_mapping_pair.html" title="4.1034. VAppCloneSpecNetworkMappingPair"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="user_upgrade_event.html" title="4.1032. UserUpgradeEvent"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.127. ConfigTarget &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.128. CreateTaskAction" href="create_task_action.html" />
+    <link rel="prev" title="4.126. ComputeResourceSummary" href="compute_resource_summary.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="create_task_action.html" title="4.128. CreateTaskAction"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="compute_resource_summary.html" title="4.126. ComputeResourceSummary"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="configtarget">
+<h1>4.127. ConfigTarget<a class="headerlink" href="#configtarget" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="distributed_virtual_portgroup_info.html#pyvisdk.do.distributed_virtual_portgroup_info.DistributedVirtualPortgroupInfo" title="pyvisdk.do.distributed_virtual_portgroup_info.DistributedVirtualPortgroupInfo"><tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualPortgroupInfo</span></tt></a>,
+<a class="reference internal" href="distributed_virtual_switch_info.html#pyvisdk.do.distributed_virtual_switch_info.DistributedVirtualSwitchInfo" title="pyvisdk.do.distributed_virtual_switch_info.DistributedVirtualSwitchInfo"><tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchInfo</span></tt></a>,
+<a class="reference internal" href="resource_pool_runtime_info.html#pyvisdk.do.resource_pool_runtime_info.ResourcePoolRuntimeInfo" title="pyvisdk.do.resource_pool_runtime_info.ResourcePoolRuntimeInfo"><tt class="xref py py-class docutils literal"><span class="pre">ResourcePoolRuntimeInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_cdrom_info.html#pyvisdk.do.virtual_machine_cdrom_info.VirtualMachineCdromInfo" title="pyvisdk.do.virtual_machine_cdrom_info.VirtualMachineCdromInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineCdromInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_datastore_info.html#pyvisdk.do.virtual_machine_datastore_info.VirtualMachineDatastoreInfo" title="pyvisdk.do.virtual_machine_datastore_info.VirtualMachineDatastoreInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineDatastoreInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_floppy_info.html#pyvisdk.do.virtual_machine_floppy_info.VirtualMachineFloppyInfo" title="pyvisdk.do.virtual_machine_floppy_info.VirtualMachineFloppyInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineFloppyInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_ide_disk_device_info.html#pyvisdk.do.virtual_machine_ide_disk_device_info.VirtualMachineIdeDiskDeviceInfo" title="pyvisdk.do.virtual_machine_ide_disk_device_info.VirtualMachineIdeDiskDeviceInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineIdeDiskDeviceInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_legacy_network_switch_info.html#pyvisdk.do.virtual_machine_legacy_network_switch_info.VirtualMachineLegacyNetworkSwitchInfo" title="pyvisdk.do.virtual_machine_legacy_network_switch_info.VirtualMachineLegacyNetworkSwitchInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineLegacyNetworkSwitchInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_network_info.html#pyvisdk.do.virtual_machine_network_info.VirtualMachineNetworkInfo" title="pyvisdk.do.virtual_machine_network_info.VirtualMachineNetworkInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineNetworkInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_parallel_info.html#pyvisdk.do.virtual_machine_parallel_info.VirtualMachineParallelInfo" title="pyvisdk.do.virtual_machine_parallel_info.VirtualMachineParallelInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineParallelInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_pci_passthrough_info.html#pyvisdk.do.virtual_machine_pci_passthrough_info.VirtualMachinePciPassthroughInfo" title="pyvisdk.do.virtual_machine_pci_passthrough_info.VirtualMachinePciPassthroughInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachinePciPassthroughInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_scsi_disk_device_info.html#pyvisdk.do.virtual_machine_scsi_disk_device_info.VirtualMachineScsiDiskDeviceInfo" title="pyvisdk.do.virtual_machine_scsi_disk_device_info.VirtualMachineScsiDiskDeviceInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineScsiDiskDeviceInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_scsi_passthrough_info.html#pyvisdk.do.virtual_machine_scsi_passthrough_info.VirtualMachineScsiPassthroughInfo" title="pyvisdk.do.virtual_machine_scsi_passthrough_info.VirtualMachineScsiPassthroughInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineScsiPassthroughInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_serial_info.html#pyvisdk.do.virtual_machine_serial_info.VirtualMachineSerialInfo" title="pyvisdk.do.virtual_machine_serial_info.VirtualMachineSerialInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineSerialInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_sound_info.html#pyvisdk.do.virtual_machine_sound_info.VirtualMachineSoundInfo" title="pyvisdk.do.virtual_machine_sound_info.VirtualMachineSoundInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineSoundInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_usb_info.html#pyvisdk.do.virtual_machine_usb_info.VirtualMachineUsbInfo" title="pyvisdk.do.virtual_machine_usb_info.VirtualMachineUsbInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineUsbInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">QueryConfigTarget()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.config_target.ConfigTarget">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.config_target.</tt><tt class="descname">ConfigTarget</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.autoVmotion">
+<tt class="descname">autoVmotion</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.autoVmotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information whether a virtual machine with this ConfigTarget can auto vmotion. This field is only populated from an Environment browser obtained from a virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.cdRom">
+<tt class="descname">cdRom</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.cdRom" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of CD-ROM devices available for use by virtual CD-ROMs. Used for VirtualCdromAtapiBackingInfo.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.datastore">
+<tt class="descname">datastore</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of datastores available for virtual disks and associated storage.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.distributedVirtualPortgroup">
+<tt class="descname">distributedVirtualPortgroup</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.distributedVirtualPortgroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of networks available from DistributedVirtualSwitch for virtual network adapters.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.distributedVirtualSwitch">
+<tt class="descname">distributedVirtualSwitch</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.distributedVirtualSwitch" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of distributed virtual switch available for virtual network adapters.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.floppy">
+<tt class="descname">floppy</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.floppy" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of floppy devices available for use by virtual floppies. Used for VirtualFloppyDeviceBackingInfo.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.ideDisk">
+<tt class="descname">ideDisk</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.ideDisk" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of physical IDE disks that can be used as targets for raw disk backings.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.legacyNetworkInfo">
+<tt class="descname">legacyNetworkInfo</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.legacyNetworkInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Legacy switch names when using the LegacyNetworkBacking types.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.maxMemMBOptimalPerf">
+<tt class="descname">maxMemMBOptimalPerf</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.maxMemMBOptimalPerf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum recommended memory size, in MB, for creating a new virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.network">
+<tt class="descname">network</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.network" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of networks available for virtual network adapters.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.numCpuCores">
+<tt class="descname">numCpuCores</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.numCpuCores" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of physical CPU cores that are available to run virtual machines.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.numCpus">
+<tt class="descname">numCpus</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.numCpus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of logical CPUs that can be used to run virtual machines.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.numNumaNodes">
+<tt class="descname">numNumaNodes</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.numNumaNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of NUMA nodes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.parallel">
+<tt class="descname">parallel</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.parallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of parallel devices available to support virtualization. Used for VirtualParallelPortDeviceBackingInfo.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.pciPassthrough">
+<tt class="descname">pciPassthrough</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.pciPassthrough" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of generic PCI devices.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.resourcePool">
+<tt class="descname">resourcePool</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.resourcePool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information about the current available resources on the current resource pool for a virtual machine. This field is only populated from an Environment browser obtained from a virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.scsiDisk">
+<tt class="descname">scsiDisk</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.scsiDisk" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of physical SCSI disks that can be used as targets for raw disk mapping backings.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.scsiPassthrough">
+<tt class="descname">scsiPassthrough</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.scsiPassthrough" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of generic SCSI devices.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.serial">
+<tt class="descname">serial</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.serial" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of serial devices available to support virtualization. Used for VirtualSerialPortDeviceBackingInfo.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.sound">
+<tt class="descname">sound</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.sound" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of sound devices available to support virtualization. Used for VirtualSoundCardDeviceBackingInfo.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.config_target.ConfigTarget.usb">
+<tt class="descname">usb</tt><a class="headerlink" href="#pyvisdk.do.config_target.ConfigTarget.usb" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of USB devices on the host that are available to support virtualization. Used for VirtualUSBUSBBackingInfo.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="compute_resource_summary.html"
+                        title="previous chapter">4.126. ComputeResourceSummary</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="create_task_action.html"
+                        title="next chapter">4.128. CreateTaskAction</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/config_target.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="create_task_action.html" title="4.128. CreateTaskAction"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="compute_resource_summary.html" title="4.126. ComputeResourceSummary"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

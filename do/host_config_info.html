@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.449. HostConfigInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.450. HostConfigManager" href="host_config_manager.html" />
+    <link rel="prev" title="4.448. HostConfigChange" href="host_config_change.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_config_manager.html" title="4.450. HostConfigManager"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_config_change.html" title="4.448. HostConfigChange"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hostconfiginfo">
+<h1>4.449. HostConfigInfo<a class="headerlink" href="#hostconfiginfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="about_info.html#pyvisdk.do.about_info.AboutInfo" title="pyvisdk.do.about_info.AboutInfo"><tt class="xref py py-class docutils literal"><span class="pre">AboutInfo</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">Datastore</span></tt>,
+<a class="reference internal" href="host_authentication_manager_info.html#pyvisdk.do.host_authentication_manager_info.HostAuthenticationManagerInfo" title="pyvisdk.do.host_authentication_manager_info.HostAuthenticationManagerInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostAuthenticationManagerInfo</span></tt></a>,
+<a class="reference internal" href="host_auto_start_manager_config.html#pyvisdk.do.host_auto_start_manager_config.HostAutoStartManagerConfig" title="pyvisdk.do.host_auto_start_manager_config.HostAutoStartManagerConfig"><tt class="xref py py-class docutils literal"><span class="pre">HostAutoStartManagerConfig</span></tt></a>,
+<a class="reference internal" href="host_datastore_system_capabilities.html#pyvisdk.do.host_datastore_system_capabilities.HostDatastoreSystemCapabilities" title="pyvisdk.do.host_datastore_system_capabilities.HostDatastoreSystemCapabilities"><tt class="xref py py-class docutils literal"><span class="pre">HostDatastoreSystemCapabilities</span></tt></a>,
+<a class="reference internal" href="host_date_time_info.html#pyvisdk.do.host_date_time_info.HostDateTimeInfo" title="pyvisdk.do.host_date_time_info.HostDateTimeInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostDateTimeInfo</span></tt></a>,
+<a class="reference internal" href="host_diagnostic_partition.html#pyvisdk.do.host_diagnostic_partition.HostDiagnosticPartition" title="pyvisdk.do.host_diagnostic_partition.HostDiagnosticPartition"><tt class="xref py py-class docutils literal"><span class="pre">HostDiagnosticPartition</span></tt></a>,
+<a class="reference internal" href="host_feature_version_info.html#pyvisdk.do.host_feature_version_info.HostFeatureVersionInfo" title="pyvisdk.do.host_feature_version_info.HostFeatureVersionInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostFeatureVersionInfo</span></tt></a>,
+<a class="reference internal" href="host_file_system_volume_info.html#pyvisdk.do.host_file_system_volume_info.HostFileSystemVolumeInfo" title="pyvisdk.do.host_file_system_volume_info.HostFileSystemVolumeInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostFileSystemVolumeInfo</span></tt></a>,
+<a class="reference internal" href="host_firewall_info.html#pyvisdk.do.host_firewall_info.HostFirewallInfo" title="pyvisdk.do.host_firewall_info.HostFirewallInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostFirewallInfo</span></tt></a>,
+<a class="reference internal" href="host_flag_info.html#pyvisdk.do.host_flag_info.HostFlagInfo" title="pyvisdk.do.host_flag_info.HostFlagInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostFlagInfo</span></tt></a>,
+<a class="reference internal" href="host_hyper_thread_schedule_info.html#pyvisdk.do.host_hyper_thread_schedule_info.HostHyperThreadScheduleInfo" title="pyvisdk.do.host_hyper_thread_schedule_info.HostHyperThreadScheduleInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostHyperThreadScheduleInfo</span></tt></a>,
+<a class="reference internal" href="host_ipmi_info.html#pyvisdk.do.host_ipmi_info.HostIpmiInfo" title="pyvisdk.do.host_ipmi_info.HostIpmiInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostIpmiInfo</span></tt></a>,
+<a class="reference internal" href="host_multipath_state_info.html#pyvisdk.do.host_multipath_state_info.HostMultipathStateInfo" title="pyvisdk.do.host_multipath_state_info.HostMultipathStateInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostMultipathStateInfo</span></tt></a>,
+<a class="reference internal" href="host_net_capabilities.html#pyvisdk.do.host_net_capabilities.HostNetCapabilities" title="pyvisdk.do.host_net_capabilities.HostNetCapabilities"><tt class="xref py py-class docutils literal"><span class="pre">HostNetCapabilities</span></tt></a>,
+<a class="reference internal" href="host_net_offload_capabilities.html#pyvisdk.do.host_net_offload_capabilities.HostNetOffloadCapabilities" title="pyvisdk.do.host_net_offload_capabilities.HostNetOffloadCapabilities"><tt class="xref py py-class docutils literal"><span class="pre">HostNetOffloadCapabilities</span></tt></a>,
+<a class="reference internal" href="host_network_info.html#pyvisdk.do.host_network_info.HostNetworkInfo" title="pyvisdk.do.host_network_info.HostNetworkInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostNetworkInfo</span></tt></a>,
+<a class="reference internal" href="host_pci_passthru_info.html#pyvisdk.do.host_pci_passthru_info.HostPciPassthruInfo" title="pyvisdk.do.host_pci_passthru_info.HostPciPassthruInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostPciPassthruInfo</span></tt></a>,
+<a class="reference internal" href="host_service_info.html#pyvisdk.do.host_service_info.HostServiceInfo" title="pyvisdk.do.host_service_info.HostServiceInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostServiceInfo</span></tt></a>,
+<a class="reference internal" href="host_ssl_thumbprint_info.html#pyvisdk.do.host_ssl_thumbprint_info.HostSslThumbprintInfo" title="pyvisdk.do.host_ssl_thumbprint_info.HostSslThumbprintInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostSslThumbprintInfo</span></tt></a>,
+<a class="reference internal" href="host_storage_device_info.html#pyvisdk.do.host_storage_device_info.HostStorageDeviceInfo" title="pyvisdk.do.host_storage_device_info.HostStorageDeviceInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostStorageDeviceInfo</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt>,
+<a class="reference internal" href="host_system_resource_info.html#pyvisdk.do.host_system_resource_info.HostSystemResourceInfo" title="pyvisdk.do.host_system_resource_info.HostSystemResourceInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostSystemResourceInfo</span></tt></a>,
+<a class="reference internal" href="host_virtual_nic_manager_info.html#pyvisdk.do.host_virtual_nic_manager_info.HostVirtualNicManagerInfo" title="pyvisdk.do.host_virtual_nic_manager_info.HostVirtualNicManagerInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostVirtualNicManagerInfo</span></tt></a>,
+<a class="reference internal" href="host_v_motion_info.html#pyvisdk.do.host_v_motion_info.HostVMotionInfo" title="pyvisdk.do.host_v_motion_info.HostVMotionInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostVMotionInfo</span></tt></a>,
+<a class="reference internal" href="option_def.html#pyvisdk.do.option_def.OptionDef" title="pyvisdk.do.option_def.OptionDef"><tt class="xref py py-class docutils literal"><span class="pre">OptionDef</span></tt></a>,
+<a class="reference internal" href="option_value.html#pyvisdk.do.option_value.OptionValue" title="pyvisdk.do.option_value.OptionValue"><tt class="xref py py-class docutils literal"><span class="pre">OptionValue</span></tt></a>,
+<a class="reference internal" href="power_system_capability.html#pyvisdk.do.power_system_capability.PowerSystemCapability" title="pyvisdk.do.power_system_capability.PowerSystemCapability"><tt class="xref py py-class docutils literal"><span class="pre">PowerSystemCapability</span></tt></a>,
+<a class="reference internal" href="power_system_info.html#pyvisdk.do.power_system_info.PowerSystemInfo" title="pyvisdk.do.power_system_info.PowerSystemInfo"><tt class="xref py py-class docutils literal"><span class="pre">PowerSystemInfo</span></tt></a>,
+<a class="reference internal" href="service_console_reservation_info.html#pyvisdk.do.service_console_reservation_info.ServiceConsoleReservationInfo" title="pyvisdk.do.service_console_reservation_info.ServiceConsoleReservationInfo"><tt class="xref py py-class docutils literal"><span class="pre">ServiceConsoleReservationInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_memory_reservation_info.html#pyvisdk.do.virtual_machine_memory_reservation_info.VirtualMachineMemoryReservationInfo" title="pyvisdk.do.virtual_machine_memory_reservation_info.VirtualMachineMemoryReservationInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineMemoryReservationInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.host_config_info.</tt><tt class="descname">HostConfigInfo</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.activeDiagnosticPartition">
+<tt class="descname">activeDiagnosticPartition</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.activeDiagnosticPartition" title="Permalink to this definition">¶</a></dt>
+<dd><p>The diagnostic partition that will be set as the current diagnostic partition on the host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.adminDisabled">
+<tt class="descname">adminDisabled</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.adminDisabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the flag is true, the permissions on the host have been modified such that it is only accessible through local console or an authorized centralized management application. This flag is affected by the EnterLockdownMode and ExitLockdownMode operations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.authenticationManagerInfo">
+<tt class="descname">authenticationManagerInfo</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.authenticationManagerInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current authentication configuration.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.autoStart">
+<tt class="descname">autoStart</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.autoStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>AutoStart configuration.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.capabilities">
+<tt class="descname">capabilities</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Capability vector indicating the available network features.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.consoleReservation">
+<tt class="descname">consoleReservation</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.consoleReservation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Memory configuration.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.datastoreCapabilities">
+<tt class="descname">datastoreCapabilities</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.datastoreCapabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Capability vector indicating available datastore features.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.datastorePrincipal">
+<tt class="descname">datastorePrincipal</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.datastorePrincipal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Datastore principal user</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.dateTimeInfo">
+<tt class="descname">dateTimeInfo</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.dateTimeInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Date/Time related configuration</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.featureVersion">
+<tt class="descname">featureVersion</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.featureVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of feature-specific version information. Each element refers to the version information for a specific feature.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.fileSystemVolume">
+<tt class="descname">fileSystemVolume</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.fileSystemVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Storage system file system volume information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.firewall">
+<tt class="descname">firewall</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.firewall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Firewall configuration.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.flags">
+<tt class="descname">flags</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.flags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Additional flags for a host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.host">
+<tt class="descname">host</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.host" title="Permalink to this definition">¶</a></dt>
+<dd><p>A reference to a managed object on a host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.hyperThread">
+<tt class="descname">hyperThread</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.hyperThread" title="Permalink to this definition">¶</a></dt>
+<dd><p>If hyperthreading is supported, this is the CPU configuration for optimizing hyperthreading.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.ipmi">
+<tt class="descname">ipmi</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.ipmi" title="Permalink to this definition">¶</a></dt>
+<dd><p>IPMI (Intelligent Platform Management Interface) info for the host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.localSwapDatastore">
+<tt class="descname">localSwapDatastore</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.localSwapDatastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Datastore visible to this host that may be used to store virtual machine swapfiles, for virtual machines executing on this host. The value of this property is set or unset by invoking UpdateLocalSwapDatastore. The policy for using this datastore is determined by the compute resource configuration&#8217;s vmSwapPlacement property in concert with each individual virtual machine configuration&#8217;s swapPlacement property.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.multipathState">
+<tt class="descname">multipathState</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.multipathState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Storage multipath state information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.network">
+<tt class="descname">network</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Network system information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.offloadCapabilities">
+<tt class="descname">offloadCapabilities</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.offloadCapabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>capabilities to offload operations either to the host or to physical hardware when a virtual machine is transmitting on a network</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.option">
+<tt class="descname">option</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.option" title="Permalink to this definition">¶</a></dt>
+<dd><p>Host configuration options as defined by the OptionValue data object type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.optionDef">
+<tt class="descname">optionDef</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.optionDef" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of supported options.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.pciPassthruInfo">
+<tt class="descname">pciPassthruInfo</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.pciPassthruInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>PCI passthrough information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.powerSystemCapability">
+<tt class="descname">powerSystemCapability</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.powerSystemCapability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Host power management capability.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.powerSystemInfo">
+<tt class="descname">powerSystemInfo</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.powerSystemInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Host power management information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.product">
+<tt class="descname">product</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information about a product.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.service">
+<tt class="descname">service</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Host service configuration.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.sslThumbprintInfo">
+<tt class="descname">sslThumbprintInfo</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.sslThumbprintInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>SSL Thumbprint info for hosts in the same cluster</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.storageDevice">
+<tt class="descname">storageDevice</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.storageDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Storage system information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.systemFile">
+<tt class="descname">systemFile</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.systemFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Datastore paths of files used by the host system on mounted volumes, for instance, the COS vmdk file of the host. For information on datastore paths, see Datastore.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.systemResources">
+<tt class="descname">systemResources</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.systemResources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference for the system resource hierarchy, used for configuring the set of resources reserved to the system and unavailable to virtual machines.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.virtualMachineReservation">
+<tt class="descname">virtualMachineReservation</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.virtualMachineReservation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Virtual machine memory configuration.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.virtualNicManagerInfo">
+<tt class="descname">virtualNicManagerInfo</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.virtualNicManagerInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>VirtualNic manager information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_config_info.HostConfigInfo.vmotion">
+<tt class="descname">vmotion</tt><a class="headerlink" href="#pyvisdk.do.host_config_info.HostConfigInfo.vmotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>VMotion system information.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_config_change.html"
+                        title="previous chapter">4.448. HostConfigChange</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_config_manager.html"
+                        title="next chapter">4.450. HostConfigManager</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/host_config_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_config_manager.html" title="4.450. HostConfigManager"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_config_change.html" title="4.448. HostConfigChange"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

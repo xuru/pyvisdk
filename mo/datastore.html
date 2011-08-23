@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.12. Datastore &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.13. DiagnosticManager" href="diagnostic_manager.html" />
@@ -58,316 +58,74 @@
 <dl class="describe">
 <dt>
 <tt class="descname">Parameter to</tt></dt>
-<dd><p>ConfigureDatastoreIORM_Task, CreateImportSpec, ExpandVmfsDatastore, ExtendVmfsDatastore, QueryAvailableDisksForVmfs, QueryVmfsDatastoreExpandOptions, QueryVmfsDatastoreExtendOptions, RemoveDatastore, UpdateLocalSwapDatastore</p>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">ConfigureDatastoreIORM_Task()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">CreateImportSpec()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">ExpandVmfsDatastore()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">ExtendVmfsDatastore()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">QueryAvailableDisksForVmfs()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">QueryVmfsDatastoreExpandOptions()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">QueryVmfsDatastoreExtendOptions()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">RemoveDatastore()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">UpdateLocalSwapDatastore()</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Property of</tt></dt>
-<dd><p><a class="reference internal" href="compute_resource.html#pyvisdk.mo.compute_resource.ComputeResource" title="pyvisdk.mo.compute_resource.ComputeResource"><tt class="xref py py-class docutils literal"><span class="pre">ComputeResource</span></tt></a>, <a class="reference internal" href="datacenter.html#pyvisdk.mo.datacenter.Datacenter" title="pyvisdk.mo.datacenter.Datacenter"><tt class="xref py py-class docutils literal"><span class="pre">Datacenter</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">DatastoreEventArgument</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DatastoreMountPathDatastorePair</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DatastoreSummary</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">HostConfigInfo</span></tt>, <a class="reference internal" href="host_datastore_browser.html#pyvisdk.mo.host_datastore_browser.HostDatastoreBrowser" title="pyvisdk.mo.host_datastore_browser.HostDatastoreBrowser"><tt class="xref py py-class docutils literal"><span class="pre">HostDatastoreBrowser</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">HostDatastoreBrowserSearchResults</span></tt>, <a class="reference internal" href="host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem" title="pyvisdk.mo.host_datastore_system.HostDatastoreSystem"><tt class="xref py py-class docutils literal"><span class="pre">HostDatastoreSystem</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">HostResignatureRescanResult</span></tt>, <a class="reference internal" href="host_system.html#pyvisdk.mo.host_system.HostSystem" title="pyvisdk.mo.host_system.HostSystem"><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">InvalidDatastore</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">IORMNotSupportedHostOnDatastore</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">OvfResourceMap</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">RDMNotSupportedOnDatastore</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">UnsupportedDatastore</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VAppCloneSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VAppCloneSpecResourceMap</span></tt>, <a class="reference internal" href="virtual_app.html#pyvisdk.mo.virtual_app.VirtualApp" title="pyvisdk.mo.virtual_app.VirtualApp"><tt class="xref py py-class docutils literal"><span class="pre">VirtualApp</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualDeviceFileBackingInfo</span></tt>, <a class="reference internal" href="virtual_machine.html#pyvisdk.mo.virtual_machine.VirtualMachine" title="pyvisdk.mo.virtual_machine.VirtualMachine"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineRelocateSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineRelocateSpecDiskLocator</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineUsageOnDatastore</span></tt></p>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ComputeResource</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">Datacenter</span></tt>,
+<a class="reference internal" href="../do/datastore_event_argument.html#pyvisdk.do.datastore_event_argument.DatastoreEventArgument" title="pyvisdk.do.datastore_event_argument.DatastoreEventArgument"><tt class="xref py py-class docutils literal"><span class="pre">DatastoreEventArgument</span></tt></a>,
+<a class="reference internal" href="../do/datastore_mount_path_datastore_pair.html#pyvisdk.do.datastore_mount_path_datastore_pair.DatastoreMountPathDatastorePair" title="pyvisdk.do.datastore_mount_path_datastore_pair.DatastoreMountPathDatastorePair"><tt class="xref py py-class docutils literal"><span class="pre">DatastoreMountPathDatastorePair</span></tt></a>,
+<a class="reference internal" href="../do/datastore_summary.html#pyvisdk.do.datastore_summary.DatastoreSummary" title="pyvisdk.do.datastore_summary.DatastoreSummary"><tt class="xref py py-class docutils literal"><span class="pre">DatastoreSummary</span></tt></a>,
+<a class="reference internal" href="../do/host_config_info.html#pyvisdk.do.host_config_info.HostConfigInfo" title="pyvisdk.do.host_config_info.HostConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostConfigInfo</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">HostDatastoreBrowser</span></tt>,
+<a class="reference internal" href="../do/host_datastore_browser_search_results.html#pyvisdk.do.host_datastore_browser_search_results.HostDatastoreBrowserSearchResults" title="pyvisdk.do.host_datastore_browser_search_results.HostDatastoreBrowserSearchResults"><tt class="xref py py-class docutils literal"><span class="pre">HostDatastoreBrowserSearchResults</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">HostDatastoreSystem</span></tt>,
+<a class="reference internal" href="../do/host_resignature_rescan_result.html#pyvisdk.do.host_resignature_rescan_result.HostResignatureRescanResult" title="pyvisdk.do.host_resignature_rescan_result.HostResignatureRescanResult"><tt class="xref py py-class docutils literal"><span class="pre">HostResignatureRescanResult</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">InvalidDatastore</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">IORMNotSupportedHostOnDatastore</span></tt>,
+<a class="reference internal" href="../do/ovf_resource_map.html#pyvisdk.do.ovf_resource_map.OvfResourceMap" title="pyvisdk.do.ovf_resource_map.OvfResourceMap"><tt class="xref py py-class docutils literal"><span class="pre">OvfResourceMap</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">RDMNotSupportedOnDatastore</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">UnsupportedDatastore</span></tt>,
+<a class="reference internal" href="../do/v_app_clone_spec.html#pyvisdk.do.v_app_clone_spec.VAppCloneSpec" title="pyvisdk.do.v_app_clone_spec.VAppCloneSpec"><tt class="xref py py-class docutils literal"><span class="pre">VAppCloneSpec</span></tt></a>,
+<a class="reference internal" href="../do/v_app_clone_spec_resource_map.html#pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap" title="pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap"><tt class="xref py py-class docutils literal"><span class="pre">VAppCloneSpecResourceMap</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualApp</span></tt>,
+<a class="reference internal" href="../do/virtual_device_file_backing_info.html#pyvisdk.do.virtual_device_file_backing_info.VirtualDeviceFileBackingInfo" title="pyvisdk.do.virtual_device_file_backing_info.VirtualDeviceFileBackingInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualDeviceFileBackingInfo</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt>,
+<a class="reference internal" href="../do/virtual_machine_relocate_spec.html#pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec" title="pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineRelocateSpec</span></tt></a>,
+<a class="reference internal" href="../do/virtual_machine_relocate_spec_disk_locator.html#pyvisdk.do.virtual_machine_relocate_spec_disk_locator.VirtualMachineRelocateSpecDiskLocator" title="pyvisdk.do.virtual_machine_relocate_spec_disk_locator.VirtualMachineRelocateSpecDiskLocator"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineRelocateSpecDiskLocator</span></tt></a>,
+<a class="reference internal" href="../do/virtual_machine_usage_on_datastore.html#pyvisdk.do.virtual_machine_usage_on_datastore.VirtualMachineUsageOnDatastore" title="pyvisdk.do.virtual_machine_usage_on_datastore.VirtualMachineUsageOnDatastore"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineUsageOnDatastore</span></tt></a></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">See also</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DatastoreCapability</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DatastoreHostMount</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DatastoreInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DatastoreMountPathDatastorePair</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DatastoreSummary</span></tt>, <a class="reference internal" href="host_datastore_browser.html#pyvisdk.mo.host_datastore_browser.HostDatastoreBrowser" title="pyvisdk.mo.host_datastore_browser.HostDatastoreBrowser"><tt class="xref py py-class docutils literal"><span class="pre">HostDatastoreBrowser</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">StorageIORMInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">UpdateVirtualMachineFilesResult</span></tt>, <a class="reference internal" href="virtual_machine.html#pyvisdk.mo.virtual_machine.VirtualMachine" title="pyvisdk.mo.virtual_machine.VirtualMachine"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt></a></p>
+<dd><p><a class="reference internal" href="../do/datastore_capability.html#pyvisdk.do.datastore_capability.DatastoreCapability" title="pyvisdk.do.datastore_capability.DatastoreCapability"><tt class="xref py py-class docutils literal"><span class="pre">DatastoreCapability</span></tt></a>,
+<a class="reference internal" href="../do/datastore_host_mount.html#pyvisdk.do.datastore_host_mount.DatastoreHostMount" title="pyvisdk.do.datastore_host_mount.DatastoreHostMount"><tt class="xref py py-class docutils literal"><span class="pre">DatastoreHostMount</span></tt></a>,
+<a class="reference internal" href="../do/datastore_info.html#pyvisdk.do.datastore_info.DatastoreInfo" title="pyvisdk.do.datastore_info.DatastoreInfo"><tt class="xref py py-class docutils literal"><span class="pre">DatastoreInfo</span></tt></a>,
+<a class="reference internal" href="../do/datastore_mount_path_datastore_pair.html#pyvisdk.do.datastore_mount_path_datastore_pair.DatastoreMountPathDatastorePair" title="pyvisdk.do.datastore_mount_path_datastore_pair.DatastoreMountPathDatastorePair"><tt class="xref py py-class docutils literal"><span class="pre">DatastoreMountPathDatastorePair</span></tt></a>,
+<a class="reference internal" href="../do/datastore_summary.html#pyvisdk.do.datastore_summary.DatastoreSummary" title="pyvisdk.do.datastore_summary.DatastoreSummary"><tt class="xref py py-class docutils literal"><span class="pre">DatastoreSummary</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">HostDatastoreBrowser</span></tt>,
+<a class="reference internal" href="../do/storage_iorm_info.html#pyvisdk.do.storage_iorm_info.StorageIORMInfo" title="pyvisdk.do.storage_iorm_info.StorageIORMInfo"><tt class="xref py py-class docutils literal"><span class="pre">StorageIORMInfo</span></tt></a>,
+<a class="reference internal" href="../do/update_virtual_machine_files_result.html#pyvisdk.do.update_virtual_machine_files_result.UpdateVirtualMachineFilesResult" title="pyvisdk.do.update_virtual_machine_files_result.UpdateVirtualMachineFilesResult"><tt class="xref py py-class docutils literal"><span class="pre">UpdateVirtualMachineFilesResult</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Extends</tt></dt>
-<dd><p><a class="reference internal" href="managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity" title="pyvisdk.mo.managed_entity.ManagedEntity"><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt></a></p>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Returned by</tt></dt>
-<dd><p>CreateLocalDatastore, CreateNasDatastore, CreateVmfsDatastore, ExpandVmfsDatastore, ExtendVmfsDatastore</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="pyvisdk.mo.datastore.Datastore">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.datastore.</tt><tt class="descname">Datastore</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='Datastore'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/datastore.html#Datastore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore" title="Permalink to this definition">¶</a></dt>
-<dd><p>A datastore is platform-independent and host-independent. Therefore, datastores do
-not change when the virtual machines they contain are moved between hosts.
-The scope of a datastore is a datacenter; the datastore is uniquely named
-within the datacenter.</p>
-<dl class="method">
-<dt id="pyvisdk.mo.datastore.Datastore.DestroyDatastore">
-<tt class="descname">DestroyDatastore</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/datastore.html#Datastore.DestroyDatastore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.DestroyDatastore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deprecated. As of VI API 2.5 do not use this method. This method throws
-ResourceInUse. Datastores are automatically removed when no longer in use,
-so this method is unnecessary. Removes a datastore. A datastore can be
-removed only if it is not currently used by any host or virtual machine.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.datastore.Datastore.Destroy_Task">
-<tt class="descname">Destroy_Task</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.Destroy_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Destroys this object, deleting its contents and removing it from its parent folder
-(if any).NOTE: The appropriate privilege must be held on the parent of the
-destroyed entity as well as the entity itself.This method can throw one of
-several exceptions. The exact set of exceptions depends on the kind of
-entity that is being removed. See comments for each entity for more
-information on destroy behavior.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.datastore.Datastore.RefreshDatastore">
-<tt class="descname">RefreshDatastore</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/datastore.html#Datastore.RefreshDatastore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.RefreshDatastore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Explicitly refreshes free-space and capacity values in summary and info.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.datastore.Datastore.RefreshDatastoreStorageInfo">
-<tt class="descname">RefreshDatastoreStorageInfo</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/datastore.html#Datastore.RefreshDatastoreStorageInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.RefreshDatastoreStorageInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Refreshes all storage related information including free-space, capacity, and
-detailed usage of virtual machines. Updated values are available in
-summary and info.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.datastore.Datastore.Reload">
-<tt class="descname">Reload</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.Reload" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reload the entity state. Clients only need to call this method if they changed
-some external state that affects the service without using the Web service
-interface to perform the change. For example, hand-editing a virtual
-machine configuration file affects the configuration of the associated
-virtual machine but the service managing the virtual machine might not
-monitor the file for changes. In this case, after such an edit, a client
-would call &#8220;reload&#8221; on the associated virtual machine to ensure the
-service and its clients have current data for the virtual machine.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.datastore.Datastore.RenameDatastore">
-<tt class="descname">RenameDatastore</tt><big>(</big><em>newName</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/datastore.html#Datastore.RenameDatastore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.RenameDatastore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deprecated. As of vSphere API 4.0, use Rename_Task. Renames a datastore.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newName</strong> &#8211; The new name to assign to the datastore.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.datastore.Datastore.Rename_Task">
-<tt class="descname">Rename_Task</tt><big>(</big><em>newName</em><big>)</big><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.Rename_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Renames this managed entity.Any % (percent) character used in this name parameter
-must be escaped, unless it is used to start an escape sequence. Clients
-may also escape any other characters in this name parameter.See name</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newName</strong> &#8211; See name</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.datastore.Datastore.UpdateVirtualMachineFiles_Task">
-<tt class="descname">UpdateVirtualMachineFiles_Task</tt><big>(</big><em>mountPathDatastoreMapping</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/datastore.html#Datastore.UpdateVirtualMachineFiles_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.UpdateVirtualMachineFiles_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update file paths embedded in virtual machine files on the datastore. This can be
-called after the file system corresponding to the datastore has been
-resignatured or remounted.This method is only supported by vCenter
-server.While this operation is in progress, it is important that users do
-not initiate any operations that might read or write to any files on the
-datastore, such as registering a virtual machine with files residing on
-the datastore, or performing any virtual disk operations on any files in
-the datastore. These operations can potentially cause spurious file update
-failures, while at the same time they can prevent virtual machine files
-from being updated correctly.If users intend to update multiple datastores
-using this method, it is strongly advised that the users do not initiate
-any operations that might read or write to files on any of the datastores,
-until all of them have been updated. The files of a single virtual machine
-can reside on multiple datastores, and thus all the involved datastores
-should be updated, before the virtual machine is considered updated
-completely.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mountPathDatastoreMapping</strong> &#8211; Old mount path to datastore mapping.</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.alarmActionsEnabled">
-<tt class="descname">alarmActionsEnabled</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.alarmActionsEnabled" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether alarm actions are enabled for this entity. True if enabled; false
-otherwise.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.availableField">
-<tt class="descname">availableField</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.availableField" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of custom field definitions that are valid for the object&#8217;s type. The fields
-are sorted by name.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.browser">
-<tt class="descname">browser</tt><a class="reference internal" href="../modules/pyvisdk/mo/datastore.html#Datastore.browser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.browser" title="Permalink to this definition">¶</a></dt>
-<dd><p>DatastoreBrowser used to browse this datastore.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.capability">
-<tt class="descname">capability</tt><a class="reference internal" href="../modules/pyvisdk/mo/datastore.html#Datastore.capability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.capability" title="Permalink to this definition">¶</a></dt>
-<dd><p>Capabilities of this datastore.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.configIssue">
-<tt class="descname">configIssue</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.configIssue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Current configuration issues that have been detected for this entity. Typically,
-these issues have already been logged as events. The entity stores these
-events as long as they are still current. The configStatus property
-provides an overall status based on these events.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.configStatus">
-<tt class="descname">configStatus</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.configStatus" title="Permalink to this definition">¶</a></dt>
-<dd><p>The configStatus indicates whether or not the system has detected a configuration
-issue involving this entity. For example, it might have detected a
-duplicate IP address or MAC address, or a host in a cluster might be out
-of compliance. The meanings of the configStatus values are: * red: A
-problem has been detected involving the entity. * yellow: A problem is
-about to occur or a transient condition has occurred (For example,
-reconfigure fail-over policy). * green: No configuration issues have been
-detected. * gray: The configuration status of the entity is not being
-monitored. A green status indicates only that a problem has not been
-detected; it is not a guarantee that the entity is problem-free.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.customValue">
-<tt class="descname">customValue</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.customValue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Custom field values.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.declaredAlarmState">
-<tt class="descname">declaredAlarmState</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.declaredAlarmState" title="Permalink to this definition">¶</a></dt>
-<dd><p>A set of alarm states for alarms that apply to this managed entity. The set
-includes alarms defined on this entity and alarms inherited from the
-parent entity, or from any ancestors in the inventory hierarchy.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.disabledMethod">
-<tt class="descname">disabledMethod</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.disabledMethod" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of operations that are disabled, given the current runtime state of the
-entity. For example, a power-on operation always fails if a virtual
-machine is already powered on. This list can be used by clients to enable
-or disable operations in a graphical user interface.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.effectiveRole">
-<tt class="descname">effectiveRole</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.effectiveRole" title="Permalink to this definition">¶</a></dt>
-<dd><p>Access rights the current session has to this entity.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.host">
-<tt class="descname">host</tt><a class="reference internal" href="../modules/pyvisdk/mo/datastore.html#Datastore.host"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.host" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hosts attached to this datastore.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.info">
-<tt class="descname">info</tt><a class="reference internal" href="../modules/pyvisdk/mo/datastore.html#Datastore.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specific information about the datastore.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.iormConfiguration">
-<tt class="descname">iormConfiguration</tt><a class="reference internal" href="../modules/pyvisdk/mo/datastore.html#Datastore.iormConfiguration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.iormConfiguration" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configuration of storage I/O resource management for the datastore. Currently we
-only support storage I/O resource management on VMFS volumes of a
-datastore.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.overallStatus">
-<tt class="descname">overallStatus</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.overallStatus" title="Permalink to this definition">¶</a></dt>
-<dd><p>General health of this managed entity. The value combines the status of all the
-alarms attached to a managed entity.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.parent">
-<tt class="descname">parent</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.parent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parent of this entity.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.permission">
-<tt class="descname">permission</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.permission" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of permissions defined for this entity.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.recentTask">
-<tt class="descname">recentTask</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.recentTask" title="Permalink to this definition">¶</a></dt>
-<dd><p>The set of recent tasks operating on this managed entity. This is a subset of
-recentTask belong to this entity. A task in this list could be in one of
-the four states: pending, running, success or error.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.summary">
-<tt class="descname">summary</tt><a class="reference internal" href="../modules/pyvisdk/mo/datastore.html#Datastore.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.summary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Global properties of the datastore.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.tag">
-<tt class="descname">tag</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.tag" title="Permalink to this definition">¶</a></dt>
-<dd><p>The set of tags associated with this managed entity. Experimental. Subject to
-change.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.triggeredAlarmState">
-<tt class="descname">triggeredAlarmState</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.triggeredAlarmState" title="Permalink to this definition">¶</a></dt>
-<dd><p>A set of alarm states for alarms triggered by this entity or by its descendants.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.value">
-<tt class="descname">value</tt><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of custom field values. Each value uses a key to associate an instance of a
-CustomFieldStringValue with a custom field definition.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.datastore.Datastore.vm">
-<tt class="descname">vm</tt><a class="reference internal" href="../modules/pyvisdk/mo/datastore.html#Datastore.vm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.datastore.Datastore.vm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Virtual machines stored on this datastore.</p>
-</dd></dl>
-
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CreateLocalDatastore()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">CreateNasDatastore()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">CreateVmfsDatastore()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">ExpandVmfsDatastore()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">ExtendVmfsDatastore()</span></tt></p>
 </dd></dl>
 
 </div>
@@ -386,7 +144,7 @@ CustomFieldStringValue with a custom field definition.</p>
                         title="next chapter">3.13. DiagnosticManager</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/mo/datastore.txt"
+    <li><a href="../_sources/mo/datastore.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

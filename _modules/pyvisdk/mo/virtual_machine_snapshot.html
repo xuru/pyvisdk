@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.virtual_machine_snapshot &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.virtual_machine_snapshot</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.extensible_managed_object</span> <span class="kn">import</span> <span class="n">ExtensibleManagedObject</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">VirtualMachineSnapshot</span><span class="p">(</span><span class="n">ExtensibleManagedObject</span><span class="p">):</span>
+<div class="viewcode-block" id="VirtualMachineSnapshot"><a class="viewcode-back" href="../../../mo/virtual_machine_snapshot.html#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot">[docs]</a>    <span class="sd">&#39;&#39;&#39;The Snapshot managed object type specifies the interface to individual snapshots</span>
+<span class="sd">        of a virtual machine. Although these are managed objects, they are</span>
+<span class="sd">        subordinate to their virtual machine.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">VirtualMachineSnapshot</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">VirtualMachineSnapshot</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">childSnapshot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="VirtualMachineSnapshot.childSnapshot"><a class="viewcode-back" href="../../../mo/virtual_machine_snapshot.html#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.childSnapshot">[docs]</a>        <span class="sd">&#39;&#39;&#39;All snapshots for which this snapshot is the parent.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;childSnapshot&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="VirtualMachineSnapshot.config"><a class="viewcode-back" href="../../../mo/virtual_machine_snapshot.html#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.config">[docs]</a>        <span class="sd">&#39;&#39;&#39;Information about the configuration of this virtual machine when this snapshot was</span>
+<span class="sd">        taken.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;config&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">RemoveSnapshot_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">removeChildren</span><span class="p">):</span></div>
+<div class="viewcode-block" id="VirtualMachineSnapshot.RemoveSnapshot_Task"><a class="viewcode-back" href="../../../mo/virtual_machine_snapshot.html#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.RemoveSnapshot_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Removes this snapshot and deletes any associated storage.</span>
+
+<span class="sd">        :param removeChildren: Flag to specify removal of the entire snapshot subtree.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RemoveSnapshot_Task&quot;</span><span class="p">)(</span><span class="n">removeChildren</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RenameSnapshot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span></div>
+<div class="viewcode-block" id="VirtualMachineSnapshot.RenameSnapshot"><a class="viewcode-back" href="../../../mo/virtual_machine_snapshot.html#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.RenameSnapshot">[docs]</a>        <span class="sd">&#39;&#39;&#39;Rename this snapshot with either a new name or a new description or both. At least</span>
+<span class="sd">        one of these must be specified when calling the rename method.</span>
+
+<span class="sd">        :param name: New name for the snapshot.</span>
+
+<span class="sd">        :param description: New description for the snapshot.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RenameSnapshot&quot;</span><span class="p">)(</span><span class="n">name</span><span class="p">,</span><span class="n">description</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RevertToSnapshot_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">suppressPowerOn</span><span class="p">):</span></div>
+<div class="viewcode-block" id="VirtualMachineSnapshot.RevertToSnapshot_Task"><a class="viewcode-back" href="../../../mo/virtual_machine_snapshot.html#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.RevertToSnapshot_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Change the execution state of the virtual machine to the state of this snapshot.</span>
+
+<span class="sd">        :param host: to a HostSystem(optional) Choice of host for the virtual machine, in case this</span>
+<span class="sd">        operation causes the virtual machine to power on.</span>
+
+<span class="sd">        :param suppressPowerOn: (optional) If set to true, the virtual machine will not be powered on regardless</span>
+<span class="sd">        of the power state when the snapshot was created. Default to false.vSphere</span>
+<span class="sd">        API 4.0</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RevertToSnapshot_Task&quot;</span><span class="p">)(</span><span class="n">host</span><span class="p">,</span><span class="n">suppressPowerOn</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.ovf_manager &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.ovf_manager</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.base_entity</span> <span class="kn">import</span> <span class="n">BaseEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">OvfManager</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="OvfManager"><a class="viewcode-back" href="../../../mo/ovf_manager.html#pyvisdk.mo.ovf_manager.OvfManager">[docs]</a>    <span class="sd">&#39;&#39;&#39;Service interface to parse and generate OVF descriptors.The purpose of this</span>
+<span class="sd">        interface is to make it easier for callers to import VMs and vApps from</span>
+<span class="sd">        OVF packages and to export VI packages to OVF. In the following</span>
+<span class="sd">        description, the term &quot;client&quot; is used to mean any caller of the</span>
+<span class="sd">        interface.This interface only converts between OVF and VI types. To</span>
+<span class="sd">        actually import and export entities, use ResourcePool.importVApp,</span>
+<span class="sd">        VirtualMachine.exportVm and VirtualApp.exportVApp.For the import scenario,</span>
+<span class="sd">        the typical sequence of events is as follows:The client calls</span>
+<span class="sd">        parseDescriptor to obtain information about the OVF descriptor. This</span>
+<span class="sd">        typically includes information (such as a list of networks) that must be</span>
+<span class="sd">        mapped to VI infrastructure entities.The OVF descriptor is validated</span>
+<span class="sd">        against the OVF Specification, and any errors or warnings are returned as</span>
+<span class="sd">        part of the ParseResult. For example, the parser might encounter a section</span>
+<span class="sd">        marked required that it does not understand, or the XML descriptor might</span>
+<span class="sd">        be malformed.The client decides on network mappings, datastore, properties</span>
+<span class="sd">        etc. It then calls createImportSpec to obtain the parameters needed to</span>
+<span class="sd">        call ResourcePool.importVApp.If any warnings are present, the client will</span>
+<span class="sd">        review these and decide whether to proceed or not. If errors are present,</span>
+<span class="sd">        the ImportSpec will be missing, so the client is forced to give up or fix</span>
+<span class="sd">        the problems and then try again.The client now calls</span>
+<span class="sd">        ResourcePool.importVApp, passing the ImportSpec as a parameter. This will</span>
+<span class="sd">        create the virtual machines and VirtualApp objects in VI and return</span>
+<span class="sd">        locations to which the files of the entity can be uploaded. It also</span>
+<span class="sd">        returns a lease that controls the duration of the lock taken on the newly</span>
+<span class="sd">        created inventory objects. When all files have been uploaded, the client</span>
+<span class="sd">        must release this lease.Creating the OVF descriptor is the last part of</span>
+<span class="sd">        exporting an entity to OVF. At this point, the client has already</span>
+<span class="sd">        downloaded all files for the entity, optionally compressing and/or</span>
+<span class="sd">        chunking them (however, the client may do a &quot;dry run&quot; of creating the</span>
+<span class="sd">        descriptor before downloading the files. See</span>
+<span class="sd">        OvfManager.createDescriptor).In addition to the entity reference itself,</span>
+<span class="sd">        information about the choices made on these files is passed to</span>
+<span class="sd">        createDescriptor as a list of OvfFile instances.The client must inspect</span>
+<span class="sd">        and act upon warnings and errors as previously described.No matter if the</span>
+<span class="sd">        export succeeds or fails, the client is responsible for releasing the</span>
+<span class="sd">        shared state lock taken on the entity (by VirtualMaching.exportVm or</span>
+<span class="sd">        VirtualApp.exportVApp) during the export.All result types contain warning</span>
+<span class="sd">        and error lists. Warnings do not cause processing to fail, but the caller</span>
+<span class="sd">        (typically, the user of a GUI client) may choose to reject the result</span>
+<span class="sd">        based on the warnings issued.Errors cause processing to abort by</span>
+<span class="sd">        definition.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">OvfManager</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">OvfManager</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+
+    <span class="k">def</span> <span class="nf">CreateDescriptor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">cdp</span><span class="p">):</span>
+<div class="viewcode-block" id="OvfManager.CreateDescriptor"><a class="viewcode-back" href="../../../mo/ovf_manager.html#pyvisdk.mo.ovf_manager.OvfManager.CreateDescriptor">[docs]</a>        <span class="sd">&#39;&#39;&#39;Create an OVF descriptor for the specified ManagedEntity, which may be a</span>
+<span class="sd">        VirtualMachine or a VirtualApp.To create the complete OVF descriptor, the</span>
+<span class="sd">        client must already have downloaded the files that are part of the entity,</span>
+<span class="sd">        because information about these files (compression, chunking, filename</span>
+<span class="sd">        etc.) is part of the descriptor.However, these downloads can be quite</span>
+<span class="sd">        time-consuming, so if the descriptor for some reason cannot be generated,</span>
+<span class="sd">        the client will want to know this before downloading the files.For this</span>
+<span class="sd">        reason, the client may do an initial &quot;dry run&quot; with the ovfFiles parameter</span>
+<span class="sd">        unset. Default filenames will then be used in the descriptor, and the</span>
+<span class="sd">        client can examine any warnings and/or errors before downloading the</span>
+<span class="sd">        files.After the final call to this method, client must release the lock on</span>
+<span class="sd">        the entity given to it by VirtualMachine.exportVm or</span>
+<span class="sd">        VirtualApp.exportVApp.</span>
+
+<span class="sd">        :param obj: to a ManagedEntityThe entity to export. Supported types are VirtualMachine and</span>
+<span class="sd">        VirtualApp.</span>
+
+<span class="sd">        :param cdp: Parameters to the method, bundled in an instance of CreateDescriptorParams.</span>
+
+
+<span class="sd">        :rtype: OvfCreateDescriptorResult </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateDescriptor&quot;</span><span class="p">)(</span><span class="n">obj</span><span class="p">,</span><span class="n">cdp</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateImportSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ovfDescriptor</span><span class="p">,</span> <span class="n">resourcePool</span><span class="p">,</span> <span class="n">datastore</span><span class="p">,</span> <span class="n">cisp</span><span class="p">):</span></div>
+<div class="viewcode-block" id="OvfManager.CreateImportSpec"><a class="viewcode-back" href="../../../mo/ovf_manager.html#pyvisdk.mo.ovf_manager.OvfManager.CreateImportSpec">[docs]</a>        <span class="sd">&#39;&#39;&#39;Validate the OVF descriptor against the hardware supported by the host system. If</span>
+<span class="sd">        the validation succeeds, return a result containing:* An ImportSpec to use</span>
+<span class="sd">        when importing the entity. * A list of items to upload (for example disk</span>
+<span class="sd">        backing files, ISO images etc.)</span>
+
+<span class="sd">        :param ovfDescriptor: The OVF descriptor of the entity.</span>
+
+<span class="sd">        :param resourcePool: to a ResourcePoolThe resource pool to import the entity to. May be a vApp.</span>
+
+<span class="sd">        :param datastore: to a DatastoreThe datastore on which to create the inventory objects of the</span>
+<span class="sd">        entity, for example &quot;storage1&quot;. The privilege Datastore.AllocateSpace is</span>
+<span class="sd">        required on the datastore.</span>
+
+<span class="sd">        :param cisp: Additional parameters to the method, bundled in an instance of</span>
+<span class="sd">        CreateImportSpecParams.</span>
+
+
+<span class="sd">        :rtype: OvfCreateImportSpecResult </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateImportSpec&quot;</span><span class="p">)(</span><span class="n">ovfDescriptor</span><span class="p">,</span><span class="n">resourcePool</span><span class="p">,</span><span class="n">datastore</span><span class="p">,</span><span class="n">cisp</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">ParseDescriptor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ovfDescriptor</span><span class="p">,</span> <span class="n">pdp</span><span class="p">):</span></div>
+<div class="viewcode-block" id="OvfManager.ParseDescriptor"><a class="viewcode-back" href="../../../mo/ovf_manager.html#pyvisdk.mo.ovf_manager.OvfManager.ParseDescriptor">[docs]</a>        <span class="sd">&#39;&#39;&#39;Parse the OVF descriptor and return as much information about it as possible</span>
+<span class="sd">        without knowing the host on which it will be imported.Typically, this</span>
+<span class="sd">        method is called once without a deploymentOption parameter to obtain the</span>
+<span class="sd">        values for the default deployment option. Part of the result is the list</span>
+<span class="sd">        of possible deployment options. To obtain the values for a particular</span>
+<span class="sd">        deployment option, call this method again, specifying that option.</span>
+
+<span class="sd">        :param ovfDescriptor: The OVF descriptor to examine.</span>
+
+<span class="sd">        :param pdp: Additional parameters for parseDescriptor, wrapped in an instance of</span>
+<span class="sd">        ParseDescriptorParams.</span>
+
+
+<span class="sd">        :rtype: OvfParseDescriptorResult </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ParseDescriptor&quot;</span><span class="p">)(</span><span class="n">ovfDescriptor</span><span class="p">,</span><span class="n">pdp</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">ValidateHost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ovfDescriptor</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">vhp</span><span class="p">):</span></div>
+<div class="viewcode-block" id="OvfManager.ValidateHost"><a class="viewcode-back" href="../../../mo/ovf_manager.html#pyvisdk.mo.ovf_manager.OvfManager.ValidateHost">[docs]</a>        <span class="sd">&#39;&#39;&#39;Validate that the given OVF can be imported on the host.More specifically, this</span>
+<span class="sd">        means whether or not the host supports the virtual hardware required by</span>
+<span class="sd">        the OVF descriptor.</span>
+
+<span class="sd">        :param ovfDescriptor: The OVF descriptor to examine.</span>
+
+<span class="sd">        :param host: to a HostSystemThe host to validate against.</span>
+
+<span class="sd">        :param vhp: Additional parameters for validateHost, wrapped in a ValidateHostParams instance.</span>
+
+
+<span class="sd">        :rtype: OvfValidateHostResult </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ValidateHost&quot;</span><span class="p">)(</span><span class="n">ovfDescriptor</span><span class="p">,</span><span class="n">host</span><span class="p">,</span><span class="n">vhp</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

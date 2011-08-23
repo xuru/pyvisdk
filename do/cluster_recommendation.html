@@ -1,0 +1,202 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.110. ClusterRecommendation &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.111. ClusterReconfiguredEvent" href="cluster_reconfigured_event.html" />
+    <link rel="prev" title="4.109. ClusterProfileCreateSpec" href="cluster_profile_create_spec.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cluster_reconfigured_event.html" title="4.111. ClusterReconfiguredEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cluster_profile_create_spec.html" title="4.109. ClusterProfileCreateSpec"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="clusterrecommendation">
+<h1>4.110. ClusterRecommendation<a class="headerlink" href="#clusterrecommendation" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ClusterComputeResource</span></tt>,
+<a class="reference internal" href="cluster_power_on_vm_result.html#pyvisdk.do.cluster_power_on_vm_result.ClusterPowerOnVmResult" title="pyvisdk.do.cluster_power_on_vm_result.ClusterPowerOnVmResult"><tt class="xref py py-class docutils literal"><span class="pre">ClusterPowerOnVmResult</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="cluster_action.html#pyvisdk.do.cluster_action.ClusterAction" title="pyvisdk.do.cluster_action.ClusterAction"><tt class="xref py py-class docutils literal"><span class="pre">ClusterAction</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>VI API 2.5</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.cluster_recommendation.ClusterRecommendation">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.cluster_recommendation.</tt><tt class="descname">ClusterRecommendation</tt><a class="headerlink" href="#pyvisdk.do.cluster_recommendation.ClusterRecommendation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.cluster_recommendation.ClusterRecommendation.action">
+<tt class="descname">action</tt><a class="headerlink" href="#pyvisdk.do.cluster_recommendation.ClusterRecommendation.action" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of actions that are executed as part of this recommendation</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_recommendation.ClusterRecommendation.key">
+<tt class="descname">key</tt><a class="headerlink" href="#pyvisdk.do.cluster_recommendation.ClusterRecommendation.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Key to identify the recommendation when calling applyRecommendation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_recommendation.ClusterRecommendation.prerequisite">
+<tt class="descname">prerequisite</tt><a class="headerlink" href="#pyvisdk.do.cluster_recommendation.ClusterRecommendation.prerequisite" title="Permalink to this definition">¶</a></dt>
+<dd><p>This recommendation may depend on some other recommendations. The prerequisite recommendations are listed by their keys.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_recommendation.ClusterRecommendation.rating">
+<tt class="descname">rating</tt><a class="headerlink" href="#pyvisdk.do.cluster_recommendation.ClusterRecommendation.rating" title="Permalink to this definition">¶</a></dt>
+<dd><p>A rating of the recommendation. Valid values range from 1 (lowest confidence) to 5 (highest confidence).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_recommendation.ClusterRecommendation.reason">
+<tt class="descname">reason</tt><a class="headerlink" href="#pyvisdk.do.cluster_recommendation.ClusterRecommendation.reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>A reason code explaining why this set of migrations is being suggested.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_recommendation.ClusterRecommendation.reasonText">
+<tt class="descname">reasonText</tt><a class="headerlink" href="#pyvisdk.do.cluster_recommendation.ClusterRecommendation.reasonText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Text that provides more information about the reason code for the suggested set of migrations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_recommendation.ClusterRecommendation.target">
+<tt class="descname">target</tt><a class="headerlink" href="#pyvisdk.do.cluster_recommendation.ClusterRecommendation.target" title="Permalink to this definition">¶</a></dt>
+<dd><p>The target object of this recommendation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_recommendation.ClusterRecommendation.time">
+<tt class="descname">time</tt><a class="headerlink" href="#pyvisdk.do.cluster_recommendation.ClusterRecommendation.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time this recommendation was computed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_recommendation.ClusterRecommendation.type">
+<tt class="descname">type</tt><a class="headerlink" href="#pyvisdk.do.cluster_recommendation.ClusterRecommendation.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of the recommendation. This differentiates between various of recommendations aimed at achieving different goals.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cluster_profile_create_spec.html"
+                        title="previous chapter">4.109. ClusterProfileCreateSpec</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cluster_reconfigured_event.html"
+                        title="next chapter">4.111. ClusterReconfiguredEvent</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/cluster_recommendation.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cluster_reconfigured_event.html" title="4.111. ClusterReconfiguredEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cluster_profile_create_spec.html" title="4.109. ClusterProfileCreateSpec"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

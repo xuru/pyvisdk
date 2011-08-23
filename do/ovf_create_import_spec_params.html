@@ -1,0 +1,198 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.834. OvfCreateImportSpecParams &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.835. OvfCreateImportSpecResult" href="ovf_create_import_spec_result.html" />
+    <link rel="prev" title="4.833. OvfCreateDescriptorResult" href="ovf_create_descriptor_result.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ovf_create_import_spec_result.html" title="4.835. OvfCreateImportSpecResult"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ovf_create_descriptor_result.html" title="4.833. OvfCreateDescriptorResult"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="ovfcreateimportspecparams">
+<h1>4.834. OvfCreateImportSpecParams<a class="headerlink" href="#ovfcreateimportspecparams" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CreateImportSpec()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt>,
+<a class="reference internal" href="key_value.html#pyvisdk.do.key_value.KeyValue" title="pyvisdk.do.key_value.KeyValue"><tt class="xref py py-class docutils literal"><span class="pre">KeyValue</span></tt></a>,
+<a class="reference internal" href="ovf_network_mapping.html#pyvisdk.do.ovf_network_mapping.OvfNetworkMapping" title="pyvisdk.do.ovf_network_mapping.OvfNetworkMapping"><tt class="xref py py-class docutils literal"><span class="pre">OvfNetworkMapping</span></tt></a>,
+<a class="reference internal" href="ovf_resource_map.html#pyvisdk.do.ovf_resource_map.OvfResourceMap" title="pyvisdk.do.ovf_resource_map.OvfResourceMap"><tt class="xref py py-class docutils literal"><span class="pre">OvfResourceMap</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">OvfManagerCommonParams</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.ovf_create_import_spec_params.</tt><tt class="descname">OvfCreateImportSpecParams</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.diskProvisioning">
+<tt class="descname">diskProvisioning</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.diskProvisioning" title="Permalink to this definition">¶</a></dt>
+<dd><p>An optional disk provisioning. If set, all the disks in the deployed OVF will have get the same specified disk type (e.g., thin provisioned). The valide values for disk provisioning are: * monolithicSparse * monolithicFlat * twoGbMaxExtentSparse * twoGbMaxExtentFlat * thin * thick * sparse * flat</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.entityName">
+<tt class="descname">entityName</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.entityName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name to set on the entity (more precisely, on the top-level vApp or VM of the entity) as it appears in VI. If empty, the product name is obtained from the ProductSection of the descriptor. If that name is not specified, the ovf:id of the top-level entity is used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.hostSystem">
+<tt class="descname">hostSystem</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.hostSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>The host to validate the OVF descriptor against, if it cannot be deduced from the resource pool.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.ipAllocationPolicy">
+<tt class="descname">ipAllocationPolicy</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.ipAllocationPolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IP allocation policy chosen by the caller.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.ipProtocol">
+<tt class="descname">ipProtocol</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.ipProtocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IP protocol chosen by the caller.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.networkMapping">
+<tt class="descname">networkMapping</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.networkMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>The mapping of network identifiers from the descriptor to networks in the VI infrastructure.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.propertyMapping">
+<tt class="descname">propertyMapping</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.propertyMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>The assignment of values to the properties found in the descriptor. If no value is specified for an option, the default value from the descriptor is used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.resourceMapping">
+<tt class="descname">resourceMapping</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_import_spec_params.OvfCreateImportSpecParams.resourceMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>The resource configuration for the created vApp. This can be used to distribute a vApp across multiple resource pools (and create linked children).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ovf_create_descriptor_result.html"
+                        title="previous chapter">4.833. OvfCreateDescriptorResult</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ovf_create_import_spec_result.html"
+                        title="next chapter">4.835. OvfCreateImportSpecResult</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/ovf_create_import_spec_params.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ovf_create_import_spec_result.html" title="4.835. OvfCreateImportSpecResult"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ovf_create_descriptor_result.html" title="4.833. OvfCreateDescriptorResult"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

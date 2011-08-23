@@ -1,0 +1,155 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.856. PerfMetricId &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.857. PerfMetricIntSeries" href="perf_metric_int_series.html" />
+    <link rel="prev" title="4.855. PerfInterval" href="perf_interval.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="perf_metric_int_series.html" title="4.857. PerfMetricIntSeries"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="perf_interval.html" title="4.855. PerfInterval"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="perfmetricid">
+<h1>4.856. PerfMetricId<a class="headerlink" href="#perfmetricid" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="metric_alarm_expression.html#pyvisdk.do.metric_alarm_expression.MetricAlarmExpression" title="pyvisdk.do.metric_alarm_expression.MetricAlarmExpression"><tt class="xref py py-class docutils literal"><span class="pre">MetricAlarmExpression</span></tt></a>,
+<a class="reference internal" href="perf_metric_series.html#pyvisdk.do.perf_metric_series.PerfMetricSeries" title="pyvisdk.do.perf_metric_series.PerfMetricSeries"><tt class="xref py py-class docutils literal"><span class="pre">PerfMetricSeries</span></tt></a>,
+<a class="reference internal" href="perf_query_spec.html#pyvisdk.do.perf_query_spec.PerfQuerySpec" title="pyvisdk.do.perf_query_spec.PerfQuerySpec"><tt class="xref py py-class docutils literal"><span class="pre">PerfQuerySpec</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">QueryAvailablePerfMetric()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.perf_metric_id.PerfMetricId">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.perf_metric_id.</tt><tt class="descname">PerfMetricId</tt><a class="headerlink" href="#pyvisdk.do.perf_metric_id.PerfMetricId" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.perf_metric_id.PerfMetricId.counterId">
+<tt class="descname">counterId</tt><a class="headerlink" href="#pyvisdk.do.perf_metric_id.PerfMetricId.counterId" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the counter for the metric.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.perf_metric_id.PerfMetricId.instance">
+<tt class="descname">instance</tt><a class="headerlink" href="#pyvisdk.do.perf_metric_id.PerfMetricId.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>An identifier that is derived from configuration names for the device associated with the metric. It identifies the instance of the metric with its source. This property may be empty. * For memory and aggregated statistics, this property is empty. * For host and virtual machine devices, this property contains the name of the device, such as the name of the host-bus adapter or the name of the virtual Ethernet adapter. For example, mpx.vmhba33:C0:T0:L0 or vmnic0: * For a CPU, this property identifies the numeric position within the CPU core, such as 0, 1, 2, 3. * For a virtual disk, this property identifies the file type: * DISKFILE, for virtual machine base-disk files * SWAPFILE, for virtual machine swap files * DELTAFILE, for virtual machine snapshot overhead files * OTHERFILE, for all other files of a virtual machine</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="perf_interval.html"
+                        title="previous chapter">4.855. PerfInterval</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="perf_metric_int_series.html"
+                        title="next chapter">4.857. PerfMetricIntSeries</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/perf_metric_id.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="perf_metric_int_series.html" title="4.857. PerfMetricIntSeries"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="perf_interval.html" title="4.855. PerfInterval"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

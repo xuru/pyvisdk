@@ -1,0 +1,153 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.964. ScsiLunDurableName &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.965. SecurityProfile" href="security_profile.html" />
+    <link rel="prev" title="4.963. ScsiLunDescriptor" href="scsi_lun_descriptor.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="security_profile.html" title="4.965. SecurityProfile"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="scsi_lun_descriptor.html" title="4.963. ScsiLunDescriptor"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="scsilundurablename">
+<h1>4.964. ScsiLunDurableName<a class="headerlink" href="#scsilundurablename" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="scsi_lun.html#pyvisdk.do.scsi_lun.ScsiLun" title="pyvisdk.do.scsi_lun.ScsiLun"><tt class="xref py py-class docutils literal"><span class="pre">ScsiLun</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.scsi_lun_durable_name.ScsiLunDurableName">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.scsi_lun_durable_name.</tt><tt class="descname">ScsiLunDurableName</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun_durable_name.ScsiLunDurableName" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun_durable_name.ScsiLunDurableName.data">
+<tt class="descname">data</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun_durable_name.ScsiLunDurableName.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>The variable length byte array containing the namespace-specific data. For a SCSI-3 compliant device this field is the descriptor header along with the payload for data obtained from page 83h, and is the payload for data obtained from page 80h of the Vital Product Data (VPD).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun_durable_name.ScsiLunDurableName.namespace">
+<tt class="descname">namespace</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun_durable_name.ScsiLunDurableName.namespace" title="Permalink to this definition">¶</a></dt>
+<dd><p>The string describing the namespace used for the durable name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun_durable_name.ScsiLunDurableName.namespaceId">
+<tt class="descname">namespaceId</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun_durable_name.ScsiLunDurableName.namespaceId" title="Permalink to this definition">¶</a></dt>
+<dd><p>The byte used by the ESX Server product to represent the namespace.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scsi_lun_descriptor.html"
+                        title="previous chapter">4.963. ScsiLunDescriptor</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="security_profile.html"
+                        title="next chapter">4.965. SecurityProfile</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/scsi_lun_durable_name.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="security_profile.html" title="4.965. SecurityProfile"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="scsi_lun_descriptor.html" title="4.963. ScsiLunDescriptor"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

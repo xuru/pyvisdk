@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.168. CustomizationSpec &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.169. CustomizationSpecInfo" href="customization_spec_info.html" />
+    <link rel="prev" title="4.167. CustomizationPrefixName" href="customization_prefix_name.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="customization_spec_info.html" title="4.169. CustomizationSpecInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="customization_prefix_name.html" title="4.167. CustomizationPrefixName"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="customizationspec">
+<h1>4.168. CustomizationSpec<a class="headerlink" href="#customizationspec" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CheckCustomizationSpec()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">CustomizeVM_Task()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="customization_spec_item.html#pyvisdk.do.customization_spec_item.CustomizationSpecItem" title="pyvisdk.do.customization_spec_item.CustomizationSpecItem"><tt class="xref py py-class docutils literal"><span class="pre">CustomizationSpecItem</span></tt></a>,
+<a class="reference internal" href="virtual_machine_clone_spec.html#pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec" title="pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineCloneSpec</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="customization_adapter_mapping.html#pyvisdk.do.customization_adapter_mapping.CustomizationAdapterMapping" title="pyvisdk.do.customization_adapter_mapping.CustomizationAdapterMapping"><tt class="xref py py-class docutils literal"><span class="pre">CustomizationAdapterMapping</span></tt></a>,
+<a class="reference internal" href="customization_global_ip_settings.html#pyvisdk.do.customization_global_ip_settings.CustomizationGlobalIPSettings" title="pyvisdk.do.customization_global_ip_settings.CustomizationGlobalIPSettings"><tt class="xref py py-class docutils literal"><span class="pre">CustomizationGlobalIPSettings</span></tt></a>,
+<a class="reference internal" href="customization_identity_settings.html#pyvisdk.do.customization_identity_settings.CustomizationIdentitySettings" title="pyvisdk.do.customization_identity_settings.CustomizationIdentitySettings"><tt class="xref py py-class docutils literal"><span class="pre">CustomizationIdentitySettings</span></tt></a>,
+<a class="reference internal" href="customization_options.html#pyvisdk.do.customization_options.CustomizationOptions" title="pyvisdk.do.customization_options.CustomizationOptions"><tt class="xref py py-class docutils literal"><span class="pre">CustomizationOptions</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.customization_spec.CustomizationSpec">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.customization_spec.</tt><tt class="descname">CustomizationSpec</tt><a class="headerlink" href="#pyvisdk.do.customization_spec.CustomizationSpec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.customization_spec.CustomizationSpec.encryptionKey">
+<tt class="descname">encryptionKey</tt><a class="headerlink" href="#pyvisdk.do.customization_spec.CustomizationSpec.encryptionKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Byte array containing the public key used to encrypt any passwords stored in the specification. Both the client and the server can use this to determine if stored passwords can be decrypted by the server or if the passwords need to be re-entered and re-encrypted before the specification can be used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_spec.CustomizationSpec.globalIPSettings">
+<tt class="descname">globalIPSettings</tt><a class="headerlink" href="#pyvisdk.do.customization_spec.CustomizationSpec.globalIPSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Global IP settings constitute the IP settings that are not specific to a particular virtual network adapter.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_spec.CustomizationSpec.identity">
+<tt class="descname">identity</tt><a class="headerlink" href="#pyvisdk.do.customization_spec.CustomizationSpec.identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Network identity and settings, similar to Microsoft&#8217;s Sysprep tool. This is a Sysprep, LinuxPrep, or SysprepText object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_spec.CustomizationSpec.nicSettingMap">
+<tt class="descname">nicSettingMap</tt><a class="headerlink" href="#pyvisdk.do.customization_spec.CustomizationSpec.nicSettingMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>IP settings that are specific to a particular virtual network adapter. The AdapterMapping object maps a network adapter&#8217;s MAC address to its Adapter settings object. May be empty if there are no network adapters, else should match number of network adapters in the VM.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_spec.CustomizationSpec.options">
+<tt class="descname">options</tt><a class="headerlink" href="#pyvisdk.do.customization_spec.CustomizationSpec.options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optional operations (either LinuxOptions or WinOptions).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="customization_prefix_name.html"
+                        title="previous chapter">4.167. CustomizationPrefixName</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="customization_spec_info.html"
+                        title="next chapter">4.169. CustomizationSpecInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/customization_spec.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="customization_spec_info.html" title="4.169. CustomizationSpecInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="customization_prefix_name.html" title="4.167. CustomizationPrefixName"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

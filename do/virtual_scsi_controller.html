@@ -1,0 +1,162 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1231. VirtualSCSIController &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1232. VirtualSCSIControllerOption" href="virtual_scsi_controller_option.html" />
+    <link rel="prev" title="4.1230. VirtualPS2ControllerOption" href="virtual_ps2_controller_option.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_scsi_controller_option.html" title="4.1232. VirtualSCSIControllerOption"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_ps2_controller_option.html" title="4.1230. VirtualPS2ControllerOption"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualscsicontroller">
+<h1>4.1231. VirtualSCSIController<a class="headerlink" href="#virtualscsicontroller" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Extended by</tt></dt>
+<dd><p><a class="reference internal" href="para_virtual_scsi_controller.html#pyvisdk.do.para_virtual_scsi_controller.ParaVirtualSCSIController" title="pyvisdk.do.para_virtual_scsi_controller.ParaVirtualSCSIController"><tt class="xref py py-class docutils literal"><span class="pre">ParaVirtualSCSIController</span></tt></a>,
+<a class="reference internal" href="virtual_bus_logic_controller.html#pyvisdk.do.virtual_bus_logic_controller.VirtualBusLogicController" title="pyvisdk.do.virtual_bus_logic_controller.VirtualBusLogicController"><tt class="xref py py-class docutils literal"><span class="pre">VirtualBusLogicController</span></tt></a>,
+<a class="reference internal" href="virtual_lsi_logic_controller.html#pyvisdk.do.virtual_lsi_logic_controller.VirtualLsiLogicController" title="pyvisdk.do.virtual_lsi_logic_controller.VirtualLsiLogicController"><tt class="xref py py-class docutils literal"><span class="pre">VirtualLsiLogicController</span></tt></a>,
+<a class="reference internal" href="virtual_lsi_logic_sas_controller.html#pyvisdk.do.virtual_lsi_logic_sas_controller.VirtualLsiLogicSASController" title="pyvisdk.do.virtual_lsi_logic_sas_controller.VirtualLsiLogicSASController"><tt class="xref py py-class docutils literal"><span class="pre">VirtualLsiLogicSASController</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">VirtualSCSISharing</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">VirtualController</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.virtual_scsi_controller.VirtualSCSIController">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.virtual_scsi_controller.</tt><tt class="descname">VirtualSCSIController</tt><a class="headerlink" href="#pyvisdk.do.virtual_scsi_controller.VirtualSCSIController" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.virtual_scsi_controller.VirtualSCSIController.hotAddRemove">
+<tt class="descname">hotAddRemove</tt><a class="headerlink" href="#pyvisdk.do.virtual_scsi_controller.VirtualSCSIController.hotAddRemove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting this flag is optional. Setting this flag to true enables hot adding devices; setting this flag to false disables hot adding. This property determines if a SCSI disk may be added without shutting down the virtual machine. Using this flag depends on if this feature is supported, as designated by the setting of the boolean hotAddRemove.supported property in the VirtualSCSIControllerOption data object type. *</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_scsi_controller.VirtualSCSIController.scsiCtlrUnitNumber">
+<tt class="descname">scsiCtlrUnitNumber</tt><a class="headerlink" href="#pyvisdk.do.virtual_scsi_controller.VirtualSCSIController.scsiCtlrUnitNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unit number of the SCSI controller. The SCSI controller sits on its own bus, so this field defines which slot the controller is using.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_scsi_controller.VirtualSCSIController.sharedBus">
+<tt class="descname">sharedBus</tt><a class="headerlink" href="#pyvisdk.do.virtual_scsi_controller.VirtualSCSIController.sharedBus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mode for sharing the SCSI bus. The modes are physicalSharing, virtualSharing, and noSharing. See the Sharing data object type for an explanation of these modes.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_ps2_controller_option.html"
+                        title="previous chapter">4.1230. VirtualPS2ControllerOption</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_scsi_controller_option.html"
+                        title="next chapter">4.1232. VirtualSCSIControllerOption</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/virtual_scsi_controller.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_scsi_controller_option.html" title="4.1232. VirtualSCSIControllerOption"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_ps2_controller_option.html" title="4.1230. VirtualPS2ControllerOption"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

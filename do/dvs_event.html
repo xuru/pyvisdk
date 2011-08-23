@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.289. DvsEvent &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.290. DvsEventArgument" href="dvs_event_argument.html" />
+    <link rel="prev" title="4.288. DvsDestroyedEvent" href="dvs_destroyed_event.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dvs_event_argument.html" title="4.290. DvsEventArgument"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="dvs_destroyed_event.html" title="4.288. DvsDestroyedEvent"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="dvsevent">
+<h1>4.289. DvsEvent<a class="headerlink" href="#dvsevent" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Extended by</tt></dt>
+<dd><p><a class="reference internal" href="dvs_created_event.html#pyvisdk.do.dvs_created_event.DvsCreatedEvent" title="pyvisdk.do.dvs_created_event.DvsCreatedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsCreatedEvent</span></tt></a>,
+<a class="reference internal" href="dvs_destroyed_event.html#pyvisdk.do.dvs_destroyed_event.DvsDestroyedEvent" title="pyvisdk.do.dvs_destroyed_event.DvsDestroyedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsDestroyedEvent</span></tt></a>,
+<a class="reference internal" href="dvs_host_back_in_sync_event.html#pyvisdk.do.dvs_host_back_in_sync_event.DvsHostBackInSyncEvent" title="pyvisdk.do.dvs_host_back_in_sync_event.DvsHostBackInSyncEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsHostBackInSyncEvent</span></tt></a>,
+<a class="reference internal" href="dvs_host_joined_event.html#pyvisdk.do.dvs_host_joined_event.DvsHostJoinedEvent" title="pyvisdk.do.dvs_host_joined_event.DvsHostJoinedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsHostJoinedEvent</span></tt></a>,
+<a class="reference internal" href="dvs_host_left_event.html#pyvisdk.do.dvs_host_left_event.DvsHostLeftEvent" title="pyvisdk.do.dvs_host_left_event.DvsHostLeftEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsHostLeftEvent</span></tt></a>,
+<a class="reference internal" href="dvs_host_status_updated.html#pyvisdk.do.dvs_host_status_updated.DvsHostStatusUpdated" title="pyvisdk.do.dvs_host_status_updated.DvsHostStatusUpdated"><tt class="xref py py-class docutils literal"><span class="pre">DvsHostStatusUpdated</span></tt></a>,
+<a class="reference internal" href="dvs_host_went_out_of_sync_event.html#pyvisdk.do.dvs_host_went_out_of_sync_event.DvsHostWentOutOfSyncEvent" title="pyvisdk.do.dvs_host_went_out_of_sync_event.DvsHostWentOutOfSyncEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsHostWentOutOfSyncEvent</span></tt></a>,
+<a class="reference internal" href="dvs_merged_event.html#pyvisdk.do.dvs_merged_event.DvsMergedEvent" title="pyvisdk.do.dvs_merged_event.DvsMergedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsMergedEvent</span></tt></a>,
+<a class="reference internal" href="dvs_port_blocked_event.html#pyvisdk.do.dvs_port_blocked_event.DvsPortBlockedEvent" title="pyvisdk.do.dvs_port_blocked_event.DvsPortBlockedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsPortBlockedEvent</span></tt></a>,
+<a class="reference internal" href="dvs_port_connected_event.html#pyvisdk.do.dvs_port_connected_event.DvsPortConnectedEvent" title="pyvisdk.do.dvs_port_connected_event.DvsPortConnectedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsPortConnectedEvent</span></tt></a>,
+<a class="reference internal" href="dvs_port_created_event.html#pyvisdk.do.dvs_port_created_event.DvsPortCreatedEvent" title="pyvisdk.do.dvs_port_created_event.DvsPortCreatedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsPortCreatedEvent</span></tt></a>,
+<a class="reference internal" href="dvs_port_deleted_event.html#pyvisdk.do.dvs_port_deleted_event.DvsPortDeletedEvent" title="pyvisdk.do.dvs_port_deleted_event.DvsPortDeletedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsPortDeletedEvent</span></tt></a>,
+<a class="reference internal" href="dvs_port_disconnected_event.html#pyvisdk.do.dvs_port_disconnected_event.DvsPortDisconnectedEvent" title="pyvisdk.do.dvs_port_disconnected_event.DvsPortDisconnectedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsPortDisconnectedEvent</span></tt></a>,
+<a class="reference internal" href="dvs_port_entered_passthru_event.html#pyvisdk.do.dvs_port_entered_passthru_event.DvsPortEnteredPassthruEvent" title="pyvisdk.do.dvs_port_entered_passthru_event.DvsPortEnteredPassthruEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsPortEnteredPassthruEvent</span></tt></a>,
+<a class="reference internal" href="dvs_port_exited_passthru_event.html#pyvisdk.do.dvs_port_exited_passthru_event.DvsPortExitedPassthruEvent" title="pyvisdk.do.dvs_port_exited_passthru_event.DvsPortExitedPassthruEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsPortExitedPassthruEvent</span></tt></a>,
+<a class="reference internal" href="dvs_port_join_portgroup_event.html#pyvisdk.do.dvs_port_join_portgroup_event.DvsPortJoinPortgroupEvent" title="pyvisdk.do.dvs_port_join_portgroup_event.DvsPortJoinPortgroupEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsPortJoinPortgroupEvent</span></tt></a>,
+<a class="reference internal" href="dvs_port_leave_portgroup_event.html#pyvisdk.do.dvs_port_leave_portgroup_event.DvsPortLeavePortgroupEvent" title="pyvisdk.do.dvs_port_leave_portgroup_event.DvsPortLeavePortgroupEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsPortLeavePortgroupEvent</span></tt></a>,
+<a class="reference internal" href="dvs_port_link_down_event.html#pyvisdk.do.dvs_port_link_down_event.DvsPortLinkDownEvent" title="pyvisdk.do.dvs_port_link_down_event.DvsPortLinkDownEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsPortLinkDownEvent</span></tt></a>,
+<a class="reference internal" href="dvs_port_link_up_event.html#pyvisdk.do.dvs_port_link_up_event.DvsPortLinkUpEvent" title="pyvisdk.do.dvs_port_link_up_event.DvsPortLinkUpEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsPortLinkUpEvent</span></tt></a>,
+<a class="reference internal" href="dvs_port_reconfigured_event.html#pyvisdk.do.dvs_port_reconfigured_event.DvsPortReconfiguredEvent" title="pyvisdk.do.dvs_port_reconfigured_event.DvsPortReconfiguredEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsPortReconfiguredEvent</span></tt></a>,
+<a class="reference internal" href="dvs_port_unblocked_event.html#pyvisdk.do.dvs_port_unblocked_event.DvsPortUnblockedEvent" title="pyvisdk.do.dvs_port_unblocked_event.DvsPortUnblockedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsPortUnblockedEvent</span></tt></a>,
+<a class="reference internal" href="dvs_reconfigured_event.html#pyvisdk.do.dvs_reconfigured_event.DvsReconfiguredEvent" title="pyvisdk.do.dvs_reconfigured_event.DvsReconfiguredEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsReconfiguredEvent</span></tt></a>,
+<a class="reference internal" href="dvs_renamed_event.html#pyvisdk.do.dvs_renamed_event.DvsRenamedEvent" title="pyvisdk.do.dvs_renamed_event.DvsRenamedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsRenamedEvent</span></tt></a>,
+<a class="reference internal" href="dvs_upgrade_available_event.html#pyvisdk.do.dvs_upgrade_available_event.DvsUpgradeAvailableEvent" title="pyvisdk.do.dvs_upgrade_available_event.DvsUpgradeAvailableEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsUpgradeAvailableEvent</span></tt></a>,
+<a class="reference internal" href="dvs_upgraded_event.html#pyvisdk.do.dvs_upgraded_event.DvsUpgradedEvent" title="pyvisdk.do.dvs_upgraded_event.DvsUpgradedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsUpgradedEvent</span></tt></a>,
+<a class="reference internal" href="dvs_upgrade_in_progress_event.html#pyvisdk.do.dvs_upgrade_in_progress_event.DvsUpgradeInProgressEvent" title="pyvisdk.do.dvs_upgrade_in_progress_event.DvsUpgradeInProgressEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsUpgradeInProgressEvent</span></tt></a>,
+<a class="reference internal" href="dvs_upgrade_rejected_event.html#pyvisdk.do.dvs_upgrade_rejected_event.DvsUpgradeRejectedEvent" title="pyvisdk.do.dvs_upgrade_rejected_event.DvsUpgradeRejectedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsUpgradeRejectedEvent</span></tt></a>,
+<a class="reference internal" href="out_of_sync_dvs_host.html#pyvisdk.do.out_of_sync_dvs_host.OutOfSyncDvsHost" title="pyvisdk.do.out_of_sync_dvs_host.OutOfSyncDvsHost"><tt class="xref py py-class docutils literal"><span class="pre">OutOfSyncDvsHost</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">Event</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.dvs_event.DvsEvent">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.dvs_event.</tt><tt class="descname">DvsEvent</tt><a class="headerlink" href="#pyvisdk.do.dvs_event.DvsEvent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dvs_destroyed_event.html"
+                        title="previous chapter">4.288. DvsDestroyedEvent</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dvs_event_argument.html"
+                        title="next chapter">4.290. DvsEventArgument</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/dvs_event.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dvs_event_argument.html" title="4.290. DvsEventArgument"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="dvs_destroyed_event.html" title="4.288. DvsDestroyedEvent"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

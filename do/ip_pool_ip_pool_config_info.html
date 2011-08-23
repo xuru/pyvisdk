@@ -1,0 +1,183 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.729. IpPoolIpPoolConfigInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.730. IpRouteProfile" href="ip_route_profile.html" />
+    <link rel="prev" title="4.728. IpPoolAssociation" href="ip_pool_association.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ip_route_profile.html" title="4.730. IpRouteProfile"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ip_pool_association.html" title="4.728. IpPoolAssociation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="ippoolippoolconfiginfo">
+<h1>4.729. IpPoolIpPoolConfigInfo<a class="headerlink" href="#ippoolippoolconfiginfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="ip_pool.html#pyvisdk.do.ip_pool.IpPool" title="pyvisdk.do.ip_pool.IpPool"><tt class="xref py py-class docutils literal"><span class="pre">IpPool</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.ip_pool_ip_pool_config_info.</tt><tt class="descname">IpPoolIpPoolConfigInfo</tt><a class="headerlink" href="#pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo.dhcpServerAvailable">
+<tt class="descname">dhcpServerAvailable</tt><a class="headerlink" href="#pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo.dhcpServerAvailable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether a DHCP server is available on this network.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo.dns">
+<tt class="descname">dns</tt><a class="headerlink" href="#pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo.dns" title="Permalink to this definition">¶</a></dt>
+<dd><p>DNS servers</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo.gateway">
+<tt class="descname">gateway</tt><a class="headerlink" href="#pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo.gateway" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gateway. This can be an empty string - if no gateway is configured.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo.ipPoolEnabled">
+<tt class="descname">ipPoolEnabled</tt><a class="headerlink" href="#pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo.ipPoolEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>IP addresses can only be allocated from the range if the IP pool is enabled.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo.netmask">
+<tt class="descname">netmask</tt><a class="headerlink" href="#pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo.netmask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Netmask</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo.range">
+<tt class="descname">range</tt><a class="headerlink" href="#pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo.range" title="Permalink to this definition">¶</a></dt>
+<dd><p>IP range. This is specified as a set of ranges separated with commas. One range is given by a start address, a hash (#), and the length of the range.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo.subnetAddress">
+<tt class="descname">subnetAddress</tt><a class="headerlink" href="#pyvisdk.do.ip_pool_ip_pool_config_info.IpPoolIpPoolConfigInfo.subnetAddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Address of the subnet.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ip_pool_association.html"
+                        title="previous chapter">4.728. IpPoolAssociation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ip_route_profile.html"
+                        title="next chapter">4.730. IpRouteProfile</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/ip_pool_ip_pool_config_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ip_route_profile.html" title="4.730. IpRouteProfile"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ip_pool_association.html" title="4.728. IpPoolAssociation"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

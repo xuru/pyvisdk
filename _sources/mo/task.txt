@@ -1,0 +1,133 @@
+
+================================================================================
+Task
+================================================================================
+
+
+.. describe:: Property of
+    
+    :py:class:`~pyvisdk.do.cluster_attempted_vm_info.ClusterAttemptedVmInfo`,
+    :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`,
+    :py:class:`~pyvisdk.do.scheduled_task_info.ScheduledTaskInfo`,
+    :py:class:`~pyvisdk.do.task_info.TaskInfo`,
+    :py:class:`~pyvisdk.do.task_in_progress.TaskInProgress`,
+    :py:class:`~pyvisdk.do.task_manager.TaskManager`
+    
+.. describe:: See also
+    
+    :py:class:`~pyvisdk.do.task_info.TaskInfo`,
+    :py:class:`~pyvisdk.do.task_info_state.TaskInfoState`
+    
+.. describe:: Extends
+    
+    :py:class:`~pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject`
+    
+.. describe:: Returned by
+    
+    :py:meth:`~pyvisdk.do.add_dv_portgroup__task.AddDVPortgroup_Task`,
+    :py:meth:`~pyvisdk.do.add_host__task.AddHost_Task`,
+    :py:meth:`~pyvisdk.do.add_standalone_host__task.AddStandaloneHost_Task`,
+    :py:meth:`~pyvisdk.do.apply_host_config__task.ApplyHostConfig_Task`,
+    :py:meth:`~pyvisdk.do.check_compatibility__task.CheckCompatibility_Task`,
+    :py:meth:`~pyvisdk.do.check_compliance__task.CheckCompliance_Task`,
+    :py:meth:`~pyvisdk.do.check_host_patch__task.CheckHostPatch_Task`,
+    :py:meth:`~pyvisdk.do.check_migrate__task.CheckMigrate_Task`,
+    :py:meth:`~pyvisdk.do.check_profile_compliance__task.CheckProfileCompliance_Task`,
+    :py:meth:`~pyvisdk.do.check_relocate__task.CheckRelocate_Task`,
+    :py:meth:`~pyvisdk.do.clone_v_app__task.CloneVApp_Task`,
+    :py:meth:`~pyvisdk.do.clone_vm__task.CloneVM_Task`,
+    :py:meth:`~pyvisdk.do.configure_datastore_iorm__task.ConfigureDatastoreIORM_Task`,
+    :py:meth:`~pyvisdk.do.copy_datastore_file__task.CopyDatastoreFile_Task`,
+    :py:meth:`~pyvisdk.do.copy_virtual_disk__task.CopyVirtualDisk_Task`,
+    :py:meth:`~pyvisdk.do.create_child_vm__task.CreateChildVM_Task`,
+    :py:meth:`~pyvisdk.do.create_dvs__task.CreateDVS_Task`,
+    :py:meth:`~pyvisdk.do.create_screenshot__task.CreateScreenshot_Task`,
+    :py:meth:`~pyvisdk.do.create_secondary_vm__task.CreateSecondaryVM_Task`,
+    :py:meth:`~pyvisdk.do.create_snapshot__task.CreateSnapshot_Task`,
+    :py:meth:`~pyvisdk.do.create_virtual_disk__task.CreateVirtualDisk_Task`,
+    :py:meth:`~pyvisdk.do.create_vm__task.CreateVM_Task`,
+    :py:meth:`~pyvisdk.do.customize_vm__task.CustomizeVM_Task`,
+    :py:meth:`~pyvisdk.do.defragment_virtual_disk__task.DefragmentVirtualDisk_Task`,
+    :py:meth:`~pyvisdk.do.delete_datastore_file__task.DeleteDatastoreFile_Task`,
+    :py:meth:`~pyvisdk.do.delete_virtual_disk__task.DeleteVirtualDisk_Task`,
+    :py:meth:`~pyvisdk.do.destroy__task.Destroy_Task`,
+    :py:meth:`~pyvisdk.do.disable_secondary_vm__task.DisableSecondaryVM_Task`,
+    :py:meth:`~pyvisdk.do.disconnect_host__task.DisconnectHost_Task`,
+    :py:meth:`~pyvisdk.do.eager_zero_virtual_disk__task.EagerZeroVirtualDisk_Task`,
+    :py:meth:`~pyvisdk.do.enable_secondary_vm__task.EnableSecondaryVM_Task`,
+    :py:meth:`~pyvisdk.do.enter_maintenance_mode__task.EnterMaintenanceMode_Task`,
+    :py:meth:`~pyvisdk.do.exit_maintenance_mode__task.ExitMaintenanceMode_Task`,
+    :py:meth:`~pyvisdk.do.extend_virtual_disk__task.ExtendVirtualDisk_Task`,
+    :py:meth:`~pyvisdk.do.generate_log_bundles__task.GenerateLogBundles_Task`,
+    :py:meth:`~pyvisdk.do.inflate_virtual_disk__task.InflateVirtualDisk_Task`,
+    :py:meth:`~pyvisdk.do.install_host_patch__task.InstallHostPatch_Task`,
+    :py:meth:`~pyvisdk.do.install_host_patch_v2__task.InstallHostPatchV2_Task`,
+    :py:meth:`~pyvisdk.do.join_domain__task.JoinDomain_Task`,
+    :py:meth:`~pyvisdk.do.leave_current_domain__task.LeaveCurrentDomain_Task`,
+    :py:meth:`~pyvisdk.do.make_primary_vm__task.MakePrimaryVM_Task`,
+    :py:meth:`~pyvisdk.do.merge_dvs__task.MergeDvs_Task`,
+    :py:meth:`~pyvisdk.do.migrate_vm__task.MigrateVM_Task`,
+    :py:meth:`~pyvisdk.do.move_datastore_file__task.MoveDatastoreFile_Task`,
+    :py:meth:`~pyvisdk.do.move_dv_port__task.MoveDVPort_Task`,
+    :py:meth:`~pyvisdk.do.move_host_into__task.MoveHostInto_Task`,
+    :py:meth:`~pyvisdk.do.move_into__task.MoveInto_Task`,
+    :py:meth:`~pyvisdk.do.move_into_folder__task.MoveIntoFolder_Task`,
+    :py:meth:`~pyvisdk.do.move_virtual_disk__task.MoveVirtualDisk_Task`,
+    :py:meth:`~pyvisdk.do.perform_dvs_product_spec_operation__task.PerformDvsProductSpecOperation_Task`,
+    :py:meth:`~pyvisdk.do.power_down_host_to_stand_by__task.PowerDownHostToStandBy_Task`,
+    :py:meth:`~pyvisdk.do.power_off_v_app__task.PowerOffVApp_Task`,
+    :py:meth:`~pyvisdk.do.power_off_vm__task.PowerOffVM_Task`,
+    :py:meth:`~pyvisdk.do.power_on_multi_vm__task.PowerOnMultiVM_Task`,
+    :py:meth:`~pyvisdk.do.power_on_v_app__task.PowerOnVApp_Task`,
+    :py:meth:`~pyvisdk.do.power_on_vm__task.PowerOnVM_Task`,
+    :py:meth:`~pyvisdk.do.power_up_host_from_stand_by__task.PowerUpHostFromStandBy_Task`,
+    :py:meth:`~pyvisdk.do.promote_disks__task.PromoteDisks_Task`,
+    :py:meth:`~pyvisdk.do.query_host_patch__task.QueryHostPatch_Task`,
+    :py:meth:`~pyvisdk.do.query_v_motion_compatibility_ex__task.QueryVMotionCompatibilityEx_Task`,
+    :py:meth:`~pyvisdk.do.reboot_host__task.RebootHost_Task`,
+    :py:meth:`~pyvisdk.do.reconfigure_cluster__task.ReconfigureCluster_Task`,
+    :py:meth:`~pyvisdk.do.reconfigure_compute_resource__task.ReconfigureComputeResource_Task`,
+    :py:meth:`~pyvisdk.do.reconfigure_dv_port__task.ReconfigureDVPort_Task`,
+    :py:meth:`~pyvisdk.do.reconfigure_dv_portgroup__task.ReconfigureDVPortgroup_Task`,
+    :py:meth:`~pyvisdk.do.reconfigure_dvs__task.ReconfigureDvs_Task`,
+    :py:meth:`~pyvisdk.do.reconfigure_host_for_das__task.ReconfigureHostForDAS_Task`,
+    :py:meth:`~pyvisdk.do.reconfig_vm__task.ReconfigVM_Task`,
+    :py:meth:`~pyvisdk.do.reconnect_host__task.ReconnectHost_Task`,
+    :py:meth:`~pyvisdk.do.rectify_dvs_host__task.RectifyDvsHost_Task`,
+    :py:meth:`~pyvisdk.do.register_child_vm__task.RegisterChildVM_Task`,
+    :py:meth:`~pyvisdk.do.register_vm__task.RegisterVM_Task`,
+    :py:meth:`~pyvisdk.do.reload_virtual_machine_from_path__task.reloadVirtualMachineFromPath_Task`,
+    :py:meth:`~pyvisdk.do.relocate_vm__task.RelocateVM_Task`,
+    :py:meth:`~pyvisdk.do.remove_all_snapshots__task.RemoveAllSnapshots_Task`,
+    :py:meth:`~pyvisdk.do.remove_snapshot__task.RemoveSnapshot_Task`,
+    :py:meth:`~pyvisdk.do.rename__task.Rename_Task`,
+    :py:meth:`~pyvisdk.do.reset_vm__task.ResetVM_Task`,
+    :py:meth:`~pyvisdk.do.resignature_unresolved_vmfs_volume__task.ResignatureUnresolvedVmfsVolume_Task`,
+    :py:meth:`~pyvisdk.do.revert_to_current_snapshot__task.RevertToCurrentSnapshot_Task`,
+    :py:meth:`~pyvisdk.do.revert_to_snapshot__task.RevertToSnapshot_Task`,
+    :py:meth:`~pyvisdk.do.scan_host_patch__task.ScanHostPatch_Task`,
+    :py:meth:`~pyvisdk.do.scan_host_patch_v2__task.ScanHostPatchV2_Task`,
+    :py:meth:`~pyvisdk.do.search_datastore__task.SearchDatastore_Task`,
+    :py:meth:`~pyvisdk.do.search_datastore_sub_folders__task.SearchDatastoreSubFolders_Task`,
+    :py:meth:`~pyvisdk.do.shrink_virtual_disk__task.ShrinkVirtualDisk_Task`,
+    :py:meth:`~pyvisdk.do.shutdown_host__task.ShutdownHost_Task`,
+    :py:meth:`~pyvisdk.do.stage_host_patch__task.StageHostPatch_Task`,
+    :py:meth:`~pyvisdk.do.start_recording__task.StartRecording_Task`,
+    :py:meth:`~pyvisdk.do.start_replaying__task.StartReplaying_Task`,
+    :py:meth:`~pyvisdk.do.stop_recording__task.StopRecording_Task`,
+    :py:meth:`~pyvisdk.do.stop_replaying__task.StopReplaying_Task`,
+    :py:meth:`~pyvisdk.do.suspend_v_app__task.SuspendVApp_Task`,
+    :py:meth:`~pyvisdk.do.suspend_vm__task.SuspendVM_Task`,
+    :py:meth:`~pyvisdk.do.terminate_fault_tolerant_vm__task.TerminateFaultTolerantVM_Task`,
+    :py:meth:`~pyvisdk.do.turn_off_fault_tolerance_for_vm__task.TurnOffFaultToleranceForVM_Task`,
+    :py:meth:`~pyvisdk.do.uninstall_host_patch__task.UninstallHostPatch_Task`,
+    :py:meth:`~pyvisdk.do.unregister_and_destroy__task.UnregisterAndDestroy_Task`,
+    :py:meth:`~pyvisdk.do.unregister_v_app__task.unregisterVApp_Task`,
+    :py:meth:`~pyvisdk.do.update_virtual_machine_files__task.UpdateVirtualMachineFiles_Task`,
+    :py:meth:`~pyvisdk.do.upgrade_tools__task.UpgradeTools_Task`,
+    :py:meth:`~pyvisdk.do.upgrade_vm__task.UpgradeVM_Task`,
+    :py:meth:`~pyvisdk.do.zero_fill_virtual_disk__task.ZeroFillVirtualDisk_Task`
+    
+.. 'autoclass':: pyvisdk.mo.task.Task
+    :members:
+    :inherited-members:

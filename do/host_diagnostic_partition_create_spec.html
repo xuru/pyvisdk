@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.485. HostDiagnosticPartitionCreateSpec &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.486. HostDigestInfo" href="host_digest_info.html" />
+    <link rel="prev" title="4.484. HostDiagnosticPartitionCreateOption" href="host_diagnostic_partition_create_option.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_digest_info.html" title="4.486. HostDigestInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_diagnostic_partition_create_option.html" title="4.484. HostDiagnosticPartitionCreateOption"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hostdiagnosticpartitioncreatespec">
+<h1>4.485. HostDiagnosticPartitionCreateSpec<a class="headerlink" href="#hostdiagnosticpartitioncreatespec" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CreateDiagnosticPartition()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="host_diagnostic_partition_create_description.html#pyvisdk.do.host_diagnostic_partition_create_description.HostDiagnosticPartitionCreateDescription" title="pyvisdk.do.host_diagnostic_partition_create_description.HostDiagnosticPartitionCreateDescription"><tt class="xref py py-class docutils literal"><span class="pre">HostDiagnosticPartitionCreateDescription</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="host_disk_partition_spec.html#pyvisdk.do.host_disk_partition_spec.HostDiskPartitionSpec" title="pyvisdk.do.host_disk_partition_spec.HostDiskPartitionSpec"><tt class="xref py py-class docutils literal"><span class="pre">HostDiskPartitionSpec</span></tt></a>,
+<a class="reference internal" href="host_scsi_disk_partition.html#pyvisdk.do.host_scsi_disk_partition.HostScsiDiskPartition" title="pyvisdk.do.host_scsi_disk_partition.HostScsiDiskPartition"><tt class="xref py py-class docutils literal"><span class="pre">HostScsiDiskPartition</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.host_diagnostic_partition_create_spec.</tt><tt class="descname">HostDiagnosticPartitionCreateSpec</tt><a class="headerlink" href="#pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec.active">
+<tt class="descname">active</tt><a class="headerlink" href="#pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec.active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates if the created diagnostic partition should be made the active diagnostic partition. If not supplied, the system will decide whether or not the created specification is active.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec.diagnosticType">
+<tt class="descname">diagnosticType</tt><a class="headerlink" href="#pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec.diagnosticType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the type of the diagnostic partition to be created.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec.id">
+<tt class="descname">id</tt><a class="headerlink" href="#pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diagnostic partition identification information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec.partition">
+<tt class="descname">partition</tt><a class="headerlink" href="#pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec.partition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partitioning specification.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec.storageType">
+<tt class="descname">storageType</tt><a class="headerlink" href="#pyvisdk.do.host_diagnostic_partition_create_spec.HostDiagnosticPartitionCreateSpec.storageType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the storage type where the diagnostic partition will be created.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_diagnostic_partition_create_option.html"
+                        title="previous chapter">4.484. HostDiagnosticPartitionCreateOption</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_digest_info.html"
+                        title="next chapter">4.486. HostDigestInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/host_diagnostic_partition_create_spec.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_digest_info.html" title="4.486. HostDigestInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_diagnostic_partition_create_option.html" title="4.484. HostDiagnosticPartitionCreateOption"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

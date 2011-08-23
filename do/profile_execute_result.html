@@ -1,0 +1,179 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.904. ProfileExecuteResult &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.905. ProfileExpression" href="profile_expression.html" />
+    <link rel="prev" title="4.903. ProfileExecuteError" href="profile_execute_error.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="profile_expression.html" title="4.905. ProfileExpression"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="profile_execute_error.html" title="4.903. ProfileExecuteError"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="profileexecuteresult">
+<h1>4.904. ProfileExecuteResult<a class="headerlink" href="#profileexecuteresult" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="host_config_spec.html#pyvisdk.do.host_config_spec.HostConfigSpec" title="pyvisdk.do.host_config_spec.HostConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">HostConfigSpec</span></tt></a>,
+<a class="reference internal" href="profile_deferred_policy_option_parameter.html#pyvisdk.do.profile_deferred_policy_option_parameter.ProfileDeferredPolicyOptionParameter" title="pyvisdk.do.profile_deferred_policy_option_parameter.ProfileDeferredPolicyOptionParameter"><tt class="xref py py-class docutils literal"><span class="pre">ProfileDeferredPolicyOptionParameter</span></tt></a>,
+<a class="reference internal" href="profile_execute_error.html#pyvisdk.do.profile_execute_error.ProfileExecuteError" title="pyvisdk.do.profile_execute_error.ProfileExecuteError"><tt class="xref py py-class docutils literal"><span class="pre">ProfileExecuteError</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">ExecuteHostProfile()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.profile_execute_result.ProfileExecuteResult">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.profile_execute_result.</tt><tt class="descname">ProfileExecuteResult</tt><a class="headerlink" href="#pyvisdk.do.profile_execute_result.ProfileExecuteResult" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.profile_execute_result.ProfileExecuteResult.configSpec">
+<tt class="descname">configSpec</tt><a class="headerlink" href="#pyvisdk.do.profile_execute_result.ProfileExecuteResult.configSpec" title="Permalink to this definition">¶</a></dt>
+<dd><p>configSpec will be valid only if status == success</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.profile_execute_result.ProfileExecuteResult.error">
+<tt class="descname">error</tt><a class="headerlink" href="#pyvisdk.do.profile_execute_result.ProfileExecuteResult.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of errors that were encountered during execute. This field will be set if status is set to error.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.profile_execute_result.ProfileExecuteResult.inapplicablePath">
+<tt class="descname">inapplicablePath</tt><a class="headerlink" href="#pyvisdk.do.profile_execute_result.ProfileExecuteResult.inapplicablePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of paths that are not applicable for this execute. e.g: If the precheck policies do not pass on a PortGroup, PortGroup will not be created. The user can ignore this subtree. This might be used the UI to not show the particular part of the tree.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.profile_execute_result.ProfileExecuteResult.requireInput">
+<tt class="descname">requireInput</tt><a class="headerlink" href="#pyvisdk.do.profile_execute_result.ProfileExecuteResult.requireInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of paths that still need user Input. This can be used by the UI to highlight the particular fields. In future this could be used to ask the user for input in multiple rounds instead of filling up the whole input at once. Here is an illustration: In the first pass, the user just fills up bare minimum inputs needed. Once that data is sent to the server, the server evaluates the Profile and might decide to invalidate a particular part of the subtree or enable a new subtree in the profile. Which would result in a new set of invalidPaths and requireInput propertyPaths. The caller (UI) can keep calling the function in multiple steps till success. If there are values that are filled in in the previous iteration, they will be returned in requireInput[].param.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.profile_execute_result.ProfileExecuteResult.status">
+<tt class="descname">status</tt><a class="headerlink" href="#pyvisdk.do.profile_execute_result.ProfileExecuteResult.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Status of the execute operation Will be one of the enumerations in #Status</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="profile_execute_error.html"
+                        title="previous chapter">4.903. ProfileExecuteError</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="profile_expression.html"
+                        title="next chapter">4.905. ProfileExpression</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/profile_execute_result.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="profile_expression.html" title="4.905. ProfileExpression"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="profile_execute_error.html" title="4.903. ProfileExecuteError"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

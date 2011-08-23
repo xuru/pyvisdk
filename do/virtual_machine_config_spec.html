@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1152. VirtualMachineConfigSpec &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1153. VirtualMachineConfigSummary" href="virtual_machine_config_summary.html" />
+    <link rel="prev" title="4.1151. VirtualMachineConfigOptionDescriptor" href="virtual_machine_config_option_descriptor.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_config_summary.html" title="4.1153. VirtualMachineConfigSummary"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_config_option_descriptor.html" title="4.1151. VirtualMachineConfigOptionDescriptor"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualmachineconfigspec">
+<h1>4.1152. VirtualMachineConfigSpec<a class="headerlink" href="#virtualmachineconfigspec" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CreateChildVM_Task()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">CreateVM_Task()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">ReconfigVM_Task()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="virtual_machine_clone_spec.html#pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec" title="pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineCloneSpec</span></tt></a>,
+<a class="reference internal" href="virtual_machine_import_spec.html#pyvisdk.do.virtual_machine_import_spec.VirtualMachineImportSpec" title="pyvisdk.do.virtual_machine_import_spec.VirtualMachineImportSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineImportSpec</span></tt></a>,
+<a class="reference internal" href="vm_being_created_event.html#pyvisdk.do.vm_being_created_event.VmBeingCreatedEvent" title="pyvisdk.do.vm_being_created_event.VmBeingCreatedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmBeingCreatedEvent</span></tt></a>,
+<a class="reference internal" href="vm_reconfigured_event.html#pyvisdk.do.vm_reconfigured_event.VmReconfiguredEvent" title="pyvisdk.do.vm_reconfigured_event.VmReconfiguredEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmReconfiguredEvent</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="fault_tolerance_config_info.html#pyvisdk.do.fault_tolerance_config_info.FaultToleranceConfigInfo" title="pyvisdk.do.fault_tolerance_config_info.FaultToleranceConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">FaultToleranceConfigInfo</span></tt></a>,
+<a class="reference internal" href="option_value.html#pyvisdk.do.option_value.OptionValue" title="pyvisdk.do.option_value.OptionValue"><tt class="xref py py-class docutils literal"><span class="pre">OptionValue</span></tt></a>,
+<a class="reference internal" href="resource_allocation_info.html#pyvisdk.do.resource_allocation_info.ResourceAllocationInfo" title="pyvisdk.do.resource_allocation_info.ResourceAllocationInfo"><tt class="xref py py-class docutils literal"><span class="pre">ResourceAllocationInfo</span></tt></a>,
+<a class="reference internal" href="tools_config_info.html#pyvisdk.do.tools_config_info.ToolsConfigInfo" title="pyvisdk.do.tools_config_info.ToolsConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">ToolsConfigInfo</span></tt></a>,
+<a class="reference internal" href="virtual_device_config_spec.html#pyvisdk.do.virtual_device_config_spec.VirtualDeviceConfigSpec" title="pyvisdk.do.virtual_device_config_spec.VirtualDeviceConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualDeviceConfigSpec</span></tt></a>,
+<a class="reference internal" href="virtual_machine_affinity_info.html#pyvisdk.do.virtual_machine_affinity_info.VirtualMachineAffinityInfo" title="pyvisdk.do.virtual_machine_affinity_info.VirtualMachineAffinityInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineAffinityInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_boot_options.html#pyvisdk.do.virtual_machine_boot_options.VirtualMachineBootOptions" title="pyvisdk.do.virtual_machine_boot_options.VirtualMachineBootOptions"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineBootOptions</span></tt></a>,
+<a class="reference internal" href="virtual_machine_console_preferences.html#pyvisdk.do.virtual_machine_console_preferences.VirtualMachineConsolePreferences" title="pyvisdk.do.virtual_machine_console_preferences.VirtualMachineConsolePreferences"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineConsolePreferences</span></tt></a>,
+<a class="reference internal" href="virtual_machine_cpu_id_info_spec.html#pyvisdk.do.virtual_machine_cpu_id_info_spec.VirtualMachineCpuIdInfoSpec" title="pyvisdk.do.virtual_machine_cpu_id_info_spec.VirtualMachineCpuIdInfoSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineCpuIdInfoSpec</span></tt></a>,
+<a class="reference internal" href="virtual_machine_default_power_op_info.html#pyvisdk.do.virtual_machine_default_power_op_info.VirtualMachineDefaultPowerOpInfo" title="pyvisdk.do.virtual_machine_default_power_op_info.VirtualMachineDefaultPowerOpInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineDefaultPowerOpInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_file_info.html#pyvisdk.do.virtual_machine_file_info.VirtualMachineFileInfo" title="pyvisdk.do.virtual_machine_file_info.VirtualMachineFileInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineFileInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_flag_info.html#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo" title="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineFlagInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_network_shaper_info.html#pyvisdk.do.virtual_machine_network_shaper_info.VirtualMachineNetworkShaperInfo" title="pyvisdk.do.virtual_machine_network_shaper_info.VirtualMachineNetworkShaperInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineNetworkShaperInfo</span></tt></a>,
+<a class="reference internal" href="vm_config_spec.html#pyvisdk.do.vm_config_spec.VmConfigSpec" title="pyvisdk.do.vm_config_spec.VmConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">VmConfigSpec</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.virtual_machine_config_spec.</tt><tt class="descname">VirtualMachineConfigSpec</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.alternateGuestName">
+<tt class="descname">alternateGuestName</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.alternateGuestName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Full name for guest, if guestId is specified as</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.annotation">
+<tt class="descname">annotation</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.annotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>User-provided description of the virtual machine. Because this property is optional in the virtual machine configuration, it is necessary to pass an explicit empty string in a ConfigSpec object to remove an annotation that is already present in the VirtualMachineConfigInfo for a virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.bootOptions">
+<tt class="descname">bootOptions</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.bootOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Settings that control the boot behavior of the virtual machine. These settings take effect during the next power-on of the virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.changeTrackingEnabled">
+<tt class="descname">changeTrackingEnabled</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.changeTrackingEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting to control enabling/disabling changed block tracking for the virtual disks of this VM. This may only be set if the changeTrackingSupported capability is true for this virtual machine. Any change to this property will take effect the next time the virtual machine powers on, resumes from a suspended state, performs a snapshot create/delete/revert operation or migrates while powered on.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.changeVersion">
+<tt class="descname">changeVersion</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.changeVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>If specified, the changes are only applied if the current changeVersion matches the specified changeVersion. This field can be used to guard against updates that have happened between when configInfo is read and when it is applied.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.consolePreferences">
+<tt class="descname">consolePreferences</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.consolePreferences" title="Permalink to this definition">¶</a></dt>
+<dd><p>Legacy console viewer preferences that are used with power operations. For example, power on.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.cpuAffinity">
+<tt class="descname">cpuAffinity</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.cpuAffinity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Affinity settings for CPU.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.cpuAllocation">
+<tt class="descname">cpuAllocation</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.cpuAllocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resource limits for CPU.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.cpuFeatureMask">
+<tt class="descname">cpuFeatureMask</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.cpuFeatureMask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the CPU feature compatibility masks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.cpuHotAddEnabled">
+<tt class="descname">cpuHotAddEnabled</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.cpuHotAddEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not virtual processors can be added to the virtual machine while it is running. This attribute can only be set when the virtual machine is powered-off.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.cpuHotRemoveEnabled">
+<tt class="descname">cpuHotRemoveEnabled</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.cpuHotRemoveEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not virtual processors can be removed from the virtual machine while it is running. This attribute can only be set when the virtual machine is powered-off.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.deviceChange">
+<tt class="descname">deviceChange</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.deviceChange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set of virtual devices being modified by the configuration operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.extraConfig">
+<tt class="descname">extraConfig</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.extraConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Additional configuration information for the virtual machine. This describes a set of modifications to the additional options. An option is removed if the key is present but the value is not set or the value is an empty string. Otherwise, the key is set to the new value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.files">
+<tt class="descname">files</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information about virtual machine files.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.flags">
+<tt class="descname">flags</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.flags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Additional flags for a virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.ftInfo">
+<tt class="descname">ftInfo</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.ftInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fault Tolerance settings for this virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.guestId">
+<tt class="descname">guestId</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.guestId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short guest operating system identifier.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.instanceUuid">
+<tt class="descname">instanceUuid</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.instanceUuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>VirtualCenter-specific 128-bit UUID of a virtual machine, represented as a hexadecimal string. This identifier is used by VirtalCenter to uniquely identify all virtual machine instances in the Virtual Infrastructure environment, including those that may share the same SMBIOS UUID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.locationId">
+<tt class="descname">locationId</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.locationId" title="Permalink to this definition">¶</a></dt>
+<dd><p>128-bit hash based on the virtual machine&#8217;s configuration file location and the UUID of the host assigned to run the virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.memoryAffinity">
+<tt class="descname">memoryAffinity</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.memoryAffinity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Affinity settings for memory.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.memoryAllocation">
+<tt class="descname">memoryAllocation</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.memoryAllocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resource limits for memory.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.memoryHotAddEnabled">
+<tt class="descname">memoryHotAddEnabled</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.memoryHotAddEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not memory can be added to the virtual machine while it is running. This attribute can only be set when the virtual machine is powered-off.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.memoryMB">
+<tt class="descname">memoryMB</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.memoryMB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of a virtual machine&#8217;s memory, in MB.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.name">
+<tt class="descname">name</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display name of the virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.networkShaper">
+<tt class="descname">networkShaper</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.networkShaper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resource limits for network.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivDesiredNodeWwns">
+<tt class="descname">npivDesiredNodeWwns</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivDesiredNodeWwns" title="Permalink to this definition">¶</a></dt>
+<dd><p>The NPIV node WWNs to be extended from the original list of WWN nummbers. This property should be set to desired number which is an aggregate of existing plus new numbers. Desired Node WWNs should always be greater than the existing number of node WWNs</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivDesiredPortWwns">
+<tt class="descname">npivDesiredPortWwns</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivDesiredPortWwns" title="Permalink to this definition">¶</a></dt>
+<dd><p>The NPIV port WWNs to be extended from the original list of WWN nummbers. This property should be set to desired number which is an aggregate of existing plus new numbers. Desired Node WWNs should always be greater than the existing number of port WWNs</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivNodeWorldWideName">
+<tt class="descname">npivNodeWorldWideName</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivNodeWorldWideName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The NPIV node WWN to be assigned to a virtual machine. This property should only be used or set when the value of npivWorldWideNameOp property is &#8220;set&#8221;. Otherwise, an InvalidVmConfig fault will be thrown. If the specified node WWN is currently being used by another virtual machine, a VmWwnConflict fault will be thrown.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivOnNonRdmDisks">
+<tt class="descname">npivOnNonRdmDisks</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivOnNonRdmDisks" title="Permalink to this definition">¶</a></dt>
+<dd><p>This property is used to check whether the NPIV can be enabled on the Virtual machine with non-rdm disks in the configuration, so this is potentially not enabling npiv on vmfs disks. Also this property is used to check whether RDM is required to generate WWNs for a virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivPortWorldWideName">
+<tt class="descname">npivPortWorldWideName</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivPortWorldWideName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The NPIV port WWN to be assigned to a virtual machine. This property should only be used or set when the value of npivWorldWideNameOp property is &#8220;set&#8221;. Otherwise, an InvalidVmConfig fault will be thrown. If the specified port WWN is currently being used by another virtual machine, a VmWwnConflict fault will be thrown.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivTemporaryDisabled">
+<tt class="descname">npivTemporaryDisabled</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivTemporaryDisabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>This property is used to enable or disable the NPIV capability on a desired virtual machine on a temporary basis. When this property is set NPIV Vport will not be instantiated by the VMX process of the Virtual Machine. When this property is set port WWNs and node WWNs in the VM configuration are preserved.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivWorldWideNameOp">
+<tt class="descname">npivWorldWideNameOp</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivWorldWideNameOp" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate what type of NPIV WWN operation is going to be performed on the virtual machine. If unset, it indicates no change to existing NPIV WWN assignment (or not assigned) in the virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivWorldWideNameType">
+<tt class="descname">npivWorldWideNameType</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.npivWorldWideNameType" title="Permalink to this definition">¶</a></dt>
+<dd><p>This property is used internally in the communication between the VirtualCenter server and ESX Server to indicate the source for npivNodeWorldWideName and npivPortWorldWideName when npivWorldWideNameOp is &#8220;set&#8221;. This property should only be set by the VirtualCenter server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.numCPUs">
+<tt class="descname">numCPUs</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.numCPUs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of virtual processors in a virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.powerOpInfo">
+<tt class="descname">powerOpInfo</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.powerOpInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration for default power operations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.swapPlacement">
+<tt class="descname">swapPlacement</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.swapPlacement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Virtual machine swapfile placement policy. This may only be set if the swapPlacementSupported capability is true for this virtual machine. Any change to this policy will take effect the next time the virtual machine powers on, resumes from a suspended state, or migrates while powered on.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.tools">
+<tt class="descname">tools</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.tools" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration of VMware Tools running in the guest operating system.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.uuid">
+<tt class="descname">uuid</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>128-bit SMBIOS UUID of a virtual machine represented as a hexadecimal string in &#8220;12345678-abcd-1234-cdef-123456789abc&#8221; format.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.vAppConfig">
+<tt class="descname">vAppConfig</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.vAppConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration of vApp meta-data for a virtual machine</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.vAppConfigRemoved">
+<tt class="descname">vAppConfigRemoved</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.vAppConfigRemoved" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set to true, if the vApp configuration should be removed</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.vAssertsEnabled">
+<tt class="descname">vAssertsEnabled</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.vAssertsEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether user-configured virtual asserts will be triggered during virtual machine replay. This setting takes effect during the next replay of the virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.version">
+<tt class="descname">version</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>The version string for this virtual machine. This is used only while creating a new virtual machine, and can be updated by invoking UpgradeVM_Task for this virtual machine.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_machine_config_option_descriptor.html"
+                        title="previous chapter">4.1151. VirtualMachineConfigOptionDescriptor</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_machine_config_summary.html"
+                        title="next chapter">4.1153. VirtualMachineConfigSummary</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/virtual_machine_config_spec.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_config_summary.html" title="4.1153. VirtualMachineConfigSummary"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_config_option_descriptor.html" title="4.1151. VirtualMachineConfigOptionDescriptor"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

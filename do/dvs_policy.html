@@ -1,0 +1,160 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.307. DVSPolicy &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.308. DvsPortBlockedEvent" href="dvs_port_blocked_event.html" />
+    <link rel="prev" title="4.306. DvsOutOfSyncHostArgument" href="dvs_out_of_sync_host_argument.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dvs_port_blocked_event.html" title="4.308. DvsPortBlockedEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="dvs_out_of_sync_host_argument.html" title="4.306. DvsOutOfSyncHostArgument"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="dvspolicy">
+<h1>4.307. DVSPolicy<a class="headerlink" href="#dvspolicy" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="dvs_config_info.html#pyvisdk.do.dvs_config_info.DVSConfigInfo" title="pyvisdk.do.dvs_config_info.DVSConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">DVSConfigInfo</span></tt></a>,
+<a class="reference internal" href="dvs_config_spec.html#pyvisdk.do.dvs_config_spec.DVSConfigSpec" title="pyvisdk.do.dvs_config_spec.DVSConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">DVSConfigSpec</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.dvs_policy.DVSPolicy">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.dvs_policy.</tt><tt class="descname">DVSPolicy</tt><a class="headerlink" href="#pyvisdk.do.dvs_policy.DVSPolicy" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.dvs_policy.DVSPolicy.autoPreInstallAllowed">
+<tt class="descname">autoPreInstallAllowed</tt><a class="headerlink" href="#pyvisdk.do.dvs_policy.DVSPolicy.autoPreInstallAllowed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether downloading a new proxy VirtualSwitch module to the host is allowed to be automatically executed by the switch.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.dvs_policy.DVSPolicy.autoUpgradeAllowed">
+<tt class="descname">autoUpgradeAllowed</tt><a class="headerlink" href="#pyvisdk.do.dvs_policy.DVSPolicy.autoUpgradeAllowed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether upgrading of the switch is allowed to be automatically executed by the switch.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.dvs_policy.DVSPolicy.partialUpgradeAllowed">
+<tt class="descname">partialUpgradeAllowed</tt><a class="headerlink" href="#pyvisdk.do.dvs_policy.DVSPolicy.partialUpgradeAllowed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether to allow upgrading a switch when some of the hosts failed to install the needed module. The vCenter Server will reattempt the pre-install operation of the host module on those failed hosts, whenever they reconnect to vCenter.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dvs_out_of_sync_host_argument.html"
+                        title="previous chapter">4.306. DvsOutOfSyncHostArgument</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dvs_port_blocked_event.html"
+                        title="next chapter">4.308. DvsPortBlockedEvent</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/dvs_policy.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dvs_port_blocked_event.html" title="4.308. DvsPortBlockedEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="dvs_out_of_sync_host_argument.html" title="4.306. DvsOutOfSyncHostArgument"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

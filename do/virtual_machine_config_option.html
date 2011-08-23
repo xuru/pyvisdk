@@ -1,0 +1,211 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1150. VirtualMachineConfigOption &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1151. VirtualMachineConfigOptionDescriptor" href="virtual_machine_config_option_descriptor.html" />
+    <link rel="prev" title="4.1149. VirtualMachineConfigInfoDatastoreUrlPair" href="virtual_machine_config_info_datastore_url_pair.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_config_option_descriptor.html" title="4.1151. VirtualMachineConfigOptionDescriptor"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_config_info_datastore_url_pair.html" title="4.1149. VirtualMachineConfigInfoDatastoreUrlPair"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualmachineconfigoption">
+<h1>4.1150. VirtualMachineConfigOption<a class="headerlink" href="#virtualmachineconfigoption" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="datastore_option.html#pyvisdk.do.datastore_option.DatastoreOption" title="pyvisdk.do.datastore_option.DatastoreOption"><tt class="xref py py-class docutils literal"><span class="pre">DatastoreOption</span></tt></a>,
+<a class="reference internal" href="guest_os_descriptor.html#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor" title="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor"><tt class="xref py py-class docutils literal"><span class="pre">GuestOsDescriptor</span></tt></a>,
+<a class="reference internal" href="virtual_device.html#pyvisdk.do.virtual_device.VirtualDevice" title="pyvisdk.do.virtual_device.VirtualDevice"><tt class="xref py py-class docutils literal"><span class="pre">VirtualDevice</span></tt></a>,
+<a class="reference internal" href="virtual_hardware_option.html#pyvisdk.do.virtual_hardware_option.VirtualHardwareOption" title="pyvisdk.do.virtual_hardware_option.VirtualHardwareOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualHardwareOption</span></tt></a>,
+<a class="reference internal" href="virtual_machine_capability.html#pyvisdk.do.virtual_machine_capability.VirtualMachineCapability" title="pyvisdk.do.virtual_machine_capability.VirtualMachineCapability"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineCapability</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">QueryConfigOption()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.virtual_machine_config_option.</tt><tt class="descname">VirtualMachineConfigOption</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.capabilities">
+<tt class="descname">capabilities</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Capabilities supported by a virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.datastore">
+<tt class="descname">datastore</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>The datastore options for this virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.defaultDevice">
+<tt class="descname">defaultDevice</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.defaultDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of virtual devices that are created on a virtual machine by default. Clients should not create these devices.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.description">
+<tt class="descname">description</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A description string for this configOption.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.guestOSDefaultIndex">
+<tt class="descname">guestOSDefaultIndex</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.guestOSDefaultIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Index into guestOsDescriptor array denoting the default guest operating system.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.guestOSDescriptor">
+<tt class="descname">guestOSDescriptor</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.guestOSDescriptor" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of supported guest operating systems. The choice of guest operating system may limit the set of valid devices. For example, you cannot select Vmxnet with all guest operating systems.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.hardwareOptions">
+<tt class="descname">hardwareOptions</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.hardwareOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processor, memory, and virtual device options for a virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.supportedMonitorType">
+<tt class="descname">supportedMonitorType</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.supportedMonitorType" title="Permalink to this definition">¶</a></dt>
+<dd><p>The monitor types supported by a host. The acceptable monitor types are enumerated by VirtualMachineFlagInfoMonitorType.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.supportedOvfEnvironmentTransport">
+<tt class="descname">supportedOvfEnvironmentTransport</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.supportedOvfEnvironmentTransport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the supported property transports that are available for the OVF environment</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.supportedOvfInstallTransport">
+<tt class="descname">supportedOvfInstallTransport</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.supportedOvfInstallTransport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the supported transports for the OVF installation phase.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.version">
+<tt class="descname">version</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>The version corresponding to this configOption.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_machine_config_info_datastore_url_pair.html"
+                        title="previous chapter">4.1149. VirtualMachineConfigInfoDatastoreUrlPair</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_machine_config_option_descriptor.html"
+                        title="next chapter">4.1151. VirtualMachineConfigOptionDescriptor</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/virtual_machine_config_option.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_config_option_descriptor.html" title="4.1151. VirtualMachineConfigOptionDescriptor"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_config_info_datastore_url_pair.html" title="4.1149. VirtualMachineConfigInfoDatastoreUrlPair"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

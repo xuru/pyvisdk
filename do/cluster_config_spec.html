@@ -1,0 +1,176 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.59. ClusterConfigSpec &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.60. ClusterConfigSpecEx" href="cluster_config_spec_ex.html" />
+    <link rel="prev" title="4.58. ClusterConfigInfoEx" href="cluster_config_info_ex.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cluster_config_spec_ex.html" title="4.60. ClusterConfigSpecEx"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cluster_config_info_ex.html" title="4.58. ClusterConfigInfoEx"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="clusterconfigspec">
+<h1>4.59. ClusterConfigSpec<a class="headerlink" href="#clusterconfigspec" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CreateCluster()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">ReconfigureCluster_Task()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="cluster_das_config_info.html#pyvisdk.do.cluster_das_config_info.ClusterDasConfigInfo" title="pyvisdk.do.cluster_das_config_info.ClusterDasConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">ClusterDasConfigInfo</span></tt></a>,
+<a class="reference internal" href="cluster_das_vm_config_spec.html#pyvisdk.do.cluster_das_vm_config_spec.ClusterDasVmConfigSpec" title="pyvisdk.do.cluster_das_vm_config_spec.ClusterDasVmConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">ClusterDasVmConfigSpec</span></tt></a>,
+<a class="reference internal" href="cluster_drs_config_info.html#pyvisdk.do.cluster_drs_config_info.ClusterDrsConfigInfo" title="pyvisdk.do.cluster_drs_config_info.ClusterDrsConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">ClusterDrsConfigInfo</span></tt></a>,
+<a class="reference internal" href="cluster_drs_vm_config_spec.html#pyvisdk.do.cluster_drs_vm_config_spec.ClusterDrsVmConfigSpec" title="pyvisdk.do.cluster_drs_vm_config_spec.ClusterDrsVmConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">ClusterDrsVmConfigSpec</span></tt></a>,
+<a class="reference internal" href="cluster_rule_spec.html#pyvisdk.do.cluster_rule_spec.ClusterRuleSpec" title="pyvisdk.do.cluster_rule_spec.ClusterRuleSpec"><tt class="xref py py-class docutils literal"><span class="pre">ClusterRuleSpec</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.cluster_config_spec.ClusterConfigSpec">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.cluster_config_spec.</tt><tt class="descname">ClusterConfigSpec</tt><a class="headerlink" href="#pyvisdk.do.cluster_config_spec.ClusterConfigSpec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.cluster_config_spec.ClusterConfigSpec.dasConfig">
+<tt class="descname">dasConfig</tt><a class="headerlink" href="#pyvisdk.do.cluster_config_spec.ClusterConfigSpec.dasConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes to the configuration of VMware HA.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_config_spec.ClusterConfigSpec.dasVmConfigSpec">
+<tt class="descname">dasVmConfigSpec</tt><a class="headerlink" href="#pyvisdk.do.cluster_config_spec.ClusterConfigSpec.dasVmConfigSpec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes to the per-virtual-machine VMware HA settings.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_config_spec.ClusterConfigSpec.drsConfig">
+<tt class="descname">drsConfig</tt><a class="headerlink" href="#pyvisdk.do.cluster_config_spec.ClusterConfigSpec.drsConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes to the configuration of the VMware DRS service.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_config_spec.ClusterConfigSpec.drsVmConfigSpec">
+<tt class="descname">drsVmConfigSpec</tt><a class="headerlink" href="#pyvisdk.do.cluster_config_spec.ClusterConfigSpec.drsVmConfigSpec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes to the per-virtual-machine DRS settings.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.cluster_config_spec.ClusterConfigSpec.rulesSpec">
+<tt class="descname">rulesSpec</tt><a class="headerlink" href="#pyvisdk.do.cluster_config_spec.ClusterConfigSpec.rulesSpec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes to the set of rules.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cluster_config_info_ex.html"
+                        title="previous chapter">4.58. ClusterConfigInfoEx</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cluster_config_spec_ex.html"
+                        title="next chapter">4.60. ClusterConfigSpecEx</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/cluster_config_spec.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cluster_config_spec_ex.html" title="4.60. ClusterConfigSpecEx"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cluster_config_info_ex.html" title="4.58. ClusterConfigInfoEx"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

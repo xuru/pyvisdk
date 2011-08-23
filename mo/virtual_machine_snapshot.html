@@ -7,9 +7,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>3.90. VirtualMachineSnapshot &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <title>3.92. VirtualMachineSnapshot &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,13 +19,13 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
-    <link rel="next" title="3.91. VirtualizationManager" href="virtualization_manager.html" />
-    <link rel="prev" title="3.89. VirtualMachineProvisioningChecker" href="virtual_machine_provisioning_checker.html" /> 
+    <link rel="next" title="3.93. VirtualizationManager" href="virtualization_manager.html" />
+    <link rel="prev" title="3.91. VirtualMachineProvisioningChecker" href="virtual_machine_provisioning_checker.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,10 +38,10 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="virtualization_manager.html" title="3.91. VirtualizationManager"
+          <a href="virtualization_manager.html" title="3.93. VirtualizationManager"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="virtual_machine_provisioning_checker.html" title="3.89. VirtualMachineProvisioningChecker"
+          <a href="virtual_machine_provisioning_checker.html" title="3.91. VirtualMachineProvisioningChecker"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
           <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
@@ -54,136 +54,45 @@
           <div class="body">
             
   <div class="section" id="virtualmachinesnapshot">
-<h1>3.90. VirtualMachineSnapshot<a class="headerlink" href="#virtualmachinesnapshot" title="Permalink to this headline">¶</a></h1>
+<h1>3.92. VirtualMachineSnapshot<a class="headerlink" href="#virtualmachinesnapshot" title="Permalink to this headline">¶</a></h1>
 <dl class="describe">
 <dt>
 <tt class="descname">Parameter to</tt></dt>
-<dd><p>QueryChangedDiskAreas, StartReplaying_Task</p>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">QueryChangedDiskAreas()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">StartReplaying_Task()</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Property of</tt></dt>
-<dd><p><a class="reference internal" href="virtual_machine.html#pyvisdk.mo.virtual_machine.VirtualMachine" title="pyvisdk.mo.virtual_machine.VirtualMachine"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineCloneSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineFileLayoutExSnapshotLayout</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineFileLayoutSnapshotLayout</span></tt>, <a class="reference internal" href="#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot" title="pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineSnapshot</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineSnapshotInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineSnapshotTree</span></tt></p>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt>,
+<a class="reference internal" href="../do/virtual_machine_clone_spec.html#pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec" title="pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineCloneSpec</span></tt></a>,
+<a class="reference internal" href="../do/virtual_machine_file_layout_ex_snapshot_layout.html#pyvisdk.do.virtual_machine_file_layout_ex_snapshot_layout.VirtualMachineFileLayoutExSnapshotLayout" title="pyvisdk.do.virtual_machine_file_layout_ex_snapshot_layout.VirtualMachineFileLayoutExSnapshotLayout"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineFileLayoutExSnapshotLayout</span></tt></a>,
+<a class="reference internal" href="../do/virtual_machine_file_layout_snapshot_layout.html#pyvisdk.do.virtual_machine_file_layout_snapshot_layout.VirtualMachineFileLayoutSnapshotLayout" title="pyvisdk.do.virtual_machine_file_layout_snapshot_layout.VirtualMachineFileLayoutSnapshotLayout"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineFileLayoutSnapshotLayout</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineSnapshot</span></tt>,
+<a class="reference internal" href="../do/virtual_machine_snapshot_info.html#pyvisdk.do.virtual_machine_snapshot_info.VirtualMachineSnapshotInfo" title="pyvisdk.do.virtual_machine_snapshot_info.VirtualMachineSnapshotInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineSnapshotInfo</span></tt></a>,
+<a class="reference internal" href="../do/virtual_machine_snapshot_tree.html#pyvisdk.do.virtual_machine_snapshot_tree.VirtualMachineSnapshotTree" title="pyvisdk.do.virtual_machine_snapshot_tree.VirtualMachineSnapshotTree"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineSnapshotTree</span></tt></a></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">See also</tt></dt>
-<dd><p><a class="reference internal" href="host_system.html#pyvisdk.mo.host_system.HostSystem" title="pyvisdk.mo.host_system.HostSystem"><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineConfigInfo</span></tt>, <tt class="xref py py-class docutils literal"></tt></p>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt>,
+<a class="reference internal" href="../do/virtual_machine_config_info.html#pyvisdk.do.virtual_machine_config_info.VirtualMachineConfigInfo" title="pyvisdk.do.virtual_machine_config_info.VirtualMachineConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineConfigInfo</span></tt></a>,
+<tt class="xref py py-class docutils literal"></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Extends</tt></dt>
-<dd><p><a class="reference internal" href="extensible_managed_object.html#pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject" title="pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject"><tt class="xref py py-class docutils literal"><span class="pre">ExtensibleManagedObject</span></tt></a></p>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ExtensibleManagedObject</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Returned by</tt></dt>
-<dd><p>CreateSnapshot_Task, StartRecording_Task</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.virtual_machine_snapshot.</tt><tt class="descname">VirtualMachineSnapshot</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='VirtualMachineSnapshot'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine_snapshot.html#VirtualMachineSnapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Properties</p>
-<dl class="method">
-<dt id="pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.RemoveSnapshot_Task">
-<tt class="descname">RemoveSnapshot_Task</tt><big>(</big><em>removeChildren</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine_snapshot.html#VirtualMachineSnapshot.RemoveSnapshot_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.RemoveSnapshot_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Removes this snapshot and deletes any associated storage.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>removeChildren</strong> &#8211; Flag to specify removal of the entire snapshot subtree.</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.RenameSnapshot">
-<tt class="descname">RenameSnapshot</tt><big>(</big><em>name</em>, <em>description</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine_snapshot.html#VirtualMachineSnapshot.RenameSnapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.RenameSnapshot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rename this snapshot with either a new name or a new description or both. At least
-one of these must be specified when calling the rename method.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>name</strong> &#8211; New name for the snapshot.</li>
-<li><strong>description</strong> &#8211; New description for the snapshot.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.RevertToSnapshot_Task">
-<tt class="descname">RevertToSnapshot_Task</tt><big>(</big><em>host</em>, <em>suppressPowerOn</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine_snapshot.html#VirtualMachineSnapshot.RevertToSnapshot_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.RevertToSnapshot_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Change the execution state of the virtual machine to the state of this snapshot.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>host</strong> &#8211; (optional) Choice of host for the virtual machine, in case this operation causes</td>
-</tr>
-</tbody>
-</table>
-<p>the virtual machine to power on.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>suppressPowerOn</strong> &#8211; (optional) If set to true, the virtual machine will not be powered on regardless</td>
-</tr>
-</tbody>
-</table>
-<p>of the power state when the snapshot was created. Default to false.vSphere
-API 4.0</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.availableField">
-<tt class="descname">availableField</tt><a class="headerlink" href="#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.availableField" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of custom field definitions that are valid for the object&#8217;s type. The fields
-are sorted by name.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.childSnapshot">
-<tt class="descname">childSnapshot</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine_snapshot.html#VirtualMachineSnapshot.childSnapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.childSnapshot" title="Permalink to this definition">¶</a></dt>
-<dd><p>All snapshots for which this snapshot is the parent.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.config">
-<tt class="descname">config</tt><a class="reference internal" href="../modules/pyvisdk/mo/virtual_machine_snapshot.html#VirtualMachineSnapshot.config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information about the configuration of this virtual machine when this snapshot was
-taken.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.value">
-<tt class="descname">value</tt><a class="headerlink" href="#pyvisdk.mo.virtual_machine_snapshot.VirtualMachineSnapshot.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of custom field values. Each value uses a key to associate an instance of a
-CustomFieldStringValue with a custom field definition.</p>
-</dd></dl>
-
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CreateSnapshot_Task()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">StartRecording_Task()</span></tt></p>
 </dd></dl>
 
 </div>
@@ -196,13 +105,13 @@ CustomFieldStringValue with a custom field definition.</p>
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="virtual_machine_provisioning_checker.html"
-                        title="previous chapter">3.89. VirtualMachineProvisioningChecker</a></p>
+                        title="previous chapter">3.91. VirtualMachineProvisioningChecker</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="virtualization_manager.html"
-                        title="next chapter">3.91. VirtualizationManager</a></p>
+                        title="next chapter">3.93. VirtualizationManager</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/mo/virtual_machine_snapshot.txt"
+    <li><a href="../_sources/mo/virtual_machine_snapshot.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -232,10 +141,10 @@ CustomFieldStringValue with a custom field definition.</p>
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="virtualization_manager.html" title="3.91. VirtualizationManager"
+          <a href="virtualization_manager.html" title="3.93. VirtualizationManager"
              >next</a> |</li>
         <li class="right" >
-          <a href="virtual_machine_provisioning_checker.html" title="3.89. VirtualMachineProvisioningChecker"
+          <a href="virtual_machine_provisioning_checker.html" title="3.91. VirtualMachineProvisioningChecker"
              >previous</a> |</li>
         <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
           <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 

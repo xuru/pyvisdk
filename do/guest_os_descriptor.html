@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.409. GuestOsDescriptor &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.410. GuestScreenInfo" href="guest_screen_info.html" />
+    <link rel="prev" title="4.408. GuestNicInfo" href="guest_nic_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="guest_screen_info.html" title="4.410. GuestScreenInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="guest_nic_info.html" title="4.408. GuestNicInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="guestosdescriptor">
+<h1>4.409. GuestOsDescriptor<a class="headerlink" href="#guestosdescriptor" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="virtual_machine_config_option.html#pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption" title="pyvisdk.do.virtual_machine_config_option.VirtualMachineConfigOption"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineConfigOption</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="host_cpu_id_info.html#pyvisdk.do.host_cpu_id_info.HostCpuIdInfo" title="pyvisdk.do.host_cpu_id_info.HostCpuIdInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostCpuIdInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.guest_os_descriptor.</tt><tt class="descname">GuestOsDescriptor</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.cpuFeatureMask">
+<tt class="descname">cpuFeatureMask</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.cpuFeatureMask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the CPU feature compatibility masks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.family">
+<tt class="descname">family</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.family" title="Permalink to this definition">¶</a></dt>
+<dd><p>Family to which this guest operating system belongs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.fullName">
+<tt class="descname">fullName</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.fullName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Full name of the guest operating system. For example, if the value of &#8220;id&#8221; is &#8220;win2000Pro&#8221;, then the value of &#8220;fullName&#8221; is &#8220;Windows 2000 Professional&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.id">
+<tt class="descname">id</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifier (short name) for the guest operating system.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.recommendedColorDepth">
+<tt class="descname">recommendedColorDepth</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.recommendedColorDepth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recommended default color depth for this guest.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.recommendedDiskController">
+<tt class="descname">recommendedDiskController</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.recommendedDiskController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recommended default disk controller type for this guest.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.recommendedDiskSizeMB">
+<tt class="descname">recommendedDiskSizeMB</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.recommendedDiskSizeMB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recommended default disk size for this guest, in MB.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.recommendedEthernetCard">
+<tt class="descname">recommendedEthernetCard</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.recommendedEthernetCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recommended default ethernet controller type for this guest.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.recommendedMemMB">
+<tt class="descname">recommendedMemMB</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.recommendedMemMB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recommended default memory size for this guest, in MB.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.recommendedSCSIController">
+<tt class="descname">recommendedSCSIController</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.recommendedSCSIController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recommended default SCSI controller type for this guest.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportedDiskControllerList">
+<tt class="descname">supportedDiskControllerList</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportedDiskControllerList" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of supported disk controller types for this guest.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportedEthernetCard">
+<tt class="descname">supportedEthernetCard</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportedEthernetCard" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of supported ethernet cards for this guest.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportedMaxCPUs">
+<tt class="descname">supportedMaxCPUs</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportedMaxCPUs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum number of processors supported for this guest.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportedMaxMemMB">
+<tt class="descname">supportedMaxMemMB</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportedMaxMemMB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum memory requirements supported for this guest, in MB.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportedMinMemMB">
+<tt class="descname">supportedMinMemMB</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportedMinMemMB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum memory requirements supported for this guest, in MB.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportedNumDisks">
+<tt class="descname">supportedNumDisks</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportedNumDisks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of disks supported for this guest.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportsCpuHotAdd">
+<tt class="descname">supportsCpuHotAdd</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportsCpuHotAdd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether virtual CPUs can be added to this guest while the virtual machine is running.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportsCpuHotRemove">
+<tt class="descname">supportsCpuHotRemove</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportsCpuHotRemove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether virtual CPUs can be removed from this guest while the virtual machine is running.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportsMemoryHotAdd">
+<tt class="descname">supportsMemoryHotAdd</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportsMemoryHotAdd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the memory size for this guest can be changed while the virtual machine is running.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportsSlaveDisk">
+<tt class="descname">supportsSlaveDisk</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportsSlaveDisk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to indicate whether or not this guest can support a disk configured as a slave.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportsVMI">
+<tt class="descname">supportsVMI</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportsVMI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether or not this guest supports the virtual machine interface.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportsWakeOnLan">
+<tt class="descname">supportsWakeOnLan</tt><a class="headerlink" href="#pyvisdk.do.guest_os_descriptor.GuestOsDescriptor.supportsWakeOnLan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to indicate whether or not this guest can support Wake-on-LAN.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="guest_nic_info.html"
+                        title="previous chapter">4.408. GuestNicInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="guest_screen_info.html"
+                        title="next chapter">4.410. GuestScreenInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/guest_os_descriptor.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="guest_screen_info.html" title="4.410. GuestScreenInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="guest_nic_info.html" title="4.408. GuestNicInfo"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

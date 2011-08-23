@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.22. FileManager &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.23. Folder" href="folder.html" />
@@ -58,275 +58,19 @@
 <dl class="describe">
 <dt>
 <tt class="descname">Property of</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ServiceContent</span></tt></p>
+<dd><p><a class="reference internal" href="../do/service_content.html#pyvisdk.do.service_content.ServiceContent" title="pyvisdk.do.service_content.ServiceContent"><tt class="xref py py-class docutils literal"><span class="pre">ServiceContent</span></tt></a></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">See also</tt></dt>
-<dd><p><a class="reference internal" href="datacenter.html#pyvisdk.mo.datacenter.Datacenter" title="pyvisdk.mo.datacenter.Datacenter"><tt class="xref py py-class docutils literal"><span class="pre">Datacenter</span></tt></a></p>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">Datacenter</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Since</tt></dt>
 <dd><p>VI API 2.5</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="pyvisdk.mo.file_manager.FileManager">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.file_manager.</tt><tt class="descname">FileManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='FileManager'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/file_manager.html#FileManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.file_manager.FileManager" title="Permalink to this definition">¶</a></dt>
-<dd><p>This managed object type provides a way to manage and manipulate files and folders
-on datastores. The source and the destination names are in the form of a
-URL or a datastore path.</p>
-<dl class="method">
-<dt id="pyvisdk.mo.file_manager.FileManager.ChangeOwner">
-<tt class="descname">ChangeOwner</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/file_manager.html#FileManager.ChangeOwner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.file_manager.FileManager.ChangeOwner" title="Permalink to this definition">¶</a></dt>
-<dd><p>Change the owner for a file.This method is currently not supported.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.file_manager.FileManager.CopyDatastoreFile_Task">
-<tt class="descname">CopyDatastoreFile_Task</tt><big>(</big><em>sourceName</em>, <em>sourceDatacenter</em>, <em>destinationName</em>, <em>destinationDatacenter</em>, <em>force</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/file_manager.html#FileManager.CopyDatastoreFile_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.file_manager.FileManager.CopyDatastoreFile_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Copies the source file or folder to the destination.If the destination file does
-not exist, it is created. If the destination file exists, the force
-parameter determines whether to overwrite it with the source or not.
-Folders can be copied recursively. In this case, the destination, if it
-exists, must be a folder, else one will be created. Existing files on the
-destination that conflict with source files can be overwritten using the
-force parameter. Files and disks are always copied in binary format during
-recursive copy.If source (or destination) name is specified as a URL, then
-the corresponding datacenter parameter may be omitted.If any intermediate
-level folder specified by the source and destination does not exist, a
-FileNotFound fault is thrown.If a file of a virtual machine is overwritten
-on the destination datastore as a result of the force parameter, it may
-corrupt that virtual machine.If the source is an extent of a virtual disk,
-this operation treats the extent as a file.It is important to note that
-this operation will provide transactional guarantees only for a file. No
-guarantees are provided when copying a folder. If the intent is to clone a
-virtual machine registered in the inventory, with transactional
-guarantees, please refer to CloneVM_Task.Datastore.FileManagement
-privilege is required on both source and destination
-datastores.Experimental. Subject to change</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sourceName</strong> &#8211; The name of the source, either a URL or a datastore path referring to the file or</td>
-</tr>
-</tbody>
-</table>
-<p>folder to be copied.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sourceDatacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
-</tr>
-</tbody>
-</table>
-<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
-be a URL.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>destinationName</strong> &#8211; The name of the destination, either a URL or a datastore path referring to the</td>
-</tr>
-</tbody>
-</table>
-<p>destination file or folder.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>destinationDatacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
-</tr>
-</tbody>
-</table>
-<p>invoked directly on ESX. If not specified on a call to VirtualCenter, it
-is assumed that the destination path belongs to the source datacenter.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>force</strong> &#8211; If true, overwrite any identically named file at the destination. If not</td>
-</tr>
-</tbody>
-</table>
-<p>specified, it is assumed to be false.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.file_manager.FileManager.DeleteDatastoreFile_Task">
-<tt class="descname">DeleteDatastoreFile_Task</tt><big>(</big><em>name</em>, <em>datacenter</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/file_manager.html#FileManager.DeleteDatastoreFile_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.file_manager.FileManager.DeleteDatastoreFile_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deletes the specified file or folder from the datastore. If a file of a virtual
-machine is deleted, it may corrupt that virtual machine. Folder deletes
-are always recursive. The datacenter parameter may be omitted if a URL is
-used to name the file or folder.If the source is an extent of a virtual
-disk, this operation treats the extent as a file.It is important to note
-that this operation will provide transactional guarantees only for a file.
-No guarantees are provided when deleting folders. If the intent is to
-delete a virtual machine registered in the inventory, please refer to
-Destroy_Task.Requires Datastore.FileManagement privilege on the
-datastore.Experimental. Subject to change</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the file or folder, either a URL or a datastore path referring to the</td>
-</tr>
-</tbody>
-</table>
-<p>file or folder to be deleted.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
-</tr>
-</tbody>
-</table>
-<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
-be a URL.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.file_manager.FileManager.MakeDirectory">
-<tt class="descname">MakeDirectory</tt><big>(</big><em>name</em>, <em>datacenter</em>, <em>createParentDirectories</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/file_manager.html#FileManager.MakeDirectory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.file_manager.FileManager.MakeDirectory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a folder using the specified name. If the parent or intermediate level
-folders do not exist, and the parameter createParentDirectories is false,
-a FileNotFound fault is thrown. If the intermediate level folders do not
-exist, and the parameter createParentDirectories is true, all the non-
-existent folders are created.Requires Datastore.FileManagement privilege
-on the datastore.Experimental. Subject to change</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the folder, either a URL or a datastore path referring to the folder</td>
-</tr>
-</tbody>
-</table>
-<p>to be created.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
-</tr>
-</tbody>
-</table>
-<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
-be a URL.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>createParentDirectories</strong> &#8211; If true, any non-existent intermediate level folders will be created. If not</td>
-</tr>
-</tbody>
-</table>
-<p>specified, it is assumed to be false.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.file_manager.FileManager.MoveDatastoreFile_Task">
-<tt class="descname">MoveDatastoreFile_Task</tt><big>(</big><em>sourceName</em>, <em>sourceDatacenter</em>, <em>destinationName</em>, <em>destinationDatacenter</em>, <em>force</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/file_manager.html#FileManager.MoveDatastoreFile_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.file_manager.FileManager.MoveDatastoreFile_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Moves the source file or folder to the destination.If the destination file does
-not exist, it is created. If the destination file exists, the force
-parameter determines whether to overwrite it with the source or not. If
-the source path is a folder, then the destination path must not exist; the
-destination cannot be overwritten even with a force flag in that case.
-Folder moves are recursive, treating all files and disks to move as
-binary.If source (or destination) name is specified as a URL, then the
-corresponding datacenter parameter may be omitted.If any intermediate
-level folder specified by the source and destination does not exist, a
-FileNotFound fault is thrown.If a file of a virtual machine is moved, it
-may corrupt that virtual machine. If a file of a virtual machine is
-overwritten on the destination datastore as a result of the force
-parameter, it may corrupt that virtual machine.If the source is an extent
-of a virtual disk, this operation treats the extent as a file.It is
-important to note that this operation will provide transactional
-guarantees only for a file. No guarantees are provided for folder moves.
-If the intent is to move a virtual machine registered in the inventory,
-with transactional guarantees, please refer to RelocateVM_Task. If the
-intent is to rename a virtual machine registered in the inventory, please
-refer to Rename_Task.Datastore.FileManagement privilege is required on
-both source and destination datastores.Experimental. Subject to change</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sourceName</strong> &#8211; The name of the source, either a URL or a datastore path referring to the file or</td>
-</tr>
-</tbody>
-</table>
-<p>folder to be moved.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sourceDatacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
-</tr>
-</tbody>
-</table>
-<p>invoked directly on ESX. If not specified on a call to VirtualCenter,must
-be a URL.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>destinationName</strong> &#8211; The name of the destination, either a URL or a datastore path referring to the</td>
-</tr>
-</tbody>
-</table>
-<p>destination file or folder.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>destinationDatacenter</strong> &#8211; Ifis a datastore path, the datacenter for that datastore path. Not needed when</td>
-</tr>
-</tbody>
-</table>
-<p>invoked directly on ESX. If not specified on a call to VirtualCenter, it
-is assumed that the destination path belongs to the source datacenter.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>force</strong> &#8211; If true, overwrite any identically named file at the destination. If not</td>
-</tr>
-</tbody>
-</table>
-<p>specified, it is assumed to be false.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -345,7 +89,7 @@ is assumed that the destination path belongs to the source datacenter.</p>
                         title="next chapter">3.23. Folder</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/mo/file_manager.txt"
+    <li><a href="../_sources/mo/file_manager.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

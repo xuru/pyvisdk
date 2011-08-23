@@ -1,0 +1,171 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.832. OvfCreateDescriptorParams &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.833. OvfCreateDescriptorResult" href="ovf_create_descriptor_result.html" />
+    <link rel="prev" title="4.831. OutOfSyncDvsHost" href="out_of_sync_dvs_host.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ovf_create_descriptor_result.html" title="4.833. OvfCreateDescriptorResult"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="out_of_sync_dvs_host.html" title="4.831. OutOfSyncDvsHost"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="ovfcreatedescriptorparams">
+<h1>4.832. OvfCreateDescriptorParams<a class="headerlink" href="#ovfcreatedescriptorparams" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CreateDescriptor()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="ovf_file.html#pyvisdk.do.ovf_file.OvfFile" title="pyvisdk.do.ovf_file.OvfFile"><tt class="xref py py-class docutils literal"><span class="pre">OvfFile</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.ovf_create_descriptor_params.OvfCreateDescriptorParams">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.ovf_create_descriptor_params.</tt><tt class="descname">OvfCreateDescriptorParams</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_descriptor_params.OvfCreateDescriptorParams" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_descriptor_params.OvfCreateDescriptorParams.description">
+<tt class="descname">description</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_descriptor_params.OvfCreateDescriptorParams.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>The contents of the Annontation section of the top-level OVF Entity. If unset, any existing annotation on the entity is left unchanged.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_descriptor_params.OvfCreateDescriptorParams.includeImageFiles">
+<tt class="descname">includeImageFiles</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_descriptor_params.OvfCreateDescriptorParams.includeImageFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controls whether attached image files should be included in the descriptor. This applies to image files attached to VirtualCdrom and VirtualFloppy.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_descriptor_params.OvfCreateDescriptorParams.name">
+<tt class="descname">name</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_descriptor_params.OvfCreateDescriptorParams.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ovf:id to use for the top-level OVF Entity. If unset, the entity&#8217;s product name is used if available. Otherwise, the VI entity name is used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_descriptor_params.OvfCreateDescriptorParams.ovfFiles">
+<tt class="descname">ovfFiles</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_descriptor_params.OvfCreateDescriptorParams.ovfFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains information about the files of the entity, if they have already been downloaded. Needed to construct the References section of the descriptor.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="out_of_sync_dvs_host.html"
+                        title="previous chapter">4.831. OutOfSyncDvsHost</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ovf_create_descriptor_result.html"
+                        title="next chapter">4.833. OvfCreateDescriptorResult</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/ovf_create_descriptor_params.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ovf_create_descriptor_result.html" title="4.833. OvfCreateDescriptorResult"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="out_of_sync_dvs_host.html" title="4.831. OutOfSyncDvsHost"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

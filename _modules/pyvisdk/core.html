@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.core &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.core</h1><div class="highlight"><pre>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Created on Feb 15, 2011</span>
+
+<span class="sd">@author: eplaster</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">suds.sudsobject</span> <span class="kn">import</span> <span class="n">Property</span>
+<span class="kn">import</span> <span class="nn">types</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="kn">import</span> <span class="nn">xml.etree.cElementTree</span> <span class="kn">as</span> <span class="nn">etree</span>
+<span class="kn">import</span> <span class="nn">pyvisdk</span>
+<span class="kn">import</span> <span class="nn">pyvisdk.base.base_entity</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+
+<span class="kn">from</span> <span class="nn">pyvisdk.base.base_entity</span> <span class="kn">import</span> <span class="n">ManagedObjectReference</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.data_object_types</span> <span class="kn">import</span> <span class="n">DataObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.client</span> <span class="kn">import</span> <span class="n">Client</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.do.object_spec</span> <span class="kn">import</span> <span class="n">ObjectSpec</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.do.traversal_spec</span> <span class="kn">import</span> <span class="n">TraversalSpec</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.do.property_filter_spec</span> <span class="kn">import</span> <span class="n">PropertyFilterSpec</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.do.property_spec</span> <span class="kn">import</span> <span class="n">PropertySpec</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.do.selection_spec</span> <span class="kn">import</span> <span class="n">SelectionSpec</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.enums.task_info_state</span> <span class="kn">import</span> <span class="n">TaskInfoState</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.exceptions</span> <span class="kn">import</span> <span class="n">VisdkTaskError</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.service_instance</span> <span class="kn">import</span> <span class="n">ServiceInstance</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.folder</span> <span class="kn">import</span> <span class="n">Folder</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.utils</span> <span class="kn">import</span> <span class="n">camel_to_under</span>
+
+<span class="n">fmt</span> <span class="o">=</span> <span class="s">&quot;[</span><span class="si">%(asctime)s</span><span class="s">][</span><span class="si">%(levelname)-8s</span><span class="s">] </span><span class="si">%(module)s</span><span class="s">.</span><span class="si">%(funcName)s</span><span class="s">:</span><span class="si">%(lineno)d</span><span class="s"> </span><span class="si">%(message)s</span><span class="s">&quot;</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="n">fmt</span><span class="p">)</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="VimBase"><a class="viewcode-back" href="../../client.html#pyvisdk.core.VimBase">[docs]</a><span class="k">class</span> <span class="nc">VimBase</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Base class to hold the nuts and bolts for the web services grunt work.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">connect</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Constructor</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="n">server</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connected</span> <span class="o">=</span> <span class="bp">False</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">listeners</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">me</span> <span class="ow">in</span> <span class="n">ManagedObjectTypes</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listeners</span><span class="p">[</span><span class="n">me</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+         
+        <span class="c"># setup logging...</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&#39;suds.client&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&#39;suds.wsdl&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&#39;suds.transport&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&#39;suds.xsd.schema&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+       
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&#39;suds.client&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&#39;suds.transport&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">connect</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+        
+    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1800</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connected</span><span class="p">:</span>
+            <span class="k">return</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+        
+        <span class="c"># create the Service Instance managed object</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="n">Property</span><span class="p">(</span><span class="s">&#39;ServiceInstance&#39;</span><span class="p">)</span>
+        <span class="n">ref</span><span class="o">.</span><span class="n">_type</span> <span class="o">=</span> <span class="s">&#39;ServiceInstance&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">service_instance</span> <span class="o">=</span> <span class="n">ServiceInstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;ServiceInstance&#39;</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">)</span>
+
+        <span class="c"># get the service content</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">service_content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">service_instance</span><span class="o">.</span><span class="n">RetrieveServiceContent</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">property_collector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">service_content</span><span class="o">.</span><span class="n">propertyCollector</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">session_manager</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">service_content</span><span class="o">.</span><span class="n">sessionManager</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">service_content</span><span class="o">.</span><span class="n">rootFolder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connected</span> <span class="o">=</span> <span class="bp">True</span>
+    
+    <span class="k">def</span> <span class="nf">getVersions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">versions</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="k">def</span> <span class="nf">get_namespace_name</span><span class="p">(</span><span class="n">elem</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">elem</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s">&quot;name&quot;</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">child</span><span class="o">.</span><span class="n">text</span>
+            
+        <span class="n">url</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;https://&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">+</span><span class="s">&quot;/sdk/vimServiceVersions.xml&quot;</span><span class="p">)</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">url</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">&quot;.//namespace&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">namesp</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s">&quot;urn:vim25&quot;</span> <span class="ow">in</span> <span class="n">get_namespace_name</span><span class="p">(</span><span class="n">namesp</span><span class="p">):</span>
+                <span class="n">versions</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">namesp</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">&quot;.//version&quot;</span><span class="p">)]</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;versions found: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">versions</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">versions</span>
+
+<div class="viewcode-block" id="VimBase.getObjectProperties"><a class="viewcode-back" href="../../client.html#pyvisdk.core.VimBase.getObjectProperties">[docs]</a>    <span class="k">def</span> <span class="nf">getObjectProperties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mobj</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        * Retrieve contents for a single object based on the property collector</span>
+<span class="sd">        * registered with the service.</span>
+<span class="sd">        *</span>
+<span class="sd">        * @param mobj Managed Object Reference to get contents for</span>
+<span class="sd">        * @param properties names of properties of object to retrieve</span>
+<span class="sd">        * @param mo_instance: Managed Object instance to update</span>
+<span class="sd">        *</span>
+<span class="sd">        * @return retrieved object contents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">all</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">properties</span><span class="p">:</span>
+            <span class="nb">all</span> <span class="o">=</span> <span class="bp">True</span>
+        
+        <span class="n">pspec</span> <span class="o">=</span> <span class="n">PropertySpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">all</span><span class="o">=</span><span class="nb">all</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">mobj</span><span class="o">.</span><span class="n">_type</span><span class="p">,</span> <span class="n">pathSet</span><span class="o">=</span><span class="n">properties</span><span class="p">)</span>
+        <span class="n">ospec</span> <span class="o">=</span> <span class="n">ObjectSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="n">ManagedObjectReference</span><span class="p">(</span><span class="n">mobj</span><span class="o">.</span><span class="n">_type</span><span class="p">,</span> <span class="n">mobj</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="n">skip</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="n">spec</span> <span class="o">=</span> <span class="n">PropertyFilterSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">propSet</span><span class="o">=</span><span class="p">[</span><span class="n">pspec</span><span class="p">],</span> <span class="n">objectSet</span><span class="o">=</span><span class="p">[</span><span class="n">ospec</span><span class="p">])</span>
+        
+        <span class="n">obj_content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_collector</span><span class="o">.</span><span class="n">RetrieveProperties</span><span class="p">([</span><span class="n">spec</span><span class="p">])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_object_content</span><span class="p">(</span><span class="n">obj_content</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="VimBase.getDecendentsByName"><a class="viewcode-back" href="../../client.html#pyvisdk.core.VimBase.getDecendentsByName">[docs]</a>    <span class="k">def</span> <span class="nf">getDecendentsByName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_type</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">         * Get the ManagedObjectReference for an item under the specified root</span>
+<span class="sd">         * folder that has the type and name specified.</span>
+<span class="sd">         * </span>
+<span class="sd">         * @param _type</span>
+<span class="sd">         *            type of the managed object</span>
+<span class="sd">         * @param properties </span>
+<span class="sd">         *            names of properties of object to retrieve</span>
+<span class="sd">         * @param name</span>
+<span class="sd">         *            name to match</span>
+<span class="sd">         * @param root</span>
+<span class="sd">         *            a root folder if available, or null for default</span>
+<span class="sd">         * </span>
+<span class="sd">         * @return First ManagedObjectReference of the type / name pair found</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="s">&quot;name&quot;</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">:</span>
+            <span class="n">properties</span> <span class="o">+=</span> <span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]</span>
+        <span class="n">ocary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getContentsRecursively</span><span class="p">(</span><span class="n">_type</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">_type</span><span class="p">),</span> <span class="n">props</span><span class="o">=</span><span class="n">properties</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ocary</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">ocary</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">obj</span>
+</div>
+    <span class="k">def</span> <span class="nf">getContentsRecursively</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="p">[],</span> <span class="n">_type</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">collector</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">recurse</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">collector</span><span class="p">:</span> 
+            <span class="n">collector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_collector</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span> 
+            <span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_type</span><span class="p">:</span> 
+            <span class="n">_type</span> <span class="o">=</span> <span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">ManagedEntity</span> <span class="c">#@UndefinedVariable</span>
+            
+        <span class="n">pspec</span> <span class="o">=</span> <span class="n">PropertySpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">_type</span><span class="p">),</span> <span class="n">pathSet</span><span class="o">=</span><span class="n">props</span><span class="p">)</span>
+        <span class="n">typeinfo</span> <span class="o">=</span> <span class="p">[</span> <span class="n">pspec</span> <span class="p">]</span>
+
+        <span class="n">selectionSpecs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">recurse</span><span class="p">:</span>
+            <span class="n">selectionSpecs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buildFullTraversal</span><span class="p">()</span>
+         
+        <span class="n">spec</span> <span class="o">=</span> <span class="n">PropertyFilterSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">propSet</span><span class="o">=</span><span class="n">typeinfo</span><span class="p">,</span> <span class="n">objectSet</span><span class="o">=</span><span class="p">[</span> <span class="n">ObjectSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">ref</span><span class="p">,</span> <span class="n">selectSet</span><span class="o">=</span><span class="n">selectionSpecs</span><span class="p">)</span> <span class="p">])</span>
+        <span class="n">obj_content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_collector</span><span class="o">.</span><span class="n">RetrieveProperties</span><span class="p">([</span><span class="n">spec</span><span class="p">])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_object_content</span><span class="p">(</span><span class="n">obj_content</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">_parse_object_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj_content</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">rv</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">class_name</span> <span class="o">=</span> <span class="n">obj_content</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span>
+        <span class="n">class_name_upper</span> <span class="o">=</span> <span class="n">class_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">+</span><span class="n">class_name</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj_content</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">rv</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">obj_content</span><span class="p">:</span>
+                <span class="n">rv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_object_content</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span> <span class="p">)</span>
+        
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">obj_content</span><span class="p">)</span> <span class="o">==</span> <span class="n">types</span><span class="o">.</span><span class="n">NoneType</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">obj_content</span>
+        
+        <span class="k">elif</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">obj_content</span><span class="o">.</span><span class="n">__class__</span><span class="p">,</span> <span class="n">pyvisdk</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">base_entity</span><span class="o">.</span><span class="n">BaseEntity</span><span class="p">):</span>
+            <span class="n">rv</span> <span class="o">=</span> <span class="n">obj_content</span>
+            
+        <span class="k">elif</span> <span class="n">class_name</span> <span class="o">==</span> <span class="s">&#39;ObjectContent&#39;</span><span class="p">:</span>
+            <span class="c"># create the managed object</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">parent</span><span class="p">:</span>
+                <span class="n">rv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_mo_obj</span><span class="p">(</span><span class="n">class_name</span><span class="p">,</span> <span class="n">obj_content</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">rv</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="c"># now, run through the propSet</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj_content</span><span class="p">,</span> <span class="s">&quot;propSet&quot;</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">obj_content</span><span class="o">.</span><span class="n">propSet</span><span class="p">:</span>
+                        <span class="n">rv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_parse_object_content</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">val</span><span class="p">))</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">rv</span> <span class="o">=</span> <span class="n">rv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                
+        <span class="k">elif</span> <span class="n">class_name</span> <span class="o">==</span> <span class="s">&quot;ManagedObjectReference&quot;</span><span class="p">:</span>
+            <span class="c"># managed object reference is too generic, so we get to the real type</span>
+            <span class="n">mo_f</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s">&#39;pyvisdk.mo.</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">obj_content</span><span class="o">.</span><span class="n">_type</span><span class="p">)</span>
+            <span class="n">rv</span> <span class="o">=</span> <span class="n">mo_f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">obj_content</span><span class="p">)</span>
+            
+        <span class="k">elif</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="n">DataObjectTypes</span><span class="p">:</span>
+            <span class="n">rv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_do_obj</span><span class="p">(</span><span class="n">class_name</span><span class="p">,</span> <span class="n">obj_content</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
+            
+        <span class="k">elif</span> <span class="n">class_name</span> <span class="o">==</span> <span class="s">&#39;Text&#39;</span><span class="p">:</span>
+            <span class="n">rv</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">obj_content</span><span class="p">)</span>
+            
+        <span class="k">elif</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;long&#39;</span><span class="p">,</span> <span class="s">&#39;bool&#39;</span><span class="p">,</span> <span class="s">&#39;int&#39;</span><span class="p">,</span> <span class="s">&#39;datetime&#39;</span><span class="p">,</span> <span class="s">&#39;str&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">obj_content</span>
+       
+        <span class="k">elif</span> <span class="s">&quot;ArrayOf&quot;</span> <span class="ow">in</span> <span class="n">class_name</span><span class="p">:</span>
+            <span class="n">rv</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">_type</span> <span class="o">=</span> <span class="n">class_name</span><span class="p">[</span><span class="mi">7</span><span class="p">:]</span>
+            <span class="n">_list</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj_content</span><span class="p">,</span> <span class="n">_type</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">_list</span><span class="p">:</span>
+                <span class="n">rv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_object_content</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span> <span class="p">)</span>
+                
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj_content</span><span class="p">,</span> <span class="s">&#39;value&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj_content</span><span class="p">,</span> <span class="s">&#39;_type&#39;</span><span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">obj_content</span><span class="o">.</span><span class="n">_type</span>
+            <span class="n">mod_name</span> <span class="o">=</span> <span class="s">&#39;pyvisdk.mo.</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">camel_to_under</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">mod_name</span><span class="p">)</span>
+            <span class="n">mo</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">.</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mod_name</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+            <span class="n">rv</span> <span class="o">=</span> <span class="n">mo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">obj_content</span><span class="p">)</span>
+            
+        <span class="c"># TODO: ArrayOf....  ArrayOfManagedObjectReference ArrayOfAlarmState ArrayOfString ArrayOfInt ArrayOfPermission</span>
+        <span class="c"># TODO: val datetime datastore  entity host vm key</span>
+       
+        <span class="k">elif</span> <span class="n">class_name_upper</span> <span class="ow">in</span> <span class="n">DataObjectTypes</span><span class="p">:</span>
+            <span class="n">rv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_do_obj</span><span class="p">(</span><span class="n">class_name_upper</span><span class="p">,</span> <span class="n">obj_content</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
+            
+        <span class="c">#elif class_name_upper in ManagedObjectTypes:</span>
+        <span class="c">#    rv = self._create_mo_obj(class_name_upper, obj_content, parent)</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;Unknown content type: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">class_name</span><span class="p">)</span>
+            <span class="n">rv</span> <span class="o">=</span> <span class="n">obj_content</span>
+        
+        <span class="k">return</span> <span class="n">rv</span>
+        
+    <span class="k">def</span> <span class="nf">_create_do_obj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">obj_content</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+        <span class="n">mod_name</span> <span class="o">=</span> <span class="s">&#39;pyvisdk.do.</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">camel_to_under</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+        <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">mod_name</span><span class="p">)</span>
+        <span class="n">do</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">.</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mod_name</span><span class="p">,</span> <span class="n">class_name</span><span class="p">))</span>
+            
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">attr_name</span> <span class="ow">in</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="ow">not</span> <span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;_&#39;</span><span class="p">),</span> <span class="nb">dir</span><span class="p">(</span><span class="n">obj_content</span><span class="p">)):</span>
+            <span class="n">attr_data</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s">&#39;obj_content.</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">attr_name</span><span class="p">)</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="n">attr_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_object_content</span><span class="p">(</span><span class="n">attr_data</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">do</span><span class="p">)</span>
+            
+        <span class="n">rv</span> <span class="o">=</span> <span class="n">do</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">rv</span>
+ 
+    <span class="k">def</span> <span class="nf">_create_mo_obj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">obj_content</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+        <span class="n">mo_f</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s">&#39;pyvisdk.mo.</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">obj_content</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_type</span><span class="p">)</span>
+        <span class="n">rv</span> <span class="o">=</span> <span class="n">mo_f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">obj_content</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
+        
+        <span class="c"># now, run through the propSet</span>
+        <span class="c">#if hasattr(obj_content, &quot;propSet&quot;):</span>
+        <span class="c">#    for prop in obj_content.propSet:</span>
+        <span class="c">#        # for each prop of the new object, create any data/managed objects</span>
+        <span class="c">#        setattr(rv, prop.name, self._parse_object_content(prop.val, parent=rv))</span>
+        <span class="k">return</span> <span class="n">rv</span>
+ 
+    <span class="k">def</span> <span class="nf">_buildFullTraversal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">         * This method creates a SelectionSpec[] to traverses the entire inventory</span>
+<span class="sd">         * tree starting at a Folder</span>
+<span class="sd">         * </span>
+<span class="sd">         * @return The SelectionSpec[]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># Recurse through all ResourcePools</span>
+        <span class="n">rpToRp</span> <span class="o">=</span> <span class="n">TraversalSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;rpToRp&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">ResourcePool</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&quot;resourcePool&quot;</span><span class="p">,</span> <span class="c">#@UndefinedVariable</span>
+                        <span class="n">selectSet</span><span class="o">=</span><span class="p">[</span> <span class="n">SelectionSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;rpToRp&quot;</span><span class="p">),</span> <span class="n">SelectionSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;rpToVm&quot;</span><span class="p">)</span> <span class="p">])</span>
+
+        <span class="c"># Recurse through all ResourcePools</span>
+        <span class="n">rpToVm</span> <span class="o">=</span> <span class="n">TraversalSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;rpToVm&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">ResourcePool</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&quot;vm&quot;</span><span class="p">)</span> <span class="c">#@UndefinedVariable</span>
+
+        <span class="c"># Traversal through ResourcePool branch</span>
+        <span class="n">crToRp</span> <span class="o">=</span> <span class="n">TraversalSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;crToRp&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">ComputeResource</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&quot;resourcePool&quot;</span><span class="p">,</span> <span class="c">#@UndefinedVariable</span>
+                        <span class="n">selectSet</span><span class="o">=</span><span class="p">[</span> <span class="n">SelectionSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;rpToRp&quot;</span><span class="p">),</span> <span class="n">SelectionSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;rpToVm&quot;</span><span class="p">)</span> <span class="p">])</span>
+
+        <span class="c"># Traversal through host branch</span>
+        <span class="n">crToH</span> <span class="o">=</span> <span class="n">TraversalSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;crToH&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">ComputeResource</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&quot;host&quot;</span><span class="p">)</span> <span class="c">#@UndefinedVariable</span>
+        
+        <span class="c"># Traversal through hostFolder branch</span>
+        <span class="n">dcToHf</span> <span class="o">=</span> <span class="n">TraversalSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;dcToHf&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">Datacenter</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&quot;hostFolder&quot;</span><span class="p">,</span> <span class="c">#@UndefinedVariable</span>
+                        <span class="n">selectSet</span><span class="o">=</span><span class="p">[</span><span class="n">SelectionSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;visitFolders&quot;</span><span class="p">)])</span>
+
+        <span class="c"># Traversal through vmFolder branch</span>
+        <span class="n">dcToVmf</span> <span class="o">=</span> <span class="n">TraversalSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;dcToVmf&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">Datacenter</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&quot;vmFolder&quot;</span><span class="p">,</span> <span class="c">#@UndefinedVariable</span>
+                        <span class="n">selectSet</span><span class="o">=</span><span class="p">[</span><span class="n">SelectionSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;visitFolders&quot;</span><span class="p">)])</span>
+
+        <span class="c"># Recurse through all Hosts</span>
+        <span class="n">HToVm</span> <span class="o">=</span> <span class="n">TraversalSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;HToVm&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">HostSystem</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&quot;vm&quot;</span><span class="p">,</span> <span class="c">#@UndefinedVariable</span>
+                        <span class="n">selectSet</span><span class="o">=</span><span class="p">[</span><span class="n">SelectionSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;visitFolders&quot;</span><span class="p">)])</span>
+        
+        <span class="c"># Recurse through the folders</span>
+        <span class="n">visitFolders</span> <span class="o">=</span> <span class="n">TraversalSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;visitFolders&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">Folder</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s">&quot;childEntity&quot;</span><span class="p">,</span> <span class="c">#@UndefinedVariable</span>
+                        <span class="n">selectSet</span><span class="o">=</span><span class="p">[</span> <span class="n">SelectionSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;visitFolders&quot;</span><span class="p">),</span>
+                                     <span class="n">SelectionSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;dcToHf&quot;</span><span class="p">),</span>
+                                     <span class="n">SelectionSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;dcToVmf&quot;</span><span class="p">),</span>
+                                     <span class="n">SelectionSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;crToH&quot;</span><span class="p">),</span>
+                                     <span class="n">SelectionSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;crToRp&quot;</span><span class="p">),</span>
+                                     <span class="n">SelectionSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;HToVm&quot;</span><span class="p">),</span>
+                                     <span class="n">SelectionSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;rpToVm&quot;</span><span class="p">),</span> <span class="p">])</span>
+        
+        <span class="k">return</span> <span class="p">(</span><span class="n">visitFolders</span><span class="p">,</span> <span class="n">dcToVmf</span><span class="p">,</span> <span class="n">dcToHf</span><span class="p">,</span> <span class="n">crToH</span><span class="p">,</span> <span class="n">crToRp</span><span class="p">,</span> <span class="n">rpToRp</span><span class="p">,</span> <span class="n">HToVm</span><span class="p">,</span> <span class="n">rpToVm</span><span class="p">)</span>
+ 
+         
+    <span class="c">#############################################################</span>
+    <span class="c"># untested...</span>
+    <span class="c">#############################################################</span>
+    <span class="k">def</span> <span class="nf">callRetrievePropertiesEx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxObjects</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">myPropSpec</span> <span class="o">=</span> <span class="n">PropertySpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">all</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">VirtualMachine</span><span class="p">,</span> <span class="n">pathSet</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">])</span> <span class="c">#@UndefinedVariable</span>
+       
+        <span class="n">myObjSpec</span> <span class="o">=</span> <span class="n">ObjectSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">ref</span><span class="p">,</span> <span class="n">selectSet</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_buildFullTraversal</span><span class="p">())</span>
+       
+        <span class="n">pSpec</span> <span class="o">=</span> <span class="n">PropertyFilterSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">propSet</span><span class="o">=</span><span class="p">[</span><span class="n">myPropSpec</span><span class="p">],</span> <span class="n">objectSet</span><span class="o">=</span><span class="p">[</span><span class="n">myObjSpec</span><span class="p">])</span>
+       
+        <span class="n">rOptions</span> <span class="o">=</span> <span class="n">RetrieveOptions</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">maxObjects</span><span class="p">))</span>
+      
+        <span class="n">retrieveResult</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_collector</span><span class="o">.</span><span class="n">RetrieveProperties</span><span class="p">([</span><span class="n">pSpec</span><span class="p">],</span> <span class="n">rOptions</span><span class="p">)</span>
+      
+        <span class="c">#objContentArrayList = Arrays.asList(retrieveResult.getObjects())</span>
+        <span class="c">#if(retrieveResult.getToken() != null &amp;&amp; maxObjects == null) {</span>
+        <span class="c">#   callContinueRetrieveProperties(retrieveResult.getToken())</span>
+        <span class="c">#}            </span>
+        <span class="c">#ObjectContent [] objectContentArray = (ObjectContent [])objContentArrayList.toArray()</span>
+        <span class="c">#for(int i=0; i&lt;objectContentArray.length; i++) {</span>
+        <span class="c">#   System.out.println(&quot;VM Managed Object Reference Value: &quot; + objectContentArray[i].getObj().get_value());</span>
+        <span class="c">#}</span>
+        <span class="k">return</span> <span class="n">retrieveResult</span>
+    
+    <span class="c">#############################################################</span>
+    <span class="c">#* Illustrating how to create, use and destroy additional property collectors</span>
+    <span class="c">#* This allows multiple modules to create their own property filter and process updates independently.</span>
+    <span class="c">#* Also applow to get time-sensitive updated being monitored on one collector, </span>
+    <span class="c">#* while a large updatyed being monitored by another.</span>
+    <span class="c">#############################################################</span>
+    <span class="k">def</span> <span class="nf">callCreatePropertyCollectorEx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">collector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_collector</span><span class="o">.</span><span class="n">CreatePropertyCollector</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">collector</span><span class="p">))</span>
+      
+        <span class="n">pSpec</span> <span class="o">=</span> <span class="n">PropertyFilterSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                <span class="n">propSet</span><span class="o">=</span><span class="p">[</span>
+                    <span class="n">PropertySpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">VirtualMachine</span><span class="p">,</span> <span class="nb">all</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">pathSet</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;configIssue&quot;</span><span class="p">,</span> <span class="s">&quot;configStatus&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;parent&quot;</span><span class="p">])</span> <span class="c">#@UndefinedVariable</span>
+                <span class="p">],</span>
+                <span class="n">objectSet</span><span class="o">=</span><span class="p">[</span>
+                    <span class="n">ObjectSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">ref</span><span class="p">,</span> <span class="n">selectSet</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_buildFullTraversal</span><span class="p">())</span>
+                <span class="p">])</span>
+         
+        <span class="n">rOptions</span> <span class="o">=</span> <span class="n">RetrieveOptions</span><span class="p">(</span><span class="n">maxObjects</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        
+        <span class="n">retrieveResult</span> <span class="o">=</span> <span class="n">collector</span><span class="o">.</span><span class="n">RetrievePropertiesEx</span><span class="p">(</span><span class="n">pSpec</span><span class="p">,</span> <span class="n">rOptions</span><span class="p">)</span>
+        <span class="n">collector</span><span class="o">.</span><span class="n">DestroyPropertyCollector</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">retrieveResult</span>
+         
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_type</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">[],</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">wait_time</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span> 
+            <span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+        
+        <span class="n">pSpec</span> <span class="o">=</span> <span class="n">PropertyFilterSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                <span class="n">propSet</span><span class="o">=</span><span class="p">[</span><span class="n">PropertySpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">_type</span><span class="p">,</span> <span class="n">pathSet</span><span class="o">=</span><span class="n">properties</span><span class="p">)],</span> 
+                <span class="n">objectSet</span><span class="o">=</span><span class="p">[</span><span class="n">ObjectSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">ref</span><span class="p">)])</span>
+        
+        <span class="nb">filter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_collector</span><span class="o">.</span><span class="n">CreateFilter</span><span class="p">(</span><span class="n">pSpec</span><span class="p">,</span> <span class="n">partialUpdates</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        
+        <span class="n">changeData</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_collector</span><span class="o">.</span><span class="n">CheckForUpdates</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">)</span>
+        
+        <span class="c"># Destroy the filter when we are done.</span>
+        <span class="nb">filter</span><span class="o">.</span><span class="n">DestroyPropertyFilter</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">changeData</span><span class="p">,</span> <span class="s">&quot;filterSet&quot;</span><span class="p">):</span>
+            <span class="n">changeData</span> <span class="o">=</span> <span class="n">changeData</span><span class="o">.</span><span class="n">filterSet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">objectSet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">changeData</span><span class="p">,</span> <span class="s">&quot;changeSet&quot;</span><span class="p">):</span>
+            <span class="n">changeData</span> <span class="o">=</span> <span class="n">changeData</span><span class="o">.</span><span class="n">changeSet</span>
+            
+        <span class="k">return</span> <span class="n">changeData</span><span class="p">,</span> <span class="n">version</span>
+   
+    <span class="c">#############################################################</span>
+    <span class="c"># end untested...</span>
+    <span class="c">#############################################################</span>
+    
+    <span class="k">def</span> <span class="nf">waitForTask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">objmor</span><span class="p">):</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+
+        <span class="n">objmor</span> <span class="o">=</span> <span class="n">ManagedObjectReference</span><span class="p">(</span><span class="s">&quot;Task&quot;</span><span class="p">,</span> <span class="n">objmor</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="n">myObjSpec</span> <span class="o">=</span> <span class="n">ObjectSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">objmor</span><span class="p">)</span>
+        <span class="n">myPropSpec</span> <span class="o">=</span> <span class="n">PropertySpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">objmor</span><span class="o">.</span><span class="n">_type</span><span class="p">,</span> <span class="n">pathSet</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;info.state&quot;</span><span class="p">,</span> <span class="s">&quot;info.error&quot;</span><span class="p">])</span>
+        <span class="n">pSpec</span> <span class="o">=</span> <span class="n">PropertyFilterSpec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">propSet</span><span class="o">=</span><span class="p">[</span><span class="n">myPropSpec</span><span class="p">],</span> <span class="n">objectSet</span><span class="o">=</span><span class="p">[</span><span class="n">myObjSpec</span><span class="p">])</span>
+
+        <span class="nb">filter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_collector</span><span class="o">.</span><span class="n">CreateFilter</span><span class="p">(</span><span class="n">pSpec</span><span class="p">,</span> <span class="n">partialUpdates</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        
+        <span class="n">updateset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_collector</span><span class="o">.</span><span class="n">WaitForUpdates</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+        
+        <span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parseTaskResponse</span><span class="p">(</span><span class="n">updateset</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">status</span><span class="p">[</span><span class="s">&#39;info.state&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">TaskInfoState</span><span class="o">.</span><span class="n">running</span> <span class="ow">or</span> <span class="n">status</span><span class="p">[</span><span class="s">&#39;info.state&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">TaskInfoState</span><span class="o">.</span><span class="n">queued</span><span class="p">:</span> <span class="c">#@UndefinedVariable</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Waiting for task to complete...&quot;</span><span class="p">)</span>
+            
+            <span class="n">version</span> <span class="o">=</span> <span class="n">updateset</span><span class="o">.</span><span class="n">version</span>
+            <span class="n">updateset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">property_collector</span><span class="o">.</span><span class="n">WaitForUpdates</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parseTaskResponse</span><span class="p">(</span><span class="n">updateset</span><span class="p">)</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;**** status: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">status</span><span class="p">)</span>
+        
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Finished task...&quot;</span><span class="p">)</span>
+        <span class="c"># Destroy the filter when we are done.</span>
+        <span class="nb">filter</span><span class="o">.</span><span class="n">DestroyPropertyFilter</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">status</span><span class="p">[</span><span class="s">&#39;info.state&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">TaskInfoState</span><span class="o">.</span><span class="n">error</span><span class="p">:</span> <span class="c">#@UndefinedVariable</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="n">status</span><span class="p">[</span><span class="s">&#39;info.error&#39;</span><span class="p">]</span>
+            <span class="k">raise</span> <span class="n">VisdkTaskError</span><span class="p">(</span><span class="n">error</span><span class="o">.</span><span class="n">localizedMessage</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">status</span><span class="p">[</span><span class="s">&#39;info.state&#39;</span><span class="p">]</span>
+    
+    <span class="k">def</span> <span class="nf">_parseTaskResponse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">filterSet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">objectSet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">changeSet</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#39;val&#39;</span><span class="p">):</span>
+                <span class="n">status</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">val</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">status</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">op</span>
+        <span class="k">return</span> <span class="n">status</span>
+      
+        
+        
+        
+        
+    
+    </div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

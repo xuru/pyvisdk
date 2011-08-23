@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.505. HostEventArgument &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.506. HostExtraNetworksEvent" href="host_extra_networks_event.html" />
+    <link rel="prev" title="4.504. HostEvent" href="host_event.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_extra_networks_event.html" title="4.506. HostExtraNetworksEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_event.html" title="4.504. HostEvent"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hosteventargument">
+<h1>4.505. HostEventArgument<a class="headerlink" href="#hosteventargument" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="das_host_failed_event.html#pyvisdk.do.das_host_failed_event.DasHostFailedEvent" title="pyvisdk.do.das_host_failed_event.DasHostFailedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DasHostFailedEvent</span></tt></a>,
+<a class="reference internal" href="das_host_isolated_event.html#pyvisdk.do.das_host_isolated_event.DasHostIsolatedEvent" title="pyvisdk.do.das_host_isolated_event.DasHostIsolatedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DasHostIsolatedEvent</span></tt></a>,
+<a class="reference internal" href="dvs_host_back_in_sync_event.html#pyvisdk.do.dvs_host_back_in_sync_event.DvsHostBackInSyncEvent" title="pyvisdk.do.dvs_host_back_in_sync_event.DvsHostBackInSyncEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsHostBackInSyncEvent</span></tt></a>,
+<a class="reference internal" href="dvs_host_joined_event.html#pyvisdk.do.dvs_host_joined_event.DvsHostJoinedEvent" title="pyvisdk.do.dvs_host_joined_event.DvsHostJoinedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsHostJoinedEvent</span></tt></a>,
+<a class="reference internal" href="dvs_host_left_event.html#pyvisdk.do.dvs_host_left_event.DvsHostLeftEvent" title="pyvisdk.do.dvs_host_left_event.DvsHostLeftEvent"><tt class="xref py py-class docutils literal"><span class="pre">DvsHostLeftEvent</span></tt></a>,
+<a class="reference internal" href="dvs_host_status_updated.html#pyvisdk.do.dvs_host_status_updated.DvsHostStatusUpdated" title="pyvisdk.do.dvs_host_status_updated.DvsHostStatusUpdated"><tt class="xref py py-class docutils literal"><span class="pre">DvsHostStatusUpdated</span></tt></a>,
+<a class="reference internal" href="dvs_out_of_sync_host_argument.html#pyvisdk.do.dvs_out_of_sync_host_argument.DvsOutOfSyncHostArgument" title="pyvisdk.do.dvs_out_of_sync_host_argument.DvsOutOfSyncHostArgument"><tt class="xref py py-class docutils literal"><span class="pre">DvsOutOfSyncHostArgument</span></tt></a>,
+<a class="reference internal" href="event.html#pyvisdk.do.event.Event" title="pyvisdk.do.event.Event"><tt class="xref py py-class docutils literal"><span class="pre">Event</span></tt></a>,
+<a class="reference internal" href="host_wwn_conflict_event.html#pyvisdk.do.host_wwn_conflict_event.HostWwnConflictEvent" title="pyvisdk.do.host_wwn_conflict_event.HostWwnConflictEvent"><tt class="xref py py-class docutils literal"><span class="pre">HostWwnConflictEvent</span></tt></a>,
+<a class="reference internal" href="migration_host_error_event.html#pyvisdk.do.migration_host_error_event.MigrationHostErrorEvent" title="pyvisdk.do.migration_host_error_event.MigrationHostErrorEvent"><tt class="xref py py-class docutils literal"><span class="pre">MigrationHostErrorEvent</span></tt></a>,
+<a class="reference internal" href="migration_host_warning_event.html#pyvisdk.do.migration_host_warning_event.MigrationHostWarningEvent" title="pyvisdk.do.migration_host_warning_event.MigrationHostWarningEvent"><tt class="xref py py-class docutils literal"><span class="pre">MigrationHostWarningEvent</span></tt></a>,
+<a class="reference internal" href="migration_resource_error_event.html#pyvisdk.do.migration_resource_error_event.MigrationResourceErrorEvent" title="pyvisdk.do.migration_resource_error_event.MigrationResourceErrorEvent"><tt class="xref py py-class docutils literal"><span class="pre">MigrationResourceErrorEvent</span></tt></a>,
+<a class="reference internal" href="migration_resource_warning_event.html#pyvisdk.do.migration_resource_warning_event.MigrationResourceWarningEvent" title="pyvisdk.do.migration_resource_warning_event.MigrationResourceWarningEvent"><tt class="xref py py-class docutils literal"><span class="pre">MigrationResourceWarningEvent</span></tt></a>,
+<a class="reference internal" href="vm_being_cloned_event.html#pyvisdk.do.vm_being_cloned_event.VmBeingClonedEvent" title="pyvisdk.do.vm_being_cloned_event.VmBeingClonedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmBeingClonedEvent</span></tt></a>,
+<a class="reference internal" href="vm_being_cloned_no_folder_event.html#pyvisdk.do.vm_being_cloned_no_folder_event.VmBeingClonedNoFolderEvent" title="pyvisdk.do.vm_being_cloned_no_folder_event.VmBeingClonedNoFolderEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmBeingClonedNoFolderEvent</span></tt></a>,
+<a class="reference internal" href="vm_being_hot_migrated_event.html#pyvisdk.do.vm_being_hot_migrated_event.VmBeingHotMigratedEvent" title="pyvisdk.do.vm_being_hot_migrated_event.VmBeingHotMigratedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmBeingHotMigratedEvent</span></tt></a>,
+<a class="reference internal" href="vm_being_migrated_event.html#pyvisdk.do.vm_being_migrated_event.VmBeingMigratedEvent" title="pyvisdk.do.vm_being_migrated_event.VmBeingMigratedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmBeingMigratedEvent</span></tt></a>,
+<a class="reference internal" href="vm_being_relocated_event.html#pyvisdk.do.vm_being_relocated_event.VmBeingRelocatedEvent" title="pyvisdk.do.vm_being_relocated_event.VmBeingRelocatedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmBeingRelocatedEvent</span></tt></a>,
+<a class="reference internal" href="vm_clone_failed_event.html#pyvisdk.do.vm_clone_failed_event.VmCloneFailedEvent" title="pyvisdk.do.vm_clone_failed_event.VmCloneFailedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmCloneFailedEvent</span></tt></a>,
+<a class="reference internal" href="vm_failed_migrate_event.html#pyvisdk.do.vm_failed_migrate_event.VmFailedMigrateEvent" title="pyvisdk.do.vm_failed_migrate_event.VmFailedMigrateEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFailedMigrateEvent</span></tt></a>,
+<a class="reference internal" href="vm_migrated_event.html#pyvisdk.do.vm_migrated_event.VmMigratedEvent" title="pyvisdk.do.vm_migrated_event.VmMigratedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmMigratedEvent</span></tt></a>,
+<a class="reference internal" href="vm_no_network_access_event.html#pyvisdk.do.vm_no_network_access_event.VmNoNetworkAccessEvent" title="pyvisdk.do.vm_no_network_access_event.VmNoNetworkAccessEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmNoNetworkAccessEvent</span></tt></a>,
+<a class="reference internal" href="vm_power_off_on_isolation_event.html#pyvisdk.do.vm_power_off_on_isolation_event.VmPowerOffOnIsolationEvent" title="pyvisdk.do.vm_power_off_on_isolation_event.VmPowerOffOnIsolationEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmPowerOffOnIsolationEvent</span></tt></a>,
+<a class="reference internal" href="vm_relocated_event.html#pyvisdk.do.vm_relocated_event.VmRelocatedEvent" title="pyvisdk.do.vm_relocated_event.VmRelocatedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmRelocatedEvent</span></tt></a>,
+<a class="reference internal" href="vm_relocate_failed_event.html#pyvisdk.do.vm_relocate_failed_event.VmRelocateFailedEvent" title="pyvisdk.do.vm_relocate_failed_event.VmRelocateFailedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmRelocateFailedEvent</span></tt></a>,
+<a class="reference internal" href="vm_restarted_on_alternate_host_event.html#pyvisdk.do.vm_restarted_on_alternate_host_event.VmRestartedOnAlternateHostEvent" title="pyvisdk.do.vm_restarted_on_alternate_host_event.VmRestartedOnAlternateHostEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmRestartedOnAlternateHostEvent</span></tt></a>,
+<a class="reference internal" href="vm_shutdown_on_isolation_event.html#pyvisdk.do.vm_shutdown_on_isolation_event.VmShutdownOnIsolationEvent" title="pyvisdk.do.vm_shutdown_on_isolation_event.VmShutdownOnIsolationEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmShutdownOnIsolationEvent</span></tt></a>,
+<a class="reference internal" href="vm_wwn_conflict_event.html#pyvisdk.do.vm_wwn_conflict_event.VmWwnConflictEvent" title="pyvisdk.do.vm_wwn_conflict_event.VmWwnConflictEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmWwnConflictEvent</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">EntityEventArgument</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.host_event_argument.HostEventArgument">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.host_event_argument.</tt><tt class="descname">HostEventArgument</tt><a class="headerlink" href="#pyvisdk.do.host_event_argument.HostEventArgument" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.host_event_argument.HostEventArgument.host">
+<tt class="descname">host</tt><a class="headerlink" href="#pyvisdk.do.host_event_argument.HostEventArgument.host" title="Permalink to this definition">¶</a></dt>
+<dd><p>The host object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_event.html"
+                        title="previous chapter">4.504. HostEvent</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_extra_networks_event.html"
+                        title="next chapter">4.506. HostExtraNetworksEvent</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/host_event_argument.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_extra_networks_event.html" title="4.506. HostExtraNetworksEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_event.html" title="4.504. HostEvent"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

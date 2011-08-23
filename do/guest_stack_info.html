@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.411. GuestStackInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.412. HealthStatusChangedEvent" href="health_status_changed_event.html" />
+    <link rel="prev" title="4.410. GuestScreenInfo" href="guest_screen_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="health_status_changed_event.html" title="4.412. HealthStatusChangedEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="guest_screen_info.html" title="4.410. GuestScreenInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="gueststackinfo">
+<h1>4.411. GuestStackInfo<a class="headerlink" href="#gueststackinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="guest_info.html#pyvisdk.do.guest_info.GuestInfo" title="pyvisdk.do.guest_info.GuestInfo"><tt class="xref py py-class docutils literal"><span class="pre">GuestInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="key_value.html#pyvisdk.do.key_value.KeyValue" title="pyvisdk.do.key_value.KeyValue"><tt class="xref py py-class docutils literal"><span class="pre">KeyValue</span></tt></a>,
+<a class="reference internal" href="net_dhcp_config_info.html#pyvisdk.do.net_dhcp_config_info.NetDhcpConfigInfo" title="pyvisdk.do.net_dhcp_config_info.NetDhcpConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">NetDhcpConfigInfo</span></tt></a>,
+<a class="reference internal" href="net_dns_config_info.html#pyvisdk.do.net_dns_config_info.NetDnsConfigInfo" title="pyvisdk.do.net_dns_config_info.NetDnsConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">NetDnsConfigInfo</span></tt></a>,
+<a class="reference internal" href="net_ip_route_config_info.html#pyvisdk.do.net_ip_route_config_info.NetIpRouteConfigInfo" title="pyvisdk.do.net_ip_route_config_info.NetIpRouteConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">NetIpRouteConfigInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.1</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.guest_stack_info.GuestStackInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.guest_stack_info.</tt><tt class="descname">GuestStackInfo</tt><a class="headerlink" href="#pyvisdk.do.guest_stack_info.GuestStackInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.guest_stack_info.GuestStackInfo.dhcpConfig">
+<tt class="descname">dhcpConfig</tt><a class="headerlink" href="#pyvisdk.do.guest_stack_info.GuestStackInfo.dhcpConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Client side DHCP for a given interface. This reports only the system wide dhcp client settings. See NicInfo.IpConfig for per interface settings. For example on Linux, BSD systems: Using the file dhclient.conf output would be reported as: key=&#8216;1&#8217;, value=&#8217;timeout 60;&#8217; key=&#8216;2&#8217;, value=&#8217;reboot 10;&#8217;</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_stack_info.GuestStackInfo.dnsConfig">
+<tt class="descname">dnsConfig</tt><a class="headerlink" href="#pyvisdk.do.guest_stack_info.GuestStackInfo.dnsConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Client DNS configuration. How DNS queries are resolved.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_stack_info.GuestStackInfo.ipRouteConfig">
+<tt class="descname">ipRouteConfig</tt><a class="headerlink" href="#pyvisdk.do.guest_stack_info.GuestStackInfo.ipRouteConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>IP route table configuration.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.guest_stack_info.GuestStackInfo.ipStackConfig">
+<tt class="descname">ipStackConfig</tt><a class="headerlink" href="#pyvisdk.do.guest_stack_info.GuestStackInfo.ipStackConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Report Kernel IP configuration settings. The key part contains a unique number in the report. The value part contains the &#8216;key=value&#8217; as provided by the underlying provider. For example on Linux, BSD, the systcl -a output would be reported as: key=&#8216;5&#8217;, value=&#8217;net.ipv4.tcp_keepalive_time = 7200&#8217;</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="guest_screen_info.html"
+                        title="previous chapter">4.410. GuestScreenInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="health_status_changed_event.html"
+                        title="next chapter">4.412. HealthStatusChangedEvent</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/guest_stack_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="health_status_changed_event.html" title="4.412. HealthStatusChangedEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="guest_screen_info.html" title="4.410. GuestScreenInfo"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

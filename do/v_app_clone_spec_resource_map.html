@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1035. VAppCloneSpecResourceMap &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1036. VAppConfigInfo" href="v_app_config_info.html" />
+    <link rel="prev" title="4.1034. VAppCloneSpecNetworkMappingPair" href="v_app_clone_spec_network_mapping_pair.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v_app_config_info.html" title="4.1036. VAppConfigInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="v_app_clone_spec_network_mapping_pair.html" title="4.1034. VAppCloneSpecNetworkMappingPair"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="vappclonespecresourcemap">
+<h1>4.1035. VAppCloneSpecResourceMap<a class="headerlink" href="#vappclonespecresourcemap" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="v_app_clone_spec.html#pyvisdk.do.v_app_clone_spec.VAppCloneSpec" title="pyvisdk.do.v_app_clone_spec.VAppCloneSpec"><tt class="xref py py-class docutils literal"><span class="pre">VAppCloneSpec</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">Datastore</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt>,
+<a class="reference internal" href="resource_config_spec.html#pyvisdk.do.resource_config_spec.ResourceConfigSpec" title="pyvisdk.do.resource_config_spec.ResourceConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">ResourceConfigSpec</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">ResourcePool</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.1</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.v_app_clone_spec_resource_map.</tt><tt class="descname">VAppCloneSpecResourceMap</tt><a class="headerlink" href="#pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap.location">
+<tt class="descname">location</tt><a class="headerlink" href="#pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>A client can optionally specify a datastore in the resource map to override the default datastore location set in location field. This enables cloning to different compute resources that do not have shared datastores.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap.parent">
+<tt class="descname">parent</tt><a class="headerlink" href="#pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resource pool to use for the cloned entity of source. This must specify a resource pool that is not part of the vApp. If this is specified, a linked child (as opposed to a direct child) is created for the vApp.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap.resourceSpec">
+<tt class="descname">resourceSpec</tt><a class="headerlink" href="#pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap.resourceSpec" title="Permalink to this definition">¶</a></dt>
+<dd><p>An optional resource configuration for the cloned entity of the source. If not specified, the same resource configuration as the source is used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap.source">
+<tt class="descname">source</tt><a class="headerlink" href="#pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap.source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Source entity</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="v_app_clone_spec_network_mapping_pair.html"
+                        title="previous chapter">4.1034. VAppCloneSpecNetworkMappingPair</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="v_app_config_info.html"
+                        title="next chapter">4.1036. VAppConfigInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/v_app_clone_spec_resource_map.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v_app_config_info.html" title="4.1036. VAppConfigInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="v_app_clone_spec_network_mapping_pair.html" title="4.1034. VAppCloneSpecNetworkMappingPair"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,181 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.121. ComplianceResult &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.122. CompositePolicyOption" href="composite_policy_option.html" />
+    <link rel="prev" title="4.120. ComplianceProfile" href="compliance_profile.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="composite_policy_option.html" title="4.122. CompositePolicyOption"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="compliance_profile.html" title="4.120. ComplianceProfile"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="complianceresult">
+<h1>4.121. ComplianceResult<a class="headerlink" href="#complianceresult" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="compliance_failure.html#pyvisdk.do.compliance_failure.ComplianceFailure" title="pyvisdk.do.compliance_failure.ComplianceFailure"><tt class="xref py py-class docutils literal"><span class="pre">ComplianceFailure</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">Profile</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CheckCompliance_Task()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">CheckProfileCompliance_Task()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">QueryComplianceStatus()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.compliance_result.ComplianceResult">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.compliance_result.</tt><tt class="descname">ComplianceResult</tt><a class="headerlink" href="#pyvisdk.do.compliance_result.ComplianceResult" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.compliance_result.ComplianceResult.checkTime">
+<tt class="descname">checkTime</tt><a class="headerlink" href="#pyvisdk.do.compliance_result.ComplianceResult.checkTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time at which compliance check was last run on the entity</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.compliance_result.ComplianceResult.complianceStatus">
+<tt class="descname">complianceStatus</tt><a class="headerlink" href="#pyvisdk.do.compliance_result.ComplianceResult.complianceStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the compliance status of the entity. See</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.compliance_result.ComplianceResult.entity">
+<tt class="descname">entity</tt><a class="headerlink" href="#pyvisdk.do.compliance_result.ComplianceResult.entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entity on which the compliance check was carried out. Entity can be a Cluster, Host and so on.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.compliance_result.ComplianceResult.failure">
+<tt class="descname">failure</tt><a class="headerlink" href="#pyvisdk.do.compliance_result.ComplianceResult.failure" title="Permalink to this definition">¶</a></dt>
+<dd><p>If complianceStatus is non-compliant, failure will contain additional information about the compliance errors.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.compliance_result.ComplianceResult.profile">
+<tt class="descname">profile</tt><a class="headerlink" href="#pyvisdk.do.compliance_result.ComplianceResult.profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Profile for which the ComplianceResult applies</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="compliance_profile.html"
+                        title="previous chapter">4.120. ComplianceProfile</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="composite_policy_option.html"
+                        title="next chapter">4.122. CompositePolicyOption</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/compliance_result.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="composite_policy_option.html" title="4.122. CompositePolicyOption"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="compliance_profile.html" title="4.120. ComplianceProfile"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

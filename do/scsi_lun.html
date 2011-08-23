@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.961. ScsiLun &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.962. ScsiLunCapabilities" href="scsi_lun_capabilities.html" />
+    <link rel="prev" title="4.960. ScheduledTaskStartedEvent" href="scheduled_task_started_event.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="scsi_lun_capabilities.html" title="4.962. ScsiLunCapabilities"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="scheduled_task_started_event.html" title="4.960. ScheduledTaskStartedEvent"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="scsilun">
+<h1>4.961. ScsiLun<a class="headerlink" href="#scsilun" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="host_multipath_info_logical_unit.html#pyvisdk.do.host_multipath_info_logical_unit.HostMultipathInfoLogicalUnit" title="pyvisdk.do.host_multipath_info_logical_unit.HostMultipathInfoLogicalUnit"><tt class="xref py py-class docutils literal"><span class="pre">HostMultipathInfoLogicalUnit</span></tt></a>,
+<a class="reference internal" href="host_plug_store_topology_device.html#pyvisdk.do.host_plug_store_topology_device.HostPlugStoreTopologyDevice" title="pyvisdk.do.host_plug_store_topology_device.HostPlugStoreTopologyDevice"><tt class="xref py py-class docutils literal"><span class="pre">HostPlugStoreTopologyDevice</span></tt></a>,
+<a class="reference internal" href="host_scsi_topology_lun.html#pyvisdk.do.host_scsi_topology_lun.HostScsiTopologyLun" title="pyvisdk.do.host_scsi_topology_lun.HostScsiTopologyLun"><tt class="xref py py-class docutils literal"><span class="pre">HostScsiTopologyLun</span></tt></a>,
+<a class="reference internal" href="host_storage_device_info.html#pyvisdk.do.host_storage_device_info.HostStorageDeviceInfo" title="pyvisdk.do.host_storage_device_info.HostStorageDeviceInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostStorageDeviceInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="scsi_lun_capabilities.html#pyvisdk.do.scsi_lun_capabilities.ScsiLunCapabilities" title="pyvisdk.do.scsi_lun_capabilities.ScsiLunCapabilities"><tt class="xref py py-class docutils literal"><span class="pre">ScsiLunCapabilities</span></tt></a>,
+<a class="reference internal" href="scsi_lun_descriptor.html#pyvisdk.do.scsi_lun_descriptor.ScsiLunDescriptor" title="pyvisdk.do.scsi_lun_descriptor.ScsiLunDescriptor"><tt class="xref py py-class docutils literal"><span class="pre">ScsiLunDescriptor</span></tt></a>,
+<a class="reference internal" href="scsi_lun_durable_name.html#pyvisdk.do.scsi_lun_durable_name.ScsiLunDurableName" title="pyvisdk.do.scsi_lun_durable_name.ScsiLunDurableName"><tt class="xref py py-class docutils literal"><span class="pre">ScsiLunDurableName</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostDevice</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extended by</tt></dt>
+<dd><p><a class="reference internal" href="host_scsi_disk.html#pyvisdk.do.host_scsi_disk.HostScsiDisk" title="pyvisdk.do.host_scsi_disk.HostScsiDisk"><tt class="xref py py-class docutils literal"><span class="pre">HostScsiDisk</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.scsi_lun.</tt><tt class="descname">ScsiLun</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.alternateName">
+<tt class="descname">alternateName</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.alternateName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alternate durable names. Records all available durable names derived from page 80h of the Vital Product Data (VPD) and the Identification Vital Product Data (VPD) page 83h as defined by the SCSI-3 Primary Commands. For devices that are not SCSI-3 compliant this property is not defined.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.canonicalName">
+<tt class="descname">canonicalName</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.canonicalName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Canonical name of the SCSI logical unit.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.capabilities">
+<tt class="descname">capabilities</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Capabilities of SCSI device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.descriptor">
+<tt class="descname">descriptor</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.descriptor" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of descriptors that can be used to identify the LUN object. The uuid will also appear as a descriptor.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.displayName">
+<tt class="descname">displayName</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.displayName" title="Permalink to this definition">¶</a></dt>
+<dd><p>User configurable display name of the SCSI logical unit. A default display name will be used if available. If the display name is not supported, it will be unset. The display name does not have to be unique but it is recommended that it be unique.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.durableName">
+<tt class="descname">durableName</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.durableName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The durable name of the SCSI device. For a SCSI-3 compliant device this property is derived from the payloads of pages 80h and 83h of the Vital Product Data (VPD) as defined by the T10 and SMI standards. For devices that do not provide this information, this property is not defined.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.key">
+<tt class="descname">key</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linkable identifier</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.lunType">
+<tt class="descname">lunType</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.lunType" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of SCSI device. Must be one of the values of ScsiLunType.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.model">
+<tt class="descname">model</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>The model number of the SCSI device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.operationalState">
+<tt class="descname">operationalState</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.operationalState" title="Permalink to this definition">¶</a></dt>
+<dd><p>The operational states of the LUN. When more than one item is present in the array, the first state should be considered the primary state. For example, a LUN may be &#8220;ok&#8221; and &#8220;degraded&#8221; indicating I/O is still possible to the LUN, but it is operating in a degraded mode.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.queueDepth">
+<tt class="descname">queueDepth</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.queueDepth" title="Permalink to this definition">¶</a></dt>
+<dd><p>The queue depth of SCSI device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.revision">
+<tt class="descname">revision</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.revision" title="Permalink to this definition">¶</a></dt>
+<dd><p>The revision of the SCSI device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.scsiLevel">
+<tt class="descname">scsiLevel</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.scsiLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>The SCSI level of the SCSI device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.serialNumber">
+<tt class="descname">serialNumber</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.serialNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>The serial number of the SCSI device. For a device that is SCSI-3 compliant, this property is derived from page 80h of the Vital Product Data (VPD), as defined by the SCSI-3 Primary Commands (SPC-3) spec. Not all SCSI-3 compliant devices provide this information. For devices that are not SCSI-3 compliant, this property is not defined.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.standardInquiry">
+<tt class="descname">standardInquiry</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.standardInquiry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standard Inquiry payload. For a SCSI-3 compliant device this property is derived from the standard inquiry data. For devices that are not SCSI-3 compliant this property is not defined.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.uuid">
+<tt class="descname">uuid</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Universally unique identifier for the LUN used to identify ScsiLun across multiple servers.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.vendor">
+<tt class="descname">vendor</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.vendor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vendor of the SCSI device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.scsi_lun.ScsiLun.vStorageSupport">
+<tt class="descname">vStorageSupport</tt><a class="headerlink" href="#pyvisdk.do.scsi_lun.ScsiLun.vStorageSupport" title="Permalink to this definition">¶</a></dt>
+<dd><p>vStorage hardware acceleration support status. This property represents storage acceleration provided by the SCSI logical unit. See ScsiLunVStorageSupportStatus for valid values.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scheduled_task_started_event.html"
+                        title="previous chapter">4.960. ScheduledTaskStartedEvent</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scsi_lun_capabilities.html"
+                        title="next chapter">4.962. ScsiLunCapabilities</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/scsi_lun.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="scsi_lun_capabilities.html" title="4.962. ScsiLunCapabilities"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="scheduled_task_started_event.html" title="4.960. ScheduledTaskStartedEvent"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

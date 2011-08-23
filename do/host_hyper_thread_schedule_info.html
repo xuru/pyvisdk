@@ -1,0 +1,154 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.528. HostHyperThreadScheduleInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.529. HostInternetScsiHba" href="host_internet_scsi_hba.html" />
+    <link rel="prev" title="4.527. HostHostBusAdapter" href="host_host_bus_adapter.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_internet_scsi_hba.html" title="4.529. HostInternetScsiHba"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_host_bus_adapter.html" title="4.527. HostHostBusAdapter"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hosthyperthreadscheduleinfo">
+<h1>4.528. HostHyperThreadScheduleInfo<a class="headerlink" href="#hosthyperthreadscheduleinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="host_config_info.html#pyvisdk.do.host_config_info.HostConfigInfo" title="pyvisdk.do.host_config_info.HostConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostConfigInfo</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">HostCpuSchedulerSystem</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.host_hyper_thread_schedule_info.HostHyperThreadScheduleInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.host_hyper_thread_schedule_info.</tt><tt class="descname">HostHyperThreadScheduleInfo</tt><a class="headerlink" href="#pyvisdk.do.host_hyper_thread_schedule_info.HostHyperThreadScheduleInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.host_hyper_thread_schedule_info.HostHyperThreadScheduleInfo.active">
+<tt class="descname">active</tt><a class="headerlink" href="#pyvisdk.do.host_hyper_thread_schedule_info.HostHyperThreadScheduleInfo.active" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether or not the CPU scheduler is currently treating hyperthreads as schedulable resources. Setting this property involves a successful invocation of either the enableHyperThreading() method (&#8220;true&#8221;) or the disableHyperthreading() method (&#8220;false&#8221;). The property is set once the system is rebooted.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_hyper_thread_schedule_info.HostHyperThreadScheduleInfo.available">
+<tt class="descname">available</tt><a class="headerlink" href="#pyvisdk.do.host_hyper_thread_schedule_info.HostHyperThreadScheduleInfo.available" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether or not hyperthreading optimization is available on the system. This property is set by VMware prior to installation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_hyper_thread_schedule_info.HostHyperThreadScheduleInfo.config">
+<tt class="descname">config</tt><a class="headerlink" href="#pyvisdk.do.host_hyper_thread_schedule_info.HostHyperThreadScheduleInfo.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether or not the CPU scheduler should treat hyperthreads as schedulable resources the next time the CPU scheduler starts. * This property is set to &#8220;true&#8221; by successfully invoking the enableHyperThreading() method. * This property is set to &#8220;false&#8221; by successfully invoking the disableHyperthreading() method.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_host_bus_adapter.html"
+                        title="previous chapter">4.527. HostHostBusAdapter</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_internet_scsi_hba.html"
+                        title="next chapter">4.529. HostInternetScsiHba</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/host_hyper_thread_schedule_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_internet_scsi_hba.html" title="4.529. HostInternetScsiHba"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_host_bus_adapter.html" title="4.527. HostHostBusAdapter"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.368. Extension &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.369. ExtensionClientInfo" href="extension_client_info.html" />
+    <link rel="prev" title="4.367. ExtendedEventPair" href="extended_event_pair.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="extension_client_info.html" title="4.369. ExtensionClientInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="extended_event_pair.html" title="4.367. ExtendedEventPair"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="extension">
+<h1>4.368. Extension<a class="headerlink" href="#extension" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ExtensionManager</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>VI API 2.5</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">FindExtension()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">RegisterExtension()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">UpdateExtension()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="description.html#pyvisdk.do.description.Description" title="pyvisdk.do.description.Description"><tt class="xref py py-class docutils literal"><span class="pre">Description</span></tt></a>,
+<a class="reference internal" href="extension_client_info.html#pyvisdk.do.extension_client_info.ExtensionClientInfo" title="pyvisdk.do.extension_client_info.ExtensionClientInfo"><tt class="xref py py-class docutils literal"><span class="pre">ExtensionClientInfo</span></tt></a>,
+<a class="reference internal" href="extension_event_type_info.html#pyvisdk.do.extension_event_type_info.ExtensionEventTypeInfo" title="pyvisdk.do.extension_event_type_info.ExtensionEventTypeInfo"><tt class="xref py py-class docutils literal"><span class="pre">ExtensionEventTypeInfo</span></tt></a>,
+<a class="reference internal" href="extension_fault_type_info.html#pyvisdk.do.extension_fault_type_info.ExtensionFaultTypeInfo" title="pyvisdk.do.extension_fault_type_info.ExtensionFaultTypeInfo"><tt class="xref py py-class docutils literal"><span class="pre">ExtensionFaultTypeInfo</span></tt></a>,
+<a class="reference internal" href="extension_health_info.html#pyvisdk.do.extension_health_info.ExtensionHealthInfo" title="pyvisdk.do.extension_health_info.ExtensionHealthInfo"><tt class="xref py py-class docutils literal"><span class="pre">ExtensionHealthInfo</span></tt></a>,
+<a class="reference internal" href="extension_privilege_info.html#pyvisdk.do.extension_privilege_info.ExtensionPrivilegeInfo" title="pyvisdk.do.extension_privilege_info.ExtensionPrivilegeInfo"><tt class="xref py py-class docutils literal"><span class="pre">ExtensionPrivilegeInfo</span></tt></a>,
+<a class="reference internal" href="extension_resource_info.html#pyvisdk.do.extension_resource_info.ExtensionResourceInfo" title="pyvisdk.do.extension_resource_info.ExtensionResourceInfo"><tt class="xref py py-class docutils literal"><span class="pre">ExtensionResourceInfo</span></tt></a>,
+<a class="reference internal" href="extension_server_info.html#pyvisdk.do.extension_server_info.ExtensionServerInfo" title="pyvisdk.do.extension_server_info.ExtensionServerInfo"><tt class="xref py py-class docutils literal"><span class="pre">ExtensionServerInfo</span></tt></a>,
+<a class="reference internal" href="extension_task_type_info.html#pyvisdk.do.extension_task_type_info.ExtensionTaskTypeInfo" title="pyvisdk.do.extension_task_type_info.ExtensionTaskTypeInfo"><tt class="xref py py-class docutils literal"><span class="pre">ExtensionTaskTypeInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.extension.Extension">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.extension.</tt><tt class="descname">Extension</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.client">
+<tt class="descname">client</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clients for this extension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.company">
+<tt class="descname">company</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.company" title="Permalink to this definition">¶</a></dt>
+<dd><p>Company information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.description">
+<tt class="descname">description</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of extension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.eventList">
+<tt class="descname">eventList</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.eventList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Definitions of events defined by this extension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.faultList">
+<tt class="descname">faultList</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.faultList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Definitions of faults defined by this extension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.healthInfo">
+<tt class="descname">healthInfo</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.healthInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Health specification provided by this extension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.key">
+<tt class="descname">key</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extension key. Should follow java package naming conventions for uniqueness (e.g. &#8220;com.example.management&#8221;).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.lastHeartbeatTime">
+<tt class="descname">lastHeartbeatTime</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.lastHeartbeatTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Last extension heartbeat time.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.privilegeList">
+<tt class="descname">privilegeList</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.privilegeList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Definitions privileges defined by this extension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.resourceList">
+<tt class="descname">resourceList</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.resourceList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resource data for all locales</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.server">
+<tt class="descname">server</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Servers for this extension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.subjectName">
+<tt class="descname">subjectName</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.subjectName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subject name from client certificate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.taskList">
+<tt class="descname">taskList</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.taskList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Definitions of tasks defined by this extension.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.type">
+<tt class="descname">type</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of extension (example may include CP-DVS, NUOVA-DVS, etc.).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.extension.Extension.version">
+<tt class="descname">version</tt><a class="headerlink" href="#pyvisdk.do.extension.Extension.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extension version number as a dot-separated string. For example, &#8220;1.0.0&#8221;</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="extended_event_pair.html"
+                        title="previous chapter">4.367. ExtendedEventPair</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="extension_client_info.html"
+                        title="next chapter">4.369. ExtensionClientInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/extension.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="extension_client_info.html" title="4.369. ExtensionClientInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="extended_event_pair.html" title="4.367. ExtendedEventPair"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

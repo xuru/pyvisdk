@@ -1,0 +1,153 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.183. CustomizationWinOptions &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.184. DailyTaskScheduler" href="daily_task_scheduler.html" />
+    <link rel="prev" title="4.182. CustomizationVirtualMachineName" href="customization_virtual_machine_name.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="daily_task_scheduler.html" title="4.184. DailyTaskScheduler"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="customization_virtual_machine_name.html" title="4.182. CustomizationVirtualMachineName"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="customizationwinoptions">
+<h1>4.183. CustomizationWinOptions<a class="headerlink" href="#customizationwinoptions" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">CustomizationSysprepRebootOption</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">CustomizationOptions</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.customization_win_options.CustomizationWinOptions">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.customization_win_options.</tt><tt class="descname">CustomizationWinOptions</tt><a class="headerlink" href="#pyvisdk.do.customization_win_options.CustomizationWinOptions" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.customization_win_options.CustomizationWinOptions.changeSID">
+<tt class="descname">changeSID</tt><a class="headerlink" href="#pyvisdk.do.customization_win_options.CustomizationWinOptions.changeSID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The customization process should modify the machine&#8217;s security identifier (SID). For Vista OS, SID will always be modified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_win_options.CustomizationWinOptions.deleteAccounts">
+<tt class="descname">deleteAccounts</tt><a class="headerlink" href="#pyvisdk.do.customization_win_options.CustomizationWinOptions.deleteAccounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>If deleteAccounts is true, then all user accounts are removed from the system as part of the customization. Mini-setup creates a new Administrator account with a blank password.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_win_options.CustomizationWinOptions.reboot">
+<tt class="descname">reboot</tt><a class="headerlink" href="#pyvisdk.do.customization_win_options.CustomizationWinOptions.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>A value of type SysprepRebootOption specifying the action that should be taken after running sysprep. Defaults to &#8220;reboot&#8221;.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="customization_virtual_machine_name.html"
+                        title="previous chapter">4.182. CustomizationVirtualMachineName</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="daily_task_scheduler.html"
+                        title="next chapter">4.184. DailyTaskScheduler</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/customization_win_options.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="daily_task_scheduler.html" title="4.184. DailyTaskScheduler"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="customization_virtual_machine_name.html" title="4.182. CustomizationVirtualMachineName"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

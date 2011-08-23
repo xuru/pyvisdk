@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.873. PhysicalNicCdpInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.874. PhysicalNicConfig" href="physical_nic_config.html" />
+    <link rel="prev" title="4.872. PhysicalNicCdpDeviceCapability" href="physical_nic_cdp_device_capability.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="physical_nic_config.html" title="4.874. PhysicalNicConfig"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="physical_nic_cdp_device_capability.html" title="4.872. PhysicalNicCdpDeviceCapability"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="physicalniccdpinfo">
+<h1>4.873. PhysicalNicCdpInfo<a class="headerlink" href="#physicalniccdpinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="physical_nic_hint_info.html#pyvisdk.do.physical_nic_hint_info.PhysicalNicHintInfo" title="pyvisdk.do.physical_nic_hint_info.PhysicalNicHintInfo"><tt class="xref py py-class docutils literal"><span class="pre">PhysicalNicHintInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="physical_nic_cdp_device_capability.html#pyvisdk.do.physical_nic_cdp_device_capability.PhysicalNicCdpDeviceCapability" title="pyvisdk.do.physical_nic_cdp_device_capability.PhysicalNicCdpDeviceCapability"><tt class="xref py py-class docutils literal"><span class="pre">PhysicalNicCdpDeviceCapability</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>VI API 2.5</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.physical_nic_cdp_info.</tt><tt class="descname">PhysicalNicCdpInfo</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.address">
+<tt class="descname">address</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.address" title="Permalink to this definition">¶</a></dt>
+<dd><p>The advertised IP address that is assigned to the interface of the device on which the CDP message is sent. The device can advertise all addresses for a given protocol suite and, optionally, can advertise one or more loopback IP addresses. But this property only show the first address.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.cdpVersion">
+<tt class="descname">cdpVersion</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.cdpVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>CDP version. The value is always 1.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.deviceCapability">
+<tt class="descname">deviceCapability</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.deviceCapability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Device Capability PhysicalNicCdpDeviceCapability</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.devId">
+<tt class="descname">devId</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.devId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Device ID which identifies the device. By default, the device ID is either the device&#8217;s fully-qualified host name (including the domain name) or the device&#8217;s hardware serial number in ASCII.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.fullDuplex">
+<tt class="descname">fullDuplex</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.fullDuplex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Half/full duplex setting of the advertising port.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.hardwarePlatform">
+<tt class="descname">hardwarePlatform</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.hardwarePlatform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hardware platform. An ASCII character string that describes the hardware platform of the device , e.g. &#8220;cisco WS-C2940-8TT-S&#8221;</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.ipPrefix">
+<tt class="descname">ipPrefix</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.ipPrefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>IP prefix. Each IP prefix represents one of the directly connected IP network segments of the local route.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.ipPrefixLen">
+<tt class="descname">ipPrefixLen</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.ipPrefixLen" title="Permalink to this definition">¶</a></dt>
+<dd><p>ipPrefix length.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.location">
+<tt class="descname">location</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>The configured location of the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.mgmtAddr">
+<tt class="descname">mgmtAddr</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.mgmtAddr" title="Permalink to this definition">¶</a></dt>
+<dd><p>The configured IP address of the SNMP management interface for the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.mtu">
+<tt class="descname">mtu</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.mtu" title="Permalink to this definition">¶</a></dt>
+<dd><p>MTU, the maximum transmission unit for the advertising port. Possible values are 1500 through 18190.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.portId">
+<tt class="descname">portId</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.portId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port ID. An ASCII character string that identifies the port on which the CDP message is sent, e.g. &#8220;FastEthernet0/8&#8221;</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.samples">
+<tt class="descname">samples</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of CDP messages we have received from the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.softwareVersion">
+<tt class="descname">softwareVersion</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.softwareVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Software version on the device. A character string that provides information about the software release version that the device is running. e.g. &#8220;Cisco Internetwork Operating Syscisco WS-C2940-8TT-S&#8221;</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.systemName">
+<tt class="descname">systemName</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.systemName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The configured SNMP system name of the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.systemOID">
+<tt class="descname">systemOID</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.systemOID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The configured SNMP system OID of the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.timeout">
+<tt class="descname">timeout</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the periodicity of advertisement, the time between two successive CDP message transmissions</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.ttl">
+<tt class="descname">ttl</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.ttl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time-To-Live. the amount of time, in seconds, that a receiver should retain the information contained in the CDP packet.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.vlan">
+<tt class="descname">vlan</tt><a class="headerlink" href="#pyvisdk.do.physical_nic_cdp_info.PhysicalNicCdpInfo.vlan" title="Permalink to this definition">¶</a></dt>
+<dd><p>The native VLAN of advertising port. The native VLAN is the VLAN to which a port returns when it is not trunking. Also, the native VLAN is the untagged VLAN on an 802.1Q trunk.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="physical_nic_cdp_device_capability.html"
+                        title="previous chapter">4.872. PhysicalNicCdpDeviceCapability</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="physical_nic_config.html"
+                        title="next chapter">4.874. PhysicalNicConfig</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/physical_nic_cdp_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="physical_nic_config.html" title="4.874. PhysicalNicConfig"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="physical_nic_cdp_device_capability.html" title="4.872. PhysicalNicCdpDeviceCapability"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

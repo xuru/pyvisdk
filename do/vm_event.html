@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1314. VmEvent &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1315. VmEventArgument" href="vm_event_argument.html" />
+    <link rel="prev" title="4.1313. VmEndReplayingEvent" href="vm_end_replaying_event.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="vm_event_argument.html" title="4.1315. VmEventArgument"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="vm_end_replaying_event.html" title="4.1313. VmEndReplayingEvent"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="vmevent">
+<h1>4.1314. VmEvent<a class="headerlink" href="#vmevent" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Extended by</tt></dt>
+<dd><p><a class="reference internal" href="customization_event.html#pyvisdk.do.customization_event.CustomizationEvent" title="pyvisdk.do.customization_event.CustomizationEvent"><tt class="xref py py-class docutils literal"><span class="pre">CustomizationEvent</span></tt></a>,
+<a class="reference internal" href="drs_rule_compliance_event.html#pyvisdk.do.drs_rule_compliance_event.DrsRuleComplianceEvent" title="pyvisdk.do.drs_rule_compliance_event.DrsRuleComplianceEvent"><tt class="xref py py-class docutils literal"><span class="pre">DrsRuleComplianceEvent</span></tt></a>,
+<a class="reference internal" href="drs_rule_violation_event.html#pyvisdk.do.drs_rule_violation_event.DrsRuleViolationEvent" title="pyvisdk.do.drs_rule_violation_event.DrsRuleViolationEvent"><tt class="xref py py-class docutils literal"><span class="pre">DrsRuleViolationEvent</span></tt></a>,
+<a class="reference internal" href="migration_event.html#pyvisdk.do.migration_event.MigrationEvent" title="pyvisdk.do.migration_event.MigrationEvent"><tt class="xref py py-class docutils literal"><span class="pre">MigrationEvent</span></tt></a>,
+<a class="reference internal" href="no_maintenance_mode_drs_recommendation_for_vm.html#pyvisdk.do.no_maintenance_mode_drs_recommendation_for_vm.NoMaintenanceModeDrsRecommendationForVM" title="pyvisdk.do.no_maintenance_mode_drs_recommendation_for_vm.NoMaintenanceModeDrsRecommendationForVM"><tt class="xref py py-class docutils literal"><span class="pre">NoMaintenanceModeDrsRecommendationForVM</span></tt></a>,
+<a class="reference internal" href="not_enough_resources_to_start_vm_event.html#pyvisdk.do.not_enough_resources_to_start_vm_event.NotEnoughResourcesToStartVmEvent" title="pyvisdk.do.not_enough_resources_to_start_vm_event.NotEnoughResourcesToStartVmEvent"><tt class="xref py py-class docutils literal"><span class="pre">NotEnoughResourcesToStartVmEvent</span></tt></a>,
+<a class="reference internal" href="vm_acquired_mks_ticket_event.html#pyvisdk.do.vm_acquired_mks_ticket_event.VmAcquiredMksTicketEvent" title="pyvisdk.do.vm_acquired_mks_ticket_event.VmAcquiredMksTicketEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmAcquiredMksTicketEvent</span></tt></a>,
+<a class="reference internal" href="vm_acquired_ticket_event.html#pyvisdk.do.vm_acquired_ticket_event.VmAcquiredTicketEvent" title="pyvisdk.do.vm_acquired_ticket_event.VmAcquiredTicketEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmAcquiredTicketEvent</span></tt></a>,
+<a class="reference internal" href="vm_auto_rename_event.html#pyvisdk.do.vm_auto_rename_event.VmAutoRenameEvent" title="pyvisdk.do.vm_auto_rename_event.VmAutoRenameEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmAutoRenameEvent</span></tt></a>,
+<a class="reference internal" href="vm_being_created_event.html#pyvisdk.do.vm_being_created_event.VmBeingCreatedEvent" title="pyvisdk.do.vm_being_created_event.VmBeingCreatedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmBeingCreatedEvent</span></tt></a>,
+<a class="reference internal" href="vm_being_deployed_event.html#pyvisdk.do.vm_being_deployed_event.VmBeingDeployedEvent" title="pyvisdk.do.vm_being_deployed_event.VmBeingDeployedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmBeingDeployedEvent</span></tt></a>,
+<a class="reference internal" href="vm_being_hot_migrated_event.html#pyvisdk.do.vm_being_hot_migrated_event.VmBeingHotMigratedEvent" title="pyvisdk.do.vm_being_hot_migrated_event.VmBeingHotMigratedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmBeingHotMigratedEvent</span></tt></a>,
+<a class="reference internal" href="vm_being_migrated_event.html#pyvisdk.do.vm_being_migrated_event.VmBeingMigratedEvent" title="pyvisdk.do.vm_being_migrated_event.VmBeingMigratedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmBeingMigratedEvent</span></tt></a>,
+<a class="reference internal" href="vm_clone_event.html#pyvisdk.do.vm_clone_event.VmCloneEvent" title="pyvisdk.do.vm_clone_event.VmCloneEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmCloneEvent</span></tt></a>,
+<a class="reference internal" href="vm_config_missing_event.html#pyvisdk.do.vm_config_missing_event.VmConfigMissingEvent" title="pyvisdk.do.vm_config_missing_event.VmConfigMissingEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmConfigMissingEvent</span></tt></a>,
+<a class="reference internal" href="vm_connected_event.html#pyvisdk.do.vm_connected_event.VmConnectedEvent" title="pyvisdk.do.vm_connected_event.VmConnectedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmConnectedEvent</span></tt></a>,
+<a class="reference internal" href="vm_created_event.html#pyvisdk.do.vm_created_event.VmCreatedEvent" title="pyvisdk.do.vm_created_event.VmCreatedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmCreatedEvent</span></tt></a>,
+<a class="reference internal" href="vm_das_being_reset_event.html#pyvisdk.do.vm_das_being_reset_event.VmDasBeingResetEvent" title="pyvisdk.do.vm_das_being_reset_event.VmDasBeingResetEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmDasBeingResetEvent</span></tt></a>,
+<a class="reference internal" href="vm_das_reset_failed_event.html#pyvisdk.do.vm_das_reset_failed_event.VmDasResetFailedEvent" title="pyvisdk.do.vm_das_reset_failed_event.VmDasResetFailedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmDasResetFailedEvent</span></tt></a>,
+<a class="reference internal" href="vm_das_update_error_event.html#pyvisdk.do.vm_das_update_error_event.VmDasUpdateErrorEvent" title="pyvisdk.do.vm_das_update_error_event.VmDasUpdateErrorEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmDasUpdateErrorEvent</span></tt></a>,
+<a class="reference internal" href="vm_das_update_ok_event.html#pyvisdk.do.vm_das_update_ok_event.VmDasUpdateOkEvent" title="pyvisdk.do.vm_das_update_ok_event.VmDasUpdateOkEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmDasUpdateOkEvent</span></tt></a>,
+<a class="reference internal" href="vm_date_rolled_back_event.html#pyvisdk.do.vm_date_rolled_back_event.VmDateRolledBackEvent" title="pyvisdk.do.vm_date_rolled_back_event.VmDateRolledBackEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmDateRolledBackEvent</span></tt></a>,
+<a class="reference internal" href="vm_deployed_event.html#pyvisdk.do.vm_deployed_event.VmDeployedEvent" title="pyvisdk.do.vm_deployed_event.VmDeployedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmDeployedEvent</span></tt></a>,
+<a class="reference internal" href="vm_deploy_failed_event.html#pyvisdk.do.vm_deploy_failed_event.VmDeployFailedEvent" title="pyvisdk.do.vm_deploy_failed_event.VmDeployFailedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmDeployFailedEvent</span></tt></a>,
+<a class="reference internal" href="vm_disconnected_event.html#pyvisdk.do.vm_disconnected_event.VmDisconnectedEvent" title="pyvisdk.do.vm_disconnected_event.VmDisconnectedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmDisconnectedEvent</span></tt></a>,
+<a class="reference internal" href="vm_discovered_event.html#pyvisdk.do.vm_discovered_event.VmDiscoveredEvent" title="pyvisdk.do.vm_discovered_event.VmDiscoveredEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmDiscoveredEvent</span></tt></a>,
+<a class="reference internal" href="vm_disk_failed_event.html#pyvisdk.do.vm_disk_failed_event.VmDiskFailedEvent" title="pyvisdk.do.vm_disk_failed_event.VmDiskFailedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmDiskFailedEvent</span></tt></a>,
+<a class="reference internal" href="vm_emigrating_event.html#pyvisdk.do.vm_emigrating_event.VmEmigratingEvent" title="pyvisdk.do.vm_emigrating_event.VmEmigratingEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmEmigratingEvent</span></tt></a>,
+<a class="reference internal" href="vm_end_recording_event.html#pyvisdk.do.vm_end_recording_event.VmEndRecordingEvent" title="pyvisdk.do.vm_end_recording_event.VmEndRecordingEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmEndRecordingEvent</span></tt></a>,
+<a class="reference internal" href="vm_end_replaying_event.html#pyvisdk.do.vm_end_replaying_event.VmEndReplayingEvent" title="pyvisdk.do.vm_end_replaying_event.VmEndReplayingEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmEndReplayingEvent</span></tt></a>,
+<a class="reference internal" href="vm_failed_migrate_event.html#pyvisdk.do.vm_failed_migrate_event.VmFailedMigrateEvent" title="pyvisdk.do.vm_failed_migrate_event.VmFailedMigrateEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFailedMigrateEvent</span></tt></a>,
+<a class="reference internal" href="vm_failed_relayout_event.html#pyvisdk.do.vm_failed_relayout_event.VmFailedRelayoutEvent" title="pyvisdk.do.vm_failed_relayout_event.VmFailedRelayoutEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFailedRelayoutEvent</span></tt></a>,
+<a class="reference internal" href="vm_failed_relayout_on_vmfs2_datastore_event.html#pyvisdk.do.vm_failed_relayout_on_vmfs2_datastore_event.VmFailedRelayoutOnVmfs2DatastoreEvent" title="pyvisdk.do.vm_failed_relayout_on_vmfs2_datastore_event.VmFailedRelayoutOnVmfs2DatastoreEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFailedRelayoutOnVmfs2DatastoreEvent</span></tt></a>,
+<a class="reference internal" href="vm_failed_starting_secondary_event.html#pyvisdk.do.vm_failed_starting_secondary_event.VmFailedStartingSecondaryEvent" title="pyvisdk.do.vm_failed_starting_secondary_event.VmFailedStartingSecondaryEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFailedStartingSecondaryEvent</span></tt></a>,
+<a class="reference internal" href="vm_failed_to_power_off_event.html#pyvisdk.do.vm_failed_to_power_off_event.VmFailedToPowerOffEvent" title="pyvisdk.do.vm_failed_to_power_off_event.VmFailedToPowerOffEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFailedToPowerOffEvent</span></tt></a>,
+<a class="reference internal" href="vm_failed_to_power_on_event.html#pyvisdk.do.vm_failed_to_power_on_event.VmFailedToPowerOnEvent" title="pyvisdk.do.vm_failed_to_power_on_event.VmFailedToPowerOnEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFailedToPowerOnEvent</span></tt></a>,
+<a class="reference internal" href="vm_failed_to_reboot_guest_event.html#pyvisdk.do.vm_failed_to_reboot_guest_event.VmFailedToRebootGuestEvent" title="pyvisdk.do.vm_failed_to_reboot_guest_event.VmFailedToRebootGuestEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFailedToRebootGuestEvent</span></tt></a>,
+<a class="reference internal" href="vm_failed_to_reset_event.html#pyvisdk.do.vm_failed_to_reset_event.VmFailedToResetEvent" title="pyvisdk.do.vm_failed_to_reset_event.VmFailedToResetEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFailedToResetEvent</span></tt></a>,
+<a class="reference internal" href="vm_failed_to_shutdown_guest_event.html#pyvisdk.do.vm_failed_to_shutdown_guest_event.VmFailedToShutdownGuestEvent" title="pyvisdk.do.vm_failed_to_shutdown_guest_event.VmFailedToShutdownGuestEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFailedToShutdownGuestEvent</span></tt></a>,
+<a class="reference internal" href="vm_failed_to_standby_guest_event.html#pyvisdk.do.vm_failed_to_standby_guest_event.VmFailedToStandbyGuestEvent" title="pyvisdk.do.vm_failed_to_standby_guest_event.VmFailedToStandbyGuestEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFailedToStandbyGuestEvent</span></tt></a>,
+<a class="reference internal" href="vm_failed_to_suspend_event.html#pyvisdk.do.vm_failed_to_suspend_event.VmFailedToSuspendEvent" title="pyvisdk.do.vm_failed_to_suspend_event.VmFailedToSuspendEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFailedToSuspendEvent</span></tt></a>,
+<a class="reference internal" href="vm_failed_updating_secondary_config.html#pyvisdk.do.vm_failed_updating_secondary_config.VmFailedUpdatingSecondaryConfig" title="pyvisdk.do.vm_failed_updating_secondary_config.VmFailedUpdatingSecondaryConfig"><tt class="xref py py-class docutils literal"><span class="pre">VmFailedUpdatingSecondaryConfig</span></tt></a>,
+<a class="reference internal" href="vm_failover_failed.html#pyvisdk.do.vm_failover_failed.VmFailoverFailed" title="pyvisdk.do.vm_failover_failed.VmFailoverFailed"><tt class="xref py py-class docutils literal"><span class="pre">VmFailoverFailed</span></tt></a>,
+<a class="reference internal" href="vm_fault_tolerance_state_changed_event.html#pyvisdk.do.vm_fault_tolerance_state_changed_event.VmFaultToleranceStateChangedEvent" title="pyvisdk.do.vm_fault_tolerance_state_changed_event.VmFaultToleranceStateChangedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFaultToleranceStateChangedEvent</span></tt></a>,
+<a class="reference internal" href="vm_fault_tolerance_turned_off_event.html#pyvisdk.do.vm_fault_tolerance_turned_off_event.VmFaultToleranceTurnedOffEvent" title="pyvisdk.do.vm_fault_tolerance_turned_off_event.VmFaultToleranceTurnedOffEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFaultToleranceTurnedOffEvent</span></tt></a>,
+<a class="reference internal" href="vm_fault_tolerance_vm_terminated_event.html#pyvisdk.do.vm_fault_tolerance_vm_terminated_event.VmFaultToleranceVmTerminatedEvent" title="pyvisdk.do.vm_fault_tolerance_vm_terminated_event.VmFaultToleranceVmTerminatedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmFaultToleranceVmTerminatedEvent</span></tt></a>,
+<a class="reference internal" href="vm_guest_reboot_event.html#pyvisdk.do.vm_guest_reboot_event.VmGuestRebootEvent" title="pyvisdk.do.vm_guest_reboot_event.VmGuestRebootEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmGuestRebootEvent</span></tt></a>,
+<a class="reference internal" href="vm_guest_shutdown_event.html#pyvisdk.do.vm_guest_shutdown_event.VmGuestShutdownEvent" title="pyvisdk.do.vm_guest_shutdown_event.VmGuestShutdownEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmGuestShutdownEvent</span></tt></a>,
+<a class="reference internal" href="vm_guest_standby_event.html#pyvisdk.do.vm_guest_standby_event.VmGuestStandbyEvent" title="pyvisdk.do.vm_guest_standby_event.VmGuestStandbyEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmGuestStandbyEvent</span></tt></a>,
+<a class="reference internal" href="vm_instance_uuid_assigned_event.html#pyvisdk.do.vm_instance_uuid_assigned_event.VmInstanceUuidAssignedEvent" title="pyvisdk.do.vm_instance_uuid_assigned_event.VmInstanceUuidAssignedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmInstanceUuidAssignedEvent</span></tt></a>,
+<a class="reference internal" href="vm_instance_uuid_changed_event.html#pyvisdk.do.vm_instance_uuid_changed_event.VmInstanceUuidChangedEvent" title="pyvisdk.do.vm_instance_uuid_changed_event.VmInstanceUuidChangedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmInstanceUuidChangedEvent</span></tt></a>,
+<a class="reference internal" href="vm_instance_uuid_conflict_event.html#pyvisdk.do.vm_instance_uuid_conflict_event.VmInstanceUuidConflictEvent" title="pyvisdk.do.vm_instance_uuid_conflict_event.VmInstanceUuidConflictEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmInstanceUuidConflictEvent</span></tt></a>,
+<a class="reference internal" href="vm_mac_assigned_event.html#pyvisdk.do.vm_mac_assigned_event.VmMacAssignedEvent" title="pyvisdk.do.vm_mac_assigned_event.VmMacAssignedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmMacAssignedEvent</span></tt></a>,
+<a class="reference internal" href="vm_mac_changed_event.html#pyvisdk.do.vm_mac_changed_event.VmMacChangedEvent" title="pyvisdk.do.vm_mac_changed_event.VmMacChangedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmMacChangedEvent</span></tt></a>,
+<a class="reference internal" href="vm_mac_conflict_event.html#pyvisdk.do.vm_mac_conflict_event.VmMacConflictEvent" title="pyvisdk.do.vm_mac_conflict_event.VmMacConflictEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmMacConflictEvent</span></tt></a>,
+<a class="reference internal" href="vm_max_ft_restart_count_reached.html#pyvisdk.do.vm_max_ft_restart_count_reached.VmMaxFTRestartCountReached" title="pyvisdk.do.vm_max_ft_restart_count_reached.VmMaxFTRestartCountReached"><tt class="xref py py-class docutils literal"><span class="pre">VmMaxFTRestartCountReached</span></tt></a>,
+<a class="reference internal" href="vm_max_restart_count_reached.html#pyvisdk.do.vm_max_restart_count_reached.VmMaxRestartCountReached" title="pyvisdk.do.vm_max_restart_count_reached.VmMaxRestartCountReached"><tt class="xref py py-class docutils literal"><span class="pre">VmMaxRestartCountReached</span></tt></a>,
+<a class="reference internal" href="vm_message_error_event.html#pyvisdk.do.vm_message_error_event.VmMessageErrorEvent" title="pyvisdk.do.vm_message_error_event.VmMessageErrorEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmMessageErrorEvent</span></tt></a>,
+<a class="reference internal" href="vm_message_event.html#pyvisdk.do.vm_message_event.VmMessageEvent" title="pyvisdk.do.vm_message_event.VmMessageEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmMessageEvent</span></tt></a>,
+<a class="reference internal" href="vm_message_warning_event.html#pyvisdk.do.vm_message_warning_event.VmMessageWarningEvent" title="pyvisdk.do.vm_message_warning_event.VmMessageWarningEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmMessageWarningEvent</span></tt></a>,
+<a class="reference internal" href="vm_migrated_event.html#pyvisdk.do.vm_migrated_event.VmMigratedEvent" title="pyvisdk.do.vm_migrated_event.VmMigratedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmMigratedEvent</span></tt></a>,
+<a class="reference internal" href="vm_no_compatible_host_for_secondary_event.html#pyvisdk.do.vm_no_compatible_host_for_secondary_event.VmNoCompatibleHostForSecondaryEvent" title="pyvisdk.do.vm_no_compatible_host_for_secondary_event.VmNoCompatibleHostForSecondaryEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmNoCompatibleHostForSecondaryEvent</span></tt></a>,
+<a class="reference internal" href="vm_no_network_access_event.html#pyvisdk.do.vm_no_network_access_event.VmNoNetworkAccessEvent" title="pyvisdk.do.vm_no_network_access_event.VmNoNetworkAccessEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmNoNetworkAccessEvent</span></tt></a>,
+<a class="reference internal" href="vm_orphaned_event.html#pyvisdk.do.vm_orphaned_event.VmOrphanedEvent" title="pyvisdk.do.vm_orphaned_event.VmOrphanedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmOrphanedEvent</span></tt></a>,
+<a class="reference internal" href="vm_powered_off_event.html#pyvisdk.do.vm_powered_off_event.VmPoweredOffEvent" title="pyvisdk.do.vm_powered_off_event.VmPoweredOffEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmPoweredOffEvent</span></tt></a>,
+<a class="reference internal" href="vm_powered_on_event.html#pyvisdk.do.vm_powered_on_event.VmPoweredOnEvent" title="pyvisdk.do.vm_powered_on_event.VmPoweredOnEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmPoweredOnEvent</span></tt></a>,
+<a class="reference internal" href="vm_powering_on_with_customized_dv_port_event.html#pyvisdk.do.vm_powering_on_with_customized_dv_port_event.VmPoweringOnWithCustomizedDVPortEvent" title="pyvisdk.do.vm_powering_on_with_customized_dv_port_event.VmPoweringOnWithCustomizedDVPortEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmPoweringOnWithCustomizedDVPortEvent</span></tt></a>,
+<a class="reference internal" href="vm_primary_failover_event.html#pyvisdk.do.vm_primary_failover_event.VmPrimaryFailoverEvent" title="pyvisdk.do.vm_primary_failover_event.VmPrimaryFailoverEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmPrimaryFailoverEvent</span></tt></a>,
+<a class="reference internal" href="vm_reconfigured_event.html#pyvisdk.do.vm_reconfigured_event.VmReconfiguredEvent" title="pyvisdk.do.vm_reconfigured_event.VmReconfiguredEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmReconfiguredEvent</span></tt></a>,
+<a class="reference internal" href="vm_registered_event.html#pyvisdk.do.vm_registered_event.VmRegisteredEvent" title="pyvisdk.do.vm_registered_event.VmRegisteredEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmRegisteredEvent</span></tt></a>,
+<a class="reference internal" href="vm_relayout_successful_event.html#pyvisdk.do.vm_relayout_successful_event.VmRelayoutSuccessfulEvent" title="pyvisdk.do.vm_relayout_successful_event.VmRelayoutSuccessfulEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmRelayoutSuccessfulEvent</span></tt></a>,
+<a class="reference internal" href="vm_relayout_up_to_date_event.html#pyvisdk.do.vm_relayout_up_to_date_event.VmRelayoutUpToDateEvent" title="pyvisdk.do.vm_relayout_up_to_date_event.VmRelayoutUpToDateEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmRelayoutUpToDateEvent</span></tt></a>,
+<a class="reference internal" href="vm_reload_from_path_event.html#pyvisdk.do.vm_reload_from_path_event.VmReloadFromPathEvent" title="pyvisdk.do.vm_reload_from_path_event.VmReloadFromPathEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmReloadFromPathEvent</span></tt></a>,
+<a class="reference internal" href="vm_reload_from_path_failed_event.html#pyvisdk.do.vm_reload_from_path_failed_event.VmReloadFromPathFailedEvent" title="pyvisdk.do.vm_reload_from_path_failed_event.VmReloadFromPathFailedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmReloadFromPathFailedEvent</span></tt></a>,
+<a class="reference internal" href="vm_relocate_spec_event.html#pyvisdk.do.vm_relocate_spec_event.VmRelocateSpecEvent" title="pyvisdk.do.vm_relocate_spec_event.VmRelocateSpecEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmRelocateSpecEvent</span></tt></a>,
+<a class="reference internal" href="vm_remote_console_connected_event.html#pyvisdk.do.vm_remote_console_connected_event.VmRemoteConsoleConnectedEvent" title="pyvisdk.do.vm_remote_console_connected_event.VmRemoteConsoleConnectedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmRemoteConsoleConnectedEvent</span></tt></a>,
+<a class="reference internal" href="vm_remote_console_disconnected_event.html#pyvisdk.do.vm_remote_console_disconnected_event.VmRemoteConsoleDisconnectedEvent" title="pyvisdk.do.vm_remote_console_disconnected_event.VmRemoteConsoleDisconnectedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmRemoteConsoleDisconnectedEvent</span></tt></a>,
+<a class="reference internal" href="vm_removed_event.html#pyvisdk.do.vm_removed_event.VmRemovedEvent" title="pyvisdk.do.vm_removed_event.VmRemovedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmRemovedEvent</span></tt></a>,
+<a class="reference internal" href="vm_renamed_event.html#pyvisdk.do.vm_renamed_event.VmRenamedEvent" title="pyvisdk.do.vm_renamed_event.VmRenamedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmRenamedEvent</span></tt></a>,
+<a class="reference internal" href="vm_resetting_event.html#pyvisdk.do.vm_resetting_event.VmResettingEvent" title="pyvisdk.do.vm_resetting_event.VmResettingEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmResettingEvent</span></tt></a>,
+<a class="reference internal" href="vm_resource_pool_moved_event.html#pyvisdk.do.vm_resource_pool_moved_event.VmResourcePoolMovedEvent" title="pyvisdk.do.vm_resource_pool_moved_event.VmResourcePoolMovedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmResourcePoolMovedEvent</span></tt></a>,
+<a class="reference internal" href="vm_resource_reallocated_event.html#pyvisdk.do.vm_resource_reallocated_event.VmResourceReallocatedEvent" title="pyvisdk.do.vm_resource_reallocated_event.VmResourceReallocatedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmResourceReallocatedEvent</span></tt></a>,
+<a class="reference internal" href="vm_resuming_event.html#pyvisdk.do.vm_resuming_event.VmResumingEvent" title="pyvisdk.do.vm_resuming_event.VmResumingEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmResumingEvent</span></tt></a>,
+<a class="reference internal" href="vm_secondary_added_event.html#pyvisdk.do.vm_secondary_added_event.VmSecondaryAddedEvent" title="pyvisdk.do.vm_secondary_added_event.VmSecondaryAddedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmSecondaryAddedEvent</span></tt></a>,
+<a class="reference internal" href="vm_secondary_disabled_by_system_event.html#pyvisdk.do.vm_secondary_disabled_by_system_event.VmSecondaryDisabledBySystemEvent" title="pyvisdk.do.vm_secondary_disabled_by_system_event.VmSecondaryDisabledBySystemEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmSecondaryDisabledBySystemEvent</span></tt></a>,
+<a class="reference internal" href="vm_secondary_disabled_event.html#pyvisdk.do.vm_secondary_disabled_event.VmSecondaryDisabledEvent" title="pyvisdk.do.vm_secondary_disabled_event.VmSecondaryDisabledEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmSecondaryDisabledEvent</span></tt></a>,
+<a class="reference internal" href="vm_secondary_enabled_event.html#pyvisdk.do.vm_secondary_enabled_event.VmSecondaryEnabledEvent" title="pyvisdk.do.vm_secondary_enabled_event.VmSecondaryEnabledEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmSecondaryEnabledEvent</span></tt></a>,
+<a class="reference internal" href="vm_secondary_started_event.html#pyvisdk.do.vm_secondary_started_event.VmSecondaryStartedEvent" title="pyvisdk.do.vm_secondary_started_event.VmSecondaryStartedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmSecondaryStartedEvent</span></tt></a>,
+<a class="reference internal" href="vm_starting_event.html#pyvisdk.do.vm_starting_event.VmStartingEvent" title="pyvisdk.do.vm_starting_event.VmStartingEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmStartingEvent</span></tt></a>,
+<a class="reference internal" href="vm_starting_secondary_event.html#pyvisdk.do.vm_starting_secondary_event.VmStartingSecondaryEvent" title="pyvisdk.do.vm_starting_secondary_event.VmStartingSecondaryEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmStartingSecondaryEvent</span></tt></a>,
+<a class="reference internal" href="vm_start_recording_event.html#pyvisdk.do.vm_start_recording_event.VmStartRecordingEvent" title="pyvisdk.do.vm_start_recording_event.VmStartRecordingEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmStartRecordingEvent</span></tt></a>,
+<a class="reference internal" href="vm_start_replaying_event.html#pyvisdk.do.vm_start_replaying_event.VmStartReplayingEvent" title="pyvisdk.do.vm_start_replaying_event.VmStartReplayingEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmStartReplayingEvent</span></tt></a>,
+<a class="reference internal" href="vm_static_mac_conflict_event.html#pyvisdk.do.vm_static_mac_conflict_event.VmStaticMacConflictEvent" title="pyvisdk.do.vm_static_mac_conflict_event.VmStaticMacConflictEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmStaticMacConflictEvent</span></tt></a>,
+<a class="reference internal" href="vm_stopping_event.html#pyvisdk.do.vm_stopping_event.VmStoppingEvent" title="pyvisdk.do.vm_stopping_event.VmStoppingEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmStoppingEvent</span></tt></a>,
+<a class="reference internal" href="vm_suspended_event.html#pyvisdk.do.vm_suspended_event.VmSuspendedEvent" title="pyvisdk.do.vm_suspended_event.VmSuspendedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmSuspendedEvent</span></tt></a>,
+<a class="reference internal" href="vm_suspending_event.html#pyvisdk.do.vm_suspending_event.VmSuspendingEvent" title="pyvisdk.do.vm_suspending_event.VmSuspendingEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmSuspendingEvent</span></tt></a>,
+<a class="reference internal" href="vm_timedout_starting_secondary_event.html#pyvisdk.do.vm_timedout_starting_secondary_event.VmTimedoutStartingSecondaryEvent" title="pyvisdk.do.vm_timedout_starting_secondary_event.VmTimedoutStartingSecondaryEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmTimedoutStartingSecondaryEvent</span></tt></a>,
+<a class="reference internal" href="vm_upgrade_complete_event.html#pyvisdk.do.vm_upgrade_complete_event.VmUpgradeCompleteEvent" title="pyvisdk.do.vm_upgrade_complete_event.VmUpgradeCompleteEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmUpgradeCompleteEvent</span></tt></a>,
+<a class="reference internal" href="vm_upgrade_failed_event.html#pyvisdk.do.vm_upgrade_failed_event.VmUpgradeFailedEvent" title="pyvisdk.do.vm_upgrade_failed_event.VmUpgradeFailedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmUpgradeFailedEvent</span></tt></a>,
+<a class="reference internal" href="vm_upgrading_event.html#pyvisdk.do.vm_upgrading_event.VmUpgradingEvent" title="pyvisdk.do.vm_upgrading_event.VmUpgradingEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmUpgradingEvent</span></tt></a>,
+<a class="reference internal" href="vm_uuid_assigned_event.html#pyvisdk.do.vm_uuid_assigned_event.VmUuidAssignedEvent" title="pyvisdk.do.vm_uuid_assigned_event.VmUuidAssignedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmUuidAssignedEvent</span></tt></a>,
+<a class="reference internal" href="vm_uuid_changed_event.html#pyvisdk.do.vm_uuid_changed_event.VmUuidChangedEvent" title="pyvisdk.do.vm_uuid_changed_event.VmUuidChangedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmUuidChangedEvent</span></tt></a>,
+<a class="reference internal" href="vm_uuid_conflict_event.html#pyvisdk.do.vm_uuid_conflict_event.VmUuidConflictEvent" title="pyvisdk.do.vm_uuid_conflict_event.VmUuidConflictEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmUuidConflictEvent</span></tt></a>,
+<a class="reference internal" href="vm_wwn_assigned_event.html#pyvisdk.do.vm_wwn_assigned_event.VmWwnAssignedEvent" title="pyvisdk.do.vm_wwn_assigned_event.VmWwnAssignedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmWwnAssignedEvent</span></tt></a>,
+<a class="reference internal" href="vm_wwn_changed_event.html#pyvisdk.do.vm_wwn_changed_event.VmWwnChangedEvent" title="pyvisdk.do.vm_wwn_changed_event.VmWwnChangedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmWwnChangedEvent</span></tt></a>,
+<a class="reference internal" href="vm_wwn_conflict_event.html#pyvisdk.do.vm_wwn_conflict_event.VmWwnConflictEvent" title="pyvisdk.do.vm_wwn_conflict_event.VmWwnConflictEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmWwnConflictEvent</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">Event</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.vm_event.VmEvent">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.vm_event.</tt><tt class="descname">VmEvent</tt><a class="headerlink" href="#pyvisdk.do.vm_event.VmEvent" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.vm_event.VmEvent.template">
+<tt class="descname">template</tt><a class="headerlink" href="#pyvisdk.do.vm_event.VmEvent.template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not the virtual machine is marked as a template.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="vm_end_replaying_event.html"
+                        title="previous chapter">4.1313. VmEndReplayingEvent</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="vm_event_argument.html"
+                        title="next chapter">4.1315. VmEventArgument</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/vm_event.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="vm_event_argument.html" title="4.1315. VmEventArgument"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="vm_end_replaying_event.html" title="4.1313. VmEndReplayingEvent"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

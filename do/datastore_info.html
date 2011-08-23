@@ -1,0 +1,173 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.213. DatastoreInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.214. DatastoreIORMReconfiguredEvent" href="datastore_iorm_reconfigured_event.html" />
+    <link rel="prev" title="4.212. DatastoreHostMount" href="datastore_host_mount.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="datastore_iorm_reconfigured_event.html" title="4.214. DatastoreIORMReconfiguredEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="datastore_host_mount.html" title="4.212. DatastoreHostMount"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="datastoreinfo">
+<h1>4.213. DatastoreInfo<a class="headerlink" href="#datastoreinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">Datastore</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extended by</tt></dt>
+<dd><p><a class="reference internal" href="local_datastore_info.html#pyvisdk.do.local_datastore_info.LocalDatastoreInfo" title="pyvisdk.do.local_datastore_info.LocalDatastoreInfo"><tt class="xref py py-class docutils literal"><span class="pre">LocalDatastoreInfo</span></tt></a>,
+<a class="reference internal" href="nas_datastore_info.html#pyvisdk.do.nas_datastore_info.NasDatastoreInfo" title="pyvisdk.do.nas_datastore_info.NasDatastoreInfo"><tt class="xref py py-class docutils literal"><span class="pre">NasDatastoreInfo</span></tt></a>,
+<a class="reference internal" href="vmfs_datastore_info.html#pyvisdk.do.vmfs_datastore_info.VmfsDatastoreInfo" title="pyvisdk.do.vmfs_datastore_info.VmfsDatastoreInfo"><tt class="xref py py-class docutils literal"><span class="pre">VmfsDatastoreInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.datastore_info.DatastoreInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.datastore_info.</tt><tt class="descname">DatastoreInfo</tt><a class="headerlink" href="#pyvisdk.do.datastore_info.DatastoreInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.datastore_info.DatastoreInfo.freeSpace">
+<tt class="descname">freeSpace</tt><a class="headerlink" href="#pyvisdk.do.datastore_info.DatastoreInfo.freeSpace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Free space of this datastore, in bytes. The server periodically updates this value. It can be explicitly refreshed with the Refresh operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.datastore_info.DatastoreInfo.maxFileSize">
+<tt class="descname">maxFileSize</tt><a class="headerlink" href="#pyvisdk.do.datastore_info.DatastoreInfo.maxFileSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum size of a file that can reside on this file system volume.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.datastore_info.DatastoreInfo.name">
+<tt class="descname">name</tt><a class="headerlink" href="#pyvisdk.do.datastore_info.DatastoreInfo.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the datastore.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.datastore_info.DatastoreInfo.timestamp">
+<tt class="descname">timestamp</tt><a class="headerlink" href="#pyvisdk.do.datastore_info.DatastoreInfo.timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time when the free-space and capacity values in DatastoreInfo and DatastoreSummary were updated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.datastore_info.DatastoreInfo.url">
+<tt class="descname">url</tt><a class="headerlink" href="#pyvisdk.do.datastore_info.DatastoreInfo.url" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unique locator for the datastore.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="datastore_host_mount.html"
+                        title="previous chapter">4.212. DatastoreHostMount</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="datastore_iorm_reconfigured_event.html"
+                        title="next chapter">4.214. DatastoreIORMReconfiguredEvent</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/datastore_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="datastore_iorm_reconfigured_event.html" title="4.214. DatastoreIORMReconfiguredEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="datastore_host_mount.html" title="4.212. DatastoreHostMount"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

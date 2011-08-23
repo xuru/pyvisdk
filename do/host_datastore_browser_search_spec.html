@@ -1,0 +1,173 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.470. HostDatastoreBrowserSearchSpec &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.471. HostDatastoreConnectInfo" href="host_datastore_connect_info.html" />
+    <link rel="prev" title="4.469. HostDatastoreBrowserSearchResults" href="host_datastore_browser_search_results.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_datastore_connect_info.html" title="4.471. HostDatastoreConnectInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_datastore_browser_search_results.html" title="4.469. HostDatastoreBrowserSearchResults"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hostdatastorebrowsersearchspec">
+<h1>4.470. HostDatastoreBrowserSearchSpec<a class="headerlink" href="#hostdatastorebrowsersearchspec" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">SearchDatastore_Task()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">SearchDatastoreSubFolders_Task()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="file_query.html#pyvisdk.do.file_query.FileQuery" title="pyvisdk.do.file_query.FileQuery"><tt class="xref py py-class docutils literal"><span class="pre">FileQuery</span></tt></a>,
+<a class="reference internal" href="file_query_flags.html#pyvisdk.do.file_query_flags.FileQueryFlags" title="pyvisdk.do.file_query_flags.FileQueryFlags"><tt class="xref py py-class docutils literal"><span class="pre">FileQueryFlags</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.host_datastore_browser_search_spec.HostDatastoreBrowserSearchSpec">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.host_datastore_browser_search_spec.</tt><tt class="descname">HostDatastoreBrowserSearchSpec</tt><a class="headerlink" href="#pyvisdk.do.host_datastore_browser_search_spec.HostDatastoreBrowserSearchSpec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.host_datastore_browser_search_spec.HostDatastoreBrowserSearchSpec.details">
+<tt class="descname">details</tt><a class="headerlink" href="#pyvisdk.do.host_datastore_browser_search_spec.HostDatastoreBrowserSearchSpec.details" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object comprises a set of booleans that describe what details to return for each file. The file level details apply globally to all matched files.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_datastore_browser_search_spec.HostDatastoreBrowserSearchSpec.matchPattern">
+<tt class="descname">matchPattern</tt><a class="headerlink" href="#pyvisdk.do.host_datastore_browser_search_spec.HostDatastoreBrowserSearchSpec.matchPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies a list of file patterns that must match for a file to be returned. This search property is a filter that applies globally so that only files matching the specified patterns are returned, regardless of the other search parameters.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_datastore_browser_search_spec.HostDatastoreBrowserSearchSpec.query">
+<tt class="descname">query</tt><a class="headerlink" href="#pyvisdk.do.host_datastore_browser_search_spec.HostDatastoreBrowserSearchSpec.query" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of file types to match, search criteria specific to the file type, and the amount of detail for a file. These search parameters are specific to a file type, meaning that they can be specified only if the file type to which they are associated is in the set. A file type cannot appear more than once in the set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_datastore_browser_search_spec.HostDatastoreBrowserSearchSpec.searchCaseInsensitive">
+<tt class="descname">searchCaseInsensitive</tt><a class="headerlink" href="#pyvisdk.do.host_datastore_browser_search_spec.HostDatastoreBrowserSearchSpec.searchCaseInsensitive" title="Permalink to this definition">¶</a></dt>
+<dd><p>This flag indicates whether or not to search using a case insensitive match on type. In general the algorithm used to match file types relies on file extensions. Although the specific file extensions used are encapsulated by this API, clients are still allowed to modify the filtering behavior.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_datastore_browser_search_spec.HostDatastoreBrowserSearchSpec.sortFoldersFirst">
+<tt class="descname">sortFoldersFirst</tt><a class="headerlink" href="#pyvisdk.do.host_datastore_browser_search_spec.HostDatastoreBrowserSearchSpec.sortFoldersFirst" title="Permalink to this definition">¶</a></dt>
+<dd><p>By default, files are sorted in alphabetical order regardless of file type. If this flag is set to &#8220;true&#8221;, folders are placed at the start of the list of results in alphabetical order. The remaining files follow in alphabetical order.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_datastore_browser_search_results.html"
+                        title="previous chapter">4.469. HostDatastoreBrowserSearchResults</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_datastore_connect_info.html"
+                        title="next chapter">4.471. HostDatastoreConnectInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/host_datastore_browser_search_spec.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_datastore_connect_info.html" title="4.471. HostDatastoreConnectInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_datastore_browser_search_results.html" title="4.469. HostDatastoreBrowserSearchResults"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

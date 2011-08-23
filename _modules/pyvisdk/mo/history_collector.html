@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.history_collector &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.history_collector</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.base_entity</span> <span class="kn">import</span> <span class="n">BaseEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">HistoryCollector</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="HistoryCollector"><a class="viewcode-back" href="../../../mo/history_collector.html#pyvisdk.mo.history_collector.HistoryCollector">[docs]</a>    <span class="sd">&#39;&#39;&#39;This managed object type enables clients to retrieve historical data and receive</span>
+<span class="sd">        updates when the server appends new data to a collection. This is a base</span>
+<span class="sd">        type for item-specific types related to event or task history. Historical</span>
+<span class="sd">        data is inherently append-only, although a server administrator may</span>
+<span class="sd">        periodically purge old data.Typically, a client creates a history</span>
+<span class="sd">        collector by using a filter on a potentially large set, such as all the</span>
+<span class="sd">        events in a datacenter. The collector provides access to the items that</span>
+<span class="sd">        match the filter, which could also be a relatively large set.The items in</span>
+<span class="sd">        a collector are always ordered by date and time of creation. Item</span>
+<span class="sd">        properties normally include this time stamp.The client may set the</span>
+<span class="sd">        &quot;viewable latest page&quot; for the collector, which is the contiguous subset</span>
+<span class="sd">        of the items that are of immediate interest. These items are available as</span>
+<span class="sd">        the &quot;latestPage&quot; property, which the client may retrieve and monitor by</span>
+<span class="sd">        using the PropertyCollector managed object.Clients can change the page</span>
+<span class="sd">        size of the &quot;latestPage&quot; by using setLatestPageSize().The client may use</span>
+<span class="sd">        the following features of the history collector.* RewindCollector - Moves</span>
+<span class="sd">        the &quot;scrollable view&quot; to the oldest item (the default setting). * readNext</span>
+<span class="sd">        - Retrieves all the items in the collector, from the oldest item to the</span>
+<span class="sd">        newest item. Retrieves either tasks or events depending on the operation.</span>
+<span class="sd">        * readPrev - Retrieves all items (excluding the &quot;viewable latest page&quot;) in</span>
+<span class="sd">        the collector, from the newest item to the oldest item. Retrieves either</span>
+<span class="sd">        tasks or events depending on the operation. * ResetCollector - Moves the</span>
+<span class="sd">        &quot;scrollable view&quot; to the item immediately preceding the &quot;viewable latest</span>
+<span class="sd">        page&quot;.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">HistoryCollector</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">HistoryCollector</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HistoryCollector.filter"><a class="viewcode-back" href="../../../mo/history_collector.html#pyvisdk.mo.history_collector.HistoryCollector.filter">[docs]</a>        <span class="sd">&#39;&#39;&#39;The filter used to create this collector.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;filter&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">DestroyCollector</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HistoryCollector.DestroyCollector"><a class="viewcode-back" href="../../../mo/history_collector.html#pyvisdk.mo.history_collector.HistoryCollector.DestroyCollector">[docs]</a>        <span class="sd">&#39;&#39;&#39;Destroys this collector.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;DestroyCollector&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">ResetCollector</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HistoryCollector.ResetCollector"><a class="viewcode-back" href="../../../mo/history_collector.html#pyvisdk.mo.history_collector.HistoryCollector.ResetCollector">[docs]</a>        <span class="sd">&#39;&#39;&#39;Moves the &quot;scrollable view&quot; to the item immediately preceding the &quot;viewable latest</span>
+<span class="sd">        page&quot;. If you use &quot;readPrev&quot;, ReadPreviousTasks or ReadPreviousEvents, all</span>
+<span class="sd">        items are retrieved from the newest item to the oldest item.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ResetCollector&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">RewindCollector</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HistoryCollector.RewindCollector"><a class="viewcode-back" href="../../../mo/history_collector.html#pyvisdk.mo.history_collector.HistoryCollector.RewindCollector">[docs]</a>        <span class="sd">&#39;&#39;&#39;Moves the &quot;scrollable view&quot; to the oldest item. If you use ReadNextTasks or</span>
+<span class="sd">        ReadNextEvents, all items are retrieved from the oldest item to the newest</span>
+<span class="sd">        item. This is the default setting when the collector is created.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RewindCollector&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">SetCollectorPageSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxCount</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HistoryCollector.SetCollectorPageSize"><a class="viewcode-back" href="../../../mo/history_collector.html#pyvisdk.mo.history_collector.HistoryCollector.SetCollectorPageSize">[docs]</a>        <span class="sd">&#39;&#39;&#39;Sets the &quot;viewable latest page&quot; size to contain at most the number of items</span>
+<span class="sd">        specified by the maxCount parameter).</span>
+
+<span class="sd">        :param maxCount: The maximum number of items in the page.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;SetCollectorPageSize&quot;</span><span class="p">)(</span><span class="n">maxCount</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

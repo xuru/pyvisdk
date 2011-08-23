@@ -1,0 +1,190 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.355. EventEx &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.356. EventFilterSpec" href="event_filter_spec.html" />
+    <link rel="prev" title="4.354. EventDescriptionEventDetail" href="event_description_event_detail.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="event_filter_spec.html" title="4.356. EventFilterSpec"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="event_description_event_detail.html" title="4.354. EventDescriptionEventDetail"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="eventex">
+<h1>4.355. EventEx<a class="headerlink" href="#eventex" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="key_any_value.html#pyvisdk.do.key_any_value.KeyAnyValue" title="pyvisdk.do.key_any_value.KeyAnyValue"><tt class="xref py py-class docutils literal"><span class="pre">KeyAnyValue</span></tt></a>,
+<a class="reference internal" href="localized_method_fault.html#pyvisdk.do.localized_method_fault.LocalizedMethodFault" title="pyvisdk.do.localized_method_fault.LocalizedMethodFault"><tt class="xref py py-class docutils literal"><span class="pre">LocalizedMethodFault</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">Event</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.event_ex.EventEx">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.event_ex.</tt><tt class="descname">EventEx</tt><a class="headerlink" href="#pyvisdk.do.event_ex.EventEx" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.event_ex.EventEx.arguments">
+<tt class="descname">arguments</tt><a class="headerlink" href="#pyvisdk.do.event_ex.EventEx.arguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event arguments associated with the event</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.event_ex.EventEx.eventTypeId">
+<tt class="descname">eventTypeId</tt><a class="headerlink" href="#pyvisdk.do.event_ex.EventEx.eventTypeId" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of the event.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.event_ex.EventEx.fault">
+<tt class="descname">fault</tt><a class="headerlink" href="#pyvisdk.do.event_ex.EventEx.fault" title="Permalink to this definition">¶</a></dt>
+<dd><p>The fault that triggered the event, if any</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.event_ex.EventEx.message">
+<tt class="descname">message</tt><a class="headerlink" href="#pyvisdk.do.event_ex.EventEx.message" title="Permalink to this definition">¶</a></dt>
+<dd><p>An arbitrary message string, not localized.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.event_ex.EventEx.objectId">
+<tt class="descname">objectId</tt><a class="headerlink" href="#pyvisdk.do.event_ex.EventEx.objectId" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the object (VM, Host, Folder..) which the event pertains to. Federated or local inventory path.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.event_ex.EventEx.objectName">
+<tt class="descname">objectName</tt><a class="headerlink" href="#pyvisdk.do.event_ex.EventEx.objectName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.event_ex.EventEx.objectType">
+<tt class="descname">objectType</tt><a class="headerlink" href="#pyvisdk.do.event_ex.EventEx.objectType" title="Permalink to this definition">¶</a></dt>
+<dd><p>the type of the object, if known to the VirtualCenter inventory</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.event_ex.EventEx.severity">
+<tt class="descname">severity</tt><a class="headerlink" href="#pyvisdk.do.event_ex.EventEx.severity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The severity level of the message: null=&gt;info.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="event_description_event_detail.html"
+                        title="previous chapter">4.354. EventDescriptionEventDetail</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="event_filter_spec.html"
+                        title="next chapter">4.356. EventFilterSpec</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/event_ex.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="event_filter_spec.html" title="4.356. EventFilterSpec"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="event_description_event_detail.html" title="4.354. EventDescriptionEventDetail"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

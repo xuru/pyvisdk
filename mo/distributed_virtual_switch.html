@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.15. DistributedVirtualSwitch &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.16. DistributedVirtualSwitchManager" href="distributed_virtual_switch_manager.html" />
@@ -58,7 +58,11 @@
 <dl class="describe">
 <dt>
 <tt class="descname">Property of</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchManagerDvsProductSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchManagerHostDvsMembershipFilter</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DVPortgroupConfigInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DvsEventArgument</span></tt></p>
+<dd><p><a class="reference internal" href="../do/distributed_virtual_switch_info.html#pyvisdk.do.distributed_virtual_switch_info.DistributedVirtualSwitchInfo" title="pyvisdk.do.distributed_virtual_switch_info.DistributedVirtualSwitchInfo"><tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchInfo</span></tt></a>,
+<a class="reference internal" href="../do/distributed_virtual_switch_manager_dvs_product_spec.html#pyvisdk.do.distributed_virtual_switch_manager_dvs_product_spec.DistributedVirtualSwitchManagerDvsProductSpec" title="pyvisdk.do.distributed_virtual_switch_manager_dvs_product_spec.DistributedVirtualSwitchManagerDvsProductSpec"><tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchManagerDvsProductSpec</span></tt></a>,
+<a class="reference internal" href="../do/distributed_virtual_switch_manager_host_dvs_membership_filter.html#pyvisdk.do.distributed_virtual_switch_manager_host_dvs_membership_filter.DistributedVirtualSwitchManagerHostDvsMembershipFilter" title="pyvisdk.do.distributed_virtual_switch_manager_host_dvs_membership_filter.DistributedVirtualSwitchManagerHostDvsMembershipFilter"><tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchManagerHostDvsMembershipFilter</span></tt></a>,
+<a class="reference internal" href="../do/dv_portgroup_config_info.html#pyvisdk.do.dv_portgroup_config_info.DVPortgroupConfigInfo" title="pyvisdk.do.dv_portgroup_config_info.DVPortgroupConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">DVPortgroupConfigInfo</span></tt></a>,
+<a class="reference internal" href="../do/dvs_event_argument.html#pyvisdk.do.dvs_event_argument.DvsEventArgument" title="pyvisdk.do.dvs_event_argument.DvsEventArgument"><tt class="xref py py-class docutils literal"><span class="pre">DvsEventArgument</span></tt></a></p>
 </dd></dl>
 
 <dl class="describe">
@@ -70,500 +74,46 @@
 <dl class="describe">
 <dt>
 <tt class="descname">Extended by</tt></dt>
-<dd><p>VmwareDistributedVirtualSwitch</p>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">VmwareDistributedVirtualSwitch</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Extends</tt></dt>
-<dd><p><a class="reference internal" href="managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity" title="pyvisdk.mo.managed_entity.ManagedEntity"><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt></a></p>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Returned by</tt></dt>
-<dd><p>CreateDVS_Task, QueryDvsByUuid</p>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CreateDVS_Task()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">QueryDvsByUuid()</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Parameter to</tt></dt>
-<dd><p>MergeDvs_Task, QueryCompatibleHostForExistingDvs, QueryDvsConfigTarget</p>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">MergeDvs_Task()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">QueryCompatibleHostForExistingDvs()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">QueryDvsConfigTarget()</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">See also</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualPort</span></tt>, <a class="reference internal" href="distributed_virtual_portgroup.html#pyvisdk.mo.distributed_virtual_portgroup.DistributedVirtualPortgroup" title="pyvisdk.mo.distributed_virtual_portgroup.DistributedVirtualPortgroup"><tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualPortgroup</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchPortCriteria</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchProductSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DVPortConfigSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DVPortgroupConfigSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DVSCapability</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DVSConfigInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DVSConfigSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DVSNetworkResourcePool</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DVSNetworkResourcePoolConfigSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DVSSummary</span></tt>, <a class="reference internal" href="host_system.html#pyvisdk.mo.host_system.HostSystem" title="pyvisdk.mo.host_system.HostSystem"><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt></a></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.distributed_virtual_switch.</tt><tt class="descname">DistributedVirtualSwitch</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='DistributedVirtualSwitch'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Properties</p>
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.AddDVPortgroup_Task">
-<tt class="descname">AddDVPortgroup_Task</tt><big>(</big><em>spec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.AddDVPortgroup_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.AddDVPortgroup_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a DistributedVirtualPortgroup to the switch.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>spec</strong> &#8211; The specification for the portgroup.</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.Destroy_Task">
-<tt class="descname">Destroy_Task</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.Destroy_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Destroys this object, deleting its contents and removing it from its parent folder
-(if any).NOTE: The appropriate privilege must be held on the parent of the
-destroyed entity as well as the entity itself.This method can throw one of
-several exceptions. The exact set of exceptions depends on the kind of
-entity that is being removed. See comments for each entity for more
-information on destroy behavior.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.EnableNetworkResourceManagement">
-<tt class="descname">EnableNetworkResourceManagement</tt><big>(</big><em>enable</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.EnableNetworkResourceManagement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.EnableNetworkResourceManagement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Enable/Disable network I/O control on the vNetwork Distributed Switch.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enable</strong> &#8211; If true, enables I/O control. If false, disables network I/O control.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.FetchDVPortKeys">
-<tt class="descname">FetchDVPortKeys</tt><big>(</big><em>criteria</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.FetchDVPortKeys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.FetchDVPortKeys" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the keys of ports that meet the criteria. Queried against host, the
-property reports only the connected ports currently on the host.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>criteria</strong> &#8211; The port selection criteria. If unset, the operation returns the keys of all the</td>
-</tr>
-</tbody>
-</table>
-<p>ports in the switch.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">xsd:string[]</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.FetchDVPorts">
-<tt class="descname">FetchDVPorts</tt><big>(</big><em>criteria</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.FetchDVPorts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.FetchDVPorts" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the ports that meet the criteria.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>criteria</strong> &#8211; The port selection criteria. If unset, the operation returns the keys of all the</td>
-</tr>
-</tbody>
-</table>
-<p>ports in the portgroup.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">DistributedVirtualPort[]</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.MergeDvs_Task">
-<tt class="descname">MergeDvs_Task</tt><big>(</big><em>dvs</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.MergeDvs_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.MergeDvs_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Merge an existing DistributedVirtualSwitch (source) to this switch (destination).
-The host members and the connected entity of the source switch will be
-transferred to the destination switch. This operation disconnects the
-entities from the source switch, tears down its host proxy
-VirtualSwitches, creates new ones for the destination switch, and
-reconnects the entities to the destination switch.In summary, this
-operation does the following:</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dvs</strong> &#8211; The switch (source) to be merged</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.MoveDVPort_Task">
-<tt class="descname">MoveDVPort_Task</tt><big>(</big><em>portKey</em>, <em>destinationPortgroupKey</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.MoveDVPort_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.MoveDVPort_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Move the ports out of their current portgroup into the specified portgroup. If the
-moving of any of the ports results in a violation of the portgroup policy,
-or type of the source or destination portgroup, the operation raises a
-fault. A conflict port cannot be moved.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>portKey</strong> &#8211; The keys of the ports to be moved into the portgroup.</li>
-<li><strong>destinationPortgroupKey</strong> &#8211; The key of the portgroup to be moved into. If unset, the port will be moved under</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<p>the switch.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.PerformDvsProductSpecOperation_Task">
-<tt class="descname">PerformDvsProductSpecOperation_Task</tt><big>(</big><em>operation</em>, <em>productSpec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.PerformDvsProductSpecOperation_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.PerformDvsProductSpecOperation_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Push the proxy VirtualSwitch module of the specified product info to the host
-members of the switch at a fixed location known by the host.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>operation</strong> &#8211; The operation. See DistributedVirtualSwitchProductSpecOperationType for valid</td>
-</tr>
-</tbody>
-</table>
-<p>values. For VmwareDistributedVirtualSwitch, only upgrade is valid.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>productSpec</strong> &#8211; The product info of the implementation.</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.QueryUsedVlanIdInDvs">
-<tt class="descname">QueryUsedVlanIdInDvs</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.QueryUsedVlanIdInDvs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.QueryUsedVlanIdInDvs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the used VLAN ID (PVLAN excluded) in the switch.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">xsd:int[]</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.ReconfigureDVPort_Task">
-<tt class="descname">ReconfigureDVPort_Task</tt><big>(</big><em>port</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.ReconfigureDVPort_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.ReconfigureDVPort_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconfigure individual ports.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port</strong> &#8211; The specification of the ports.</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.ReconfigureDvs_Task">
-<tt class="descname">ReconfigureDvs_Task</tt><big>(</big><em>spec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.ReconfigureDvs_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.ReconfigureDvs_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconfigure the switch.Reconfiguring the switch may require any of the following
-privileges, depending on what is being changed:</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>spec</strong> &#8211; The configuration of the switch</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.RectifyDvsHost_Task">
-<tt class="descname">RectifyDvsHost_Task</tt><big>(</big><em>hosts</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.RectifyDvsHost_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.RectifyDvsHost_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update the switch configuration on the host to bring them in sync with the current
-configuration in vCenter Server.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>hosts</strong> &#8211; The hosts to be refreshed. If not set, all hosts are rectified.</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.RefreshDVPortState">
-<tt class="descname">RefreshDVPortState</tt><big>(</big><em>portKeys</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.RefreshDVPortState"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.RefreshDVPortState" title="Permalink to this definition">¶</a></dt>
-<dd><p>Refresh port states.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>portKeys</strong> &#8211; The keys of the ports to be refreshed. If not set, all port states are refreshed.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.Reload">
-<tt class="descname">Reload</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.Reload" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reload the entity state. Clients only need to call this method if they changed
-some external state that affects the service without using the Web service
-interface to perform the change. For example, hand-editing a virtual
-machine configuration file affects the configuration of the associated
-virtual machine but the service managing the virtual machine might not
-monitor the file for changes. In this case, after such an edit, a client
-would call &#8220;reload&#8221; on the associated virtual machine to ensure the
-service and its clients have current data for the virtual machine.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.Rename_Task">
-<tt class="descname">Rename_Task</tt><big>(</big><em>newName</em><big>)</big><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.Rename_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Renames this managed entity.Any % (percent) character used in this name parameter
-must be escaped, unless it is used to start an escape sequence. Clients
-may also escape any other characters in this name parameter.See name</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newName</strong> &#8211; See name</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.UpdateDvsCapability">
-<tt class="descname">UpdateDvsCapability</tt><big>(</big><em>capability</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.UpdateDvsCapability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.UpdateDvsCapability" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the capability of the switch.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>capability</strong> &#8211; The capability of the switch.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.UpdateNetworkResourcePool">
-<tt class="descname">UpdateNetworkResourcePool</tt><big>(</big><em>configSpec</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.UpdateNetworkResourcePool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.UpdateNetworkResourcePool" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update the network resource pool configuration.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>configSpec</strong> &#8211; the network resource pool configuration specification.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.alarmActionsEnabled">
-<tt class="descname">alarmActionsEnabled</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.alarmActionsEnabled" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether alarm actions are enabled for this entity. True if enabled; false
-otherwise.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.availableField">
-<tt class="descname">availableField</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.availableField" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of custom field definitions that are valid for the object&#8217;s type. The fields
-are sorted by name.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.capability">
-<tt class="descname">capability</tt><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.capability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.capability" title="Permalink to this definition">¶</a></dt>
-<dd><p>The capability of the switch. Queried against hosts, the property should always
-return configModificationSupported as false.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.config">
-<tt class="descname">config</tt><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.config" title="Permalink to this definition">¶</a></dt>
-<dd><p>The configuration of the switch.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.configIssue">
-<tt class="descname">configIssue</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.configIssue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Current configuration issues that have been detected for this entity. Typically,
-these issues have already been logged as events. The entity stores these
-events as long as they are still current. The configStatus property
-provides an overall status based on these events.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.configStatus">
-<tt class="descname">configStatus</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.configStatus" title="Permalink to this definition">¶</a></dt>
-<dd><p>The configStatus indicates whether or not the system has detected a configuration
-issue involving this entity. For example, it might have detected a
-duplicate IP address or MAC address, or a host in a cluster might be out
-of compliance. The meanings of the configStatus values are: * red: A
-problem has been detected involving the entity. * yellow: A problem is
-about to occur or a transient condition has occurred (For example,
-reconfigure fail-over policy). * green: No configuration issues have been
-detected. * gray: The configuration status of the entity is not being
-monitored. A green status indicates only that a problem has not been
-detected; it is not a guarantee that the entity is problem-free.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.customValue">
-<tt class="descname">customValue</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.customValue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Custom field values.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.declaredAlarmState">
-<tt class="descname">declaredAlarmState</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.declaredAlarmState" title="Permalink to this definition">¶</a></dt>
-<dd><p>A set of alarm states for alarms that apply to this managed entity. The set
-includes alarms defined on this entity and alarms inherited from the
-parent entity, or from any ancestors in the inventory hierarchy.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.disabledMethod">
-<tt class="descname">disabledMethod</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.disabledMethod" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of operations that are disabled, given the current runtime state of the
-entity. For example, a power-on operation always fails if a virtual
-machine is already powered on. This list can be used by clients to enable
-or disable operations in a graphical user interface.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.effectiveRole">
-<tt class="descname">effectiveRole</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.effectiveRole" title="Permalink to this definition">¶</a></dt>
-<dd><p>Access rights the current session has to this entity.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.networkResourcePool">
-<tt class="descname">networkResourcePool</tt><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.networkResourcePool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.networkResourcePool" title="Permalink to this definition">¶</a></dt>
-<dd><p>The network resource pool information for the switch.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.overallStatus">
-<tt class="descname">overallStatus</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.overallStatus" title="Permalink to this definition">¶</a></dt>
-<dd><p>General health of this managed entity. The value combines the status of all the
-alarms attached to a managed entity.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.parent">
-<tt class="descname">parent</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.parent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parent of this entity.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.permission">
-<tt class="descname">permission</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.permission" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of permissions defined for this entity.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.portgroup">
-<tt class="descname">portgroup</tt><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.portgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.portgroup" title="Permalink to this definition">¶</a></dt>
-<dd><p>The portgroups that are defined on the switch.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.recentTask">
-<tt class="descname">recentTask</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.recentTask" title="Permalink to this definition">¶</a></dt>
-<dd><p>The set of recent tasks operating on this managed entity. This is a subset of
-recentTask belong to this entity. A task in this list could be in one of
-the four states: pending, running, success or error.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.summary">
-<tt class="descname">summary</tt><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.summary" title="Permalink to this definition">¶</a></dt>
-<dd><p>The summary of the switch.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.tag">
-<tt class="descname">tag</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.tag" title="Permalink to this definition">¶</a></dt>
-<dd><p>The set of tags associated with this managed entity. Experimental. Subject to
-change.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.triggeredAlarmState">
-<tt class="descname">triggeredAlarmState</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.triggeredAlarmState" title="Permalink to this definition">¶</a></dt>
-<dd><p>A set of alarm states for alarms triggered by this entity or by its descendants.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.uuid">
-<tt class="descname">uuid</tt><a class="reference internal" href="../modules/pyvisdk/mo/distributed_virtual_switch.html#DistributedVirtualSwitch.uuid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.uuid" title="Permalink to this definition">¶</a></dt>
-<dd><p>The generated UUID of the switch. Unique across vCenter Server inventory and
-instances.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.value">
-<tt class="descname">value</tt><a class="headerlink" href="#pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of custom field values. Each value uses a key to associate an instance of a
-CustomFieldStringValue with a custom field definition.</p>
-</dd></dl>
-
+<dd><p><a class="reference internal" href="../do/distributed_virtual_port.html#pyvisdk.do.distributed_virtual_port.DistributedVirtualPort" title="pyvisdk.do.distributed_virtual_port.DistributedVirtualPort"><tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualPort</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualPortgroup</span></tt>,
+<a class="reference internal" href="../do/distributed_virtual_switch_port_criteria.html#pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria" title="pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria"><tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchPortCriteria</span></tt></a>,
+<a class="reference internal" href="../do/distributed_virtual_switch_product_spec.html#pyvisdk.do.distributed_virtual_switch_product_spec.DistributedVirtualSwitchProductSpec" title="pyvisdk.do.distributed_virtual_switch_product_spec.DistributedVirtualSwitchProductSpec"><tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchProductSpec</span></tt></a>,
+<a class="reference internal" href="../do/dv_port_config_spec.html#pyvisdk.do.dv_port_config_spec.DVPortConfigSpec" title="pyvisdk.do.dv_port_config_spec.DVPortConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">DVPortConfigSpec</span></tt></a>,
+<a class="reference internal" href="../do/dv_portgroup_config_spec.html#pyvisdk.do.dv_portgroup_config_spec.DVPortgroupConfigSpec" title="pyvisdk.do.dv_portgroup_config_spec.DVPortgroupConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">DVPortgroupConfigSpec</span></tt></a>,
+<a class="reference internal" href="../do/dvs_capability.html#pyvisdk.do.dvs_capability.DVSCapability" title="pyvisdk.do.dvs_capability.DVSCapability"><tt class="xref py py-class docutils literal"><span class="pre">DVSCapability</span></tt></a>,
+<a class="reference internal" href="../do/dvs_config_info.html#pyvisdk.do.dvs_config_info.DVSConfigInfo" title="pyvisdk.do.dvs_config_info.DVSConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">DVSConfigInfo</span></tt></a>,
+<a class="reference internal" href="../do/dvs_config_spec.html#pyvisdk.do.dvs_config_spec.DVSConfigSpec" title="pyvisdk.do.dvs_config_spec.DVSConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">DVSConfigSpec</span></tt></a>,
+<a class="reference internal" href="../do/dvs_network_resource_pool.html#pyvisdk.do.dvs_network_resource_pool.DVSNetworkResourcePool" title="pyvisdk.do.dvs_network_resource_pool.DVSNetworkResourcePool"><tt class="xref py py-class docutils literal"><span class="pre">DVSNetworkResourcePool</span></tt></a>,
+<a class="reference internal" href="../do/dvs_network_resource_pool_config_spec.html#pyvisdk.do.dvs_network_resource_pool_config_spec.DVSNetworkResourcePoolConfigSpec" title="pyvisdk.do.dvs_network_resource_pool_config_spec.DVSNetworkResourcePoolConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">DVSNetworkResourcePoolConfigSpec</span></tt></a>,
+<a class="reference internal" href="../do/dvs_summary.html#pyvisdk.do.dvs_summary.DVSSummary" title="pyvisdk.do.dvs_summary.DVSSummary"><tt class="xref py py-class docutils literal"><span class="pre">DVSSummary</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt></p>
 </dd></dl>
 
 </div>
@@ -582,7 +132,7 @@ CustomFieldStringValue with a custom field definition.</p>
                         title="next chapter">3.16. DistributedVirtualSwitchManager</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/mo/distributed_virtual_switch.txt"
+    <li><a href="../_sources/mo/distributed_virtual_switch.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

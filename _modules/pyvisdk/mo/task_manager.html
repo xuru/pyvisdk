@@ -1,0 +1,170 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.task_manager &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.task_manager</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.base_entity</span> <span class="kn">import</span> <span class="n">BaseEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">TaskManager</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="TaskManager"><a class="viewcode-back" href="../../../mo/task_manager.html#pyvisdk.mo.task_manager.TaskManager">[docs]</a>    <span class="sd">&#39;&#39;&#39;The TaskManager managed object provides an interface for creating and managing</span>
+<span class="sd">        Task managed objects. Many operations are non-blocking, returning a Task</span>
+<span class="sd">        managed object that can be monitored by a client application. Task managed</span>
+<span class="sd">        objects may also be accessed through the TaskManager.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">TaskManager</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TaskManager</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">description</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TaskManager.description"><a class="viewcode-back" href="../../../mo/task_manager.html#pyvisdk.mo.task_manager.TaskManager.description">[docs]</a>        <span class="sd">&#39;&#39;&#39;Locale-specific, static strings that describe Task information to users.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;description&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">maxCollector</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TaskManager.maxCollector"><a class="viewcode-back" href="../../../mo/task_manager.html#pyvisdk.mo.task_manager.TaskManager.maxCollector">[docs]</a>        <span class="sd">&#39;&#39;&#39;Maximum number of TaskHistoryCollector data objects that can exist concurrently,</span>
+<span class="sd">        per client.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;maxCollector&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">recentTask</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TaskManager.recentTask"><a class="viewcode-back" href="../../../mo/task_manager.html#pyvisdk.mo.task_manager.TaskManager.recentTask">[docs]</a>        <span class="sd">&#39;&#39;&#39;A list of Task managed objects that completed recently, that are currently</span>
+<span class="sd">        running, or that are queued to run.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;recentTask&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">CreateCollectorForTasks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">filter</span><span class="p">):</span></div>
+<div class="viewcode-block" id="TaskManager.CreateCollectorForTasks"><a class="viewcode-back" href="../../../mo/task_manager.html#pyvisdk.mo.task_manager.TaskManager.CreateCollectorForTasks">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a TaskHistoryCollector, a specialized HistoryCollector that gathers</span>
+<span class="sd">        TaskInfo data objects.A TaskHistoryCollector does not persist beyond the</span>
+<span class="sd">        current client session.</span>
+
+<span class="sd">        :param filter: The specification for the task query filter.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a TaskHistoryCollector </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateCollectorForTasks&quot;</span><span class="p">)(</span><span class="nb">filter</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateTask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">taskTypeId</span><span class="p">,</span> <span class="n">initiatedBy</span><span class="p">,</span> <span class="n">cancelable</span><span class="p">,</span> <span class="n">parentTaskKey</span><span class="p">):</span></div>
+<div class="viewcode-block" id="TaskManager.CreateTask"><a class="viewcode-back" href="../../../mo/task_manager.html#pyvisdk.mo.task_manager.TaskManager.CreateTask">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a new Task, specifying the object with which the Task is associated, the</span>
+<span class="sd">        type of task, and whether the task is cancelable. Use this operation in</span>
+<span class="sd">        conjunction with the ExtensionManager.</span>
+
+<span class="sd">        :param obj: ManagedObject with which Task will be associated</span>
+
+<span class="sd">        :param taskTypeId: Extension registered task type identifier for type of task being created</span>
+
+<span class="sd">        :param initiatedBy: The name of the user on whose behalf the Extension is creating the task</span>
+
+<span class="sd">        :param cancelable: True if the task should be cancelable, else false</span>
+
+<span class="sd">        :param parentTaskKey: Key of the task that is the parent of this taskvSphere API 4.0</span>
+
+
+<span class="sd">        :rtype: TaskInfo </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateTask&quot;</span><span class="p">)(</span><span class="n">obj</span><span class="p">,</span><span class="n">taskTypeId</span><span class="p">,</span><span class="n">initiatedBy</span><span class="p">,</span><span class="n">cancelable</span><span class="p">,</span><span class="n">parentTaskKey</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

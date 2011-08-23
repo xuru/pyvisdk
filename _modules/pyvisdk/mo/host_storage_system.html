@@ -1,0 +1,589 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.host_storage_system &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.host_storage_system</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.extensible_managed_object</span> <span class="kn">import</span> <span class="n">ExtensibleManagedObject</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">HostStorageSystem</span><span class="p">(</span><span class="n">ExtensibleManagedObject</span><span class="p">):</span>
+<div class="viewcode-block" id="HostStorageSystem"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem">[docs]</a>    <span class="sd">&#39;&#39;&#39;This managed object gets and sets configuration information about the host&#39;s</span>
+<span class="sd">        storage subsystem. The properties and operations are used to configure the</span>
+<span class="sd">        host to make storage available for virtual machines. This object contains</span>
+<span class="sd">        properties that are specific to ESX Server and general to both the ESX</span>
+<span class="sd">        Server system and the hosted architecture.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">HostStorageSystem</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">HostStorageSystem</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fileSystemVolumeInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostStorageSystem.fileSystemVolumeInfo"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.fileSystemVolumeInfo">[docs]</a>        <span class="sd">&#39;&#39;&#39;File system volume information for the host. See the FileSystemVolumeInfo data</span>
+<span class="sd">        object type for more information.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;fileSystemVolumeInfo&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">multipathStateInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostStorageSystem.multipathStateInfo"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.multipathStateInfo">[docs]</a>        <span class="sd">&#39;&#39;&#39;Runtime information about the state of a multipath path. A null value will be</span>
+<span class="sd">        returned if path state information is not available for this system.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;multipathStateInfo&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">storageDeviceInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostStorageSystem.storageDeviceInfo"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.storageDeviceInfo">[docs]</a>        <span class="sd">&#39;&#39;&#39;Host storage information up to the device level.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;storageDeviceInfo&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">systemFile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostStorageSystem.systemFile"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.systemFile">[docs]</a>        <span class="sd">&#39;&#39;&#39;Datastore paths of files used by the host system on mounted volumes, for instance,</span>
+<span class="sd">        the COS vmdk file of the host. For information on datastore paths, see</span>
+<span class="sd">        Datastore.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;systemFile&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">AddInternetScsiSendTargets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iScsiHbaDevice</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.AddInternetScsiSendTargets"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.AddInternetScsiSendTargets">[docs]</a>        <span class="sd">&#39;&#39;&#39;Adds Send Target entries to the host bus adapter discovery list. The</span>
+<span class="sd">        DiscoveryProperties.sendTargetsDiscoveryEnabled flag must be set to true.</span>
+
+<span class="sd">        :param iScsiHbaDevice: The device of the Internet SCSI HBA adapter.</span>
+
+<span class="sd">        :param targets: An array of iSCSI send targets.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;AddInternetScsiSendTargets&quot;</span><span class="p">)(</span><span class="n">iScsiHbaDevice</span><span class="p">,</span><span class="n">targets</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">AddInternetScsiStaticTargets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iScsiHbaDevice</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.AddInternetScsiStaticTargets"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.AddInternetScsiStaticTargets">[docs]</a>        <span class="sd">&#39;&#39;&#39;Adds Static Target entries to the host bus adapter discovery list. The</span>
+<span class="sd">        DiscoveryProperty.staticTargetDiscoveryEnabled must be set to true.</span>
+
+<span class="sd">        :param iScsiHbaDevice: The device of the Internet SCSI HBA adapter.</span>
+
+<span class="sd">        :param targets: An array of iSCSI static targets to add.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;AddInternetScsiStaticTargets&quot;</span><span class="p">)(</span><span class="n">iScsiHbaDevice</span><span class="p">,</span><span class="n">targets</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">AttachVmfsExtent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmfsPath</span><span class="p">,</span> <span class="n">extent</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.AttachVmfsExtent"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.AttachVmfsExtent">[docs]</a>        <span class="sd">&#39;&#39;&#39;Extends a VMFS by attaching a disk partition as an extent.</span>
+
+<span class="sd">        :param vmfsPath: The path of the VMFS to extend. See FileSystemMountInfo.</span>
+
+<span class="sd">        :param extent: A data object that describes the specification of a Disk partition.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;AttachVmfsExtent&quot;</span><span class="p">)(</span><span class="n">vmfsPath</span><span class="p">,</span><span class="n">extent</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">ComputeDiskPartitionInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">devicePath</span><span class="p">,</span> <span class="n">layout</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.ComputeDiskPartitionInfo"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.ComputeDiskPartitionInfo">[docs]</a>        <span class="sd">&#39;&#39;&#39;Computes the disk partition information given the desired disk layout. The server</span>
+<span class="sd">        computes a new partition information object for a specific disk</span>
+<span class="sd">        representing the desired layout. See HostDiskPartitionInfoPartitionFormat</span>
+
+<span class="sd">        :param devicePath: The name of the device path for the specific disk.See</span>
+<span class="sd">        HostDiskPartitionInfoPartitionFormat</span>
+
+<span class="sd">        :param layout: A data object that describes the disk partition layout.See</span>
+<span class="sd">        HostDiskPartitionInfoPartitionFormat</span>
+
+
+<span class="sd">        :rtype: HostDiskPartitionInfo </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ComputeDiskPartitionInfo&quot;</span><span class="p">)(</span><span class="n">devicePath</span><span class="p">,</span><span class="n">layout</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">ComputeDiskPartitionInfoForResize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">partition</span><span class="p">,</span> <span class="n">blockRange</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.ComputeDiskPartitionInfoForResize"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.ComputeDiskPartitionInfoForResize">[docs]</a>        <span class="sd">&#39;&#39;&#39;Computes the disk partition information for the purpose of resizing a given</span>
+<span class="sd">        partition. See HostDiskPartitionInfoPartitionFormat</span>
+
+<span class="sd">        :param partition: The disk partition to resize.See HostDiskPartitionInfoPartitionFormat</span>
+
+<span class="sd">        :param blockRange: Specifies the desired block range for the resized partition. The start of the</span>
+<span class="sd">        block range specified should match that of the current partition.See</span>
+<span class="sd">        HostDiskPartitionInfoPartitionFormat</span>
+
+
+<span class="sd">        :rtype: HostDiskPartitionInfo </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ComputeDiskPartitionInfoForResize&quot;</span><span class="p">)(</span><span class="n">partition</span><span class="p">,</span><span class="n">blockRange</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">DisableMultipathPath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pathName</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.DisableMultipathPath"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.DisableMultipathPath">[docs]</a>        <span class="sd">&#39;&#39;&#39;Disables an enabled path for a Logical Unit. Use the path name from</span>
+<span class="sd">        HostMultipathStateInfoPath or HostMultipathInfoPath.</span>
+
+<span class="sd">        :param pathName: The name of the path to disable.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;DisableMultipathPath&quot;</span><span class="p">)(</span><span class="n">pathName</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">EnableMultipathPath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pathName</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.EnableMultipathPath"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.EnableMultipathPath">[docs]</a>        <span class="sd">&#39;&#39;&#39;Enables a disabled path for a Logical Unit. Use the path name from</span>
+<span class="sd">        HostMultipathStateInfoPath or HostMultipathInfoPath.</span>
+
+<span class="sd">        :param pathName: The name of the path to enable.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;EnableMultipathPath&quot;</span><span class="p">)(</span><span class="n">pathName</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">ExpandVmfsExtent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmfsPath</span><span class="p">,</span> <span class="n">extent</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.ExpandVmfsExtent"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.ExpandVmfsExtent">[docs]</a>        <span class="sd">&#39;&#39;&#39;Expands a VMFS extent as specified by the Disk partition specification.</span>
+
+<span class="sd">        :param vmfsPath: The path of the VMFS to expand. See FileSystemMountInfo.</span>
+
+<span class="sd">        :param extent: The disk partition corresponding to the extent to be expanded.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ExpandVmfsExtent&quot;</span><span class="p">)(</span><span class="n">vmfsPath</span><span class="p">,</span><span class="n">extent</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">FormatVmfs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">createSpec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.FormatVmfs"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.FormatVmfs">[docs]</a>        <span class="sd">&#39;&#39;&#39;Formats a new VMFS on a disk partition.</span>
+
+<span class="sd">        :param createSpec: A data object that describes the VMware File System (VMFS) creation specification.</span>
+
+
+<span class="sd">        :rtype: HostVmfsVolume </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;FormatVmfs&quot;</span><span class="p">)(</span><span class="n">createSpec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryPathSelectionPolicyOptions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.QueryPathSelectionPolicyOptions"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.QueryPathSelectionPolicyOptions">[docs]</a>        <span class="sd">&#39;&#39;&#39;Queries the set of path selection policy options. The set of policy options</span>
+<span class="sd">        indicates what path selection policies can be used by a device managed by</span>
+<span class="sd">        native multipathing. Devices managed through native multipathing are</span>
+<span class="sd">        described in the HostMultipathInfo data object.Filtering capabilities are</span>
+<span class="sd">        not currently present but may be added in the future.</span>
+
+<span class="sd">        :rtype: HostPathSelectionPolicyOption[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryPathSelectionPolicyOptions&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryStorageArrayTypePolicyOptions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.QueryStorageArrayTypePolicyOptions"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.QueryStorageArrayTypePolicyOptions">[docs]</a>        <span class="sd">&#39;&#39;&#39;Queries the set of storage array type policy options. The set of policy options</span>
+<span class="sd">        indicates what storage array type policies can be used by a device managed</span>
+<span class="sd">        by native multipathing. Devices managed through native multipathing are</span>
+<span class="sd">        described in the HostMultipathInfo data object.Filtering capabilities are</span>
+<span class="sd">        not currently present but may be added in the future.</span>
+
+<span class="sd">        :rtype: HostStorageArrayTypePolicyOption[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryStorageArrayTypePolicyOptions&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryUnresolvedVmfsVolume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.QueryUnresolvedVmfsVolume"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.QueryUnresolvedVmfsVolume">[docs]</a>        <span class="sd">&#39;&#39;&#39;Get the list of unbound VMFS volumes. For sharing a volume across hosts, a VMFS</span>
+<span class="sd">        volume is bound to its underlying block device storage. When a low level</span>
+<span class="sd">        block copy is performed to copy or move the VMFS volume, the copied volume</span>
+<span class="sd">        will be unbound.</span>
+
+<span class="sd">        :rtype: HostUnresolvedVmfsVolume[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryUnresolvedVmfsVolume&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">RefreshStorageSystem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.RefreshStorageSystem"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.RefreshStorageSystem">[docs]</a>        <span class="sd">&#39;&#39;&#39;Refresh the storage information and settings to pick up any changes that might</span>
+<span class="sd">        have occurred.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RefreshStorageSystem&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">RemoveInternetScsiSendTargets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iScsiHbaDevice</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.RemoveInternetScsiSendTargets"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.RemoveInternetScsiSendTargets">[docs]</a>        <span class="sd">&#39;&#39;&#39;Removes Send Target entries from the host bus adapter discovery list. The</span>
+<span class="sd">        DiscoveryProperty.sendTargetsDiscoveryEnabled must be set to true. If any</span>
+<span class="sd">        of the targets provided as parameters are not found in the existing list,</span>
+<span class="sd">        the other targets are removed and an exception is thrown.</span>
+
+<span class="sd">        :param iScsiHbaDevice: The device of the Internet SCSI HBA adapter.</span>
+
+<span class="sd">        :param targets: An array of iSCSI send targets to remove.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RemoveInternetScsiSendTargets&quot;</span><span class="p">)(</span><span class="n">iScsiHbaDevice</span><span class="p">,</span><span class="n">targets</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RemoveInternetScsiStaticTargets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iScsiHbaDevice</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.RemoveInternetScsiStaticTargets"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.RemoveInternetScsiStaticTargets">[docs]</a>        <span class="sd">&#39;&#39;&#39;Removes static target entries from the host bus adapter discovery list. The</span>
+<span class="sd">        DiscoveryProperty.staticTargetDiscoveryEnabled must be set to true. If any</span>
+<span class="sd">        of the targets provided as parameters are not found in the existing list,</span>
+<span class="sd">        the other targets are removed and an exception is thrown.</span>
+
+<span class="sd">        :param iScsiHbaDevice: The device of the Internet SCSI HBA adapter.</span>
+
+<span class="sd">        :param targets: An array of iSCSI static targets to remove.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RemoveInternetScsiStaticTargets&quot;</span><span class="p">)(</span><span class="n">iScsiHbaDevice</span><span class="p">,</span><span class="n">targets</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RescanAllHba</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.RescanAllHba"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.RescanAllHba">[docs]</a>        <span class="sd">&#39;&#39;&#39;Issues a request to rescan all host bus adapters for new storage devices.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RescanAllHba&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">RescanHba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hbaDevice</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.RescanHba"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.RescanHba">[docs]</a>        <span class="sd">&#39;&#39;&#39;Issues a request to rescan a specific host bus adapter for new storage devices.</span>
+
+<span class="sd">        :param hbaDevice: The device of the host bus adapter.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RescanHba&quot;</span><span class="p">)(</span><span class="n">hbaDevice</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RescanVmfs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.RescanVmfs"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.RescanVmfs">[docs]</a>        <span class="sd">&#39;&#39;&#39;Rescans for new VMFSs that might have been added.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RescanVmfs&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">ResolveMultipleUnresolvedVmfsVolumes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resolutionSpec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.ResolveMultipleUnresolvedVmfsVolumes"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.ResolveMultipleUnresolvedVmfsVolumes">[docs]</a>        <span class="sd">&#39;&#39;&#39;Resignature or &#39;Force Mount&#39; list of unbound VMFS volumes. To safely enable</span>
+<span class="sd">        sharing of the volume across hosts, a VMFS volume is bound to its</span>
+<span class="sd">        underlying block device storage. When a low level block copy is performed</span>
+<span class="sd">        to copy or move the VMFS volume, the copied volume will be unbound. In</span>
+<span class="sd">        order for the VMFS volume to be usable, a resolution operation is needed</span>
+<span class="sd">        to determine whether the VMFS volume should be treated as a new volume or</span>
+<span class="sd">        not and what extents compose that volume in the event there is more than</span>
+<span class="sd">        one unbound volume.Resignature results in a new VMFS volume on the host.</span>
+<span class="sd">        Operations performed at the StorageSystem interface apply only to a</span>
+<span class="sd">        specific host. Hence, callers of this method are responsible for issuing</span>
+<span class="sd">        rescan operations to detect the new VMFS volume on other hosts.</span>
+<span class="sd">        Alternatively, callers that want VirtualCenter to handle rescanning the</span>
+<span class="sd">        necessary hosts should use the DatastoreSystem interface.When user wants</span>
+<span class="sd">        to keep the original Vmfs Uuid and mount it on the host, set the</span>
+<span class="sd">        &#39;resolutionSpec.uuidResolution&#39; to &#39;forceMounted&#39; This is per-host</span>
+<span class="sd">        operation. It will return an array of ResolutionResult describing success</span>
+<span class="sd">        or failure associated with each specification.</span>
+
+<span class="sd">        :param resolutionSpec: List of data object that describes what the disk extents to be used for creating</span>
+<span class="sd">        the new VMFS volume.</span>
+
+
+<span class="sd">        :rtype: HostUnresolvedVmfsResolutionResult[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ResolveMultipleUnresolvedVmfsVolumes&quot;</span><span class="p">)(</span><span class="n">resolutionSpec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RetrieveDiskPartitionInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">devicePath</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.RetrieveDiskPartitionInfo"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.RetrieveDiskPartitionInfo">[docs]</a>        <span class="sd">&#39;&#39;&#39;Gets the partition information for the disks named by the device names.</span>
+
+<span class="sd">        :param devicePath: An array of device path names that identify disks. See ScsiDisk.</span>
+
+
+<span class="sd">        :rtype: HostDiskPartitionInfo[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RetrieveDiskPartitionInfo&quot;</span><span class="p">)(</span><span class="n">devicePath</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">SetMultipathLunPolicy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lunId</span><span class="p">,</span> <span class="n">policy</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.SetMultipathLunPolicy"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.SetMultipathLunPolicy">[docs]</a>        <span class="sd">&#39;&#39;&#39;Updates the path selection policy for a Logical Unit. Use the LUN uuid from</span>
+<span class="sd">        HostMultipathInfoLogicalUnit.</span>
+
+<span class="sd">        :param lunId: The logical unit ID</span>
+
+<span class="sd">        :param policy: A data object that describes a path selection policy for the logical unit.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;SetMultipathLunPolicy&quot;</span><span class="p">)(</span><span class="n">lunId</span><span class="p">,</span><span class="n">policy</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UnmountForceMountedVmfsVolume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.UnmountForceMountedVmfsVolume"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.UnmountForceMountedVmfsVolume">[docs]</a>        <span class="sd">&#39;&#39;&#39;Unmount the &#39;forceMounted&#39; Vmfs volume. When a low level block copy is performed</span>
+<span class="sd">        to copy or move the VMFS volume, the copied volume is unresolved. For the</span>
+<span class="sd">        VMFS volume to be usable, a resolution operation is applied. As part of</span>
+<span class="sd">        resolution operation, user may decide to keep the original VMFS Uuid. Once</span>
+<span class="sd">        the resolution is applied, the VMFS volume is mounted on the host for its</span>
+<span class="sd">        use. User can unmount the VMFS volume if it is not being used by any</span>
+<span class="sd">        registered VMs.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UnmountForceMountedVmfsVolume&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateDiskPartitions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">devicePath</span><span class="p">,</span> <span class="n">spec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.UpdateDiskPartitions"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateDiskPartitions">[docs]</a>        <span class="sd">&#39;&#39;&#39;Changes the partitions on the disk by supplying a partition specification and the</span>
+<span class="sd">        device name.</span>
+
+<span class="sd">        :param devicePath: The name of the device path for the specific disk.</span>
+
+<span class="sd">        :param spec: A data object that describes the disk partition table specification used to</span>
+<span class="sd">        configure the partitions on a disk.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateDiskPartitions&quot;</span><span class="p">)(</span><span class="n">devicePath</span><span class="p">,</span><span class="n">spec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateInternetScsiAdvancedOptions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iScsiHbaDevice</span><span class="p">,</span> <span class="n">targetSet</span><span class="p">,</span> <span class="n">options</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.UpdateInternetScsiAdvancedOptions"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiAdvancedOptions">[docs]</a>        <span class="sd">&#39;&#39;&#39;Updates the advanced options the iSCSI host bus adapter or the discovery addresses</span>
+<span class="sd">        and targets associated with it.</span>
+
+<span class="sd">        :param iScsiHbaDevice: The device of the Internet SCSI HBA adapter.</span>
+
+<span class="sd">        :param targetSet: The set the targets to configure. If not provided, the settings will be applied to</span>
+<span class="sd">        the host bus adapter itself.</span>
+
+<span class="sd">        :param options: The list of options to set.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateInternetScsiAdvancedOptions&quot;</span><span class="p">)(</span><span class="n">iScsiHbaDevice</span><span class="p">,</span><span class="n">targetSet</span><span class="p">,</span><span class="n">options</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateInternetScsiAlias</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iScsiHbaDevice</span><span class="p">,</span> <span class="n">iScsiAlias</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.UpdateInternetScsiAlias"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiAlias">[docs]</a>        <span class="sd">&#39;&#39;&#39;Updates the alias of an iSCSI host bus adapter.</span>
+
+<span class="sd">        :param iScsiHbaDevice: The device of the Internet SCSI HBA adapter.</span>
+
+<span class="sd">        :param iScsiAlias: The new value for the alias of the adapter.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateInternetScsiAlias&quot;</span><span class="p">)(</span><span class="n">iScsiHbaDevice</span><span class="p">,</span><span class="n">iScsiAlias</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateInternetScsiAuthenticationProperties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iScsiHbaDevice</span><span class="p">,</span> <span class="n">authenticationProperties</span><span class="p">,</span> <span class="n">targetSet</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.UpdateInternetScsiAuthenticationProperties"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiAuthenticationProperties">[docs]</a>        <span class="sd">&#39;&#39;&#39;Updates the authentication properties for one or more targets or discovery</span>
+<span class="sd">        addresses associated with an iSCSI host bus adapter.</span>
+
+<span class="sd">        :param iScsiHbaDevice: The device of the Internet SCSI HBA adapter. associated with the target.</span>
+
+<span class="sd">        :param authenticationProperties: The data object that represents the authentication settings to set.</span>
+
+<span class="sd">        :param targetSet: The set the targets to configure. Optional, when obmitted will configura the</span>
+<span class="sd">        authentication properties for the adapter instead.vSphere API 4.0</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateInternetScsiAuthenticationProperties&quot;</span><span class="p">)(</span><span class="n">iScsiHbaDevice</span><span class="p">,</span><span class="n">authenticationProperties</span><span class="p">,</span><span class="n">targetSet</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateInternetScsiDigestProperties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iScsiHbaDevice</span><span class="p">,</span> <span class="n">targetSet</span><span class="p">,</span> <span class="n">digestProperties</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.UpdateInternetScsiDigestProperties"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiDigestProperties">[docs]</a>        <span class="sd">&#39;&#39;&#39;Updates the digest properties for the iSCSI host bus adapter or the discovery</span>
+<span class="sd">        addresses and targets associated with it.</span>
+
+<span class="sd">        :param iScsiHbaDevice: The device of the Internet SCSI HBA adapter.</span>
+
+<span class="sd">        :param targetSet: The set the targets to configure. If not provided, the settings will be applied to</span>
+<span class="sd">        the host bus adapter itself.</span>
+
+<span class="sd">        :param digestProperties: The data object that represents the digest settings to set.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateInternetScsiDigestProperties&quot;</span><span class="p">)(</span><span class="n">iScsiHbaDevice</span><span class="p">,</span><span class="n">targetSet</span><span class="p">,</span><span class="n">digestProperties</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateInternetScsiDiscoveryProperties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iScsiHbaDevice</span><span class="p">,</span> <span class="n">discoveryProperties</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.UpdateInternetScsiDiscoveryProperties"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiDiscoveryProperties">[docs]</a>        <span class="sd">&#39;&#39;&#39;Updates the Discovery properties for an iSCSI host bus adapter.</span>
+
+<span class="sd">        :param iScsiHbaDevice: The device of the Internet SCSI HBA adapter.</span>
+
+<span class="sd">        :param discoveryProperties: The discovery settings for this host bus adapter.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateInternetScsiDiscoveryProperties&quot;</span><span class="p">)(</span><span class="n">iScsiHbaDevice</span><span class="p">,</span><span class="n">discoveryProperties</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateInternetScsiIPProperties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iScsiHbaDevice</span><span class="p">,</span> <span class="n">ipProperties</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.UpdateInternetScsiIPProperties"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiIPProperties">[docs]</a>        <span class="sd">&#39;&#39;&#39;Updates the IP properties for an iSCSI host bus adapter.</span>
+
+<span class="sd">        :param iScsiHbaDevice: The device of the Internet SCSI HBA adapter.</span>
+
+<span class="sd">        :param ipProperties: A data object representing the IP properties for the host bus adapter</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateInternetScsiIPProperties&quot;</span><span class="p">)(</span><span class="n">iScsiHbaDevice</span><span class="p">,</span><span class="n">ipProperties</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateInternetScsiName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iScsiHbaDevice</span><span class="p">,</span> <span class="n">iScsiName</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.UpdateInternetScsiName"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateInternetScsiName">[docs]</a>        <span class="sd">&#39;&#39;&#39;Updates the name of an iSCSI host bus adapter.</span>
+
+<span class="sd">        :param iScsiHbaDevice: The current name of the Internet SCSI HBA adapter.</span>
+
+<span class="sd">        :param iScsiName: The new name for the Internet SCSI HBA adapter</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateInternetScsiName&quot;</span><span class="p">)(</span><span class="n">iScsiHbaDevice</span><span class="p">,</span><span class="n">iScsiName</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateScsiLunDisplayName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lunUuid</span><span class="p">,</span> <span class="n">displayName</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.UpdateScsiLunDisplayName"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateScsiLunDisplayName">[docs]</a>        <span class="sd">&#39;&#39;&#39;Update the mutable display name associated with a ScsiLun. The ScsiLun to be</span>
+<span class="sd">        updated is identified using the specified uuid.</span>
+
+<span class="sd">        :param lunUuid: The uuid of the ScsiLun to update.</span>
+
+<span class="sd">        :param displayName: The new name to assign to the ScsiLun object.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateScsiLunDisplayName&quot;</span><span class="p">)(</span><span class="n">lunUuid</span><span class="p">,</span><span class="n">displayName</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateSoftwareInternetScsiEnabled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enabled</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.UpdateSoftwareInternetScsiEnabled"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.UpdateSoftwareInternetScsiEnabled">[docs]</a>        <span class="sd">&#39;&#39;&#39;Enables or disables Software iSCSI.</span>
+
+<span class="sd">        :param enabled: True to enable the iSCSI; false to disable it</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateSoftwareInternetScsiEnabled&quot;</span><span class="p">)(</span><span class="n">enabled</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpgradeVmfs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmfsPath</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.UpgradeVmfs"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.UpgradeVmfs">[docs]</a>        <span class="sd">&#39;&#39;&#39;Upgrades the VMFS to the current VMFS version.</span>
+
+<span class="sd">        :param vmfsPath: The path of the VMFS.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpgradeVmfs&quot;</span><span class="p">)(</span><span class="n">vmfsPath</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpgradeVmLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostStorageSystem.UpgradeVmLayout"><a class="viewcode-back" href="../../../mo/host_storage_system.html#pyvisdk.mo.host_storage_system.HostStorageSystem.UpgradeVmLayout">[docs]</a>        <span class="sd">&#39;&#39;&#39;Iterates over all registered virtual machines. For each VM which .vmx file is</span>
+<span class="sd">        located on the service console and all disks are available on VMFS3 or</span>
+<span class="sd">        NAS, it will relocate the disks into directories if stored in the ROOT,</span>
+<span class="sd">        and relocate the VMX file into the directory too. Events are logged for</span>
+<span class="sd">        each virtual machine that is relocated.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpgradeVmLayout&quot;</span><span class="p">)()</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

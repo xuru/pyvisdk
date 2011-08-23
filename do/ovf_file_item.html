@@ -1,0 +1,183 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.838. OvfFileItem &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.839. OvfManagerCommonParams" href="ovf_manager_common_params.html" />
+    <link rel="prev" title="4.837. OvfFile" href="ovf_file.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ovf_manager_common_params.html" title="4.839. OvfManagerCommonParams"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ovf_file.html" title="4.837. OvfFile"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="ovffileitem">
+<h1>4.838. OvfFileItem<a class="headerlink" href="#ovffileitem" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="ovf_create_import_spec_result.html#pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult" title="pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult"><tt class="xref py py-class docutils literal"><span class="pre">OvfCreateImportSpecResult</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.ovf_file_item.OvfFileItem">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.ovf_file_item.</tt><tt class="descname">OvfFileItem</tt><a class="headerlink" href="#pyvisdk.do.ovf_file_item.OvfFileItem" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.ovf_file_item.OvfFileItem.chunkSize">
+<tt class="descname">chunkSize</tt><a class="headerlink" href="#pyvisdk.do.ovf_file_item.OvfFileItem.chunkSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>The chunksize as specified by the OVF specification. If this attribute is set, the &#8220;path&#8221; attribute is a prefix to each chunk of the complete file. For example, if chunksize is 2000000000 bytes, the actual files might be: myfile.000000000 (2000000000 bytes) myfile.000000001 (2000000000 bytes) myfile.000000002 (1500000000 bytes)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_file_item.OvfFileItem.cimType">
+<tt class="descname">cimType</tt><a class="headerlink" href="#pyvisdk.do.ovf_file_item.OvfFileItem.cimType" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CIM type of the device for which this file provides backing.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_file_item.OvfFileItem.compressionMethod">
+<tt class="descname">compressionMethod</tt><a class="headerlink" href="#pyvisdk.do.ovf_file_item.OvfFileItem.compressionMethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>The compression method as specified by the OVF specification (for example &#8220;gzip&#8221; or &#8220;bzip2&#8221;).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_file_item.OvfFileItem.create">
+<tt class="descname">create</tt><a class="headerlink" href="#pyvisdk.do.ovf_file_item.OvfFileItem.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the item is not expected to exist in the infrastructure and should therefore be created by the caller (for example using HTTP PUT).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_file_item.OvfFileItem.deviceId">
+<tt class="descname">deviceId</tt><a class="headerlink" href="#pyvisdk.do.ovf_file_item.OvfFileItem.deviceId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uniquely identifies the device (disk, CD-ROM etc.) within the entity hierarchy.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_file_item.OvfFileItem.path">
+<tt class="descname">path</tt><a class="headerlink" href="#pyvisdk.do.ovf_file_item.OvfFileItem.path" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path of the item to upload, relative to the path of the OVF descriptor.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_file_item.OvfFileItem.size">
+<tt class="descname">size</tt><a class="headerlink" href="#pyvisdk.do.ovf_file_item.OvfFileItem.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The complete size of the file, if it is specified in the OVF descriptor.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ovf_file.html"
+                        title="previous chapter">4.837. OvfFile</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ovf_manager_common_params.html"
+                        title="next chapter">4.839. OvfManagerCommonParams</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/ovf_file_item.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ovf_manager_common_params.html" title="4.839. OvfManagerCommonParams"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ovf_file.html" title="4.837. OvfFile"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

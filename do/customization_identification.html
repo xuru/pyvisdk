@@ -1,0 +1,165 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.153. CustomizationIdentification &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.154. CustomizationIdentitySettings" href="customization_identity_settings.html" />
+    <link rel="prev" title="4.152. CustomizationGuiUnattended" href="customization_gui_unattended.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="customization_identity_settings.html" title="4.154. CustomizationIdentitySettings"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="customization_gui_unattended.html" title="4.152. CustomizationGuiUnattended"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="customizationidentification">
+<h1>4.153. CustomizationIdentification<a class="headerlink" href="#customizationidentification" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="customization_sysprep.html#pyvisdk.do.customization_sysprep.CustomizationSysprep" title="pyvisdk.do.customization_sysprep.CustomizationSysprep"><tt class="xref py py-class docutils literal"><span class="pre">CustomizationSysprep</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="customization_password.html#pyvisdk.do.customization_password.CustomizationPassword" title="pyvisdk.do.customization_password.CustomizationPassword"><tt class="xref py py-class docutils literal"><span class="pre">CustomizationPassword</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.customization_identification.CustomizationIdentification">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.customization_identification.</tt><tt class="descname">CustomizationIdentification</tt><a class="headerlink" href="#pyvisdk.do.customization_identification.CustomizationIdentification" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.customization_identification.CustomizationIdentification.domainAdmin">
+<tt class="descname">domainAdmin</tt><a class="headerlink" href="#pyvisdk.do.customization_identification.CustomizationIdentification.domainAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the domain user account used for authentication if the virtual machine is joining a domain. The user does not need to be a domain administrator, but the account must have the privileges required to add computers to the domain.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_identification.CustomizationIdentification.domainAdminPassword">
+<tt class="descname">domainAdminPassword</tt><a class="headerlink" href="#pyvisdk.do.customization_identification.CustomizationIdentification.domainAdminPassword" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the password for the domain user account used for authentication if the virtual machine is joining a domain.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_identification.CustomizationIdentification.joinDomain">
+<tt class="descname">joinDomain</tt><a class="headerlink" href="#pyvisdk.do.customization_identification.CustomizationIdentification.joinDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>The domain that the virtual machine should join. If this value is supplied, then domainAdmin and domainAdminPassword must also be supplied, and the workgroup name must be empty.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.customization_identification.CustomizationIdentification.joinWorkgroup">
+<tt class="descname">joinWorkgroup</tt><a class="headerlink" href="#pyvisdk.do.customization_identification.CustomizationIdentification.joinWorkgroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>The workgroup that the virtual machine should join. If this value is supplied, then the domain name and authentication fields must be empty.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="customization_gui_unattended.html"
+                        title="previous chapter">4.152. CustomizationGuiUnattended</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="customization_identity_settings.html"
+                        title="next chapter">4.154. CustomizationIdentitySettings</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/customization_identification.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="customization_identity_settings.html" title="4.154. CustomizationIdentitySettings"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="customization_gui_unattended.html" title="4.152. CustomizationGuiUnattended"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

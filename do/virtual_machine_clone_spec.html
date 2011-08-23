@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1147. VirtualMachineCloneSpec &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1148. VirtualMachineConfigInfo" href="virtual_machine_config_info.html" />
+    <link rel="prev" title="4.1146. VirtualMachineCdromInfo" href="virtual_machine_cdrom_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_config_info.html" title="4.1148. VirtualMachineConfigInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_cdrom_info.html" title="4.1146. VirtualMachineCdromInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualmachineclonespec">
+<h1>4.1147. VirtualMachineCloneSpec<a class="headerlink" href="#virtualmachineclonespec" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CloneVM_Task()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="customization_spec.html#pyvisdk.do.customization_spec.CustomizationSpec" title="pyvisdk.do.customization_spec.CustomizationSpec"><tt class="xref py py-class docutils literal"><span class="pre">CustomizationSpec</span></tt></a>,
+<a class="reference internal" href="virtual_machine_config_spec.html#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec" title="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineConfigSpec</span></tt></a>,
+<a class="reference internal" href="virtual_machine_relocate_spec.html#pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec" title="pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineRelocateSpec</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineSnapshot</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.virtual_machine_clone_spec.</tt><tt class="descname">VirtualMachineCloneSpec</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec.config">
+<tt class="descname">config</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>An optional specification of changes to the virtual hardware. For example, this can be used to, (but not limited to) reconfigure the networks the virtual switches are hooked up to in the cloned virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec.customization">
+<tt class="descname">customization</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec.customization" title="Permalink to this definition">¶</a></dt>
+<dd><p>An optional guest operating system customization specification. This value is ignored if a template is being created.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec.location">
+<tt class="descname">location</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>A type of RelocateSpec that specifies the location of resources the newly cloned virtual machine will use. The location specifies: * A datastore where the virtual machine will be located on physical storage. This is always provided because it indicates where the newly created close will be copied. * a resource pool and optionally a host. The resource pool determines what compute resources will be available to the clone and the host indicates which machine will host the clone.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec.powerOn">
+<tt class="descname">powerOn</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec.powerOn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies whether or not the new VirtualMachine should be powered on after creation. As part of a customization, this flag is normally set to true, since the first power-on operation completes the customization process. This flag is ignored if a template is being created.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec.snapshot">
+<tt class="descname">snapshot</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec.snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Snapshot reference from which to base the clone.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec.template">
+<tt class="descname">template</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec.template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies whether or not the new virtual machine should be marked as a template.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_machine_cdrom_info.html"
+                        title="previous chapter">4.1146. VirtualMachineCdromInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_machine_config_info.html"
+                        title="next chapter">4.1148. VirtualMachineConfigInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/virtual_machine_clone_spec.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_config_info.html" title="4.1148. VirtualMachineConfigInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_cdrom_info.html" title="4.1146. VirtualMachineCdromInfo"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

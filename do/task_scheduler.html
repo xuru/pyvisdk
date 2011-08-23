@@ -1,0 +1,155 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1003. TaskScheduler &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1004. TaskTimeoutEvent" href="task_timeout_event.html" />
+    <link rel="prev" title="4.1002. TaskReasonUser" href="task_reason_user.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="task_timeout_event.html" title="4.1004. TaskTimeoutEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="task_reason_user.html" title="4.1002. TaskReasonUser"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="taskscheduler">
+<h1>4.1003. TaskScheduler<a class="headerlink" href="#taskscheduler" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="scheduled_task_spec.html#pyvisdk.do.scheduled_task_spec.ScheduledTaskSpec" title="pyvisdk.do.scheduled_task_spec.ScheduledTaskSpec"><tt class="xref py py-class docutils literal"><span class="pre">ScheduledTaskSpec</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extended by</tt></dt>
+<dd><p><a class="reference internal" href="after_startup_task_scheduler.html#pyvisdk.do.after_startup_task_scheduler.AfterStartupTaskScheduler" title="pyvisdk.do.after_startup_task_scheduler.AfterStartupTaskScheduler"><tt class="xref py py-class docutils literal"><span class="pre">AfterStartupTaskScheduler</span></tt></a>,
+<a class="reference internal" href="once_task_scheduler.html#pyvisdk.do.once_task_scheduler.OnceTaskScheduler" title="pyvisdk.do.once_task_scheduler.OnceTaskScheduler"><tt class="xref py py-class docutils literal"><span class="pre">OnceTaskScheduler</span></tt></a>,
+<a class="reference internal" href="recurrent_task_scheduler.html#pyvisdk.do.recurrent_task_scheduler.RecurrentTaskScheduler" title="pyvisdk.do.recurrent_task_scheduler.RecurrentTaskScheduler"><tt class="xref py py-class docutils literal"><span class="pre">RecurrentTaskScheduler</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.task_scheduler.TaskScheduler">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.task_scheduler.</tt><tt class="descname">TaskScheduler</tt><a class="headerlink" href="#pyvisdk.do.task_scheduler.TaskScheduler" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.task_scheduler.TaskScheduler.activeTime">
+<tt class="descname">activeTime</tt><a class="headerlink" href="#pyvisdk.do.task_scheduler.TaskScheduler.activeTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time that the schedule for the task takes effect. Task activation is distinct from task execution. When you activate a task, its schedule starts, and when the next execution time occurs, the task will run. If you do not set activeTime, the activation time defaults to the time that you create the scheduled task.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_scheduler.TaskScheduler.expireTime">
+<tt class="descname">expireTime</tt><a class="headerlink" href="#pyvisdk.do.task_scheduler.TaskScheduler.expireTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time the schedule for the task expires. If you do not set expireTime, the schedule does not expire.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="task_reason_user.html"
+                        title="previous chapter">4.1002. TaskReasonUser</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="task_timeout_event.html"
+                        title="next chapter">4.1004. TaskTimeoutEvent</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/task_scheduler.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="task_timeout_event.html" title="4.1004. TaskTimeoutEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="task_reason_user.html" title="4.1002. TaskReasonUser"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

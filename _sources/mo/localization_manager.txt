@@ -1,0 +1,21 @@
+
+================================================================================
+LocalizationManager
+================================================================================
+
+
+.. describe:: Property of
+    
+    :py:class:`~pyvisdk.do.service_content.ServiceContent`
+    
+.. describe:: See also
+    
+    :py:class:`~pyvisdk.do.localization_manager_message_catalog.LocalizationManagerMessageCatalog`
+    
+.. describe:: Since
+    
+    vSphere API 4.0
+    
+.. 'autoclass':: pyvisdk.mo.localization_manager.LocalizationManager
+    :members:
+    :inherited-members:

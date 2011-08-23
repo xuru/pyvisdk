@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.546. HostIpConfig &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.547. HostIpConfigIpV6Address" href="host_ip_config_ip_v6_address.html" />
+    <link rel="prev" title="4.545. HostIpChangedEvent" href="host_ip_changed_event.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_ip_config_ip_v6_address.html" title="4.547. HostIpConfigIpV6Address"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_ip_changed_event.html" title="4.545. HostIpChangedEvent"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hostipconfig">
+<h1>4.546. HostIpConfig<a class="headerlink" href="#hostipconfig" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">UpdateIpConfig()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="host_virtual_nic_spec.html#pyvisdk.do.host_virtual_nic_spec.HostVirtualNicSpec" title="pyvisdk.do.host_virtual_nic_spec.HostVirtualNicSpec"><tt class="xref py py-class docutils literal"><span class="pre">HostVirtualNicSpec</span></tt></a>,
+<a class="reference internal" href="host_v_motion_info.html#pyvisdk.do.host_v_motion_info.HostVMotionInfo" title="pyvisdk.do.host_v_motion_info.HostVMotionInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostVMotionInfo</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">HostVMotionSystem</span></tt>,
+<a class="reference internal" href="physical_nic_spec.html#pyvisdk.do.physical_nic_spec.PhysicalNicSpec" title="pyvisdk.do.physical_nic_spec.PhysicalNicSpec"><tt class="xref py py-class docutils literal"><span class="pre">PhysicalNicSpec</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="host_ip_config_ip_v6_address_configuration.html#pyvisdk.do.host_ip_config_ip_v6_address_configuration.HostIpConfigIpV6AddressConfiguration" title="pyvisdk.do.host_ip_config_ip_v6_address_configuration.HostIpConfigIpV6AddressConfiguration"><tt class="xref py py-class docutils literal"><span class="pre">HostIpConfigIpV6AddressConfiguration</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.host_ip_config.HostIpConfig">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.host_ip_config.</tt><tt class="descname">HostIpConfig</tt><a class="headerlink" href="#pyvisdk.do.host_ip_config.HostIpConfig" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.host_ip_config.HostIpConfig.dhcp">
+<tt class="descname">dhcp</tt><a class="headerlink" href="#pyvisdk.do.host_ip_config.HostIpConfig.dhcp" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether or not DHCP (dynamic host control protocol) is enabled. If this property is set to true, the ipAddress and the subnetMask strings cannot be set explicitly.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_ip_config.HostIpConfig.ipAddress">
+<tt class="descname">ipAddress</tt><a class="headerlink" href="#pyvisdk.do.host_ip_config.HostIpConfig.ipAddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IP address currently used by the network adapter. All IP addresses are specified using IPv4 dot notation. For example, &#8220;192.168.0.1&#8221;. Subnet addresses and netmasks are specified using the same notation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_ip_config.HostIpConfig.ipV6Config">
+<tt class="descname">ipV6Config</tt><a class="headerlink" href="#pyvisdk.do.host_ip_config.HostIpConfig.ipV6Config" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ipv6 configuration</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_ip_config.HostIpConfig.subnetMask">
+<tt class="descname">subnetMask</tt><a class="headerlink" href="#pyvisdk.do.host_ip_config.HostIpConfig.subnetMask" title="Permalink to this definition">¶</a></dt>
+<dd><p>The subnet mask.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_ip_changed_event.html"
+                        title="previous chapter">4.545. HostIpChangedEvent</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_ip_config_ip_v6_address.html"
+                        title="next chapter">4.547. HostIpConfigIpV6Address</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/host_ip_config.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_ip_config_ip_v6_address.html" title="4.547. HostIpConfigIpV6Address"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_ip_changed_event.html" title="4.545. HostIpChangedEvent"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

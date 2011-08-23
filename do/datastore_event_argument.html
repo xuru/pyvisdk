@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.207. DatastoreEventArgument &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.208. DatastoreFileCopiedEvent" href="datastore_file_copied_event.html" />
+    <link rel="prev" title="4.206. DatastoreEvent" href="datastore_event.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="datastore_file_copied_event.html" title="4.208. DatastoreFileCopiedEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="datastore_event.html" title="4.206. DatastoreEvent"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="datastoreeventargument">
+<h1>4.207. DatastoreEventArgument<a class="headerlink" href="#datastoreeventargument" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="datastore_discovered_event.html#pyvisdk.do.datastore_discovered_event.DatastoreDiscoveredEvent" title="pyvisdk.do.datastore_discovered_event.DatastoreDiscoveredEvent"><tt class="xref py py-class docutils literal"><span class="pre">DatastoreDiscoveredEvent</span></tt></a>,
+<a class="reference internal" href="datastore_event.html#pyvisdk.do.datastore_event.DatastoreEvent" title="pyvisdk.do.datastore_event.DatastoreEvent"><tt class="xref py py-class docutils literal"><span class="pre">DatastoreEvent</span></tt></a>,
+<a class="reference internal" href="datastore_file_copied_event.html#pyvisdk.do.datastore_file_copied_event.DatastoreFileCopiedEvent" title="pyvisdk.do.datastore_file_copied_event.DatastoreFileCopiedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DatastoreFileCopiedEvent</span></tt></a>,
+<a class="reference internal" href="datastore_file_moved_event.html#pyvisdk.do.datastore_file_moved_event.DatastoreFileMovedEvent" title="pyvisdk.do.datastore_file_moved_event.DatastoreFileMovedEvent"><tt class="xref py py-class docutils literal"><span class="pre">DatastoreFileMovedEvent</span></tt></a>,
+<a class="reference internal" href="datastore_removed_on_host_event.html#pyvisdk.do.datastore_removed_on_host_event.DatastoreRemovedOnHostEvent" title="pyvisdk.do.datastore_removed_on_host_event.DatastoreRemovedOnHostEvent"><tt class="xref py py-class docutils literal"><span class="pre">DatastoreRemovedOnHostEvent</span></tt></a>,
+<a class="reference internal" href="event.html#pyvisdk.do.event.Event" title="pyvisdk.do.event.Event"><tt class="xref py py-class docutils literal"><span class="pre">Event</span></tt></a>,
+<a class="reference internal" href="local_datastore_created_event.html#pyvisdk.do.local_datastore_created_event.LocalDatastoreCreatedEvent" title="pyvisdk.do.local_datastore_created_event.LocalDatastoreCreatedEvent"><tt class="xref py py-class docutils literal"><span class="pre">LocalDatastoreCreatedEvent</span></tt></a>,
+<a class="reference internal" href="locker_misconfigured_event.html#pyvisdk.do.locker_misconfigured_event.LockerMisconfiguredEvent" title="pyvisdk.do.locker_misconfigured_event.LockerMisconfiguredEvent"><tt class="xref py py-class docutils literal"><span class="pre">LockerMisconfiguredEvent</span></tt></a>,
+<a class="reference internal" href="locker_reconfigured_event.html#pyvisdk.do.locker_reconfigured_event.LockerReconfiguredEvent" title="pyvisdk.do.locker_reconfigured_event.LockerReconfiguredEvent"><tt class="xref py py-class docutils literal"><span class="pre">LockerReconfiguredEvent</span></tt></a>,
+<a class="reference internal" href="nas_datastore_created_event.html#pyvisdk.do.nas_datastore_created_event.NASDatastoreCreatedEvent" title="pyvisdk.do.nas_datastore_created_event.NASDatastoreCreatedEvent"><tt class="xref py py-class docutils literal"><span class="pre">NASDatastoreCreatedEvent</span></tt></a>,
+<a class="reference internal" href="vmfs_datastore_created_event.html#pyvisdk.do.vmfs_datastore_created_event.VMFSDatastoreCreatedEvent" title="pyvisdk.do.vmfs_datastore_created_event.VMFSDatastoreCreatedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VMFSDatastoreCreatedEvent</span></tt></a>,
+<a class="reference internal" href="vmfs_datastore_expanded_event.html#pyvisdk.do.vmfs_datastore_expanded_event.VMFSDatastoreExpandedEvent" title="pyvisdk.do.vmfs_datastore_expanded_event.VMFSDatastoreExpandedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VMFSDatastoreExpandedEvent</span></tt></a>,
+<a class="reference internal" href="vmfs_datastore_extended_event.html#pyvisdk.do.vmfs_datastore_extended_event.VMFSDatastoreExtendedEvent" title="pyvisdk.do.vmfs_datastore_extended_event.VMFSDatastoreExtendedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VMFSDatastoreExtendedEvent</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">Datastore</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">EntityEventArgument</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.datastore_event_argument.DatastoreEventArgument">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.datastore_event_argument.</tt><tt class="descname">DatastoreEventArgument</tt><a class="headerlink" href="#pyvisdk.do.datastore_event_argument.DatastoreEventArgument" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.datastore_event_argument.DatastoreEventArgument.datastore">
+<tt class="descname">datastore</tt><a class="headerlink" href="#pyvisdk.do.datastore_event_argument.DatastoreEventArgument.datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Datastore object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="datastore_event.html"
+                        title="previous chapter">4.206. DatastoreEvent</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="datastore_file_copied_event.html"
+                        title="next chapter">4.208. DatastoreFileCopiedEvent</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/datastore_event_argument.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="datastore_file_copied_event.html" title="4.208. DatastoreFileCopiedEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="datastore_event.html" title="4.206. DatastoreEvent"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

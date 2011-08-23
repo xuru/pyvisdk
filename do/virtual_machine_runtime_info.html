@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1192. VirtualMachineRuntimeInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1193. VirtualMachineScsiDiskDeviceInfo" href="virtual_machine_scsi_disk_device_info.html" />
+    <link rel="prev" title="4.1191. VirtualMachineRelocateSpecDiskLocator" href="virtual_machine_relocate_spec_disk_locator.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_scsi_disk_device_info.html" title="4.1193. VirtualMachineScsiDiskDeviceInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_relocate_spec_disk_locator.html" title="4.1191. VirtualMachineRelocateSpecDiskLocator"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualmachineruntimeinfo">
+<h1>4.1192. VirtualMachineRuntimeInfo<a class="headerlink" href="#virtualmachineruntimeinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt>,
+<a class="reference internal" href="virtual_machine_summary.html#pyvisdk.do.virtual_machine_summary.VirtualMachineSummary" title="pyvisdk.do.virtual_machine_summary.VirtualMachineSummary"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineSummary</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineConnectionState</span></tt>,
+<a class="reference internal" href="virtual_machine_device_runtime_info.html#pyvisdk.do.virtual_machine_device_runtime_info.VirtualMachineDeviceRuntimeInfo" title="pyvisdk.do.virtual_machine_device_runtime_info.VirtualMachineDeviceRuntimeInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineDeviceRuntimeInfo</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineFaultToleranceState</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachinePowerState</span></tt>,
+<a class="reference internal" href="virtual_machine_question_info.html#pyvisdk.do.virtual_machine_question_info.VirtualMachineQuestionInfo" title="pyvisdk.do.virtual_machine_question_info.VirtualMachineQuestionInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineQuestionInfo</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineRecordReplayState</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.virtual_machine_runtime_info.</tt><tt class="descname">VirtualMachineRuntimeInfo</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.bootTime">
+<tt class="descname">bootTime</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.bootTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The timestamp when the virtual machine was most recently powered on.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.cleanPowerOff">
+<tt class="descname">cleanPowerOff</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.cleanPowerOff" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a powered off virtual machine, indicates whether the virtual machine&#8217;s last shutdown was an orderly power off or not. Unset if the virtual machine is running or suspended.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.connectionState">
+<tt class="descname">connectionState</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.connectionState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not the virtual machine is available for management.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.device">
+<tt class="descname">device</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Per-device runtime info. This array will be empty if the host software does not provide runtime info for any of the device types currently in use by the virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.faultToleranceState">
+<tt class="descname">faultToleranceState</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.faultToleranceState" title="Permalink to this definition">¶</a></dt>
+<dd><p>The fault tolerance state of the virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.host">
+<tt class="descname">host</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.host" title="Permalink to this definition">¶</a></dt>
+<dd><p>The host that is responsible for running a virtual machine. This property is null if the virtual machine is not running and is not assigned to run on a particular host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.maxCpuUsage">
+<tt class="descname">maxCpuUsage</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.maxCpuUsage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current upper-bound on CPU usage. The upper-bound is based on the host the virtual machine is current running on, as well as limits configured on the virtual machine itself or any parent resource pool. Valid while the virtual machine is running.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.maxMemoryUsage">
+<tt class="descname">maxMemoryUsage</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.maxMemoryUsage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current upper-bound on memory usage. The upper-bound is based on memory configuration of the virtual machine, as well as limits configured on the virtual machine itself or any parent resource pool. Valid while the virtual machine is running.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.memoryOverhead">
+<tt class="descname">memoryOverhead</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.memoryOverhead" title="Permalink to this definition">¶</a></dt>
+<dd><p>The amount of memory resource (in bytes) that will be used by the virtual machine above its guest memory requirements. This value is set if and only if the virtual machine is registered on a host that supports memory resource allocation features.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.minRequiredEVCModeKey">
+<tt class="descname">minRequiredEVCModeKey</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.minRequiredEVCModeKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a powered-on or suspended virtual machine in a cluster with Enhanced VMotion Compatibility (EVC) enabled, this identifies the least-featured EVC mode (among those for the appropriate CPU vendor) that could admit the virtual machine. See EVCMode. This property will be unset if the virtual machine is powered off or is not in an EVC cluster.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.needSecondaryReason">
+<tt class="descname">needSecondaryReason</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.needSecondaryReason" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, indicates the reason the virtual machine needs a secondary.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.numMksConnections">
+<tt class="descname">numMksConnections</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.numMksConnections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of active MKS connections to this virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.powerState">
+<tt class="descname">powerState</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.powerState" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current power state of the virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.question">
+<tt class="descname">question</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.question" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current question, if any, that is blocking the virtual machine&#8217;s execution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.recordReplayState">
+<tt class="descname">recordReplayState</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.recordReplayState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Record / replay state of this virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.suspendInterval">
+<tt class="descname">suspendInterval</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.suspendInterval" title="Permalink to this definition">¶</a></dt>
+<dd><p>The total time the virtual machine has been suspended since it was initially powered on. This time excludes the current period, if the virtual machine is currently suspended. This property is updated when the virtual machine resumes, and is reset to zero when the virtual machine is powered off.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.suspendTime">
+<tt class="descname">suspendTime</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.suspendTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The timestamp when the virtual machine was most recently suspended.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.toolsInstallerMounted">
+<tt class="descname">toolsInstallerMounted</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_runtime_info.VirtualMachineRuntimeInfo.toolsInstallerMounted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to indicate whether or not the VMware Tools installer is mounted as a CD-ROM.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_machine_relocate_spec_disk_locator.html"
+                        title="previous chapter">4.1191. VirtualMachineRelocateSpecDiskLocator</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_machine_scsi_disk_device_info.html"
+                        title="next chapter">4.1193. VirtualMachineScsiDiskDeviceInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/virtual_machine_runtime_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_scsi_disk_device_info.html" title="4.1193. VirtualMachineScsiDiskDeviceInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_relocate_spec_disk_locator.html" title="4.1191. VirtualMachineRelocateSpecDiskLocator"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

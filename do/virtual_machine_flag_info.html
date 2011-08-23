@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1173. VirtualMachineFlagInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1174. VirtualMachineFloppyInfo" href="virtual_machine_floppy_info.html" />
+    <link rel="prev" title="4.1172. VirtualMachineFileLayoutSnapshotLayout" href="virtual_machine_file_layout_snapshot_layout.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_floppy_info.html" title="4.1174. VirtualMachineFloppyInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_file_layout_snapshot_layout.html" title="4.1172. VirtualMachineFileLayoutSnapshotLayout"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualmachineflaginfo">
+<h1>4.1173. VirtualMachineFlagInfo<a class="headerlink" href="#virtualmachineflaginfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="virtual_machine_config_info.html#pyvisdk.do.virtual_machine_config_info.VirtualMachineConfigInfo" title="pyvisdk.do.virtual_machine_config_info.VirtualMachineConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineConfigInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_config_spec.html#pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec" title="pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineConfigSpec</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.virtual_machine_flag_info.</tt><tt class="descname">VirtualMachineFlagInfo</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.disableAcceleration">
+<tt class="descname">disableAcceleration</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.disableAcceleration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to turn off video acceleration for a virtual machine console window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.diskUuidEnabled">
+<tt class="descname">diskUuidEnabled</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.diskUuidEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether disk UUIDs are being used by this virtual machine. If this flag is set to false, disk UUIDs are not exposed to the guest.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.enableLogging">
+<tt class="descname">enableLogging</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.enableLogging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to enable logging for a virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.htSharing">
+<tt class="descname">htSharing</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.htSharing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies how the VCPUs of a virtual machine are allowed to share physical cores on a hyperthreaded system. Two VCPUs are &#8220;sharing&#8221; a core if they are both running on logical CPUs of the core at the same time.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.monitorType">
+<tt class="descname">monitorType</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.monitorType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Virtual machine monitor type. See VirtualMachineFlagInfoMonitorType for possible values for this property.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.recordReplayEnabled">
+<tt class="descname">recordReplayEnabled</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.recordReplayEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to specify whether record and replay operations are allowed for this virtual machine. If this flag is set to &#8216;true&#8217;, instruction virtualization will use hardware virtualization (HV) support. I.e., virtualExecUsage will be set to &#8216;hvOn&#8217;. If this flag is set to &#8216;false&#8217; for a virtual machine that already has a recording, replay will be disallowed, though the recording will be preserved. If the value is unset, the behavior &#8216;false&#8217; will be used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.runWithDebugInfo">
+<tt class="descname">runWithDebugInfo</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.runWithDebugInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to specify whether or not to run in debug mode.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.snapshotDisabled">
+<tt class="descname">snapshotDisabled</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.snapshotDisabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to specify whether snapshots are disabled for this virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.snapshotLocked">
+<tt class="descname">snapshotLocked</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.snapshotLocked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to specify whether the snapshot tree is locked for this virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.snapshotPowerOffBehavior">
+<tt class="descname">snapshotPowerOffBehavior</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.snapshotPowerOffBehavior" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies the power-off behavior for a virtual machine that has a snapshot. If the value is unset, the behavior &#8216;powerOff&#8217; will be used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.useToe">
+<tt class="descname">useToe</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.useToe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to specify whether or not to use TOE (TCP/IP Offloading).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.virtualExecUsage">
+<tt class="descname">virtualExecUsage</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.virtualExecUsage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not the system will try to use Hardware Virtualization (HV) support for instruction virtualization, if available.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.virtualMmuUsage">
+<tt class="descname">virtualMmuUsage</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_flag_info.VirtualMachineFlagInfo.virtualMmuUsage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not the system will try to use nested page table hardware support, if available.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_machine_file_layout_snapshot_layout.html"
+                        title="previous chapter">4.1172. VirtualMachineFileLayoutSnapshotLayout</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_machine_floppy_info.html"
+                        title="next chapter">4.1174. VirtualMachineFloppyInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/virtual_machine_flag_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_floppy_info.html" title="4.1174. VirtualMachineFloppyInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_file_layout_snapshot_layout.html" title="4.1172. VirtualMachineFileLayoutSnapshotLayout"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,160 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.648. HostScsiDisk &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.649. HostScsiDiskPartition" href="host_scsi_disk_partition.html" />
+    <link rel="prev" title="4.647. HostRuntimeInfo" href="host_runtime_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_scsi_disk_partition.html" title="4.649. HostScsiDiskPartition"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_runtime_info.html" title="4.647. HostRuntimeInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hostscsidisk">
+<h1>4.648. HostScsiDisk<a class="headerlink" href="#hostscsidisk" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="host_diagnostic_partition_create_option.html#pyvisdk.do.host_diagnostic_partition_create_option.HostDiagnosticPartitionCreateOption" title="pyvisdk.do.host_diagnostic_partition_create_option.HostDiagnosticPartitionCreateOption"><tt class="xref py py-class docutils literal"><span class="pre">HostDiagnosticPartitionCreateOption</span></tt></a>,
+<a class="reference internal" href="virtual_machine_scsi_disk_device_info.html#pyvisdk.do.virtual_machine_scsi_disk_device_info.VirtualMachineScsiDiskDeviceInfo" title="pyvisdk.do.virtual_machine_scsi_disk_device_info.VirtualMachineScsiDiskDeviceInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineScsiDiskDeviceInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="host_disk_dimensions_lba.html#pyvisdk.do.host_disk_dimensions_lba.HostDiskDimensionsLba" title="pyvisdk.do.host_disk_dimensions_lba.HostDiskDimensionsLba"><tt class="xref py py-class docutils literal"><span class="pre">HostDiskDimensionsLba</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ScsiLun</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">QueryAvailableDisksForVmfs()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.host_scsi_disk.HostScsiDisk">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.host_scsi_disk.</tt><tt class="descname">HostScsiDisk</tt><a class="headerlink" href="#pyvisdk.do.host_scsi_disk.HostScsiDisk" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.host_scsi_disk.HostScsiDisk.capacity">
+<tt class="descname">capacity</tt><a class="headerlink" href="#pyvisdk.do.host_scsi_disk.HostScsiDisk.capacity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of SCSI disk using the Logical Block Addressing scheme.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_scsi_disk.HostScsiDisk.devicePath">
+<tt class="descname">devicePath</tt><a class="headerlink" href="#pyvisdk.do.host_scsi_disk.HostScsiDisk.devicePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>The device path of the ScsiDisk. This device path is a file path that can be opened to create partitions on the disk.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_runtime_info.html"
+                        title="previous chapter">4.647. HostRuntimeInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_scsi_disk_partition.html"
+                        title="next chapter">4.649. HostScsiDiskPartition</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/host_scsi_disk.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_scsi_disk_partition.html" title="4.649. HostScsiDiskPartition"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_runtime_info.html" title="4.647. HostRuntimeInfo"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

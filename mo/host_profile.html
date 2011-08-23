@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.47. HostProfile &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.48. HostProfileManager" href="host_profile_manager.html" />
@@ -58,7 +58,10 @@
 <dl class="describe">
 <dt>
 <tt class="descname">See also</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostProfileConfigSpec</span></tt>, <a class="reference internal" href="host_system.html#pyvisdk.mo.host_system.HostSystem" title="pyvisdk.mo.host_system.HostSystem"><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">ProfileDeferredPolicyOptionParameter</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ProfileExecuteResult</span></tt></p>
+<dd><p><a class="reference internal" href="../do/host_profile_config_spec.html#pyvisdk.do.host_profile_config_spec.HostProfileConfigSpec" title="pyvisdk.do.host_profile_config_spec.HostProfileConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">HostProfileConfigSpec</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt>,
+<a class="reference internal" href="../do/profile_deferred_policy_option_parameter.html#pyvisdk.do.profile_deferred_policy_option_parameter.ProfileDeferredPolicyOptionParameter" title="pyvisdk.do.profile_deferred_policy_option_parameter.ProfileDeferredPolicyOptionParameter"><tt class="xref py py-class docutils literal"><span class="pre">ProfileDeferredPolicyOptionParameter</span></tt></a>,
+<a class="reference internal" href="../do/profile_execute_result.html#pyvisdk.do.profile_execute_result.ProfileExecuteResult" title="pyvisdk.do.profile_execute_result.ProfileExecuteResult"><tt class="xref py py-class docutils literal"><span class="pre">ProfileExecuteResult</span></tt></a></p>
 </dd></dl>
 
 <dl class="describe">
@@ -70,202 +73,7 @@
 <dl class="describe">
 <dt>
 <tt class="descname">Extends</tt></dt>
-<dd><p><a class="reference internal" href="profile.html#pyvisdk.mo.profile.Profile" title="pyvisdk.mo.profile.Profile"><tt class="xref py py-class docutils literal"><span class="pre">Profile</span></tt></a></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="pyvisdk.mo.host_profile.HostProfile">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.host_profile.</tt><tt class="descname">HostProfile</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='HostProfile'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_profile.html#HostProfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Properties</p>
-<dl class="method">
-<dt id="pyvisdk.mo.host_profile.HostProfile.AssociateProfile">
-<tt class="descname">AssociateProfile</tt><big>(</big><em>entity</em><big>)</big><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.AssociateProfile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Associate a profile with a managed entity.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; The entity(s) to associate with the profile. If entity is already associted with</td>
-</tr>
-</tbody>
-</table>
-<p>the profile, association is maintained and operation is treated as a no-
-op. throws InvalidType If the entity is of an unexpeted type. throws
-InvalidArgument If the association conflicts with existing association.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.host_profile.HostProfile.CheckProfileCompliance_Task">
-<tt class="descname">CheckProfileCompliance_Task</tt><big>(</big><em>entity</em><big>)</big><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.CheckProfileCompliance_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check compliance of an entity against a Profile.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; If specified, the compliance check is done against this entity. If the entity is</td>
-</tr>
-</tbody>
-</table>
-<p>not specified, a compliance check will be run on all the entities
-associated with the profile. Entity need not be associated with the
-profile.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.host_profile.HostProfile.DestroyProfile">
-<tt class="descname">DestroyProfile</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.DestroyProfile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Destory the Profile</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.host_profile.HostProfile.DissociateProfile">
-<tt class="descname">DissociateProfile</tt><big>(</big><em>entity</em><big>)</big><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.DissociateProfile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dissociate a profile from a managed entity.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; Entity(s) from which to dissociate the profile. If unset, the profile is</td>
-</tr>
-</tbody>
-</table>
-<p>dissociated from all managed entities it is currently associated with. If
-the specified entity is not associated with the profile, the operation is
-a no-op. throws InvalidArgument If the dissociation conflicts with
-existing association.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.host_profile.HostProfile.ExecuteHostProfile">
-<tt class="descname">ExecuteHostProfile</tt><big>(</big><em>host</em>, <em>deferredParam</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_profile.html#HostProfile.ExecuteHostProfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.ExecuteHostProfile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Execute the Profile Engine to calculate the list of configuration changes needed
-for the host.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>host</strong> &#8211; The host on which to execute the profile. The host needn&#8217;t be associated with the</td>
-</tr>
-</tbody>
-</table>
-<p>Profile.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>deferredParam</strong> &#8211; The inputs that the user has given till now. This should include all the inputs</td>
-</tr>
-</tbody>
-</table>
-<p>the user has given till now including the inputs from the previous round
-of the call.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">ProfileExecuteResult</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.host_profile.HostProfile.ExportProfile">
-<tt class="descname">ExportProfile</tt><big>(</big><big>)</big><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.ExportProfile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Export the profile into a serialized form. The serialized string can then be used
-to create a profile using SerializedCreateSpec</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">xsd:string</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.host_profile.HostProfile.UpdateHostProfile">
-<tt class="descname">UpdateHostProfile</tt><big>(</big><em>config</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_profile.html#HostProfile.UpdateHostProfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.UpdateHostProfile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update the HostProfile with the specified config.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>config</strong> &#8211; Specification which describes the changes.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.host_profile.HostProfile.UpdateReferenceHost">
-<tt class="descname">UpdateReferenceHost</tt><big>(</big><em>host</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_profile.html#HostProfile.UpdateReferenceHost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.UpdateReferenceHost" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update the reference host in use by the HostProfile.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>host</strong> &#8211; Reference host to use. If Unset, referenceHost is cleared.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_profile.HostProfile.complianceStatus">
-<tt class="descname">complianceStatus</tt><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.complianceStatus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Overall compliance of entities associated with this profile. If one of the
-entities is out of compliance, profile is out of compliance. If all
-entities are in compliance, profile is in compliance. If compliance status
-of one of the entities is unknown, compliance status of the profile is
-unknown. See</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_profile.HostProfile.config">
-<tt class="descname">config</tt><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configuration of the profile</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_profile.HostProfile.createdTime">
-<tt class="descname">createdTime</tt><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.createdTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Time at which the profile was created</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_profile.HostProfile.description">
-<tt class="descname">description</tt><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>Localizeable Description of the Profile</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_profile.HostProfile.entity">
-<tt class="descname">entity</tt><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.entity" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of ManagedEntities associated with the Profile</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_profile.HostProfile.modifiedTime">
-<tt class="descname">modifiedTime</tt><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.modifiedTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Time at which the profile was last modified</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_profile.HostProfile.referenceHost">
-<tt class="descname">referenceHost</tt><a class="reference internal" href="../modules/pyvisdk/mo/host_profile.html#HostProfile.referenceHost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_profile.HostProfile.referenceHost" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reference host in use for this HostProfile</p>
-</dd></dl>
-
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">Profile</span></tt></p>
 </dd></dl>
 
 </div>
@@ -284,7 +92,7 @@ unknown. See</p>
                         title="next chapter">3.48. HostProfileManager</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/mo/host_profile.txt"
+    <li><a href="../_sources/mo/host_profile.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

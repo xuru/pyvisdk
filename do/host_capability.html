@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.431. HostCapability &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.432. HostCnxFailedAccountFailedEvent" href="host_cnx_failed_account_failed_event.html" />
+    <link rel="prev" title="4.430. HostBootDeviceInfo" href="host_boot_device_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_cnx_failed_account_failed_event.html" title="4.432. HostCnxFailedAccountFailedEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="host_boot_device_info.html" title="4.430. HostBootDeviceInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hostcapability">
+<h1>4.431. HostCapability<a class="headerlink" href="#hostcapability" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="host_cpu_id_info.html#pyvisdk.do.host_cpu_id_info.HostCpuIdInfo" title="pyvisdk.do.host_cpu_id_info.HostCpuIdInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostCpuIdInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">QueryTargetCapabilities()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.host_capability.HostCapability">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.host_capability.</tt><tt class="descname">HostCapability</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.backgroundSnapshotsSupported">
+<tt class="descname">backgroundSnapshotsSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.backgroundSnapshotsSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether background snapshots are supported on this host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.cloneFromSnapshotSupported">
+<tt class="descname">cloneFromSnapshotSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.cloneFromSnapshotSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not cloning a virtual machine from a snapshot point is allowed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.cpuMemoryResourceConfigurationSupported">
+<tt class="descname">cpuMemoryResourceConfigurationSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.cpuMemoryResourceConfigurationSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether cpu and memory resource configuration is supported. If this is set to false, UpdateConfig, UpdateChildResourceConfiguration cannot be used for changing the cpu/memory resource configurations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.datastorePrincipalSupported">
+<tt class="descname">datastorePrincipalSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.datastorePrincipalSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether datastore principal user is supported on the host.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.deltaDiskBackingsSupported">
+<tt class="descname">deltaDiskBackingsSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.deltaDiskBackingsSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether explicitly creating arbirary configurations of delta disk backings is supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.ftCompatibilityIssues">
+<tt class="descname">ftCompatibilityIssues</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.ftCompatibilityIssues" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a host which doesn&#8217;t support Fault Tolerance, indicates all the reasons for the incompatibility. HostCapabilityFtUnsupportedReason lists the set of possible values.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.ftSupported">
+<tt class="descname">ftSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.ftSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether this host supports Fault Tolerance There can be many reasons why a host does not support Fault Tolerance, which includes CPU compatibility, product compatibility as well as other host configuration settings. For specific reasons, look into replayCompatibilityIssues and ftCompatibilityIssues</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.highGuestMemSupported">
+<tt class="descname">highGuestMemSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.highGuestMemSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is high guest memory supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.ipmiSupported">
+<tt class="descname">ipmiSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.ipmiSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether the host supports IPMI (Intelligent Platform Management Interface). XXX - Make ipmiSupported optional until there is a compatible hostagent.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.iscsiSupported">
+<tt class="descname">iscsiSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.iscsiSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is access to iSCSI devices supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.localSwapDatastoreSupported">
+<tt class="descname">localSwapDatastoreSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.localSwapDatastoreSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether the host supports selecting a datastore that that may be used to store virtual machine swapfiles.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.loginBySSLThumbprintSupported">
+<tt class="descname">loginBySSLThumbprintSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.loginBySSLThumbprintSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether this host supports SSL thumbprint authentication</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.maintenanceModeSupported">
+<tt class="descname">maintenanceModeSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.maintenanceModeSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is maintenance mode supported</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.maxRunningVMs">
+<tt class="descname">maxRunningVMs</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.maxRunningVMs" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum number of virtual machines that can be running simultaneously on this host. If this capability is not set, the number of virtual machines running simultaneously is unlimited.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.maxSupportedVcpus">
+<tt class="descname">maxSupportedVcpus</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.maxSupportedVcpus" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum number of virtual CPUs supported per virtual machine. If this capability is not set, the number is unlimited.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.maxSupportedVMs">
+<tt class="descname">maxSupportedVMs</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.maxSupportedVMs" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum number of virtual machines that can exist on this host. If this capability is not set, the number of virtual machines is unlimited.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.nfsSupported">
+<tt class="descname">nfsSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.nfsSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is access to NFS devices supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.nicTeamingSupported">
+<tt class="descname">nicTeamingSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.nicTeamingSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is NIC teaming supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.perVMNetworkTrafficShapingSupported">
+<tt class="descname">perVMNetworkTrafficShapingSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.perVMNetworkTrafficShapingSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether network traffic shaping on a per virtual machine basis is supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.perVmSwapFiles">
+<tt class="descname">perVmSwapFiles</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.perVmSwapFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether virtual machine execution on this host involves a swapfile for each virtual machine. If true, the swapfile placement for a powered-on virtual machine is advertised in its FileLayout by the swapFile property.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.preAssignedPCIUnitNumbersSupported">
+<tt class="descname">preAssignedPCIUnitNumbersSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.preAssignedPCIUnitNumbersSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to indicate whether the server returns unit numbers in a pre-assigned range for devices on the PCI bus. When the server supports this flag, the device unit number namespace is partitioned by device type. Different types of devices will sit in a specific range of unit numbers that may not correspond to physical slots in the pci bus but present a relative ordering of the devices with respect to other devices of the same type. Note that this does not mean that the user can set the relative ordering between device types, but only allows stable orderings between devices of the same type. The unit number will now clearly represent an ordering between devices of the same type. unitNumber This property is only available for devices on the pci controller.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.rebootSupported">
+<tt class="descname">rebootSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.rebootSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether rebooting the host is supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.recordReplaySupported">
+<tt class="descname">recordReplaySupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.recordReplaySupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether this host supports record and replay</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.recursiveResourcePoolsSupported">
+<tt class="descname">recursiveResourcePoolsSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.recursiveResourcePoolsSupported" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.replayCompatibilityIssues">
+<tt class="descname">replayCompatibilityIssues</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.replayCompatibilityIssues" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a host which doesn&#8217;t support replay, indicates all the reasons for the incompatibility. HostReplayUnsupportedReason lists the set of possible values.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.replayUnsupportedReason">
+<tt class="descname">replayUnsupportedReason</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.replayUnsupportedReason" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a host whose CPU doesn&#8217;t support replay, indicates the reason for the incompatibility. HostReplayUnsupportedReason represents the set of possible values.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.restrictedSnapshotRelocateSupported">
+<tt class="descname">restrictedSnapshotRelocateSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.restrictedSnapshotRelocateSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether this host supports relocation of virtual machines with snapshots. Must be true on the source and destination hosts for the relocation to work. Even if this is true, the following conditions must hold: 1) All the the vm&#8217;s files are in one directory prior to the relocate. 2) All of the vm&#8217;s files will be in one directory after the relocate. 3) The source and destination hosts are the same product version.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.sanSupported">
+<tt class="descname">sanSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.sanSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether access to SAN devices is supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.scaledScreenshotSupported">
+<tt class="descname">scaledScreenshotSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.scaledScreenshotSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether scaling is supported for screenshots retrieved over https. If true, screenshot retrieval supports the additional optional parameters &#8216;width&#8217; and &#8216;height&#8217;. After cropping, the returned image will be scaled to these dimensions. If only one of these parameters is specified, default behavior is to return an image roughly proportional to the source image.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.screenshotSupported">
+<tt class="descname">screenshotSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.screenshotSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether the screenshot retrival over https is supported for this host&#8217;s virtual machines. If true, a screenshot can be retrieved at the HTTPS relative path</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.shutdownSupported">
+<tt class="descname">shutdownSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.shutdownSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether the host can be powered off</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.standbySupported">
+<tt class="descname">standbySupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.standbySupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether you can put the host in a power down state, from which it can be powered up automatically.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.storageIORMSupported">
+<tt class="descname">storageIORMSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.storageIORMSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether the host supports storage I/O resource management.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.storageVMotionSupported">
+<tt class="descname">storageVMotionSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.storageVMotionSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether the storage of a powered-on virtual machine may be relocated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.supportedCpuFeature">
+<tt class="descname">supportedCpuFeature</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.supportedCpuFeature" title="Permalink to this definition">¶</a></dt>
+<dd><p>CPU feature set that is supported by the virtualization platform. This feature set may reflect characteristics of the product capabilities and licensing. For any feature marked &#8216;-&#8216;, reference the cpuFeature array of the host&#8217;s HardwareInfo to determine the correct value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.suspendedRelocateSupported">
+<tt class="descname">suspendedRelocateSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.suspendedRelocateSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether this host supports relocation of suspended virtual machines. Must be true on the source and destination hosts for the relocation to work.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.tpmSupported">
+<tt class="descname">tpmSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.tpmSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether this host supports the integrity measurement using a TPM device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.unsharedSwapVMotionSupported">
+<tt class="descname">unsharedSwapVMotionSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.unsharedSwapVMotionSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether the host supports participating in a VMotion where the virtual machine swapfile is not visible to the destination.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.virtualExecUsageSupported">
+<tt class="descname">virtualExecUsageSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.virtualExecUsageSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether the host supports configuring hardware virtualization (HV) support for virtual machines.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.vlanTaggingSupported">
+<tt class="descname">vlanTaggingSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.vlanTaggingSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is VLAN Tagging supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.vmDirectPathGen2Supported">
+<tt class="descname">vmDirectPathGen2Supported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.vmDirectPathGen2Supported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether the host supports network passthrough using VMDirectPath Gen 2. Note that this is a general capability for the host and is independent of support by a given physical NIC. If false, the reason(s) for lack of support will be provided in vmDirectPathGen2UnsupportedReason and/or in vmDirectPathGen2UnsupportedReasonExtended.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.vmDirectPathGen2UnsupportedReason">
+<tt class="descname">vmDirectPathGen2UnsupportedReason</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.vmDirectPathGen2UnsupportedReason" title="Permalink to this definition">¶</a></dt>
+<dd><p>If vmDirectPathGen2Supported is false, this array will be populated with reasons for the lack of support (chosen from VmDirectPathGen2UnsupportedReason). If there is a reason for the lack of support that cannot be described by the available constants, vmDirectPathGen2UnsupportedReasonExtended will be populated with an additional explanation provided by the platform.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.vmDirectPathGen2UnsupportedReasonExtended">
+<tt class="descname">vmDirectPathGen2UnsupportedReasonExtended</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.vmDirectPathGen2UnsupportedReasonExtended" title="Permalink to this definition">¶</a></dt>
+<dd><p>If vmDirectPathGen2Supported is false, this property may contain an explanation provided by the platform, beyond the reasons (if any) enumerated in vmDirectPathGen2UnsupportedReason.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.vmotionSupported">
+<tt class="descname">vmotionSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.vmotionSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating whether you can perform VMotion.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.vmotionWithStorageVMotionSupported">
+<tt class="descname">vmotionWithStorageVMotionSupported</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.vmotionWithStorageVMotionSupported" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether the storage of a powered-on virtual machine may be relocated while simultaneously changing the execution host of the virtual machine.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.host_capability.HostCapability.vStorageCapable">
+<tt class="descname">vStorageCapable</tt><a class="headerlink" href="#pyvisdk.do.host_capability.HostCapability.vStorageCapable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether the host supports vStorage Hardware acceleration.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="host_boot_device_info.html"
+                        title="previous chapter">4.430. HostBootDeviceInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="host_cnx_failed_account_failed_event.html"
+                        title="next chapter">4.432. HostCnxFailedAccountFailedEvent</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/host_capability.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="host_cnx_failed_account_failed_event.html" title="4.432. HostCnxFailedAccountFailedEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="host_boot_device_info.html" title="4.430. HostBootDeviceInfo"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

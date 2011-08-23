@@ -1,0 +1,209 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1044. VAppPropertyInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1045. VAppPropertySpec" href="v_app_property_spec.html" />
+    <link rel="prev" title="4.1043. VAppProductSpec" href="v_app_product_spec.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v_app_property_spec.html" title="4.1045. VAppPropertySpec"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="v_app_product_spec.html" title="4.1043. VAppProductSpec"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="vapppropertyinfo">
+<h1>4.1044. VAppPropertyInfo<a class="headerlink" href="#vapppropertyinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="ovf_parse_descriptor_result.html#pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult" title="pyvisdk.do.ovf_parse_descriptor_result.OvfParseDescriptorResult"><tt class="xref py py-class docutils literal"><span class="pre">OvfParseDescriptorResult</span></tt></a>,
+<a class="reference internal" href="v_app_property_spec.html#pyvisdk.do.v_app_property_spec.VAppPropertySpec" title="pyvisdk.do.v_app_property_spec.VAppPropertySpec"><tt class="xref py py-class docutils literal"><span class="pre">VAppPropertySpec</span></tt></a>,
+<a class="reference internal" href="vm_config_info.html#pyvisdk.do.vm_config_info.VmConfigInfo" title="pyvisdk.do.vm_config_info.VmConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">VmConfigInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.v_app_property_info.VAppPropertyInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.v_app_property_info.</tt><tt class="descname">VAppPropertyInfo</tt><a class="headerlink" href="#pyvisdk.do.v_app_property_info.VAppPropertyInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.v_app_property_info.VAppPropertyInfo.category">
+<tt class="descname">category</tt><a class="headerlink" href="#pyvisdk.do.v_app_property_info.VAppPropertyInfo.category" title="Permalink to this definition">¶</a></dt>
+<dd><p>A user-visible description the category the property belongs to.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_property_info.VAppPropertyInfo.classId">
+<tt class="descname">classId</tt><a class="headerlink" href="#pyvisdk.do.v_app_property_info.VAppPropertyInfo.classId" title="Permalink to this definition">¶</a></dt>
+<dd><p>class name for this property</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_property_info.VAppPropertyInfo.defaultValue">
+<tt class="descname">defaultValue</tt><a class="headerlink" href="#pyvisdk.do.v_app_property_info.VAppPropertyInfo.defaultValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>This either contains the default value of a field (used if value is empty string), or the expression if the type is &#8220;expression&#8221;. See comment for the</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_property_info.VAppPropertyInfo.description">
+<tt class="descname">description</tt><a class="headerlink" href="#pyvisdk.do.v_app_property_info.VAppPropertyInfo.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A description of the field.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_property_info.VAppPropertyInfo.id">
+<tt class="descname">id</tt><a class="headerlink" href="#pyvisdk.do.v_app_property_info.VAppPropertyInfo.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of property. In the OVF environment, the property is listed as [classId.]id[.instanceId]. The [classId.]name[.instanceId] must be unique.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_property_info.VAppPropertyInfo.instanceId">
+<tt class="descname">instanceId</tt><a class="headerlink" href="#pyvisdk.do.v_app_property_info.VAppPropertyInfo.instanceId" title="Permalink to this definition">¶</a></dt>
+<dd><p>class name for this property</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_property_info.VAppPropertyInfo.key">
+<tt class="descname">key</tt><a class="headerlink" href="#pyvisdk.do.v_app_property_info.VAppPropertyInfo.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unique integer key for the property.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_property_info.VAppPropertyInfo.label">
+<tt class="descname">label</tt><a class="headerlink" href="#pyvisdk.do.v_app_property_info.VAppPropertyInfo.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>The display name for the property.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_property_info.VAppPropertyInfo.type">
+<tt class="descname">type</tt><a class="headerlink" href="#pyvisdk.do.v_app_property_info.VAppPropertyInfo.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes the valid format of the property.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_property_info.VAppPropertyInfo.userConfigurable">
+<tt class="descname">userConfigurable</tt><a class="headerlink" href="#pyvisdk.do.v_app_property_info.VAppPropertyInfo.userConfigurable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the property is user-configurable or a system property. This is not used if the type is expression.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.v_app_property_info.VAppPropertyInfo.value">
+<tt class="descname">value</tt><a class="headerlink" href="#pyvisdk.do.v_app_property_info.VAppPropertyInfo.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value of the field at deployment time. For expressions, this will contain the value that has been computed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="v_app_product_spec.html"
+                        title="previous chapter">4.1043. VAppProductSpec</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="v_app_property_spec.html"
+                        title="next chapter">4.1045. VAppPropertySpec</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/v_app_property_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v_app_property_spec.html" title="4.1045. VAppPropertySpec"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="v_app_product_spec.html" title="4.1043. VAppProductSpec"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

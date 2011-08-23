@@ -1,0 +1,188 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.865. Permission &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.866. PermissionAddedEvent" href="permission_added_event.html" />
+    <link rel="prev" title="4.864. PerformanceStatisticsDescription" href="performance_statistics_description.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="permission_added_event.html" title="4.866. PermissionAddedEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="performance_statistics_description.html" title="4.864. PerformanceStatisticsDescription"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="permission">
+<h1>4.865. Permission<a class="headerlink" href="#permission" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">ResetEntityPermissions()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">SetEntityPermissions()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="host_enable_admin_failed_event.html#pyvisdk.do.host_enable_admin_failed_event.HostEnableAdminFailedEvent" title="pyvisdk.do.host_enable_admin_failed_event.HostEnableAdminFailedEvent"><tt class="xref py py-class docutils literal"><span class="pre">HostEnableAdminFailedEvent</span></tt></a>,
+<a class="reference internal" href="host_security_spec.html#pyvisdk.do.host_security_spec.HostSecuritySpec" title="pyvisdk.do.host_security_spec.HostSecuritySpec"><tt class="xref py py-class docutils literal"><span class="pre">HostSecuritySpec</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">RetrieveAllPermissions()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">RetrieveEntityPermissions()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">RetrieveRolePermissions()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.permission.Permission">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.permission.</tt><tt class="descname">Permission</tt><a class="headerlink" href="#pyvisdk.do.permission.Permission" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.permission.Permission.entity">
+<tt class="descname">entity</tt><a class="headerlink" href="#pyvisdk.do.permission.Permission.entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Managed entity the permission is defined on. Left unset when calling setPermissions or resetPermissions, but present for the results of permission queries.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.permission.Permission.group">
+<tt class="descname">group</tt><a class="headerlink" href="#pyvisdk.do.permission.Permission.group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether principal refers to a user or a group. True for a group and false for a user.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.permission.Permission.principal">
+<tt class="descname">principal</tt><a class="headerlink" href="#pyvisdk.do.permission.Permission.principal" title="Permalink to this definition">¶</a></dt>
+<dd><p>User or group receiving access in the form of &#8220;login&#8221; for local or &#8220;DOMAINlogin&#8221; for users in a Windows domain.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.permission.Permission.propagate">
+<tt class="descname">propagate</tt><a class="headerlink" href="#pyvisdk.do.permission.Permission.propagate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not this permission propagates down the hierarchy to sub-entities.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.permission.Permission.roleId">
+<tt class="descname">roleId</tt><a class="headerlink" href="#pyvisdk.do.permission.Permission.roleId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference to the role providing the access.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="performance_statistics_description.html"
+                        title="previous chapter">4.864. PerformanceStatisticsDescription</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="permission_added_event.html"
+                        title="next chapter">4.866. PermissionAddedEvent</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/permission.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="permission_added_event.html" title="4.866. PermissionAddedEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="performance_statistics_description.html" title="4.864. PerformanceStatisticsDescription"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

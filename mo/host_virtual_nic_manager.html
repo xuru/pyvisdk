@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.54. HostVirtualNicManager &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.55. HttpNfcLease" href="http_nfc_lease.html" />
@@ -58,13 +58,14 @@
 <dl class="describe">
 <dt>
 <tt class="descname">Property of</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostConfigManager</span></tt></p>
+<dd><p><a class="reference internal" href="../do/host_config_manager.html#pyvisdk.do.host_config_manager.HostConfigManager" title="pyvisdk.do.host_config_manager.HostConfigManager"><tt class="xref py py-class docutils literal"><span class="pre">HostConfigManager</span></tt></a></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">See also</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostVirtualNicManagerInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualNicManagerNetConfig</span></tt></p>
+<dd><p><a class="reference internal" href="../do/host_virtual_nic_manager_info.html#pyvisdk.do.host_virtual_nic_manager_info.HostVirtualNicManagerInfo" title="pyvisdk.do.host_virtual_nic_manager_info.HostVirtualNicManagerInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostVirtualNicManagerInfo</span></tt></a>,
+<a class="reference internal" href="../do/virtual_nic_manager_net_config.html#pyvisdk.do.virtual_nic_manager_net_config.VirtualNicManagerNetConfig" title="pyvisdk.do.virtual_nic_manager_net_config.VirtualNicManagerNetConfig"><tt class="xref py py-class docutils literal"><span class="pre">VirtualNicManagerNetConfig</span></tt></a></p>
 </dd></dl>
 
 <dl class="describe">
@@ -76,87 +77,7 @@
 <dl class="describe">
 <dt>
 <tt class="descname">Extends</tt></dt>
-<dd><p><a class="reference internal" href="extensible_managed_object.html#pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject" title="pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject"><tt class="xref py py-class docutils literal"><span class="pre">ExtensibleManagedObject</span></tt></a></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.host_virtual_nic_manager.</tt><tt class="descname">HostVirtualNicManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='HostVirtualNicManager'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_virtual_nic_manager.html#HostVirtualNicManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager" title="Permalink to this definition">¶</a></dt>
-<dd><p>Properties</p>
-<dl class="method">
-<dt id="pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager.DeselectVnicForNicType">
-<tt class="descname">DeselectVnicForNicType</tt><big>(</big><em>nicType</em>, <em>device</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_virtual_nic_manager.html#HostVirtualNicManager.DeselectVnicForNicType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager.DeselectVnicForNicType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deselect the VirtualNic to be a special type.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>nicType</strong> &#8211; The type of VirtualNic that would be deselected</li>
-<li><strong>device</strong> &#8211; The device that uniquely identifies the VirtualNic.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager.QueryNetConfig">
-<tt class="descname">QueryNetConfig</tt><big>(</big><em>nicType</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_virtual_nic_manager.html#HostVirtualNicManager.QueryNetConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager.QueryNetConfig" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the NetConfig for the specified nicType</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nicType</strong> &#8211; The NicType</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">VirtualNicManagerNetConfig</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager.SelectVnicForNicType">
-<tt class="descname">SelectVnicForNicType</tt><big>(</big><em>nicType</em>, <em>device</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/host_virtual_nic_manager.html#HostVirtualNicManager.SelectVnicForNicType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager.SelectVnicForNicType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Select the NicType of the VirtualNic. Selecting a device automatically deselects
-the previous selection if NetConfig#multiSelectAllowed is false for the
-specified nicType. Else, the device is added to the list of selected nics.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>nicType</strong> &#8211; The type of VirtualNic that would be selected</li>
-<li><strong>device</strong> &#8211; The device that uniquely identifies the VirtualNic.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager.availableField">
-<tt class="descname">availableField</tt><a class="headerlink" href="#pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager.availableField" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of custom field definitions that are valid for the object&#8217;s type. The fields
-are sorted by name.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager.info">
-<tt class="descname">info</tt><a class="reference internal" href="../modules/pyvisdk/mo/host_virtual_nic_manager.html#HostVirtualNicManager.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager.info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Network configuration.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager.value">
-<tt class="descname">value</tt><a class="headerlink" href="#pyvisdk.mo.host_virtual_nic_manager.HostVirtualNicManager.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of custom field values. Each value uses a key to associate an instance of a
-CustomFieldStringValue with a custom field definition.</p>
-</dd></dl>
-
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ExtensibleManagedObject</span></tt></p>
 </dd></dl>
 
 </div>
@@ -175,7 +96,7 @@ CustomFieldStringValue with a custom field definition.</p>
                         title="next chapter">3.55. HttpNfcLease</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/mo/host_virtual_nic_manager.txt"
+    <li><a href="../_sources/mo/host_virtual_nic_manager.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">

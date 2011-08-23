@@ -1,0 +1,188 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.927. ResourceConfigSpec &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.928. ResourcePoolCreatedEvent" href="resource_pool_created_event.html" />
+    <link rel="prev" title="4.926. ResourceConfigOption" href="resource_config_option.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="resource_pool_created_event.html" title="4.928. ResourcePoolCreatedEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="resource_config_option.html" title="4.926. ResourceConfigOption"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="resourceconfigspec">
+<h1>4.927. ResourceConfigSpec<a class="headerlink" href="#resourceconfigspec" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CreateResourcePool()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">CreateVApp()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">UpdateChildResourceConfiguration()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">UpdateConfig()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="host_system_resource_info.html#pyvisdk.do.host_system_resource_info.HostSystemResourceInfo" title="pyvisdk.do.host_system_resource_info.HostSystemResourceInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostSystemResourceInfo</span></tt></a>,
+<a class="reference internal" href="ovf_resource_map.html#pyvisdk.do.ovf_resource_map.OvfResourceMap" title="pyvisdk.do.ovf_resource_map.OvfResourceMap"><tt class="xref py py-class docutils literal"><span class="pre">OvfResourceMap</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">ResourcePool</span></tt>,
+<a class="reference internal" href="resource_pool_summary.html#pyvisdk.do.resource_pool_summary.ResourcePoolSummary" title="pyvisdk.do.resource_pool_summary.ResourcePoolSummary"><tt class="xref py py-class docutils literal"><span class="pre">ResourcePoolSummary</span></tt></a>,
+<a class="reference internal" href="v_app_clone_spec.html#pyvisdk.do.v_app_clone_spec.VAppCloneSpec" title="pyvisdk.do.v_app_clone_spec.VAppCloneSpec"><tt class="xref py py-class docutils literal"><span class="pre">VAppCloneSpec</span></tt></a>,
+<a class="reference internal" href="v_app_clone_spec_resource_map.html#pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap" title="pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap"><tt class="xref py py-class docutils literal"><span class="pre">VAppCloneSpecResourceMap</span></tt></a>,
+<a class="reference internal" href="virtual_app_import_spec.html#pyvisdk.do.virtual_app_import_spec.VirtualAppImportSpec" title="pyvisdk.do.virtual_app_import_spec.VirtualAppImportSpec"><tt class="xref py py-class docutils literal"><span class="pre">VirtualAppImportSpec</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt>,
+<a class="reference internal" href="resource_allocation_info.html#pyvisdk.do.resource_allocation_info.ResourceAllocationInfo" title="pyvisdk.do.resource_allocation_info.ResourceAllocationInfo"><tt class="xref py py-class docutils literal"><span class="pre">ResourceAllocationInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.resource_config_spec.ResourceConfigSpec">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.resource_config_spec.</tt><tt class="descname">ResourceConfigSpec</tt><a class="headerlink" href="#pyvisdk.do.resource_config_spec.ResourceConfigSpec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.resource_config_spec.ResourceConfigSpec.changeVersion">
+<tt class="descname">changeVersion</tt><a class="headerlink" href="#pyvisdk.do.resource_config_spec.ResourceConfigSpec.changeVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>The changeVersion is a unique identifier for a given version of the configuration. Each change to the configuration will update this value. This is typically implemented as an ever increasing count or a time-stamp. However, a client should always treat this as an opaque string.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.resource_config_spec.ResourceConfigSpec.cpuAllocation">
+<tt class="descname">cpuAllocation</tt><a class="headerlink" href="#pyvisdk.do.resource_config_spec.ResourceConfigSpec.cpuAllocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resource allocation for CPU.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.resource_config_spec.ResourceConfigSpec.entity">
+<tt class="descname">entity</tt><a class="headerlink" href="#pyvisdk.do.resource_config_spec.ResourceConfigSpec.entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference to the entity with this resource specification: either a VirtualMachine or a ResourcePool.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.resource_config_spec.ResourceConfigSpec.lastModified">
+<tt class="descname">lastModified</tt><a class="headerlink" href="#pyvisdk.do.resource_config_spec.ResourceConfigSpec.lastModified" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp when the resources were last modified. This is ignored when the object is used to update a configuration.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.resource_config_spec.ResourceConfigSpec.memoryAllocation">
+<tt class="descname">memoryAllocation</tt><a class="headerlink" href="#pyvisdk.do.resource_config_spec.ResourceConfigSpec.memoryAllocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resource allocation for memory.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="resource_config_option.html"
+                        title="previous chapter">4.926. ResourceConfigOption</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="resource_pool_created_event.html"
+                        title="next chapter">4.928. ResourcePoolCreatedEvent</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/resource_config_spec.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="resource_pool_created_event.html" title="4.928. ResourcePoolCreatedEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="resource_config_option.html" title="4.926. ResourceConfigOption"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

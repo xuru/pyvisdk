@@ -1,0 +1,184 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.861. PerfQuerySpec &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.862. PerfSampleInfo" href="perf_sample_info.html" />
+    <link rel="prev" title="4.860. PerfProviderSummary" href="perf_provider_summary.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="perf_sample_info.html" title="4.862. PerfSampleInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="perf_provider_summary.html" title="4.860. PerfProviderSummary"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="perfqueryspec">
+<h1>4.861. PerfQuerySpec<a class="headerlink" href="#perfqueryspec" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">QueryPerf()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">QueryPerfComposite()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="perf_metric_id.html#pyvisdk.do.perf_metric_id.PerfMetricId" title="pyvisdk.do.perf_metric_id.PerfMetricId"><tt class="xref py py-class docutils literal"><span class="pre">PerfMetricId</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.perf_query_spec.PerfQuerySpec">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.perf_query_spec.</tt><tt class="descname">PerfQuerySpec</tt><a class="headerlink" href="#pyvisdk.do.perf_query_spec.PerfQuerySpec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.perf_query_spec.PerfQuerySpec.endTime">
+<tt class="descname">endTime</tt><a class="headerlink" href="#pyvisdk.do.perf_query_spec.PerfQuerySpec.endTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time up to which statistics are retrieved. Corresponds to server time. When endTime is omitted, the returned result includes up to the most recent metric value. When an endTime is specified, the returned samples include the sample at endTime.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.perf_query_spec.PerfQuerySpec.entity">
+<tt class="descname">entity</tt><a class="headerlink" href="#pyvisdk.do.perf_query_spec.PerfQuerySpec.entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The managed object whose performance statistics are being queried.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.perf_query_spec.PerfQuerySpec.format">
+<tt class="descname">format</tt><a class="headerlink" href="#pyvisdk.do.perf_query_spec.PerfQuerySpec.format" title="Permalink to this definition">¶</a></dt>
+<dd><p>The format to be used while returning the statistics.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.perf_query_spec.PerfQuerySpec.intervalId">
+<tt class="descname">intervalId</tt><a class="headerlink" href="#pyvisdk.do.perf_query_spec.PerfQuerySpec.intervalId" title="Permalink to this definition">¶</a></dt>
+<dd><p>The interval (samplingPeriod), in seconds, for the performance statistics. For aggregated information, use one of the historical intervals for this property. See PerfInterval for more information. * To obtain the greatest detail, use the providers refreshRate for this property.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.perf_query_spec.PerfQuerySpec.maxSample">
+<tt class="descname">maxSample</tt><a class="headerlink" href="#pyvisdk.do.perf_query_spec.PerfQuerySpec.maxSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Limits the number of samples returned. Defaults to the most recent sample (or samples), unless a time range is specified. Use this property only in conjunction with the intervalId to obtain real-time statistics (set the intervalId to the refreshRate. This property is ignored for historical statistics, and is not valid for the QueryPerfComposite operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.perf_query_spec.PerfQuerySpec.metricId">
+<tt class="descname">metricId</tt><a class="headerlink" href="#pyvisdk.do.perf_query_spec.PerfQuerySpec.metricId" title="Permalink to this definition">¶</a></dt>
+<dd><p>The performance metrics to be retrieved. This property is required for the QueryPerfComposite operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.perf_query_spec.PerfQuerySpec.startTime">
+<tt class="descname">startTime</tt><a class="headerlink" href="#pyvisdk.do.perf_query_spec.PerfQuerySpec.startTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The server time from which to obtain counters. If not specified, defaults to the first available counter. When a startTime is specified, the returned samples do not include the sample at startTime.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="perf_provider_summary.html"
+                        title="previous chapter">4.860. PerfProviderSummary</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="perf_sample_info.html"
+                        title="next chapter">4.862. PerfSampleInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/perf_query_spec.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="perf_sample_info.html" title="4.862. PerfSampleInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="perf_provider_summary.html" title="4.860. PerfProviderSummary"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

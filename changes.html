@@ -7,9 +7,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>4. Changes &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="static/default.css" type="text/css" />
-    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <title>5. Changes &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
@@ -19,11 +19,11 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="static/jquery.js"></script>
-    <script type="text/javascript" src="static/underscore.js"></script>
-    <script type="text/javascript" src="static/doctools.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="index.html" />
-    <link rel="prev" title="3.92. VmwareDistributedVirtualSwitch" href="mo/vmware_distributed_virtual_switch.html" /> 
+    <link rel="prev" title="4.1428. WinNetBIOSConfigInfo" href="do/win_net_bios_config_info.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,7 +36,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="mo/vmware_distributed_virtual_switch.html" title="3.92. VmwareDistributedVirtualSwitch"
+          <a href="do/win_net_bios_config_info.html" title="4.1428. WinNetBIOSConfigInfo"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">pyvisdk v0.6 documentation</a> &raquo;</li> 
       </ul>
@@ -48,7 +48,64 @@
           <div class="body">
             
   <div class="section" id="changes">
-<h1>4. Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h1>
+<h1>5. Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-0-7-aug-18-2011">
+<h2>5.1. Version 0.7 (Aug 18, 2011)<a class="headerlink" href="#version-0-7-aug-18-2011" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="core-updates">
+<h3>5.1.1. Core Updates<a class="headerlink" href="#core-updates" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added locale option for the login method.</li>
+<li>Changed <cite>getHosts</cite> to <tt class="xref py py-meth docutils literal"><span class="pre">pyvisdk.vim.getHostSystems()</span></tt></li>
+<li>Removed <cite>pyvisdk.vim.getVirtualMachinesIter</cite> as it queries the full list anyway.</li>
+<li>Core now uses it&#8217;s own managed objects.</li>
+<li><tt class="xref py py-meth docutils literal"><span class="pre">pyvisdk.vim.getObjectProperties()</span></tt> now takes a parent as an argument instead of a collector.</li>
+<li>Now uses data objects for the specs</li>
+<li>Added the method <tt class="xref py py-meth docutils literal"><span class="pre">pyvisdk.new()</span></tt> to <tt class="xref py py-mod docutils literal"><span class="pre">pyvisdk</span></tt> to shortcut the creation of Vim objects.  Used mostly for testing.</li>
+</ul>
+</div>
+<div class="section" id="data-objects-and-managed-objects">
+<h3>5.1.2. Data Objects and Managed Objects<a class="headerlink" href="#data-objects-and-managed-objects" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>When methods are called off Managed Objects, arguments that are managed objects make sure the reference is used.</li>
+<li>The return values of methods now return pyvisdk managed objects instead of suds objects (except Retrieve Properties)</li>
+<li>If the name is passed in, but the ref isn&#8217;t passed in to the managed object, it will search for the managed object.</li>
+<li>All managed objects have name as a property now.</li>
+<li>When updating a property, if the data returned is a list of one element, it will return just the one element instead.</li>
+<li>Added getDecendants method on all managed objects.</li>
+<li>Updated data objects to make sure it uses the signature arguments before inherited arguments.</li>
+<li>Changed from generating the data objects as classes, and instead, generate a factory method that creates the data object for you.</li>
+<li>Updated documentation.</li>
+</ul>
+</div>
+<div class="section" id="app">
+<h3>5.1.3. App<a class="headerlink" href="#app" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Updated the options to use all the options available in the perl SDK</li>
+<li>Added more commandline switchs to match the SDK</li>
+</ul>
+</div>
+<div class="section" id="other-updates">
+<h3>5.1.4. Other Updates<a class="headerlink" href="#other-updates" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Added automatically generated code for all data objects using Scrapy.</li>
+<li>Added all enumerations to pyvisdk.enums.</li>
+<li>Added samples directory to implement some of the same samples as the SDK.</li>
+<li>Added dataflake.cache and enum to the list of install_requires.</li>
+<li>Added ipython buildout recipe.</li>
+<li>Added buildout configuration to build the library.</li>
+<li>Added third party package enum 0.4.4 (<a class="reference external" href="http://pypi.python.org/pypi/enum/0.4.4">http://pypi.python.org/pypi/enum/0.4.4</a>).</li>
+<li>Changed around the docs directory to seperate the source and build areas.</li>
+<li>Updated test cases to reflect the new generated code.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-0-6-aug-1-2011">
+<h2>5.2. Version 0.6 (Aug 1, 2011)<a class="headerlink" href="#version-0-6-aug-1-2011" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>New documentation</li>
+<li>Automagically generated code for all Managed Objects (thanks to scrapy)</li>
+</ul>
+</div>
 </div>
 
 
@@ -57,12 +114,27 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5. Changes</a><ul>
+<li><a class="reference internal" href="#version-0-7-aug-18-2011">5.1. Version 0.7 (Aug 18, 2011)</a><ul>
+<li><a class="reference internal" href="#core-updates">5.1.1. Core Updates</a></li>
+<li><a class="reference internal" href="#data-objects-and-managed-objects">5.1.2. Data Objects and Managed Objects</a></li>
+<li><a class="reference internal" href="#app">5.1.3. App</a></li>
+<li><a class="reference internal" href="#other-updates">5.1.4. Other Updates</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#version-0-6-aug-1-2011">5.2. Version 0.6 (Aug 1, 2011)</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="mo/vmware_distributed_virtual_switch.html"
-                        title="previous chapter">3.92. VmwareDistributedVirtualSwitch</a></p>
+  <p class="topless"><a href="do/win_net_bios_config_info.html"
+                        title="previous chapter">4.1428. WinNetBIOSConfigInfo</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="sources/changes.txt"
+    <li><a href="_sources/changes.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -92,7 +164,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="mo/vmware_distributed_virtual_switch.html" title="3.92. VmwareDistributedVirtualSwitch"
+          <a href="do/win_net_bios_config_info.html" title="4.1428. WinNetBIOSConfigInfo"
              >previous</a> |</li>
         <li><a href="index.html">pyvisdk v0.6 documentation</a> &raquo;</li> 
       </ul>

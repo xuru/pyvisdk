@@ -1,0 +1,192 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.host_datastore_browser &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.host_datastore_browser</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.base_entity</span> <span class="kn">import</span> <span class="n">BaseEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">HostDatastoreBrowser</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="HostDatastoreBrowser"><a class="viewcode-back" href="../../../mo/host_datastore_browser.html#pyvisdk.mo.host_datastore_browser.HostDatastoreBrowser">[docs]</a>    <span class="sd">&#39;&#39;&#39;The DatastoreBrowser managed object type provides access to the contents of one or</span>
+<span class="sd">        more datastores. The items in a datastore are files that contain</span>
+<span class="sd">        configuration, virtual disk, and the other data associated with a virtual</span>
+<span class="sd">        machine.Although datastores may often be implemented using a traditional</span>
+<span class="sd">        file system, a full interface to a file system is not provided here.</span>
+<span class="sd">        Instead, specialized access for virtual machine files is provided. A</span>
+<span class="sd">        datastore implementation may completely hide the file directory</span>
+<span class="sd">        structure.The intent is to provide functionality analogous to a file</span>
+<span class="sd">        chooser in a user interface.Files on datastores do not have independent</span>
+<span class="sd">        permissions through this API. Instead, the permissions for all the files</span>
+<span class="sd">        on a datastore derive from the datastore object itself. It is not possible</span>
+<span class="sd">        to change individual file permissions as the user browsing the datastore</span>
+<span class="sd">        may not necessarily be a recognized user from the point of view of the</span>
+<span class="sd">        host changing the permission. This occurs if the user browsing the</span>
+<span class="sd">        datastore is doing so through the VirtualCenter management server.The</span>
+<span class="sd">        DatastoreBrowser provides many ways to customize a search for files. A</span>
+<span class="sd">        search can be customized by specifying the types of files to be searched,</span>
+<span class="sd">        search criteria specific to a file type, and the amount of detail about</span>
+<span class="sd">        each file. The most basic queries only use file details and are efficient</span>
+<span class="sd">        with limited side effects. For these queries, file metadata details can be</span>
+<span class="sd">        optionally retrieved, but the files themselves are opened and their</span>
+<span class="sd">        contents examined. As a result, these files are not necessarily</span>
+<span class="sd">        validated.More complicated queries can be formed by specifying the</span>
+<span class="sd">        specific types of files to be searched, the parameters to filter for each</span>
+<span class="sd">        type, and the desired level of detail about each file. This method of</span>
+<span class="sd">        searching for files is convenient because it allows additional data about</span>
+<span class="sd">        the virtual machine component to be retrieved. In addition, certain</span>
+<span class="sd">        validation checks can be performed on matched files as an inherent part of</span>
+<span class="sd">        the details collection process. However, gathering extra details or the</span>
+<span class="sd">        use of type specific filters can sometimes only be implemented by</span>
+<span class="sd">        examining the contents of a file. As a result, the use of these</span>
+<span class="sd">        conveniences comes with the cost of additional latency in the request and</span>
+<span class="sd">        possible side effects on the system as a whole. See FileInfo</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">HostDatastoreBrowser</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">HostDatastoreBrowser</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">datastore</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostDatastoreBrowser.datastore"><a class="viewcode-back" href="../../../mo/host_datastore_browser.html#pyvisdk.mo.host_datastore_browser.HostDatastoreBrowser.datastore">[docs]</a>        <span class="sd">&#39;&#39;&#39;Set of datastores that can be searched on this DatastoreBrowser.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;datastore&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">supportedType</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostDatastoreBrowser.supportedType"><a class="viewcode-back" href="../../../mo/host_datastore_browser.html#pyvisdk.mo.host_datastore_browser.HostDatastoreBrowser.supportedType">[docs]</a>        <span class="sd">&#39;&#39;&#39;The list of supported file types. The supported file types are represented as</span>
+<span class="sd">        items in this list. For each supported file type, there is an object in</span>
+<span class="sd">        the list whose dynamic type is one of the types derived from the FileQuery</span>
+<span class="sd">        data object type. In general, the properties in this query type are not</span>
+<span class="sd">        set.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;supportedType&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">DeleteFile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreBrowser.DeleteFile"><a class="viewcode-back" href="../../../mo/host_datastore_browser.html#pyvisdk.mo.host_datastore_browser.HostDatastoreBrowser.DeleteFile">[docs]</a>        <span class="sd">&#39;&#39;&#39;Deprecated. As of VI API 2.5, use DeleteDatastoreFile_Task. Deletes the specified</span>
+<span class="sd">        files from the datastore. If a valid virtual disk file is specified, then</span>
+<span class="sd">        all the components of the virtual disk are deleted.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;DeleteFile&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">SearchDatastore_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreBrowser.SearchDatastore_Task"><a class="viewcode-back" href="../../../mo/host_datastore_browser.html#pyvisdk.mo.host_datastore_browser.HostDatastoreBrowser.SearchDatastore_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Returns the information for the files that match the given search criteria as a</span>
+<span class="sd">        SearchResults object. Searches only the folder specified by the datastore</span>
+<span class="sd">        path. The Datastore.Browse privilege must be held on the datastore</span>
+<span class="sd">        identified by the datastore path.</span>
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;SearchDatastore_Task&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">SearchDatastoreSubFolders_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreBrowser.SearchDatastoreSubFolders_Task"><a class="viewcode-back" href="../../../mo/host_datastore_browser.html#pyvisdk.mo.host_datastore_browser.HostDatastoreBrowser.SearchDatastoreSubFolders_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Returns the information for the files that match the given search criteria as a</span>
+<span class="sd">        SearchResults[] object. Searches the folder specified by the datastore</span>
+<span class="sd">        path and all subfolders. The Datastore.Browse privilege must be held on</span>
+<span class="sd">        the datastore identified by the datastore path.</span>
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;SearchDatastoreSubFolders_Task&quot;</span><span class="p">)()</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

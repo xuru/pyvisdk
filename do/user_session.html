@@ -1,0 +1,188 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1030. UserSession &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1031. UserUnassignedFromGroup" href="user_unassigned_from_group.html" />
+    <link rel="prev" title="4.1029. UserSearchResult" href="user_search_result.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="user_unassigned_from_group.html" title="4.1031. UserUnassignedFromGroup"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="user_search_result.html" title="4.1029. UserSearchResult"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="usersession">
+<h1>4.1030. UserSession<a class="headerlink" href="#usersession" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">SessionManager</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CloneSession()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">ImpersonateUser()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">Login()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">LoginBySSPI()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">LoginExtensionByCertificate()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">LoginExtensionBySubjectName()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.user_session.UserSession">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.user_session.</tt><tt class="descname">UserSession</tt><a class="headerlink" href="#pyvisdk.do.user_session.UserSession" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.user_session.UserSession.fullName">
+<tt class="descname">fullName</tt><a class="headerlink" href="#pyvisdk.do.user_session.UserSession.fullName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The full name of the user, if available.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.user_session.UserSession.key">
+<tt class="descname">key</tt><a class="headerlink" href="#pyvisdk.do.user_session.UserSession.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unique identifier for this session, also known as the session ID.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.user_session.UserSession.lastActiveTime">
+<tt class="descname">lastActiveTime</tt><a class="headerlink" href="#pyvisdk.do.user_session.UserSession.lastActiveTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp when the user last executed a command.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.user_session.UserSession.locale">
+<tt class="descname">locale</tt><a class="headerlink" href="#pyvisdk.do.user_session.UserSession.locale" title="Permalink to this definition">¶</a></dt>
+<dd><p>The locale for the session used for data formatting and preferred for messages.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.user_session.UserSession.loginTime">
+<tt class="descname">loginTime</tt><a class="headerlink" href="#pyvisdk.do.user_session.UserSession.loginTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp when the user last logged on to the server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.user_session.UserSession.messageLocale">
+<tt class="descname">messageLocale</tt><a class="headerlink" href="#pyvisdk.do.user_session.UserSession.messageLocale" title="Permalink to this definition">¶</a></dt>
+<dd><p>The locale used for messages for the session. If there are no localized messages for the user-specified locale, then the server determines this locale.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.user_session.UserSession.userName">
+<tt class="descname">userName</tt><a class="headerlink" href="#pyvisdk.do.user_session.UserSession.userName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The user name represented by this session.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="user_search_result.html"
+                        title="previous chapter">4.1029. UserSearchResult</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="user_unassigned_from_group.html"
+                        title="next chapter">4.1031. UserUnassignedFromGroup</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/user_session.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="user_unassigned_from_group.html" title="4.1031. UserUnassignedFromGroup"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="user_search_result.html" title="4.1029. UserSearchResult"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1. AboutInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.2. AccountCreatedEvent" href="account_created_event.html" />
+    <link rel="prev" title="4. Data Objects" href="../do.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="account_created_event.html" title="4.2. AccountCreatedEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../do.html" title="4. Data Objects"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="aboutinfo">
+<h1>4.1. AboutInfo<a class="headerlink" href="#aboutinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="host_config_info.html#pyvisdk.do.host_config_info.HostConfigInfo" title="pyvisdk.do.host_config_info.HostConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">HostConfigInfo</span></tt></a>,
+<a class="reference internal" href="host_config_summary.html#pyvisdk.do.host_config_summary.HostConfigSummary" title="pyvisdk.do.host_config_summary.HostConfigSummary"><tt class="xref py py-class docutils literal"><span class="pre">HostConfigSummary</span></tt></a>,
+<a class="reference internal" href="service_content.html#pyvisdk.do.service_content.ServiceContent" title="pyvisdk.do.service_content.ServiceContent"><tt class="xref py py-class docutils literal"><span class="pre">ServiceContent</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.about_info.AboutInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.about_info.</tt><tt class="descname">AboutInfo</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.about_info.AboutInfo.apiType">
+<tt class="descname">apiType</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo.apiType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether or not the service instance represents a standalone host. If the service instance represents a standalone host, then the physical inventory for that service instance is fixed to that single host. VirtualCenter server provides additional features over single hosts. For example, VirtualCenter offers multi-host management.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.about_info.AboutInfo.apiVersion">
+<tt class="descname">apiVersion</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo.apiVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>The version of the API as a dot-separated string. For example, &#8220;1.0.0&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.about_info.AboutInfo.build">
+<tt class="descname">build</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build string for the server on which this call is made. For example, x.y.z-num. This string does not apply to the API.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.about_info.AboutInfo.fullName">
+<tt class="descname">fullName</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo.fullName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The complete product name, including the version information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.about_info.AboutInfo.instanceUuid">
+<tt class="descname">instanceUuid</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo.instanceUuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>A globally unique identifier associated with this service instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.about_info.AboutInfo.licenseProductName">
+<tt class="descname">licenseProductName</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo.licenseProductName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The license product name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.about_info.AboutInfo.licenseProductVersion">
+<tt class="descname">licenseProductVersion</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo.licenseProductVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>The license product version</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.about_info.AboutInfo.localeBuild">
+<tt class="descname">localeBuild</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo.localeBuild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build number for the current session&#8217;s locale. Typically, this is a small number reflecting a localization change from the normal product build.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.about_info.AboutInfo.localeVersion">
+<tt class="descname">localeVersion</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo.localeVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Version of the message catalog for the current session&#8217;s locale.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.about_info.AboutInfo.name">
+<tt class="descname">name</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Short form of the product name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.about_info.AboutInfo.osType">
+<tt class="descname">osType</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo.osType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operating system type and architecture.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.about_info.AboutInfo.productLineId">
+<tt class="descname">productLineId</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo.productLineId" title="Permalink to this definition">¶</a></dt>
+<dd><p>The product ID is a unique identifier for a product line.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.about_info.AboutInfo.vendor">
+<tt class="descname">vendor</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo.vendor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the vendor of this product.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.about_info.AboutInfo.version">
+<tt class="descname">version</tt><a class="headerlink" href="#pyvisdk.do.about_info.AboutInfo.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dot-separated version string. For example, &#8220;1.2&#8221;.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../do.html"
+                        title="previous chapter">4. Data Objects</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="account_created_event.html"
+                        title="next chapter">4.2. AccountCreatedEvent</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/about_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="account_created_event.html" title="4.2. AccountCreatedEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../do.html" title="4. Data Objects"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

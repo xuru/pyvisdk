@@ -7,9 +7,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>3.84. ViewManager &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <title>3.86. ViewManager &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,13 +19,13 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
-    <link rel="next" title="3.85. VirtualApp" href="virtual_app.html" />
-    <link rel="prev" title="3.83. View" href="view.html" /> 
+    <link rel="next" title="3.87. VirtualApp" href="virtual_app.html" />
+    <link rel="prev" title="3.85. View" href="view.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,10 +38,10 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="virtual_app.html" title="3.85. VirtualApp"
+          <a href="virtual_app.html" title="3.87. VirtualApp"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="view.html" title="3.83. View"
+          <a href="view.html" title="3.85. View"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
           <li><a href="../mo.html" accesskey="U">3. Managed Objects</a> &raquo;</li> 
@@ -54,167 +54,27 @@
           <div class="body">
             
   <div class="section" id="viewmanager">
-<h1>3.84. ViewManager<a class="headerlink" href="#viewmanager" title="Permalink to this headline">¶</a></h1>
+<h1>3.86. ViewManager<a class="headerlink" href="#viewmanager" title="Permalink to this headline">¶</a></h1>
 <dl class="describe">
 <dt>
 <tt class="descname">Property of</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ServiceContent</span></tt></p>
+<dd><p><a class="reference internal" href="../do/service_content.html#pyvisdk.do.service_content.ServiceContent" title="pyvisdk.do.service_content.ServiceContent"><tt class="xref py py-class docutils literal"><span class="pre">ServiceContent</span></tt></a></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">See also</tt></dt>
-<dd><p><a class="reference internal" href="container_view.html#pyvisdk.mo.container_view.ContainerView" title="pyvisdk.mo.container_view.ContainerView"><tt class="xref py py-class docutils literal"><span class="pre">ContainerView</span></tt></a>, <a class="reference internal" href="inventory_view.html#pyvisdk.mo.inventory_view.InventoryView" title="pyvisdk.mo.inventory_view.InventoryView"><tt class="xref py py-class docutils literal"><span class="pre">InventoryView</span></tt></a>, <a class="reference internal" href="list_view.html#pyvisdk.mo.list_view.ListView" title="pyvisdk.mo.list_view.ListView"><tt class="xref py py-class docutils literal"><span class="pre">ListView</span></tt></a>, <a class="reference internal" href="managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity" title="pyvisdk.mo.managed_entity.ManagedEntity"><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt></a>, <a class="reference internal" href="view.html#pyvisdk.mo.view.View" title="pyvisdk.mo.view.View"><tt class="xref py py-class docutils literal"><span class="pre">View</span></tt></a></p>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ContainerView</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">InventoryView</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">ListView</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">View</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Since</tt></dt>
 <dd><p>VI API 2.5</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="pyvisdk.mo.view_manager.ViewManager">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.view_manager.</tt><tt class="descname">ViewManager</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='ViewManager'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/view_manager.html#ViewManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.view_manager.ViewManager" title="Permalink to this definition">¶</a></dt>
-<dd><p>A View is a mechanism that supports selection of objects on the server and
-subsequently, access to those objects. Views can simplify the task of
-retrieving data from the server. When you use a view, you can use a single
-invocation of a PropertyCollector method to retrieve data or receive
-notification of changes instead of multiple invocations involving multiple
-filter specifications. A view exists until you destroy it or until the end
-of the session.</p>
-<dl class="method">
-<dt id="pyvisdk.mo.view_manager.ViewManager.CreateContainerView">
-<tt class="descname">CreateContainerView</tt><big>(</big><em>container</em>, <em>type</em>, <em>recursive</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/view_manager.html#ViewManager.CreateContainerView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.view_manager.ViewManager.CreateContainerView" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a ContainerView managed object for this session. The method returns a
-reference to a ContainerView object that has a list of managed object
-references. The list references objects in the container and may include
-references to objects from additional containers. You can configure the
-resulting list of objects by specifying a type list and recursion. Once
-you have created the view, the object list always represents the current
-configuration of the virtual environment and reflects any subsequent
-changes that occur.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>container</strong> &#8211; A reference to an instance of a Folder, Datacenter, ComputeResource, ResourcePool,</td>
-</tr>
-</tbody>
-</table>
-<p>or HostSystem object.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> &#8211; An optional list of managed entity types. The server associates only objects of</td>
-</tr>
-</tbody>
-</table>
-<p>the specified type(s) with the view. If you specify an empty array, the
-server uses all types.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>recursive</strong> &#8211; Whether to include only the immediate children of the container instance, or to</td>
-</tr>
-</tbody>
-</table>
-<p>include additional objects by following paths beyond the immediate
-children.* Folder object - childEntity property. If recursive is false,
-the container list includes the reference to the child entity in the
-folder instance. If recursive is true, the server will follow the child
-folder path(s) to collect additional childEntity references. *
-ResourcePool object - vm and resourcePool properties. If recursive is
-false, the object list will contain references to the virtual machines
-associated with this resource pool, and references to virtual machines
-associated with the immediate child resource pools. If recursive is true,
-the server will follow all child resource pool paths extending from the
-immediate children (and their children, and so on) to collect additional
-references to virtual machines. * ComputeResource object - host and
-resourcePool properties. If recursive is false, the object list will
-contain references to the host systems associated with this compute
-resource, references to virtual machines associated with the host systems,
-and references to virtual machines associated with the immediate child
-resource pools. If recursive is true, the server will follow the child
-resource pool paths (and their child resource pool paths, and so on) to
-collect additional references to virtual machines. * Datacenter object -
-vmFolder, hostFolder, datastoreFolder, and networkFolder properties. If
-recursive is set to false, the server uses the immediate child folders for
-the virtual machines, hosts, datastores, and networks associated with this
-datacenter. If recursive is set to true, the server will follow the folder
-paths to collect references to additional objects. * HostSystem object -
-vm property. The view object list contains references to the virtual
-machines associated with this host system. The value of recursive does not
-affect this behavior.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">ContainerView</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.view_manager.ViewManager.CreateInventoryView">
-<tt class="descname">CreateInventoryView</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/view_manager.html#ViewManager.CreateInventoryView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.view_manager.ViewManager.CreateInventoryView" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new InventoryView managed object for this session.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">InventoryView</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.view_manager.ViewManager.CreateListView">
-<tt class="descname">CreateListView</tt><big>(</big><em>obj</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/view_manager.html#ViewManager.CreateListView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.view_manager.ViewManager.CreateListView" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a ListView object for this session. The method returns a session object
-that has a list of managed object references. The list of references
-corresponds to the input object list. You can modify the resulting list
-after you have created the object.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> &#8211; The initial list of objects in the view.</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">ListView</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.view_manager.ViewManager.CreateListViewFromView">
-<tt class="descname">CreateListViewFromView</tt><big>(</big><em>view</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/view_manager.html#ViewManager.CreateListViewFromView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.view_manager.ViewManager.CreateListViewFromView" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a ListView object for this session. This method uses an existing view to
-construct the object list for the new view.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>view</strong> &#8211; The view that will provide the object list for the new ListView object.</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">ListView</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.view_manager.ViewManager.viewList">
-<tt class="descname">viewList</tt><a class="reference internal" href="../modules/pyvisdk/mo/view_manager.html#ViewManager.viewList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.view_manager.ViewManager.viewList" title="Permalink to this definition">¶</a></dt>
-<dd><p>An array of view references. Each array entry is a managed object reference to a
-view created by this ViewManager.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -227,13 +87,13 @@ view created by this ViewManager.</p>
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="view.html"
-                        title="previous chapter">3.83. View</a></p>
+                        title="previous chapter">3.85. View</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="virtual_app.html"
-                        title="next chapter">3.85. VirtualApp</a></p>
+                        title="next chapter">3.87. VirtualApp</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/mo/view_manager.txt"
+    <li><a href="../_sources/mo/view_manager.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -263,10 +123,10 @@ view created by this ViewManager.</p>
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="virtual_app.html" title="3.85. VirtualApp"
+          <a href="virtual_app.html" title="3.87. VirtualApp"
              >next</a> |</li>
         <li class="right" >
-          <a href="view.html" title="3.83. View"
+          <a href="view.html" title="3.85. View"
              >previous</a> |</li>
         <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
           <li><a href="../mo.html" >3. Managed Objects</a> &raquo;</li> 

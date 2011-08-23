@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.835. OvfCreateImportSpecResult &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.836. OvfDeploymentOption" href="ovf_deployment_option.html" />
+    <link rel="prev" title="4.834. OvfCreateImportSpecParams" href="ovf_create_import_spec_params.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ovf_deployment_option.html" title="4.836. OvfDeploymentOption"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ovf_create_import_spec_params.html" title="4.834. OvfCreateImportSpecParams"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="ovfcreateimportspecresult">
+<h1>4.835. OvfCreateImportSpecResult<a class="headerlink" href="#ovfcreateimportspecresult" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><a class="reference internal" href="import_spec.html#pyvisdk.do.import_spec.ImportSpec" title="pyvisdk.do.import_spec.ImportSpec"><tt class="xref py py-class docutils literal"><span class="pre">ImportSpec</span></tt></a>,
+<a class="reference internal" href="ovf_file_item.html#pyvisdk.do.ovf_file_item.OvfFileItem" title="pyvisdk.do.ovf_file_item.OvfFileItem"><tt class="xref py py-class docutils literal"><span class="pre">OvfFileItem</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CreateImportSpec()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.ovf_create_import_spec_result.</tt><tt class="descname">OvfCreateImportSpecResult</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult.error">
+<tt class="descname">error</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Errors that happened during processing. Something will be wrong with the ImportSpec, or it is not present.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult.fileItem">
+<tt class="descname">fileItem</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult.fileItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>The files that must be uploaded by the caller as part of importing the entity.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult.importSpec">
+<tt class="descname">importSpec</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult.importSpec" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ImportSpec contains information about which VirtualMachines and VirtualApps are present in the entity and how they relate to each other.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult.warning">
+<tt class="descname">warning</tt><a class="headerlink" href="#pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult.warning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Non-fatal warnings from the processing. The ImportSpec will be valid, but the user may choose to reject it based on these warnings.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ovf_create_import_spec_params.html"
+                        title="previous chapter">4.834. OvfCreateImportSpecParams</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ovf_deployment_option.html"
+                        title="next chapter">4.836. OvfDeploymentOption</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/ovf_create_import_spec_result.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ovf_deployment_option.html" title="4.836. OvfDeploymentOption"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ovf_create_import_spec_params.html" title="4.834. OvfCreateImportSpecParams"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

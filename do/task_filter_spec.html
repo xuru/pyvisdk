@@ -1,0 +1,206 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.993. TaskFilterSpec &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.994. TaskFilterSpecByEntity" href="task_filter_spec_by_entity.html" />
+    <link rel="prev" title="4.992. TaskEvent" href="task_event.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="task_filter_spec_by_entity.html" title="4.994. TaskFilterSpecByEntity"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="task_event.html" title="4.992. TaskEvent"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="taskfilterspec">
+<h1>4.993. TaskFilterSpec<a class="headerlink" href="#taskfilterspec" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CreateCollectorForTasks()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">Alarm</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">ScheduledTask</span></tt>,
+<a class="reference internal" href="task_filter_spec_by_entity.html#pyvisdk.do.task_filter_spec_by_entity.TaskFilterSpecByEntity" title="pyvisdk.do.task_filter_spec_by_entity.TaskFilterSpecByEntity"><tt class="xref py py-class docutils literal"><span class="pre">TaskFilterSpecByEntity</span></tt></a>,
+<a class="reference internal" href="task_filter_spec_by_time.html#pyvisdk.do.task_filter_spec_by_time.TaskFilterSpecByTime" title="pyvisdk.do.task_filter_spec_by_time.TaskFilterSpecByTime"><tt class="xref py py-class docutils literal"><span class="pre">TaskFilterSpecByTime</span></tt></a>,
+<a class="reference internal" href="task_filter_spec_by_username.html#pyvisdk.do.task_filter_spec_by_username.TaskFilterSpecByUsername" title="pyvisdk.do.task_filter_spec_by_username.TaskFilterSpecByUsername"><tt class="xref py py-class docutils literal"><span class="pre">TaskFilterSpecByUsername</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">TaskInfoState</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.task_filter_spec.TaskFilterSpec">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.task_filter_spec.</tt><tt class="descname">TaskFilterSpec</tt><a class="headerlink" href="#pyvisdk.do.task_filter_spec.TaskFilterSpec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.task_filter_spec.TaskFilterSpec.alarm">
+<tt class="descname">alarm</tt><a class="headerlink" href="#pyvisdk.do.task_filter_spec.TaskFilterSpec.alarm" title="Permalink to this definition">¶</a></dt>
+<dd><p>This property, if provided, limits the set of collected tasks to those associated with the specified alarm. If not provided, tasks are collected regardless of their association with alarms.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_filter_spec.TaskFilterSpec.entity">
+<tt class="descname">entity</tt><a class="headerlink" href="#pyvisdk.do.task_filter_spec.TaskFilterSpec.entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The filter specification for retrieving tasks by managed entity. If not provided, then the tasks attached to all managed entities are collected.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_filter_spec.TaskFilterSpec.eventChainId">
+<tt class="descname">eventChainId</tt><a class="headerlink" href="#pyvisdk.do.task_filter_spec.TaskFilterSpec.eventChainId" title="Permalink to this definition">¶</a></dt>
+<dd><p>The filter specification for retrieving tasks by chain ID. If it is set, tasks not with the given eventChainId will be filtered out. If the property is not set, tasks&#8217; chain ID is disregarded for filtering purposes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_filter_spec.TaskFilterSpec.parentTaskKey">
+<tt class="descname">parentTaskKey</tt><a class="headerlink" href="#pyvisdk.do.task_filter_spec.TaskFilterSpec.parentTaskKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>The filter specification for retrieving tasks by parentTaskKey. If it is set, tasks not with the given parentTaskKey(s) will be filtered out. If the property is not set, tasks&#8217; parentTaskKey is disregarded for filtering purposes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_filter_spec.TaskFilterSpec.rootTaskKey">
+<tt class="descname">rootTaskKey</tt><a class="headerlink" href="#pyvisdk.do.task_filter_spec.TaskFilterSpec.rootTaskKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>The filter specification for retrieving tasks by rootTaskKey. If it is set, tasks not with the given rootTaskKey(s) will be filtered out. If the property is not set, tasks&#8217; rootTaskKey is disregarded for filtering purposes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_filter_spec.TaskFilterSpec.scheduledTask">
+<tt class="descname">scheduledTask</tt><a class="headerlink" href="#pyvisdk.do.task_filter_spec.TaskFilterSpec.scheduledTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>This property, if provided, limits the set of collected tasks to those associated with the specified scheduled task. If not provided, tasks are collected regardless of their association with any scheduled task.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_filter_spec.TaskFilterSpec.state">
+<tt class="descname">state</tt><a class="headerlink" href="#pyvisdk.do.task_filter_spec.TaskFilterSpec.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>This property, if provided, limits the set of collected tasks by their states. Task states are enumerated in State. If not provided, tasks are collected regardless of their state.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_filter_spec.TaskFilterSpec.tag">
+<tt class="descname">tag</tt><a class="headerlink" href="#pyvisdk.do.task_filter_spec.TaskFilterSpec.tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>The filter specification for retrieving tasks by tag. If it is set, tasks not with the given tag(s) will be filtered out. If the property is not set, tasks&#8217; tag is disregarded for filtering purposes. If it is set, and includes an empty string, tasks without a tag will be returned.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_filter_spec.TaskFilterSpec.time">
+<tt class="descname">time</tt><a class="headerlink" href="#pyvisdk.do.task_filter_spec.TaskFilterSpec.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>The filter specification for retrieving tasks by time. If not provided, then the tasks with any time stamp are collected.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_filter_spec.TaskFilterSpec.userName">
+<tt class="descname">userName</tt><a class="headerlink" href="#pyvisdk.do.task_filter_spec.TaskFilterSpec.userName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The filter specification for retrieving tasks by user name. If not provided, then the tasks belonging to any user are collected.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="task_event.html"
+                        title="previous chapter">4.992. TaskEvent</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="task_filter_spec_by_entity.html"
+                        title="next chapter">4.994. TaskFilterSpecByEntity</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/task_filter_spec.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="task_filter_spec_by_entity.html" title="4.994. TaskFilterSpecByEntity"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="task_event.html" title="4.992. TaskEvent"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

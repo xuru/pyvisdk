@@ -1,0 +1,166 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.905. ProfileExpression &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.906. ProfileExpressionMetadata" href="profile_expression_metadata.html" />
+    <link rel="prev" title="4.904. ProfileExecuteResult" href="profile_execute_result.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="profile_expression_metadata.html" title="4.906. ProfileExpressionMetadata"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="profile_execute_result.html" title="4.904. ProfileExecuteResult"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="profileexpression">
+<h1>4.905. ProfileExpression<a class="headerlink" href="#profileexpression" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><a class="reference internal" href="compliance_profile.html#pyvisdk.do.compliance_profile.ComplianceProfile" title="pyvisdk.do.compliance_profile.ComplianceProfile"><tt class="xref py py-class docutils literal"><span class="pre">ComplianceProfile</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.0</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extended by</tt></dt>
+<dd><p><a class="reference internal" href="profile_composite_expression.html#pyvisdk.do.profile_composite_expression.ProfileCompositeExpression" title="pyvisdk.do.profile_composite_expression.ProfileCompositeExpression"><tt class="xref py py-class docutils literal"><span class="pre">ProfileCompositeExpression</span></tt></a>,
+<a class="reference internal" href="profile_simple_expression.html#pyvisdk.do.profile_simple_expression.ProfileSimpleExpression" title="pyvisdk.do.profile_simple_expression.ProfileSimpleExpression"><tt class="xref py py-class docutils literal"><span class="pre">ProfileSimpleExpression</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.profile_expression.ProfileExpression">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.profile_expression.</tt><tt class="descname">ProfileExpression</tt><a class="headerlink" href="#pyvisdk.do.profile_expression.ProfileExpression" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.profile_expression.ProfileExpression.displayName">
+<tt class="descname">displayName</tt><a class="headerlink" href="#pyvisdk.do.profile_expression.ProfileExpression.displayName" title="Permalink to this definition">¶</a></dt>
+<dd><p>User visible display name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.profile_expression.ProfileExpression.id">
+<tt class="descname">id</tt><a class="headerlink" href="#pyvisdk.do.profile_expression.ProfileExpression.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifier of this expression. The id has to be unique within a Profile. The id can be used as a key while building composite expressions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.profile_expression.ProfileExpression.negated">
+<tt class="descname">negated</tt><a class="headerlink" href="#pyvisdk.do.profile_expression.ProfileExpression.negated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag indicating if the condition of the expression should be negated. e.g: conditions like VSwitch0 has vmnic0 connected to it can be turned into VSwitch0 doesn&#8217;t have vmnic0 connected to it.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="profile_execute_result.html"
+                        title="previous chapter">4.904. ProfileExecuteResult</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="profile_expression_metadata.html"
+                        title="next chapter">4.906. ProfileExpressionMetadata</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/profile_expression.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="profile_expression_metadata.html" title="4.906. ProfileExpressionMetadata"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="profile_execute_result.html" title="4.904. ProfileExecuteResult"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

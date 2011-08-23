@@ -1,0 +1,201 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.739. LicenseDiagnostics &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.740. LicenseEvent" href="license_event.html" />
+    <link rel="prev" title="4.738. LicenseAvailabilityInfo" href="license_availability_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="license_event.html" title="4.740. LicenseEvent"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="license_availability_info.html" title="4.738. LicenseAvailabilityInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="licensediagnostics">
+<h1>4.739. LicenseDiagnostics<a class="headerlink" href="#licensediagnostics" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">LicenseManager</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">LicenseManagerState</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>VI API 2.5</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.license_diagnostics.LicenseDiagnostics">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.license_diagnostics.</tt><tt class="descname">LicenseDiagnostics</tt><a class="headerlink" href="#pyvisdk.do.license_diagnostics.LicenseDiagnostics" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.license_diagnostics.LicenseDiagnostics.lastStatusUpdate">
+<tt class="descname">lastStatusUpdate</tt><a class="headerlink" href="#pyvisdk.do.license_diagnostics.LicenseDiagnostics.lastStatusUpdate" title="Permalink to this definition">¶</a></dt>
+<dd><p>A timestamp of when opState was last updated.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.license_diagnostics.LicenseDiagnostics.licenseFeatureUnknowns">
+<tt class="descname">licenseFeatureUnknowns</tt><a class="headerlink" href="#pyvisdk.do.license_diagnostics.LicenseDiagnostics.licenseFeatureUnknowns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counter to track Total number of license features parsed from License source that are not recognized. This value starts at zero and wraps at 2^32-1 to zero. Discontinuity: sourceLastChanged.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.license_diagnostics.LicenseDiagnostics.licenseRequestFailures">
+<tt class="descname">licenseRequestFailures</tt><a class="headerlink" href="#pyvisdk.do.license_diagnostics.LicenseDiagnostics.licenseRequestFailures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counter to track Total number of licenses requests that were not fulfilled (denied, timeout, or other). This value starts at zero and wraps at 2^32-1 to zero. Discontinuity: sourceLastChanged.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.license_diagnostics.LicenseDiagnostics.licenseRequests">
+<tt class="descname">licenseRequests</tt><a class="headerlink" href="#pyvisdk.do.license_diagnostics.LicenseDiagnostics.licenseRequests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counter to track total number of licenses requested. This value starts at zero and wraps at 2^32-1 to zero. Discontinuity: sourceLastChanged.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.license_diagnostics.LicenseDiagnostics.opFailureMessage">
+<tt class="descname">opFailureMessage</tt><a class="headerlink" href="#pyvisdk.do.license_diagnostics.LicenseDiagnostics.opFailureMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>A human readable reason when optState reports Fault condition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.license_diagnostics.LicenseDiagnostics.opState">
+<tt class="descname">opState</tt><a class="headerlink" href="#pyvisdk.do.license_diagnostics.LicenseDiagnostics.opState" title="Permalink to this definition">¶</a></dt>
+<dd><p>The general state of the license subsystem.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.license_diagnostics.LicenseDiagnostics.sourceLastChanged">
+<tt class="descname">sourceLastChanged</tt><a class="headerlink" href="#pyvisdk.do.license_diagnostics.LicenseDiagnostics.sourceLastChanged" title="Permalink to this definition">¶</a></dt>
+<dd><p>A timestamp of when sourceAvailable last changed state, expressed in UTC.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.license_diagnostics.LicenseDiagnostics.sourceLatency">
+<tt class="descname">sourceLatency</tt><a class="headerlink" href="#pyvisdk.do.license_diagnostics.LicenseDiagnostics.sourceLatency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exponentially decaying average of the transaction time for license acquisition and routine communications with LicenseSource. Units: milliseconds.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.license_diagnostics.LicenseDiagnostics.sourceLost">
+<tt class="descname">sourceLost</tt><a class="headerlink" href="#pyvisdk.do.license_diagnostics.LicenseDiagnostics.sourceLost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counter to track number of times connection to source was lost. This value starts at zero and wraps at 2^32-1 to zero. Discontinuity: sourceLastChanged.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="license_availability_info.html"
+                        title="previous chapter">4.738. LicenseAvailabilityInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="license_event.html"
+                        title="next chapter">4.740. LicenseEvent</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/license_diagnostics.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="license_event.html" title="4.740. LicenseEvent"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="license_availability_info.html" title="4.738. LicenseAvailabilityInfo"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

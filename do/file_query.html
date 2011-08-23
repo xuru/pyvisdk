@@ -1,0 +1,149 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.384. FileQuery &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.385. FileQueryFlags" href="file_query_flags.html" />
+    <link rel="prev" title="4.383. FileInfo" href="file_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="file_query_flags.html" title="4.385. FileQueryFlags"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="file_info.html" title="4.383. FileInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="filequery">
+<h1>4.384. FileQuery<a class="headerlink" href="#filequery" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">HostDatastoreBrowser</span></tt>,
+<a class="reference internal" href="host_datastore_browser_search_spec.html#pyvisdk.do.host_datastore_browser_search_spec.HostDatastoreBrowserSearchSpec" title="pyvisdk.do.host_datastore_browser_search_spec.HostDatastoreBrowserSearchSpec"><tt class="xref py py-class docutils literal"><span class="pre">HostDatastoreBrowserSearchSpec</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extended by</tt></dt>
+<dd><p><a class="reference internal" href="floppy_image_file_query.html#pyvisdk.do.floppy_image_file_query.FloppyImageFileQuery" title="pyvisdk.do.floppy_image_file_query.FloppyImageFileQuery"><tt class="xref py py-class docutils literal"><span class="pre">FloppyImageFileQuery</span></tt></a>,
+<a class="reference internal" href="folder_file_query.html#pyvisdk.do.folder_file_query.FolderFileQuery" title="pyvisdk.do.folder_file_query.FolderFileQuery"><tt class="xref py py-class docutils literal"><span class="pre">FolderFileQuery</span></tt></a>,
+<a class="reference internal" href="iso_image_file_query.html#pyvisdk.do.iso_image_file_query.IsoImageFileQuery" title="pyvisdk.do.iso_image_file_query.IsoImageFileQuery"><tt class="xref py py-class docutils literal"><span class="pre">IsoImageFileQuery</span></tt></a>,
+<a class="reference internal" href="vm_config_file_query.html#pyvisdk.do.vm_config_file_query.VmConfigFileQuery" title="pyvisdk.do.vm_config_file_query.VmConfigFileQuery"><tt class="xref py py-class docutils literal"><span class="pre">VmConfigFileQuery</span></tt></a>,
+<a class="reference internal" href="vm_disk_file_query.html#pyvisdk.do.vm_disk_file_query.VmDiskFileQuery" title="pyvisdk.do.vm_disk_file_query.VmDiskFileQuery"><tt class="xref py py-class docutils literal"><span class="pre">VmDiskFileQuery</span></tt></a>,
+<a class="reference internal" href="vm_log_file_query.html#pyvisdk.do.vm_log_file_query.VmLogFileQuery" title="pyvisdk.do.vm_log_file_query.VmLogFileQuery"><tt class="xref py py-class docutils literal"><span class="pre">VmLogFileQuery</span></tt></a>,
+<a class="reference internal" href="vm_nvram_file_query.html#pyvisdk.do.vm_nvram_file_query.VmNvramFileQuery" title="pyvisdk.do.vm_nvram_file_query.VmNvramFileQuery"><tt class="xref py py-class docutils literal"><span class="pre">VmNvramFileQuery</span></tt></a>,
+<a class="reference internal" href="vm_snapshot_file_query.html#pyvisdk.do.vm_snapshot_file_query.VmSnapshotFileQuery" title="pyvisdk.do.vm_snapshot_file_query.VmSnapshotFileQuery"><tt class="xref py py-class docutils literal"><span class="pre">VmSnapshotFileQuery</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.file_query.FileQuery">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.file_query.</tt><tt class="descname">FileQuery</tt><a class="headerlink" href="#pyvisdk.do.file_query.FileQuery" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="file_info.html"
+                        title="previous chapter">4.383. FileInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="file_query_flags.html"
+                        title="next chapter">4.385. FileQueryFlags</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/file_query.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="file_query_flags.html" title="4.385. FileQueryFlags"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="file_info.html" title="4.383. FileInfo"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

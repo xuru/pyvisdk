@@ -1,0 +1,161 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.host_firmware_system &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.host_firmware_system</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.base_entity</span> <span class="kn">import</span> <span class="n">BaseEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">HostFirmwareSystem</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="HostFirmwareSystem"><a class="viewcode-back" href="../../../mo/host_firmware_system.html#pyvisdk.mo.host_firmware_system.HostFirmwareSystem">[docs]</a>    <span class="sd">&#39;&#39;&#39;NOTE: This managed object type and all of its methods are experimental and subject</span>
+<span class="sd">        to change in future releases.The FirmwareSystem managed object type</span>
+<span class="sd">        provides access to the firmware of an embedded ESX host. It provides</span>
+<span class="sd">        operations to backup/restore/reset the configuration of an embedded ESX</span>
+<span class="sd">        host.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">HostFirmwareSystem</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">HostFirmwareSystem</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+
+    <span class="k">def</span> <span class="nf">BackupFirmwareConfiguration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostFirmwareSystem.BackupFirmwareConfiguration"><a class="viewcode-back" href="../../../mo/host_firmware_system.html#pyvisdk.mo.host_firmware_system.HostFirmwareSystem.BackupFirmwareConfiguration">[docs]</a>        <span class="sd">&#39;&#39;&#39;Backup the configuration of the host.A bundle containing the configuration of the</span>
+<span class="sd">        host is generated. The bundle can be downloaded using a HTTP GET operation</span>
+<span class="sd">        on the URL returned.</span>
+
+<span class="sd">        :rtype: xsd:string </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;BackupFirmwareConfiguration&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryFirmwareConfigUploadURL</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostFirmwareSystem.QueryFirmwareConfigUploadURL"><a class="viewcode-back" href="../../../mo/host_firmware_system.html#pyvisdk.mo.host_firmware_system.HostFirmwareSystem.QueryFirmwareConfigUploadURL">[docs]</a>        <span class="sd">&#39;&#39;&#39;Return the URL on the host to which the configuration bundle must be uploaded for</span>
+<span class="sd">        a restore operation.</span>
+
+<span class="sd">        :rtype: xsd:string </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryFirmwareConfigUploadURL&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">ResetFirmwareToFactoryDefaults</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostFirmwareSystem.ResetFirmwareToFactoryDefaults"><a class="viewcode-back" href="../../../mo/host_firmware_system.html#pyvisdk.mo.host_firmware_system.HostFirmwareSystem.ResetFirmwareToFactoryDefaults">[docs]</a>        <span class="sd">&#39;&#39;&#39;Reset the configuration to factory defaults.This method will reset all</span>
+<span class="sd">        configuration options, including the &quot;admin&quot; password, to the factory</span>
+<span class="sd">        defaults. The host will be rebooted immediately. The host needs to be in</span>
+<span class="sd">        maintenance mode before this operation can be performed.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ResetFirmwareToFactoryDefaults&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">RestoreFirmwareConfiguration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostFirmwareSystem.RestoreFirmwareConfiguration"><a class="viewcode-back" href="../../../mo/host_firmware_system.html#pyvisdk.mo.host_firmware_system.HostFirmwareSystem.RestoreFirmwareConfiguration">[docs]</a>        <span class="sd">&#39;&#39;&#39;Restore the configuration of the host to that specified in the bundle.The bundle</span>
+<span class="sd">        is expected to be uploaded to the URL retrieved via queryConfigUploadURL.</span>
+<span class="sd">        This method will reset all configuration options, including the &quot;admin&quot;</span>
+<span class="sd">        password, to the values in the bundle. The host will be rebooted</span>
+<span class="sd">        immediately. The host needs to be in maintenance mode before this</span>
+<span class="sd">        operation can be performed.</span>
+
+<span class="sd">        :param force: Forces application of the configuration even if the bundle is mismatched.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RestoreFirmwareConfiguration&quot;</span><span class="p">)(</span><span class="n">force</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

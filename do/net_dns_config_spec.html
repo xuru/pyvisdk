@@ -1,0 +1,165 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.795. NetDnsConfigSpec &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.796. NetIpConfigInfo" href="net_ip_config_info.html" />
+    <link rel="prev" title="4.794. NetDnsConfigInfo" href="net_dns_config_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="net_ip_config_info.html" title="4.796. NetIpConfigInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="net_dns_config_info.html" title="4.794. NetDnsConfigInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="netdnsconfigspec">
+<h1>4.795. NetDnsConfigSpec<a class="headerlink" href="#netdnsconfigspec" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Since</tt></dt>
+<dd><p>vSphere API 4.1</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.net_dns_config_spec.NetDnsConfigSpec">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.net_dns_config_spec.</tt><tt class="descname">NetDnsConfigSpec</tt><a class="headerlink" href="#pyvisdk.do.net_dns_config_spec.NetDnsConfigSpec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.net_dns_config_spec.NetDnsConfigSpec.dhcp">
+<tt class="descname">dhcp</tt><a class="headerlink" href="#pyvisdk.do.net_dns_config_spec.NetDnsConfigSpec.dhcp" title="Permalink to this definition">¶</a></dt>
+<dd><p>The flag to indicate whether or not dynamic host control protocol (DHCP) will be used to set DNS configuration automatically. See vim.net.DhcpConfigSpec</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.net_dns_config_spec.NetDnsConfigSpec.domainName">
+<tt class="descname">domainName</tt><a class="headerlink" href="#pyvisdk.do.net_dns_config_spec.NetDnsConfigSpec.domainName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The domain name portion of the DNS name. This would be the &#8220;example.com&#8221; part of esx01.example.com. The rules for forming a domain name are defined in RFC 1034.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.net_dns_config_spec.NetDnsConfigSpec.hostName">
+<tt class="descname">hostName</tt><a class="headerlink" href="#pyvisdk.do.net_dns_config_spec.NetDnsConfigSpec.hostName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The host name portion of DNS name. For example, &#8220;esx01&#8221; part of esx01.example.com. The rules for forming a hostname are specified in RFC 1034.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.net_dns_config_spec.NetDnsConfigSpec.ipAddress">
+<tt class="descname">ipAddress</tt><a class="headerlink" href="#pyvisdk.do.net_dns_config_spec.NetDnsConfigSpec.ipAddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unicast IP address(s) of one or more DNS servers in order of use. IPv4 addresses are specified using dotted decimal notation. For example, &#8220;192.0.2.1&#8221;. IPv6 addresses are 128-bit addresses represented as eight fields of up to four hexadecimal digits. A colon separates each field (:). For example, 2001:DB8:101::230:6eff:fe04:d9ff. The address can also consist of the symbol &#8216;::&#8217; to represent multiple 16-bit groups of contiguous 0&#8217;s only once in an address as described in RFC 2373.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.net_dns_config_spec.NetDnsConfigSpec.searchDomain">
+<tt class="descname">searchDomain</tt><a class="headerlink" href="#pyvisdk.do.net_dns_config_spec.NetDnsConfigSpec.searchDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>The domain in which to search for hosts in order of preference.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="net_dns_config_info.html"
+                        title="previous chapter">4.794. NetDnsConfigInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="net_ip_config_info.html"
+                        title="next chapter">4.796. NetIpConfigInfo</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/net_dns_config_spec.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="net_ip_config_info.html" title="4.796. NetIpConfigInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="net_dns_config_info.html" title="4.794. NetDnsConfigInfo"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

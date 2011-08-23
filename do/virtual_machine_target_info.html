@@ -1,0 +1,157 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.1202. VirtualMachineTargetInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.1203. VirtualMachineTicket" href="virtual_machine_ticket.html" />
+    <link rel="prev" title="4.1201. VirtualMachineSummary" href="virtual_machine_summary.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_ticket.html" title="4.1203. VirtualMachineTicket"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_summary.html" title="4.1201. VirtualMachineSummary"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualmachinetargetinfo">
+<h1>4.1202. VirtualMachineTargetInfo<a class="headerlink" href="#virtualmachinetargetinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Extended by</tt></dt>
+<dd><p><a class="reference internal" href="virtual_machine_cdrom_info.html#pyvisdk.do.virtual_machine_cdrom_info.VirtualMachineCdromInfo" title="pyvisdk.do.virtual_machine_cdrom_info.VirtualMachineCdromInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineCdromInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_datastore_info.html#pyvisdk.do.virtual_machine_datastore_info.VirtualMachineDatastoreInfo" title="pyvisdk.do.virtual_machine_datastore_info.VirtualMachineDatastoreInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineDatastoreInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_disk_device_info.html#pyvisdk.do.virtual_machine_disk_device_info.VirtualMachineDiskDeviceInfo" title="pyvisdk.do.virtual_machine_disk_device_info.VirtualMachineDiskDeviceInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineDiskDeviceInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_floppy_info.html#pyvisdk.do.virtual_machine_floppy_info.VirtualMachineFloppyInfo" title="pyvisdk.do.virtual_machine_floppy_info.VirtualMachineFloppyInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineFloppyInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_network_info.html#pyvisdk.do.virtual_machine_network_info.VirtualMachineNetworkInfo" title="pyvisdk.do.virtual_machine_network_info.VirtualMachineNetworkInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineNetworkInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_parallel_info.html#pyvisdk.do.virtual_machine_parallel_info.VirtualMachineParallelInfo" title="pyvisdk.do.virtual_machine_parallel_info.VirtualMachineParallelInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineParallelInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_pci_passthrough_info.html#pyvisdk.do.virtual_machine_pci_passthrough_info.VirtualMachinePciPassthroughInfo" title="pyvisdk.do.virtual_machine_pci_passthrough_info.VirtualMachinePciPassthroughInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachinePciPassthroughInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_scsi_passthrough_info.html#pyvisdk.do.virtual_machine_scsi_passthrough_info.VirtualMachineScsiPassthroughInfo" title="pyvisdk.do.virtual_machine_scsi_passthrough_info.VirtualMachineScsiPassthroughInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineScsiPassthroughInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_serial_info.html#pyvisdk.do.virtual_machine_serial_info.VirtualMachineSerialInfo" title="pyvisdk.do.virtual_machine_serial_info.VirtualMachineSerialInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineSerialInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_sound_info.html#pyvisdk.do.virtual_machine_sound_info.VirtualMachineSoundInfo" title="pyvisdk.do.virtual_machine_sound_info.VirtualMachineSoundInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineSoundInfo</span></tt></a>,
+<a class="reference internal" href="virtual_machine_usb_info.html#pyvisdk.do.virtual_machine_usb_info.VirtualMachineUsbInfo" title="pyvisdk.do.virtual_machine_usb_info.VirtualMachineUsbInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachineUsbInfo</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.virtual_machine_target_info.VirtualMachineTargetInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.virtual_machine_target_info.</tt><tt class="descname">VirtualMachineTargetInfo</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_target_info.VirtualMachineTargetInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_target_info.VirtualMachineTargetInfo.configurationTag">
+<tt class="descname">configurationTag</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_target_info.VirtualMachineTargetInfo.configurationTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of configurations that this device is available for. This is only filled out if more than one configuration is requested.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_machine_target_info.VirtualMachineTargetInfo.name">
+<tt class="descname">name</tt><a class="headerlink" href="#pyvisdk.do.virtual_machine_target_info.VirtualMachineTargetInfo.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The identification of the endpoint on the host. The format of this depends on the kind of virtual device this endpoints is used for. For example, for a VirtualEthernetCard this would be a networkname, and for a VirtualCDROM it would be a device name.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_machine_summary.html"
+                        title="previous chapter">4.1201. VirtualMachineSummary</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_machine_ticket.html"
+                        title="next chapter">4.1203. VirtualMachineTicket</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/virtual_machine_target_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_ticket.html" title="4.1203. VirtualMachineTicket"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_summary.html" title="4.1201. VirtualMachineSummary"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

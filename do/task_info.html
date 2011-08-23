@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4.997. TaskInfo &mdash; pyvisdk v0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
+    <link rel="up" title="4. Data Objects" href="../do.html" />
+    <link rel="next" title="4.998. TaskReason" href="task_reason.html" />
+    <link rel="prev" title="4.996. TaskFilterSpecByUsername" href="task_filter_spec_by_username.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="task_reason.html" title="4.998. TaskReason"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="task_filter_spec_by_username.html" title="4.996. TaskFilterSpecByUsername"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" accesskey="U">4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="taskinfo">
+<h1>4.997. TaskInfo<a class="headerlink" href="#taskinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">Parameter to</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">PostEvent()</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Property of</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">Task</span></tt>, <a class="reference internal" href="task_event.html#pyvisdk.do.task_event.TaskEvent" title="pyvisdk.do.task_event.TaskEvent"><tt class="xref py py-class docutils literal"><span class="pre">TaskEvent</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">TaskHistoryCollector</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">See also</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">Task</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">TaskInfoState</span></tt>,
+<a class="reference internal" href="task_reason.html#pyvisdk.do.task_reason.TaskReason" title="pyvisdk.do.task_reason.TaskReason"><tt class="xref py py-class docutils literal"><span class="pre">TaskReason</span></tt></a></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Extends</tt></dt>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">DynamicData</span></tt></p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Returned by</tt></dt>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CreateTask()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">ReadNextTasks()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">ReadPreviousTasks()</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyvisdk.do.task_info.TaskInfo">
+<em class="property">class </em><tt class="descclassname">pyvisdk.do.task_info.</tt><tt class="descname">TaskInfo</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.cancelable">
+<tt class="descname">cancelable</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.cancelable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to indicate whether or not the cancel task operation is supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.cancelled">
+<tt class="descname">cancelled</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.cancelled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to indicate whether or not the client requested cancellation of the task.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.changeTag">
+<tt class="descname">changeTag</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.changeTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>The user entered tag to identify the operations and their side effects</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.completeTime">
+<tt class="descname">completeTime</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.completeTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time stamp when the task was completed (whether success or failure).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.description">
+<tt class="descname">description</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>The description field of the task describes the current phase of operation of the task. For a task that does a single monolithic activity, this will be fixed and unchanging. For tasks that have various substeps, this field will change as the task progresses from one phase to another.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.descriptionId">
+<tt class="descname">descriptionId</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.descriptionId" title="Permalink to this definition">¶</a></dt>
+<dd><p>An identifier for this operation. This includes publicly visible internal tasks and is a lookup in the TaskDescription methodInfo data object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.entity">
+<tt class="descname">entity</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Managed entity to which the operation applies.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.entityName">
+<tt class="descname">entityName</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.entityName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the managed entity, locale-specific, retained for the history collector database.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.error">
+<tt class="descname">error</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the task state is &#8220;error&#8221;, then this property contains the fault code.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.eventChainId">
+<tt class="descname">eventChainId</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.eventChainId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Event chain ID that leads to the corresponding events.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.key">
+<tt class="descname">key</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>The unique key for the task.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.locked">
+<tt class="descname">locked</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.locked" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the state of the task is &#8220;running&#8221;, then this property is a list of managed entities that the operation has locked, with a shared lock.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.name">
+<tt class="descname">name</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the operation that created the task. This is not set for internal tasks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.parentTaskKey">
+<tt class="descname">parentTaskKey</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.parentTaskKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tasks can be cretaed by another task. This shows key of the task spun off this task. This is to track causality between tasks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.progress">
+<tt class="descname">progress</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.progress" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the task state is &#8220;running&#8221;, then this property contains a progress measurement, expressed as percentage completed, from 0 to 100.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.queueTime">
+<tt class="descname">queueTime</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.queueTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time stamp when the task was created.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.reason">
+<tt class="descname">reason</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kind of entity responsible for creating this task.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.result">
+<tt class="descname">result</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.result" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the task state is &#8220;success&#8221;, then this property may be used to hold a return value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.rootTaskKey">
+<tt class="descname">rootTaskKey</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.rootTaskKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tasks can be cretaed by another task and such creation can go on for multiple levels. This is the key of the task that started the chain of tasks.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.startTime">
+<tt class="descname">startTime</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.startTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time stamp when the task started running.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.state">
+<tt class="descname">state</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runtime status of the task.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.task_info.TaskInfo.task">
+<tt class="descname">task</tt><a class="headerlink" href="#pyvisdk.do.task_info.TaskInfo.task" title="Permalink to this definition">¶</a></dt>
+<dd><p>The managed object that represents this task.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="task_filter_spec_by_username.html"
+                        title="previous chapter">4.996. TaskFilterSpecByUsername</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="task_reason.html"
+                        title="next chapter">4.998. TaskReason</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/do/task_info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="task_reason.html" title="4.998. TaskReason"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="task_filter_spec_by_username.html" title="4.996. TaskFilterSpecByUsername"
+             >previous</a> |</li>
+        <li><a href="../index.html">pyvisdk v0.6 documentation</a> &raquo;</li>
+          <li><a href="../do.html" >4. Data Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

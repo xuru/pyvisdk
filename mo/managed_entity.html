@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>3.62. ManagedEntity &mdash; pyvisdk v0.6 documentation</title>
-    <link rel="stylesheet" href="../static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -19,9 +19,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.6 documentation" href="../index.html" />
     <link rel="up" title="3. Managed Objects" href="../mo.html" />
     <link rel="next" title="3.63. ManagedObjectView" href="managed_object_view.html" />
@@ -58,207 +58,122 @@
 <dl class="describe">
 <dt>
 <tt class="descname">Property of</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">AlarmInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">AlarmState</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ComplianceResult</span></tt>, <a class="reference internal" href="container_view.html#pyvisdk.mo.container_view.ContainerView" title="pyvisdk.mo.container_view.ContainerView"><tt class="xref py py-class docutils literal"><span class="pre">ContainerView</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">DatacenterMismatchArgument</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchManagerHostContainer</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchPortConnectee</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchPortCriteria</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DVPortConfigInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DVPortConfigSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DVPortgroupConfigInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DVPortgroupConfigSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">DvsScopeViolated</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">EventFilterSpecByEntity</span></tt>, <a class="reference internal" href="folder.html#pyvisdk.mo.folder.Folder" title="pyvisdk.mo.folder.Folder"><tt class="xref py py-class docutils literal"><span class="pre">Folder</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">HttpNfcLeaseInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">InvalidFolder</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">InvalidName</span></tt>, <a class="reference internal" href="#pyvisdk.mo.managed_entity.ManagedEntity" title="pyvisdk.mo.managed_entity.ManagedEntity"><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">ManagedEntityEventArgument</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Permission</span></tt>, <a class="reference internal" href="profile.html#pyvisdk.mo.profile.Profile" title="pyvisdk.mo.profile.Profile"><tt class="xref py py-class docutils literal"><span class="pre">Profile</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">ResourceConfigSpec</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ScheduledTaskInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">TaskFilterSpecByEntity</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">TaskInfo</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">TaskReasonAlarm</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VAppCloneSpecResourceMap</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VAppEntityConfigInfo</span></tt>, <a class="reference internal" href="virtual_app.html#pyvisdk.mo.virtual_app.VirtualApp" title="pyvisdk.mo.virtual_app.VirtualApp"><tt class="xref py py-class docutils literal"><span class="pre">VirtualApp</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">VirtualAppLinkInfo</span></tt>, <a class="reference internal" href="virtual_machine.html#pyvisdk.mo.virtual_machine.VirtualMachine" title="pyvisdk.mo.virtual_machine.VirtualMachine"><tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">VmFaultToleranceConfigIssue</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">VmFaultToleranceConfigIssueWrapper</span></tt></p>
+<dd><p><a class="reference internal" href="../do/alarm_info.html#pyvisdk.do.alarm_info.AlarmInfo" title="pyvisdk.do.alarm_info.AlarmInfo"><tt class="xref py py-class docutils literal"><span class="pre">AlarmInfo</span></tt></a>,
+<a class="reference internal" href="../do/alarm_state.html#pyvisdk.do.alarm_state.AlarmState" title="pyvisdk.do.alarm_state.AlarmState"><tt class="xref py py-class docutils literal"><span class="pre">AlarmState</span></tt></a>,
+<a class="reference internal" href="../do/compliance_result.html#pyvisdk.do.compliance_result.ComplianceResult" title="pyvisdk.do.compliance_result.ComplianceResult"><tt class="xref py py-class docutils literal"><span class="pre">ComplianceResult</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">ContainerView</span></tt>,
+<a class="reference internal" href="../do/datacenter_mismatch_argument.html#pyvisdk.do.datacenter_mismatch_argument.DatacenterMismatchArgument" title="pyvisdk.do.datacenter_mismatch_argument.DatacenterMismatchArgument"><tt class="xref py py-class docutils literal"><span class="pre">DatacenterMismatchArgument</span></tt></a>,
+<a class="reference internal" href="../do/distributed_virtual_switch_manager_host_container.html#pyvisdk.do.distributed_virtual_switch_manager_host_container.DistributedVirtualSwitchManagerHostContainer" title="pyvisdk.do.distributed_virtual_switch_manager_host_container.DistributedVirtualSwitchManagerHostContainer"><tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchManagerHostContainer</span></tt></a>,
+<a class="reference internal" href="../do/distributed_virtual_switch_port_connectee.html#pyvisdk.do.distributed_virtual_switch_port_connectee.DistributedVirtualSwitchPortConnectee" title="pyvisdk.do.distributed_virtual_switch_port_connectee.DistributedVirtualSwitchPortConnectee"><tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchPortConnectee</span></tt></a>,
+<a class="reference internal" href="../do/distributed_virtual_switch_port_criteria.html#pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria" title="pyvisdk.do.distributed_virtual_switch_port_criteria.DistributedVirtualSwitchPortCriteria"><tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitchPortCriteria</span></tt></a>,
+<a class="reference internal" href="../do/dv_port_config_info.html#pyvisdk.do.dv_port_config_info.DVPortConfigInfo" title="pyvisdk.do.dv_port_config_info.DVPortConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">DVPortConfigInfo</span></tt></a>,
+<a class="reference internal" href="../do/dv_port_config_spec.html#pyvisdk.do.dv_port_config_spec.DVPortConfigSpec" title="pyvisdk.do.dv_port_config_spec.DVPortConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">DVPortConfigSpec</span></tt></a>,
+<a class="reference internal" href="../do/dv_portgroup_config_info.html#pyvisdk.do.dv_portgroup_config_info.DVPortgroupConfigInfo" title="pyvisdk.do.dv_portgroup_config_info.DVPortgroupConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">DVPortgroupConfigInfo</span></tt></a>,
+<a class="reference internal" href="../do/dv_portgroup_config_spec.html#pyvisdk.do.dv_portgroup_config_spec.DVPortgroupConfigSpec" title="pyvisdk.do.dv_portgroup_config_spec.DVPortgroupConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">DVPortgroupConfigSpec</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">DvsScopeViolated</span></tt>,
+<a class="reference internal" href="../do/event_filter_spec_by_entity.html#pyvisdk.do.event_filter_spec_by_entity.EventFilterSpecByEntity" title="pyvisdk.do.event_filter_spec_by_entity.EventFilterSpecByEntity"><tt class="xref py py-class docutils literal"><span class="pre">EventFilterSpecByEntity</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">Folder</span></tt>,
+<a class="reference internal" href="../do/http_nfc_lease_info.html#pyvisdk.do.http_nfc_lease_info.HttpNfcLeaseInfo" title="pyvisdk.do.http_nfc_lease_info.HttpNfcLeaseInfo"><tt class="xref py py-class docutils literal"><span class="pre">HttpNfcLeaseInfo</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">InvalidFolder</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">InvalidName</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">ManagedEntity</span></tt>,
+<a class="reference internal" href="../do/managed_entity_event_argument.html#pyvisdk.do.managed_entity_event_argument.ManagedEntityEventArgument" title="pyvisdk.do.managed_entity_event_argument.ManagedEntityEventArgument"><tt class="xref py py-class docutils literal"><span class="pre">ManagedEntityEventArgument</span></tt></a>,
+<a class="reference internal" href="../do/permission.html#pyvisdk.do.permission.Permission" title="pyvisdk.do.permission.Permission"><tt class="xref py py-class docutils literal"><span class="pre">Permission</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">Profile</span></tt>,
+<a class="reference internal" href="../do/resource_config_spec.html#pyvisdk.do.resource_config_spec.ResourceConfigSpec" title="pyvisdk.do.resource_config_spec.ResourceConfigSpec"><tt class="xref py py-class docutils literal"><span class="pre">ResourceConfigSpec</span></tt></a>,
+<a class="reference internal" href="../do/scheduled_task_info.html#pyvisdk.do.scheduled_task_info.ScheduledTaskInfo" title="pyvisdk.do.scheduled_task_info.ScheduledTaskInfo"><tt class="xref py py-class docutils literal"><span class="pre">ScheduledTaskInfo</span></tt></a>,
+<a class="reference internal" href="../do/task_filter_spec_by_entity.html#pyvisdk.do.task_filter_spec_by_entity.TaskFilterSpecByEntity" title="pyvisdk.do.task_filter_spec_by_entity.TaskFilterSpecByEntity"><tt class="xref py py-class docutils literal"><span class="pre">TaskFilterSpecByEntity</span></tt></a>,
+<a class="reference internal" href="../do/task_info.html#pyvisdk.do.task_info.TaskInfo" title="pyvisdk.do.task_info.TaskInfo"><tt class="xref py py-class docutils literal"><span class="pre">TaskInfo</span></tt></a>,
+<a class="reference internal" href="../do/task_reason_alarm.html#pyvisdk.do.task_reason_alarm.TaskReasonAlarm" title="pyvisdk.do.task_reason_alarm.TaskReasonAlarm"><tt class="xref py py-class docutils literal"><span class="pre">TaskReasonAlarm</span></tt></a>,
+<a class="reference internal" href="../do/v_app_clone_spec_resource_map.html#pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap" title="pyvisdk.do.v_app_clone_spec_resource_map.VAppCloneSpecResourceMap"><tt class="xref py py-class docutils literal"><span class="pre">VAppCloneSpecResourceMap</span></tt></a>,
+<a class="reference internal" href="../do/v_app_entity_config_info.html#pyvisdk.do.v_app_entity_config_info.VAppEntityConfigInfo" title="pyvisdk.do.v_app_entity_config_info.VAppEntityConfigInfo"><tt class="xref py py-class docutils literal"><span class="pre">VAppEntityConfigInfo</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualApp</span></tt>,
+<a class="reference internal" href="../do/virtual_app_link_info.html#pyvisdk.do.virtual_app_link_info.VirtualAppLinkInfo" title="pyvisdk.do.virtual_app_link_info.VirtualAppLinkInfo"><tt class="xref py py-class docutils literal"><span class="pre">VirtualAppLinkInfo</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">VmFaultToleranceConfigIssue</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">VmFaultToleranceConfigIssueWrapper</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Extended by</tt></dt>
-<dd><p>ComputeResource, Datacenter, Datastore, DistributedVirtualSwitch, Folder, HostSystem, Network, ResourcePool, VirtualMachine</p>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ComputeResource</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">Datacenter</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">Datastore</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">DistributedVirtualSwitch</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">Folder</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">HostSystem</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">Network</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">ResourcePool</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">VirtualMachine</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Extends</tt></dt>
-<dd><p><a class="reference internal" href="extensible_managed_object.html#pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject" title="pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject"><tt class="xref py py-class docutils literal"><span class="pre">ExtensibleManagedObject</span></tt></a></p>
+<dd><p><tt class="xref py py-class docutils literal"><span class="pre">ExtensibleManagedObject</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Returned by</tt></dt>
-<dd><p>CloseInventoryViewFolder, FindAllByDnsName, FindAllByIp, FindAllByUuid, FindByDnsName, FindByInventoryPath, FindByIp, FindByUuid, FindChild, OpenInventoryViewFolder</p>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">CloseInventoryViewFolder()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">FindAllByDnsName()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">FindAllByIp()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">FindAllByUuid()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">FindByDnsName()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">FindByInventoryPath()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">FindByIp()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">FindByUuid()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">FindChild()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">OpenInventoryViewFolder()</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">Parameter to</tt></dt>
-<dd><p>AcknowledgeAlarm, AreAlarmActionsEnabled, AssociateProfile, CheckCompliance_Task, CheckProfileCompliance_Task, ClearComplianceStatus, CloseInventoryViewFolder, CreateAlarm, CreateContainerView, CreateDescriptor, CreateScheduledTask, DissociateProfile, EnableAlarmActions, FindAssociatedProfile, FindChild, GetAlarm, GetAlarmState, LogUserEvent, MoveIntoFolder_Task, MoveIntoResourcePool, OpenInventoryViewFolder, QueryCompatibleHostForExistingDvs, QueryCompatibleHostForNewDvs, QueryComplianceStatus, RemoveEntityPermission, ResetEntityPermissions, RetrieveEntityPermissions, RetrieveEntityScheduledTask, SetEntityPermissions, SetField, UpdateLinkedChildren</p>
+<dd><p><tt class="xref py py-meth docutils literal"><span class="pre">AcknowledgeAlarm()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">AreAlarmActionsEnabled()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">AssociateProfile()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">CheckCompliance_Task()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">CheckProfileCompliance_Task()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">ClearComplianceStatus()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">CloseInventoryViewFolder()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">CreateAlarm()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">CreateContainerView()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">CreateDescriptor()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">CreateScheduledTask()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">DissociateProfile()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">EnableAlarmActions()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">FindAssociatedProfile()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">FindChild()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">GetAlarm()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">GetAlarmState()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">LogUserEvent()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">MoveIntoFolder_Task()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">MoveIntoResourcePool()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">OpenInventoryViewFolder()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">QueryCompatibleHostForExistingDvs()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">QueryCompatibleHostForNewDvs()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">QueryComplianceStatus()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">RemoveEntityPermission()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">ResetEntityPermissions()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">RetrieveEntityPermissions()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">RetrieveEntityScheduledTask()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">SetEntityPermissions()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">SetField()</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">UpdateLinkedChildren()</span></tt></p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <tt class="descname">See also</tt></dt>
-<dd><p><tt class="xref py py-class docutils literal"><span class="pre">AlarmState</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">CustomFieldValue</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Event</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">ManagedEntityStatus</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Permission</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Tag</span></tt>, <a class="reference internal" href="task.html#pyvisdk.mo.task.Task" title="pyvisdk.mo.task.Task"><tt class="xref py py-class docutils literal"><span class="pre">Task</span></tt></a></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity">
-<em class="property">class </em><tt class="descclassname">pyvisdk.mo.managed_entity.</tt><tt class="descname">ManagedEntity</tt><big>(</big><em>core</em>, <em>name=None</em>, <em>ref=None</em>, <em>type='ManagedEntity'</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Most Virtual Infrastructure managed object types extend this type.</p>
-<dl class="method">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.Destroy_Task">
-<tt class="descname">Destroy_Task</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.Destroy_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.Destroy_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Destroys this object, deleting its contents and removing it from its parent folder
-(if any).NOTE: The appropriate privilege must be held on the parent of the
-destroyed entity as well as the entity itself.This method can throw one of
-several exceptions. The exact set of exceptions depends on the kind of
-entity that is being removed. See comments for each entity for more
-information on destroy behavior.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.Reload">
-<tt class="descname">Reload</tt><big>(</big><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.Reload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.Reload" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reload the entity state. Clients only need to call this method if they changed
-some external state that affects the service without using the Web service
-interface to perform the change. For example, hand-editing a virtual
-machine configuration file affects the configuration of the associated
-virtual machine but the service managing the virtual machine might not
-monitor the file for changes. In this case, after such an edit, a client
-would call &#8220;reload&#8221; on the associated virtual machine to ensure the
-service and its clients have current data for the virtual machine.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.Rename_Task">
-<tt class="descname">Rename_Task</tt><big>(</big><em>newName</em><big>)</big><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.Rename_Task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.Rename_Task" title="Permalink to this definition">¶</a></dt>
-<dd><p>Renames this managed entity.Any % (percent) character used in this name parameter
-must be escaped, unless it is used to start an escape sequence. Clients
-may also escape any other characters in this name parameter.See name</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newName</strong> &#8211; See name</td>
-</tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Task</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.alarmActionsEnabled">
-<tt class="descname">alarmActionsEnabled</tt><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.alarmActionsEnabled"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.alarmActionsEnabled" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether alarm actions are enabled for this entity. True if enabled; false
-otherwise.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.availableField">
-<tt class="descname">availableField</tt><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.availableField" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of custom field definitions that are valid for the object&#8217;s type. The fields
-are sorted by name.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.configIssue">
-<tt class="descname">configIssue</tt><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.configIssue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.configIssue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Current configuration issues that have been detected for this entity. Typically,
-these issues have already been logged as events. The entity stores these
-events as long as they are still current. The configStatus property
-provides an overall status based on these events.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.configStatus">
-<tt class="descname">configStatus</tt><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.configStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.configStatus" title="Permalink to this definition">¶</a></dt>
-<dd><p>The configStatus indicates whether or not the system has detected a configuration
-issue involving this entity. For example, it might have detected a
-duplicate IP address or MAC address, or a host in a cluster might be out
-of compliance. The meanings of the configStatus values are: * red: A
-problem has been detected involving the entity. * yellow: A problem is
-about to occur or a transient condition has occurred (For example,
-reconfigure fail-over policy). * green: No configuration issues have been
-detected. * gray: The configuration status of the entity is not being
-monitored. A green status indicates only that a problem has not been
-detected; it is not a guarantee that the entity is problem-free.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.customValue">
-<tt class="descname">customValue</tt><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.customValue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.customValue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Custom field values.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.declaredAlarmState">
-<tt class="descname">declaredAlarmState</tt><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.declaredAlarmState"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.declaredAlarmState" title="Permalink to this definition">¶</a></dt>
-<dd><p>A set of alarm states for alarms that apply to this managed entity. The set
-includes alarms defined on this entity and alarms inherited from the
-parent entity, or from any ancestors in the inventory hierarchy.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.disabledMethod">
-<tt class="descname">disabledMethod</tt><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.disabledMethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.disabledMethod" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of operations that are disabled, given the current runtime state of the
-entity. For example, a power-on operation always fails if a virtual
-machine is already powered on. This list can be used by clients to enable
-or disable operations in a graphical user interface.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.effectiveRole">
-<tt class="descname">effectiveRole</tt><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.effectiveRole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.effectiveRole" title="Permalink to this definition">¶</a></dt>
-<dd><p>Access rights the current session has to this entity.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.overallStatus">
-<tt class="descname">overallStatus</tt><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.overallStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.overallStatus" title="Permalink to this definition">¶</a></dt>
-<dd><p>General health of this managed entity. The value combines the status of all the
-alarms attached to a managed entity.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.parent">
-<tt class="descname">parent</tt><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.parent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.parent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parent of this entity.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.permission">
-<tt class="descname">permission</tt><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.permission"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.permission" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of permissions defined for this entity.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.recentTask">
-<tt class="descname">recentTask</tt><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.recentTask"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.recentTask" title="Permalink to this definition">¶</a></dt>
-<dd><p>The set of recent tasks operating on this managed entity. This is a subset of
-recentTask belong to this entity. A task in this list could be in one of
-the four states: pending, running, success or error.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.tag">
-<tt class="descname">tag</tt><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.tag" title="Permalink to this definition">¶</a></dt>
-<dd><p>The set of tags associated with this managed entity. Experimental. Subject to
-change.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.triggeredAlarmState">
-<tt class="descname">triggeredAlarmState</tt><a class="reference internal" href="../modules/pyvisdk/mo/managed_entity.html#ManagedEntity.triggeredAlarmState"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.triggeredAlarmState" title="Permalink to this definition">¶</a></dt>
-<dd><p>A set of alarm states for alarms triggered by this entity or by its descendants.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pyvisdk.mo.managed_entity.ManagedEntity.value">
-<tt class="descname">value</tt><a class="headerlink" href="#pyvisdk.mo.managed_entity.ManagedEntity.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of custom field values. Each value uses a key to associate an instance of a
-CustomFieldStringValue with a custom field definition.</p>
-</dd></dl>
-
+<dd><p><a class="reference internal" href="../do/alarm_state.html#pyvisdk.do.alarm_state.AlarmState" title="pyvisdk.do.alarm_state.AlarmState"><tt class="xref py py-class docutils literal"><span class="pre">AlarmState</span></tt></a>,
+<a class="reference internal" href="../do/custom_field_value.html#pyvisdk.do.custom_field_value.CustomFieldValue" title="pyvisdk.do.custom_field_value.CustomFieldValue"><tt class="xref py py-class docutils literal"><span class="pre">CustomFieldValue</span></tt></a>,
+<a class="reference internal" href="../do/event.html#pyvisdk.do.event.Event" title="pyvisdk.do.event.Event"><tt class="xref py py-class docutils literal"><span class="pre">Event</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">ManagedEntityStatus</span></tt>,
+<a class="reference internal" href="../do/permission.html#pyvisdk.do.permission.Permission" title="pyvisdk.do.permission.Permission"><tt class="xref py py-class docutils literal"><span class="pre">Permission</span></tt></a>, <a class="reference internal" href="../do/tag.html#pyvisdk.do.tag.Tag" title="pyvisdk.do.tag.Tag"><tt class="xref py py-class docutils literal"><span class="pre">Tag</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">Task</span></tt></p>
 </dd></dl>
 
 </div>
@@ -277,7 +192,7 @@ CustomFieldStringValue with a custom field definition.</p>
                         title="next chapter">3.63. ManagedObjectView</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/mo/managed_entity.txt"
+    <li><a href="../_sources/mo/managed_entity.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
