@@ -1,0 +1,19 @@
+<h3>Download</h3>
+{% if version.endswith('-dev') %}
+<p>This documentation is for version <b>{{ version }}</b>, which is
+  not released yet.</p>
+<p>You can check it out from
+  <a href="https://github.com/xuru/pyvisdk">github</a> or look for
+  released versions in the <a href="http://pypi.python.org/pypi/pyvisdk">Python
+    Package Index</a>.</p>
+{% else %}
+<p>Current version: <b>{{ version }}</b></p>
+<p>Get pyvisdk from the <a href="http://pypi.python.org/pypi/pyvisdk">Python Package
+Index</a>, or install it with: <i>easy_install pyvisdk</i></p>
+{% endif %}
+
+<h3>Questions? Suggestions?</h3>
+
+<p>Have a look at the <a href="https://github.com/xuru/pyvisdk/wiki">Wiki</a>.</p>
+<p>You can also open an issue at the
+  <a href="https://github.com/xuru/pyvisdk/issues">tracker</a>.</p>
