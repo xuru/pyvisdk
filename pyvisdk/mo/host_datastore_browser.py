@@ -55,9 +55,9 @@ class HostDatastoreBrowser(BaseEntity):
     @property
     def supportedType(self):
         '''The list of supported file types. The supported file types are represented as
-    items in this list. For each supported file type, there is an object in the
-    list whose dynamic type is one of the types derived from the FileQuery data
-    object type. In general, the properties in this query type are not set.'''
+        items in this list. For each supported file type, there is an object in the
+        list whose dynamic type is one of the types derived from the FileQuery data
+        object type. In general, the properties in this query type are not set.'''
         return self.update('supportedType')
     
     
@@ -66,8 +66,7 @@ class HostDatastoreBrowser(BaseEntity):
         '''Deprecated. As of VI API 2.5, use DeleteDatastoreFile_Task. Deletes the
         specified files from the datastore. If a valid virtual disk file is specified,
         then all the components of the virtual disk are deleted.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("DeleteFile")()
     
@@ -76,8 +75,9 @@ class HostDatastoreBrowser(BaseEntity):
         SearchResults object. Searches only the folder specified by the datastore path.
         The Datastore.Browse privilege must be held on the datastore identified by the
         datastore path.
+        
         :rtype: ManagedObjectReference to a Task
-        :returns: 
+        
         '''
         return self.delegate("SearchDatastore_Task")()
     
@@ -86,7 +86,8 @@ class HostDatastoreBrowser(BaseEntity):
         SearchResults[] object. Searches the folder specified by the datastore path and
         all subfolders. The Datastore.Browse privilege must be held on the datastore
         identified by the datastore path.
+        
         :rtype: ManagedObjectReference to a Task
-        :returns: 
+        
         '''
         return self.delegate("SearchDatastoreSubFolders_Task")()

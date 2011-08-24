@@ -25,29 +25,34 @@ class ListView(ManagedObjectView):
     
     
     
-    def ModifyListView(self):
+    def ModifyListView(self, add, remove):
         '''Modify the list by giving a delta of entities to add and entities to remove.May
         partially succeed if some objects could not be resolved. The operation will
         still succeed for all objects which could be resolved, and the list of those
         which failed is returned as the result.
-        :rtype: 
-        :returns: 
+        
+        :param add: Optional list of objects to add to the view.
+        
+        :param remove: Optional list of objects to remove from the view.
+        
         '''
-        return self.delegate("ModifyListView")()
+        return self.delegate("ModifyListView")(add, remove)
     
-    def ResetListView(self):
+    def ResetListView(self, obj):
         '''Replaces the list with an entirely new set of objects. If the entire set is
         changing, this is less data to send than a delta.May partially succeed if some
         objects could not be resolved. The operation will still succeed for all objects
         which could be resolved, and the list of those which failed is as the result.
-        :rtype: 
-        :returns: 
+        
+        :param obj: The new list of objects.
+        
         '''
-        return self.delegate("ResetListView")()
+        return self.delegate("ResetListView")(obj)
     
-    def ResetListViewFromView(self):
+    def ResetListViewFromView(self, view):
         '''Replaces the list with the set of objects in a given view.
-        :rtype: None
-        :returns: 
+        
+        :param view: to a ViewThe view to copy objects from.
+        
         '''
-        return self.delegate("ResetListViewFromView")()
+        return self.delegate("ResetListViewFromView")(view)

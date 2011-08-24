@@ -34,8 +34,7 @@ class HostAutoStartManager(BaseEntity):
         configuration.See the description of the (@link
         vim.host.AutoStartManager.AutoPowerInfo) data object type for more information
         on Auto power-off behavior.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("AutoStartPowerOff")()
     
@@ -43,12 +42,11 @@ class HostAutoStartManager(BaseEntity):
         '''Powers-on virtual machines according to the current AutoStart configuration.See
         the description of the (@link vim.host.AutoStartManager.AutoPowerInfo) data
         object type for more information on Auto power-on behavior.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("AutoStartPowerOn")()
     
-    def ReconfigureAutostart(self):
+    def ReconfigureAutostart(self, spec):
         '''Changes the power-on or power-off sequence and system defaults. The
         specification is an incremental change to the current configuration.If
         systemDefaults are included, only values that are specified in the
@@ -61,7 +59,8 @@ class HostAutoStartManager(BaseEntity):
         order or removing the machine from the order. When a virtual machine's position
         changes, all other virtual machines' positions may be affected as they move to
         new positions relative to each other.
-        :rtype: None
-        :returns: 
+        
+        :param spec: List of changes to defaults and auto-start/auto-stop order.
+        
         '''
-        return self.delegate("ReconfigureAutostart")()
+        return self.delegate("ReconfigureAutostart")(spec)

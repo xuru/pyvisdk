@@ -17,9 +17,10 @@ class ContainerView(ManagedObjectView):
     ContainerView with a ViewManager.When you invoke the CreateContainerView
     method, you specify a managed object instance that provides the starting point
     for object selection. You can use the following managed objects as the basis of
-    a container view:Once you have created the view, the view list always
-    represents the current configuration of the virtual environment and reflects
-    any subsequent changes that occur.'''
+    a container view:* Folder * Datacenter * ComputeResource * ResourcePool *
+    HostSystemOnce you have created the view, the view list always represents the
+    current configuration of the virtual environment and reflects any subsequent
+    changes that occur.'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ContainerView):
         super(ContainerView, self).__init__(core, name=name, ref=ref, type=type)
@@ -28,19 +29,19 @@ class ContainerView(ManagedObjectView):
     @property
     def container(self):
         '''The Folder, Datacenter, ComputeResource, ResourcePool, or HostSystem instance
-    that provides the objects that the view presents.'''
+        that provides the objects that the view presents.'''
         return self.update('container')
     @property
     def recursive(self):
         '''Whether to include only the immediate children of the container instance, or to
-    include additional objects by following the paths beyond the immediate
-    children.'''
+        include additional objects by following the paths beyond the immediate
+        children.'''
         return self.update('recursive')
     @property
     def type(self):
         '''An optional list of types to be applied to the set of objects in the view. The
-    list of types indicates objects that are included in the view. If empty, all
-    types are included.'''
+        list of types indicates objects that are included in the view. If empty, all
+        types are included.'''
         return self.update('type')
     
     

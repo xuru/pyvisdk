@@ -25,25 +25,32 @@ class ProfileManager(BaseEntity):
     
     
     
-    def CreateProfile(self):
+    def CreateProfile(self, createSpec):
         '''Create a profile from the specified CreateSpec.
+        
+        :param createSpec: Specification for the profile being created. Usually a derived class CreateSpec can be used to create the Profile.
+        
         :rtype: ManagedObjectReference to a Profile
-        :returns: 
+        
         '''
-        return self.delegate("CreateProfile")()
+        return self.delegate("CreateProfile")(createSpec)
     
-    def FindAssociatedProfile(self):
+    def FindAssociatedProfile(self, entity):
         '''Get the profile(s) to which this entity is associated. The list of profiles
         will only include profiles known to this profileManager.
+        
+        :param entity: to a ManagedEntityEntity for which profile is being looked up.
+        
         :rtype: ManagedObjectReference[] to a Profile[]
-        :returns: 
+        
         '''
-        return self.delegate("FindAssociatedProfile")()
+        return self.delegate("FindAssociatedProfile")(entity)
     
-    def QueryPolicyMetadata(self):
+    def QueryPolicyMetadata(self, policyName):
         '''Get the Metadata information for the policyNames. PolicyNames are available
         with the defaultProfile obtained by invoking the method createDefaultProfile.
-        :rtype: 
-        :returns: 
+        
+        :param policyName: Retrieve metadata for the specified policyNames. If policyName is not specified, metadata for all policies will be returned.
+        
         '''
-        return self.delegate("QueryPolicyMetadata")()
+        return self.delegate("QueryPolicyMetadata")(policyName)

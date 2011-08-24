@@ -26,9 +26,9 @@ class PropertyFilter(BaseEntity):
     @property
     def partialUpdates(self):
         '''Flag to indicate if a change to a nested property reports only the nested
-    change or the entire specified property value. If the value is true, a change
-    reports only the nested property. If the value is false, a change reports the
-    enclosing property named in the filter.'''
+        change or the entire specified property value. If the value is true, a change
+        reports only the nested property. If the value is false, a change reports the
+        enclosing property named in the filter.'''
         return self.update('partialUpdates')
     @property
     def spec(self):

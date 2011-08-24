@@ -25,8 +25,8 @@ class HostCpuSchedulerSystem(ExtensibleManagedObject):
     @property
     def hyperthreadInfo(self):
         '''The hyperthread configuration for the CpuSchedulerSystem. The existence of this
-    data object type indicates if the CPU scheduler is capable of scheduling
-    hyperthreads as resources.'''
+        data object type indicates if the CPU scheduler is capable of scheduling
+        hyperthreads as resources.'''
         return self.update('hyperthreadInfo')
     
     
@@ -35,15 +35,13 @@ class HostCpuSchedulerSystem(ExtensibleManagedObject):
         '''Don't treat hyperthreads as schedulable resources the next time the CPU
         scheduler starts. If successful, this operation will change the configured
         setting.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("DisableHyperThreading")()
     
     def EnableHyperThreading(self):
         '''Treat hyperthreads as schedulable resources the next time the CPU scheduler
         starts. If successful, this operation will set the config property to "true".
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("EnableHyperThreading")()

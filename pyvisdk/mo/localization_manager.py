@@ -22,7 +22,7 @@ class LocalizationManager(BaseEntity):
     @property
     def catalog(self):
         '''Fetches the descriptions of all the client-side localization message catalogs
-    available for the current session locale.'''
+        available for the current session locale.'''
         return self.update('catalog')
     
     

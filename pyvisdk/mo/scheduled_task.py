@@ -25,24 +25,23 @@ class ScheduledTask(ExtensibleManagedObject):
     
     
     
-    def ReconfigureScheduledTask(self):
+    def ReconfigureScheduledTask(self, spec):
         '''Reconfigures the scheduled task properties.
-        :rtype: None
-        :returns: 
+        
+        :param spec: The new specification for the scheduled task.
+        
         '''
-        return self.delegate("ReconfigureScheduledTask")()
+        return self.delegate("ReconfigureScheduledTask")(spec)
     
     def RemoveScheduledTask(self):
         '''Removes the scheduled task.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("RemoveScheduledTask")()
     
     def RunScheduledTask(self):
         '''Runs the scheduled task immediately. The schedule for future runs remains in
         effect.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("RunScheduledTask")()

@@ -22,7 +22,7 @@ class AlarmManager(BaseEntity):
     @property
     def defaultExpression(self):
         '''The default setting for each alarm expression, used to populate the initial
-    client wizard screen.'''
+        client wizard screen.'''
         return self.update('defaultExpression')
     @property
     def description(self):
@@ -31,50 +31,66 @@ class AlarmManager(BaseEntity):
     
     
     
-    def AcknowledgeAlarm(self):
+    def AcknowledgeAlarm(self, alarm, entity):
         '''Acknowledge the alarm on a managed entity. The actions associated with the
         alarm will not fire until the alarm's next distinct occurrence; that is, until
         after the alarm has entered the green or gray states at least once. Calling
         this method on an acknowledged or non-triggered alarm.
-        :rtype: None
-        :returns: 
+        
+        :param alarm: to a AlarmThe Alarm to acknowledge.
+        
+        :param entity: to a ManagedEntityThe ManagedEntity for which to acknowledge the Alarm.
+        
         '''
-        return self.delegate("AcknowledgeAlarm")()
+        return self.delegate("AcknowledgeAlarm")(alarm, entity)
     
-    def AreAlarmActionsEnabled(self):
+    def AreAlarmActionsEnabled(self, entity):
         '''Returns true if alarm actions are enabled on the specified managed entity.
-        :rtype: 
-        :returns: 
+        
+        :param entity: to a ManagedEntityThe managed entity to look up.
+        
         '''
-        return self.delegate("AreAlarmActionsEnabled")()
+        return self.delegate("AreAlarmActionsEnabled")(entity)
     
-    def CreateAlarm(self):
+    def CreateAlarm(self, entity, spec):
         '''Creates an alarm.In addition to the Alarm.Create privilege, may also require
         the Global.ScriptAction if a RunScriptAction action is specified in the
         AlarmSpec.
+        
+        :param entity: to a ManagedEntityThe entity with which the alarm is associated.
+        
+        :param spec: The specification for the new alarm.
+        
         :rtype: ManagedObjectReference to a Alarm
-        :returns: 
+        
         '''
-        return self.delegate("CreateAlarm")()
+        return self.delegate("CreateAlarm")(entity, spec)
     
-    def EnableAlarmActions(self):
+    def EnableAlarmActions(self, entity, enabled):
         '''Enables or disables alarms on the specified managed entity.
-        :rtype: None
-        :returns: 
+        
+        :param entity: to a ManagedEntityThe managed entity on which to set a schedule.
+        
+        :param enabled: true, if alarms are enabled during the schedule.
+        
         '''
-        return self.delegate("EnableAlarmActions")()
+        return self.delegate("EnableAlarmActions")(entity, enabled)
     
-    def GetAlarm(self):
+    def GetAlarm(self, entity):
         '''Available alarms defined on the entity. These alarms do not include any
         inherited alarms; that is, alarms associated with parent entities.
+        
+        :param entity: to a ManagedEntityThe entity. If not set, alarms are returned for all visible entities.
+        
         :rtype: ManagedObjectReference[] to a Alarm[]
-        :returns: 
+        
         '''
-        return self.delegate("GetAlarm")()
+        return self.delegate("GetAlarm")(entity)
     
-    def GetAlarmState(self):
+    def GetAlarmState(self, entity):
         '''The state of instantiated alarms on the entity.
-        :rtype: 
-        :returns: 
+        
+        :param entity: to a ManagedEntityThe entity.
+        
         '''
-        return self.delegate("GetAlarmState")()
+        return self.delegate("GetAlarmState")(entity)

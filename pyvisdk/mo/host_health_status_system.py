@@ -27,8 +27,7 @@ class HostHealthStatusSystem(BaseEntity):
     
     def RefreshHealthStatusSystem(self):
         '''Refresh the available runtime hardware health information.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("RefreshHealthStatusSystem")()
     
@@ -37,7 +36,6 @@ class HostHealthStatusSystem(BaseEntity):
         hardware IPMI sensor states latch onto unhealthy states and will stay in an
         unhealth state until the sensor state is reset. This method will explicitly
         reset the sensors state.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("ResetSystemHealthInfo")()

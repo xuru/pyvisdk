@@ -21,23 +21,30 @@ class LicenseAssignmentManager(BaseEntity):
     
     
     
-    def QueryAssignedLicenses(self):
+    def QueryAssignedLicenses(self, entityId):
         '''Get information about all the licenses associated with an entity
-        :rtype: 
-        :returns: 
+        
+        :param entityId: ID of the entity. E.g. HostSystem.
+        
         '''
-        return self.delegate("QueryAssignedLicenses")()
+        return self.delegate("QueryAssignedLicenses")(entityId)
     
-    def RemoveAssignedLicense(self):
+    def RemoveAssignedLicense(self, entityId):
         '''Remove licenses associated with an entity
-        :rtype: None
-        :returns: 
+        
+        :param entityId: ID of the entity. E.g. HostSystem.
+        
         '''
-        return self.delegate("RemoveAssignedLicense")()
+        return self.delegate("RemoveAssignedLicense")(entityId)
     
-    def UpdateAssignedLicense(self):
+    def UpdateAssignedLicense(self, entity, licenseKey, entityDisplayName):
         '''Update the license associated with an entity
-        :rtype: 
-        :returns: 
+        
+        :param entity: ID of the entity. E.g. HostSystem.
+        
+        :param licenseKey: A license.
+        
+        :param entityDisplayName: Display name for the entity
+        
         '''
-        return self.delegate("UpdateAssignedLicense")()
+        return self.delegate("UpdateAssignedLicense")(entity, licenseKey, entityDisplayName)

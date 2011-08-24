@@ -25,24 +25,29 @@ class HostProfile(Profile):
     
     
     
-    def ExecuteHostProfile(self):
+    def ExecuteHostProfile(self, host, deferredParam):
         '''Execute the Profile Engine to calculate the list of configuration changes
         needed for the host.
-        :rtype: 
-        :returns: 
+        
+        :param host: to a HostSystemThe host on which to execute the profile. The host needn't be associated with the Profile.
+        
+        :param deferredParam: The inputs that the user has given till now. This should include all the inputs the user has given till now including the inputs from the previous round of the call.
+        
         '''
-        return self.delegate("ExecuteHostProfile")()
+        return self.delegate("ExecuteHostProfile")(host, deferredParam)
     
-    def UpdateHostProfile(self):
+    def UpdateHostProfile(self, config):
         '''Update the HostProfile with the specified config.
-        :rtype: None
-        :returns: 
+        
+        :param config: Specification which describes the changes.
+        
         '''
-        return self.delegate("UpdateHostProfile")()
+        return self.delegate("UpdateHostProfile")(config)
     
-    def UpdateReferenceHost(self):
+    def UpdateReferenceHost(self, host):
         '''Update the reference host in use by the HostProfile.
-        :rtype: None
-        :returns: 
+        
+        :param host: to a HostSystemReference host to use. If Unset, referenceHost is cleared.
+        
         '''
-        return self.delegate("UpdateReferenceHost")()
+        return self.delegate("UpdateReferenceHost")(host)

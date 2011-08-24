@@ -22,25 +22,28 @@ class HostKernelModuleSystem(BaseEntity):
     
     
     
-    def QueryConfiguredModuleOptionString(self):
+    def QueryConfiguredModuleOptionString(self, name):
         '''Query the options configured to be passed to the kernel module when loaded.
         Note that this is not necessarily the option string currently in use by the
         kernel module.
-        :rtype: 
-        :returns: 
+        
+        :param name: Module name.
+        
         '''
-        return self.delegate("QueryConfiguredModuleOptionString")()
+        return self.delegate("QueryConfiguredModuleOptionString")(name)
     
     def QueryModules(self):
         '''Query the set of modules on the host.
-        :rtype: 
-        :returns: 
+        
         '''
         return self.delegate("QueryModules")()
     
-    def UpdateModuleOptionString(self):
+    def UpdateModuleOptionString(self, name, options):
         '''Specifies the options to be passed to the kernel module when loaded.
-        :rtype: None
-        :returns: 
+        
+        :param name: Module name.
+        
+        :param options: Option string to be passed to the kernel module at load time.
+        
         '''
-        return self.delegate("UpdateModuleOptionString")()
+        return self.delegate("UpdateModuleOptionString")(name, options)

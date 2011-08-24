@@ -27,15 +27,15 @@ class HostPciPassthruSystem(ExtensibleManagedObject):
     
     def Refresh(self):
         '''Refresh the available PciPassthru information.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("Refresh")()
     
-    def UpdatePassthruConfig(self):
+    def UpdatePassthruConfig(self, config):
         '''Updates the PciPassthru configuration, this will get called for the dependent
         device with the enabled bool set
-        :rtype: None
-        :returns: 
+        
+        :param config: The new PciPassthru configuration information.
+        
         '''
-        return self.delegate("UpdatePassthruConfig")()
+        return self.delegate("UpdatePassthruConfig")(config)

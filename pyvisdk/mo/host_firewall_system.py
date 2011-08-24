@@ -31,8 +31,7 @@ class HostFirewallSystem(ExtensibleManagedObject):
         '''Blocks the firewall ports belonging to the specified ruleset. If the ruleset
         has a managed service with a policy of 'auto' and all other rulesets used by
         the service are blocked, stops the service.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("DisableRuleset")()
     
@@ -40,22 +39,19 @@ class HostFirewallSystem(ExtensibleManagedObject):
         '''Opens the firewall ports belonging to the specified ruleset. If the ruleset has
         a managed service with a policy of 'auto' that is not running, starts the
         service.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("EnableRuleset")()
     
     def RefreshFirewall(self):
         '''Refresh the firewall information and settings to pick up any changes made
         directly on the host.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("RefreshFirewall")()
     
     def UpdateDefaultPolicy(self):
         '''Updates the default firewall policy; unset fields are left unchanged.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("UpdateDefaultPolicy")()

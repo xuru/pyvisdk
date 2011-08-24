@@ -22,21 +22,27 @@ class StorageResourceManager(BaseEntity):
     
     
     
-    def ConfigureDatastoreIORM_Task(self):
+    def ConfigureDatastoreIORM_Task(self, datastore, spec):
         '''Changes configuration of storage I/O resource management for a given datastore.
         The changes are applied to all the backing storage devices for the datastore.
         Currently we only support storage I/O resource management on VMFS volumes. In
         order to enable storage I/O resource management on a datstore, we require that
         all the hosts that are attached to the datastore support this feature.This
         method is only supported by vCenter server.
+        
+        :param datastore: to a DatastoreThe datastore to be configured.
+        
+        :param spec: The configuration spec.
+        
         :rtype: ManagedObjectReference to a Task
-        :returns: 
+        
         '''
-        return self.delegate("ConfigureDatastoreIORM_Task")()
+        return self.delegate("ConfigureDatastoreIORM_Task")(datastore, spec)
     
-    def QueryIORMConfigOption(self):
+    def QueryIORMConfigOption(self, host):
         '''Query configuration options for storage I/O resource management.
-        :rtype: 
-        :returns: 
+        
+        :param host: to a HostSystem[in] - The host VC will forward the query to. This parameter is ignored by host if this method is called on a host directly.
+        
         '''
-        return self.delegate("QueryIORMConfigOption")()
+        return self.delegate("QueryIORMConfigOption")(host)

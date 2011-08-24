@@ -30,43 +30,37 @@ class HostServiceSystem(ExtensibleManagedObject):
     def RefreshServices(self):
         '''Refresh the service information and settings to pick up any changes made
         directly on the host.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("RefreshServices")()
     
     def RestartService(self):
         '''Restarts the service.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("RestartService")()
     
     def StartService(self):
         '''Starts the service.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("StartService")()
     
     def StopService(self):
         '''Stops the service.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("StopService")()
     
     def UninstallService(self):
         '''Uninstalls the service. If the service is running, it is stopped before being
         uninstalled.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("UninstallService")()
     
     def UpdateServicePolicy(self):
         '''Updates the activation policy (HostServicePolicy) of the service.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("UpdateServicePolicy")()

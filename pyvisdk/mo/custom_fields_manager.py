@@ -29,32 +29,44 @@ class CustomFieldsManager(BaseEntity):
     
     
     
-    def AddCustomFieldDef(self):
+    def AddCustomFieldDef(self, name, moType, fieldDefPolicy, fieldPolicy):
         '''Creates a new custom field. If the moType is specified, the field will only be
         available for that type of managed object.
-        :rtype: 
-        :returns: 
+        
+        :param name: The name of the field.
+        
+        :param moType: The managed object type to which this field will applyVI API 2.5
+        
+        :param fieldDefPolicy: Privilege policy to apply to FieldDef being createdVI API 2.5
+        
+        :param fieldPolicy: Privilege policy to apply to instances of fieldVI API 2.5
+        
         '''
-        return self.delegate("AddCustomFieldDef")()
+        return self.delegate("AddCustomFieldDef")(name, moType, fieldDefPolicy, fieldPolicy)
     
-    def RemoveCustomFieldDef(self):
+    def RemoveCustomFieldDef(self, key):
         '''Removes a custom field. This also removes all values assigned to this custom
         field.
-        :rtype: None
-        :returns: 
+        
+        :param key: The unique key for the field definition.
+        
         '''
-        return self.delegate("RemoveCustomFieldDef")()
+        return self.delegate("RemoveCustomFieldDef")(key)
     
-    def RenameCustomFieldDef(self):
+    def RenameCustomFieldDef(self, key, name):
         '''Renames a custom field.
-        :rtype: None
-        :returns: 
+        
+        :param key: The unique key for the field definition.
+        
+        :param name: The new name for the field.
+        
         '''
-        return self.delegate("RenameCustomFieldDef")()
+        return self.delegate("RenameCustomFieldDef")(key, name)
     
-    def SetField(self):
+    def SetField(self, entity):
         '''Assigns a value to a custom field on an entity.
-        :rtype: None
-        :returns: 
+        
+        :param entity: to a ManagedEntity
+        
         '''
-        return self.delegate("SetField")()
+        return self.delegate("SetField")(entity)

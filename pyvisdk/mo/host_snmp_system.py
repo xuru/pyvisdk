@@ -32,14 +32,12 @@ class HostSnmpSystem(BaseEntity):
     
     def ReconfigureSnmpAgent(self):
         '''
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("ReconfigureSnmpAgent")()
     
     def SendTestNotification(self):
         '''
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("SendTestNotification")()

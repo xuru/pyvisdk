@@ -18,7 +18,11 @@ class PropertyCollector(BaseEntity):
     change detection and supports both polling and notification.For change
     detection a client creates one or more filters to specify the subset of managed
     objects in which the client is interested. Filters keep per-session state to
-    track incremental changes. Because this state is per-session:'''
+    track incremental changes. Because this state is per-session:* A session cannot
+    share its PropertyCollector filters with other sessions * two different clients
+    can share the same session, and so can share the same filters, but this is not
+    recommended * When a session terminates, the associated PropertyCollector
+    filters are automatically destroyed.'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.PropertyCollector):
         super(PropertyCollector, self).__init__(core, name=name, ref=ref, type=type)
@@ -27,52 +31,59 @@ class PropertyCollector(BaseEntity):
     @property
     def filter(self):
         '''The filters that this PropertyCollector uses to determine the list of
-    properties for which it detects incremental changes.'''
+        properties for which it detects incremental changes.'''
         return self.update('filter')
     
     
     
-    def CancelRetrievePropertiesEx(self):
+    def CancelRetrievePropertiesEx(self, token):
         '''Discards remaining results from a retrieval started by RetrievePropertiesEx on
         the same session on the same PropertyCollector.
-        :rtype: None
-        :returns: 
+        
+        :param token: the token returned in the previous RetrieveResult returned on the same session by the same PropertyCollector.
+        
         '''
-        return self.delegate("CancelRetrievePropertiesEx")()
+        return self.delegate("CancelRetrievePropertiesEx")(token)
     
     def CancelWaitForUpdates(self):
         '''Attempts to cancel outstanding calls to WaitForUpdates or WaitForUpdatesEx in
         the current session. If an update calculation is in process this method has no
         effect. If an update calculation is not in process any waiting calls complete
         quickly and report a RequestCanceled fault.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("CancelWaitForUpdates")()
     
-    def CheckForUpdates(self):
+    def CheckForUpdates(self, version):
         '''Deprecated. As of vSphere API 4.1, use WaitForUpdatesEx with a maxWaitSeconds
         of 0. Checks for updates on properties specified by the union of all current
         filters. If no updates are pending, this method returns null.
-        :rtype: 
-        :returns: 
+        
+        :param version: The data version currently known to the client. The value must be either * the special initial version (an empty string) * a data version returned from CheckForUpdates or WaitForUpdates by the same PropertyCollector on the same session. * a non-truncated data version returned from WaitForUpdatesEx by the same PropertyCollector on the same session.
+        
         '''
-        return self.delegate("CheckForUpdates")()
+        return self.delegate("CheckForUpdates")(version)
     
-    def ContinueRetrievePropertiesEx(self):
+    def ContinueRetrievePropertiesEx(self, token):
         '''Retrieves additional results from a retrieval started by RetrievePropertiesEx
         on the same session on the same PropertyCollector.
-        :rtype: 
-        :returns: 
+        
+        :param token: the token returned in the previous RetrieveResult returned on the same session by the same PropertyCollector.
+        
         '''
-        return self.delegate("ContinueRetrievePropertiesEx")()
+        return self.delegate("ContinueRetrievePropertiesEx")(token)
     
-    def CreateFilter(self):
+    def CreateFilter(self, spec, partialUpdates):
         '''Creates a new filter for the given set of managed objects.
+        
+        :param spec: The specifications for the filter.
+        
+        :param partialUpdates: Flag to specify whether a change to a nested property should report only the nested change or the entire specified property value. If the value is true, a change should report only the nested property. If the value is false, a change should report the enclosing property named in the filter.
+        
         :rtype: ManagedObjectReference to a PropertyFilter
-        :returns: 
+        
         '''
-        return self.delegate("CreateFilter")()
+        return self.delegate("CreateFilter")(spec, partialUpdates)
     
     def CreatePropertyCollector(self):
         '''Creates a new session-specific PropertyCollector that can be used to retrieve
@@ -103,8 +114,9 @@ class PropertyCollector(BaseEntity):
         type will automatically create a default PropertyCollector and provide some way
         to obtain a reference to this PropertyCollector. If not, it will have to
         provide some service-specific way to create the a PropertyCollector.
+        
         :rtype: ManagedObjectReference to a PropertyCollector
-        :returns: 
+        
         '''
         return self.delegate("CreatePropertyCollector")()
     
@@ -114,41 +126,45 @@ class PropertyCollector(BaseEntity):
         was created is closed. This method can be used to destroy them explicitly.An
         automatically created PropertyCollector provided by a service is not session
         specific and may not be destroyed.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("DestroyPropertyCollector")()
     
-    def RetrieveProperties(self):
+    def RetrieveProperties(self, specSet):
         '''Deprecated. As of vSphere API 4.1, use RetrievePropertiesEx. Retrieves the
         specified properties of the specified managed objects.
-        :rtype: 
-        :returns: 
+        
+        :param specSet: Specifies the properties to retrieve.
+        
         '''
-        return self.delegate("RetrieveProperties")()
+        return self.delegate("RetrieveProperties")(specSet)
     
-    def RetrievePropertiesEx(self):
+    def RetrievePropertiesEx(self, specSet, options):
         '''Retrieves the specified properties of the specified managed objects.This method
         is similar to creating the filters, receiving the property values, and
         destroying the filters. The main difference is that the output blends the
         results from all the filters and reports a given managed object at most once no
         matter how many filters apply.The filter creation step can throw all of the
         same faults as CreateFilter.
-        :rtype: 
-        :returns: 
+        
+        :param specSet: Specifies the properties to retrieve.
+        
+        :param options: Additional method options. If omitted, equivalent to an options argument with no fields set.
+        
         '''
-        return self.delegate("RetrievePropertiesEx")()
+        return self.delegate("RetrievePropertiesEx")(specSet, options)
     
-    def WaitForUpdates(self):
+    def WaitForUpdates(self, version):
         '''Deprecated. As of vSphere API 4.1, use WaitForUpdatesEx. Calculate the set of
         updates for each existing filter in the session, returning when at least one
         filter has updates.
-        :rtype: 
-        :returns: 
+        
+        :param version: The data version currently known to the client. The value must be either * the special initial version (an empty string) * a data version returned from CheckForUpdates or WaitForUpdates by the same PropertyCollector on the same session * a non-truncated data version returned from WaitForUpdatesEx by the same PropertyCollector on the same session.
+        
         '''
-        return self.delegate("WaitForUpdates")()
+        return self.delegate("WaitForUpdates")(version)
     
-    def WaitForUpdatesEx(self):
+    def WaitForUpdatesEx(self, version, options):
         '''Calculate the set of updates for each existing filter in the
         session.WaitForUpdatesEx may return only partial update calculations. See
         truncated for a more detailed explanation. WaitForUpdatesEx may also return
@@ -157,7 +173,10 @@ class PropertyCollector(BaseEntity):
         recommended that it not make concurrent calls to WaitForUpdates,
         CheckForUpdates, or WaitForUpdatesEx in the same session. Concurrent calls may
         cause suspended change calculations to be discarded.
-        :rtype: 
-        :returns: 
+        
+        :param version: The data version currently known to the client. The value must be either * the special initial data version (an empty string), * a data version returned from CheckForUpdates or WaitForUpdates * a non-truncated data version returned from WaitForUpdatesEx * a truncated data version returned from the last call to WaitForUpdatesEx with no intervening calls to WaitForUpdates or CheckForUpdates.
+        
+        :param options: Additional options controlling the change calculation. If omitted, equivalent to an options argument with no fields set.
+        
         '''
-        return self.delegate("WaitForUpdatesEx")()
+        return self.delegate("WaitForUpdatesEx")(version, options)

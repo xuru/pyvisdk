@@ -30,59 +30,70 @@ class HostLocalAccountManager(BaseEntity):
     
     
     
-    def AssignUserToGroup(self):
+    def AssignUserToGroup(self, user, group):
         '''Assigns a user to a group.
-        :rtype: None
-        :returns: 
+        
+        :param user: User ID of the account whose group membership is being assigned.
+        
+        :param group: Destination group account to which the user is being assigned.
+        
         '''
-        return self.delegate("AssignUserToGroup")()
+        return self.delegate("AssignUserToGroup")(user, group)
     
-    def CreateGroup(self):
+    def CreateGroup(self, group):
         '''Creates a local group account using the parameters defined in the
         HostLocalAccountManagerAccountSpecification data object type. For POSIX hosts,
         passing the HostLocalAccountManagerPosixAccountSpecification data object type
         allows you to control the group ID format of the group account being created.
-        :rtype: None
-        :returns: 
+        
+        :param group: Specification of group being created.
+        
         '''
-        return self.delegate("CreateGroup")()
+        return self.delegate("CreateGroup")(group)
     
-    def CreateUser(self):
+    def CreateUser(self, user):
         '''Creates a local user account using the parameters defined in the
         HostLocalAccountManagerAccountSpecification data object type. For POSIX hosts,
         passing HostLocalAccountManagerPosixAccountSpecification data object type
         allows you to control the format of the user ID of the user account being
         created.
-        :rtype: None
-        :returns: 
+        
+        :param user: Specification of user being created.
+        
         '''
-        return self.delegate("CreateUser")()
+        return self.delegate("CreateUser")(user)
     
-    def RemoveGroup(self):
+    def RemoveGroup(self, groupName):
         '''Removes a local group account.
-        :rtype: None
-        :returns: 
+        
+        :param groupName: Group ID of the group account being removed.
+        
         '''
-        return self.delegate("RemoveGroup")()
+        return self.delegate("RemoveGroup")(groupName)
     
-    def RemoveUser(self):
+    def RemoveUser(self, userName):
         '''Removes a local user account.
-        :rtype: None
-        :returns: 
+        
+        :param userName: User ID of the user account being removed.
+        
         '''
-        return self.delegate("RemoveUser")()
+        return self.delegate("RemoveUser")(userName)
     
-    def UnassignUserFromGroup(self):
+    def UnassignUserFromGroup(self, user, group):
         '''Unassigns a user from a group.
-        :rtype: None
-        :returns: 
+        
+        :param user: User being unassigned from group.
+        
+        :param group: Group from which the user is being removed.
+        
         '''
-        return self.delegate("UnassignUserFromGroup")()
+        return self.delegate("UnassignUserFromGroup")(user, group)
     
-    def UpdateUser(self):
+    def UpdateUser(self, user):
         '''Updates a local user account using the parameters defined in the
         HostLocalAccountManagerAccountSpecification data object type.
-        :rtype: None
-        :returns: 
+        
+        :param user: Specification of user being updated.
+        
         '''
-        return self.delegate("UpdateUser")()
+        return self.delegate("UpdateUser")(user)

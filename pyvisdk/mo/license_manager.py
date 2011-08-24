@@ -60,10 +60,10 @@ class LicenseManager(BaseEntity):
     @property
     def licensedEdition(self):
         '''The product's license edition. The edition defines which product license the
-    server requires. This, in turn, determines the core set of functionalities
-    provided by the product and the additional features that can be licensed. If no
-    edition is set the property is set to the empty string (""). To set the edition
-    use SetLicenseEdition.'''
+        server requires. This, in turn, determines the core set of functionalities
+        provided by the product and the additional features that can be licensed. If no
+        edition is set the property is set to the empty string (""). To set the edition
+        use SetLicenseEdition.'''
         return self.update('licensedEdition')
     @property
     def licenses(self):
@@ -76,123 +76,157 @@ class LicenseManager(BaseEntity):
     @property
     def sourceAvailable(self):
         '''Current state of the license source. License sources that are LocalSource are
-    always available.'''
+        always available.'''
         return self.update('sourceAvailable')
     
     
     
-    def AddLicense(self):
+    def AddLicense(self, licenseKey, labels):
         '''Adds a license to the inventory of available licenses.
-        :rtype: 
-        :returns: 
+        
+        :param licenseKey: A license. E.g. a serial license.
+        
+        :param labels: array of key-value labels. Ignored by ESX Server.
+        
         '''
-        return self.delegate("AddLicense")()
+        return self.delegate("AddLicense")(licenseKey, labels)
     
-    def CheckLicenseFeature(self):
+    def CheckLicenseFeature(self, host, featureKey):
         '''Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Returns
         whether or not a given feature is enabled.
-        :rtype: 
-        :returns: 
+        
+        :param host: to a HostSystemHost to act on if LicenseManager is not on a host.
+        
+        :param featureKey: Name of the feature to enable.
+        
         '''
-        return self.delegate("CheckLicenseFeature")()
+        return self.delegate("CheckLicenseFeature")(host, featureKey)
     
-    def ConfigureLicenseSource(self):
+    def ConfigureLicenseSource(self, host, licenseSource):
         '''Deprecated. As of vSphere API 4.0, use UpdateLicense instead. Allows for
         reconfiguration of the License Manager license source.
-        :rtype: None
-        :returns: 
+        
+        :param host: to a HostSystemHost for which the license manager should be reconfigured.
+        
+        :param licenseSource: ServedSource or LocalSource.
+        
         '''
-        return self.delegate("ConfigureLicenseSource")()
+        return self.delegate("ConfigureLicenseSource")(host, licenseSource)
     
-    def DecodeLicense(self):
+    def DecodeLicense(self, licenseKey):
         '''Decodes licensing information on the license specified.
-        :rtype: 
-        :returns: 
+        
+        :param licenseKey: A license. E.g. a serial license.
+        
         '''
-        return self.delegate("DecodeLicense")()
+        return self.delegate("DecodeLicense")(licenseKey)
     
-    def DisableFeature(self):
+    def DisableFeature(self, host, featureKey):
         '''Deprecated. As of vSphere API 4.0, use RemoveAssignedLicense instead. Release
         licenses for an optional feature.
-        :rtype: 
-        :returns: 
+        
+        :param host: to a HostSystemHost to act on if LicenseManager is not on a host.
+        
+        :param featureKey: key of the feature to disable.
+        
         '''
-        return self.delegate("DisableFeature")()
+        return self.delegate("DisableFeature")(host, featureKey)
     
-    def EnableFeature(self):
+    def EnableFeature(self, host, featureKey):
         '''Deprecated. As of vSphere API 4.0, use UpdateAssignedLicense instead. Enable a
         feature that has an optional state.
-        :rtype: 
-        :returns: 
+        
+        :param host: to a HostSystemHost to act on if LicenseManager is not on a host.
+        
+        :param featureKey: Name of the feature to enable.
+        
         '''
-        return self.delegate("EnableFeature")()
+        return self.delegate("EnableFeature")(host, featureKey)
     
-    def QueryLicenseSourceAvailability(self):
+    def QueryLicenseSourceAvailability(self, host):
         '''Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Queries
         the current license source for total and available licenses available for each
         feature known to this system.
-        :rtype: 
-        :returns: 
+        
+        :param host: to a HostSystemUse the license source of the specified host.
+        
         '''
-        return self.delegate("QueryLicenseSourceAvailability")()
+        return self.delegate("QueryLicenseSourceAvailability")(host)
     
-    def QueryLicenseUsage(self):
+    def QueryLicenseUsage(self, host):
         '''Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Returns
         the license usage. The license usage is a list of supported features and the
         number of licenses that have been reserved.
-        :rtype: 
-        :returns: 
+        
+        :param host: to a HostSystemHost to query for usage. If missing, query the server the LicenseManager is on.
+        
         '''
-        return self.delegate("QueryLicenseUsage")()
+        return self.delegate("QueryLicenseUsage")(host)
     
-    def QuerySupportedFeatures(self):
+    def QuerySupportedFeatures(self, host):
         '''Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Queries
         the current license source for a list of available licenses that can be
         licensed from this system.
-        :rtype: 
-        :returns: 
+        
+        :param host: to a HostSystemUse the license source of the specified host.
+        
         '''
-        return self.delegate("QuerySupportedFeatures")()
+        return self.delegate("QuerySupportedFeatures")(host)
     
-    def RemoveLicense(self):
+    def RemoveLicense(self, licenseKey):
         '''Remove license from the available set.
-        :rtype: None
-        :returns: 
+        
+        :param licenseKey: A licenses. E.g. a serial license.
+        
         '''
-        return self.delegate("RemoveLicense")()
+        return self.delegate("RemoveLicense")(licenseKey)
     
-    def RemoveLicenseLabel(self):
+    def RemoveLicenseLabel(self, licenseKey, labelKey):
         '''Removed a license's label.
-        :rtype: None
-        :returns: 
+        
+        :param licenseKey: A license.
+        
+        :param labelKey: A label key.
+        
         '''
-        return self.delegate("RemoveLicenseLabel")()
+        return self.delegate("RemoveLicenseLabel")(licenseKey, labelKey)
     
-    def SetLicenseEdition(self):
+    def SetLicenseEdition(self, host, featureKey):
         '''Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Defines
         the product's license edition. The edition defines which product license the
         server requires. This, in turn, determines the core set of functionality
         provided by the product and the additional features that can be licensed.
-        :rtype: None
-        :returns: 
+        
+        :param host: to a HostSystemHost to act on if LicenseManager is not on a host.
+        
+        :param featureKey: Name of edition feature to select. If featureKey is not set or set to empty string, the product becomes unlicensed.
+        
         '''
-        return self.delegate("SetLicenseEdition")()
+        return self.delegate("SetLicenseEdition")(host, featureKey)
     
-    def UpdateLicense(self):
+    def UpdateLicense(self, licenseKey, labels):
         '''Updates the available licenses to the one provided in licenseKey. This is the
         same as removing all the licenses using RemoveLicense and adding licenseKey
         using AddLicense If the optional parameter labels is specify this is the same
         as calling updateLicense without the optioal parameter and calling updateLabel
         for each pair in the labels array.
-        :rtype: 
-        :returns: 
+        
+        :param licenseKey: A license. E.g. a serial license.
+        
+        :param labels: array of key-value labels.
+        
         '''
-        return self.delegate("UpdateLicense")()
+        return self.delegate("UpdateLicense")(licenseKey, labels)
     
-    def UpdateLicenseLabel(self):
+    def UpdateLicenseLabel(self, licenseKey, labelKey, labelValue):
         '''Update a license's label. It creates a label entry if the labelKey doesn't
         already exist
-        :rtype: None
-        :returns: 
+        
+        :param licenseKey: A license.
+        
+        :param labelKey: A label key.
+        
+        :param labelValue: Value for the label.
+        
         '''
-        return self.delegate("UpdateLicenseLabel")()
+        return self.delegate("UpdateLicenseLabel")(licenseKey, labelKey, labelValue)

@@ -27,30 +27,41 @@ class VirtualMachineSnapshot(ExtensibleManagedObject):
     @property
     def config(self):
         '''Information about the configuration of this virtual machine when this snapshot
-    was taken.'''
+        was taken.'''
         return self.update('config')
     
     
     
-    def RemoveSnapshot_Task(self):
+    def RemoveSnapshot_Task(self, removeChildren):
         '''Removes this snapshot and deletes any associated storage.
+        
+        :param removeChildren: Flag to specify removal of the entire snapshot subtree.
+        
         :rtype: ManagedObjectReference to a Task
-        :returns: 
+        
         '''
-        return self.delegate("RemoveSnapshot_Task")()
+        return self.delegate("RemoveSnapshot_Task")(removeChildren)
     
-    def RenameSnapshot(self):
+    def RenameSnapshot(self, name, description):
         '''Rename this snapshot with either a new name or a new description or both. At
         least one of these must be specified when calling the rename method.
-        :rtype: None
-        :returns: 
+        
+        :param name: New name for the snapshot.
+        
+        :param description: New description for the snapshot.
+        
         '''
-        return self.delegate("RenameSnapshot")()
+        return self.delegate("RenameSnapshot")(name, description)
     
-    def RevertToSnapshot_Task(self):
+    def RevertToSnapshot_Task(self, host, suppressPowerOn):
         '''Change the execution state of the virtual machine to the state of this
         snapshot.
+        
+        :param host: to a HostSystem(optional) Choice of host for the virtual machine, in case this operation causes the virtual machine to power on.
+        
+        :param suppressPowerOn: (optional) If set to true, the virtual machine will not be powered on regardless of the power state when the snapshot was created. Default to false.vSphere API 4.0
+        
         :rtype: ManagedObjectReference to a Task
-        :returns: 
+        
         '''
-        return self.delegate("RevertToSnapshot_Task")()
+        return self.delegate("RevertToSnapshot_Task")(host, suppressPowerOn)

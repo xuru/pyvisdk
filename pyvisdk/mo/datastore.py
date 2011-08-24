@@ -63,7 +63,7 @@ class Datastore(ManagedEntity):
     @property
     def iormConfiguration(self):
         '''Configuration of storage I/O resource management for the datastore. Currently
-    we only support storage I/O resource management on VMFS volumes of a datastore.'''
+        we only support storage I/O resource management on VMFS volumes of a datastore.'''
         return self.update('iormConfiguration')
     @property
     def summary(self):
@@ -81,15 +81,13 @@ class Datastore(ManagedEntity):
         ResourceInUse. Datastores are automatically removed when no longer in use, so
         this method is unnecessary. Removes a datastore. A datastore can be removed
         only if it is not currently used by any host or virtual machine.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("DestroyDatastore")()
     
     def RefreshDatastore(self):
         '''Explicitly refreshes free-space and capacity values in summary and info.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("RefreshDatastore")()
     
@@ -97,19 +95,19 @@ class Datastore(ManagedEntity):
         '''Refreshes all storage related information including free-space, capacity, and
         detailed usage of virtual machines. Updated values are available in summary and
         info.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("RefreshDatastoreStorageInfo")()
     
-    def RenameDatastore(self):
+    def RenameDatastore(self, newName):
         '''Deprecated. As of vSphere API 4.0, use Rename_Task. Renames a datastore.
-        :rtype: None
-        :returns: 
+        
+        :param newName: The new name to assign to the datastore.
+        
         '''
-        return self.delegate("RenameDatastore")()
+        return self.delegate("RenameDatastore")(newName)
     
-    def UpdateVirtualMachineFiles_Task(self):
+    def UpdateVirtualMachineFiles_Task(self, mountPathDatastoreMapping):
         '''Update file paths embedded in virtual machine files on the datastore. This can
         be called after the file system corresponding to the datastore has been
         resignatured or remounted.This method is only supported by vCenter server.While
@@ -125,7 +123,10 @@ class Datastore(ManagedEntity):
         updated. The files of a single virtual machine can reside on multiple
         datastores, and thus all the involved datastores should be updated, before the
         virtual machine is considered updated completely.
+        
+        :param mountPathDatastoreMapping: Old mount path to datastore mapping.
+        
         :rtype: ManagedObjectReference to a Task
-        :returns: 
+        
         '''
-        return self.delegate("UpdateVirtualMachineFiles_Task")()
+        return self.delegate("UpdateVirtualMachineFiles_Task")(mountPathDatastoreMapping)

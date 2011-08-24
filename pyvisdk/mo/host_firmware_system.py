@@ -28,16 +28,14 @@ class HostFirmwareSystem(BaseEntity):
         '''Backup the configuration of the host.A bundle containing the configuration of
         the host is generated. The bundle can be downloaded using a HTTP GET operation
         on the URL returned.
-        :rtype: 
-        :returns: 
+        
         '''
         return self.delegate("BackupFirmwareConfiguration")()
     
     def QueryFirmwareConfigUploadURL(self):
         '''Return the URL on the host to which the configuration bundle must be uploaded
         for a restore operation.
-        :rtype: 
-        :returns: 
+        
         '''
         return self.delegate("QueryFirmwareConfigUploadURL")()
     
@@ -46,19 +44,19 @@ class HostFirmwareSystem(BaseEntity):
         configuration options, including the "admin" password, to the factory defaults.
         The host will be rebooted immediately. The host needs to be in maintenance mode
         before this operation can be performed.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("ResetFirmwareToFactoryDefaults")()
     
-    def RestoreFirmwareConfiguration(self):
+    def RestoreFirmwareConfiguration(self, force):
         '''Restore the configuration of the host to that specified in the bundle.The
         bundle is expected to be uploaded to the URL retrieved via
         queryConfigUploadURL. This method will reset all configuration options,
         including the "admin" password, to the values in the bundle. The host will be
         rebooted immediately. The host needs to be in maintenance mode before this
         operation can be performed.
-        :rtype: None
-        :returns: 
+        
+        :param force: Forces application of the configuration even if the bundle is mismatched.
+        
         '''
-        return self.delegate("RestoreFirmwareConfiguration")()
+        return self.delegate("RestoreFirmwareConfiguration")(force)

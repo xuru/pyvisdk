@@ -32,21 +32,20 @@ class HostVMotionSystem(ExtensibleManagedObject):
     
     def DeselectVnic(self):
         '''Indicate that no VirtualNic should be used for VMotion.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("DeselectVnic")()
     
-    def SelectVnic(self):
+    def SelectVnic(self, device):
         '''Select the VirtualNic to be used for VMotion.
-        :rtype: None
-        :returns: 
+        
+        :param device: The device that uniquely identifies the VirtualNic.
+        
         '''
-        return self.delegate("SelectVnic")()
+        return self.delegate("SelectVnic")(device)
     
     def UpdateIpConfig(self):
         '''Update the IP configuration of VMotion VirtualNic.
-        :rtype: None
-        :returns: 
+        
         '''
         return self.delegate("UpdateIpConfig")()

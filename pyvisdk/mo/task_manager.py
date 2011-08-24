@@ -28,30 +28,42 @@ class TaskManager(BaseEntity):
     @property
     def maxCollector(self):
         '''Maximum number of TaskHistoryCollector data objects that can exist
-    concurrently, per client.'''
+        concurrently, per client.'''
         return self.update('maxCollector')
     @property
     def recentTask(self):
         '''A list of Task managed objects that completed recently, that are currently
-    running, or that are queued to run.'''
+        running, or that are queued to run.'''
         return self.update('recentTask')
     
     
     
-    def CreateCollectorForTasks(self):
+    def CreateCollectorForTasks(self, filter):
         '''Creates a TaskHistoryCollector, a specialized HistoryCollector that gathers
         TaskInfo data objects.A TaskHistoryCollector does not persist beyond the
         current client session.
+        
+        :param filter: The specification for the task query filter.
+        
         :rtype: ManagedObjectReference to a TaskHistoryCollector
-        :returns: 
+        
         '''
-        return self.delegate("CreateCollectorForTasks")()
+        return self.delegate("CreateCollectorForTasks")(filter)
     
-    def CreateTask(self):
+    def CreateTask(self, obj, taskTypeId, initiatedBy, cancelable, parentTaskKey):
         '''Creates a new Task, specifying the object with which the Task is associated,
         the type of task, and whether the task is cancelable. Use this operation in
         conjunction with the ExtensionManager.
-        :rtype: 
-        :returns: 
+        
+        :param obj: ManagedObject with which Task will be associated
+        
+        :param taskTypeId: Extension registered task type identifier for type of task being created
+        
+        :param initiatedBy: The name of the user on whose behalf the Extension is creating the task
+        
+        :param cancelable: True if the task should be cancelable, else false
+        
+        :param parentTaskKey: Key of the task that is the parent of this taskvSphere API 4.0
+        
         '''
-        return self.delegate("CreateTask")()
+        return self.delegate("CreateTask")(obj, taskTypeId, initiatedBy, cancelable, parentTaskKey)

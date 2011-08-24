@@ -24,14 +24,14 @@ class HostBootDeviceSystem(BaseEntity):
     
     def QueryBootDevices(self):
         '''Retrieves a list of the available boot devices for the host system.
-        :rtype: 
-        :returns: 
+        
         '''
         return self.delegate("QueryBootDevices")()
     
-    def UpdateBootDevice(self):
+    def UpdateBootDevice(self, key):
         '''Sets the current boot device for the host system.
-        :rtype: None
-        :returns: 
+        
+        :param key: The key of the HostBootDevice from which the host will boot.
+        
         '''
-        return self.delegate("UpdateBootDevice")()
+        return self.delegate("UpdateBootDevice")(key)
