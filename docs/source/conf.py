@@ -6,7 +6,9 @@
 
 import sys, os, os.path
 this_dir = os.path.dirname(__file__)
+print "this_dir: " + this_dir
 sys.path.insert(0, this_dir)
+sys.path.insert(0, os.path.join(this_dir, '..'))
 sys.path.insert(0, os.path.join(this_dir, '..', '..'))
 
 import pyvisdk
@@ -15,10 +17,10 @@ import pyvisdk
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 
-              'sphinx.ext.todo', 
-              'sphinx.ext.coverage', 
-              'sphinx.ext.ifconfig', 
+extensions = ['sphinx.ext.autodoc',
+              'sphinx.ext.todo',
+              'sphinx.ext.coverage',
+              'sphinx.ext.ifconfig',
               'sphinx.ext.inheritance_diagram',
               'sphinxtogithub']
 
