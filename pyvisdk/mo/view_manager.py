@@ -1,6 +1,8 @@
 
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
-from pyvisdk.mo.base_entity import BaseEntity
+
+from pyvisdk.base.base_entity import BaseEntity
+
 import logging
 
 ########################################
@@ -19,17 +21,9 @@ class ViewManager(BaseEntity):
     view, you can use a single invocation of a PropertyCollector method to retrieve
     data or receive notification of changes instead of multiple invocations
     involving multiple filter specifications. A view exists until you destroy it or
-    until the end of the session.The ViewManager supports the following views:* A
-    ContainerView is based on Folder, Datacenter, ComputeResource, ResourcePool, or
-    HostSystem managed objects. Use a container view to monitor the container
-    contents and optionally, its descendants. * A ListView managed object is based
-    on an arbitrary but specific set of objects. When you create a list view, you
-    provide a list of objects to populate the view (CreateListView), or you provide
-    an existing view from which the new view is created (CreateListViewFromView). *
-    An InventoryView managed object is based on the entire inventory. Use an
-    inventory view as a general mechanism to monitor the inventory or portions of
-    the inventory.For example, you might use the following sequence of operations
-    to get the names of all the virtual machines on a server:'''
+    until the end of the session.The ViewManager supports the following views:For
+    example, you might use the following sequence of operations to get the names of
+    all the virtual machines on a server:'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ViewManager):
         super(ViewManager, self).__init__(core, name=name, ref=ref, type=type)

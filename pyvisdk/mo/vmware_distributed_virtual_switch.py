@@ -1,6 +1,8 @@
 
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
+
 from pyvisdk.mo.distributed_virtual_switch import DistributedVirtualSwitch
+
 import logging
 
 ########################################

@@ -1,6 +1,8 @@
 
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
+
 from pyvisdk.mo.managed_entity import ManagedEntity
+
 import logging
 
 ########################################
@@ -35,53 +37,25 @@ class ResourcePool(ManagedEntity):
     are three states that the resource pool tree can be in: undercommited (green),
     overcommited (yellow), and inconsistent (red). Depending on the state,
     different resource pool configuration policies are enforced. The states are
-    described in more detail below:* GREEN (aka undercommitted): We have a tree
-    that is in a state. Every node has a reservation greater than the sum of the
-    reservations for its children. We have enough capacity at the root to satisfy
-    all the resources reserved by the children. All operations performed on the
-    tree, such as powering on virtual machines, creating new resource pools, or
-    reconfiguring resource settings, will ensure that the above constraints are
-    maintained. * RED (aka. inconsistent): One or more nodes in the tree has
-    children whose reservations are greater than the node is configured to support.
-    For example, i) a resource pool with a fixed reservation has a running virtual
-    machine with a reservation that is higher than the reservation on resource pool
-    itself., or ii) the child reservations are greater than the limit.In this
-    state, the DRS algorithm is disabled until the resource pool tree's
-    configuration has been brought back into a consistent state. We also restrict
-    the resources that such invalid nodes request from their parents to the
-    configured reservation/limit, in an attempt to isolate the problem to a small
-    subtree. For the rest of the tree, we determine whether the cluster is
-    undercommitted or overcommitted according to the existing rules and perform
-    admission control accordingly.Note that since all changes to the resource
-    settings are validated on the VirtualCenter server, the system cannot be
-    brought into this state by simply manipulating a cluster resource pool tree
-    through VirtualCenter. It can only happen if a virtual machine gets powered on
-    directly on a host that is part of a DRS cluster.* YELLOW (aka overcommitted):
-    In this state, the tree is consistent internally, but the root resource pool
-    does not have the capacity at to meet the reservation of its children. We can
-    only go from GREEN -> YELLOW if we lose resources at the root. For example,
-    hosts becomes unavailable or is put into maintenance mode. Note that we will
-    always have enough capacity at the root to run all currently powered on VMs.
-    However, we may not be able to satisfy all resource pool reservations in the
-    tree. In this state, the reservation configured for a resource pool is no
-    longer guaranteed, but the limits are still enforced. This provides additional
-    flexibility for bringing the tree back into a consistent state, without risking
-    bringing the tree into a RED state. In more detail: * Resource Pool The root is
-    considered to have unlimited capacity. You can reserve resources without any
-    check except the requirement that the tree remains consistent. This means that
-    nodes whose parents are all configured with expandable reservations and no
-    limit will have unlimited available resources. However, if there is an ancestor
-    with a fixed reservation or an expandable reservation with a limit somewhere,
-    then the node will be limited by the reservation/limit of the ancestor. *
-    Virtual Machine Virtual machines are limited by ancestors with a fixed
-    reservation and the capacity at the root.Destroying a ResourcePoolWhen a
-    ResourcePool is destroyed, all the virtual machines are reassigned to its
-    parent pool. The root resource pool cannot be destroyed, and invoking destroy
-    on it will throw an InvalidType fault.Any vApps in the ResourcePool will be
-    moved to the ResourcePool's parent before the pool is destroyed.The
-    Resource.DeletePool privilege must be held on the pool as well as the parent of
-    the resource pool. Also, the Resource.AssignVMToPool privilege must be held on
-    the resource pool's parent pool and any virtual machines that are reassigned.'''
+    described in more detail below:In this state, the DRS algorithm is disabled
+    until the resource pool tree's configuration has been brought back into a
+    consistent state. We also restrict the resources that such invalid nodes
+    request from their parents to the configured reservation/limit, in an attempt
+    to isolate the problem to a small subtree. For the rest of the tree, we
+    determine whether the cluster is undercommitted or overcommitted according to
+    the existing rules and perform admission control accordingly.Note that since
+    all changes to the resource settings are validated on the VirtualCenter server,
+    the system cannot be brought into this state by simply manipulating a cluster
+    resource pool tree through VirtualCenter. It can only happen if a virtual
+    machine gets powered on directly on a host that is part of a DRS
+    cluster.Destroying a ResourcePoolWhen a ResourcePool is destroyed, all the
+    virtual machines are reassigned to its parent pool. The root resource pool
+    cannot be destroyed, and invoking destroy on it will throw an InvalidType
+    fault.Any vApps in the ResourcePool will be moved to the ResourcePool's parent
+    before the pool is destroyed.The Resource.DeletePool privilege must be held on
+    the pool as well as the parent of the resource pool. Also, the
+    Resource.AssignVMToPool privilege must be held on the resource pool's parent
+    pool and any virtual machines that are reassigned.'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ResourcePool):
         super(ResourcePool, self).__init__(core, name=name, ref=ref, type=type)
@@ -162,12 +136,7 @@ class ResourcePool(ManagedEntity):
         '''Removes all child resource pools recursively. All virtual machines and vApps
         associated with the child resource pools get associated with this resource
         pool.Note that resource pools contained in child vApps are not affected.The
-        privilege checks performed are the following.* Resource.DeletePool privilege
-        must be held on this object and each of it's immediate children to be
-        destroyed. * If VMs are being moved, the privilege Resource.AssignVMToPool must
-        be held on this resource pool as well as on any virtual machines being moved. *
-        If vApps are being moved, the privilege Resource.AssignVAppToPool must be held
-        on this resource pool as well as on any vApps being moved.
+        privilege checks performed are the following.
         :rtype: None
         :returns: 
         '''
@@ -185,24 +154,12 @@ class ResourcePool(ManagedEntity):
         '''Moves a set of resource pools, vApps or virtual machines into this pool. The
         pools, vApps and virtual machines must be part of the cluster or standalone
         host that contains this pool.For each entity being moved, the move is subject
-        to the following privilege checks:* If the object being moved is a
-        ResourcePool, then Resource.MovePool must be held on the pool being moved and
-        it's former parent pool or vApp. If the target is a vApp, the privilege
-        VApp.AssignResourcePool must be held on it. If the target is a ResourcePool,
-        Resource.MovePool must be held on it. * If the object being moved is a
-        VirtualApp, VApp.Move must be held on the vApp being moved and it's former
-        parent pool or vApp. If the target entity is a resource pool,
-        Resource.AssignVAppToPool must be held on the target. If the target is a vApp,
-        the privilege VApp.AssignVApp must be held on the target vApp. * If the object
-        being moved is a VirtualMachine, then if the target is a ResourcePool,
-        Resource.AssignVMToPool is required on the VirtualMachine and the target pool.
-        If the target is a vApp, VApp.AssignVM is required on both the VirtualMachine
-        and the target pool.This operation is typically used by clients when they
-        implement a drag-and-drop interface to move a set of objects into a folder.This
-        operation is only transactional with respect to each individual entity. The set
-        of entities is moved sequentially, as specified in the list, and committed one
-        at a time. If a failure is detected, then the method terminates with an
-        exception.The root resource pool cannot be moved.
+        to the following privilege checks:This operation is typically used by clients
+        when they implement a drag-and-drop interface to move a set of objects into a
+        folder.This operation is only transactional with respect to each individual
+        entity. The set of entities is moved sequentially, as specified in the list,
+        and committed one at a time. If a failure is detected, then the method
+        terminates with an exception.The root resource pool cannot be moved.
         :rtype: None
         :returns: 
         '''
@@ -246,11 +203,7 @@ class ResourcePool(ManagedEntity):
         the changes, then the processing stops, meaning at least one and as many as all
         of the changes are not applied.A set can include a subset of the resources.
         Children that are not mentioned in the list are not changed.For each
-        ResourceConfigSpec, the following privilege checks apply:* If the
-        ResourceConfigSpec refers to a child resource pool or a child vApp, the
-        privileges required are the same as would be required for calling UpdateConfig
-        on that entity. * If the ResourceConfigSpec refers to a virtual machine,
-        VirtualMachine.Config.Resource must be held on the virtual machine.
+        ResourceConfigSpec, the following privilege checks apply:
         :rtype: None
         :returns: 
         '''
@@ -260,10 +213,7 @@ class ResourcePool(ManagedEntity):
         '''Updates the configuration of the resource pool.Any % (percent) character used
         in this name parameter must be escaped, unless it is used to start an escape
         sequence. Clients may also escape any other characters in this name
-        parameter.The privilege checks for this operation are as follows:* If this is a
-        resource pool, the privilege Resource.EditPool is required on this and on the
-        parent pool or vApp. * If this is a vApp, the privilege VApp.ResourceConfig is
-        required on this and on the parent pool or vApp.
+        parameter.The privilege checks for this operation are as follows:
         :rtype: None
         :returns: 
         '''

@@ -1,6 +1,8 @@
 
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
-from pyvisdk.mo.base_entity import BaseEntity
+
+from pyvisdk.base.base_entity import BaseEntity
+
 import logging
 
 ########################################
@@ -58,13 +60,7 @@ class DistributedVirtualSwitchManager(BaseEntity):
         against which compatibility is checked. If caller did not have view privileges
         on the host entity in an element of the CompatibilityResult array, then that
         entire element would be removed from the CompatibilityResult array. Typical
-        uses:* For the createDVS situation, hostFilterSpec is of type HostDvsFilterSpec
-        and DvsProductSpec will have newSwitchProductSpec set. * For the Add-Host-To-
-        DVS situation, you can use either HostDvsFilterSpec or HostDvsMembershipFilter
-        with inclusive being false, and pass the DVS in DvsProductSpec. * For the
-        Upgrade-DVS situation, you can use either HostDvsFilterSpec or
-        HostDvsMembershipFilter with inclusive being true, and pass the new desired
-        ProductSpec for DVS in newSwitchProductSpec.
+        uses:
         :rtype: 
         :returns: 
         '''

@@ -1,6 +1,8 @@
 
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
-from pyvisdk.mo.base_entity import BaseEntity
+
+from pyvisdk.base.base_entity import BaseEntity
+
 import logging
 
 ########################################
@@ -15,9 +17,8 @@ class View(BaseEntity):
     those objects. To create a view, use the ViewManager methods. A view exists
     until you terminate it by calling the DestroyView method, or until the end of
     the session. Access to a view is limited to the session in which it is
-    created.There are three types of views:* ContainerView * ListView *
-    InventoryViewA view maintains a view list that contains managed object
-    references. You can use a view with the ViewManager.'''
+    created.There are three types of views:A view maintains a view list that
+    contains managed object references. You can use a view with the ViewManager.'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.View):
         super(View, self).__init__(core, name=name, ref=ref, type=type)

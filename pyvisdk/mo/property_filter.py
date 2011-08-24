@@ -1,6 +1,8 @@
 
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
-from pyvisdk.mo.base_entity import BaseEntity
+
+from pyvisdk.base.base_entity import BaseEntity
+
 import logging
 
 ########################################

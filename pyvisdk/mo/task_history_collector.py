@@ -1,6 +1,8 @@
 
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
+
 from pyvisdk.mo.history_collector import HistoryCollector
+
 import logging
 
 ########################################

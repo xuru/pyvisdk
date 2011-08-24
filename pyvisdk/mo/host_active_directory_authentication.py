@@ -1,6 +1,8 @@
 
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
+
 from pyvisdk.mo.host_directory_store import HostDirectoryStore
+
 import logging
 
 ########################################

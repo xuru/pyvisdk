@@ -1,6 +1,8 @@
 
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
+
 from pyvisdk.mo.compute_resource import ComputeResource
+
 import logging
 
 ########################################

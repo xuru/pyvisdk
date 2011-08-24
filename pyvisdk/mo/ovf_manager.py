@@ -1,6 +1,8 @@
 
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
-from pyvisdk.mo.base_entity import BaseEntity
+
+from pyvisdk.base.base_entity import BaseEntity
+
 import logging
 
 ########################################
@@ -75,9 +77,7 @@ class OvfManager(BaseEntity):
     
     def CreateImportSpec(self):
         '''Validate the OVF descriptor against the hardware supported by the host system.
-        If the validation succeeds, return a result containing:* An ImportSpec to use
-        when importing the entity. * A list of items to upload (for example disk
-        backing files, ISO images etc.)
+        If the validation succeeds, return a result containing:
         :rtype: 
         :returns: 
         '''
