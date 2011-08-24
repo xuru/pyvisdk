@@ -1,0 +1,151 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.host_authentication_manager &mdash; pyvisdk v0.7 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.7 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.host_authentication_manager</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.base_entity</span> <span class="kn">import</span> <span class="n">BaseEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">HostAuthenticationManager</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="HostAuthenticationManager"><a class="viewcode-back" href="../../../mo/host_authentication_manager.html#pyvisdk.mo.host_authentication_manager.HostAuthenticationManager">[docs]</a>    <span class="sd">&#39;&#39;&#39;The HostAuthenticationManager managed object provides access to Active Directory</span>
+<span class="sd">        configuration information for an ESX host. It also provides access to</span>
+<span class="sd">        methods for adding a host to or removing a host from an Active Directory</span>
+<span class="sd">        domain.The vSphere API supports Microsoft Active Directory management of</span>
+<span class="sd">        authentication for ESX hosts. To integrate an ESX host into an Active</span>
+<span class="sd">        Directory environment, you use an Active Directory account that has the</span>
+<span class="sd">        authority to add a computer to a domain. The ESX Server locates the Active</span>
+<span class="sd">        Directory domain controller. When you add a host to a domain, you only</span>
+<span class="sd">        need to specify the domain and the account user name and password.There</span>
+<span class="sd">        are two approaches that you can use to add an ESX host to or remove a host</span>
+<span class="sd">        from an Active Directory domain.* JoinDomain_Task and</span>
+<span class="sd">        LeaveCurrentDomain_Task methods - Your vSphere client application can call</span>
+<span class="sd">        these methods directly to add the host to or remove the host from a</span>
+<span class="sd">        domain. * Host configuration - Use the HostActiveDirectory data object to</span>
+<span class="sd">        specify Active Directory configuration, either adding the host to or</span>
+<span class="sd">        removing the host from a domain. To apply the Active Directory</span>
+<span class="sd">        configuration, use the HostProfileManager method (ApplyHostConfig_Task) to</span>
+<span class="sd">        apply the HostConfigSpec. When the ESX Server processes the configuration,</span>
+<span class="sd">        it will invoke the join or leave method.To take advantage of ESX host</span>
+<span class="sd">        membership in an Active Directory domain, grant permissions on the ESX</span>
+<span class="sd">        host to Active Directory users and groups who should have direct access to</span>
+<span class="sd">        management of the ESX host. Use the UserDirectory.RetrieveUserGroups</span>
+<span class="sd">        method to obtain information about Active Directory users and groups.</span>
+<span class="sd">        After retrieving the Active Directory data, you can use the</span>
+<span class="sd">        AuthorizationManager.SetEntityPermissions method to set the principal</span>
+<span class="sd">        property to the appropriate user or group.By default, the ESX host assigns</span>
+<span class="sd">        the Administrator role to the &quot;ESX Admins&quot; group. If the group does not</span>
+<span class="sd">        exist when the host joins the domain, the host will not assign the role.</span>
+<span class="sd">        In this case, you must create the &quot;ESX Admins&quot; group in the Active</span>
+<span class="sd">        Directory. The host will periodically check the domain controller for the</span>
+<span class="sd">        group and will assign the role when the group exists.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">HostAuthenticationManager</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">HostAuthenticationManager</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostAuthenticationManager.info"><a class="viewcode-back" href="../../../mo/host_authentication_manager.html#pyvisdk.mo.host_authentication_manager.HostAuthenticationManager.info">[docs]</a>        <span class="sd">&#39;&#39;&#39;Information about Active Directory membership.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;info&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">supportedStore</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostAuthenticationManager.supportedStore"><a class="viewcode-back" href="../../../mo/host_authentication_manager.html#pyvisdk.mo.host_authentication_manager.HostAuthenticationManager.supportedStore">[docs]</a>        <span class="sd">&#39;&#39;&#39;An array that can contain managed object references to local and Active Directory</span>
+<span class="sd">        authentication managed objects.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;supportedStore&#39;</span><span class="p">)</span>
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

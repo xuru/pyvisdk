@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.session_manager &mdash; pyvisdk v0.7 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.7 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.session_manager</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.base_entity</span> <span class="kn">import</span> <span class="n">BaseEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">SessionManager</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="SessionManager"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager">[docs]</a>    <span class="sd">&#39;&#39;&#39;This managed object type includes methods for logging on and logging off clients,</span>
+<span class="sd">        determining which clients are currently logged on, and forcing clients to</span>
+<span class="sd">        log off.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">SessionManager</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SessionManager</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">currentSession</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SessionManager.currentSession"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.currentSession">[docs]</a>        <span class="sd">&#39;&#39;&#39;This property contains information about the client&#39;s current session. If the</span>
+<span class="sd">        client is not logged on, the value is null.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;currentSession&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">defaultLocale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SessionManager.defaultLocale"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.defaultLocale">[docs]</a>        <span class="sd">&#39;&#39;&#39;This is the default server locale.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;defaultLocale&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SessionManager.message"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.message">[docs]</a>        <span class="sd">&#39;&#39;&#39;The system global message from the server.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;message&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">messageLocaleList</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SessionManager.messageLocaleList"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.messageLocaleList">[docs]</a>        <span class="sd">&#39;&#39;&#39;Provides the list of locales for which the server has localized messages.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;messageLocaleList&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">sessionList</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SessionManager.sessionList"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.sessionList">[docs]</a>        <span class="sd">&#39;&#39;&#39;The list of currently active sessions.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;sessionList&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">supportedLocaleList</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SessionManager.supportedLocaleList"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.supportedLocaleList">[docs]</a>        <span class="sd">&#39;&#39;&#39;Provides the list of locales that the server supports. Listing a locale ensures</span>
+<span class="sd">        that some standardized information such as dates appear in the appropriate</span>
+<span class="sd">        format. Other localized information, such as error messages, are</span>
+<span class="sd">        displayed, if available. If localized information is not available, the</span>
+<span class="sd">        message is returned using the system locale.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;supportedLocaleList&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">AcquireCloneTicket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="SessionManager.AcquireCloneTicket"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.AcquireCloneTicket">[docs]</a>        <span class="sd">&#39;&#39;&#39;Acquire a session-specific ticket string which can be used to clone the current</span>
+<span class="sd">        session. The caller of this operation can pass the ticket value to another</span>
+<span class="sd">        entity on the client. The recipient can then call CloneSession with the</span>
+<span class="sd">        ticket string on an unauthenticated session and avoid having to re-enter</span>
+<span class="sd">        credentials.The ticket may only be used once and becomes invalid after</span>
+<span class="sd">        use. The ticket is also invalidated when the corresponding session is</span>
+<span class="sd">        closed or expires. The ticket is only valid on the server which issued</span>
+<span class="sd">        it.This sequence of operations is conceptually similar to the</span>
+<span class="sd">        functionality provided by AcquireLocalTicket, however the methods can be</span>
+<span class="sd">        used by remote clients and do not require a shared filesystem for</span>
+<span class="sd">        transport. See CloneSession</span>
+
+<span class="sd">        :rtype: xsd:string </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;AcquireCloneTicket&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">AcquireLocalTicket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userName</span><span class="p">):</span></div>
+<div class="viewcode-block" id="SessionManager.AcquireLocalTicket"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.AcquireLocalTicket">[docs]</a>        <span class="sd">&#39;&#39;&#39;Acquires a one-time ticket for mutual authentication between a server and</span>
+<span class="sd">        client.The caller of this operation can use the user name and file content</span>
+<span class="sd">        of the returned object as the userName and password arguments for login</span>
+<span class="sd">        operation. The local ticket that is returned becomes invalid either after</span>
+<span class="sd">        it is used or after a server-determined ticket expiration time passes.</span>
+<span class="sd">        This operation can be used by servers and clients to avoid re-entering</span>
+<span class="sd">        user credentials after authentication by the operating system has already</span>
+<span class="sd">        happened.For example, service console utilities that connect to a host</span>
+<span class="sd">        agent should not require users to re-enter their passwords every time the</span>
+<span class="sd">        utilities run. Since the one-time password file is readable only by the</span>
+<span class="sd">        given user, the identity of the one-time password user is protected by the</span>
+<span class="sd">        operating system file permission.Only local clients are allowed to call</span>
+<span class="sd">        this operation. Remote clients receive an InvalidRequest fault upon</span>
+<span class="sd">        calling this operation.</span>
+
+<span class="sd">        :param userName: User requesting one-time password.</span>
+
+
+<span class="sd">        :rtype: SessionManagerLocalTicket </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;AcquireLocalTicket&quot;</span><span class="p">)(</span><span class="n">userName</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CloneSession</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloneTicket</span><span class="p">):</span></div>
+<div class="viewcode-block" id="SessionManager.CloneSession"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.CloneSession">[docs]</a>        <span class="sd">&#39;&#39;&#39;Clone the session specified by the clone ticket and associate it with the current</span>
+<span class="sd">        connection. The current session will take on the identity and</span>
+<span class="sd">        authorization level of the UserSession associated with the specified</span>
+<span class="sd">        cloning ticket. See AcquireCloneTicket</span>
+
+<span class="sd">        :param cloneTicket: ticket string acquired via AcquireCloneTicket.See AcquireCloneTicket</span>
+
+
+<span class="sd">        :rtype: UserSession </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CloneSession&quot;</span><span class="p">)(</span><span class="n">cloneTicket</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">ImpersonateUser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userName</span><span class="p">,</span> <span class="n">locale</span><span class="p">):</span></div>
+<div class="viewcode-block" id="SessionManager.ImpersonateUser"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.ImpersonateUser">[docs]</a>        <span class="sd">&#39;&#39;&#39;Converts current session to impersonate the specified user. The current session</span>
+<span class="sd">        will take on the identity and authorization level of the user. That user</span>
+<span class="sd">        must have a currently-active session. If the given userName is an</span>
+<span class="sd">        extension key and this key does not overlap with a user name of any</span>
+<span class="sd">        currently-active session, it will take on the identity and authorization</span>
+<span class="sd">        level of that extension provided the current session has the same</span>
+<span class="sd">        authorization level of that extension.</span>
+
+<span class="sd">        :param userName: The user or extension key to impersonate.</span>
+
+<span class="sd">        :param locale: A two-character ISO-639 language ID (like &quot;en&quot;) optionally followed by an</span>
+<span class="sd">        underscore and a two-character ISO 3166 country ID (like &quot;US&quot;).</span>
+
+
+<span class="sd">        :rtype: UserSession </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ImpersonateUser&quot;</span><span class="p">)(</span><span class="n">userName</span><span class="p">,</span><span class="n">locale</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">Login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userName</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">locale</span><span class="p">):</span></div>
+<div class="viewcode-block" id="SessionManager.Login"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.Login">[docs]</a>        <span class="sd">&#39;&#39;&#39;Log on to the server. This method fails if the user name and password are</span>
+<span class="sd">        incorrect, or if the user is valid but has no permissions granted.</span>
+
+<span class="sd">        :param userName: The ID of the user who is logging on to the server.</span>
+
+<span class="sd">        :param password: The password of the user who is logging on to the server.</span>
+
+<span class="sd">        :param locale: A two-character ISO-639 language ID (like &quot;en&quot;) optionally followed by an</span>
+<span class="sd">        underscore and a two-character ISO 3166 country ID (like &quot;US&quot;).</span>
+
+
+<span class="sd">        :rtype: UserSession </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;Login&quot;</span><span class="p">)(</span><span class="n">userName</span><span class="p">,</span><span class="n">password</span><span class="p">,</span><span class="n">locale</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">LoginBySSPI</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base64Token</span><span class="p">,</span> <span class="n">locale</span><span class="p">):</span></div>
+<div class="viewcode-block" id="SessionManager.LoginBySSPI"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.LoginBySSPI">[docs]</a>        <span class="sd">&#39;&#39;&#39;Log on to the server using SSPI pass-through authentication.This method provides</span>
+<span class="sd">        support for passing credentials of the calling process to the server</span>
+<span class="sd">        without using a password, by leveraging the Windows Security Support</span>
+<span class="sd">        Provider Interface (SSPI) library.If the function is not supported, this</span>
+<span class="sd">        throws a NotSupported fault.The client first calls</span>
+<span class="sd">        AcquireCredentialsHandle(). If Kerberos is used, this should include the</span>
+<span class="sd">        desired credential to pass. The client then calls</span>
+<span class="sd">        InitializeSecurityContext(). The resulting partially-formed context is</span>
+<span class="sd">        passed in Base-64 encoded form to this method.If the context has been</span>
+<span class="sd">        successfully formed, the server proceeds with login and behaves like</span>
+<span class="sd">        Login. If further negotiation is needed, the server throws an</span>
+<span class="sd">        SSPIChallenge fault with a challenge token, which the client should again</span>
+<span class="sd">        pass to InitializeSecurityContext(), followed by calling this method</span>
+<span class="sd">        again.For more information, see the MSDN documentation on SSPI.</span>
+
+<span class="sd">        :param base64Token: The partially formed context returned from InitializeSecurityContext().</span>
+
+<span class="sd">        :param locale: A two-character ISO-639 language ID (like &quot;en&quot;) optionally followed by an</span>
+<span class="sd">        underscore and a two-character ISO 3166 country ID (like &quot;US&quot;).</span>
+
+
+<span class="sd">        :rtype: UserSession </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;LoginBySSPI&quot;</span><span class="p">)(</span><span class="n">base64Token</span><span class="p">,</span><span class="n">locale</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">LoginExtensionByCertificate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extensionKey</span><span class="p">,</span> <span class="n">locale</span><span class="p">):</span></div>
+<div class="viewcode-block" id="SessionManager.LoginExtensionByCertificate"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.LoginExtensionByCertificate">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a special privileged session that includes the Sessions.ImpersonateUser</span>
+<span class="sd">        privilege. Requires that the client connect over SSL and provide an X.509</span>
+<span class="sd">        certificate for which they hold the private key. The certificate must</span>
+<span class="sd">        match the certificate used in an earlier call to</span>
+<span class="sd">        SetExtensionCertificate.NOTE: Verification of the received certificate</span>
+<span class="sd">        (such as expiry, revocation, and trust chain) is not required for</span>
+<span class="sd">        successful authentication using this method. If certificate verification</span>
+<span class="sd">        is desired, use the LoginExtensionBySubjectName method instead.</span>
+
+<span class="sd">        :param extensionKey: Key of extension that is logging in.</span>
+
+<span class="sd">        :param locale: A two-character ISO-639 language ID (like &quot;en&quot;) optionally followed by an</span>
+<span class="sd">        underscore and a two-character ISO 3166 country ID (like &quot;US&quot;).</span>
+
+
+<span class="sd">        :rtype: UserSession </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;LoginExtensionByCertificate&quot;</span><span class="p">)(</span><span class="n">extensionKey</span><span class="p">,</span><span class="n">locale</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">LoginExtensionBySubjectName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extensionKey</span><span class="p">,</span> <span class="n">locale</span><span class="p">):</span></div>
+<div class="viewcode-block" id="SessionManager.LoginExtensionBySubjectName"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.LoginExtensionBySubjectName">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a special privileged session that includes the Sessions.ImpersonateUser</span>
+<span class="sd">        privilege. Requires that the extension connected using SSL, with a</span>
+<span class="sd">        certificate that has a subject name that matches the subject name</span>
+<span class="sd">        registered for the extension.As of vSphere API 4.0, the NotFound fault is</span>
+<span class="sd">        no longer thrown. Instead, InvalidLogin is thrown if the specified</span>
+<span class="sd">        extension is not registered.</span>
+
+<span class="sd">        :param extensionKey: Key of extension that is logging in.</span>
+
+<span class="sd">        :param locale: A two-character ISO-639 language ID (like &quot;en&quot;) optionally followed by an</span>
+<span class="sd">        underscore and a two-character ISO 3166 country ID (like &quot;US&quot;).</span>
+
+
+<span class="sd">        :rtype: UserSession </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;LoginExtensionBySubjectName&quot;</span><span class="p">)(</span><span class="n">extensionKey</span><span class="p">,</span><span class="n">locale</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">Logout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="SessionManager.Logout"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.Logout">[docs]</a>        <span class="sd">&#39;&#39;&#39;Log out and terminate the current session.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;Logout&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">SessionIsActive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sessionID</span><span class="p">,</span> <span class="n">userName</span><span class="p">):</span></div>
+<div class="viewcode-block" id="SessionManager.SessionIsActive"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.SessionIsActive">[docs]</a>        <span class="sd">&#39;&#39;&#39;Validates that a currently-active session exists with the specified sessionID and</span>
+<span class="sd">        userName associated with it. Returns true if session exists.</span>
+
+<span class="sd">        :param sessionID: Session ID to validate.</span>
+
+<span class="sd">        :param userName: User name to validate.</span>
+
+
+<span class="sd">        :rtype: xsd:boolean </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;SessionIsActive&quot;</span><span class="p">)(</span><span class="n">sessionID</span><span class="p">,</span><span class="n">userName</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">SetLocale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locale</span><span class="p">):</span></div>
+<div class="viewcode-block" id="SessionManager.SetLocale"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.SetLocale">[docs]</a>        <span class="sd">&#39;&#39;&#39;Sets the session locale.</span>
+
+<span class="sd">        :param locale: A two-character ISO-639 language ID (like &quot;en&quot;) optionally followed by an</span>
+<span class="sd">        underscore and a two-character ISO 3166 country ID (like &quot;US&quot;).</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;SetLocale&quot;</span><span class="p">)(</span><span class="n">locale</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">TerminateSession</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sessionId</span><span class="p">):</span></div>
+<div class="viewcode-block" id="SessionManager.TerminateSession"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.TerminateSession">[docs]</a>        <span class="sd">&#39;&#39;&#39;Log off and terminate the provided list of sessions.This method is only</span>
+<span class="sd">        transactional for each session ID. The set of sessions are terminated</span>
+<span class="sd">        sequentially, as specified in the list. If a failure occurs, for example,</span>
+<span class="sd">        because of an unknown sessionID, the method aborts with an exception. When</span>
+<span class="sd">        the method aborts, any sessions that have not yet been terminated are left</span>
+<span class="sd">        in their unterminated state.</span>
+
+<span class="sd">        :param sessionId: A list of sessions to terminate.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;TerminateSession&quot;</span><span class="p">)(</span><span class="n">sessionId</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateServiceMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span></div>
+<div class="viewcode-block" id="SessionManager.UpdateServiceMessage"><a class="viewcode-back" href="../../../mo/session_manager.html#pyvisdk.mo.session_manager.SessionManager.UpdateServiceMessage">[docs]</a>        <span class="sd">&#39;&#39;&#39;Updates the system global message. If not blank, the message is immediately</span>
+<span class="sd">        displayed to currently logged-on users. When set, the message is shown by</span>
+<span class="sd">        new clients upon logging in.</span>
+
+<span class="sd">        :param message: The message to send. Newline characters may be included.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateServiceMessage&quot;</span><span class="p">)(</span><span class="n">message</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

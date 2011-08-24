@@ -1,0 +1,163 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.do.virtual_usb &mdash; pyvisdk v0.7 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.7 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.do.virtual_usb</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: ascii -*-</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.exceptions</span> <span class="kn">import</span> <span class="n">InvalidArgumentError</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="VirtualUSB"><a class="viewcode-back" href="../../../do/virtual_usb.html#pyvisdk.do.virtual_usb.VirtualUSB">[docs]</a><span class="k">def</span> <span class="nf">VirtualUSB</span><span class="p">(</span><span class="n">vim</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;The VirtualUSB data object describes the USB device configuration for a virtual</span>
+<span class="sd">    machine. You can attach a USB device to an ESX host. The device is available to</span>
+<span class="sd">    only one virtual machine at a time. When you remove the device from the virtual</span>
+<span class="sd">    machine, it becomes available to other virtual machines located on the host.</span>
+<span class="sd">    You can add up to 20 USB devices to a virtual machine. Virtual USB support</span>
+<span class="sd">    requires virtual machine hardware version 7 or later.The VirtualUSB object</span>
+<span class="sd">    represents either a configuration to be applied to the virtual machine or the</span>
+<span class="sd">    current device configuration on the virtual machine.* To configure a USB</span>
+<span class="sd">    connection for the virtual machine, add a VirtualUSB object to the</span>
+<span class="sd">    VirtualDeviceConfigSpec. Use USB backing (VirtualUSBUSBBackingInfo) to</span>
+<span class="sd">    establish a connection with a virtual machine that will remain on the host to</span>
+<span class="sd">    which the USB device is attached. The vSphere Server does not support vMotion</span>
+<span class="sd">    for standard USB backing. To configure vMotion support for a virtual machine</span>
+<span class="sd">    with a USB connection, use remote host backing for the USB connection</span>
+<span class="sd">    (VirtualUSBRemoteHostBackingInfo).To configure a USB device for a virtual</span>
+<span class="sd">    machine, the virtual machine must have a USB controller. To add a controller,</span>
+<span class="sd">    include a VirtualUSBController object in the virtual device specification for</span>
+<span class="sd">    your virtual machine configuration. You can add only one USB controller to a</span>
+<span class="sd">    virtual machine.* To determine USB device configuration status for the virtual</span>
+<span class="sd">    machine, check the virtual hardware device list (VirtualHardware.device). The</span>
+<span class="sd">    presence of the VirtualUSB object in the hardware device list indicates that</span>
+<span class="sd">    the virtual machine is configured to use a USB device. The connected property</span>
+<span class="sd">    indicates whether the virtual machine is connected to the device.To determine</span>
+<span class="sd">    the USB options available on the host, use the QueryConfigOption method to</span>
+<span class="sd">    retrieve the virtual machine configuration. The presence of the</span>
+<span class="sd">    VirtualUSBOption object in the retrieved configuration</span>
+<span class="sd">    (VirtualMachineConfigOption.hardwareOptions.virtualDeviceOption) indicates that</span>
+<span class="sd">    the host supports USB connections.The following operations will disconnect a</span>
+<span class="sd">    USB device, losing data if data transfer is in progress over the USB</span>
+<span class="sd">    connection.* Hot add of memory, CPU, or PCI devices. A hot add operation</span>
+<span class="sd">    disconnects only USB devices for virtual machines that use a local connection</span>
+<span class="sd">    to the device (VirtualUSBUSBBackingInfo). * Suspend and resume on a virtual</span>
+<span class="sd">    machine. * vMotion of a virtual machine with a USB connection, if you are not</span>
+<span class="sd">    using remote host USB backing.The following services do not support USB</span>
+<span class="sd">    connections.* Fault Tolerance virtual machines cannot use USB devices. * DPM</span>
+<span class="sd">    (Distributed Power Management) will put a host into standby, regardless of any</span>
+<span class="sd">    connections to USB devices on the host. * DRS (Distributed Resource Scheduling)</span>
+<span class="sd">    may power-off hosts that have USB connections to virtual machines.&#39;&#39;&#39;</span>
+    
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">vim</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s">&#39;ns0:VirtualUSB&#39;</span><span class="p">)</span>
+    
+    <span class="c"># do some validation checking...</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s">&#39;Expected at least 2 arguments got: </span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+        
+    <span class="n">signature</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;connected&#39;</span> <span class="p">]</span>
+    <span class="n">inherited</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;backing&#39;</span><span class="p">,</span> <span class="s">&#39;connectable&#39;</span><span class="p">,</span> <span class="s">&#39;controllerKey&#39;</span><span class="p">,</span> <span class="s">&#39;deviceInfo&#39;</span><span class="p">,</span> <span class="s">&#39;key&#39;</span><span class="p">,</span> <span class="s">&#39;unitNumber&#39;</span><span class="p">,</span>
+        <span class="s">&#39;family&#39;</span><span class="p">,</span> <span class="s">&#39;product&#39;</span><span class="p">,</span> <span class="s">&#39;speed&#39;</span><span class="p">,</span> <span class="s">&#39;vendor&#39;</span> <span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">signature</span><span class="o">+</span><span class="n">inherited</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">signature</span> <span class="o">+</span> <span class="n">inherited</span><span class="p">:</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidArgumentError</span><span class="p">(</span><span class="s">&quot;Invalid argument: </span><span class="si">%s</span><span class="s">.  Expected one of </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">signature</span> <span class="o">+</span> <span class="n">inherited</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">obj</span>
+    </div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.do.event_ex &mdash; pyvisdk v0.7 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.7 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.do.event_ex</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: ascii -*-</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.exceptions</span> <span class="kn">import</span> <span class="n">InvalidArgumentError</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="EventEx"><a class="viewcode-back" href="../../../do/event_ex.html#pyvisdk.do.event_ex.EventEx">[docs]</a><span class="k">def</span> <span class="nf">EventEx</span><span class="p">(</span><span class="n">vim</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;EventEx is a dynamically typed Event class, whose type is indicated by its</span>
+<span class="sd">    eventTypeId property.A collection of eventTypeIds is registered by Extensions,</span>
+<span class="sd">    which can now pass in optional type information for each eventTypeId which</span>
+<span class="sd">    indicates the applicable argument names and types, among other</span>
+<span class="sd">    properties.EventEx allows event arguments of any type, though today, the system</span>
+<span class="sd">    only supports &quot;string&quot; and &quot;moid&quot; (a string which can be interpreted as an</span>
+<span class="sd">    object ID in the system) as argument types. In the future, the system may</span>
+<span class="sd">    optionally strongly check the types of the arguments in the event against the</span>
+<span class="sd">    declared type information, based on how the event type is declared.EventEx also</span>
+<span class="sd">    allows arbitrary &quot;event object&quot;s - the object which the event refers to. You</span>
+<span class="sd">    can put in any object identifier as the objectId, but objectType should be</span>
+<span class="sd">    filled in only if the object is actually present in the VC Server&#39;s</span>
+<span class="sd">    ManagedEntity inventory.&#39;&#39;&#39;</span>
+    
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">vim</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s">&#39;ns0:EventEx&#39;</span><span class="p">)</span>
+    
+    <span class="c"># do some validation checking...</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s">&#39;Expected at least 2 arguments got: </span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+        
+    <span class="n">signature</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;chainId&#39;</span> <span class="p">]</span>
+    <span class="n">inherited</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;changeTag&#39;</span><span class="p">,</span> <span class="s">&#39;computeResource&#39;</span><span class="p">,</span> <span class="s">&#39;createdTime&#39;</span><span class="p">,</span> <span class="s">&#39;datacenter&#39;</span><span class="p">,</span> <span class="s">&#39;ds&#39;</span><span class="p">,</span> <span class="s">&#39;dvs&#39;</span><span class="p">,</span>
+        <span class="s">&#39;fullFormattedMessage&#39;</span><span class="p">,</span> <span class="s">&#39;host&#39;</span><span class="p">,</span> <span class="s">&#39;key&#39;</span><span class="p">,</span> <span class="s">&#39;net&#39;</span><span class="p">,</span> <span class="s">&#39;userName&#39;</span><span class="p">,</span> <span class="s">&#39;vm&#39;</span><span class="p">,</span> <span class="s">&#39;arguments&#39;</span><span class="p">,</span>
+        <span class="s">&#39;eventTypeId&#39;</span><span class="p">,</span> <span class="s">&#39;fault&#39;</span><span class="p">,</span> <span class="s">&#39;message&#39;</span><span class="p">,</span> <span class="s">&#39;objectId&#39;</span><span class="p">,</span> <span class="s">&#39;objectName&#39;</span><span class="p">,</span> <span class="s">&#39;objectType&#39;</span><span class="p">,</span>
+        <span class="s">&#39;severity&#39;</span> <span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">signature</span><span class="o">+</span><span class="n">inherited</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">signature</span> <span class="o">+</span> <span class="n">inherited</span><span class="p">:</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidArgumentError</span><span class="p">(</span><span class="s">&quot;Invalid argument: </span><span class="si">%s</span><span class="s">.  Expected one of </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">signature</span> <span class="o">+</span> <span class="n">inherited</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">obj</span>
+    </div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

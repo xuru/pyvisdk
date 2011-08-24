@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.host_datastore_system &mdash; pyvisdk v0.7 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.7 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.host_datastore_system</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.base_entity</span> <span class="kn">import</span> <span class="n">BaseEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">HostDatastoreSystem</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="HostDatastoreSystem"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem">[docs]</a>    <span class="sd">&#39;&#39;&#39;This managed object creates and removes datastores from the host.To a host, a</span>
+<span class="sd">        datastore is a storage abstraction that is backed by one of several types</span>
+<span class="sd">        of storage volumes:An ESX Server system automatically discovers the VMFS</span>
+<span class="sd">        volume on attached Logical Unit Numbers (LUNs) on startup and after re-</span>
+<span class="sd">        scanning the host bus adapter. Datastores are automatically created. The</span>
+<span class="sd">        datastore label is based on the VMFS volume label. If there is a conflict</span>
+<span class="sd">        with an existing datastore, it is made unique by appending a suffix. The</span>
+<span class="sd">        VMFS volume label will be unchanged.Destroying the datastore removes the</span>
+<span class="sd">        partitions that compose the VMFS volume.Datastores are never automatically</span>
+<span class="sd">        removed because transient storage connection outages may occur. They must</span>
+<span class="sd">        be removed from the host using this interface. See Datastore</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">HostDatastoreSystem</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">HostDatastoreSystem</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">capabilities</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostDatastoreSystem.capabilities"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.capabilities">[docs]</a>        <span class="sd">&#39;&#39;&#39;Capability vector indicating the available product features.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;capabilities&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">datastore</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HostDatastoreSystem.datastore"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.datastore">[docs]</a>        <span class="sd">&#39;&#39;&#39;List of datastores on this host.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;datastore&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">ConfigureDatastorePrincipal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userName</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreSystem.ConfigureDatastorePrincipal"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.ConfigureDatastorePrincipal">[docs]</a>        <span class="sd">&#39;&#39;&#39;Configures datastore principal user for the host.All virtual machine-related file</span>
+<span class="sd">        I/O is performed under this user. Configuring datastore principal user</span>
+<span class="sd">        will result in all virtual machine files (configuration, disk, and so on)</span>
+<span class="sd">        being checked for proper access. If necessary, ownership and permissions</span>
+<span class="sd">        are modified. Note that in some environments, file ownership and</span>
+<span class="sd">        permissions modification may not be possible. For example, virtual machine</span>
+<span class="sd">        files stored on NFS cannot be modified for ownership and permissions if</span>
+<span class="sd">        root squashing is enabled. Ownership and permissions for these files must</span>
+<span class="sd">        be manually changed by a system administrator. In general, if server</span>
+<span class="sd">        process does not have rights to change ownership and file permissions of</span>
+<span class="sd">        virtual machine files, they must be modified manually. If a virtual</span>
+<span class="sd">        machine files are not read/writeable by this user, virtual machine related</span>
+<span class="sd">        operations such as power on/off, configuration, and so on will fail. This</span>
+<span class="sd">        operation must be performed while in maintenance mode and requires host</span>
+<span class="sd">        reboot.</span>
+
+<span class="sd">        :param userName: Datastore principal user name.</span>
+
+<span class="sd">        :param password: Optional password for systems that require password for user impersonation.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ConfigureDatastorePrincipal&quot;</span><span class="p">)(</span><span class="n">userName</span><span class="p">,</span><span class="n">password</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateLocalDatastore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreSystem.CreateLocalDatastore"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.CreateLocalDatastore">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a new local datastore.</span>
+
+<span class="sd">        :param name: The name of a datastore to create on the local host.</span>
+
+<span class="sd">        :param path: The file path for a directory in which the virtual machine data will be stored.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Datastore </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateLocalDatastore&quot;</span><span class="p">)(</span><span class="n">name</span><span class="p">,</span><span class="n">path</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateNasDatastore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreSystem.CreateNasDatastore"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.CreateNasDatastore">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a new network-attached storage datastore.</span>
+
+<span class="sd">        :param spec: The specification for creating a network-attached storage volume.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Datastore </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateNasDatastore&quot;</span><span class="p">)(</span><span class="n">spec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateVmfsDatastore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreSystem.CreateVmfsDatastore"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.CreateVmfsDatastore">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a new VMFS datastore.</span>
+
+<span class="sd">        :param spec: The specification for creating a datastore backed by a VMFS.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Datastore </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateVmfsDatastore&quot;</span><span class="p">)(</span><span class="n">spec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">ExpandVmfsDatastore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datastore</span><span class="p">,</span> <span class="n">spec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreSystem.ExpandVmfsDatastore"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.ExpandVmfsDatastore">[docs]</a>        <span class="sd">&#39;&#39;&#39;Increases the capacity of an existing VMFS datastore by expanding (increasing the</span>
+<span class="sd">        size of) an existing extent of the datastore.</span>
+
+<span class="sd">        :param datastore: to a DatastoreThe datastore whose capacity should be increased.</span>
+
+<span class="sd">        :param spec: The specification describing which extent of the VMFS datastore to expand.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Datastore </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ExpandVmfsDatastore&quot;</span><span class="p">)(</span><span class="n">datastore</span><span class="p">,</span><span class="n">spec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">ExtendVmfsDatastore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datastore</span><span class="p">,</span> <span class="n">spec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreSystem.ExtendVmfsDatastore"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.ExtendVmfsDatastore">[docs]</a>        <span class="sd">&#39;&#39;&#39;Increases the capacity of an existing VMFS datastore by adding new extents to the</span>
+<span class="sd">        datastore.</span>
+
+<span class="sd">        :param datastore: to a DatastoreThe datastore whose capacity should be increased.</span>
+
+<span class="sd">        :param spec: The specification describing what extents to add to a VMFS datastore.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Datastore </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ExtendVmfsDatastore&quot;</span><span class="p">)(</span><span class="n">datastore</span><span class="p">,</span><span class="n">spec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryAvailableDisksForVmfs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datastore</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreSystem.QueryAvailableDisksForVmfs"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.QueryAvailableDisksForVmfs">[docs]</a>        <span class="sd">&#39;&#39;&#39;Query to list disks that can be used to contain VMFS datastore extents. If the</span>
+<span class="sd">        optional parameter name is supplied, queries for disks that can be used to</span>
+<span class="sd">        contain extents for a VMFS datastore identified by the supplied name.</span>
+<span class="sd">        Otherwise, the method retrieves disks that can be used to contain new VMFS</span>
+<span class="sd">        datastores.This operation will filter out disks that are currently in use</span>
+<span class="sd">        by an existing VMFS unless the VMFS using the disk is one being extended.</span>
+<span class="sd">        It will also filter out management LUNs and disks that are referenced by</span>
+<span class="sd">        RDMs. These disk LUNs are also unsuited for use by a VMFS.Disk LUNs</span>
+<span class="sd">        referenced by RDMs are found by examining all virtual machines known to</span>
+<span class="sd">        the system and visiting their virtual disk backends. If a virtual disk</span>
+<span class="sd">        backend uses an RDM that is referencing a disk LUN, the disk LUN becomes</span>
+<span class="sd">        ineligible for use by a VMFS datastore.</span>
+
+<span class="sd">        :param datastore: to a DatastoreThe managed object reference of the VMFS datastore you want extents</span>
+<span class="sd">        for.</span>
+
+
+<span class="sd">        :rtype: HostScsiDisk[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryAvailableDisksForVmfs&quot;</span><span class="p">)(</span><span class="n">datastore</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryUnresolvedVmfsVolumes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreSystem.QueryUnresolvedVmfsVolumes"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.QueryUnresolvedVmfsVolumes">[docs]</a>        <span class="sd">&#39;&#39;&#39;Get the list of unbound VMFS volumes. For sharing a volume across hosts, a VMFS</span>
+<span class="sd">        volume is bound to its underlying block device storage. When a low level</span>
+<span class="sd">        block copy is performed to copy or move the VMFS volume, the copied volume</span>
+<span class="sd">        will be unbound.</span>
+
+<span class="sd">        :rtype: HostUnresolvedVmfsVolume[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryUnresolvedVmfsVolumes&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryVmfsDatastoreCreateOptions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">devicePath</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreSystem.QueryVmfsDatastoreCreateOptions"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.QueryVmfsDatastoreCreateOptions">[docs]</a>        <span class="sd">&#39;&#39;&#39;Queries options for creating a new VMFS datastore for a disk. See devicePath</span>
+
+<span class="sd">        :param devicePath: The devicePath of the disk on which datastore creation options are generated.See</span>
+<span class="sd">        devicePath</span>
+
+
+<span class="sd">        :rtype: VmfsDatastoreOption[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryVmfsDatastoreCreateOptions&quot;</span><span class="p">)(</span><span class="n">devicePath</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryVmfsDatastoreExpandOptions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datastore</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreSystem.QueryVmfsDatastoreExpandOptions"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.QueryVmfsDatastoreExpandOptions">[docs]</a>        <span class="sd">&#39;&#39;&#39;Queries for options for increasing the capacity of an existing VMFS datastore by</span>
+<span class="sd">        expanding (increasing the size of) an existing extent of the datastore.</span>
+
+<span class="sd">        :param datastore: to a DatastoreThe datastore to be expanded.</span>
+
+
+<span class="sd">        :rtype: VmfsDatastoreOption[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryVmfsDatastoreExpandOptions&quot;</span><span class="p">)(</span><span class="n">datastore</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryVmfsDatastoreExtendOptions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datastore</span><span class="p">,</span> <span class="n">devicePath</span><span class="p">,</span> <span class="n">suppressExpandCandidates</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreSystem.QueryVmfsDatastoreExtendOptions"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.QueryVmfsDatastoreExtendOptions">[docs]</a>        <span class="sd">&#39;&#39;&#39;Queries for options for increasing the capacity of an existing VMFS datastore by</span>
+<span class="sd">        adding new extents using space from the specified disk. See devicePath</span>
+
+<span class="sd">        :param datastore: to a DatastoreThe datastore to be extended.See devicePath</span>
+
+<span class="sd">        :param devicePath: The devicePath of the disk on which datastore extension options are generated.See</span>
+<span class="sd">        devicePath</span>
+
+<span class="sd">        :param suppressExpandCandidates: Indicates whether to exclude options that can be used for extent expansion also.</span>
+<span class="sd">        Free space can be used for adding an extent or expanding an existing</span>
+<span class="sd">        extent. If this parameter is set to true, the list of options returned</span>
+<span class="sd">        will not include free space that can be used for expansion.See</span>
+<span class="sd">        devicePathvSphere API 4.0</span>
+
+
+<span class="sd">        :rtype: VmfsDatastoreOption[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryVmfsDatastoreExtendOptions&quot;</span><span class="p">)(</span><span class="n">datastore</span><span class="p">,</span><span class="n">devicePath</span><span class="p">,</span><span class="n">suppressExpandCandidates</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RemoveDatastore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datastore</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreSystem.RemoveDatastore"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.RemoveDatastore">[docs]</a>        <span class="sd">&#39;&#39;&#39;Removes a datastore from a host.</span>
+
+<span class="sd">        :param datastore: to a DatastoreThe datastore to be removed.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RemoveDatastore&quot;</span><span class="p">)(</span><span class="n">datastore</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">ResignatureUnresolvedVmfsVolume_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resolutionSpec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreSystem.ResignatureUnresolvedVmfsVolume_Task"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.ResignatureUnresolvedVmfsVolume_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Resignature an unbound VMFS volume. To safely enable sharing of the volume across</span>
+<span class="sd">        hosts, a VMFS volume is bound to its underlying block device storage. When</span>
+<span class="sd">        a low level block copy is performed to copy or move the VMFS volume, the</span>
+<span class="sd">        copied volume will be unbound. In order for the VMFS volume to be usable,</span>
+<span class="sd">        a resolution operation is needed to determine whether the VMFS volume</span>
+<span class="sd">        should be treated as a new volume or not and what extents compose that</span>
+<span class="sd">        volume in the event there is more than one unbound volume.With</span>
+<span class="sd">        &#39;Resignature&#39; operation, a new Vmfs Uuid is assigned to the volume but its</span>
+<span class="sd">        contents are kept intact. Resignature results in a new Vmfs volume on the</span>
+<span class="sd">        host. Users can specify a list of hosts on which the volume will be auto-</span>
+<span class="sd">        mounted.</span>
+
+<span class="sd">        :param resolutionSpec: A data object that describes what the disk extents to be used for creating the new</span>
+<span class="sd">        VMFS volume.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ResignatureUnresolvedVmfsVolume_Task&quot;</span><span class="p">)(</span><span class="n">resolutionSpec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateLocalSwapDatastore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datastore</span><span class="p">):</span></div>
+<div class="viewcode-block" id="HostDatastoreSystem.UpdateLocalSwapDatastore"><a class="viewcode-back" href="../../../mo/host_datastore_system.html#pyvisdk.mo.host_datastore_system.HostDatastoreSystem.UpdateLocalSwapDatastore">[docs]</a>        <span class="sd">&#39;&#39;&#39;Choose the localSwapDatastore for this host. Any change to this setting will</span>
+<span class="sd">        affect virtual machines that subsequently power on or resume from a</span>
+<span class="sd">        suspended state at this host, or that migrate to this host while powered</span>
+<span class="sd">        on; virtual machines that are currently powered on at this host will not</span>
+<span class="sd">        yet be affected.</span>
+
+<span class="sd">        :param datastore: to a DatastoreThe selected datastore. If this argument is unset, then the</span>
+<span class="sd">        localSwapDatastore property becomes unset. Otherwise, the host must have</span>
+<span class="sd">        read/write access to the indicated datastore.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateLocalSwapDatastore&quot;</span><span class="p">)(</span><span class="n">datastore</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

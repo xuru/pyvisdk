@@ -1,0 +1,21 @@
+
+.vmwarelogo a {
+    display: block;
+    height: 100%;
+    color: #3399CC;
+    text-decoration: none;
+}
+
+.vmwarelogo {
+    background: url("_static/bg-logo.gif") no-repeat scroll 0 0 transparent;
+    height: 17px;
+    left: 10px;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -9999px;
+    top: 39px;
+    width: 113px;
+    z-index: 1;
+}
+

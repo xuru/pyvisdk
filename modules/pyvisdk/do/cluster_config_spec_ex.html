@@ -1,0 +1,165 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.do.cluster_config_spec_ex &mdash; pyvisdk v0.7 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.7 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.do.cluster_config_spec_ex</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: ascii -*-</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.exceptions</span> <span class="kn">import</span> <span class="n">InvalidArgumentError</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ClusterConfigSpecEx"><a class="viewcode-back" href="../../../do/cluster_config_spec_ex.html#pyvisdk.do.cluster_config_spec_ex.ClusterConfigSpecEx">[docs]</a><span class="k">def</span> <span class="nf">ClusterConfigSpecEx</span><span class="p">(</span><span class="n">vim</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;The ClusterConfigSpecEx data object provides a set of update specifications for</span>
+<span class="sd">    complete cluster configuration. You can configure a cluster when you create a</span>
+<span class="sd">    new cluster (the CreateClusterEx method) or when you reconfigure an existing</span>
+<span class="sd">    cluster (the ReconfigureComputeResource_Task method).All fields are optional.</span>
+<span class="sd">    If you set the parameter to when you call ReconfigureComputeResource_Task, an</span>
+<span class="sd">    unset property has no effect on the existing property value in the cluster</span>
+<span class="sd">    configuration on the Server. If you set the parameter to when you reconfigure a</span>
+<span class="sd">    cluster, the cluster configuration is reverted to the default values, then the</span>
+<span class="sd">    new configuration values are applied.Use the properties defined for this object</span>
+<span class="sd">    to configure the following services:When it chooses a failover host, HA selects</span>
+<span class="sd">    a host that is compatible with the virtual machine and that can support</span>
+<span class="sd">    resource allocation for that virtual machine so that service level guarantees</span>
+<span class="sd">    remain intact. HA does not consider hosts that are in maintenance mode, standby</span>
+<span class="sd">    mode, or which are disconnected from the vCenter Server. When a host powers on</span>
+<span class="sd">    or becomes available again, HA is reenabled on that host, so it becomes</span>
+<span class="sd">    available for failover again. VMware recommends that you configure hosts and</span>
+<span class="sd">    virtual machines so that all virtual machines can run on all hosts in the</span>
+<span class="sd">    cluster. This will maximize the chances of restarting a VM after a failure.HA</span>
+<span class="sd">    also restarts a virtual machine after a guest operating system failure. In this</span>
+<span class="sd">    case, the virtual machine health monitoring service detects the guest failure,</span>
+<span class="sd">    and HA restarts the virtual machine on the same host. The service monitors</span>
+<span class="sd">    heartbeats from the VmTools service and optionally heartbeats that are</span>
+<span class="sd">    generated by a third-party application monitor. See</span>
+<span class="sd">    ClusterVmToolsMonitoringSettings and ClusterDasConfigInfo.vmMonitoring.To</span>
+<span class="sd">    enable HA for a cluster, set the ClusterDasConfigInfo.enabled property to and</span>
+<span class="sd">    the ClusterDasConfigInfo.hostMonitoring property to enabled. (The vSphere API</span>
+<span class="sd">    uses the substring &quot;das&quot; in object, property, and method names for HA. )To</span>
+<span class="sd">    enable DRS for a cluster, set the ClusterDrsConfigInfo.enabled property to .To</span>
+<span class="sd">    enable DPM for a cluster, set the ClusterDpmConfigInfo.enabled property to .The</span>
+<span class="sd">    HA, DRS, and DPM services are integrated with the FT (Fault Tolerance) and EVC</span>
+<span class="sd">    (Enhanced vMotion Compatibility) services. Use the CreateSecondaryVM_Task</span>
+<span class="sd">    method to establish fault tolerance for a virtual machine. Use the vSphere</span>
+<span class="sd">    Client to configure EVC. The HA, DRS, DPM, FT, and EVC services interact under</span>
+<span class="sd">    the following circumstances.When admission control is disabled, failover</span>
+<span class="sd">    resource constraints are not passed on to DRS and DPM. The constraints are not</span>
+<span class="sd">    enforced.If EVC is disabled, vCenter automatically creates overrides to disable</span>
+<span class="sd">    DRS for FT primary/secondary pairs in the cluster. vCenter will still use DRS</span>
+<span class="sd">    to place a secondary virtual machine when it powers on. Attempts to remove the</span>
+<span class="sd">    overrides or to enable DRS operations will fail.High Availability was</span>
+<span class="sd">    previously called Distributed Availability Services.&#39;&#39;&#39;</span>
+    
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">vim</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s">&#39;ns0:ClusterConfigSpecEx&#39;</span><span class="p">)</span>
+    
+    <span class="c"># do some validation checking...</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s">&#39;Expected at least 1 arguments got: </span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+        
+    <span class="n">signature</span> <span class="o">=</span> <span class="p">[</span>  <span class="p">]</span>
+    <span class="n">inherited</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;vmSwapPlacement&#39;</span><span class="p">,</span> <span class="s">&#39;dasConfig&#39;</span><span class="p">,</span> <span class="s">&#39;dasVmConfigSpec&#39;</span><span class="p">,</span> <span class="s">&#39;dpmConfig&#39;</span><span class="p">,</span>
+        <span class="s">&#39;dpmHostConfigSpec&#39;</span><span class="p">,</span> <span class="s">&#39;drsConfig&#39;</span><span class="p">,</span> <span class="s">&#39;drsVmConfigSpec&#39;</span><span class="p">,</span> <span class="s">&#39;groupSpec&#39;</span><span class="p">,</span> <span class="s">&#39;rulesSpec&#39;</span> <span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">signature</span><span class="o">+</span><span class="n">inherited</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">signature</span> <span class="o">+</span> <span class="n">inherited</span><span class="p">:</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidArgumentError</span><span class="p">(</span><span class="s">&quot;Invalid argument: </span><span class="si">%s</span><span class="s">.  Expected one of </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">signature</span> <span class="o">+</span> <span class="n">inherited</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">obj</span>
+    </div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

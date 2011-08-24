@@ -1,0 +1,142 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.do.scsi_lun &mdash; pyvisdk v0.7 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.7 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.do.scsi_lun</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: ascii -*-</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.exceptions</span> <span class="kn">import</span> <span class="n">InvalidArgumentError</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ScsiLun"><a class="viewcode-back" href="../../../do/scsi_lun.html#pyvisdk.do.scsi_lun.ScsiLun">[docs]</a><span class="k">def</span> <span class="nf">ScsiLun</span><span class="p">(</span><span class="n">vim</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;The ScsiLun data object describes a SCSI logical unit. A SCSI logical unit is a</span>
+<span class="sd">    host device that an ESX Server or virtual machine can use for I/O operations.An</span>
+<span class="sd">    ESX Server creates SCSI logical unit objects to represent devices in the host</span>
+<span class="sd">    configuration. (See the definition of ScsiLunType for a list of the supported</span>
+<span class="sd">    device types.) The vSphere API uses one of two object types to represent a SCSI</span>
+<span class="sd">    logical unit, depending on the device type.* Disks containing file system</span>
+<span class="sd">    volumes or parts of volumes for hosts or raw disks for virtual machines. To</span>
+<span class="sd">    represent disks, the ESX Server creates a HostScsiDisk object, which inherits</span>
+<span class="sd">    properties from the ScsiLun base class. * Other SCSI devices, for example SCSI</span>
+<span class="sd">    passthrough devices for virtual machines. To represent one of these devices,</span>
+<span class="sd">    the ESX Server creates a ScsiLun object.When the Server creates a HostScsiDisk</span>
+<span class="sd">    or ScsiLun object, it specifies a valid device name and type:* deviceName - A</span>
+<span class="sd">    string representing the name of the device that is meaningful to the host. The</span>
+<span class="sd">    following are some examples of device names.    * deviceType - A string</span>
+<span class="sd">    describing the type of device. The following are some examples of device types.&#39;&#39;&#39;</span>
+    
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">vim</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s">&#39;ns0:ScsiLun&#39;</span><span class="p">)</span>
+    
+    <span class="c"># do some validation checking...</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s">&#39;Expected at least 3 arguments got: </span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+        
+    <span class="n">signature</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;deviceName&#39;</span><span class="p">,</span> <span class="s">&#39;deviceType&#39;</span> <span class="p">]</span>
+    <span class="n">inherited</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&#39;alternateName&#39;</span><span class="p">,</span> <span class="s">&#39;canonicalName&#39;</span><span class="p">,</span> <span class="s">&#39;capabilities&#39;</span><span class="p">,</span> <span class="s">&#39;descriptor&#39;</span><span class="p">,</span> <span class="s">&#39;displayName&#39;</span><span class="p">,</span>
+        <span class="s">&#39;durableName&#39;</span><span class="p">,</span> <span class="s">&#39;key&#39;</span><span class="p">,</span> <span class="s">&#39;lunType&#39;</span><span class="p">,</span> <span class="s">&#39;model&#39;</span><span class="p">,</span> <span class="s">&#39;operationalState&#39;</span><span class="p">,</span> <span class="s">&#39;queueDepth&#39;</span><span class="p">,</span>
+        <span class="s">&#39;revision&#39;</span><span class="p">,</span> <span class="s">&#39;scsiLevel&#39;</span><span class="p">,</span> <span class="s">&#39;serialNumber&#39;</span><span class="p">,</span> <span class="s">&#39;standardInquiry&#39;</span><span class="p">,</span> <span class="s">&#39;uuid&#39;</span><span class="p">,</span> <span class="s">&#39;vendor&#39;</span><span class="p">,</span>
+        <span class="s">&#39;vStorageSupport&#39;</span> <span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">signature</span><span class="o">+</span><span class="n">inherited</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">signature</span> <span class="o">+</span> <span class="n">inherited</span><span class="p">:</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidArgumentError</span><span class="p">(</span><span class="s">&quot;Invalid argument: </span><span class="si">%s</span><span class="s">.  Expected one of </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">signature</span> <span class="o">+</span> <span class="n">inherited</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">obj</span>
+    </div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

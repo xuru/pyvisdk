@@ -1,0 +1,185 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.scheduled_task_manager &mdash; pyvisdk v0.7 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.7 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.scheduled_task_manager</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.base_entity</span> <span class="kn">import</span> <span class="n">BaseEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">ScheduledTaskManager</span><span class="p">(</span><span class="n">BaseEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="ScheduledTaskManager"><a class="viewcode-back" href="../../../mo/scheduled_task_manager.html#pyvisdk.mo.scheduled_task_manager.ScheduledTaskManager">[docs]</a>    <span class="sd">&#39;&#39;&#39;Object manager for scheduled tasks.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">ScheduledTaskManager</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ScheduledTaskManager</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">description</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ScheduledTaskManager.description"><a class="viewcode-back" href="../../../mo/scheduled_task_manager.html#pyvisdk.mo.scheduled_task_manager.ScheduledTaskManager.description">[docs]</a>        <span class="sd">&#39;&#39;&#39;Static descriptive strings used in scheduled tasks.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;description&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">scheduledTask</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ScheduledTaskManager.scheduledTask"><a class="viewcode-back" href="../../../mo/scheduled_task_manager.html#pyvisdk.mo.scheduled_task_manager.ScheduledTaskManager.scheduledTask">[docs]</a>        <span class="sd">&#39;&#39;&#39;All available scheduled tasks.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;scheduledTask&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">CreateObjectScheduledTask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">spec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ScheduledTaskManager.CreateObjectScheduledTask"><a class="viewcode-back" href="../../../mo/scheduled_task_manager.html#pyvisdk.mo.scheduled_task_manager.ScheduledTaskManager.CreateObjectScheduledTask">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a scheduled task.</span>
+
+<span class="sd">        :param obj: The managed object for which the scheduled task triggers an action. You can</span>
+<span class="sd">        schedule tasks on any managed object.</span>
+
+<span class="sd">        :param spec: The specification for the new scheduled task.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a ScheduledTask </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateObjectScheduledTask&quot;</span><span class="p">)(</span><span class="n">obj</span><span class="p">,</span><span class="n">spec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateScheduledTask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">spec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ScheduledTaskManager.CreateScheduledTask"><a class="viewcode-back" href="../../../mo/scheduled_task_manager.html#pyvisdk.mo.scheduled_task_manager.ScheduledTaskManager.CreateScheduledTask">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a scheduled task.</span>
+
+<span class="sd">        :param entity: to a ManagedEntityThe managed entity (or entities) for which the scheduled task</span>
+<span class="sd">        triggers an action. You can schedule tasks on any managed entity. If the</span>
+<span class="sd">        scheduled task is associated with a leaf node in the inventory tree, it</span>
+<span class="sd">        applies only to a single entity (virtual machine or host). If the task is</span>
+<span class="sd">        associated with a folder, a datacenter, a compute resource, or a resource</span>
+<span class="sd">        pool, it applies to the virtual machine or host descendants of the entity.</span>
+
+<span class="sd">        :param spec: The specification for the new scheduled task.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a ScheduledTask </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateScheduledTask&quot;</span><span class="p">)(</span><span class="n">entity</span><span class="p">,</span><span class="n">spec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RetrieveEntityScheduledTask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ScheduledTaskManager.RetrieveEntityScheduledTask"><a class="viewcode-back" href="../../../mo/scheduled_task_manager.html#pyvisdk.mo.scheduled_task_manager.ScheduledTaskManager.RetrieveEntityScheduledTask">[docs]</a>        <span class="sd">&#39;&#39;&#39;Available scheduled tasks defined on the entity.</span>
+
+<span class="sd">        :param entity: to a ManagedEntityThe entity. If null, all scheduled tasks are returned for</span>
+<span class="sd">        visible entities.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference[] to a ScheduledTask[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RetrieveEntityScheduledTask&quot;</span><span class="p">)(</span><span class="n">entity</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RetrieveObjectScheduledTask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ScheduledTaskManager.RetrieveObjectScheduledTask"><a class="viewcode-back" href="../../../mo/scheduled_task_manager.html#pyvisdk.mo.scheduled_task_manager.ScheduledTaskManager.RetrieveObjectScheduledTask">[docs]</a>        <span class="sd">&#39;&#39;&#39;Available scheduled tasks defined on the object.</span>
+
+<span class="sd">        :param obj: The object. If not specified, all scheduled tasks are returned for visible</span>
+<span class="sd">        entities and visible ManagedObjects.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference[] to a ScheduledTask[] </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RetrieveObjectScheduledTask&quot;</span><span class="p">)(</span><span class="n">obj</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

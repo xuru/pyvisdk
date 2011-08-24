@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.folder &mdash; pyvisdk v0.7 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.7 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.folder</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.managed_entity</span> <span class="kn">import</span> <span class="n">ManagedEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Folder</span><span class="p">(</span><span class="n">ManagedEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="Folder"><a class="viewcode-back" href="../../../mo/folder.html#pyvisdk.mo.folder.Folder">[docs]</a>    <span class="sd">&#39;&#39;&#39;The Folder managed object is a container for storing and organizing inventory</span>
+<span class="sd">        objects. Folders can contain folders and other objects. The childType</span>
+<span class="sd">        property identifies a folder&#39;s type and determines the types of folders</span>
+<span class="sd">        and objects the folder can contain.* A folder can contain a child folder</span>
+<span class="sd">        of the same type as the parent folder. * All Datacenter objects contain</span>
+<span class="sd">        dedicated folders for:See ServiceInstance for a representation of the</span>
+<span class="sd">        organization of the inventory.The Folder managed object also acts as a</span>
+<span class="sd">        factory object, meaning it creates new entities in a folder. The object</span>
+<span class="sd">        provides methods to create child folders and objects, methods to add</span>
+<span class="sd">        existing objects to folders, and methods to remove objects from folders</span>
+<span class="sd">        and to delete folders.Folder inherits the Destroy_Task method.</span>
+<span class="sd">        Destroy_Task is a recursive operation that removes all child objects and</span>
+<span class="sd">        folders. When you call Destroy_Task to destroy a folder, the system uses</span>
+<span class="sd">        the specified folder as a root and traverses its descendant hierarchy,</span>
+<span class="sd">        calling Destroy_Task on each object. Destroy_Task is a single operation</span>
+<span class="sd">        that treats each recursive call as a single transaction, committing each</span>
+<span class="sd">        call to remove an object individually. If Destroy_Task fails on an object,</span>
+<span class="sd">        the method terminates at that point with an exception, leaving some or all</span>
+<span class="sd">        of the objects still in the inventory.Notes on the folder destroy method:</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">Folder</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Folder</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">childEntity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Folder.childEntity"><a class="viewcode-back" href="../../../mo/folder.html#pyvisdk.mo.folder.Folder.childEntity">[docs]</a>        <span class="sd">&#39;&#39;&#39;An array of managed object references. Each entry is a reference to a child</span>
+<span class="sd">        entity.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;childEntity&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">childType</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Folder.childType"><a class="viewcode-back" href="../../../mo/folder.html#pyvisdk.mo.folder.Folder.childType">[docs]</a>        <span class="sd">&#39;&#39;&#39;Specifies the object types a folder may contain. When you create a folder, it</span>
+<span class="sd">        inherits its childType from the parent folder in which it is created.</span>
+<span class="sd">        childType is an array of strings. Each array entry identifies a set of</span>
+<span class="sd">        object types - Folder and one or more managed object types. The following</span>
+<span class="sd">        list shows childType values for the different folders: * { &quot;vim.Folder&quot;,</span>
+<span class="sd">        &quot;vim.Datacenter&quot; } - Identifies the root folder and its descendant</span>
+<span class="sd">        folders. Data center folders can contain child data center folders and</span>
+<span class="sd">        Datacenter managed objects. Datacenter objects contain virtual machine,</span>
+<span class="sd">        compute resource, network entity, and datastore folders. * { &quot;vim.Folder&quot;,</span>
+<span class="sd">        &quot;vim.Virtualmachine&quot;, &quot;vim.VirtualApp&quot; } - Identifies a virtual machine</span>
+<span class="sd">        folder. A virtual machine folder may contain child virtual machine</span>
+<span class="sd">        folders. It also can contain VirtualMachine managed objects, templates,</span>
+<span class="sd">        and VirtualApp managed objects. * { &quot;vim.Folder&quot;, &quot;vim.ComputeResource&quot; }</span>
+<span class="sd">        - Identifies a compute resource folder, which contains child compute</span>
+<span class="sd">        resource folders and ComputeResource hierarchies. * { &quot;vim.Folder&quot;,</span>
+<span class="sd">        &quot;vim.Network&quot; } - Identifies a network entity folder. Network entity</span>
+<span class="sd">        folders can contain Network, DistributedVirtualSwitch, and</span>
+<span class="sd">        DistributedVirtualPort managed objects. * { &quot;vim.Folder&quot;, &quot;vim.Datastore&quot;</span>
+<span class="sd">        } - Identifies a datastore folder. Datastore folders can contain child</span>
+<span class="sd">        datastore folders and Datastore managed objects.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;childType&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">AddStandaloneHost_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">compResSpec</span><span class="p">,</span> <span class="n">addConnected</span><span class="p">,</span> <span class="n">license</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Folder.AddStandaloneHost_Task"><a class="viewcode-back" href="../../../mo/folder.html#pyvisdk.mo.folder.Folder.AddStandaloneHost_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a new single-host compute resource. The name provided can be an IP</span>
+<span class="sd">        address, such as 192.168.0.120, or a string, such as esx120. If a name is</span>
+<span class="sd">        specified, a DNS lookup is used to resolve it to a fully-qualified name,</span>
+<span class="sd">        such as esx120.vmware.com. If the DNS lookup fails, the string is stored</span>
+<span class="sd">        as specified.Licenses for the host are allocated when making the first</span>
+<span class="sd">        connection to the host. This is because the license needed typically</span>
+<span class="sd">        depends on the type of host and the number of CPUs.</span>
+
+<span class="sd">        :param spec: The host name, port, and passwords for the host to be added.</span>
+
+<span class="sd">        :param compResSpec: Optionally specify the configuration for the compute resource that will be created</span>
+<span class="sd">        to contain the host.VI API 2.5</span>
+
+<span class="sd">        :param addConnected: Flag to specify whether or not the host should be connected as soon as it is</span>
+<span class="sd">        added. The creation operation fails if a connection attempt is made and</span>
+<span class="sd">        fails.</span>
+
+<span class="sd">        :param license: Provide a licenseKey or licenseKeyType. See LicenseManagervSphere API 4.0</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;AddStandaloneHost_Task&quot;</span><span class="p">)(</span><span class="n">spec</span><span class="p">,</span><span class="n">compResSpec</span><span class="p">,</span><span class="n">addConnected</span><span class="p">,</span><span class="n">license</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateCluster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">spec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Folder.CreateCluster"><a class="viewcode-back" href="../../../mo/folder.html#pyvisdk.mo.folder.Folder.CreateCluster">[docs]</a>        <span class="sd">&#39;&#39;&#39;Deprecated. As of VI API 2.5, use CreateClusterEx. Creates a new cluster compute</span>
+<span class="sd">        resource in this folder.</span>
+
+<span class="sd">        :param name: Name for the new cluster.</span>
+
+<span class="sd">        :param spec: Specification for the cluster.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a ClusterComputeResource </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateCluster&quot;</span><span class="p">)(</span><span class="n">name</span><span class="p">,</span><span class="n">spec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateClusterEx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">spec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Folder.CreateClusterEx"><a class="viewcode-back" href="../../../mo/folder.html#pyvisdk.mo.folder.Folder.CreateClusterEx">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a new cluster compute resource in this folder.Any % (percent) character</span>
+<span class="sd">        used in this name parameter must be escaped, unless it is used to start an</span>
+<span class="sd">        escape sequence. Clients may also escape any other characters in this name</span>
+<span class="sd">        parameter.</span>
+
+<span class="sd">        :param name: Name for the new cluster.</span>
+
+<span class="sd">        :param spec: Specification for the cluster.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a ClusterComputeResource </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateClusterEx&quot;</span><span class="p">)(</span><span class="n">name</span><span class="p">,</span><span class="n">spec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateDatacenter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Folder.CreateDatacenter"><a class="viewcode-back" href="../../../mo/folder.html#pyvisdk.mo.folder.Folder.CreateDatacenter">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a new datacenter with the given name.Any % (percent) character used in</span>
+<span class="sd">        this name parameter must be escaped, unless it is used to start an escape</span>
+<span class="sd">        sequence. Clients may also escape any other characters in this name</span>
+<span class="sd">        parameter.</span>
+
+<span class="sd">        :param name: Name for the new datacenter. An entity name must be a non-empty string of less</span>
+<span class="sd">        than 80 characters. The slash (/), backslash (\) and percent (%) will be</span>
+<span class="sd">        escaped using the URL syntax. For example, %2F.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Datacenter </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateDatacenter&quot;</span><span class="p">)(</span><span class="n">name</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateDVS_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Folder.CreateDVS_Task"><a class="viewcode-back" href="../../../mo/folder.html#pyvisdk.mo.folder.Folder.CreateDVS_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Create a Distributed Virtual Switch in the folder according to the specified</span>
+<span class="sd">        (@link vim.DistributedVirtualSwitch.CreateSpec).</span>
+
+<span class="sd">        :param spec: The (@link vim.DistributedVirtualSwitch.CreateSpec) to create the Distributed</span>
+<span class="sd">        Virtual Switch.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateDVS_Task&quot;</span><span class="p">)(</span><span class="n">spec</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateFolder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Folder.CreateFolder"><a class="viewcode-back" href="../../../mo/folder.html#pyvisdk.mo.folder.Folder.CreateFolder">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a new sub-folder with the specified name. The childType property of the</span>
+<span class="sd">        new folder is the same as the childType property of the current folder.Any</span>
+<span class="sd">        % (percent) character used in this name parameter must be escaped, unless</span>
+<span class="sd">        it is used to start an escape sequence. Clients may also escape any other</span>
+<span class="sd">        characters in this name parameter.</span>
+
+<span class="sd">        :param name: The name to be given the new folder. An entity name must be a non-empty string of</span>
+<span class="sd">        less than 80 characters. The slash (/), backslash (\) and percent (%) will</span>
+<span class="sd">        be escaped using the URL syntax. For example, %2F.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Folder </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateFolder&quot;</span><span class="p">)(</span><span class="n">name</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateVM_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">pool</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Folder.CreateVM_Task"><a class="viewcode-back" href="../../../mo/folder.html#pyvisdk.mo.folder.Folder.CreateVM_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a new virtual machine in the current folder and attaches it to the</span>
+<span class="sd">        specified resource pool. This operation creates a virtual machine, instead</span>
+<span class="sd">        of cloning a virtual machine from an existing one.The server does not</span>
+<span class="sd">        support creating templates using this method. Instead, you should create</span>
+<span class="sd">        templates by marking existing virtual machines as templates, or by cloning</span>
+<span class="sd">        an existing virtual machine or template.This operation only works if the</span>
+<span class="sd">        folder&#39;s childType includes VirtualMachine. In addition to the</span>
+<span class="sd">        VirtualMachine.Inventory.Create privilege, may also require any of the</span>
+<span class="sd">        following privileges depending on the properties of the virtual machine</span>
+<span class="sd">        bring created:</span>
+
+<span class="sd">        :param config: The configuration of the virtual machine hardware.</span>
+
+<span class="sd">        :param pool: to a ResourcePoolThe resource pool to which the virtual machine will be attached.</span>
+
+<span class="sd">        :param host: to a HostSystemThe target host on which the virtual machine will run. This must</span>
+<span class="sd">        specify a host that is a member of the ComputeResource indirectly</span>
+<span class="sd">        specified by the pool. For a stand-alone host or a cluster with DRS, host</span>
+<span class="sd">        can be omitted, and the system selects a default.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateVM_Task&quot;</span><span class="p">)(</span><span class="n">config</span><span class="p">,</span><span class="n">pool</span><span class="p">,</span><span class="n">host</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">MoveIntoFolder_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Folder.MoveIntoFolder_Task"><a class="viewcode-back" href="../../../mo/folder.html#pyvisdk.mo.folder.Folder.MoveIntoFolder_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Moves a set of managed entities into this folder.This operation is typically used</span>
+<span class="sd">        by clients when they implement a drag-and-drop interface to move a set of</span>
+<span class="sd">        objects into a folder.This operation is transactional only with respect to</span>
+<span class="sd">        each individual entity. The set of entities is moved sequentially as</span>
+<span class="sd">        specified in the list, and committed one at a time. If the</span>
+<span class="sd">        MoveIntoFolder_Task method fails on an object, the method terminates at</span>
+<span class="sd">        that point with an exception, leaving the rest of the managed entities in</span>
+<span class="sd">        their original location.The objects that can be moved into a folder</span>
+<span class="sd">        depends on the folder&#39;s type (as defined by the folder&#39;s childType</span>
+<span class="sd">        property). For a datacenter folder, only datacenters and datacenter</span>
+<span class="sd">        folders can be moved into the folder. For a virtual machine folder, only</span>
+<span class="sd">        virtual machines and virtual machine folders can be moved into the folder.</span>
+<span class="sd">        For a host folder, ComputeResource objects, host folder objects, and</span>
+<span class="sd">        HostSystem objects can be moved into the folder.Moving a HostSystem into a</span>
+<span class="sd">        host folder creates a stand-alone host from a host that is currently part</span>
+<span class="sd">        of a ClusterComputeResource. The host must be part of a</span>
+<span class="sd">        ClusterComputeResource in the same datacenter and the host must be in</span>
+<span class="sd">        maintenance mode. Otherwise, the operation fails.A ComputeResource with a</span>
+<span class="sd">        single root resource pool is created for each HostSystem. The name of the</span>
+<span class="sd">        ComputeResource is the DNS or IP address of the host. This operation moves</span>
+<span class="sd">        the (physical) host resources out of a cluster. It does not move or change</span>
+<span class="sd">        the ResourcePool configuration that is part of the ClusterComputeResource</span>
+<span class="sd">        with which the host was associated.Note that all virtual machines</span>
+<span class="sd">        associated with a host are moved with the host into the folder. If there</span>
+<span class="sd">        are virtual machines that should not be moved with the host, then migrate</span>
+<span class="sd">        them from the host before initiating this operation.For a HostSystem move,</span>
+<span class="sd">        the privileges required are Host.Inventory.EditCluster on the source</span>
+<span class="sd">        ClusterComputeResource, Host.Inventory.MoveHost on the HostSystem, and</span>
+<span class="sd">        Host.Inventory.AddStandaloneHost on the target Folder.Otherwise, the</span>
+<span class="sd">        privilege required for this operation varies depending on this folder&#39;s</span>
+<span class="sd">        type and is checked against the source container, destination container,</span>
+<span class="sd">        and the object:If the object is a HostSystem, the privileges required are</span>
+<span class="sd">        Host.Inventory.AddStandaloneHost on the folder, Host.Inventory.MoveHost on</span>
+<span class="sd">        the HostSystem, and Host.Inventory.EditCluster on the host&#39;s original</span>
+<span class="sd">        ComputeResource.</span>
+
+<span class="sd">        :param list: to a ManagedEntity[]The list of objects to be moved into the folder.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;MoveIntoFolder_Task&quot;</span><span class="p">)(</span><span class="nb">list</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">RegisterVM_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">asTemplate</span><span class="p">,</span> <span class="n">pool</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Folder.RegisterVM_Task"><a class="viewcode-back" href="../../../mo/folder.html#pyvisdk.mo.folder.Folder.RegisterVM_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Adds an existing virtual machine to the folder.Any % (percent) character used in</span>
+<span class="sd">        this name parameter must be escaped, unless it is used to start an escape</span>
+<span class="sd">        sequence. Clients may also escape any other characters in this name</span>
+<span class="sd">        parameter.This operation only works if the folder&#39;s type is</span>
+<span class="sd">        VirtualMachine.</span>
+
+<span class="sd">        :param path: A datastore path to the virtual machine.</span>
+
+<span class="sd">        :param name: The name to be assigned to the virtual machine. If this parameter is not set, the</span>
+<span class="sd">        displayName configuration parameter of the virtual machine is used. An</span>
+<span class="sd">        entity name must be a non-empty string of less than 80 characters. The</span>
+<span class="sd">        slash (/), backslash (\) and percent (%) will be escaped using the URL</span>
+<span class="sd">        syntax. For example, %2F.</span>
+
+<span class="sd">        :param asTemplate: Flag to specify whether or not the virtual machine should be marked as a template.</span>
+
+<span class="sd">        :param pool: to a ResourcePoolThe resource pool to which the virtual machine should be</span>
+<span class="sd">        attached. If imported as a template, this parameter is not set.</span>
+
+<span class="sd">        :param host: to a HostSystemThe target host on which the virtual machine will run. This</span>
+<span class="sd">        parameter must specify a host that is a member of the ComputeResource</span>
+<span class="sd">        indirectly specified by the pool. For a stand-alone host or a cluster with</span>
+<span class="sd">        DRS, the parameter can be omitted, and the system selects a default.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RegisterVM_Task&quot;</span><span class="p">)(</span><span class="n">path</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">asTemplate</span><span class="p">,</span><span class="n">pool</span><span class="p">,</span><span class="n">host</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UnregisterAndDestroy_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="Folder.UnregisterAndDestroy_Task"><a class="viewcode-back" href="../../../mo/folder.html#pyvisdk.mo.folder.Folder.UnregisterAndDestroy_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Recursively unregisters all virtual machines and vApps, and destroys all child</span>
+<span class="sd">        virtual machine folders. This is similar to the Destroy_Task method, but</span>
+<span class="sd">        this method calls UnregisterAndDestroy_Task on each virtual machine object</span>
+<span class="sd">        instead of calling Destroy_Task. This operation applies only to</span>
+<span class="sd">        VirtualMachine folders.UnregisterAndDestroy_Task is a recursive operation</span>
+<span class="sd">        that destroys the specified virtual machine folder, unregisters all child</span>
+<span class="sd">        virtual machine objects, and destroys all child virtual machine folders.</span>
+<span class="sd">        When you call UnregisterAndDestroy_Task to destroy a virtual machine</span>
+<span class="sd">        folder, the system uses the specified folder as a root and traverses its</span>
+<span class="sd">        descendant hierarchy, calling UnregisterAndDestroy_Task on each virtual</span>
+<span class="sd">        machine object and Destroy_Task on each virtual machine folder.</span>
+<span class="sd">        UnregisterAndDestroy_Task is a single operation that treats each recursive</span>
+<span class="sd">        call as a single transaction, committing each call to remove an object</span>
+<span class="sd">        individually. If a failure occurs, the method terminates at that point</span>
+<span class="sd">        with an exception, leaving some or all objects unaffected.If you are</span>
+<span class="sd">        removing virtual machines, you must hold the VirtualMachine.Delete</span>
+<span class="sd">        privilege on all of the virtual machines to be unregistered, and on their</span>
+<span class="sd">        parent folders. If you are removing virtual applications, you must hold</span>
+<span class="sd">        the VApp.Delete privilege on all of the virtual applications to be</span>
+<span class="sd">        unregistered, and on their parent folders.</span>
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UnregisterAndDestroy_Task&quot;</span><span class="p">)()</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

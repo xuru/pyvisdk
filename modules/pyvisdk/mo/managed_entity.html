@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.managed_entity &mdash; pyvisdk v0.7 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.7 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.managed_entity</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.extensible_managed_object</span> <span class="kn">import</span> <span class="n">ExtensibleManagedObject</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">ManagedEntity</span><span class="p">(</span><span class="n">ExtensibleManagedObject</span><span class="p">):</span>
+<div class="viewcode-block" id="ManagedEntity"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity">[docs]</a>    <span class="sd">&#39;&#39;&#39;ManagedEntity is an abstract base type for all managed objects present in the</span>
+<span class="sd">        inventory tree. The base type provides common functionality for traversing</span>
+<span class="sd">        the tree structure, as well as health monitoring and other basic</span>
+<span class="sd">        functions.Most Virtual Infrastructure managed object types extend this</span>
+<span class="sd">        type.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">ManagedEntity</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ManagedEntity</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">alarmActionsEnabled</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ManagedEntity.alarmActionsEnabled"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.alarmActionsEnabled">[docs]</a>        <span class="sd">&#39;&#39;&#39;Whether alarm actions are enabled for this entity. True if enabled; false</span>
+<span class="sd">        otherwise.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;alarmActionsEnabled&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">configIssue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ManagedEntity.configIssue"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.configIssue">[docs]</a>        <span class="sd">&#39;&#39;&#39;Current configuration issues that have been detected for this entity. Typically,</span>
+<span class="sd">        these issues have already been logged as events. The entity stores these</span>
+<span class="sd">        events as long as they are still current. The configStatus property</span>
+<span class="sd">        provides an overall status based on these events.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;configIssue&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">configStatus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ManagedEntity.configStatus"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.configStatus">[docs]</a>        <span class="sd">&#39;&#39;&#39;The configStatus indicates whether or not the system has detected a configuration</span>
+<span class="sd">        issue involving this entity. For example, it might have detected a</span>
+<span class="sd">        duplicate IP address or MAC address, or a host in a cluster might be out</span>
+<span class="sd">        of compliance. The meanings of the configStatus values are: * red: A</span>
+<span class="sd">        problem has been detected involving the entity. * yellow: A problem is</span>
+<span class="sd">        about to occur or a transient condition has occurred (For example,</span>
+<span class="sd">        reconfigure fail-over policy). * green: No configuration issues have been</span>
+<span class="sd">        detected. * gray: The configuration status of the entity is not being</span>
+<span class="sd">        monitored. A green status indicates only that a problem has not been</span>
+<span class="sd">        detected; it is not a guarantee that the entity is problem-free.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;configStatus&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">customValue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ManagedEntity.customValue"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.customValue">[docs]</a>        <span class="sd">&#39;&#39;&#39;Custom field values.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;customValue&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">declaredAlarmState</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ManagedEntity.declaredAlarmState"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.declaredAlarmState">[docs]</a>        <span class="sd">&#39;&#39;&#39;A set of alarm states for alarms that apply to this managed entity. The set</span>
+<span class="sd">        includes alarms defined on this entity and alarms inherited from the</span>
+<span class="sd">        parent entity, or from any ancestors in the inventory hierarchy.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;declaredAlarmState&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">disabledMethod</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ManagedEntity.disabledMethod"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.disabledMethod">[docs]</a>        <span class="sd">&#39;&#39;&#39;List of operations that are disabled, given the current runtime state of the</span>
+<span class="sd">        entity. For example, a power-on operation always fails if a virtual</span>
+<span class="sd">        machine is already powered on. This list can be used by clients to enable</span>
+<span class="sd">        or disable operations in a graphical user interface.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;disabledMethod&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">effectiveRole</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ManagedEntity.effectiveRole"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.effectiveRole">[docs]</a>        <span class="sd">&#39;&#39;&#39;Access rights the current session has to this entity.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;effectiveRole&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">overallStatus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ManagedEntity.overallStatus"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.overallStatus">[docs]</a>        <span class="sd">&#39;&#39;&#39;General health of this managed entity. The value combines the status of all the</span>
+<span class="sd">        alarms attached to a managed entity.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;overallStatus&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">parent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ManagedEntity.parent"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.parent">[docs]</a>        <span class="sd">&#39;&#39;&#39;Parent of this entity.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;parent&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">permission</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ManagedEntity.permission"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.permission">[docs]</a>        <span class="sd">&#39;&#39;&#39;List of permissions defined for this entity.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;permission&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">recentTask</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ManagedEntity.recentTask"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.recentTask">[docs]</a>        <span class="sd">&#39;&#39;&#39;The set of recent tasks operating on this managed entity. This is a subset of</span>
+<span class="sd">        recentTask belong to this entity. A task in this list could be in one of</span>
+<span class="sd">        the four states: pending, running, success or error.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;recentTask&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">tag</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ManagedEntity.tag"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.tag">[docs]</a>        <span class="sd">&#39;&#39;&#39;The set of tags associated with this managed entity. Experimental. Subject to</span>
+<span class="sd">        change.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;tag&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">triggeredAlarmState</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ManagedEntity.triggeredAlarmState"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.triggeredAlarmState">[docs]</a>        <span class="sd">&#39;&#39;&#39;A set of alarm states for alarms triggered by this entity or by its descendants.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;triggeredAlarmState&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">Destroy_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ManagedEntity.Destroy_Task"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.Destroy_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Destroys this object, deleting its contents and removing it from its parent folder</span>
+<span class="sd">        (if any).NOTE: The appropriate privilege must be held on the parent of the</span>
+<span class="sd">        destroyed entity as well as the entity itself.This method can throw one of</span>
+<span class="sd">        several exceptions. The exact set of exceptions depends on the kind of</span>
+<span class="sd">        entity that is being removed. See comments for each entity for more</span>
+<span class="sd">        information on destroy behavior.</span>
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;Destroy_Task&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">Reload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ManagedEntity.Reload"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.Reload">[docs]</a>        <span class="sd">&#39;&#39;&#39;Reload the entity state. Clients only need to call this method if they changed</span>
+<span class="sd">        some external state that affects the service without using the Web service</span>
+<span class="sd">        interface to perform the change. For example, hand-editing a virtual</span>
+<span class="sd">        machine configuration file affects the configuration of the associated</span>
+<span class="sd">        virtual machine but the service managing the virtual machine might not</span>
+<span class="sd">        monitor the file for changes. In this case, after such an edit, a client</span>
+<span class="sd">        would call &quot;reload&quot; on the associated virtual machine to ensure the</span>
+<span class="sd">        service and its clients have current data for the virtual machine.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;Reload&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">Rename_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newName</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ManagedEntity.Rename_Task"><a class="viewcode-back" href="../../../mo/managed_entity.html#pyvisdk.mo.managed_entity.ManagedEntity.Rename_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Renames this managed entity.Any % (percent) character used in this name parameter</span>
+<span class="sd">        must be escaped, unless it is used to start an escape sequence. Clients</span>
+<span class="sd">        may also escape any other characters in this name parameter.See name</span>
+
+<span class="sd">        :param newName: See name</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;Rename_Task&quot;</span><span class="p">)(</span><span class="n">newName</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

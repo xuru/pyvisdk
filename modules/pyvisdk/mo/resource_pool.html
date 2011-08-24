@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyvisdk.mo.resource_pool &mdash; pyvisdk v0.7 documentation</title>
+    <link rel="stylesheet" href="../../../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.7 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyvisdk.mo.resource_pool</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">pyvisdk.base.managed_object_types</span> <span class="kn">import</span> <span class="n">ManagedObjectTypes</span>
+<span class="kn">from</span> <span class="nn">pyvisdk.mo.managed_entity</span> <span class="kn">import</span> <span class="n">ManagedEntity</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c">########################################</span>
+<span class="c"># Automatically generated, do not edit.</span>
+<span class="c">########################################</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">ResourcePool</span><span class="p">(</span><span class="n">ManagedEntity</span><span class="p">):</span>
+<div class="viewcode-block" id="ResourcePool"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool">[docs]</a>    <span class="sd">&#39;&#39;&#39;Represents a set of physical resources: a single host, a subset of a host&#39;s</span>
+<span class="sd">        resources, or resources spanning multiple hosts. Resource pools can be</span>
+<span class="sd">        subdivided by creating child resource pools. In order to run, a virtual</span>
+<span class="sd">        machine must be associated as a child of a resource pool.In a parent/child</span>
+<span class="sd">        hierarchy of resource pools and virtual machines, the single resource pool</span>
+<span class="sd">        that has no parent pool is known as the .ConfigurationA resource pool is</span>
+<span class="sd">        configured with a set of CPU (in MHz) and memory (in MB) resources. These</span>
+<span class="sd">        resources are specified in absolute terms with a resource reservation and</span>
+<span class="sd">        a resource limit, along with a shares setting. The shares are used during</span>
+<span class="sd">        resource contention, to ensure graceful degradation.For the root resource</span>
+<span class="sd">        pool, the values of the reservation and the limit are set by the system</span>
+<span class="sd">        and are not configurable. The reservation and limit are set to the same</span>
+<span class="sd">        value, indicating the total amount of resources the system has available</span>
+<span class="sd">        to run virtual machines. This is computed as the aggregated CPU and memory</span>
+<span class="sd">        resources provided by the set of current available hosts in the parent</span>
+<span class="sd">        compute resource minus the overhead of the virtualization layer.Since the</span>
+<span class="sd">        resource pool configuration is absolute (in MHz or MB), the configuration</span>
+<span class="sd">        can become invalid when resources are removed. This can happen if a host</span>
+<span class="sd">        is removed from the cluster, if a host becomes unavailable, or if a host</span>
+<span class="sd">        is placed in maintenance mode. When this happens, the system flags</span>
+<span class="sd">        misconfigured resource pools and displays the reservations and limits that</span>
+<span class="sd">        are in effect. Further, in a DRS enabled cluster, the tree can be</span>
+<span class="sd">        misconfigured if the user bypasses VirtualCenter and powers on VMs</span>
+<span class="sd">        directly on the host.There are three states that the resource pool tree</span>
+<span class="sd">        can be in: undercommited (green), overcommited (yellow), and inconsistent</span>
+<span class="sd">        (red). Depending on the state, different resource pool configuration</span>
+<span class="sd">        policies are enforced. The states are described in more detail below:*</span>
+<span class="sd">        GREEN (aka undercommitted): We have a tree that is in a state. Every node</span>
+<span class="sd">        has a reservation greater than the sum of the reservations for its</span>
+<span class="sd">        children. We have enough capacity at the root to satisfy all the resources</span>
+<span class="sd">        reserved by the children. All operations performed on the tree, such as</span>
+<span class="sd">        powering on virtual machines, creating new resource pools, or</span>
+<span class="sd">        reconfiguring resource settings, will ensure that the above constraints</span>
+<span class="sd">        are maintained. * RED (aka. inconsistent): One or more nodes in the tree</span>
+<span class="sd">        has children whose reservations are greater than the node is configured to</span>
+<span class="sd">        support. For example, i) a resource pool with a fixed reservation has a</span>
+<span class="sd">        running virtual machine with a reservation that is higher than the</span>
+<span class="sd">        reservation on resource pool itself., or ii) the child reservations are</span>
+<span class="sd">        greater than the limit.In this state, the DRS algorithm is disabled until</span>
+<span class="sd">        the resource pool tree&#39;s configuration has been brought back into a</span>
+<span class="sd">        consistent state. We also restrict the resources that such invalid nodes</span>
+<span class="sd">        request from their parents to the configured reservation/limit, in an</span>
+<span class="sd">        attempt to isolate the problem to a small subtree. For the rest of the</span>
+<span class="sd">        tree, we determine whether the cluster is undercommitted or overcommitted</span>
+<span class="sd">        according to the existing rules and perform admission control</span>
+<span class="sd">        accordingly.Note that since all changes to the resource settings are</span>
+<span class="sd">        validated on the VirtualCenter server, the system cannot be brought into</span>
+<span class="sd">        this state by simply manipulating a cluster resource pool tree through</span>
+<span class="sd">        VirtualCenter. It can only happen if a virtual machine gets powered on</span>
+<span class="sd">        directly on a host that is part of a DRS cluster.* YELLOW (aka</span>
+<span class="sd">        overcommitted): In this state, the tree is consistent internally, but the</span>
+<span class="sd">        root resource pool does not have the capacity at to meet the reservation</span>
+<span class="sd">        of its children. We can only go from GREEN -&gt; YELLOW if we lose resources</span>
+<span class="sd">        at the root. For example, hosts becomes unavailable or is put into</span>
+<span class="sd">        maintenance mode. Note that we will always have enough capacity at the</span>
+<span class="sd">        root to run all currently powered on VMs. However, we may not be able to</span>
+<span class="sd">        satisfy all resource pool reservations in the tree. In this state, the</span>
+<span class="sd">        reservation configured for a resource pool is no longer guaranteed, but</span>
+<span class="sd">        the limits are still enforced. This provides additional flexibility for</span>
+<span class="sd">        bringing the tree back into a consistent state, without risking bringing</span>
+<span class="sd">        the tree into a RED state. In more detail: * Resource Pool The root is</span>
+<span class="sd">        considered to have unlimited capacity. You can reserve resources without</span>
+<span class="sd">        any check except the requirement that the tree remains consistent. This</span>
+<span class="sd">        means that nodes whose parents are all configured with expandable</span>
+<span class="sd">        reservations and no limit will have unlimited available resources.</span>
+<span class="sd">        However, if there is an ancestor with a fixed reservation or an expandable</span>
+<span class="sd">        reservation with a limit somewhere, then the node will be limited by the</span>
+<span class="sd">        reservation/limit of the ancestor. * Virtual Machine Virtual machines are</span>
+<span class="sd">        limited by ancestors with a fixed reservation and the capacity at the</span>
+<span class="sd">        root.Destroying a ResourcePoolWhen a ResourcePool is destroyed, all the</span>
+<span class="sd">        virtual machines are reassigned to its parent pool. The root resource pool</span>
+<span class="sd">        cannot be destroyed, and invoking destroy on it will throw an InvalidType</span>
+<span class="sd">        fault.Any vApps in the ResourcePool will be moved to the ResourcePool&#39;s</span>
+<span class="sd">        parent before the pool is destroyed.The Resource.DeletePool privilege must</span>
+<span class="sd">        be held on the pool as well as the parent of the resource pool. Also, the</span>
+<span class="sd">        Resource.AssignVMToPool privilege must be held on the resource pool&#39;s</span>
+<span class="sd">        parent pool and any virtual machines that are reassigned.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">ManagedObjectTypes</span><span class="o">.</span><span class="n">ResourcePool</span><span class="p">):</span>
+        <span class="c"># MUST define these</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ResourcePool</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>
+    
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">childConfiguration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ResourcePool.childConfiguration"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.childConfiguration">[docs]</a>        <span class="sd">&#39;&#39;&#39;The resource configuration of all direct children (VirtualMachine and</span>
+<span class="sd">        ResourcePool) of this resource group.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;childConfiguration&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ResourcePool.config"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.config">[docs]</a>        <span class="sd">&#39;&#39;&#39;Configuration of this resource pool.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;config&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">owner</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ResourcePool.owner"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.owner">[docs]</a>        <span class="sd">&#39;&#39;&#39;The ComputeResource to which this set of one or more nested resource pools belong.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;owner&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">resourcePool</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ResourcePool.resourcePool"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.resourcePool">[docs]</a>        <span class="sd">&#39;&#39;&#39;The set of child resource pools.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;resourcePool&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">runtime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ResourcePool.runtime"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.runtime">[docs]</a>        <span class="sd">&#39;&#39;&#39;Runtime information about a resource pool. The ResourcePoolResourceUsage</span>
+<span class="sd">        information within ResourcePoolRuntimeInfo can be transiently stale. Use</span>
+<span class="sd">        RefreshRuntime method to update the information.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;runtime&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ResourcePool.summary"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.summary">[docs]</a>        <span class="sd">&#39;&#39;&#39;Basic information about a resource pool.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;summary&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span></div>
+    <span class="k">def</span> <span class="nf">vm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ResourcePool.vm"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.vm">[docs]</a>        <span class="sd">&#39;&#39;&#39;The set of virtual machines associated with this resource pool.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;vm&#39;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">CreateChildVM_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ResourcePool.CreateChildVM_Task"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.CreateChildVM_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a new virtual machine in a vApp container.This method supports creating a</span>
+<span class="sd">        virtual machine directly in a vApp. A virtual machine in a vApp is not</span>
+<span class="sd">        associated with a VM folder and therefore cannot be created using the</span>
+<span class="sd">        method on a Folder.This method can only be called directly on a vApp or on</span>
+<span class="sd">        a resource pool that is a child of a vApp.The privilege</span>
+<span class="sd">        VirtualMachine.Inventory.Create is required on this entity. Further, if</span>
+<span class="sd">        this is a resource pool, the privilege Resource.AssignVMToPool is</span>
+<span class="sd">        required. If this is a vApp, the privilege VApp.AssignVM is</span>
+<span class="sd">        required.Depending on the properties of the virtual machine bring created,</span>
+<span class="sd">        additional privileges may be required. See CreateVM_Task for a description</span>
+<span class="sd">        of these privileges.</span>
+
+<span class="sd">        :param config: The configuration of the virtual machine hardware.</span>
+
+<span class="sd">        :param host: to a HostSystemThe target host on which the virtual machine will run. This must</span>
+<span class="sd">        specify a host that is a member of the ComputeResource indirectly</span>
+<span class="sd">        specified by the pool. For a stand-alone host or a cluster with DRS, host</span>
+<span class="sd">        can be omitted, and the system selects a default.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateChildVM_Task&quot;</span><span class="p">)(</span><span class="n">config</span><span class="p">,</span><span class="n">host</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateResourcePool</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ResourcePool.CreateResourcePool"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.CreateResourcePool">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a new resource pool.In the ResourceConfigSpec, all values in</span>
+<span class="sd">        ResourceAllocationInfo must be supplied; they are not optional.Any %</span>
+<span class="sd">        (percent) character used in this name parameter must be escaped, unless it</span>
+<span class="sd">        is used to start an escape sequence. Clients may also escape any other</span>
+<span class="sd">        characters in this name parameter.</span>
+
+<span class="sd">        :rtype: ManagedObjectReference to a ResourcePool </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateResourcePool&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">CreateVApp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">resSpec</span><span class="p">,</span> <span class="n">configSpec</span><span class="p">,</span> <span class="n">vmFolder</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ResourcePool.CreateVApp"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.CreateVApp">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a new vApp container.Any % (percent) character used in this name parameter</span>
+<span class="sd">        must be escaped, unless it is used to start an escape sequence. Clients</span>
+<span class="sd">        may also escape any other characters in this name parameter.</span>
+
+<span class="sd">        :param name: The name of the vApp container in the inventory</span>
+
+<span class="sd">        :param resSpec: The resource configuration for the vApp container (same as for a regular resource</span>
+<span class="sd">        pool).</span>
+
+<span class="sd">        :param configSpec: The specification of the vApp specific meta-data.</span>
+
+<span class="sd">        :param vmFolder: to a FolderThe parent folder for the vApp. This must be null if this is a child</span>
+<span class="sd">        vApp.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a VirtualApp </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;CreateVApp&quot;</span><span class="p">)(</span><span class="n">name</span><span class="p">,</span><span class="n">resSpec</span><span class="p">,</span><span class="n">configSpec</span><span class="p">,</span><span class="n">vmFolder</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">DestroyChildren</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ResourcePool.DestroyChildren"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.DestroyChildren">[docs]</a>        <span class="sd">&#39;&#39;&#39;Removes all child resource pools recursively. All virtual machines and vApps</span>
+<span class="sd">        associated with the child resource pools get associated with this resource</span>
+<span class="sd">        pool.Note that resource pools contained in child vApps are not</span>
+<span class="sd">        affected.The privilege checks performed are the following.*</span>
+<span class="sd">        Resource.DeletePool privilege must be held on this object and each of it&#39;s</span>
+<span class="sd">        immediate children to be destroyed. * If VMs are being moved, the</span>
+<span class="sd">        privilege Resource.AssignVMToPool must be held on this resource pool as</span>
+<span class="sd">        well as on any virtual machines being moved. * If vApps are being moved,</span>
+<span class="sd">        the privilege Resource.AssignVAppToPool must be held on this resource pool</span>
+<span class="sd">        as well as on any vApps being moved.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;DestroyChildren&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">ImportVApp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ResourcePool.ImportVApp"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.ImportVApp">[docs]</a>        <span class="sd">&#39;&#39;&#39;Creates a new entity in this resource pool. The import process consists of two</span>
+<span class="sd">        steps:</span>
+
+<span class="sd">        :param spec: An ImportSpec describing what to import.</span>
+
+<span class="sd">        :param folder: to a FolderThe folder to which the entity will be attached.</span>
+
+<span class="sd">        :param host: to a HostSystemThe target host on which the entity will run. This must specify a</span>
+<span class="sd">        host that is a member of the ComputeResource indirectly specified by the</span>
+<span class="sd">        pool. For a stand-alone host or a cluster with DRS, host can be omitted,</span>
+<span class="sd">        and the system selects a default.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a HttpNfcLease </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;ImportVApp&quot;</span><span class="p">)(</span><span class="n">spec</span><span class="p">,</span><span class="n">folder</span><span class="p">,</span><span class="n">host</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">MoveIntoResourcePool</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ResourcePool.MoveIntoResourcePool"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.MoveIntoResourcePool">[docs]</a>        <span class="sd">&#39;&#39;&#39;Moves a set of resource pools, vApps or virtual machines into this pool. The</span>
+<span class="sd">        pools, vApps and virtual machines must be part of the cluster or</span>
+<span class="sd">        standalone host that contains this pool.For each entity being moved, the</span>
+<span class="sd">        move is subject to the following privilege checks:* If the object being</span>
+<span class="sd">        moved is a ResourcePool, then Resource.MovePool must be held on the pool</span>
+<span class="sd">        being moved and it&#39;s former parent pool or vApp. If the target is a vApp,</span>
+<span class="sd">        the privilege VApp.AssignResourcePool must be held on it. If the target is</span>
+<span class="sd">        a ResourcePool, Resource.MovePool must be held on it. * If the object</span>
+<span class="sd">        being moved is a VirtualApp, VApp.Move must be held on the vApp being</span>
+<span class="sd">        moved and it&#39;s former parent pool or vApp. If the target entity is a</span>
+<span class="sd">        resource pool, Resource.AssignVAppToPool must be held on the target. If</span>
+<span class="sd">        the target is a vApp, the privilege VApp.AssignVApp must be held on the</span>
+<span class="sd">        target vApp. * If the object being moved is a VirtualMachine, then if the</span>
+<span class="sd">        target is a ResourcePool, Resource.AssignVMToPool is required on the</span>
+<span class="sd">        VirtualMachine and the target pool. If the target is a vApp, VApp.AssignVM</span>
+<span class="sd">        is required on both the VirtualMachine and the target pool.This operation</span>
+<span class="sd">        is typically used by clients when they implement a drag-and-drop interface</span>
+<span class="sd">        to move a set of objects into a folder.This operation is only</span>
+<span class="sd">        transactional with respect to each individual entity. The set of entities</span>
+<span class="sd">        is moved sequentially, as specified in the list, and committed one at a</span>
+<span class="sd">        time. If a failure is detected, then the method terminates with an</span>
+<span class="sd">        exception.The root resource pool cannot be moved.</span>
+
+<span class="sd">        :param list: to a ManagedEntity[]A list of ResourcePool and VirtualMachine objects.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;MoveIntoResourcePool&quot;</span><span class="p">)(</span><span class="nb">list</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">QueryResourceConfigOption</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ResourcePool.QueryResourceConfigOption"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.QueryResourceConfigOption">[docs]</a>        <span class="sd">&#39;&#39;&#39;Get a value range and default values for ResourceConfigSpec.</span>
+
+<span class="sd">        :rtype: ResourceConfigOption </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;QueryResourceConfigOption&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">RefreshRuntime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ResourcePool.RefreshRuntime"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.RefreshRuntime">[docs]</a>        <span class="sd">&#39;&#39;&#39;Refreshes the resource usage data that is available in ResourcePoolRuntimeInfo.</span>
+<span class="sd">        The latest runtime resource usage of this resource pool may not be</span>
+<span class="sd">        available immediately after operations that alter resource usage, such as</span>
+<span class="sd">        powering on a virtual machine. Invoke this method when resource usage may</span>
+<span class="sd">        have recently changed, and the most up-to-date value in the</span>
+<span class="sd">        ResourcePoolRuntimeInfo is needed.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RefreshRuntime&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">RegisterChildVM_Task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ResourcePool.RegisterChildVM_Task"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.RegisterChildVM_Task">[docs]</a>        <span class="sd">&#39;&#39;&#39;Adds an existing virtual machine to this resource pool or vApp.This operation only</span>
+<span class="sd">        works for vApps or resource pools that are children of vApps. To register</span>
+<span class="sd">        a VM in a folder, see RegisterVM_Task.Any % (percent) character used in</span>
+<span class="sd">        this name parameter must be escaped, unless it is used to start an escape</span>
+<span class="sd">        sequence. Clients may also escape any other characters in this name</span>
+<span class="sd">        parameter.</span>
+
+<span class="sd">        :param path: A datastore path to the virtual machine. If the path ends with &quot;.vmtx&quot;, indicating</span>
+<span class="sd">        that it refers to a VM template, an InvalidArgument fault is thrown.</span>
+
+<span class="sd">        :param name: The name to be assigned to the virtual machine. If this parameter is not set, the</span>
+<span class="sd">        displayName configuration parameter of the virtual machine is used. An</span>
+<span class="sd">        entity name must be a non-empty string of less than 80 characters. The</span>
+<span class="sd">        slash (/), backslash (\) and percent (%) will be escaped using the URL</span>
+<span class="sd">        syntax. For example, %2F.</span>
+
+<span class="sd">        :param host: to a HostSystemThe target host on which the virtual machine will run. This</span>
+<span class="sd">        parameter must specify a host that is a member of the ComputeResource to</span>
+<span class="sd">        which this resource pool belongs. For a stand-alone host or a cluster with</span>
+<span class="sd">        DRS, the parameter can be omitted, and the system selects a default.</span>
+
+
+<span class="sd">        :rtype: ManagedObjectReference to a Task </span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;RegisterChildVM_Task&quot;</span><span class="p">)(</span><span class="n">path</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">host</span><span class="p">)</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateChildResourceConfiguration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ResourcePool.UpdateChildResourceConfiguration"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.UpdateChildResourceConfiguration">[docs]</a>        <span class="sd">&#39;&#39;&#39;Changes resource configuration of a set of children of this resource pool. The</span>
+<span class="sd">        method allows bulk modifications of the set of the direct children</span>
+<span class="sd">        (virtual machines and resource pools).Bulk modifications are not</span>
+<span class="sd">        transactional. Each modification is made individually. If a failure is</span>
+<span class="sd">        encountered while applying the changes, then the processing stops, meaning</span>
+<span class="sd">        at least one and as many as all of the changes are not applied.A set can</span>
+<span class="sd">        include a subset of the resources. Children that are not mentioned in the</span>
+<span class="sd">        list are not changed.For each ResourceConfigSpec, the following privilege</span>
+<span class="sd">        checks apply:* If the ResourceConfigSpec refers to a child resource pool</span>
+<span class="sd">        or a child vApp, the privileges required are the same as would be required</span>
+<span class="sd">        for calling UpdateConfig on that entity. * If the ResourceConfigSpec</span>
+<span class="sd">        refers to a virtual machine, VirtualMachine.Config.Resource must be held</span>
+<span class="sd">        on the virtual machine.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateChildResourceConfiguration&quot;</span><span class="p">)()</span>
+        
+
+    <span class="k">def</span> <span class="nf">UpdateConfig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span></div>
+<div class="viewcode-block" id="ResourcePool.UpdateConfig"><a class="viewcode-back" href="../../../mo/resource_pool.html#pyvisdk.mo.resource_pool.ResourcePool.UpdateConfig">[docs]</a>        <span class="sd">&#39;&#39;&#39;Updates the configuration of the resource pool.Any % (percent) character used in</span>
+<span class="sd">        this name parameter must be escaped, unless it is used to start an escape</span>
+<span class="sd">        sequence. Clients may also escape any other characters in this name</span>
+<span class="sd">        parameter.The privilege checks for this operation are as follows:* If this</span>
+<span class="sd">        is a resource pool, the privilege Resource.EditPool is required on this</span>
+<span class="sd">        and on the parent pool or vApp. * If this is a vApp, the privilege</span>
+<span class="sd">        VApp.ResourceConfig is required on this and on the parent pool or vApp.</span>
+
+<span class="sd">        :param name: If set, then the new name of the resource pool.</span>
+
+<span class="sd">        :param config: If set, then the new resource allocation for this resource pool.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegate</span><span class="p">(</span><span class="s">&quot;UpdateConfig&quot;</span><span class="p">)(</span><span class="n">name</span><span class="p">,</span><span class="n">config</span><span class="p">)</span>
+        
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">pyvisdk v0.7 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
