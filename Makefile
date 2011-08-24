@@ -34,7 +34,6 @@ help:
 docs: 
 	rm -rf $(API_DOC_DIR)
 	./bin/docs
-	touch $(API_DOC_DIR)/.nojekyll
 
 deploy_docs:
 	ghp-import -m "Updated documentation" -p docs/build/html
