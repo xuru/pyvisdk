@@ -15,11 +15,11 @@ def VirtualEthernetCardOption(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualEthernetCardOption')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 6:
-        raise IndexError('Expected at least 7 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 8:
+        raise IndexError('Expected at least 9 arguments got: %d' % len(args))
         
     signature = [ 'deprecated', 'hotRemoveSupported', 'plugAndPlay', 'type', 'macType',
-        'supportedOUI' ]
+        'supportedOUI', 'vmDirectPathGen2Supported', 'wakeOnLanEnabled' ]
     inherited = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
         'defaultBackingOptionIndex', 'licensingLimit' ]
     

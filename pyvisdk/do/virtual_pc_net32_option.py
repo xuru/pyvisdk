@@ -17,11 +17,12 @@ def VirtualPCNet32Option(vim, *args, **kwargs):
     obj = vim.client.factory.create('ns0:VirtualPCNet32Option')
     
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 7:
-        raise IndexError('Expected at least 8 arguments got: %d' % len(args))
+    if (len(args) + len(kwargs)) < 9:
+        raise IndexError('Expected at least 10 arguments got: %d' % len(args))
         
     signature = [ 'deprecated', 'hotRemoveSupported', 'plugAndPlay', 'type', 'macType',
-        'supportedOUI', 'supportsMorphing' ]
+        'supportedOUI', 'vmDirectPathGen2Supported', 'wakeOnLanEnabled',
+        'supportsMorphing' ]
     inherited = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
         'defaultBackingOptionIndex', 'licensingLimit' ]
     
