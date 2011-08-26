@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostAuthenticationStoreInfo(vim, *args, **kwargs):
-    '''The HostAuthenticationStoreInfo base class defines status information for local
-    and host Active Directory authentication.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostAuthenticationStoreInfo')
     

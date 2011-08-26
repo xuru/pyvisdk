@@ -9,13 +9,11 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterDasVmConfigInfo(vim, *args, **kwargs):
-    '''The ClusterDasVmConfigInfo data object contains the HA configuration for a
-    single virtual machine.All fields are optional. If you set the parameter to
-    when you call ReconfigureComputeResource_Task, an unset property has no effect
-    on the existing property value in the cluster configuration on the Server. If
-    you set the parameter to when you reconfigure a cluster, the cluster
-    configuration is reverted to the default values, then the new configuration
-    values are applied.'''
+    '''All fields are optional. If you set the parameter to when you call
+    ReconfigureComputeResource_Task, an unset property has no effect on the
+    existing property value in the cluster configuration on the Server. If you set
+    the parameter to when you reconfigure a cluster, the cluster configuration is
+    reverted to the default values, then the new configuration values are applied.'''
     
     obj = vim.client.factory.create('ns0:ClusterDasVmConfigInfo')
     

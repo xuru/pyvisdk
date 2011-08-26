@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterDasHostRecommendation(vim, *args, **kwargs):
-    '''A host recommendation for a virtual machine managed by the VMware HA Service.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterDasHostRecommendation')
     

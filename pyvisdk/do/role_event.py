@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def RoleEvent(vim, *args, **kwargs):
-    '''This event records a role operation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:RoleEvent')
     

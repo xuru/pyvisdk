@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostAdminEnableEvent(vim, *args, **kwargs):
-    '''This event records that the administrator permission has been restored.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostAdminEnableEvent')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DistributedVirtualSwitchKeyedOpaqueBlob(vim, *args, **kwargs):
-    '''This class defines a data structure to hold opaque binary data identified by a
-    key.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DistributedVirtualSwitchKeyedOpaqueBlob')
     

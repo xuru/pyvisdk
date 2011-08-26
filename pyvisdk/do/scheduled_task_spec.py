@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ScheduledTaskSpec(vim, *args, **kwargs):
-    '''Parameters for scheduled task creation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ScheduledTaskSpec')
     

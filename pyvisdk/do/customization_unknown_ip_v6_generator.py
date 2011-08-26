@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationUnknownIpV6Generator(vim, *args, **kwargs):
-    '''The ipv6 address is left unspecified. The user must be prompted to supply an
-    ipv6 address.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationUnknownIpV6Generator')
     

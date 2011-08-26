@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DatabaseSizeEstimate(vim, *args, **kwargs):
-    '''DatabaseSizeEstimate contains information about the size required to by the
-    database.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DatabaseSizeEstimate')
     

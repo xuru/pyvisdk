@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VAppConfigInfo(vim, *args, **kwargs):
-    '''Configuration of a vApp container.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VAppConfigInfo')
     

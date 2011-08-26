@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterDasAdmissionControlInfo(vim, *args, **kwargs):
-    '''Base class for admission control related information of a VMware HA cluster.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterDasAdmissionControlInfo')
     

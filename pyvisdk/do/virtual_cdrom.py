@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualCdrom(vim, *args, **kwargs):
-    '''The VirtualCdrom data object type describes the configuration of a CD-ROM
-    device in a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualCdrom')
     

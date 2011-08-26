@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EventDescription(vim, *args, **kwargs):
-    '''This data object provides static, locale-specific strings for event objects.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:EventDescription')
     

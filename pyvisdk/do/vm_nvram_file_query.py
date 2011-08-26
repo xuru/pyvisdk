@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmNvramFileQuery(vim, *args, **kwargs):
-    '''This data object type describes the query specification for a non-volatile
-    memory file.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmNvramFileQuery')
     

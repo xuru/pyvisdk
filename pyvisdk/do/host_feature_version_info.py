@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostFeatureVersionInfo(vim, *args, **kwargs):
-    '''Feature-specific version information for a host'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostFeatureVersionInfo')
     

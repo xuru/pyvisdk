@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineDeviceRuntimeInfoDeviceRuntimeState(vim, *args, **kwargs):
-    '''Runtime state of a device. Subclassed for information that is specific to
-    certain device types.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineDeviceRuntimeInfoDeviceRuntimeState')
     

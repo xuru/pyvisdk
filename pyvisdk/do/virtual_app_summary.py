@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualAppSummary(vim, *args, **kwargs):
-    '''This data object type encapsulates a typical set of resource pool information
-    that is useful for list views and summary pages.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualAppSummary')
     

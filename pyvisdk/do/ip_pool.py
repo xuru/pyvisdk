@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def IpPool(vim, *args, **kwargs):
-    '''Specifications of the network configuration to be used on a network. This is
-    used to generate IP addresses and for self-customization of vApps.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:IpPool')
     

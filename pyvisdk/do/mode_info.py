@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ModeInfo(vim, *args, **kwargs):
-    '''The FileAccess.Modes data object type defines the known access modes for a
-    datastore. The property values specify how to interpret the "what" property for
-    a FileAccess object.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ModeInfo')
     

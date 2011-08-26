@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmDateRolledBackEvent(vim, *args, **kwargs):
-    '''This event records when the VirtualCenter server date rolled back.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmDateRolledBackEvent')
     

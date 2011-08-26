@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterAntiAffinityRuleSpec(vim, *args, **kwargs):
-    '''The ClusterAntiAffinityRuleSpec data object defines a set of virtual machines.
-    DRS will attempt to schedule the virtual machines to run on different hosts.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterAntiAffinityRuleSpec')
     

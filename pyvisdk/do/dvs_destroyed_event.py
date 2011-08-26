@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsDestroyedEvent(vim, *args, **kwargs):
-    '''A distributed virtual switch was destroyed.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsDestroyedEvent')
     

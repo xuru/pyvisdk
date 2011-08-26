@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EnteredStandbyModeEvent(vim, *args, **kwargs):
-    '''This event records that the host has successfully entered standby mode. A host
-    in this mode has no running virtual machines and no provisioning operations are
-    occurring.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:EnteredStandbyModeEvent')
     

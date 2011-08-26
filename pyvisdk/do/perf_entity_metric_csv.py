@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PerfEntityMetricCSV(vim, *args, **kwargs):
-    '''This data object type stores metric values for a specific entity in CSV format.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PerfEntityMetricCSV')
     

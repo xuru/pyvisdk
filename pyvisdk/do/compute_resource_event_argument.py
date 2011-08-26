@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ComputeResourceEventArgument(vim, *args, **kwargs):
-    '''The event argument is a ComputeResource object.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ComputeResourceEventArgument')
     

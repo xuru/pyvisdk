@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationDhcpIpV6Generator(vim, *args, **kwargs):
-    '''Use a DHCP server to configure ipv6 address'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationDhcpIpV6Generator')
     

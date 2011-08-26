@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachinePciPassthroughInfo(vim, *args, **kwargs):
-    '''Description of a generic PCI device that can be attached to a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachinePciPassthroughInfo')
     

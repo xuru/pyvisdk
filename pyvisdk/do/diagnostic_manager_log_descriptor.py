@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DiagnosticManagerLogDescriptor(vim, *args, **kwargs):
-    '''Describes a log file that is available on a server.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DiagnosticManagerLogDescriptor')
     

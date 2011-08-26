@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsReconfiguredEvent(vim, *args, **kwargs):
-    '''A distributed virtual switch was reconfigured.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsReconfiguredEvent')
     

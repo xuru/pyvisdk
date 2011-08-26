@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterComputeResourceSummary(vim, *args, **kwargs):
-    '''The ClusterComputeResourceSummary data object encapsulates runtime properties
-    of a ClusterComputeResource.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterComputeResourceSummary')
     

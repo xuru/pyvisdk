@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDhcpServiceConfig(vim, *args, **kwargs):
-    '''This data object type describes the configuration of a DHCP service instance
-    representing both the configured properties on the instance and identification
-    information.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostDhcpServiceConfig')
     

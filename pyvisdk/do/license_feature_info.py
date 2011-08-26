@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LicenseFeatureInfo(vim, *args, **kwargs):
-    '''A single feature that can be licensed. This information is immutable.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LicenseFeatureInfo')
     

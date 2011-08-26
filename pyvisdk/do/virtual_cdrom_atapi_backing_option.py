@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualCdromAtapiBackingOption(vim, *args, **kwargs):
-    '''The VirtualCdromOption.AtapiBackingOption data object type contains the options
-    for the ATAPI CD-ROM device backing.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualCdromAtapiBackingOption')
     

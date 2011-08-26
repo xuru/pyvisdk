@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostInternetScsiHba(vim, *args, **kwargs):
-    '''This data object type describes the iSCSI host bus adapter interface.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostInternetScsiHba')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DistributedVirtualSwitchManagerHostDvsMembershipFilter(vim, *args, **kwargs):
-    '''Check host compatibility against all hosts in the DVS (or not in the DVS if
-    inclusive flag in base class is false)'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DistributedVirtualSwitchManagerHostDvsMembershipFilter')
     

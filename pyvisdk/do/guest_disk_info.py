@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def GuestDiskInfo(vim, *args, **kwargs):
-    '''Information about each virtual disk configured in the guest operating system.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:GuestDiskInfo')
     

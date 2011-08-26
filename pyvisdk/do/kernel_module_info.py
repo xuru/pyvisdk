@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def KernelModuleInfo(vim, *args, **kwargs):
-    '''Information about a kernel module.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:KernelModuleInfo')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostAutoStartManagerConfig(vim, *args, **kwargs):
-    '''Contains the entire auto-start/auto-stop configuration.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostAutoStartManagerConfig')
     

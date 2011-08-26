@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationLinuxOptions(vim, *args, **kwargs):
-    '''Base object type for optional operations supported by the customization process
-    for Linux.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationLinuxOptions')
     

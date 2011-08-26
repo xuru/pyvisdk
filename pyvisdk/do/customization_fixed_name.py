@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationFixedName(vim, *args, **kwargs):
-    '''A fixed name.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationFixedName')
     

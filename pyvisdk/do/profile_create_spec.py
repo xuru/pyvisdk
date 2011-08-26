@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileCreateSpec(vim, *args, **kwargs):
-    '''Specification describing the parameters during Profile creation'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfileCreateSpec')
     

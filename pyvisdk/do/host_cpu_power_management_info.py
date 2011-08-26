@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostCpuPowerManagementInfo(vim, *args, **kwargs):
-    '''The CpuPowerManagementInfo data object type describes supported power
-    management and current policy.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostCpuPowerManagementInfo')
     

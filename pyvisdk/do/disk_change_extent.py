@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DiskChangeExtent(vim, *args, **kwargs):
-    '''An area of the disk flagged as modified'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DiskChangeExtent')
     

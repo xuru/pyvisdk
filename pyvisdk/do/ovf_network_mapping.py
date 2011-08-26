@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def OvfNetworkMapping(vim, *args, **kwargs):
-    '''A NetworkMapping is a choice made by the caller about which VI network to use
-    for a specific network in the OVF descriptor.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:OvfNetworkMapping')
     

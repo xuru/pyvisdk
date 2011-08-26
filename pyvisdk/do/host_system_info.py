@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostSystemInfo(vim, *args, **kwargs):
-    '''Information about the system as a whole.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostSystemInfo')
     

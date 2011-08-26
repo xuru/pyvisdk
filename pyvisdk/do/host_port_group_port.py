@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostPortGroupPort(vim, *args, **kwargs):
-    '''A Port data object type is a runtime representation of network connectivity
-    between a network service or virtual machine and a virtual switch. This is
-    different from a port group in that the port group represents the configuration
-    aspects of the network connection. The Port object provides runtime statistics.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostPortGroupPort')
     

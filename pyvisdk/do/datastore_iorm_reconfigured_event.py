@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DatastoreIORMReconfiguredEvent(vim, *args, **kwargs):
-    '''This event records that the configuration of storage I/O resource management
-    for a datastore has changed.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DatastoreIORMReconfiguredEvent')
     

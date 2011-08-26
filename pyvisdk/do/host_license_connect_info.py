@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostLicenseConnectInfo(vim, *args, **kwargs):
-    '''This data object type describes license information stored on the host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostLicenseConnectInfo')
     

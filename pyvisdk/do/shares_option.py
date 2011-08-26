@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def SharesOption(vim, *args, **kwargs):
-    '''Specification of shares.Object of this class specifies value ranges for object
-    of instance SharesInfo'''
+    '''Object of this class specifies value ranges for object of instance SharesInfo'''
     
     obj = vim.client.factory.create('ns0:SharesOption')
     

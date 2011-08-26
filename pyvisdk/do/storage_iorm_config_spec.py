@@ -9,9 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def StorageIORMConfigSpec(vim, *args, **kwargs):
-    '''Configuration settings used for creating or reconfiguring storage I/O resource
-    management.All fields are defined as optional. If a field is unset, the
-    property is not changed.'''
+    '''All fields are defined as optional. If a field is unset, the property is not
+    changed.'''
     
     obj = vim.client.factory.create('ns0:StorageIORMConfigSpec')
     

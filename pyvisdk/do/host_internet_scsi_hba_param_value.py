@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostInternetScsiHbaParamValue(vim, *args, **kwargs):
-    '''Describes the the value of an iSCSI parameter, and whether the value is being
-    inherited.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostInternetScsiHbaParamValue')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmwareDistributedVirtualSwitchVlanSpec(vim, *args, **kwargs):
-    '''Base class for Vlan Specifiation for ports.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmwareDistributedVirtualSwitchVlanSpec')
     

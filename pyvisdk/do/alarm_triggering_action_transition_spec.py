@@ -9,12 +9,10 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AlarmTriggeringActionTransitionSpec(vim, *args, **kwargs):
-    '''Specification indicating which on transitions this action fires. The existence
-    of a Spec indicates that this action fires on transitions from that Spec's
-    startState to finalState.There are only four acceptable {startState,
-    finalState} pairs: {green, yellow}, {yellow, red}, {red, yellow} and {yellow,
-    green}. At least one of these pairs must be specified. Any deviation from the
-    above will render the enclosing AlarmSpec invalid.'''
+    '''There are only four acceptable {startState, finalState} pairs: {green, yellow},
+    {yellow, red}, {red, yellow} and {yellow, green}. At least one of these pairs
+    must be specified. Any deviation from the above will render the enclosing
+    AlarmSpec invalid.'''
     
     obj = vim.client.factory.create('ns0:AlarmTriggeringActionTransitionSpec')
     

@@ -9,16 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineConfigOption(vim, *args, **kwargs):
-    '''This configuration data object type contains information about the execution
-    environment for a virtual machine. This includes information about which
-    features are supported, such as:* Which guest operating systems are supported.
-    * How devices are emulated. For example, that a CD-ROM drive can be emulated
-    with a file or that a serial port can be emulated with a pipe.VirtualCenter can
-    provide a broader environment than any single physical host. This is a
-    departure from traditional virtualization approaches, which rely on the host
-    system to define the environment for virtual machines. This data object
-    describes environment capabilities and is used by VirtualCenter to choose hosts
-    on which to run virtual machines.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineConfigOption')
     

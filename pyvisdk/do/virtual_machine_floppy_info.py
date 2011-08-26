@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineFloppyInfo(vim, *args, **kwargs):
-    '''FloppyInfo class contains information about a physical floppy drive on the
-    host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineFloppyInfo')
     

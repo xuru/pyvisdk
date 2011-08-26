@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmUpgradeFailedEvent(vim, *args, **kwargs):
-    '''This event records a failure to upgrade virtual hardware.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmUpgradeFailedEvent')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNumericSensorInfo(vim, *args, **kwargs):
-    '''Base class for numeric sensor information.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostNumericSensorInfo')
     

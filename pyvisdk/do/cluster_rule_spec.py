@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterRuleSpec(vim, *args, **kwargs):
-    '''An incremental update to the cluster rules.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterRuleSpec')
     

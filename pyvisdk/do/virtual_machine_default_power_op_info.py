@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineDefaultPowerOpInfo(vim, *args, **kwargs):
-    '''The DefaultPowerOpInfo data object type holds the configured defaults for the
-    power operations on a virtual machine. The properties indicated whether to do a
-    "soft" or guest initiated operation, or a "hard" operation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineDefaultPowerOpInfo')
     

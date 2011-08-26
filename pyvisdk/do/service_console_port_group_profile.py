@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ServiceConsolePortGroupProfile(vim, *args, **kwargs):
-    '''This data object type represents the profile for a Port Group that will be used
-    by the Service Console.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ServiceConsolePortGroupProfile')
     

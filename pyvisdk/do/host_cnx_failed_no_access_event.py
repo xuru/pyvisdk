@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostCnxFailedNoAccessEvent(vim, *args, **kwargs):
-    '''This event records a failure to connect to a host due to insufficient account
-    privileges.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostCnxFailedNoAccessEvent')
     

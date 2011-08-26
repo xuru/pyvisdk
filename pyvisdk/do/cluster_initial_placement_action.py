@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterInitialPlacementAction(vim, *args, **kwargs):
-    '''Describes an initial placement of a single virtual machine'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterInitialPlacementAction')
     

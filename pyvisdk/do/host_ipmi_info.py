@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostIpmiInfo(vim, *args, **kwargs):
-    '''The IpmiInfo data object contains IPMI (Intelligent Platform Management
-    Interface) and BMC (Baseboard Management Controller) information for the host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostIpmiInfo')
     

@@ -12,7 +12,7 @@ def ClusterVmHostRuleInfo(vim, *args, **kwargs):
     '''A ClusterVmHostRuleInfo object identifies virtual machines and host groups that
     determine virtual machine placement. The virtual machines and hosts referenced
     by a VM-Host rule must be in the same cluster.A VM-Host rule identifies the
-    following groups.* A virtual machine group (ClusterVmGroup). * Two host groups
+    following groups. * A virtual machine group (ClusterVmGroup). * Two host groups
     - an affine host group and an anti-affine host group (ClusterHostGroup). At
     least one of the groups must contain one or more hosts.ClusterVmHostRuleInfo
     stores only the names of the relevant virtual machine and host groups. The

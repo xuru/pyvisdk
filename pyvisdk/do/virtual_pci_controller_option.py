@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualPCIControllerOption(vim, *args, **kwargs):
-    '''This data object type contains the options for a virtual PCI Controller.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualPCIControllerOption')
     

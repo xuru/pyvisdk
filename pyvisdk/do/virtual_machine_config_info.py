@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineConfigInfo(vim, *args, **kwargs):
-    '''The ConfigInfo data object type encapsulates the configuration settings and
-    virtual hardware for a virtual machine. This type holds all the information
-    that is present in the .vmx configuration file for the virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineConfigInfo')
     

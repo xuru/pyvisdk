@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DVPortState(vim, *args, **kwargs):
-    '''The state of a DistributedVirtualPort.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DVPortState')
     

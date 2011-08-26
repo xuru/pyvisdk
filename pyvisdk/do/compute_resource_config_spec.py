@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ComputeResourceConfigSpec(vim, *args, **kwargs):
-    '''Changes to apply to the compute resource configuration.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ComputeResourceConfigSpec')
     

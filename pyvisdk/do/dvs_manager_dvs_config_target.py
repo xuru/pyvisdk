@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DVSManagerDvsConfigTarget(vim, *args, **kwargs):
-    '''Configuration specification for a DistributedVirtualSwitch or
-    DistributedVirtualPortgroup.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DVSManagerDvsConfigTarget')
     

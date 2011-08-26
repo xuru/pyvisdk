@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmMessageEvent(vim, *args, **kwargs):
-    '''This event records when an informational message (consisting of a collection of
-    "observations") is thrown by the virtual machine. This is a generic event for
-    such messages.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmMessageEvent')
     

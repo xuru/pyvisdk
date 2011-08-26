@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineSnapshotTree(vim, *args, **kwargs):
-    '''SnapshotTree encapsulates all the read-only data produced by the snapshot.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineSnapshotTree')
     

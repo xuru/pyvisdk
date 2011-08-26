@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AuthenticationProfile(vim, *args, **kwargs):
-    '''This data object type represents the profile for authentication configuration'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AuthenticationProfile')
     

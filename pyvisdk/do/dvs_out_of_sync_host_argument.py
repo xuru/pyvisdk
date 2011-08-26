@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsOutOfSyncHostArgument(vim, *args, **kwargs):
-    '''The host on which the DVS configuration is different from that of Virtual
-    Center server.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsOutOfSyncHostArgument')
     

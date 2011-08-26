@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualAppImportSpec(vim, *args, **kwargs):
-    '''A VAppImportSpec is used by ResourcePool.importVApp when importing vApps
-    (single VM or multi-VM).It provides all information needed to import a
-    VirtualApp.See also ImportSpec.'''
+    '''It provides all information needed to import a VirtualApp.See also ImportSpec.'''
     
     obj = vim.client.factory.create('ns0:VirtualAppImportSpec')
     

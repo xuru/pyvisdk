@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileDescription(vim, *args, **kwargs):
-    '''DataObject which describes the profile. Description contains multiple sections.
-    Each section describes some sub-part of the profile.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfileDescription')
     

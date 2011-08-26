@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NonVIWorkloadDetectedOnDatastoreEvent(vim, *args, **kwargs):
-    '''This event records that non-VI workload is detected on the datastore.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NonVIWorkloadDetectedOnDatastoreEvent')
     

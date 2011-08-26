@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ApplyProfile(vim, *args, **kwargs):
-    '''This data object type is the base class for all profiles.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ApplyProfile')
     

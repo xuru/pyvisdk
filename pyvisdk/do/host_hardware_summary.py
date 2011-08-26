@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostHardwareSummary(vim, *args, **kwargs):
-    '''This data object type summarizes hardware used by the host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostHardwareSummary')
     

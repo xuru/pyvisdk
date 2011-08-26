@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDeviceConfigSpec(vim, *args, **kwargs):
-    '''The VirtualDeviceSpec data object type encapsulates change specifications for
-    an individual virtual device. The virtual device being added or modified must
-    be fully specified.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualDeviceConfigSpec')
     

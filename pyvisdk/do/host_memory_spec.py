@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostMemorySpec(vim, *args, **kwargs):
-    '''DataObject used for configuring the memory setting'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostMemorySpec')
     

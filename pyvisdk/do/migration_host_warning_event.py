@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def MigrationHostWarningEvent(vim, *args, **kwargs):
-    '''A migration warning that includes the destination host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:MigrationHostWarningEvent')
     

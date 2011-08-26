@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineFileLayoutSnapshotLayout(vim, *args, **kwargs):
-    '''Enumerates the set of files that make up a snapshot or redo-point'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineFileLayoutSnapshotLayout')
     

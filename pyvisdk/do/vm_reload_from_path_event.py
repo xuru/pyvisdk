@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmReloadFromPathEvent(vim, *args, **kwargs):
-    '''This event records that a virtual machine was sucessfully reloaded from a new
-    configuration path.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmReloadFromPathEvent')
     

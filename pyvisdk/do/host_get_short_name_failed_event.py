@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostGetShortNameFailedEvent(vim, *args, **kwargs):
-    '''This event records that hostname -s failed or returned a name containing '.'.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostGetShortNameFailedEvent')
     

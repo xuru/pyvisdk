@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PermissionRemovedEvent(vim, *args, **kwargs):
-    '''This event records the removal of a permission.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PermissionRemovedEvent')
     

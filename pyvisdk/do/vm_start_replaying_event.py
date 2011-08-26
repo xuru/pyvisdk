@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmStartReplayingEvent(vim, *args, **kwargs):
-    '''This event indicates the start of a replay session on a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmStartReplayingEvent')
     

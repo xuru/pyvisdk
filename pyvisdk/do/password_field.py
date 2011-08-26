@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PasswordField(vim, *args, **kwargs):
-    '''DataObject which represents a Password field. Password is functionally
-    equivalent to String.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PasswordField')
     

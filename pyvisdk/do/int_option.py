@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def IntOption(vim, *args, **kwargs):
-    '''The IntOption data object type is used to define the minimum, maximum, and
-    default values for an integer option.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:IntOption')
     

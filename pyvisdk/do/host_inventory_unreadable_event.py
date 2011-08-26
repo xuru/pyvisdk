@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostInventoryUnreadableEvent(vim, *args, **kwargs):
-    '''Event indicating that the virtual machine inventory file on the host is damaged
-    or unreadable.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostInventoryUnreadableEvent')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def TaskReason(vim, *args, **kwargs):
-    '''Base type for all task reasons. Task reasons represent the kind of entity
-    responsible for a task's creation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:TaskReason')
     

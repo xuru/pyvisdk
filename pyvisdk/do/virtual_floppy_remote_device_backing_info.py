@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualFloppyRemoteDeviceBackingInfo(vim, *args, **kwargs):
-    '''The data object type for remote device backing of a virtual floppy drive.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualFloppyRemoteDeviceBackingInfo')
     

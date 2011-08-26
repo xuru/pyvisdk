@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDiskMappingPartitionOption(vim, *args, **kwargs):
-    '''The PhysicalPartitionOption data class contains the options for a partition on
-    a physical disk.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostDiskMappingPartitionOption')
     

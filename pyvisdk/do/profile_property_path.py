@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfilePropertyPath(vim, *args, **kwargs):
-    '''DataObject representing the path to either a Profile or a Policy.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfilePropertyPath')
     

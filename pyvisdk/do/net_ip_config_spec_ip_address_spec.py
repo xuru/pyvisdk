@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetIpConfigSpecIpAddressSpec(vim, *args, **kwargs):
-    '''Provides for configuration of IP Addresses.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NetIpConfigSpecIpAddressSpec')
     

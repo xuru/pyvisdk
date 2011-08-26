@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VMwareDVSConfigSpec(vim, *args, **kwargs):
-    '''This class defines the VMware specific configuration for
-    DistributedVirtualSwitch.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VMwareDVSConfigSpec')
     

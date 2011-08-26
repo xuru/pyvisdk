@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileReferenceHostChangedEvent(vim, *args, **kwargs):
-    '''This event records that the reference host associated with this profile has
-    changed'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfileReferenceHostChangedEvent')
     

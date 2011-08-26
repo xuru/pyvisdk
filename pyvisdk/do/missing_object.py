@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def MissingObject(vim, *args, **kwargs):
-    '''Used for reporting missing objects that were explicitly referenced by a filter
-    spec. In other words, any of the objects referenced in objectSet'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:MissingObject')
     

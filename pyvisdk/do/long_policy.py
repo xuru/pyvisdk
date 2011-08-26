@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LongPolicy(vim, *args, **kwargs):
-    '''The long integer type of setting or configuration that may get an inherited
-    value.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LongPolicy')
     

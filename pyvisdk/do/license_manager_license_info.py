@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LicenseManagerLicenseInfo(vim, *args, **kwargs):
-    '''Encapsulates information about a license'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LicenseManagerLicenseInfo')
     

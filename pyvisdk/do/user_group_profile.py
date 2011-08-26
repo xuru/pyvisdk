@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def UserGroupProfile(vim, *args, **kwargs):
-    '''DataObject representing a UserGroup'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:UserGroupProfile')
     

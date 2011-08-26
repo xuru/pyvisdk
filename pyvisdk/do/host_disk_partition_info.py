@@ -9,11 +9,10 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDiskPartitionInfo(vim, *args, **kwargs):
-    '''Information about the partitions on a disk. A DiskPartitionInfo object provides
-    two different views into the partitions on a disk:* A detailed specification
-    that is used to create the partition table. * A convenient view that shows the
-    allocations of blocks as a contiguous sequence of block ranges.See
-    RetrieveDiskPartitionInfo See ComputeDiskPartitionInfo See UpdateDiskPartitions'''
+    '''* A detailed specification that is used to create the partition table. * A
+    convenient view that shows the allocations of blocks as a contiguous sequence
+    of block ranges. See RetrieveDiskPartitionInfoSee ComputeDiskPartitionInfoSee
+    UpdateDiskPartitions'''
     
     obj = vim.client.factory.create('ns0:HostDiskPartitionInfo')
     

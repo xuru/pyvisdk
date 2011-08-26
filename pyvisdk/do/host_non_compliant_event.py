@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNonCompliantEvent(vim, *args, **kwargs):
-    '''This event records that host went out of compliance.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostNonCompliantEvent')
     

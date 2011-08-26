@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PowerSystemCapability(vim, *args, **kwargs):
-    '''Power System Capability data object. Exposes policies available in power
-    management system.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PowerSystemCapability')
     

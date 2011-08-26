@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DatastoreRenamedOnHostEvent(vim, *args, **kwargs):
-    '''This event records when a datastore is added to VirtualCenter and is renamed by
-    VirtualCenter because this datastore already exists in VirtualCenter with a
-    different name, or because the name conflicts with another datastore in
-    VirtualCenter.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DatastoreRenamedOnHostEvent')
     

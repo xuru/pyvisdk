@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LinkDiscoveryProtocolConfig(vim, *args, **kwargs):
-    '''Dataobject representing the link discovery protocol configuration for a virtual
-    or distributed virtual switch.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LinkDiscoveryProtocolConfig')
     

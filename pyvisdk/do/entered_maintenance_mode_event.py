@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EnteredMaintenanceModeEvent(vim, *args, **kwargs):
-    '''This event records that the host has completely entered maintenance mode. A
-    host in this mode has no running virtual machines and no provisioning
-    operations are occuring.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:EnteredMaintenanceModeEvent')
     

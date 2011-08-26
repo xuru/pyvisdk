@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostInventoryFullEvent(vim, *args, **kwargs):
-    '''This event records if the inventory of hosts has reached capacity.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostInventoryFullEvent')
     

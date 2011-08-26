@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualBusLogicController(vim, *args, **kwargs):
-    '''VirtualBusLogicController is the data object that represents a BusLogic SCSI
-    controller.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualBusLogicController')
     

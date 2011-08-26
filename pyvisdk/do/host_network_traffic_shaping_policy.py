@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNetworkTrafficShapingPolicy(vim, *args, **kwargs):
-    '''This data object type describes traffic shaping policy.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostNetworkTrafficShapingPolicy')
     

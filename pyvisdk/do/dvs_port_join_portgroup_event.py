@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsPortJoinPortgroupEvent(vim, *args, **kwargs):
-    '''A port was moved into the distributed virtual portgroup.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsPortJoinPortgroupEvent')
     

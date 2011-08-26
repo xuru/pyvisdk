@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostSslThumbprintInfo(vim, *args, **kwargs):
-    '''The SSL thumbprint information for a host to login into other hosts in the same
-    cluster without username/password authentication.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostSslThumbprintInfo')
     

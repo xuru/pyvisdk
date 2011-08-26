@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetBIOSConfigInfo(vim, *args, **kwargs):
-    '''This data object type describes the NetBIOS configuration of an operating
-    system.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NetBIOSConfigInfo')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmBeingHotMigratedEvent(vim, *args, **kwargs):
-    '''This event records that a virtual machine is being hot-migrated.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmBeingHotMigratedEvent')
     

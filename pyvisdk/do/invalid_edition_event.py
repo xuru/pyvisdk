@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def InvalidEditionEvent(vim, *args, **kwargs):
-    '''This event records if the edition is set to an invalid value.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:InvalidEditionEvent')
     

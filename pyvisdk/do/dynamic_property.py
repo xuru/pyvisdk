@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DynamicProperty(vim, *args, **kwargs):
-    '''The DynamicProperty data object type represents a name-value pair.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DynamicProperty')
     

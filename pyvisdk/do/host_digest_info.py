@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDigestInfo(vim, *args, **kwargs):
-    '''This data object type describes the digest information'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostDigestInfo')
     

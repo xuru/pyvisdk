@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationAutoIpV6Generator(vim, *args, **kwargs):
-    '''Use automatic address configuration to generate linklocal ipv6 addresses'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationAutoIpV6Generator')
     

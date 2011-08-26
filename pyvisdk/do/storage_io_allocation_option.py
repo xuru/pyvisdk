@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def StorageIOAllocationOption(vim, *args, **kwargs):
-    '''The IOAllocationOption specifies value ranges that can be used to initialize
-    IOAllocationInfo object.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:StorageIOAllocationOption')
     

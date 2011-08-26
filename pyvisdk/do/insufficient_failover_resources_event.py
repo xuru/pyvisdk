@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def InsufficientFailoverResourcesEvent(vim, *args, **kwargs):
-    '''This event records that the cluster resources are insufficient to satisfy the
-    configured HA failover level.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:InsufficientFailoverResourcesEvent')
     

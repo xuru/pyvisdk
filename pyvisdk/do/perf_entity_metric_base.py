@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PerfEntityMetricBase(vim, *args, **kwargs):
-    '''Base type for the various PerfEntityMetric encodings.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PerfEntityMetricBase')
     

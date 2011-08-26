@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualIDEController(vim, *args, **kwargs):
-    '''The VirtualIDEController data object type specifies a virtual IDE controller.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualIDEController')
     

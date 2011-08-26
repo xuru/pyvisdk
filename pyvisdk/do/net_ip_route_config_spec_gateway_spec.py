@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetIpRouteConfigSpecGatewaySpec(vim, *args, **kwargs):
-    '''IpRoute report an individual host, network or default destination network
-    reachable through a given gateway.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NetIpRouteConfigSpecGatewaySpec')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualParallelPortFileBackingInfo(vim, *args, **kwargs):
-    '''The data object type for a file backing of a virtual parallel port.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualParallelPortFileBackingInfo')
     

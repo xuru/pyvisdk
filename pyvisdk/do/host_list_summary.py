@@ -9,9 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostListSummary(vim, *args, **kwargs):
-    '''This data object type encapsulates a typical set of host information that is
-    useful for list views and summary pages.VirtualCenter can retrieve this
-    information very efficiently, even for a large set of hosts.'''
+    '''VirtualCenter can retrieve this information very efficiently, even for a large
+    set of hosts.'''
     
     obj = vim.client.factory.create('ns0:HostListSummary')
     

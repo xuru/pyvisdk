@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmfsDatastoreSingleExtentOption(vim, *args, **kwargs):
-    '''Datastore addition policy to use a single extent on the disk for a VMFS
-    datastore. A single extent implies that one disk partition will be created on
-    the disk for creating or increasing the capacity of a VMFS datastore.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmfsDatastoreSingleExtentOption')
     

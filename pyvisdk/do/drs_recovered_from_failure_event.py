@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DrsRecoveredFromFailureEvent(vim, *args, **kwargs):
-    '''This event records that DRS has recovered from failure. It is triggered by a
-    successful DRS invocation after repeated failure.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DrsRecoveredFromFailureEvent')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualCdromRemoteAtapiBackingInfo(vim, *args, **kwargs):
-    '''The VirtualCdrom.RemoteAtapiBackingInfo data class represents a remote ATAPI
-    device backing for a virtual CD-ROM.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualCdromRemoteAtapiBackingInfo')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VMotionLicenseExpiredEvent(vim, *args, **kwargs):
-    '''This event records an expired VMotion license.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VMotionLicenseExpiredEvent')
     

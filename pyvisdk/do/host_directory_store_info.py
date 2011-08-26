@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDirectoryStoreInfo(vim, *args, **kwargs):
-    '''HostDirectoryStoreInfo is a base class for objects that provide information
-    about directory-based authentication stores.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostDirectoryStoreInfo')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualPCNet32(vim, *args, **kwargs):
-    '''This data object type defines the properties of an AMD Lance PCNet32 Ethernet
-    card attached to a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualPCNet32')
     
@@ -20,7 +19,7 @@ def VirtualPCNet32(vim, *args, **kwargs):
         
     signature = [ 'key' ]
     inherited = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'unitNumber',
-        'addressType' ]
+        'addressType', 'macAddress', 'wakeOnLanEnabled' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

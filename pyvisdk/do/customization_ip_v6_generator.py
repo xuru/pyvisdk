@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationIpV6Generator(vim, *args, **kwargs):
-    '''Base type for the various IpV6 specification possibilities'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationIpV6Generator')
     

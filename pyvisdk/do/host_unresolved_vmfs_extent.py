@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostUnresolvedVmfsExtent(vim, *args, **kwargs):
-    '''Information about an unresolved VMFS volume extent An unresolved VMFS volume
-    extent is a device partition which is detected to have copy of an extent of a
-    VMFS volume. Such a copy can be created via replication or snapshots, for
-    example. See HostUnresolvedVmfsVolume'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostUnresolvedVmfsExtent')
     

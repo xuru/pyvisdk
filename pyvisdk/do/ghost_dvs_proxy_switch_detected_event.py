@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def GhostDvsProxySwitchDetectedEvent(vim, *args, **kwargs):
-    '''This event records when Virtual Center server found DVS proxy switches on the
-    host that don't match any DVS defined in Virtual Center.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:GhostDvsProxySwitchDetectedEvent')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterActionHistory(vim, *args, **kwargs):
-    '''Base class for all action history.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterActionHistory')
     

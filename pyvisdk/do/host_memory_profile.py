@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostMemoryProfile(vim, *args, **kwargs):
-    '''Memory configuration for the host. This may not be valid all versions of the
-    host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostMemoryProfile')
     

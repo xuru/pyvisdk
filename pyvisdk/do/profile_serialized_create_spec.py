@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileSerializedCreateSpec(vim, *args, **kwargs):
-    '''DataObject describing the profile in a string serialized representation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfileSerializedCreateSpec')
     

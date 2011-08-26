@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostFileSystemMountInfo(vim, *args, **kwargs):
-    '''The HostFileSystemMountInfo data object describes a host mount point for a file
-    system.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostFileSystemMountInfo')
     

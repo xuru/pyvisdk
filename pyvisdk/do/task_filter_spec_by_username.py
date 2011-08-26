@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def TaskFilterSpecByUsername(vim, *args, **kwargs):
-    '''This data object type enables you to filter task history according to the users
-    who performed the tasks.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:TaskFilterSpecByUsername')
     

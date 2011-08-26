@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostInternetScsiHbaSendTarget(vim, *args, **kwargs):
-    '''The iSCSI send target.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostInternetScsiHbaSendTarget')
     

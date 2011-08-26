@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LicenseDiagnostics(vim, *args, **kwargs):
-    '''This data object type provides summary status and diagnostic information for
-    LicenseManager. Counters in this property can be reset to zero. The property
-    specified as a discontinuity is used to determine when this last occurred.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LicenseDiagnostics')
     

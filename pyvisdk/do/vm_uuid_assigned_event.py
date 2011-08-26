@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmUuidAssignedEvent(vim, *args, **kwargs):
-    '''This event records the assignment of a new BIOS UUID to a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmUuidAssignedEvent')
     

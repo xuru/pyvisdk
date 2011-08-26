@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostVirtualSwitchSimpleBridge(vim, *args, **kwargs):
-    '''A bridge that is statically bound to a single physical network adapter.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostVirtualSwitchSimpleBridge')
     

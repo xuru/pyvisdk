@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostHardwareElementInfo(vim, *args, **kwargs):
-    '''Data object describing the operational status of a physical element.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostHardwareElementInfo')
     

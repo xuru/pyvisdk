@@ -9,15 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostServiceTicket(vim, *args, **kwargs):
-    '''Return value for ticketable host services. The server has the option to provide
-    a hostname and port for a future ticket-authenticated connection to a service
-    on a host. If the service provider does not return a host the client must
-    connect to the same host it used to request the ticket. In case the service
-    provider does not return a port, except in the case of connecting to CIM
-    interfaces, the client must connect using the same port it used to request the
-    ticket. In the case of connecting to a CIM interface the standard well known
-    port number for the particular service will be used for the connection.For
-    example, when a client requests a ticket from an ESX Server, the returned
+    '''For example, when a client requests a ticket from an ESX Server, the returned
     ticket may omit the optional host and port. In such a case, the client
     establishes an out-of-band ticketed connection to the same server host and on
     the same port on which it made the connection to request the ticket. If this

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileRemovedEvent(vim, *args, **kwargs):
-    '''This event records that a Profile was removed.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfileRemovedEvent')
     

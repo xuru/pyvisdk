@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterGroupInfo(vim, *args, **kwargs):
-    '''ClusterGroupInfo is the base type for all virtual machine and host groups. All
-    virtual machines and hosts that are part of a group must be part of the same
-    cluster.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterGroupInfo')
     

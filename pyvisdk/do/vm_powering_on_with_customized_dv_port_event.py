@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmPoweringOnWithCustomizedDVPortEvent(vim, *args, **kwargs):
-    '''This event records when a virtual machine was powering on using DVPorts with
-    port level configuration, which might be different from the DVportgroup.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmPoweringOnWithCustomizedDVPortEvent')
     

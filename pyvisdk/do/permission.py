@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def Permission(vim, *args, **kwargs):
-    '''This data object type provides assignment of some role access to a principal on
-    a specific entity. A ManagedEntity is limited to one permission per principal.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:Permission')
     

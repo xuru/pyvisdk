@@ -9,11 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EventDescriptionEventDetail(vim, *args, **kwargs):
-    '''Each Event object provides an automatic event message string through its
-    fullFormattedMessage property. However, you can use the EventDetail object's
-    properties to format an event message string that is appropriate when viewed
-    from a specific context. The variable information (vm.name, and so on) is
-    derived from the Event object's event arguments (VmEventArgument, and so on).'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:EventDescriptionEventDetail')
     

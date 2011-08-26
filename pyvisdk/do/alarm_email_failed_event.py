@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AlarmEmailFailedEvent(vim, *args, **kwargs):
-    '''This event records a failure to complete an alarm email notification.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AlarmEmailFailedEvent')
     

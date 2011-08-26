@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDiskSpec(vim, *args, **kwargs):
-    '''Specification used to create or clone a virtual disk'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualDiskSpec')
     

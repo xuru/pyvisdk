@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def OnceTaskScheduler(vim, *args, **kwargs):
-    '''The OnceTaskScheduler data object establishes the time for running a scheduled
-    task only once.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:OnceTaskScheduler')
     

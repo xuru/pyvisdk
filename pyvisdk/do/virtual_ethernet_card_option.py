@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualEthernetCardOption(vim, *args, **kwargs):
-    '''This data object type contains the options for the virtual ethernet card data
-    object type.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualEthernetCardOption')
     

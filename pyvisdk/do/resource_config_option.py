@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ResourceConfigOption(vim, *args, **kwargs):
-    '''This data object type is a default value and value range specification for
-    ResourceConfigSpec object.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ResourceConfigOption')
     

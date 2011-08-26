@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def OrAlarmExpression(vim, *args, **kwargs):
-    '''A data object type that links multiple alarm expressions with OR operators.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:OrAlarmExpression')
     

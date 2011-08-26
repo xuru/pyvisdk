@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostReconnectionFailedEvent(vim, *args, **kwargs):
-    '''This event records a failed attempt to re-establish a host connection.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostReconnectionFailedEvent')
     

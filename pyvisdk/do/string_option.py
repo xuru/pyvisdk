@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def StringOption(vim, *args, **kwargs):
-    '''The StringOption data object type is used to define an open-ended string value
-    based on an optional subset of valid characters.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:StringOption')
     

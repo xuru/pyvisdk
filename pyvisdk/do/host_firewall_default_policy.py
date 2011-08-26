@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostFirewallDefaultPolicy(vim, *args, **kwargs):
-    '''Default settings for the firewall, used for ports that are not explicitly
-    opened.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostFirewallDefaultPolicy')
     

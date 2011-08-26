@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ToolsConfigInfo(vim, *args, **kwargs):
-    '''ToolsConfigInfo is a data object type containing settings for the VMware Tools
-    software running in the guest operating system.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ToolsConfigInfo')
     

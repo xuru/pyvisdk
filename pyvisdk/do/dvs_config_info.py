@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DVSConfigInfo(vim, *args, **kwargs):
-    '''Configuration of a DistributedVirtualSwitch.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DVSConfigInfo')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DistributedVirtualSwitchPortCriteria(vim, *args, **kwargs):
-    '''The criteria specification for selecting ports.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DistributedVirtualSwitchPortCriteria')
     

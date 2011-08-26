@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualPS2Controller(vim, *args, **kwargs):
-    '''The VirtualPS2Controller data object type represents a controller for keyboards
-    and mice.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualPS2Controller')
     

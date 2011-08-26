@@ -9,11 +9,10 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationIdentification(vim, *args, **kwargs):
-    '''The Identification data object type provides information needed to join a
-    workgroup or domain.The Identification data object type maps to the
-    Identification key in the answer file. These values are transferred into the
-    file that VirtualCenter stores on the target virtual disk. For more detailed
-    information, see the document .'''
+    '''The Identification data object type maps to the Identification key in the
+    answer file. These values are transferred into the file that VirtualCenter
+    stores on the target virtual disk. For more detailed information, see the
+    document .'''
     
     obj = vim.client.factory.create('ns0:CustomizationIdentification')
     

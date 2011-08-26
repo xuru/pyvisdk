@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ResourcePoolReconfiguredEvent(vim, *args, **kwargs):
-    '''This event records when a resource pool configuration is changed.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ResourcePoolReconfiguredEvent')
     

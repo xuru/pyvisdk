@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineRelocateSpecDiskLocator(vim, *args, **kwargs):
-    '''The DiskLocator data object type specifies a virtual disk device (by ID) and a
-    datastore locator for the disk's storage.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineRelocateSpecDiskLocator')
     

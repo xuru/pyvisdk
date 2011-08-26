@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmOrphanedEvent(vim, *args, **kwargs):
-    '''This event records a virtual machine for which no host is responsible.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmOrphanedEvent')
     

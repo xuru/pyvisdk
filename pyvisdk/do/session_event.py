@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def SessionEvent(vim, *args, **kwargs):
-    '''These are session events.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:SessionEvent')
     

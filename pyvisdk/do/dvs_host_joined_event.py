@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsHostJoinedEvent(vim, *args, **kwargs):
-    '''A host joined the distributed virtual switch.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsHostJoinedEvent')
     

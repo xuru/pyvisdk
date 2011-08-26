@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def FileQueryFlags(vim, *args, **kwargs):
-    '''The FileInfo.Details data object type is a set of flags for a search request.
-    This search request specifies which details to return for each matching file.
-    This data object type is here to ensure that there is one flag corresponding to
-    each FileInfo property other than the path name, which a search always returns.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:FileQueryFlags')
     

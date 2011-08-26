@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ExtensionResourceInfo(vim, *args, **kwargs):
-    '''This data object encapsulates the message resources for all locales.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ExtensionResourceInfo')
     

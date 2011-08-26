@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LicenseReservationInfo(vim, *args, **kwargs):
-    '''A reservation describes how many licenses of a particular feature are being
-    used by a particular feature.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LicenseReservationInfo')
     

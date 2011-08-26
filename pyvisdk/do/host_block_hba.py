@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostBlockHba(vim, *args, **kwargs):
-    '''This data object type describes the host bus adapter that provides block
-    devices.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostBlockHba')
     

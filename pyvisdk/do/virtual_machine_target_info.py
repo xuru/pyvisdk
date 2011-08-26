@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineTargetInfo(vim, *args, **kwargs):
-    '''The TargetInfo specified a value that can be used in the device backings to
-    connect the virtual machine to a physical (or logical) host device.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineTargetInfo')
     

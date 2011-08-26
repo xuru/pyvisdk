@@ -9,11 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def UnlicensedVirtualMachinesFoundEvent(vim, *args, **kwargs):
-    '''This event records that we discovered unlicensed virtual machines on the
-    specified host. After this event is entered into the event log, we expect to
-    see a corresponding (@link vim.event.Event.UnlicensedVirtualMachinesEvent
-    UnlicensedVirtualMachinesEvent) (@link vim.ManagedEntity.configIssue
-    configIssue) on the host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:UnlicensedVirtualMachinesFoundEvent')
     

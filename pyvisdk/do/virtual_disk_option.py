@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDiskOption(vim, *args, **kwargs):
-    '''The VirtualDiskOption data class contains the options for the virtual disk data
-    object type.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualDiskOption')
     

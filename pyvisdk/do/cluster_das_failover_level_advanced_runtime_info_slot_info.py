@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterDasFailoverLevelAdvancedRuntimeInfoSlotInfo(vim, *args, **kwargs):
-    '''A slot represents an amount of resources sufficient for any powered on virtual
-    machine in the cluster.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterDasFailoverLevelAdvancedRuntimeInfoSlotInfo')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmFailedStartingSecondaryEvent(vim, *args, **kwargs):
-    '''This event records vmotion failure when starting a secondary VM.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmFailedStartingSecondaryEvent')
     

@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDiskPartitionBlockRange(vim, *args, **kwargs):
-    '''A BlockRange data object type describes a contiguous set of blocks on a disk. A
-    BlockRange may describe either a partition or unpartitioned (primordial) blocks
-    on the disk.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostDiskPartitionBlockRange')
     

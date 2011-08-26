@@ -9,12 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationGuiRunOnce(vim, *args, **kwargs):
-    '''The commands listed in the GuiRunOnce data object type are executed when a user
-    logs on the first time after customization completes. The logon may be driven
-    by the AutoLogon setting.The GuiRunOnce data object type maps to the GuiRunOnce
-    key in the answer file. These values are transferred into the file that
-    VirtualCenter stores on the target virtual disk. For more detailed information,
-    see the document .'''
+    '''The GuiRunOnce data object type maps to the GuiRunOnce key in the answer file.
+    These values are transferred into the file that VirtualCenter stores on the
+    target virtual disk. For more detailed information, see the document .'''
     
     obj = vim.client.factory.create('ns0:CustomizationGuiRunOnce')
     

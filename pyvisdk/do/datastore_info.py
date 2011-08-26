@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DatastoreInfo(vim, *args, **kwargs):
-    '''Detailed information about a datastore. This is a base type for derived types
-    that have more specific details about a datastore. See HostVmfsVolume See
-    HostNasVolume See HostLocalFileSystemVolume'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DatastoreInfo')
     

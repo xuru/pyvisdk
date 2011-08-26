@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ScheduledTaskInfo(vim, *args, **kwargs):
-    '''The scheduled task details.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ScheduledTaskInfo')
     

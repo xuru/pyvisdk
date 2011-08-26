@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDnsConfigSpec(vim, *args, **kwargs):
-    '''Dataobject for configuring the DNS settings on the host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostDnsConfigSpec')
     

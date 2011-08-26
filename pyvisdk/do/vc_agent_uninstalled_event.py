@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VcAgentUninstalledEvent(vim, *args, **kwargs):
-    '''This event records when the VirtualCenter agent on a host is uninstalled.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VcAgentUninstalledEvent')
     

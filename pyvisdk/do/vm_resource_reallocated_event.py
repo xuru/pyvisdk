@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmResourceReallocatedEvent(vim, *args, **kwargs):
-    '''This event records a change in resource allocation of a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmResourceReallocatedEvent')
     

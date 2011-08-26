@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PerfCounterInfo(vim, *args, **kwargs):
-    '''This data object type contains metadata for a performance counter. See
-    PerformanceManager for definitions of available counters.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PerfCounterInfo')
     

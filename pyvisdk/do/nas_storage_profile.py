@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NasStorageProfile(vim, *args, **kwargs):
-    '''DataObject representing configuration of one NAS datastore.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NasStorageProfile')
     

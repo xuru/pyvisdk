@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def UserAssignedToGroup(vim, *args, **kwargs):
-    '''This event records that a user account membership was added to a group.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:UserAssignedToGroup')
     

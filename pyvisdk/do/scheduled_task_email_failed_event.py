@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ScheduledTaskEmailFailedEvent(vim, *args, **kwargs):
-    '''This event records the failure of an attempt to send a notification via email
-    for a scheduled task.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ScheduledTaskEmailFailedEvent')
     

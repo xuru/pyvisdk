@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterReconfiguredEvent(vim, *args, **kwargs):
-    '''This event records when a cluster is reconfigured.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterReconfiguredEvent')
     

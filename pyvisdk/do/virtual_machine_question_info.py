@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineQuestionInfo(vim, *args, **kwargs):
-    '''This data object type describes the question that is currently blocking a
-    virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineQuestionInfo')
     

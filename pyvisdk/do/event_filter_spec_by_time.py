@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EventFilterSpecByTime(vim, *args, **kwargs):
-    '''This option specifies a time range used to filter event history.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:EventFilterSpecByTime')
     

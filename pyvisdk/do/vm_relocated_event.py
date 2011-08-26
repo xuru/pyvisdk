@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmRelocatedEvent(vim, *args, **kwargs):
-    '''This event records the completion of a virtual machine relocation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmRelocatedEvent')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ExtensionServerInfo(vim, *args, **kwargs):
-    '''This data object type describes a server for the extension.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ExtensionServerInfo')
     

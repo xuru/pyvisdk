@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineConsolePreferences(vim, *args, **kwargs):
-    '''Preferences for the legacy console application that affect the way it behaves
-    during power operations on the virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineConsolePreferences')
     

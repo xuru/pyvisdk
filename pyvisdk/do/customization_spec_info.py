@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationSpecInfo(vim, *args, **kwargs):
-    '''Information about a specification.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationSpecInfo')
     

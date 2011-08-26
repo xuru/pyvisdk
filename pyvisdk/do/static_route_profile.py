@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def StaticRouteProfile(vim, *args, **kwargs):
-    '''DataObject representing a single Static Ip route'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:StaticRouteProfile')
     

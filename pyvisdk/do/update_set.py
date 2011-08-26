@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def UpdateSet(vim, *args, **kwargs):
-    '''A set of updates that represent the changes since a prior call to
-    CheckForUpdates, WaitForUpdates, or WaitForUpdatesEx.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:UpdateSet')
     

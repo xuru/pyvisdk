@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DVSContactInfo(vim, *args, **kwargs):
-    '''Contact information of a human operator.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DVSContactInfo')
     

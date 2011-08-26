@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualPS2ControllerOption(vim, *args, **kwargs):
-    '''The VirtualPS2ControllerOption data object type contains the options for a
-    virtual PS/2 controller for keyboards and mice. In addition to the options
-    defined in the VirtualControllerOption data object type, these options include
-    the number of keyboards and mice.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualPS2ControllerOption')
     

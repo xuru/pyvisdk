@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetDnsConfigInfo(vim, *args, **kwargs):
-    '''Domain Name Server (DNS) Configuration Specification - a data object for
-    reporting the configuration of RFC 1034 client side DNS settings.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NetDnsConfigInfo')
     

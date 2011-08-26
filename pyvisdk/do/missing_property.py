@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def MissingProperty(vim, *args, **kwargs):
-    '''Used for reporting properties for which values could not be retrieved.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:MissingProperty')
     

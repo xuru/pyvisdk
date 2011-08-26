@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def OvfCreateDescriptorParams(vim, *args, **kwargs):
-    '''Collection of parameters for createDescriptor'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:OvfCreateDescriptorParams')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DVPortgroupRenamedEvent(vim, *args, **kwargs):
-    '''Two distributed virtual portgroup was renamed.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DVPortgroupRenamedEvent')
     

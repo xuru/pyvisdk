@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ServiceProfile(vim, *args, **kwargs):
-    '''DataObject which controls the configuration of a service'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ServiceProfile')
     

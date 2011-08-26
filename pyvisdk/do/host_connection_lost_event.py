@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostConnectionLostEvent(vim, *args, **kwargs):
-    '''This event records the loss of a host connection.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostConnectionLostEvent')
     

@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualSerialPortOption(vim, *args, **kwargs):
-    '''The data object contains the options for configuring the virtual serial port
-    device defined by the data object. These options include information about how
-    the device is backed physically on the host: by a network socket, a host file,
-    a host serial port device, or a pipe to another process.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualSerialPortOption')
     

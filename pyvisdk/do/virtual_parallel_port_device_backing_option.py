@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualParallelPortDeviceBackingOption(vim, *args, **kwargs):
-    '''Data object type that represents the options for a device backing of a virtual
-    parallel port.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualParallelPortDeviceBackingOption')
     

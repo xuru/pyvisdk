@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostFirewallInfo(vim, *args, **kwargs):
-    '''Data object describing the firewall configuration.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostFirewallInfo')
     

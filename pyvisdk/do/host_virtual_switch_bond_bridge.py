@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostVirtualSwitchBondBridge(vim, *args, **kwargs):
-    '''This data object type describes a bridge that provides network adapter teaming
-    capabilities.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostVirtualSwitchBondBridge')
     

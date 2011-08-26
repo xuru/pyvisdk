@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostVirtualSwitch(vim, *args, **kwargs):
-    '''The virtual switch is a software entity to which multiple virtual network
-    adapters can connect to create a virtual network. It can also be bridged to a
-    physical network.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostVirtualSwitch')
     

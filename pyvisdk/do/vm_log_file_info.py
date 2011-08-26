@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmLogFileInfo(vim, *args, **kwargs):
-    '''This data object type describes a file that is logging output for a virtual
-    machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmLogFileInfo')
     

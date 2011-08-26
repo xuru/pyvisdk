@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmDasUpdateOkEvent(vim, *args, **kwargs):
-    '''This event records that HA agents have been updated with the current state of
-    the virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmDasUpdateOkEvent')
     

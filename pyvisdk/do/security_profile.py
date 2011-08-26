@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def SecurityProfile(vim, *args, **kwargs):
-    '''DataObject representing Security configurations of the host'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:SecurityProfile')
     

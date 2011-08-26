@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DatacenterEvent(vim, *args, **kwargs):
-    '''These are datacenter events.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DatacenterEvent')
     

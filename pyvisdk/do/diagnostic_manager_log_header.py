@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DiagnosticManagerLogHeader(vim, *args, **kwargs):
-    '''A header that is returned with a set of log entries. This header describes
-    where entries are located in the log file. Log files typically grow
-    dynamically, so indexes based on line numbers may become inaccurate.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DiagnosticManagerLogHeader')
     

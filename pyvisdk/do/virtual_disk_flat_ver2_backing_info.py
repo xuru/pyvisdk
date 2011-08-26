@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDiskFlatVer2BackingInfo(vim, *args, **kwargs):
-    '''This data object type contains information about backing a virtual disk using a
-    virtual disk file on the host, in the flat file format used by VMware Server,
-    ESX Server 2.x, and ESX Server 3.x. Flat disks are allocated when created,
-    unlike sparse disks, which grow as needed.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualDiskFlatVer2BackingInfo')
     

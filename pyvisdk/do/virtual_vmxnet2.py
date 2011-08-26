@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualVmxnet2(vim, *args, **kwargs):
-    '''The VirtualVmxnet2 data object type represents an instance of the Vmxnet2
-    virtual Ethernet adapter attached to a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualVmxnet2')
     
@@ -20,7 +19,7 @@ def VirtualVmxnet2(vim, *args, **kwargs):
         
     signature = [ 'key' ]
     inherited = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'unitNumber',
-        'addressType' ]
+        'addressType', 'macAddress', 'wakeOnLanEnabled' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ChoiceOption(vim, *args, **kwargs):
-    '''The ChoiceOption data object type defines a set of supported string values, a
-    localizable description for each value, and the default value.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ChoiceOption')
     

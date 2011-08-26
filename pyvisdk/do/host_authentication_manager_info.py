@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostAuthenticationManagerInfo(vim, *args, **kwargs):
-    '''The HostAuthenticationManagerInfo data object provides access to authentication
-    information for the ESX host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostAuthenticationManagerInfo')
     

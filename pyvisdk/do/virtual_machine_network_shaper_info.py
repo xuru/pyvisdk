@@ -9,8 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineNetworkShaperInfo(vim, *args, **kwargs):
-    '''Network traffic shaping specification.Traffic shaping is used to configure the
-    network utilization characteristics of a virtual machine.'''
+    '''Traffic shaping is used to configure the network utilization characteristics of
+    a virtual machine.'''
     
     obj = vim.client.factory.create('ns0:VirtualMachineNetworkShaperInfo')
     

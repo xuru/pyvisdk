@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def OptionType(vim, *args, **kwargs):
-    '''The base data object type for all options.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:OptionType')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DeviceBackedVirtualDiskSpec(vim, *args, **kwargs):
-    '''Specification used to create a host device backed virtual disk'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DeviceBackedVirtualDiskSpec')
     

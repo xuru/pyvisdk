@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostCnxFailedNoConnectionEvent(vim, *args, **kwargs):
-    '''This event records a failure to connect to a host due to a host not being
-    present on the network.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostCnxFailedNoConnectionEvent')
     

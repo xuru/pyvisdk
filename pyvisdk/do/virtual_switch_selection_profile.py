@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualSwitchSelectionProfile(vim, *args, **kwargs):
-    '''This data object type represents the profile for choosing the virtual switch
-    that is connected to a port group.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualSwitchSelectionProfile')
     

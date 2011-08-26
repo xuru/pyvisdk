@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VAppProductSpec(vim, *args, **kwargs):
-    '''An incremental update to the Product information list.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VAppProductSpec')
     

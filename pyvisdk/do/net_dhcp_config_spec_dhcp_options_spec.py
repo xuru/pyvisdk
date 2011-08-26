@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetDhcpConfigSpecDhcpOptionsSpec(vim, *args, **kwargs):
-    '''Provides for configuration of IPv6'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NetDhcpConfigSpecDhcpOptionsSpec')
     

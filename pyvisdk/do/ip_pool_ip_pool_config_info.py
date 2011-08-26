@@ -9,10 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def IpPoolIpPoolConfigInfo(vim, *args, **kwargs):
-    '''Specifications of either IPv4 or IPv6 configuration to be used on this network.
-    This is a part of network configuration.IPv4 addresses are in dot-decimal
-    notation, e.g.: 192.0.2.235IPv6 addresses are in colon-hexadecimal notation,
-    e.g.: 2001:0db8:85a3::0370:7334'''
+    '''IPv4 addresses are in dot-decimal notation, e.g.: 192.0.2.235IPv6 addresses are
+    in colon-hexadecimal notation, e.g.: 2001:0db8:85a3::0370:7334'''
     
     obj = vim.client.factory.create('ns0:IpPoolIpPoolConfigInfo')
     

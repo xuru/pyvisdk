@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationSysprepText(vim, *args, **kwargs):
-    '''An alternate way to specify the answer file. This string is more or less
-    written exactly to the answer file on the target virtual disk.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationSysprepText')
     

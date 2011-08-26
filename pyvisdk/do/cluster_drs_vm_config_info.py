@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterDrsVmConfigInfo(vim, *args, **kwargs):
-    '''DRS configuration for a single virtual machine. This makes it possible to
-    override the default behavior for an individual virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterDrsVmConfigInfo')
     

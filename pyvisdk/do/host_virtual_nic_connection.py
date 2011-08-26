@@ -9,12 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostVirtualNicConnection(vim, *args, **kwargs):
-    '''DataObject which provides a level of indirection when identifying VirtualNics
-    during configuration. This dataObject lets users specify a VirtualNic in terms
-    of the portgroup/Dv Port the vnic is connected to. This is useful in cases
-    where VirtualNic will be created as part of a configuration operation and the
-    created VirtualNic is referred to in some other part of configuration. e.g: for
-    configuring VMotion'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostVirtualNicConnection')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def UpdateVirtualMachineFilesResult(vim, *args, **kwargs):
-    '''UpdateVirtualMachineFilesResult is the result returned to the
-    UpdateVirtualMachineFiles_Task method.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:UpdateVirtualMachineFilesResult')
     

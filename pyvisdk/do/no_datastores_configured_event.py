@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NoDatastoresConfiguredEvent(vim, *args, **kwargs):
-    '''No datastores have been configured on the host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NoDatastoresConfiguredEvent')
     

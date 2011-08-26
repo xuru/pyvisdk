@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DynamicArray(vim, *args, **kwargs):
-    '''DynamicArray is a data object type that represents an array of dynamically-
-    typed objects. A client should only see a DynamicArray object when the element
-    type is unknown (meaning the type is newer than the client). Otherwise, a
-    client would see the type as T[] where T is known.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DynamicArray')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterPowerOnVmResult(vim, *args, **kwargs):
-    '''PowerOnVmResult is the base class of the result returned to the
-    PowerOnMultiVM_Task method.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterPowerOnVmResult')
     

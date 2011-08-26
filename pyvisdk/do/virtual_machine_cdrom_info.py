@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineCdromInfo(vim, *args, **kwargs):
-    '''CdromInfo class contains information about a physical CD-ROM drive on the host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineCdromInfo')
     

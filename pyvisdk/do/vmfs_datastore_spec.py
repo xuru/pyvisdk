@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmfsDatastoreSpec(vim, *args, **kwargs):
-    '''Base class for VMFS datastore addition specification. Used as a generic way to
-    point to one of the creation specifications that can be used to apply a
-    specification to effect the creation or extension of a VMFS datastore.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmfsDatastoreSpec')
     

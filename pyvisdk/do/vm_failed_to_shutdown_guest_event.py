@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmFailedToShutdownGuestEvent(vim, *args, **kwargs):
-    '''This event records a failure to shut down the guest on a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmFailedToShutdownGuestEvent')
     

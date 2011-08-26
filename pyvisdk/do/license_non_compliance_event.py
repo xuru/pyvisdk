@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LicenseNonComplianceEvent(vim, *args, **kwargs):
-    '''This event records that the inventory is not license compliant.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LicenseNonComplianceEvent')
     

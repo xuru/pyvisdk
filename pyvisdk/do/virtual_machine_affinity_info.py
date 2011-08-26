@@ -9,8 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineAffinityInfo(vim, *args, **kwargs):
-    '''Specification of scheduling affinity.Scheduling affinity is used for explicitly
-    specifying which processors or NUMA nodes may be used by a virtual machine.'''
+    '''Scheduling affinity is used for explicitly specifying which processors or NUMA
+    nodes may be used by a virtual machine.'''
     
     obj = vim.client.factory.create('ns0:VirtualMachineAffinityInfo')
     

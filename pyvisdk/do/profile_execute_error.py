@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileExecuteError(vim, *args, **kwargs):
-    '''DataObject which points to an error encountered during execute.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfileExecuteError')
     

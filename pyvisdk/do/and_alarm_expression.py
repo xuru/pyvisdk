@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AndAlarmExpression(vim, *args, **kwargs):
-    '''A data object type that links multiple alarm expressions with AND operators.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AndAlarmExpression')
     

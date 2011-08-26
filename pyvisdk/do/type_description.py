@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def TypeDescription(vim, *args, **kwargs):
-    '''Static strings used for describing an object type.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:TypeDescription')
     

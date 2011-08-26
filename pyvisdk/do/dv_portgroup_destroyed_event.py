@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DVPortgroupDestroyedEvent(vim, *args, **kwargs):
-    '''Two distributed virtual portgroup was destroyed.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DVPortgroupDestroyedEvent')
     

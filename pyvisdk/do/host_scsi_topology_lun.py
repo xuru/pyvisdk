@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostScsiTopologyLun(vim, *args, **kwargs):
-    '''This data object type describes the SCSI logical unit.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostScsiTopologyLun')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualControllerOption(vim, *args, **kwargs):
-    '''The VirtualControllerOption data object type contains information about a
-    virtual controller type.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualControllerOption')
     

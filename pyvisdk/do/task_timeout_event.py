@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def TaskTimeoutEvent(vim, *args, **kwargs):
-    '''This event records when a task is cleaned up b/c of timeout'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:TaskTimeoutEvent')
     

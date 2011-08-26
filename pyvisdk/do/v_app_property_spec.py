@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VAppPropertySpec(vim, *args, **kwargs):
-    '''An incremental update to the Property list.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VAppPropertySpec')
     

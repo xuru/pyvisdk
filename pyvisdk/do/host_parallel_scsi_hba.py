@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostParallelScsiHba(vim, *args, **kwargs):
-    '''The ParallelScsiHba data object type describes a parallel SCSI host bus
-    adapter.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostParallelScsiHba')
     

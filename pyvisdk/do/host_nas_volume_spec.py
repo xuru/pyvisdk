@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNasVolumeSpec(vim, *args, **kwargs):
-    '''Specification for creating NAS volume.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostNasVolumeSpec')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostServiceInfo(vim, *args, **kwargs):
-    '''Data object describing the host service configuration.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostServiceInfo')
     

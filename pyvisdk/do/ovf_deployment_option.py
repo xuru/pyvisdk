@@ -9,8 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def OvfDeploymentOption(vim, *args, **kwargs):
-    '''A deployment option as defined in the OVF specfication.This corresponds to the
-    Configuration element of the DeploymentOptionSection in the specification.'''
+    '''This corresponds to the Configuration element of the DeploymentOptionSection in
+    the specification.'''
     
     obj = vim.client.factory.create('ns0:OvfDeploymentOption')
     

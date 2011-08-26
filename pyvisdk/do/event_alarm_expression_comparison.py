@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EventAlarmExpressionComparison(vim, *args, **kwargs):
-    '''Encapsulates Comparison of an event's attribute to a value.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:EventAlarmExpressionComparison')
     

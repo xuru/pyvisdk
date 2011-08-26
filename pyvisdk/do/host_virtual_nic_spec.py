@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostVirtualNicSpec(vim, *args, **kwargs):
-    '''This data object type describes the VirtualNic configuration containing both
-    the configured properties on a VirtualNic and identification information.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostVirtualNicSpec')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDatastoreNameConflictConnectInfo(vim, *args, **kwargs):
-    '''This data object type describes a datastore on the host that has the same name
-    as a different datastore on VirtualCenter.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostDatastoreNameConflictConnectInfo')
     

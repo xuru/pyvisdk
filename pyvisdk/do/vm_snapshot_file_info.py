@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmSnapshotFileInfo(vim, *args, **kwargs):
-    '''This data object type describes a file that is a virtual disk snapshot file.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmSnapshotFileInfo')
     

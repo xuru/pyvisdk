@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmAcquiredMksTicketEvent(vim, *args, **kwargs):
-    '''This event records a user successfully acquiring an MKS ticket'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmAcquiredMksTicketEvent')
     

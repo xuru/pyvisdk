@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PropertyChange(vim, *args, **kwargs):
-    '''Describes a change to a property.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PropertyChange')
     
@@ -18,7 +18,7 @@ def PropertyChange(vim, *args, **kwargs):
         raise IndexError('Expected at least 3 arguments got: %d' % len(args))
         
     signature = [ 'name', 'op' ]
-    inherited = [  ]
+    inherited = [ 'val' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PhysicalNicLinkInfo(vim, *args, **kwargs):
-    '''This data object type describes the link speed and the type of duplex
-    communication. The link speed indicates the bit rate in Mhz. The duplex boolean
-    indicates if the link is capable of full-duplex or half-duplex communication.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PhysicalNicLinkInfo')
     

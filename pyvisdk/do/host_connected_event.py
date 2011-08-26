@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostConnectedEvent(vim, *args, **kwargs):
-    '''This event records a successful host connection.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostConnectedEvent')
     

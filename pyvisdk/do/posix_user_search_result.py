@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PosixUserSearchResult(vim, *args, **kwargs):
-    '''Searching for users and groups on POSIX systems provides User ID and Group ID
-    information, in addition to that defined in UserSearchResult.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PosixUserSearchResult')
     

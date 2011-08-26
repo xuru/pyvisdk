@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DistributedVirtualSwitchPortConnection(vim, *args, **kwargs):
-    '''The class that represents a connection or an association between
-    DistributedVirtualPort and a vNIC or pNIC.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DistributedVirtualSwitchPortConnection')
     

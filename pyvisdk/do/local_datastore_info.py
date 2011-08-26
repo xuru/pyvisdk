@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LocalDatastoreInfo(vim, *args, **kwargs):
-    '''The information details about a datastore that is local to a host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LocalDatastoreInfo')
     

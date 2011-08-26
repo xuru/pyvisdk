@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterDpmHostConfigInfo(vim, *args, **kwargs):
-    '''DPM configuration for a single host. This makes it possible to override the
-    default behavior for an individual host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterDpmHostConfigInfo')
     

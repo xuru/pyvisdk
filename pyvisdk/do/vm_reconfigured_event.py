@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmReconfiguredEvent(vim, *args, **kwargs):
-    '''This event records a reconfiguration of the virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmReconfiguredEvent')
     

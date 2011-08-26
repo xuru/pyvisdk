@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmFailedToStandbyGuestEvent(vim, *args, **kwargs):
-    '''This event records a failure to set the guest on a virtual machine to a standby
-    state.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmFailedToStandbyGuestEvent')
     

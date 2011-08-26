@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetworkProfile(vim, *args, **kwargs):
-    '''DataObject represents a profile for network configuration.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NetworkProfile')
     

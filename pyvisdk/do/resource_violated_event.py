@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ResourceViolatedEvent(vim, *args, **kwargs):
-    '''This event records when a conflict with a resource pool's resource
-    configuration is detected.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ResourceViolatedEvent')
     

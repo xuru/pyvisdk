@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDiagnosticPartitionCreateOption(vim, *args, **kwargs):
-    '''This data object describes a disk that can be used to create a diagnostic
-    partition.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostDiagnosticPartitionCreateOption')
     

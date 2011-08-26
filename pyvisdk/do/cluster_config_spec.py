@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterConfigSpec(vim, *args, **kwargs):
-    '''A complete cluster configuration. All fields are defined as optional. In case
-    of a reconfiguration, unset fields are unchanged.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterConfigSpec')
     

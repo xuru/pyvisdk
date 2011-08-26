@@ -9,11 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationLicenseFilePrintData(vim, *args, **kwargs):
-    '''The LicenseFilePrintData type maps directly to the LicenseFilePrintData key in
-    the answer file. These values are transferred into the file that VirtualCenter
-    stores on the target virtual disk. For more detailed information, see the
-    document . LicenseFilePrintData provides licensing information for Windows
-    server operating systems.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationLicenseFilePrintData')
     

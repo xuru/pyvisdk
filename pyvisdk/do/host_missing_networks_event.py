@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostMissingNetworksEvent(vim, *args, **kwargs):
-    '''This event records the fact that a host is missing networks that other hosts
-    are using for HA communication'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostMissingNetworksEvent')
     

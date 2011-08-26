@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostConfigManager(vim, *args, **kwargs):
-    '''This data object type describes the configuration of a host across products and
-    versions.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostConfigManager')
     

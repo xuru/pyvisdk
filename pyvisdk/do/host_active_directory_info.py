@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostActiveDirectoryInfo(vim, *args, **kwargs):
-    '''The HostActiveDirectoryInfo data object describes ESX host membership in an
-    Active Directory domain. If the HostAuthenticationStoreInfo.enabled property is
-    , the host is a member of a domain and the ESX Server will set the domain
-    information properties.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostActiveDirectoryInfo')
     

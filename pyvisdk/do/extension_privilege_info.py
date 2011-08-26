@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ExtensionPrivilegeInfo(vim, *args, **kwargs):
-    '''This data object type describes privileges defined by the extension.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ExtensionPrivilegeInfo')
     

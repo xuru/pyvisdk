@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostCpuInfo(vim, *args, **kwargs):
-    '''Information about the CPUs.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostCpuInfo')
     

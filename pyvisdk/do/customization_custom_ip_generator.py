@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationCustomIpGenerator(vim, *args, **kwargs):
-    '''Use a command-line program configured with the VirtualCenter server.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationCustomIpGenerator')
     

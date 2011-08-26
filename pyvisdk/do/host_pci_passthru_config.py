@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostPciPassthruConfig(vim, *args, **kwargs):
-    '''This data object provides information about the state of PciPassthru for all
-    pci devices.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostPciPassthruConfig')
     

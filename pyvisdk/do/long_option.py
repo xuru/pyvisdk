@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LongOption(vim, *args, **kwargs):
-    '''The LongOption data object type is used to define the minimum, maximum, and
-    default values for a 64-bit long option.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LongOption')
     

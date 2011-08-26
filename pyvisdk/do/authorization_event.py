@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AuthorizationEvent(vim, *args, **kwargs):
-    '''These events indicate authorization events.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AuthorizationEvent')
     

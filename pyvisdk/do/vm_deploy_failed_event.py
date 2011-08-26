@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmDeployFailedEvent(vim, *args, **kwargs):
-    '''This event records a failure to deploy from a template.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmDeployFailedEvent')
     

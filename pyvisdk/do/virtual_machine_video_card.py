@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineVideoCard(vim, *args, **kwargs):
-    '''The VirtualVideoCard data object type represents a video card in a virtual
-    machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineVideoCard')
     

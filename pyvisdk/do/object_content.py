@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ObjectContent(vim, *args, **kwargs):
-    '''The ObjectContent data object type contains the contents retrieved for a single
-    managed object.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ObjectContent')
     

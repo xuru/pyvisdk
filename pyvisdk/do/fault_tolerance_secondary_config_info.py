@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def FaultToleranceSecondaryConfigInfo(vim, *args, **kwargs):
-    '''FaultToleranceSecondaryConfigInfo is a data object type containing Fault
-    Tolerance settings for a secondary virtual machine in a fault tolerance group'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:FaultToleranceSecondaryConfigInfo')
     

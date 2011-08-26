@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DatastoreDiscoveredEvent(vim, *args, **kwargs):
-    '''This event records when a host is added to VirtualCenter and datastores are
-    discovered.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DatastoreDiscoveredEvent')
     

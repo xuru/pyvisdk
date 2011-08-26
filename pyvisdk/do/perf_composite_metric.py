@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PerfCompositeMetric(vim, *args, **kwargs):
-    '''PerfCompositeMetric includes an optional aggregated entity performance
-    statistics and a list of composite entities performance statistics. The
-    aggregated entity statistics are optional because some entities, such as
-    folders, do not have their own statistics.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PerfCompositeMetric')
     

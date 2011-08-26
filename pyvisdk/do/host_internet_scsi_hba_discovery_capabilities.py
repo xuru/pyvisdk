@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostInternetScsiHbaDiscoveryCapabilities(vim, *args, **kwargs):
-    '''The discovery capabilities for this host bus adapter. At least one discovery
-    mode must always be active. Multiple modes may be active at the same time.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostInternetScsiHbaDiscoveryCapabilities')
     

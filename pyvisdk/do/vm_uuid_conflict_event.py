@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmUuidConflictEvent(vim, *args, **kwargs):
-    '''This event records a conflict of virtual machine BIOS UUIDs.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmUuidConflictEvent')
     

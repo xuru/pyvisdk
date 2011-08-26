@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDeviceBackingOption(vim, *args, **kwargs):
-    '''The VirtualDeviceBackingOption data class defines options for device-specific
-    virtual backing objects.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualDeviceBackingOption')
     

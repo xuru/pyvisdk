@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def IncorrectHostInformationEvent(vim, *args, **kwargs):
-    '''This event records if the host did not provide the information needed to
-    acquire the correct set of licenses.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:IncorrectHostInformationEvent')
     

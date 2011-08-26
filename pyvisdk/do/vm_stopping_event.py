@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmStoppingEvent(vim, *args, **kwargs):
-    '''This event records a virtual machine stopping.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmStoppingEvent')
     

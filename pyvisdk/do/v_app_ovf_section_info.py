@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VAppOvfSectionInfo(vim, *args, **kwargs):
-    '''The OvfSection encapsulates uninterpreted meta-data sections in an OVF
-    descriptor. When an OVF package is imported, non-required / non-interpreted
-    sections will be stored as OvfSection object. During the creation of an OVF
-    package, these sections will be placed in the OVF descriptor.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VAppOvfSectionInfo')
     

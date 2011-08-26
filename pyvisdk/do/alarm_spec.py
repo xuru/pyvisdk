@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AlarmSpec(vim, *args, **kwargs):
-    '''Parameters for alarm creation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AlarmSpec')
     

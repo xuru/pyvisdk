@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineLegacyNetworkSwitchInfo(vim, *args, **kwargs):
-    '''The LegacyNetworkSwitchInfo data object type contains information about the
-    legacy network switches available on the host.* VMware Server - Options
-    available for the "custom" NetworkBackingType. * ESX Server - The "esxnet"
-    NetworkBackingType.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineLegacyNetworkSwitchInfo')
     

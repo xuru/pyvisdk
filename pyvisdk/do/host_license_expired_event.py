@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostLicenseExpiredEvent(vim, *args, **kwargs):
-    '''This event records an expired host license.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostLicenseExpiredEvent')
     

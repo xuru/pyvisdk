@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationPassword(vim, *args, **kwargs):
-    '''Contains a password string and a flag that specifies whether the string is in
-    plain text or encrypted.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationPassword')
     

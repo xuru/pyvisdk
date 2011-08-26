@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostMultipathInfoLogicalUnit(vim, *args, **kwargs):
-    '''This data object type represents a storage entity that provides disk blocks to
-    a host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostMultipathInfoLogicalUnit')
     

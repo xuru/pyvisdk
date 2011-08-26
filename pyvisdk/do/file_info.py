@@ -9,11 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def FileInfo(vim, *args, **kwargs):
-    '''This data object type contains rudimentary information about a file in a
-    datastore. The information here is not meant to cover all information in
-    traditional file systems, but rather to provide sufficient information for
-    files that are associated with virtual machines. Derived types describe the
-    known file types for a datastore.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:FileInfo')
     

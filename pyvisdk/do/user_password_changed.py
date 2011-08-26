@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def UserPasswordChanged(vim, *args, **kwargs):
-    '''This event records that a user password changed.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:UserPasswordChanged')
     

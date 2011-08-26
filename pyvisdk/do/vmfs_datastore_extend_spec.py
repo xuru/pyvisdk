@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmfsDatastoreExtendSpec(vim, *args, **kwargs):
-    '''Specification to increase the capacity of a VMFS datastore by adding one or
-    more new extents to the datastore. All the extents to be added must be on the
-    same disk. Extension is different from creation in that the VMFS creation
-    specification need not be specified.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmfsDatastoreExtendSpec')
     

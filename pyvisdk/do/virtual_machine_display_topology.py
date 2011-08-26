@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineDisplayTopology(vim, *args, **kwargs):
-    '''This data object defines a two-dimensional, rectangular display area.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineDisplayTopology')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PerformanceStatisticsDescription(vim, *args, **kwargs):
-    '''Data object to capture all information needed to describe a sample inventory.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PerformanceStatisticsDescription')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostCnxFailedCcagentUpgradeEvent(vim, *args, **kwargs):
-    '''This event records a failure to connect to a host due to a conflict with an
-    upgrade or installation of the host agent.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostCnxFailedCcagentUpgradeEvent')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineSerialInfo(vim, *args, **kwargs):
-    '''SerialInfo class contains information about a physical serial drive on the
-    host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineSerialInfo')
     

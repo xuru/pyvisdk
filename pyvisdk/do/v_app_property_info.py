@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VAppPropertyInfo(vim, *args, **kwargs):
-    '''A vApp Property description, including deployment values'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VAppPropertyInfo')
     

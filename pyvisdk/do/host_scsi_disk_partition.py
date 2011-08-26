@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostScsiDiskPartition(vim, *args, **kwargs):
-    '''This data object type describes the specification of a Disk partition.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostScsiDiskPartition')
     

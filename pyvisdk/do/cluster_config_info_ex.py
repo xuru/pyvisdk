@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterConfigInfoEx(vim, *args, **kwargs):
-    '''The ClusterConfigInfoEx data object describes a complete cluster configuration.
-    For information about configuring a cluster, see ClusterConfigSpecEx.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterConfigInfoEx')
     

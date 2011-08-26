@@ -9,11 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostMultipathStateInfo(vim, *args, **kwargs):
-    '''This data object type describes the state of storage paths on the host. All
-    storage paths on the host are enumerated in this data object.The reason all
-    path state information is encapsulated in this data object is because the path
-    may actively change. This data object ensures that a request to gather path
-    state changes only needs to fetch this data object.'''
+    '''The reason all path state information is encapsulated in this data object is
+    because the path may actively change. This data object ensures that a request
+    to gather path state changes only needs to fetch this data object.'''
     
     obj = vim.client.factory.create('ns0:HostMultipathStateInfo')
     

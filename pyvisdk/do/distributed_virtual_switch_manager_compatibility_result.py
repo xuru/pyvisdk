@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DistributedVirtualSwitchManagerCompatibilityResult(vim, *args, **kwargs):
-    '''This is the return type for the checkCompatibility method. This object has a
-    host property and optionally a fault which would be populated only if that host
-    is not compatible with a given dvsProductSpec. If the host is compatible then
-    the error property would be unset.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DistributedVirtualSwitchManagerCompatibilityResult')
     

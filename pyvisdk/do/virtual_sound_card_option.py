@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualSoundCardOption(vim, *args, **kwargs):
-    '''The VirtualSoundCardOption data class contains the options for the virtual
-    sound card class.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualSoundCardOption')
     

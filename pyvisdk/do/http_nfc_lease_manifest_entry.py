@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HttpNfcLeaseManifestEntry(vim, *args, **kwargs):
-    '''Provides a manifest for downloaded (exported) files and disks.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HttpNfcLeaseManifestEntry')
     

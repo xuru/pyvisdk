@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ResourcePoolEvent(vim, *args, **kwargs):
-    '''This event is the base class for all resource pool events.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ResourcePoolEvent')
     

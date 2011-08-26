@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ObjectUpdate(vim, *args, **kwargs):
-    '''The ObjectUpdate data object type contains information about changes to a
-    particular managed object. We distinguish updates when an object is created,
-    destroyed, or modified, as well as when the object enters or leaves the set of
-    objects dynamically associated with a filter.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ObjectUpdate')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostIpToShortNameFailedEvent(vim, *args, **kwargs):
-    '''This event records that the host's IP address could not be resolved to a short
-    name.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostIpToShortNameFailedEvent')
     

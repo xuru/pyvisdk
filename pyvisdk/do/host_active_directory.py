@@ -9,21 +9,20 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostActiveDirectory(vim, *args, **kwargs):
-    '''The HostActiveDirectory data object contains Active Directory configuration
-    information for an ESX host.The vSphere API supports Microsoft Active Directory
-    management of authentication for ESX hosts. To integrate an ESX host into an
-    Active Directory environment, you use an Active Directory account that has the
-    authority to add a computer to a domain. The ESX Server locates the Active
-    Directory domain controller. When you use the host profile to configure
-    authentication for an ESX host, you specify the configuration operation (add or
-    remove). To add the host to a domain, specify the domain, and the authorized
-    Active Directory account user name and password. You do not need to specify
-    these parameters to remove the host from a domain because the host has the
-    information it needs to perform the operation. When you call
-    ApplyHostConfig_Task to apply the configuration, the ESX Server will call the
-    appropriate method (JoinDomain_Task or LeaveCurrentDomain_Task) on your
-    behalf.Before you call the method to apply the host profile, check to see that
-    the HostAuthenticationManager.supportedStore array contains a
+    '''The vSphere API supports Microsoft Active Directory management of
+    authentication for ESX hosts. To integrate an ESX host into an Active Directory
+    environment, you use an Active Directory account that has the authority to add
+    a computer to a domain. The ESX Server locates the Active Directory domain
+    controller. When you use the host profile to configure authentication for an
+    ESX host, you specify the configuration operation (add or remove). To add the
+    host to a domain, specify the domain, and the authorized Active Directory
+    account user name and password. You do not need to specify these parameters to
+    remove the host from a domain because the host has the information it needs to
+    perform the operation. When you call ApplyHostConfig_Task to apply the
+    configuration, the ESX Server will call the appropriate method (JoinDomain_Task
+    or LeaveCurrentDomain_Task) on your behalf.Before you call the method to apply
+    the host profile, check to see that the
+    HostAuthenticationManager.supportedStore array contains a
     HostActiveDirectoryAuthentication object. The presence of the Active Directory
     authentication object indicates that a host is capable of joining a domain.
     However, if you try to add a host to a domain when the

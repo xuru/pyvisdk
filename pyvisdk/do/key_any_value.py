@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def KeyAnyValue(vim, *args, **kwargs):
-    '''Non-localized key/value pair in which the the value can be of any type.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:KeyAnyValue')
     

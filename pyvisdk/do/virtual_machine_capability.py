@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineCapability(vim, *args, **kwargs):
-    '''This data object type contains information about the operation/capabailities of
-    a virtual machine'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineCapability')
     

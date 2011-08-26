@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileParameterMetadata(vim, *args, **kwargs):
-    '''This data object represents the metadata information of a PolicyParameter'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfileParameterMetadata')
     

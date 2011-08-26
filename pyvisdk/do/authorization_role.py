@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AuthorizationRole(vim, *args, **kwargs):
-    '''This data object type specifies a collection of privileges used to grant access
-    to users on managed entities.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AuthorizationRole')
     

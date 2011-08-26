@@ -9,11 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def TraversalSpec(vim, *args, **kwargs):
-    '''The TraversalSpec data object type specifies how to derive a new set of objects
-    to add to the filter.It specifies a property path whose value is either another
-    managed object or an array of managed objects included in the set of objects
-    for consideration. This data object can also be named, using the "name" field
-    in the base type.'''
+    '''It specifies a property path whose value is either another managed object or an
+    array of managed objects included in the set of objects for consideration. This
+    data object can also be named, using the "name" field in the base type.'''
     
     obj = vim.client.factory.create('ns0:TraversalSpec')
     

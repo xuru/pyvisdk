@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDiskRawDiskVer2BackingInfo(vim, *args, **kwargs):
-    '''This data object type contains information about backing a virtual disk by
-    using a host device, as used by VMware Server.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualDiskRawDiskVer2BackingInfo')
     

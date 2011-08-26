@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PerfMetricSeries(vim, *args, **kwargs):
-    '''This is a generic data object type that stores values for a specific
-    performance metric. Useful data objects that store actual metric values extend
-    this data object (see PerfMetricIntSeries).'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PerfMetricSeries')
     

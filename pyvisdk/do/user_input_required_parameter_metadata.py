@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def UserInputRequiredParameterMetadata(vim, *args, **kwargs):
-    '''DataObject represents the metadata information for a parameter which will be
-    specified by the user during apply time.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:UserInputRequiredParameterMetadata')
     

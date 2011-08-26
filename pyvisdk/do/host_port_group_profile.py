@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostPortGroupProfile(vim, *args, **kwargs):
-    '''This data object type represents the profile for a Port Group that will be used
-    by ESX host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostPortGroupProfile')
     

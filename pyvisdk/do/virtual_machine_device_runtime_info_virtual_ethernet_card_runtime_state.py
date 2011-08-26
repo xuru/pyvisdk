@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeState(vim, *args, **kwargs):
-    '''Runtime state of a virtual ethernet card device.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeState')
     

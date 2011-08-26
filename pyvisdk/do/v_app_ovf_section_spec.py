@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VAppOvfSectionSpec(vim, *args, **kwargs):
-    '''An incremental update to the OvfSection list.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VAppOvfSectionSpec')
     

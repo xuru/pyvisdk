@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HttpNfcLeaseDatastoreLeaseInfo(vim, *args, **kwargs):
-    '''For a given datastore, represented by datastoreKey, contains a list of leased
-    multi-POST-capable hosts connected to it.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HttpNfcLeaseDatastoreLeaseInfo')
     

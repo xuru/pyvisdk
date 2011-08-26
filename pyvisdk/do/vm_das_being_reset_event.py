@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmDasBeingResetEvent(vim, *args, **kwargs):
-    '''This event records when a virtual machine is reset by HA VM Health Monitoring
-    on hosts that do not support the create screenshot api or if the
-    createscreenshot api fails.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmDasBeingResetEvent')
     

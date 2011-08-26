@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNtpConfig(vim, *args, **kwargs):
-    '''Configuration information for the NTP (Network Time Protocol) service.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostNtpConfig')
     

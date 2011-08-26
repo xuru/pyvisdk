@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NumericRange(vim, *args, **kwargs):
-    '''The class that describe an integer range.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NumericRange')
     

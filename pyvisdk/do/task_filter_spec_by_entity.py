@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def TaskFilterSpecByEntity(vim, *args, **kwargs):
-    '''This data object type specifies a managed entity used to filter task history.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:TaskFilterSpecByEntity')
     

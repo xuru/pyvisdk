@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VMFSDatastoreExtendedEvent(vim, *args, **kwargs):
-    '''This event records when a datastore is extended.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VMFSDatastoreExtendedEvent')
     

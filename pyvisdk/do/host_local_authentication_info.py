@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostLocalAuthenticationInfo(vim, *args, **kwargs):
-    '''The HostLocalAuthenticationInfo data object represents local authentication on
-    the ESX host. Local authentication is always enabled.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostLocalAuthenticationInfo')
     

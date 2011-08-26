@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationUnknownIpGenerator(vim, *args, **kwargs):
-    '''The IP address is left unspecified. The user must be prompted to supply an IP
-    address.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationUnknownIpGenerator')
     

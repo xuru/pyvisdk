@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def StringPolicy(vim, *args, **kwargs):
-    '''The string type of setting or configuration that may get an inherited value.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:StringPolicy')
     

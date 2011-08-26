@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineConfigSpec(vim, *args, **kwargs):
-    '''The ConfigSpec data object type encapsulates configuration settings when
-    creating or reconfiguring a virtual machine. To support incremental changes,
-    these properties are all optional.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineConfigSpec')
     

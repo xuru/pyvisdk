@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AuthorizationDescription(vim, *args, **kwargs):
-    '''Static strings for authorization.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AuthorizationDescription')
     

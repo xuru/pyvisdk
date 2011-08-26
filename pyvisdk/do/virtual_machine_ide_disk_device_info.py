@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineIdeDiskDeviceInfo(vim, *args, **kwargs):
-    '''The IdeDiskDeviceInfo class contains detailed information about a specific IDE
-    disk hardware device. These devices are for the
-    vim.vm.device.VirtualDisk.RawDiskVer2BackingInfo and
-    vim.vm.device.VirtualDisk.PartitionedRawDiskVer2BackingInfo backings.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineIdeDiskDeviceInfo')
     

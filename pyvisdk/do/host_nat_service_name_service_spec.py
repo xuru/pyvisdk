@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNatServiceNameServiceSpec(vim, *args, **kwargs):
-    '''This data object type specifies the information for the name servers.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostNatServiceNameServiceSpec')
     

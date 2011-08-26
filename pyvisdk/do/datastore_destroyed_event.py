@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DatastoreDestroyedEvent(vim, *args, **kwargs):
-    '''This event records when a datastore is removed from VirtualCenter.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DatastoreDestroyedEvent')
     

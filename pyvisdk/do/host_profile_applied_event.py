@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostProfileAppliedEvent(vim, *args, **kwargs):
-    '''This event records that a Profile application was done on the host'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostProfileAppliedEvent')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileCompositeExpression(vim, *args, **kwargs):
-    '''DataObject to Compose expressions. It is used to group expressions together.
-    They are similar to a parentheses in an expression.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfileCompositeExpression')
     

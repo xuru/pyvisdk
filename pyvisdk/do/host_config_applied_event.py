@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostConfigAppliedEvent(vim, *args, **kwargs):
-    '''This event records that a configuration was applied on a host'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostConfigAppliedEvent')
     

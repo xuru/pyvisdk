@@ -9,11 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def TaskEvent(vim, *args, **kwargs):
-    '''This event records the creation of a Task. Note that the embedded TaskInfo
-    object is a of the Task state at the time of its creation, so its state will
-    always be "queued". To find the current status of the task, query for the
-    current state of the Task using the eventChainId in the embedded TaskInfo
-    object.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:TaskEvent')
     

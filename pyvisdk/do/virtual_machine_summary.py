@@ -9,10 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineSummary(vim, *args, **kwargs):
-    '''The summary data object type encapsulates a typical set of virtual machine
-    information that is useful for list views and summary pages.VirtualCenter can
-    retrieve this information very efficiently, even for large sets of virtual
-    machines.'''
+    '''VirtualCenter can retrieve this information very efficiently, even for large
+    sets of virtual machines.'''
     
     obj = vim.client.factory.create('ns0:VirtualMachineSummary')
     

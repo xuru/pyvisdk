@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostVirtualSwitchSpec(vim, *args, **kwargs):
-    '''This data object type describes the VirtualSwitch specification representing
-    the properties on a VirtualSwitch that can be configured once the object
-    exists.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostVirtualSwitchSpec')
     

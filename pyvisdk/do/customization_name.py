@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationName(vim, *args, **kwargs):
-    '''A base object type for a virtual machine name that can be either fixed or auto-
-    generated.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationName')
     

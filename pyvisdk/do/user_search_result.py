@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def UserSearchResult(vim, *args, **kwargs):
-    '''When searching for users, the search results in some additional information.
-    This object describes the additional information.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:UserSearchResult')
     

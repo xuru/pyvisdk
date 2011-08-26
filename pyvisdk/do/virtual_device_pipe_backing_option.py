@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDevicePipeBackingOption(vim, *args, **kwargs):
-    '''The data object type contains options specific to pipe backings.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualDevicePipeBackingOption')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualSCSIControllerOption(vim, *args, **kwargs):
-    '''The VirtualSCSIControllerOption data object type contains the options for a
-    virtual SCSI controller defined by the VirtualSCSIController data object type.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualSCSIControllerOption')
     

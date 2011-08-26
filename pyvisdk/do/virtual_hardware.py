@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualHardware(vim, *args, **kwargs):
-    '''The VirtualHardware data object type contains the complete configuration of the
-    hardware in a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualHardware')
     

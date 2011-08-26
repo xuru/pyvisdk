@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def FaultToleranceConfigInfo(vim, *args, **kwargs):
-    '''FaultToleranceConfigInfo is a data object type containing Fault Tolerance
-    settings for this virtual machine. role, instanceUuids and configPaths contain
-    information about the whole fault tolerance group.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:FaultToleranceConfigInfo')
     

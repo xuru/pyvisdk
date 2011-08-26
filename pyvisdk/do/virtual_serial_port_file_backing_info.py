@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualSerialPortFileBackingInfo(vim, *args, **kwargs):
-    '''The data object provides information for backing a virtual serial port with a
-    host file.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualSerialPortFileBackingInfo')
     

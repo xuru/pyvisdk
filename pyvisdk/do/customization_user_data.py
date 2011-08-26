@@ -9,10 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationUserData(vim, *args, **kwargs):
-    '''Personal data pertaining to the owner of the virtual machine.The UserData data
-    object type maps to the UserData key in the answer file. These values are
-    transferred directly into the file that VirtualCenter stores on the target
-    virtual disk. For more detailed information, see the document .'''
+    '''The UserData data object type maps to the UserData key in the answer file.
+    These values are transferred directly into the file that VirtualCenter stores
+    on the target virtual disk. For more detailed information, see the document .'''
     
     obj = vim.client.factory.create('ns0:CustomizationUserData')
     

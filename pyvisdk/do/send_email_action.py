@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def SendEmailAction(vim, *args, **kwargs):
-    '''This data object type defines an email that is triggered by an alarm. You can
-    use any elements of the ActionParameter enumerated list as part of your strings
-    to provide information available at runtime.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:SendEmailAction')
     

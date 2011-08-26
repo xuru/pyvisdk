@@ -9,11 +9,10 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineBootOptions(vim, *args, **kwargs):
-    '''The VirtualMachineBootOptions data object defines the boot-time behavior of a
-    virtual machine.You can use the delay options to specify a time interval during
-    which you can enter the virtual machine BIOS setup. These options provide a
-    solution for the situation that occurs when the console attaches to the virtual
-    machine after the boot sequence has passed the BIOS setup entry point.'''
+    '''You can use the delay options to specify a time interval during which you can
+    enter the virtual machine BIOS setup. These options provide a solution for the
+    situation that occurs when the console attaches to the virtual machine after
+    the boot sequence has passed the BIOS setup entry point.'''
     
     obj = vim.client.factory.create('ns0:VirtualMachineBootOptions')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileDissociatedEvent(vim, *args, **kwargs):
-    '''This event records that a Profile was dissociated from a managed entity'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfileDissociatedEvent')
     

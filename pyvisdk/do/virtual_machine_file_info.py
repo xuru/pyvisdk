@@ -9,13 +9,10 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineFileInfo(vim, *args, **kwargs):
-    '''The FileInfo data object type contains the locations of virtual machine files
-    other than the virtual disk files. The configurable parameters are all in the
-    FileInfo object.The object also contains a FileLayout object that returns a
-    complete list of additional files that makes up the virtual machine
-    configuration. This is a read-only structure and is returned when the
-    configuration is read. This is ignored during configuration and can be left
-    out.'''
+    '''The object also contains a FileLayout object that returns a complete list of
+    additional files that makes up the virtual machine configuration. This is a
+    read-only structure and is returned when the configuration is read. This is
+    ignored during configuration and can be left out.'''
     
     obj = vim.client.factory.create('ns0:VirtualMachineFileInfo')
     

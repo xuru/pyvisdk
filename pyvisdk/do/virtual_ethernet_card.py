@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualEthernetCard(vim, *args, **kwargs):
-    '''This data object type contains the properties of an Ethernet adapter attached
-    to a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualEthernetCard')
     
@@ -20,7 +19,7 @@ def VirtualEthernetCard(vim, *args, **kwargs):
         
     signature = [ 'key' ]
     inherited = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'unitNumber',
-        'addressType' ]
+        'addressType', 'macAddress', 'wakeOnLanEnabled' ]
     
     for name, arg in zip(signature+inherited, args):
         setattr(obj, name, arg)

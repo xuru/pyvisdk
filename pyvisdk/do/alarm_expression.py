@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AlarmExpression(vim, *args, **kwargs):
-    '''Base type for the expressions specifying the conditions that define the status
-    of an alarm.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AlarmExpression')
     

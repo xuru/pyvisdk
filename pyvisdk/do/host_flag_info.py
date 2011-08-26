@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostFlagInfo(vim, *args, **kwargs):
-    '''The FlagInfo data object type encapsulates the flag settings for a host. These
-    properties are optional since the same structure is used to change the values
-    during an edit or create operation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostFlagInfo')
     

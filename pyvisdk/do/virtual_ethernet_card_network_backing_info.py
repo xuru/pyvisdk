@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualEthernetCardNetworkBackingInfo(vim, *args, **kwargs):
-    '''The virtual Ethernet card backing class.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualEthernetCardNetworkBackingInfo')
     

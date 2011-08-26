@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineRelocateSpec(vim, *args, **kwargs):
-    '''Specification for moving or copying a virtual machine to a different datastore
-    or host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineRelocateSpec')
     

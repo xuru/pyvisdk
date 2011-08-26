@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def OvfManagerCommonParams(vim, *args, **kwargs):
-    '''A common super-class for basic OVF descriptor parameters'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:OvfManagerCommonParams')
     

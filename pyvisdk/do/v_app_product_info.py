@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VAppProductInfo(vim, *args, **kwargs):
-    '''Information that describes what product a vApp contains, e.g., what software
-    that is installed in the contained virtual machines.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VAppProductInfo')
     

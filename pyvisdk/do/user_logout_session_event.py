@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def UserLogoutSessionEvent(vim, *args, **kwargs):
-    '''This event records a user logoff, disconnection, or session timeout.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:UserLogoutSessionEvent')
     

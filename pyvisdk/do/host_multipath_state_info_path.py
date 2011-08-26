@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostMultipathStateInfoPath(vim, *args, **kwargs):
-    '''Data object indicating state of storage path for a named path.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostMultipathStateInfoPath')
     

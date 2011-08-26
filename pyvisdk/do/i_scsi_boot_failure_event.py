@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def IScsiBootFailureEvent(vim, *args, **kwargs):
-    '''Could not boot from iScsi.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:IScsiBootFailureEvent')
     

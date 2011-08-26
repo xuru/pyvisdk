@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostIpConfig(vim, *args, **kwargs):
-    '''The IP configuration.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostIpConfig')
     

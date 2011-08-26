@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostTpmDigestInfo(vim, *args, **kwargs):
-    '''This data object type describes the digest values in the Platform Configuration
-    Register (PCR) of a Trusted Platform Module (TPM) device.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostTpmDigestInfo')
     

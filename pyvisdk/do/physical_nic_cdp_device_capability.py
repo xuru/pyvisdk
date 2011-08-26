@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PhysicalNicCdpDeviceCapability(vim, *args, **kwargs):
-    '''The capability of the CDP-awared device that connects to a PNIC.
-    PhysicalNicCdpInfo'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PhysicalNicCdpDeviceCapability')
     

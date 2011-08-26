@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetIpRouteConfigInfoGateway(vim, *args, **kwargs):
-    '''Next hop Gateway for a given route.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NetIpRouteConfigInfoGateway')
     

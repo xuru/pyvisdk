@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualUSBControllerOption(vim, *args, **kwargs):
-    '''The VirtualUSBControllerOption data object type contains the options for a
-    virtual USB Host Controller Interface.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualUSBControllerOption')
     

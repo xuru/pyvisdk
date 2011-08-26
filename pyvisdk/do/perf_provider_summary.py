@@ -9,11 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PerfProviderSummary(vim, *args, **kwargs):
-    '''This data object type contains information about a performance provider, the
-    type of statistics it generates, and the refreshRate for statistics generation.
-    A performance provider is any managed object that generates real-time or
-    historical statistics (or boththe currentSupported and summarySupported
-    properties are not mutually exclusive).'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PerfProviderSummary')
     

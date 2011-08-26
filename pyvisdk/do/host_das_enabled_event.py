@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDasEnabledEvent(vim, *args, **kwargs):
-    '''This event records when HA has been enabled on a host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostDasEnabledEvent')
     

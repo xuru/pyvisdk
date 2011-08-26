@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostSyncFailedEvent(vim, *args, **kwargs):
-    '''This event records a failure to sync up with the VirtualCenter agent on the
-    host'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostSyncFailedEvent')
     

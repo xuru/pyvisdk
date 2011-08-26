@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileChangedEvent(vim, *args, **kwargs):
-    '''This event records that the profile has beed edited'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfileChangedEvent')
     

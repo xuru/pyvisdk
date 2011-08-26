@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PowerSystemInfo(vim, *args, **kwargs):
-    '''Power System Info data object. Shows current state of power management system.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PowerSystemInfo')
     

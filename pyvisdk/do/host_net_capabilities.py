@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNetCapabilities(vim, *args, **kwargs):
-    '''Capability vector indicating the available product features.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostNetCapabilities')
     

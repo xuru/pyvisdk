@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DistributedVirtualSwitchHostProductSpec(vim, *args, **kwargs):
-    '''This data object type is a subset of AboutInfo. An object of this type can be
-    used to describe the specification for a host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DistributedVirtualSwitchHostProductSpec')
     

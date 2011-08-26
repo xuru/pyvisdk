@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DuplicateIpDetectedEvent(vim, *args, **kwargs):
-    '''This event records that a duplicate IP address has been observed in conflict
-    with the vmotion or IP storage interface configured on the host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DuplicateIpDetectedEvent')
     

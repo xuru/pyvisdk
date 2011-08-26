@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostIpRouteConfigSpec(vim, *args, **kwargs):
-    '''Dataobject specifying the configuration for IpRoute'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostIpRouteConfigSpec')
     

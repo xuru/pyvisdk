@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def WinNetBIOSConfigInfo(vim, *args, **kwargs):
-    '''This data object type describes the Windows-specific NetBIOS configuration.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:WinNetBIOSConfigInfo')
     

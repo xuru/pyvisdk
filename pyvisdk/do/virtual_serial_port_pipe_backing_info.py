@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualSerialPortPipeBackingInfo(vim, *args, **kwargs):
-    '''The data object defines information for backing a with a named pipe. You can
-    use a pipe to connect a virtual serial port to a host application or to another
-    virtual machine on the host computer. This is useful for capturing debugging
-    information sent through the virtual serial port.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualSerialPortPipeBackingInfo')
     

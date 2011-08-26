@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DasAdmissionControlEnabledEvent(vim, *args, **kwargs):
-    '''This event records when admission control checks have been enabled in a HA
-    cluster.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DasAdmissionControlEnabledEvent')
     

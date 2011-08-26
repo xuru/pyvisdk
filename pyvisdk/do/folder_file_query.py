@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def FolderFileQuery(vim, *args, **kwargs):
-    '''This data object type describes the query specification for a folder
-    (directory).'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:FolderFileQuery')
     

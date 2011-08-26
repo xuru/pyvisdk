@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ScheduledTaskDescription(vim, *args, **kwargs):
-    '''Static strings for scheduled tasks. These strings are locale-specific.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ScheduledTaskDescription')
     

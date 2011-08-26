@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def SendSNMPAction(vim, *args, **kwargs):
-    '''This data object type specifies an SNMP trap that is triggered by an alarm.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:SendSNMPAction')
     

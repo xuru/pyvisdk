@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PnicUplinkProfile(vim, *args, **kwargs):
-    '''DataObject which specifies the mapping between a PNic and an uplink port'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PnicUplinkProfile')
     

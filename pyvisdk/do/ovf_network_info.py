@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def OvfNetworkInfo(vim, *args, **kwargs):
-    '''The name and description of a network as specified by the OVF descriptor.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:OvfNetworkInfo')
     

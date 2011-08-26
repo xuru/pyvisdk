@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterDasFailoverLevelAdvancedRuntimeInfo(vim, *args, **kwargs):
-    '''Advanced runtime information related to the high availability service for a
-    cluster that has been configured with a failover level admission control
-    policy. See ClusterFailoverLevelAdmissionControlPolicy.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterDasFailoverLevelAdvancedRuntimeInfo')
     

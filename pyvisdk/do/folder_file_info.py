@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def FolderFileInfo(vim, *args, **kwargs):
-    '''This data object type describes a file that is a folder (directory).'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:FolderFileInfo')
     

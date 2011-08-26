@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmSecondaryDisabledEvent(vim, *args, **kwargs):
-    '''This event records a secondary VM is disabled.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmSecondaryDisabledEvent')
     

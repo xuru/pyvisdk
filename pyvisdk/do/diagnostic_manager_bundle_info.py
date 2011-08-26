@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DiagnosticManagerBundleInfo(vim, *args, **kwargs):
-    '''Describes a location of a diagnostic bundle and the server to which it belongs.
-    This is a return type for the generateLogBundles operation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DiagnosticManagerBundleInfo')
     

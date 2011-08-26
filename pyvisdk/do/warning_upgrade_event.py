@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def WarningUpgradeEvent(vim, *args, **kwargs):
-    '''This event is a general warning event from upgrade.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:WarningUpgradeEvent')
     

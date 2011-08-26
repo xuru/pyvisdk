@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def SessionManagerLocalTicket(vim, *args, **kwargs):
-    '''This data object type contains the user name and location of the file
-    containing the password that clients can use for one-time logon to a server.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:SessionManagerLocalTicket')
     

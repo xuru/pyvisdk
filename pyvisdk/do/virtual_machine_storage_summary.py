@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineStorageSummary(vim, *args, **kwargs):
-    '''A subset of the storage information of this virtual machine.See
-    VirtualMachineStorageInfo for a detailed storage break-up.'''
+    '''See VirtualMachineStorageInfo for a detailed storage break-up.'''
     
     obj = vim.client.factory.create('ns0:VirtualMachineStorageSummary')
     

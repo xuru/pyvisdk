@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VcAgentUpgradeFailedEvent(vim, *args, **kwargs):
-    '''This event records when the VirtualCenter agent on a host failed to upgrade.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VcAgentUpgradeFailedEvent')
     

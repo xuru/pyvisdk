@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def GuestStackInfo(vim, *args, **kwargs):
-    '''Information about the Internet Protocol stack as configured in the guest
-    operating system.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:GuestStackInfo')
     

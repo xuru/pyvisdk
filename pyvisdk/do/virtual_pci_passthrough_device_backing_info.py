@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualPCIPassthroughDeviceBackingInfo(vim, *args, **kwargs):
-    '''The VirtualPCIPassthrough.DeviceBackingInfo data object type contains
-    information about the backing that maps the virtual device onto a physical
-    device.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualPCIPassthroughDeviceBackingInfo')
     

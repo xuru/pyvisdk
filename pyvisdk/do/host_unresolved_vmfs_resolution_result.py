@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostUnresolvedVmfsResolutionResult(vim, *args, **kwargs):
-    '''When an UnresolvedVmfsVolume has been resignatured or forceMounted, we want to
-    return the original spec information along with newly created VMFS volume.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostUnresolvedVmfsResolutionResult')
     

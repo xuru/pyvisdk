@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DVSFeatureCapability(vim, *args, **kwargs):
-    '''Dataobject representing the feature capabilities supported by the vNetwork
-    Distributed Virtual Switch.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DVSFeatureCapability')
     

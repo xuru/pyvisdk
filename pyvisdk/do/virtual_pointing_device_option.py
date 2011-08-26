@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualPointingDeviceOption(vim, *args, **kwargs):
-    '''The VirtualPointingDeviceOption data object type contains the options for the
-    host mouse type defined in the VirtualPointingDevice data object type. These
-    options include the valid selections for the mouse type, the supported mouse
-    types, and the default mouse type.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualPointingDeviceOption')
     

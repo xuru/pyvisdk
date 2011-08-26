@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DateTimeProfile(vim, *args, **kwargs):
-    '''DataObject representing the Date and Time configuration of the host'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DateTimeProfile')
     

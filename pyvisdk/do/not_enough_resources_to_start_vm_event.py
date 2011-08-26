@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NotEnoughResourcesToStartVmEvent(vim, *args, **kwargs):
-    '''This event records when the HA does not find sufficient resources to failover a
-    virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NotEnoughResourcesToStartVmEvent')
     

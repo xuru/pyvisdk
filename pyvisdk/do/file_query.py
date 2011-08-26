@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def FileQuery(vim, *args, **kwargs):
-    '''The data object type that describes the base query specification. Contains
-    query filters and details that apply to every file. Querying only file details
-    generally does not require opening files and so is an efficient query. Derived
-    types add query parameters specific to the type of file.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:FileQuery')
     

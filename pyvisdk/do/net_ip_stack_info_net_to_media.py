@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetIpStackInfoNetToMedia(vim, *args, **kwargs):
-    '''Information from an IP stack about known mappings betwwen an IP address and the
-    underlying physical address it maps to as learned by: IPv4: Address Resolution
-    Protocol (ARP) RFC 826 IPv6: Neighbor Discovery Protocol (NDP) RFC 4861'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NetIpStackInfoNetToMedia')
     

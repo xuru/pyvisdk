@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmResettingEvent(vim, *args, **kwargs):
-    '''This event records a virtual machine resetting.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmResettingEvent')
     

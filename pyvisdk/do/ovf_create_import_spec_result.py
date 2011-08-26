@@ -9,12 +9,10 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def OvfCreateImportSpecResult(vim, *args, **kwargs):
-    '''The CreateImportSpecResult contains all information regarding the import that
-    can be extracted from the OVF descriptor.For example, this includes the list of
-    items that the caller must upload in order to complete the import, but not the
-    list of URLs to which the files must be uploaded. These paths are not known
-    until the VMs have been created, ie. until ResourcePool.importVApp has been
-    called.'''
+    '''For example, this includes the list of items that the caller must upload in
+    order to complete the import, but not the list of URLs to which the files must
+    be uploaded. These paths are not known until the VMs have been created, ie.
+    until ResourcePool.importVApp has been called.'''
     
     obj = vim.client.factory.create('ns0:OvfCreateImportSpecResult')
     

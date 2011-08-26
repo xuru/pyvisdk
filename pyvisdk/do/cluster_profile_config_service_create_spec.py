@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterProfileConfigServiceCreateSpec(vim, *args, **kwargs):
-    '''DataObject which allows reconfiguration of a profile based on services that
-    will be available on the cluster.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterProfileConfigServiceCreateSpec')
     

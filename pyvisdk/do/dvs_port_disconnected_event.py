@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsPortDisconnectedEvent(vim, *args, **kwargs):
-    '''A port is disconnected in the distributed virtual switch.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsPortDisconnectedEvent')
     

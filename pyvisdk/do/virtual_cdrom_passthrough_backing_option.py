@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualCdromPassthroughBackingOption(vim, *args, **kwargs):
-    '''The VirtualCdromOption.PassthroughBackingOption data object type contains the
-    options for a pass-through CD-ROM device backing.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualCdromPassthroughBackingOption')
     

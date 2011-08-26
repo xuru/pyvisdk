@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ExtendedEvent(vim, *args, **kwargs):
-    '''This event is the base class for extended events.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ExtendedEvent')
     

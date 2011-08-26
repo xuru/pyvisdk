@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostStorageDeviceInfo(vim, *args, **kwargs):
-    '''This data object type describes the storage subsystem configuration.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostStorageDeviceInfo')
     

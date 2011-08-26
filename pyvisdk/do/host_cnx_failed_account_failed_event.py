@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostCnxFailedAccountFailedEvent(vim, *args, **kwargs):
-    '''This event records a failure to connect to a host due to a failure to set up a
-    management account.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostCnxFailedAccountFailedEvent')
     

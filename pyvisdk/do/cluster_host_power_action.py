@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterHostPowerAction(vim, *args, **kwargs):
-    '''Describes a single host power action.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterHostPowerAction')
     

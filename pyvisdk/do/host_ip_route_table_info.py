@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostIpRouteTableInfo(vim, *args, **kwargs):
-    '''IpRouteTableInfo. This is the list of all static routes on the host'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostIpRouteTableInfo')
     

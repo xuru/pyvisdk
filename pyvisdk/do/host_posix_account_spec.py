@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostPosixAccountSpec(vim, *args, **kwargs):
-    '''This data object type contains a POSIX-specific parameter for local account
-    creation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostPosixAccountSpec')
     

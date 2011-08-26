@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomFieldValueChangedEvent(vim, *args, **kwargs):
-    '''This event records a change to a custom field value for a particular entity.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomFieldValueChangedEvent')
     

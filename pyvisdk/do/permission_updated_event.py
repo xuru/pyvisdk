@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PermissionUpdatedEvent(vim, *args, **kwargs):
-    '''This event records the update of a permission.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PermissionUpdatedEvent')
     

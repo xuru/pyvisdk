@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostFibreChannelHba(vim, *args, **kwargs):
-    '''This data object type describes the Fibre Channel host bus adapter.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostFibreChannelHba')
     

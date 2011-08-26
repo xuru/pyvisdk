@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostInternetScsiHbaStaticTarget(vim, *args, **kwargs):
-    '''The iSCSI static target.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostInternetScsiHbaStaticTarget')
     

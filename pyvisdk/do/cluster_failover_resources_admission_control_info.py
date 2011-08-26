@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterFailoverResourcesAdmissionControlInfo(vim, *args, **kwargs):
-    '''The current admission control related information if the cluster was configured
-    with a FailoverResourcesAdmissionControlPolicy.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterFailoverResourcesAdmissionControlInfo')
     

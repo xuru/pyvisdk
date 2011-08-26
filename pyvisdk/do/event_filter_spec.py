@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EventFilterSpec(vim, *args, **kwargs):
-    '''Event filter used to query events in the history collector database. The client
-    creates an event history collector with a filter specification, then retrieves
-    the events from the event history collector.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:EventFilterSpec')
     

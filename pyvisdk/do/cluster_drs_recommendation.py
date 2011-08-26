@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterDrsRecommendation(vim, *args, **kwargs):
-    '''DrsRecommendation describes a recommendation to migrate one or more virtual
-    machines.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterDrsRecommendation')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NASDatastoreCreatedEvent(vim, *args, **kwargs):
-    '''This event records when a NAS datastore is created.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NASDatastoreCreatedEvent')
     

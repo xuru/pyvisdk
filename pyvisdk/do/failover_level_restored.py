@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def FailoverLevelRestored(vim, *args, **kwargs):
-    '''This event records that the amount of cluster resources has increased and is
-    now sufficient to satisfy the configured HA failover level.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:FailoverLevelRestored')
     

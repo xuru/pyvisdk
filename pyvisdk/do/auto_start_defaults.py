@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AutoStartDefaults(vim, *args, **kwargs):
-    '''Defines the system default auto-start/auto-stop values.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AutoStartDefaults')
     

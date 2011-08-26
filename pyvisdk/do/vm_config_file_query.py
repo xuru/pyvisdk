@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmConfigFileQuery(vim, *args, **kwargs):
-    '''This data object type describes query specification for the virtual machine
-    configuration file.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmConfigFileQuery')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostApplyProfile(vim, *args, **kwargs):
-    '''This DataObject has information about how a host should be configured.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostApplyProfile')
     

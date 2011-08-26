@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostConnectInfo(vim, *args, **kwargs):
-    '''This data object type contains information about a single host that can be used
-    by the connection wizard. This can be returned without adding the host to
-    VirtualCenter.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostConnectInfo')
     

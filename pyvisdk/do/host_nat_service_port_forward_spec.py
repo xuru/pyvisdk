@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNatServicePortForwardSpec(vim, *args, **kwargs):
-    '''This data object type describes the Network Address Translation (NAT) port
-    forwarding specification.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostNatServicePortForwardSpec')
     

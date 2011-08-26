@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HealthSystemRuntime(vim, *args, **kwargs):
-    '''The system health runtime information'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HealthSystemRuntime')
     

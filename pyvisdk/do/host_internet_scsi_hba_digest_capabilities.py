@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostInternetScsiHbaDigestCapabilities(vim, *args, **kwargs):
-    '''The digest capabilities for this host bus adapter.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostInternetScsiHbaDigestCapabilities')
     

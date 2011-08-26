@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNasVolume(vim, *args, **kwargs):
-    '''This data object type describes the NAS volume. Applies to both NFS and CIFS.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostNasVolume')
     

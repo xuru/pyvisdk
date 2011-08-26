@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def KeyValue(vim, *args, **kwargs):
-    '''Non-localized key/value pair'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:KeyValue')
     

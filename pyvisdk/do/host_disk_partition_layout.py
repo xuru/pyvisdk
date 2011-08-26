@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDiskPartitionLayout(vim, *args, **kwargs):
-    '''This data object type describes the disk partition layout specified as a list
-    of ordered BlockRanges. This view of the disk partitions shows the data on the
-    disk as a contiguous set of BlockRanges.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostDiskPartitionLayout')
     

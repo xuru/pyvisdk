@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNatService(vim, *args, **kwargs):
-    '''A network address translation (NAT) service instance provides firewall and
-    network address translation services for a virtual network.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostNatService')
     

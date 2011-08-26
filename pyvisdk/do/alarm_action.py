@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AlarmAction(vim, *args, **kwargs):
-    '''Action invoked by triggered alarm.This is an abstract type.'''
+    '''This is an abstract type.'''
     
     obj = vim.client.factory.create('ns0:AlarmAction')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualLsiLogicControllerOption(vim, *args, **kwargs):
-    '''VirtualLsiLogicControllerOption is the data object that contains the options
-    for a LSI Logic SCSI controller.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualLsiLogicControllerOption')
     

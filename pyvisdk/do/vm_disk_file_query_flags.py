@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmDiskFileQueryFlags(vim, *args, **kwargs):
-    '''Details for the virtual disk primary file.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmDiskFileQueryFlags')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ExtendedEventPair(vim, *args, **kwargs):
-    '''key/value pair'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ExtendedEventPair')
     

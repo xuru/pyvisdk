@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmConfigFileQueryFilter(vim, *args, **kwargs):
-    '''The filter for the virtual machine configuration file.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmConfigFileQueryFilter')
     

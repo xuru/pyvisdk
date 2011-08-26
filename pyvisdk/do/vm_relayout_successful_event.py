@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmRelayoutSuccessfulEvent(vim, *args, **kwargs):
-    '''This event records that a virtual machine was successfully converted to the new
-    virtual machine format on a VMFS3 volume.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmRelayoutSuccessfulEvent')
     

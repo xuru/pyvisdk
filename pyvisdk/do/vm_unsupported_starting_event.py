@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmUnsupportedStartingEvent(vim, *args, **kwargs):
-    '''This event records when an unsupported guest is powering on.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmUnsupportedStartingEvent')
     

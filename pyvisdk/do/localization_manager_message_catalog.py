@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LocalizationManagerMessageCatalog(vim, *args, **kwargs):
-    '''Description of an available message catalog'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LocalizationManagerMessageCatalog')
     

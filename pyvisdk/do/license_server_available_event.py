@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LicenseServerAvailableEvent(vim, *args, **kwargs):
-    '''This event is reported if the LicenseServer was previously unreachable and is
-    now reachable.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LicenseServerAvailableEvent')
     

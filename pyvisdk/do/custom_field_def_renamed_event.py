@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomFieldDefRenamedEvent(vim, *args, **kwargs):
-    '''This event records the renaming of a custom field definition.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomFieldDefRenamedEvent')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualSoundBlaster16Option(vim, *args, **kwargs):
-    '''The VirtualSoundBlaster16Option data object type contains the options for a
-    virtual SoundBlaster 16 sound card.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualSoundBlaster16Option')
     

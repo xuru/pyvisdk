@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNoHAEnabledPortGroupsEvent(vim, *args, **kwargs):
-    '''This event records the fact that a host does not have any HA-enabled port
-    groups'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostNoHAEnabledPortGroupsEvent')
     

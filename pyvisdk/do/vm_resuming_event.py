@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmResumingEvent(vim, *args, **kwargs):
-    '''This event records a virtual machine resuming.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmResumingEvent')
     

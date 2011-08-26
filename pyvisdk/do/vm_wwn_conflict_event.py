@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmWwnConflictEvent(vim, *args, **kwargs):
-    '''This event records a conflict of virtual machine WWNs (World Wide Name).'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmWwnConflictEvent')
     

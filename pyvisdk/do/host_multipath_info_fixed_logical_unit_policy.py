@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostMultipathInfoFixedLogicalUnitPolicy(vim, *args, **kwargs):
-    '''This data object type describes a multipathing policy for a logical unit which
-    uses a preferred path whenever possible.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostMultipathInfoFixedLogicalUnitPolicy')
     

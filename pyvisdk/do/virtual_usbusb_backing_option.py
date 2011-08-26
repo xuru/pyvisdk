@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualUSBUSBBackingOption(vim, *args, **kwargs):
-    '''The VirtualUSBUSBBackingOption data object contains the options for virtual
-    backing for a USB device. This backing option indicates support for a local
-    connection where the virtual machine will remain on the host to which the USB
-    device is attached.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualUSBUSBBackingOption')
     

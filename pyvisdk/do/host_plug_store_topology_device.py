@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostPlugStoreTopologyDevice(vim, *args, **kwargs):
-    '''This data object type is an association class that describes a ScsiLun and its
-    associated Path objects. The ScsiLun is a Device that is formed from a set of
-    Paths.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostPlugStoreTopologyDevice')
     

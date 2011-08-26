@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VnicPortArgument(vim, *args, **kwargs):
-    '''This argument records a vnic device that connects to a DVPort.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VnicPortArgument')
     

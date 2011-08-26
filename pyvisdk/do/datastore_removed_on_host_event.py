@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DatastoreRemovedOnHostEvent(vim, *args, **kwargs):
-    '''This event records when a datastore is removed from a host but not from
-    VirtualCenter.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DatastoreRemovedOnHostEvent')
     

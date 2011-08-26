@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostUpgradeFailedEvent(vim, *args, **kwargs):
-    '''This event records a failure to connect to a host due to an installation or
-    upgrade issue.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostUpgradeFailedEvent')
     

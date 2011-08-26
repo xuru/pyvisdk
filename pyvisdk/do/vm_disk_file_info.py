@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmDiskFileInfo(vim, *args, **kwargs):
-    '''This data object type describes a virtual disk primary file.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmDiskFileInfo')
     

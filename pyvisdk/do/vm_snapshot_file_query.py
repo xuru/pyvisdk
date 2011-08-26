@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmSnapshotFileQuery(vim, *args, **kwargs):
-    '''This data object type describes the query specification for a virtual machine
-    snapshot file.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmSnapshotFileQuery')
     

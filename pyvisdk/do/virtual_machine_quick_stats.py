@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineQuickStats(vim, *args, **kwargs):
-    '''A set of statistics that are typically updated with near real-time regularity.
-    This data object type does not support notification, for scalability reasons.
-    Therefore, changes in QuickStats do not generate property collector updates. To
-    monitor statistics values, use the statistics and alarms modules instead.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineQuickStats')
     

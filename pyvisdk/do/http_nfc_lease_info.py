@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HttpNfcLeaseInfo(vim, *args, **kwargs):
-    '''This class holds information about the lease, such as the entity covered by the
-    lease, and HTTP URLs for up/downloading file backings.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HttpNfcLeaseInfo')
     

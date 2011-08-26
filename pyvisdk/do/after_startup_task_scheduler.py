@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AfterStartupTaskScheduler(vim, *args, **kwargs):
-    '''The AfterStartupTaskScheduler data object establishes the time that a scheduled
-    task will run after the vCenter server restarts.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AfterStartupTaskScheduler')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def UserSession(vim, *args, **kwargs):
-    '''Information about a current user session.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:UserSession')
     

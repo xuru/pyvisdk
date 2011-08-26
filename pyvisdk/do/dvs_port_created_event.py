@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsPortCreatedEvent(vim, *args, **kwargs):
-    '''New ports are created in the distributed virtual switch.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsPortCreatedEvent')
     

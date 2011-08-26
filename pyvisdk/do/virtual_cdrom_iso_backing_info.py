@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualCdromIsoBackingInfo(vim, *args, **kwargs):
-    '''The VirtualCdrom.IsoBackingInfo data class represents an ISO backing for a
-    virtual CD-ROM.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualCdromIsoBackingInfo')
     

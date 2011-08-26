@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def TaskFilterSpec(vim, *args, **kwargs):
-    '''This data object type defines the specification for the task filter used to
-    query tasks in the history collector database. The client creates a task
-    history collector with a filter specification, then retrieves the tasks from
-    the task history collector.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:TaskFilterSpec')
     

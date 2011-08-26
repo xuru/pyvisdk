@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineMemoryReservationSpec(vim, *args, **kwargs):
-    '''The VirtualMachineReservationSpec data object specifies configurable parameters
-    for virtual machine memory reservation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineMemoryReservationSpec')
     

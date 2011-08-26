@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostProfileManagerConfigTaskList(vim, *args, **kwargs):
-    '''DataObject which represents list of tasks that will be performed on the host
-    during application of a HostProfile.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostProfileManagerConfigTaskList')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualVmxnet2Option(vim, *args, **kwargs):
-    '''The VirtualVmxnet2Option data object type contains the options for the
-    VirtualVmxnet2 data object type.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualVmxnet2Option')
     

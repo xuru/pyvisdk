@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PermissionProfile(vim, *args, **kwargs):
-    '''This data object type represents the profile for a permission rule'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PermissionProfile')
     

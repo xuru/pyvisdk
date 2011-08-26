@@ -9,10 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualCdromRemotePassthroughBackingOption(vim, *args, **kwargs):
-    '''The VirtualCdromOption.RemotePassthroughBackingOption data object type contains
-    the options for a remote pass-through CD-ROM device backing.Note that the
-    server cannot present a list of valid remote backing devices because it is
-    unable to scan remote hosts.'''
+    '''Note that the server cannot present a list of valid remote backing devices
+    because it is unable to scan remote hosts.'''
     
     obj = vim.client.factory.create('ns0:VirtualCdromRemotePassthroughBackingOption')
     

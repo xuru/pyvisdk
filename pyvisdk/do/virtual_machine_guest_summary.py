@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineGuestSummary(vim, *args, **kwargs):
-    '''A subset of virtual machine guest information.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineGuestSummary')
     

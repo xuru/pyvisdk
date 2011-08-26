@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VlanProfile(vim, *args, **kwargs):
-    '''This data object type represents the profile for choosing the vlan id.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VlanProfile')
     

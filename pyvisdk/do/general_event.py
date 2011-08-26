@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def GeneralEvent(vim, *args, **kwargs):
-    '''These are general events.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:GeneralEvent')
     

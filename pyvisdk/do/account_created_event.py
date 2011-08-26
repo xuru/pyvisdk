@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AccountCreatedEvent(vim, *args, **kwargs):
-    '''This event records that an account was created on a host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AccountCreatedEvent')
     

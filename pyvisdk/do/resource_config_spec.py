@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ResourceConfigSpec(vim, *args, **kwargs):
-    '''This data object type is a specification for a set of resources allocated to a
-    virtual machine or a resource pool.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ResourceConfigSpec')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDateTimeInfo(vim, *args, **kwargs):
-    '''This data object represents the dateTime configuration of the host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostDateTimeInfo')
     

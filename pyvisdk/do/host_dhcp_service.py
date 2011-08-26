@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDhcpService(vim, *args, **kwargs):
-    '''A dynamic host control protocol (DHCP) service instance serves IP addresses to
-    a single virtual network subnet. The instances may be handled collectively by a
-    single server. This decision can be made during implementation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostDhcpService')
     

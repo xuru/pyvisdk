@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostHardwareInfo(vim, *args, **kwargs):
-    '''The HardwareInfo data object type describes the hardware configuration of the
-    host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostHardwareInfo')
     

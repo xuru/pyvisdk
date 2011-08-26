@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineScsiDiskDeviceInfo(vim, *args, **kwargs):
-    '''The ScsiDiskDeviceInfo class contains detailed information about a specific
-    scsi disk hardware device. These devices are for the
-    vim.vm.device.VirtualDisk.RawDiskMappingVer1BackingInfo.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineScsiDiskDeviceInfo')
     

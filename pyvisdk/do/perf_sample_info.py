@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PerfSampleInfo(vim, *args, **kwargs):
-    '''This data object type describes information contained in a sample collection,
-    its timestamp, and sampling interval.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PerfSampleInfo')
     

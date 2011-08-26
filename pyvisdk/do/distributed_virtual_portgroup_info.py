@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DistributedVirtualPortgroupInfo(vim, *args, **kwargs):
-    '''This class describes a DistributedVirtualPortgroup that a device backing can be
-    attached to.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DistributedVirtualPortgroupInfo')
     

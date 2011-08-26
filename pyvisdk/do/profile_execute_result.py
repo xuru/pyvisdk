@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileExecuteResult(vim, *args, **kwargs):
-    '''Class describing the result of the Execute operation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfileExecuteResult')
     

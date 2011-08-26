@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostPathSelectionPolicyOption(vim, *args, **kwargs):
-    '''Description of options associated with a native multipathing path selection
-    policy plugin.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostPathSelectionPolicyOption')
     

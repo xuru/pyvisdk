@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostScsiDisk(vim, *args, **kwargs):
-    '''This data object type describes a SCSI disk. A SCSI disk contains a partition
-    table which can be changed. To change a SCSI disk, use the device name and the
-    partition specification. See RetrieveDiskPartitionInfo See UpdateDiskPartitions'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostScsiDisk')
     

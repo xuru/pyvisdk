@@ -9,8 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EntityEventArgument(vim, *args, **kwargs):
-    '''The event argument is a managed entity object.Subclasses of this type
-    distinguish the different managed entities referenced in event objects.'''
+    '''Subclasses of this type distinguish the different managed entities referenced
+    in event objects.'''
     
     obj = vim.client.factory.create('ns0:EntityEventArgument')
     

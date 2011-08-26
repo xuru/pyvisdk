@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmResourcePoolMovedEvent(vim, *args, **kwargs):
-    '''This event records when a virtual machine is moved from one resource pool to
-    another.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmResourcePoolMovedEvent')
     

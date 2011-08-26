@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def BoolOption(vim, *args, **kwargs):
-    '''The BoolOption data object type describes if an option is supported ("true")
-    and if the option is set to "true" or "false" by default.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:BoolOption')
     

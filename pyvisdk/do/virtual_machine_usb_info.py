@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineUsbInfo(vim, *args, **kwargs):
-    '''This data object contains information about a physical USB device on the host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineUsbInfo')
     

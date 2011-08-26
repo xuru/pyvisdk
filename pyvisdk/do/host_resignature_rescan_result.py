@@ -9,11 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostResignatureRescanResult(vim, *args, **kwargs):
-    '''When a user resignatures an UnresolvedVmfsVolume through DatastoreSystem API,
-    we resignature and auto-mount on the other hosts which share the same
-    underlying storage luns. As part of the operation, we rescan the specified list
-    of hosts. This data object describes the return value of resignature APIs in
-    DatastoreSystem.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostResignatureRescanResult')
     

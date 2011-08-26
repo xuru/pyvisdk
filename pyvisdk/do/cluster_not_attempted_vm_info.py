@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterNotAttemptedVmInfo(vim, *args, **kwargs):
-    '''This data class reports one virtual machine powerOn failure.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterNotAttemptedVmInfo')
     

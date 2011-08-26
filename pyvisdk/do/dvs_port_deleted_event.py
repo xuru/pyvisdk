@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsPortDeletedEvent(vim, *args, **kwargs):
-    '''Existing ports are deleted in the distributed virtual switch.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsPortDeletedEvent')
     

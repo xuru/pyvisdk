@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostCapability(vim, *args, **kwargs):
-    '''Specifies the capabilities of the particular host. This set of capabilities is
-    referenced in other parts of the API specification to indicate under what
-    circumstances an API will throw a NotSupported fault.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostCapability')
     

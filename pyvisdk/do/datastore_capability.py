@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DatastoreCapability(vim, *args, **kwargs):
-    '''Information about the capabilities of this datastore.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DatastoreCapability')
     

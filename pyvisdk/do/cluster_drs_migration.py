@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterDrsMigration(vim, *args, **kwargs):
-    '''Describes a single virtual machine migration.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterDrsMigration')
     

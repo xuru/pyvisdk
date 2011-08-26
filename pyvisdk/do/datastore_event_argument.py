@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DatastoreEventArgument(vim, *args, **kwargs):
-    '''The event argument is a Datastore object.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DatastoreEventArgument')
     

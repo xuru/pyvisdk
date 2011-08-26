@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmNoNetworkAccessEvent(vim, *args, **kwargs):
-    '''This event records a migration failure when the destination host is not on the
-    same network as the source host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmNoNetworkAccessEvent')
     

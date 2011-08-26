@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EventFilterSpecByEntity(vim, *args, **kwargs):
-    '''This option specifies a managed entity used to filter event history. If the
-    specified managed entity is a Folder or a ResourcePool, the query will actually
-    be performed on the entities contained within that Folder or ResourcePool, so
-    you cannot query for events on Folders and ResourcePools themselves this way.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:EventFilterSpecByEntity')
     

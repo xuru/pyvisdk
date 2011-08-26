@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsOperationBulkFaultFaultOnHost(vim, *args, **kwargs):
-    '''The fault occured on the host during an operation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsOperationBulkFaultFaultOnHost')
     

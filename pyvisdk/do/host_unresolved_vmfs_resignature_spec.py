@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostUnresolvedVmfsResignatureSpec(vim, *args, **kwargs):
-    '''Specification to resignature an Unresolved VMFS volume.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostUnresolvedVmfsResignatureSpec')
     

@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationLinuxPrep(vim, *args, **kwargs):
-    '''This is the Linux counterpart to the Windows Sysprep object. LinuxPrep contains
-    machine-wide settings that identify a Linux machine in the same way that the
-    Sysprep type identifies a Windows machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationLinuxPrep')
     

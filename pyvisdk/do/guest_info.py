@@ -9,9 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def GuestInfo(vim, *args, **kwargs):
-    '''Information about the guest operating system.Most of this information is
-    collected by VMware Tools. In general, be sure you have VMware Tools installed
-    and that the virtual machine is running when you access this information.'''
+    '''Most of this information is collected by VMware Tools. In general, be sure you
+    have VMware Tools installed and that the virtual machine is running when you
+    access this information.'''
     
     obj = vim.client.factory.create('ns0:GuestInfo')
     

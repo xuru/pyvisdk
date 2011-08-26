@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmfsDatastoreAllExtentOption(vim, *args, **kwargs):
-    '''Datastore addition policy to use the entire disk as a single extent for a VMFS
-    datastore. If there is any data on the disk, it will be overwritten.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmfsDatastoreAllExtentOption')
     

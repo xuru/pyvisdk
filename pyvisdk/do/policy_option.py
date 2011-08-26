@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PolicyOption(vim, *args, **kwargs):
-    '''This data object represents a policy option.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PolicyOption')
     

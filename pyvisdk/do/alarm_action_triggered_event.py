@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AlarmActionTriggeredEvent(vim, *args, **kwargs):
-    '''This event records that an alarm was triggered.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AlarmActionTriggeredEvent')
     

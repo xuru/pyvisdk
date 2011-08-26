@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PhysicalNic(vim, *args, **kwargs):
-    '''This data object type describes the physical network adapter as seen by the
-    primary operating system.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PhysicalNic')
     

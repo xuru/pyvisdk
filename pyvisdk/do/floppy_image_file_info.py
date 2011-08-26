@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def FloppyImageFileInfo(vim, *args, **kwargs):
-    '''This data object type describes a file that is a floppy disk image.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:FloppyImageFileInfo')
     

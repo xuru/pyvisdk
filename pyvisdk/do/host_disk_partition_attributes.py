@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDiskPartitionAttributes(vim, *args, **kwargs):
-    '''Information about a single disk partition. A partition is a contiguous set of
-    blocks on a disk that is marked for use. The typeId identifies the purpose of
-    the data in the partition.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostDiskPartitionAttributes')
     

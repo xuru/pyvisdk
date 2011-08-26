@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualPCNet32Option(vim, *args, **kwargs):
-    '''The VirtualPCNet32Option data object type defines the options for the
-    VirtualPCNet32 data object type. Except for the boolean supportsMorphing
-    option, the options are inherited from the VirtualEthernetCardOption data
-    object type.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualPCNet32Option')
     

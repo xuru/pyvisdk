@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DVPortgroupPolicy(vim, *args, **kwargs):
-    '''The DistributedVirtualPortgroup policies. This field is not applicable when
-    queried directly against an ESX host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DVPortgroupPolicy')
     

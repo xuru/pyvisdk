@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostProxySwitch(vim, *args, **kwargs):
-    '''The HostProxySwitch is a software entity which represents the component of a
-    DistributedVirtualSwitch on a particular host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostProxySwitch')
     

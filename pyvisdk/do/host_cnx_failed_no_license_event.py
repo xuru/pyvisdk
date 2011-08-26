@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostCnxFailedNoLicenseEvent(vim, *args, **kwargs):
-    '''This event records a failure to connect to a host due to a licensing issue.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostCnxFailedNoLicenseEvent')
     

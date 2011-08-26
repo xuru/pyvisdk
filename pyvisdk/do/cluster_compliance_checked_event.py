@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterComplianceCheckedEvent(vim, *args, **kwargs):
-    '''This event records that a compliance check was triggered on the cluster.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterComplianceCheckedEvent')
     

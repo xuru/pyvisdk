@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualNicManagerNetConfig(vim, *args, **kwargs):
-    '''The NetConfig data object type contains the networking configuration.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualNicManagerNetConfig')
     

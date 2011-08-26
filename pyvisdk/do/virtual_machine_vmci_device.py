@@ -9,14 +9,10 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineVMCIDevice(vim, *args, **kwargs):
-    '''The VirtualMachineVMCIDevice data object represents a virtual communication
-    device that supports the VMCI (Virtual Machine Communication Interface). Each
-    virtual machine has a VMCI device that handles interprocess socket-based
-    communication. VMCI device information is available in the virtual machine
-    hardware device list (VirtualMachine.config.hardware.device[]).An application
-    running on a virtual machine uses the VMCI Sockets API for communication with
-    other virtual machines on the same host, or for communication with the host.
-    For information about using the vSphere VMCI Sockets API, see the .'''
+    '''An application running on a virtual machine uses the VMCI Sockets API for
+    communication with other virtual machines on the same host, or for
+    communication with the host. For information about using the vSphere VMCI
+    Sockets API, see the .'''
     
     obj = vim.client.factory.create('ns0:VirtualMachineVMCIDevice')
     

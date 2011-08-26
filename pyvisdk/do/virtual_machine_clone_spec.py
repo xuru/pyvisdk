@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineCloneSpec(vim, *args, **kwargs):
-    '''Specification for a virtual machine cloning operation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineCloneSpec')
     

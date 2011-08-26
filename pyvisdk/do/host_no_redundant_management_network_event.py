@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNoRedundantManagementNetworkEvent(vim, *args, **kwargs):
-    '''This event records the fact that a host does not have a redundant management
-    network. It is recommended that host management networks be configured with
-    redundancy.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostNoRedundantManagementNetworkEvent')
     

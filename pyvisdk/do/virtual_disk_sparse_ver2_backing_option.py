@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDiskSparseVer2BackingOption(vim, *args, **kwargs):
-    '''This data object type contains the options available when backing a virtual
-    disk using a host file with the sparse file format from VMware Server.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualDiskSparseVer2BackingOption')
     

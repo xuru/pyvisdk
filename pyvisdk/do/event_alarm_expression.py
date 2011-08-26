@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EventAlarmExpression(vim, *args, **kwargs):
-    '''An alarm expression that uses the event stream to trigger the alarm.This alarm
-    is triggered when an event matching this expression gets logged.'''
+    '''This alarm is triggered when an event matching this expression gets logged.'''
     
     obj = vim.client.factory.create('ns0:EventAlarmExpression')
     

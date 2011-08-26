@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmRemovedEvent(vim, *args, **kwargs):
-    '''This event records a virtual machine removed from VirtualCenter management.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmRemovedEvent')
     

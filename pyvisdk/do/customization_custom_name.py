@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationCustomName(vim, *args, **kwargs):
-    '''Specifies that the VirtualCenter server will launch an external application to
-    generate the (hostname/IP). The command line for this application must be
-    specified in the server configuration file (vpxd.cfg) in the vpxd/name-ip-
-    generator key.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationCustomName')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ScsiLunDescriptor(vim, *args, **kwargs):
-    '''A structure that encapsulates an identifier and its properties for the ScsiLun
-    object.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ScsiLunDescriptor')
     

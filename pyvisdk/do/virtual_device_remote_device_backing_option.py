@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDeviceRemoteDeviceBackingOption(vim, *args, **kwargs):
-    '''VirtualDeviceOption.RemoteDeviceBackingOption describes the options for a
-    remote device backing. The primary difference between a remote device backing
-    and a local device backing is that the VirtualCenter server cannot provide a
-    list of remote host devices available for this virtual device backing.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualDeviceRemoteDeviceBackingOption')
     

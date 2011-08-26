@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDiskPartitionedRawDiskVer2BackingInfo(vim, *args, **kwargs):
-    '''This data object type contains information about backing a virtual disk using
-    one or more partitions on a physical disk device. This type of backing is
-    supported for VMware Server.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualDiskPartitionedRawDiskVer2BackingInfo')
     

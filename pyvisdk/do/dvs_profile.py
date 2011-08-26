@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsProfile(vim, *args, **kwargs):
-    '''DataObject representing a Distributed Virtual Switch this host is connected to.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsProfile')
     

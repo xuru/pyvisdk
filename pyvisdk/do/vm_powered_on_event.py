@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmPoweredOnEvent(vim, *args, **kwargs):
-    '''This event records when a virtual machine finished powering on.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmPoweredOnEvent')
     

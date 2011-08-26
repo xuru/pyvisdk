@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DVPortgroupEvent(vim, *args, **kwargs):
-    '''DVPortgroup related events.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DVPortgroupEvent')
     

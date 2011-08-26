@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def TemplateConfigFileQuery(vim, *args, **kwargs):
-    '''This data object type describes the query specification for a template virtual
-    machine configuration file.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:TemplateConfigFileQuery')
     

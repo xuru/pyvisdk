@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineNetworkInfo(vim, *args, **kwargs):
-    '''NetworkInfo describes a network that a device backing can attached to.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineNetworkInfo')
     

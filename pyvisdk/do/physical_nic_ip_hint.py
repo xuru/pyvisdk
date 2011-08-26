@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PhysicalNicIpHint(vim, *args, **kwargs):
-    '''This data object type describes a network in network hint where the network is
-    specified using IP addresses, for example, 10.27.49.1-10.27.49.254'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PhysicalNicIpHint')
     

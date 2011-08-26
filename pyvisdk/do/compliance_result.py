@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ComplianceResult(vim, *args, **kwargs):
-    '''DataObject representing the result from a ComplianceCheck'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ComplianceResult')
     

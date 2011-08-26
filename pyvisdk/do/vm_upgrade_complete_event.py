@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmUpgradeCompleteEvent(vim, *args, **kwargs):
-    '''This event records the successful completion of an upgrade operation.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmUpgradeCompleteEvent')
     

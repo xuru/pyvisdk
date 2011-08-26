@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DistributedVirtualSwitchManagerDvsProductSpec(vim, *args, **kwargs):
-    '''This class is used to specify ProductSpec for the DVS. The two properties are
-    strictly mutually exclusive. If both properties are set, then an
-    InvalidArgument fault would be thrown.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DistributedVirtualSwitchManagerDvsProductSpec')
     

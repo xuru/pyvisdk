@@ -9,12 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterVmGroup(vim, *args, **kwargs):
-    '''The ClusterVmGroup data object identifies virtual machines for VM-Host rules.
-    VM-Host rules determine placement of virtual machines on hosts in a cluster.
-    The logic specified in a ClusterVmHostRuleInfo object determines where virtual
-    machines can be powered-on.If a virtual machine is removed from the cluster, it
-    loses its DRS group affiliation. The Server does not restore any group
-    affiliations if the virtual machine is returned to the cluster.'''
+    '''If a virtual machine is removed from the cluster, it loses its DRS group
+    affiliation. The Server does not restore any group affiliations if the virtual
+    machine is returned to the cluster.'''
     
     obj = vim.client.factory.create('ns0:ClusterVmGroup')
     

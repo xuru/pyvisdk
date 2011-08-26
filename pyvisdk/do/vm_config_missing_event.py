@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmConfigMissingEvent(vim, *args, **kwargs):
-    '''This event records if the configuration file can not be found.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmConfigMissingEvent')
     

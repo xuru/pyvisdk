@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostSystemIdentificationInfo(vim, *args, **kwargs):
-    '''This data object describes system identifying information of the host. This
-    information may be vendor specific.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostSystemIdentificationInfo')
     

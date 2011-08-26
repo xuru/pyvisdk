@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmMacConflictEvent(vim, *args, **kwargs):
-    '''This event records a MAC address conflict for a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmMacConflictEvent')
     

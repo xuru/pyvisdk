@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineMessage(vim, *args, **kwargs):
-    '''The message data for one message in a sequence of message data.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineMessage')
     

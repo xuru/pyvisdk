@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostPowerPolicy(vim, *args, **kwargs):
-    '''Power Management Policy data object. Used to retrieve and specify current host
-    power management policy.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostPowerPolicy')
     

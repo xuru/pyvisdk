@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostUserWorldSwapNotEnabledEvent(vim, *args, **kwargs):
-    '''This event records that the userworld swap is not enabled on the host. HA needs
-    userworld swap to be configured on embedded ESX hosts to function.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostUserWorldSwapNotEnabledEvent')
     

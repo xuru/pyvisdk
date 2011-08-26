@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmwareUplinkPortTeamingPolicy(vim, *args, **kwargs):
-    '''Policy for a uplink port team.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmwareUplinkPortTeamingPolicy')
     

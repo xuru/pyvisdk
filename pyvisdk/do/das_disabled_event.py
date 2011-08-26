@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DasDisabledEvent(vim, *args, **kwargs):
-    '''This event records when a cluster has been disabled for HA.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DasDisabledEvent')
     

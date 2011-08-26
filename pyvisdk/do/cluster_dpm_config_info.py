@@ -9,8 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterDpmConfigInfo(vim, *args, **kwargs):
-    '''Configuration of the VMware DPM service.All fields are defined as optional. In
-    case of a reconfiguration, unset fields are not changed.'''
+    '''All fields are defined as optional. In case of a reconfiguration, unset fields
+    are not changed.'''
     
     obj = vim.client.factory.create('ns0:ClusterDpmConfigInfo')
     

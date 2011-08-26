@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDeviceURIBackingInfo(vim, *args, **kwargs):
-    '''The data object type defines information for using a network socket as backing
-    for a virtual device.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualDeviceURIBackingInfo')
     

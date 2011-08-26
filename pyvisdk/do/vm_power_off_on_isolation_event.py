@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmPowerOffOnIsolationEvent(vim, *args, **kwargs):
-    '''This event records when a virtual machine has been powered off on an isolated
-    host in a HA cluster.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmPowerOffOnIsolationEvent')
     

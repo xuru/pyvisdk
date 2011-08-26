@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineSnapshotInfo(vim, *args, **kwargs):
-    '''The SnapshotInfo data object type provides all the information about the
-    hierarchy of snapshots in a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineSnapshotInfo')
     

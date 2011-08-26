@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDiskMappingInfo(vim, *args, **kwargs):
-    '''The HostDiskMappingInfo data object type describes a virtual disk mapping to a
-    host disk.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostDiskMappingInfo')
     

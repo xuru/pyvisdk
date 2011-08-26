@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterHostRecommendation(vim, *args, **kwargs):
-    '''A DRS recommended host for either powering on, resuming or reverting a virtual
-    machine, or migrating a virtual machine from outside the cluster.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterHostRecommendation')
     

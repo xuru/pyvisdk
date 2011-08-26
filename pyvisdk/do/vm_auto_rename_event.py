@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmAutoRenameEvent(vim, *args, **kwargs):
-    '''This event records that a virtual machine was automatically renamed because of
-    a name conflict.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmAutoRenameEvent')
     

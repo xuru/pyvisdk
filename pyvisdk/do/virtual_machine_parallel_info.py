@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineParallelInfo(vim, *args, **kwargs):
-    '''ParallelInfo class contains information about a physical parallel drive on the
-    host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineParallelInfo')
     

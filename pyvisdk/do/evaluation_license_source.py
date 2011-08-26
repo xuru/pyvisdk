@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EvaluationLicenseSource(vim, *args, **kwargs):
-    '''Specify an evaluation license source. Feature licensing is not required while
-    the remaining hours is greater than zero.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:EvaluationLicenseSource')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DrsRuleViolationEvent(vim, *args, **kwargs):
-    '''This event records when a virtual machine violates a DRS rule.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DrsRuleViolationEvent')
     

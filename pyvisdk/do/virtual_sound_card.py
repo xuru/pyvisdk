@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualSoundCard(vim, *args, **kwargs):
-    '''This data object type represents a sound card in a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualSoundCard')
     

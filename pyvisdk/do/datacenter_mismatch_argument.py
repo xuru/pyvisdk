@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DatacenterMismatchArgument(vim, *args, **kwargs):
-    '''An input entity argument that belongs to a mismatched datacenter.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DatacenterMismatchArgument')
     

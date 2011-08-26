@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AlreadyAuthenticatedSessionEvent(vim, *args, **kwargs):
-    '''This event records a failed user logon due to the user already being logged on.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AlreadyAuthenticatedSessionEvent')
     

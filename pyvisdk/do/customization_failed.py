@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationFailed(vim, *args, **kwargs):
-    '''The customization sequence in the guest failed.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationFailed')
     

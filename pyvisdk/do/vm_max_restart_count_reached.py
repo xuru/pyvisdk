@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmMaxRestartCountReached(vim, *args, **kwargs):
-    '''This event is fired when the VM reached the max restart count'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmMaxRestartCountReached')
     

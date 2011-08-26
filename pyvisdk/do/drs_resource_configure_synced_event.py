@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DrsResourceConfigureSyncedEvent(vim, *args, **kwargs):
-    '''This event records when resource configuration specification returns to
-    synchronized from previous failure.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DrsResourceConfigureSyncedEvent')
     

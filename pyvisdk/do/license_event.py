@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LicenseEvent(vim, *args, **kwargs):
-    '''This is a base licensing event to group all license events.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LicenseEvent')
     

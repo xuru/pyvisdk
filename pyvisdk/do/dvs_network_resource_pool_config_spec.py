@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DVSNetworkResourcePoolConfigSpec(vim, *args, **kwargs):
-    '''The configuration specification data object to update the resource
-    configuration for a network resource pool.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DVSNetworkResourcePoolConfigSpec')
     

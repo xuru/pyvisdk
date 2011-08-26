@@ -9,12 +9,10 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ResourcePoolResourceUsage(vim, *args, **kwargs):
-    '''Specifies the resource usage for either memory or CPU. For CPU the unit is MHz,
-    for memory the unit is bytes.In the typical case, where a resourcepool is in a
-    consistent state, unreservedForVm will be equal to unreservedForPool. Hence, we
-    can simply say talk about unreserved resources.If the reservation on the
-    resource pool is not expandable, then the following is true:If the reservation
-    on the resource pool is expandable, then the following is true:'''
+    '''In the typical case, where a resourcepool is in a consistent state,
+    unreservedForVm will be equal to unreservedForPool. Hence, we can simply say
+    talk about unreserved resources.If the reservation on the resource pool is not
+    expandable, then the following is true:'''
     
     obj = vim.client.factory.create('ns0:ResourcePoolResourceUsage')
     

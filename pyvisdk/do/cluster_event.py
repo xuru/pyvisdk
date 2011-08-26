@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterEvent(vim, *args, **kwargs):
-    '''These are cluster events.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterEvent')
     

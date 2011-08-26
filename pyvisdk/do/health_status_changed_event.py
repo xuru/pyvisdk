@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HealthStatusChangedEvent(vim, *args, **kwargs):
-    '''Event used to report change in health status of VirtualCenter components.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HealthStatusChangedEvent')
     

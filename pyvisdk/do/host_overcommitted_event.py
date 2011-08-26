@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostOvercommittedEvent(vim, *args, **kwargs):
-    '''This event records when a host's capacity cannot satisfy resource configuration
-    constraints.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostOvercommittedEvent')
     

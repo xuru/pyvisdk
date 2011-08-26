@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PropertyFilterSpec(vim, *args, **kwargs):
-    '''Specify the property data that is included in a filter. A filter can specify
-    part of a single managed object, or parts of multiple related managed objects
-    in an inventory hierarchy - for example, to collect updates from all virtual
-    machines in a given folder.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PropertyFilterSpec')
     

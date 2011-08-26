@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def TaskReasonAlarm(vim, *args, **kwargs):
-    '''Indicates that the task was queued by an alarm.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:TaskReasonAlarm')
     

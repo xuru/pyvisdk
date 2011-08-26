@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualSCSIPassthrough(vim, *args, **kwargs):
-    '''The VirtualSCSIPassthrough data object type contains information about a SCSI
-    device on the virtual machine that is being backed by a generic SCSI device on
-    the host via passthrough.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualSCSIPassthrough')
     

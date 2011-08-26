@@ -9,9 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NoLicenseEvent(vim, *args, **kwargs):
-    '''These are events reported by License Manager.A NoLicenseEvent is reported if
-    the required licenses could not be reserved. Each feature that is not fully
-    licensed is reported.'''
+    '''A NoLicenseEvent is reported if the required licenses could not be reserved.
+    Each feature that is not fully licensed is reported.'''
     
     obj = vim.client.factory.create('ns0:NoLicenseEvent')
     

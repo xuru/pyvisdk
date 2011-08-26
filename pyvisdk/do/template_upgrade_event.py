@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def TemplateUpgradeEvent(vim, *args, **kwargs):
-    '''This event is the base class for all the template upgrade events.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:TemplateUpgradeEvent')
     

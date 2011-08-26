@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostStorageOperationalInfo(vim, *args, **kwargs):
-    '''Data class describing operational information of a storage element'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostStorageOperationalInfo')
     

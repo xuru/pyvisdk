@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def UpgradeEvent(vim, *args, **kwargs):
-    '''These event types represent events converted from VirtualCenter 1.x. All
-    upgraded events are converted to string values.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:UpgradeEvent')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostParallelScsiTargetTransport(vim, *args, **kwargs):
-    '''Parallel SCSI transport information about a SCSI target.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostParallelScsiTargetTransport')
     

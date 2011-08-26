@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def UserUpgradeEvent(vim, *args, **kwargs):
-    '''This event is a general user event from upgrade.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:UserUpgradeEvent')
     

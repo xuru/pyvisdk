@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetIpRouteConfigInfo(vim, *args, **kwargs):
-    '''This data object reports the IP Route Table.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NetIpRouteConfigInfo')
     

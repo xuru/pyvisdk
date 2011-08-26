@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostInternetScsiHbaTargetSet(vim, *args, **kwargs):
-    '''A collection of one or more static targets or discovery addresses. At least one
-    of the arrays must be non-empty.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostInternetScsiHbaTargetSet')
     

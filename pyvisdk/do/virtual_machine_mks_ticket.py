@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineMksTicket(vim, *args, **kwargs):
-    '''This data object contains the information needed to establish an MKS (mouse-
-    keyboard-screen) connection to a running virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineMksTicket')
     

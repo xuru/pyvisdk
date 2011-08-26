@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomFieldStringValue(vim, *args, **kwargs):
-    '''Subtype for string values (currently the only supported type).'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomFieldStringValue')
     

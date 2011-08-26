@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationSpec(vim, *args, **kwargs):
-    '''The Specification data object type contains information required to customize a
-    virtual machine when deploying it or migrating it to a new host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationSpec')
     

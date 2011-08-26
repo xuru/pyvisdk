@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostConfigSpec(vim, *args, **kwargs):
-    '''The HostConfigSpec data object provides access to data objects that specify
-    configuration changes to be applied to an ESX host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostConfigSpec')
     

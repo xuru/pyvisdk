@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterProfileCreateSpec(vim, *args, **kwargs):
-    '''Base class for Cluster CreateSpecs'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterProfileCreateSpec')
     

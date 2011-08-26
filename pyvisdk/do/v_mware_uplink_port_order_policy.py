@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VMwareUplinkPortOrderPolicy(vim, *args, **kwargs):
-    '''This data object type describes uplink port ordering policy for a distributed
-    virtual port. A uplink port can be in the active list, the standby list, or
-    neither. It cannot be in both lists.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VMwareUplinkPortOrderPolicy')
     

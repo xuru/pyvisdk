@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostLocalFileSystemVolumeSpec(vim, *args, **kwargs):
-    '''The specification for creating a new local file system volume.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostLocalFileSystemVolumeSpec')
     

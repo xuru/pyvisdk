@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmRestartedOnAlternateHostEvent(vim, *args, **kwargs):
-    '''This event records that the virtual machine was restarted on a host, since its
-    original host had failed.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmRestartedOnAlternateHostEvent')
     

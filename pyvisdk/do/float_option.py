@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def FloatOption(vim, *args, **kwargs):
-    '''The FloatOption data object type defines the minimum, maximum, and default
-    values for a float option.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:FloatOption')
     

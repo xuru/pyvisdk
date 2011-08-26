@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def OptionProfile(vim, *args, **kwargs):
-    '''DataObject that encapsulates one advanced configuration'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:OptionProfile')
     

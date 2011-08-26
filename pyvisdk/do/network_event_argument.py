@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetworkEventArgument(vim, *args, **kwargs):
-    '''The event argument is a Network object.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NetworkEventArgument')
     

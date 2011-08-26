@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EnumDescription(vim, *args, **kwargs):
-    '''Static strings used for describing an enumerated type.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:EnumDescription')
     

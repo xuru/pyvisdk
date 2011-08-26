@@ -9,9 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DatastoreFileEvent(vim, *args, **kwargs):
-    '''Base class for events related to datastore file and directory
-    operations.Property inherited from DatastoreEvent refers to the destination
-    datastore in case there is more than datastore involved in the operation.'''
+    '''Property inherited from DatastoreEvent refers to the destination datastore in
+    case there is more than datastore involved in the operation.'''
     
     obj = vim.client.factory.create('ns0:DatastoreFileEvent')
     

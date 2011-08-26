@@ -9,10 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AlarmTriggeringAction(vim, *args, **kwargs):
-    '''This data object type describes one or more triggering transitions and an
-    action to be done when an alarm is triggered.There are four triggering
-    transitions; at least one of them must be provided. A gray state is considered
-    the same as a green state, for the purpose of detecting transitions.'''
+    '''There are four triggering transitions; at least one of them must be provided. A
+    gray state is considered the same as a green state, for the purpose of
+    detecting transitions.'''
     
     obj = vim.client.factory.create('ns0:AlarmTriggeringAction')
     

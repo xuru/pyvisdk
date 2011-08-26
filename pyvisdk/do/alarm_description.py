@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AlarmDescription(vim, *args, **kwargs):
-    '''Static strings for alarms.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AlarmDescription')
     

@@ -9,9 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EventArgument(vim, *args, **kwargs):
-    '''This is the base type for event argument types.Event argument objects, which
-    inherit from a common subtype, are used to manage supplementary properties of
-    different kinds of event objects.'''
+    '''Event argument objects, which inherit from a common subtype, are used to manage
+    supplementary properties of different kinds of event objects.'''
     
     obj = vim.client.factory.create('ns0:EventArgument')
     

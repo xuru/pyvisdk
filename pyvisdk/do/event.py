@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def Event(vim, *args, **kwargs):
-    '''This event is the base data object type from which all events inherit. All
-    event objects are data structures that describe events. While event data
-    objects are data structures that describe events, event data type documentation
-    may describe what the event records, rather than the data structure, itself.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:Event')
     

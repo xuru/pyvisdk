@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def GeneralVmWarningEvent(vim, *args, **kwargs):
-    '''This event is the general warning event for a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:GeneralVmWarningEvent')
     

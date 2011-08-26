@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineConfigOptionDescriptor(vim, *args, **kwargs):
-    '''Contains the definition of a unique key that can be used to retrieve a
-    configOption object.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineConfigOptionDescriptor')
     

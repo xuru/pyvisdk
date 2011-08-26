@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetDhcpConfigInfo(vim, *args, **kwargs):
-    '''Dynamic Host Configuration Protocol reporting for IP version 4 and version 6.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NetDhcpConfigInfo')
     

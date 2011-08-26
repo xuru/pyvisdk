@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostMultipathInfoLogicalUnitStorageArrayTypePolicy(vim, *args, **kwargs):
-    '''This data object type describes a storage array type policy for for a device.
-    This policy determines how device I/O and management is performed.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostMultipathInfoLogicalUnitStorageArrayTypePolicy')
     

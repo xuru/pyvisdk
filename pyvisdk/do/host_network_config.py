@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNetworkConfig(vim, *args, **kwargs):
-    '''This data object type describes networking host configuration data objects.
-    These objects contain only the configuration information for networking. The
-    runtime information is available from the NetworkInfo data object type. See
-    HostNetworkInfo'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostNetworkConfig')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetworkSummary(vim, *args, **kwargs):
-    '''General information about a network.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NetworkSummary')
     

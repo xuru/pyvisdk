@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostSystemHealthInfo(vim, *args, **kwargs):
-    '''This data object provides information about the health of the phyical system.
-    The data is retrieved from numeric sensor probes.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostSystemHealthInfo')
     

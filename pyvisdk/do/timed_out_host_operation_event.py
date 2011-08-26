@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def TimedOutHostOperationEvent(vim, *args, **kwargs):
-    '''This event indicates that an operation performed on the host timed out.
-    Typically, a previous event in the sequence of events contains more information
-    about the cause of the operation timing out.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:TimedOutHostOperationEvent')
     

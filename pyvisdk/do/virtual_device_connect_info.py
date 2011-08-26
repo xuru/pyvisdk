@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDeviceConnectInfo(vim, *args, **kwargs):
-    '''The data object type contains information about connectable virtual devices.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualDeviceConnectInfo')
     

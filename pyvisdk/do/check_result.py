@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CheckResult(vim, *args, **kwargs):
-    '''The result of a call to any of the methods in either
-    VirtualMachineCompatibilityChecker or VirtualMachineProvisioningChecker.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CheckResult')
     

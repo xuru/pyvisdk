@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AccountRemovedEvent(vim, *args, **kwargs):
-    '''This event records that an account was removed from a host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AccountRemovedEvent')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineFileLayoutExSnapshotLayout(vim, *args, **kwargs):
-    '''Layout of a snapshot.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineFileLayoutExSnapshotLayout')
     

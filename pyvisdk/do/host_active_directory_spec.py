@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostActiveDirectorySpec(vim, *args, **kwargs):
-    '''The HostActiveDirectorySpec data object defines properties for Active Directory
-    domain access.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostActiveDirectorySpec')
     

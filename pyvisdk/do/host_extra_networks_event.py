@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostExtraNetworksEvent(vim, *args, **kwargs):
-    '''This event records the fact that a host has extra networks not used by other
-    hosts for HA communication'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostExtraNetworksEvent')
     

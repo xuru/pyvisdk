@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostPciDevice(vim, *args, **kwargs):
-    '''This data object type describes information about a single Peripheral Component
-    Interconnect (PCI) device.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostPciDevice')
     

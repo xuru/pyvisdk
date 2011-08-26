@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsHostLeftEvent(vim, *args, **kwargs):
-    '''A host left the distributed virtual switch.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsHostLeftEvent')
     

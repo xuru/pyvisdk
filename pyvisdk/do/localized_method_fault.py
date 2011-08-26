@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LocalizedMethodFault(vim, *args, **kwargs):
-    '''A wrapper class used to pass MethodFault data objects over the wire along with
-    a localized display message for the fault.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LocalizedMethodFault')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PortGroupProfile(vim, *args, **kwargs):
-    '''This data object type is a base class for the different kinds of port group
-    profiles.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PortGroupProfile')
     

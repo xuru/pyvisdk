@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DrsExitStandbyModeFailedEvent(vim, *args, **kwargs):
-    '''This event records that Distributed Power Managment tried to bring a host out
-    from standby mode, but the host failed to exit standby mode.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DrsExitStandbyModeFailedEvent')
     

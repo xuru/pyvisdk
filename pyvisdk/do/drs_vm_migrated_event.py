@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DrsVmMigratedEvent(vim, *args, **kwargs):
-    '''This event records a virtual machine migration that was recommended by DRS.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DrsVmMigratedEvent')
     

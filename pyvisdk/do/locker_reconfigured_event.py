@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LockerReconfiguredEvent(vim, *args, **kwargs):
-    '''Locker was reconfigured to a new location.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LockerReconfiguredEvent')
     

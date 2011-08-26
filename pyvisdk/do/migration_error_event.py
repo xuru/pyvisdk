@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def MigrationErrorEvent(vim, *args, **kwargs):
-    '''A migration error.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:MigrationErrorEvent')
     

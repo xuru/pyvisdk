@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def IpAddressProfile(vim, *args, **kwargs):
-    '''Profile representing the Ip address configuration for vnic'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:IpAddressProfile')
     

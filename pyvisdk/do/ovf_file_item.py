@@ -9,11 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def OvfFileItem(vim, *args, **kwargs):
-    '''An FileItem represents a file that must be uploaded by the caller when the
-    inventory objects has been created in VI. These objects are created by
-    ResourcePool.importVApp.Files can either be new files, in which case the
-    "create" flag will be true, or updates to existing files in VI. The latter is
-    used to support the OVF parentRef mechanism for Disks.'''
+    '''Files can either be new files, in which case the "create" flag will be true, or
+    updates to existing files in VI. The latter is used to support the OVF
+    parentRef mechanism for Disks.'''
     
     obj = vim.client.factory.create('ns0:OvfFileItem')
     

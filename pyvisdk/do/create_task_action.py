@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CreateTaskAction(vim, *args, **kwargs):
-    '''This data object type specifies the type of task to be created when this action
-    is triggered.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CreateTaskAction')
     

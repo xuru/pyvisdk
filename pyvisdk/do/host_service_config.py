@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostServiceConfig(vim, *args, **kwargs):
-    '''DataObject representing configuration for a particular service.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostServiceConfig')
     

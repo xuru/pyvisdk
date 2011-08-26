@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NasDatastoreInfo(vim, *args, **kwargs):
-    '''Information details about a network-attached storage (NAS) datastore.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NasDatastoreInfo')
     

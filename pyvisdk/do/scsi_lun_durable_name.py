@@ -9,11 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ScsiLunDurableName(vim, *args, **kwargs):
-    '''This data object type represents an SMI-S "Correlatable and Durable Name" which
-    is an identifier for a logical unit number (LUN) that is generated using a
-    common algorithm. The algorithm divides the identifier into multiple namespaces
-    where each namespace uses a different set of properties of the LUN to generate
-    the identifier. The namespace itself is encoded in the identifier.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ScsiLunDurableName')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def RemoteTSMEnabledEvent(vim, *args, **kwargs):
-    '''Remote Tech Support Mode for the host has been enabled.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:RemoteTSMEnabledEvent')
     

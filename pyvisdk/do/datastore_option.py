@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DatastoreOption(vim, *args, **kwargs):
-    '''The DatastoreOption data object describes datastore options for a virtual
-    machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DatastoreOption')
     

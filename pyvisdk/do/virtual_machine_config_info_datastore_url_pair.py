@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineConfigInfoDatastoreUrlPair(vim, *args, **kwargs):
-    '''Contains the name of a datastore, and its local file path on the host currently
-    affiliated with this virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineConfigInfoDatastoreUrlPair')
     

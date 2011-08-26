@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualKeyboardOption(vim, *args, **kwargs):
-    '''The VirtualKeyboardOption data object type contains the options for the virtual
-    keyboard class.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualKeyboardOption')
     

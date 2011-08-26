@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VAppCloneSpecResourceMap(vim, *args, **kwargs):
-    '''Maps source child entities to destination resource pools and resource settings.
-    If a mapping is not specified, a child is copied as a direct child of the
-    parent.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VAppCloneSpecResourceMap')
     

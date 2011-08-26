@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LocalLicenseSource(vim, *args, **kwargs):
-    '''Specify license key data to store locally.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LocalLicenseSource')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NoAccessUserEvent(vim, *args, **kwargs):
-    '''This event records a failed user logon due to insufficient access permission.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:NoAccessUserEvent')
     

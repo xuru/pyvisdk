@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def LicenseSource(vim, *args, **kwargs):
-    '''This data object type is used to communicate configuration about where to find
-    licenses to use for this system.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:LicenseSource')
     

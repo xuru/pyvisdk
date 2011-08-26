@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualE1000Option(vim, *args, **kwargs):
-    '''The VirtualE1000 option data object type contains the options for the
-    VirtualE1000 data object type.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualE1000Option')
     

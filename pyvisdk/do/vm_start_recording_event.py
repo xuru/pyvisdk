@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmStartRecordingEvent(vim, *args, **kwargs):
-    '''This event indicates the start of a recording session on a virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmStartRecordingEvent')
     

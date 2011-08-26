@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualPCIPassthrough(vim, *args, **kwargs):
-    '''The VirtualPCIPassthrough data object type contains information about a PCI
-    device on the virtual machine that is being backed by a generic PCI device on
-    the host via passthrough.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualPCIPassthrough')
     

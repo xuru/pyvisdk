@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualFloppyOption(vim, *args, **kwargs):
-    '''The VirtualFloppyOption data class contains the options for the virtual floppy
-    data object type.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualFloppyOption')
     

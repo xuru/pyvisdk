@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationSysprep(vim, *args, **kwargs):
-    '''An object representation of a Windows answer file. The sysprep type encloses
-    all the individual keys listed in a file. For more detailed information, see
-    the document .'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationSysprep')
     

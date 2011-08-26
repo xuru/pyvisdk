@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PerfMetricIntSeries(vim, *args, **kwargs):
-    '''This data object type describes integer metric values. The size of the array
-    must match the size of sampleInfo property in the PerfEntityMetric that
-    contains this series.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PerfMetricIntSeries')
     

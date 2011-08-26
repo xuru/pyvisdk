@@ -9,10 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostFileSystemVolume(vim, *args, **kwargs):
-    '''Detailed information about a file system. This is a base type for derived types
-    that have more specific details about specific filesystem types.Typically a
-    FileSystem is exposed as a datatore See DatastoreInfo See HostVmfsVolume See
-    HostNasVolume See HostLocalFileSystemVolume'''
+    '''Typically a FileSystem is exposed as a datatoreSee DatastoreInfoSee
+    HostVmfsVolumeSee HostNasVolumeSee HostLocalFileSystemVolume'''
     
     obj = vim.client.factory.create('ns0:HostFileSystemVolume')
     

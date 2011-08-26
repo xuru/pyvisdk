@@ -9,10 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDisk(vim, *args, **kwargs):
-    '''This data object type contains information about a disk in a virtual
-    machine.The virtual disk backing object types describe the different virtual
-    disk backings available. The disk format version in each case describes the
-    version of the format that is used.Supported virtual disk backings:'''
+    '''The virtual disk backing object types describe the different virtual disk
+    backings available. The disk format version in each case describes the version
+    of the format that is used.Supported virtual disk backings:'''
     
     obj = vim.client.factory.create('ns0:VirtualDisk')
     

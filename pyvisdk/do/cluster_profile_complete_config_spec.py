@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterProfileCompleteConfigSpec(vim, *args, **kwargs):
-    '''DataObject completely specifying the configuration of the profile.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterProfileCompleteConfigSpec')
     

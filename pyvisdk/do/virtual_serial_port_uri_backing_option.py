@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualSerialPortURIBackingOption(vim, *args, **kwargs):
-    '''The data object type contains the options for using a network socket as backing
-    for a virtual serial port.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualSerialPortURIBackingOption')
     

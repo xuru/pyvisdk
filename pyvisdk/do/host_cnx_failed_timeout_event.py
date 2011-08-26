@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostCnxFailedTimeoutEvent(vim, *args, **kwargs):
-    '''This event records a failure to connect to a host due to a timeout on the
-    connection attempt.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostCnxFailedTimeoutEvent')
     

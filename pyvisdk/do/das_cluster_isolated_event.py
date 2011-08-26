@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DasClusterIsolatedEvent(vim, *args, **kwargs):
-    '''This event records that all hosts have been isolated from the network in a HA
-    cluster.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DasClusterIsolatedEvent')
     

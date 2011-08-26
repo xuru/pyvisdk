@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AboutInfo(vim, *args, **kwargs):
-    '''This data object type describes system information including the name, type,
-    version, and build number.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AboutInfo')
     

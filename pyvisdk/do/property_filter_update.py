@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PropertyFilterUpdate(vim, *args, **kwargs):
-    '''The PropertyFilterUpdate data object type contains a list of updates to data
-    visible through a specific filter. Note that if a property changes through
-    multiple filters, then a client receives an update for each filter.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PropertyFilterUpdate')
     

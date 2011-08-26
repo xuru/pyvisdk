@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostAdminDisableEvent(vim, *args, **kwargs):
-    '''This event records that the permission on the host has been changed such that
-    only the user account used for VirtualCenter operation will have Administrator
-    permission.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostAdminDisableEvent')
     

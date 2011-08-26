@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsUpgradeInProgressEvent(vim, *args, **kwargs):
-    '''An upgrade for the distributed virtual switch is in progress.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsUpgradeInProgressEvent')
     

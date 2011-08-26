@@ -9,10 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def OvfFile(vim, *args, **kwargs):
-    '''Represents a file that the caller has downloaded and stored somewhere
-    appropriate.An instance of this class is used to tell OvfManager about the
-    choices the caller made about a file. This information is needed when the OVF
-    descriptor is generated with createDescriptor.'''
+    '''An instance of this class is used to tell OvfManager about the choices the
+    caller made about a file. This information is needed when the OVF descriptor is
+    generated with createDescriptor.'''
     
     obj = vim.client.factory.create('ns0:OvfFile')
     

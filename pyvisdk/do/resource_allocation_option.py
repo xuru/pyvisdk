@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ResourceAllocationOption(vim, *args, **kwargs):
-    '''The ResourceAllocationOption data object specifies value ranges and default
-    values for ResourceAllocationInfo.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ResourceAllocationOption')
     

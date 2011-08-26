@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmMacChangedEvent(vim, *args, **kwargs):
-    '''This event records a change in a virtual machine's MAC address.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmMacChangedEvent')
     

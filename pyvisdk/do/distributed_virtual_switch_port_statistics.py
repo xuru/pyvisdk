@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DistributedVirtualSwitchPortStatistics(vim, *args, **kwargs):
-    '''Statistic data of a DistributedVirtualPort.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DistributedVirtualSwitchPortStatistics')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostVMotionConfig(vim, *args, **kwargs):
-    '''This data object configuring VMotion on the host. The runtime information is
-    available from the VMotionInfo data object type.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostVMotionConfig')
     

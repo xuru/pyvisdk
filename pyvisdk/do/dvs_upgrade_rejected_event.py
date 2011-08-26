@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsUpgradeRejectedEvent(vim, *args, **kwargs):
-    '''An upgrade for the distributed virtual switch is rejected.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsUpgradeRejectedEvent')
     

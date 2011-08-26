@@ -9,12 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PerfMetricId(vim, *args, **kwargs):
-    '''This data object type contains information that associates a performance
-    counter with a performance metric. When constructing this data object for the
-    metricId property of the PerfQuerySpec to submit to one of the
-    PerformanceManager query operations, the instance property supports these
-    special characters:* An asterisk (*) to specify all instances of the metric for
-    the specified counterId * Double-quotes ("") to specify aggregated statistics'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:PerfMetricId')
     

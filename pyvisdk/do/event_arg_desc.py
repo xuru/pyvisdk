@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EventArgDesc(vim, *args, **kwargs):
-    '''Describes an available event argument name for an Event type, which can be used
-    in EventAlarmExpression.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:EventArgDesc')
     

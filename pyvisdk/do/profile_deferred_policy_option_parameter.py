@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileDeferredPolicyOptionParameter(vim, *args, **kwargs):
-    '''DataObject which contains information about one Deferred parameter. User can
-    fill in the deferred parameters at apply time.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfileDeferredPolicyOptionParameter')
     

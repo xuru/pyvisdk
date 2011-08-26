@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostInternetScsiHbaIPProperties(vim, *args, **kwargs):
-    '''The IP properties for the host bus adapter'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostInternetScsiHbaIPProperties')
     

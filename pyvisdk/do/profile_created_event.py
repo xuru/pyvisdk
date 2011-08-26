@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileCreatedEvent(vim, *args, **kwargs):
-    '''This event records that a Profile was created.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfileCreatedEvent')
     

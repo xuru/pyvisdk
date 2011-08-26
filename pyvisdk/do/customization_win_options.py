@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationWinOptions(vim, *args, **kwargs):
-    '''Optional operations supported by the customization process for Windows.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationWinOptions')
     

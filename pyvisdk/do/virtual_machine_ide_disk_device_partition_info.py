@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineIdeDiskDevicePartitionInfo(vim, *args, **kwargs):
-    '''Describes the partition sizes'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineIdeDiskDevicePartitionInfo')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DrsDisabledEvent(vim, *args, **kwargs):
-    '''This event records when DRS is disabled on a cluster.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DrsDisabledEvent')
     

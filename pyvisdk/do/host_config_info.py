@@ -9,10 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostConfigInfo(vim, *args, **kwargs):
-    '''This data object type encapsulates a typical set of host configuration
-    information that is useful for displaying and configuring a host.VirtualCenter
-    can retrieve this set of information very efficiently even for a large set of
-    hosts.'''
+    '''VirtualCenter can retrieve this set of information very efficiently even for a
+    large set of hosts.'''
     
     obj = vim.client.factory.create('ns0:HostConfigInfo')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmEventArgument(vim, *args, **kwargs):
-    '''The event argument is a VirtualMachine object.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmEventArgument')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def GlobalMessageChangedEvent(vim, *args, **kwargs):
-    '''This event records a change to the global message.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:GlobalMessageChangedEvent')
     

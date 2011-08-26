@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostPatchManagerStatusPrerequisitePatch(vim, *args, **kwargs):
-    '''Updates that are required to be installed before this update can be installed
-    on the server. In addition to being installed on the server, an update can have
-    additional requirement on the server or services running on the server
-    pertaining to the prerequisite update.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostPatchManagerStatusPrerequisitePatch')
     

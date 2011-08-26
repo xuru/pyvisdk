@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileSimpleExpression(vim, *args, **kwargs):
-    '''DataObject represents a pre-defined expression'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ProfileSimpleExpression')
     

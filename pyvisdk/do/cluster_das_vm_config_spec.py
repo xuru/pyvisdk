@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterDasVmConfigSpec(vim, *args, **kwargs):
-    '''An incremental update to the per-virtual-machine VMware HA configuration.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterDasVmConfigSpec')
     

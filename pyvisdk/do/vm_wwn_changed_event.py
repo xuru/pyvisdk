@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmWwnChangedEvent(vim, *args, **kwargs):
-    '''This event records a change in a virtual machine's WWN (World Wide Name).'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmWwnChangedEvent')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineTicket(vim, *args, **kwargs):
-    '''This data object contains the information needed to establish a connection to a
-    running virtual machine.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualMachineTicket')
     

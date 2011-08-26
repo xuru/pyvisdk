@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineImportSpec(vim, *args, **kwargs):
-    '''A VmImportSpec is used by ResourcePool.importVApp when importing entities.It
-    provides all information needed to import a VirtualMachine. So far, this
+    '''It provides all information needed to import a VirtualMachine. So far, this
     coincides with VirtualMachineConfigSpec.A VmImportSpec can be contained in a
     VirtualAppImportSpec as part of the ImportSpec for an entity.See also
     ImportSpec.'''

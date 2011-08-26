@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VAppCloneSpecNetworkMappingPair(vim, *args, **kwargs):
-    '''Maps one network to another as part of the clone process.Instances of this
-    class are used in the field networkMapping'''
+    '''Instances of this class are used in the field networkMapping'''
     
     obj = vim.client.factory.create('ns0:VAppCloneSpecNetworkMappingPair')
     

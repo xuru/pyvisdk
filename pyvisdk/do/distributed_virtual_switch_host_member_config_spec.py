@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DistributedVirtualSwitchHostMemberConfigSpec(vim, *args, **kwargs):
-    '''Specification to reconfigure a HostMember.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DistributedVirtualSwitchHostMemberConfigSpec')
     

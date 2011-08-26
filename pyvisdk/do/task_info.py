@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def TaskInfo(vim, *args, **kwargs):
-    '''This data object type contains all information about a task. A task represents
-    an operation performed by VirtualCenter or ESX.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:TaskInfo')
     

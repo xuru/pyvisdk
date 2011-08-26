@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualUSBRemoteHostBackingOption(vim, *args, **kwargs):
-    '''The VirtualUSBRemoteHostBackingOption data object contains options for remote
-    host USB configuration. This backing option indicates support for persistent
-    USB connections when vMotion operations migrate virtual machines to different
-    hosts.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VirtualUSBRemoteHostBackingOption')
     

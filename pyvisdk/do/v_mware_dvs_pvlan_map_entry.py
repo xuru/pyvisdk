@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VMwareDVSPvlanMapEntry(vim, *args, **kwargs):
-    '''The class represents a PVLAN id.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VMwareDVSPvlanMapEntry')
     

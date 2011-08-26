@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostProfileHostBasedConfigSpec(vim, *args, **kwargs):
-    '''DataObject which defines the configSpec when HostProfile is being created or
-    updated from a Host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostProfileHostBasedConfigSpec')
     

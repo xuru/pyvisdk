@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DasAgentFoundEvent(vim, *args, **kwargs):
-    '''This event records that VirtualCenter has re-established contact with a primary
-    host in this HA cluster.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DasAgentFoundEvent')
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostBootDeviceInfo(vim, *args, **kwargs):
-    '''This data object represents the boot device information of the host.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostBootDeviceInfo')
     

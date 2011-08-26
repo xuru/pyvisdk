@@ -9,11 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DiskChangeInfo(vim, *args, **kwargs):
-    '''Data structure to describe areas in a disk associated with this VM that have
-    been modified since a well-defined point in the past. Returned by
-    QueryChangedDiskAreas. This data structure describes a subset of the disk
-    identified by startOffset and length. All areas that have been modified within
-    this interval are listed under changedArea.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DiskChangeInfo')
     

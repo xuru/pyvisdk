@@ -9,11 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualUSBOption(vim, *args, **kwargs):
-    '''The VirtualUSBOption data object type contains options for USB device
-    configuration on a virtual machine. The vSphere API supports the following
-    options:* Local host USB connection (VirtualUSBUSBBackingOption) * Remote host
-    USB connection (VirtualUSBRemoteHostBackingOption)For information about USB
-    device configuration, see VirtualUSB.'''
+    '''For information about USB device configuration, see VirtualUSB.'''
     
     obj = vim.client.factory.create('ns0:VirtualUSBOption')
     

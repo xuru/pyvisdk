@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostIpChangedEvent(vim, *args, **kwargs):
-    '''This event records a change in host IP address.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostIpChangedEvent')
     

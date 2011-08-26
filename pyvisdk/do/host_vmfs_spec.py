@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostVmfsSpec(vim, *args, **kwargs):
-    '''This data object type describes the VMware File System (VMFS) creation
-    specification. Once created, these properties for the most part cannot be
-    changed. There are a few exceptions.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostVmfsSpec')
     

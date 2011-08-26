@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmBeingClonedNoFolderEvent(vim, *args, **kwargs):
-    '''This event records a virtual machine being cloned.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmBeingClonedNoFolderEvent')
     

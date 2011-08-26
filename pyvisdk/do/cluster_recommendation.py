@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterRecommendation(vim, *args, **kwargs):
-    '''Recommendation is the base class for any packaged group of actions that are
-    intended to take the system from one state to another one.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterRecommendation')
     

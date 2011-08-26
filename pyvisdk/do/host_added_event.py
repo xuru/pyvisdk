@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostAddedEvent(vim, *args, **kwargs):
-    '''This event records the addition of a host to VirtualCenter.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostAddedEvent')
     

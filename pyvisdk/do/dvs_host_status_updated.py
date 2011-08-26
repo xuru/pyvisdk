@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsHostStatusUpdated(vim, *args, **kwargs):
-    '''A host has it's status or statusDetail updated.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsHostStatusUpdated')
     

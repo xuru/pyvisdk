@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def OvfCreateImportSpecParams(vim, *args, **kwargs):
-    '''Parameters for deploying an OVF.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:OvfCreateImportSpecParams')
     

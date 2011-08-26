@@ -9,10 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AuthorizationPrivilege(vim, *args, **kwargs):
-    '''This data object type provides access to some aspect of the system. Privileges
-    are generally independent. This means a user with a privilege usually can
-    perform an associated set of actions without needing any additional supporting
-    privileges.Within each product version, privileges do not change. See
+    '''Within each product version, privileges do not change. See
     AuthorizationDescription for detailed information on the privileges defined by
     the system.'''
     

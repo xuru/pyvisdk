@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterAction(vim, *args, **kwargs):
-    '''Base class for all action recommendations in VirtualCenter.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:ClusterAction')
     

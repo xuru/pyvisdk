@@ -9,9 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def CustomizationGuiUnattended(vim, *args, **kwargs):
-    '''The GuiUnattended type maps to the GuiUnattended key in the answer file. These
-    values are plugged directly into the file that VirtualCenter stores on the
-    target virtual disk. For more detailed information, see the document'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:CustomizationGuiUnattended')
     

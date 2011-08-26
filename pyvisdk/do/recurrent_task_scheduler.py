@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def RecurrentTaskScheduler(vim, *args, **kwargs):
-    '''The RecurrentTaskScheduler data object is the base type for the hierarchy that
-    includes hourly, daily, weekly, and monthly task schedulers.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:RecurrentTaskScheduler')
     

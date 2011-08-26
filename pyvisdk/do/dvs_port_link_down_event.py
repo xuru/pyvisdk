@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsPortLinkDownEvent(vim, *args, **kwargs):
-    '''A port of which link status is changed to down in the distributed virtual
-    switch.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:DvsPortLinkDownEvent')
     

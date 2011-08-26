@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostLocalFileSystemVolume(vim, *args, **kwargs):
-    '''Local file system volume.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostLocalFileSystemVolume')
     

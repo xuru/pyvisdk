@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostPlugStoreTopologyPlugin(vim, *args, **kwargs):
-    '''This data object type represents a Plugin in the plug store architecture. A
-    Plugin claims a set of paths and groups them into Devices.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:HostPlugStoreTopologyPlugin')
     

@@ -9,8 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def MethodAction(vim, *args, **kwargs):
-    '''This data object type defines an operation and its arguments, invoked on a
-    particular entity.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:MethodAction')
     

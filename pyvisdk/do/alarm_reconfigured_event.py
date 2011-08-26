@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def AlarmReconfiguredEvent(vim, *args, **kwargs):
-    '''This event records the reconfiguration of an alarm.'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:AlarmReconfiguredEvent')
     

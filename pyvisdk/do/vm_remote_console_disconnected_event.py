@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmRemoteConsoleDisconnectedEvent(vim, *args, **kwargs):
-    '''This event records that a remote console was disconnected from the VM'''
+    ''''''
     
     obj = vim.client.factory.create('ns0:VmRemoteConsoleDisconnectedEvent')
     
