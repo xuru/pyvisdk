@@ -45,7 +45,7 @@ class Vim(pyvisdk.core.VimBase):
         """
         Log out of the vmware server.
         """
-        self.session_manager.Logout(self.username, self.password)
+        self.session_manager.Logout()
         self.loggedin = False
 
     def relogin(self):
