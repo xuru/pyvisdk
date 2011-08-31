@@ -23,7 +23,7 @@ ClusterDrsVmConfigInfo
     
     .. py:attribute:: behavior
     
-        Specifies the particular DRS behavior for this virtual machine.
+        Specifies the particular DRS behavior for this virtual machine.See ClusterDrsConfigInfo
         
     
     .. py:attribute:: enabled

@@ -24,7 +24,7 @@ HostNasVolumeConfig
     
     .. py:attribute:: changeOperation
     
-        Indicates the change operation to apply on this configuration specification.
+        Indicates the change operation to apply on this configuration specification.See HostConfigChangeOperation
         
     
     .. py:attribute:: spec

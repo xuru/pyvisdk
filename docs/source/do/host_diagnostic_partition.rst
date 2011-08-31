@@ -25,7 +25,7 @@ HostDiagnosticPartition
     
     .. py:attribute:: diagnosticType
     
-        Indicates the type of the diagnostic partition.
+        Indicates the type of the diagnostic partition.See DiagnosticPartitionType
         
     
     .. py:attribute:: id
@@ -40,6 +40,6 @@ HostDiagnosticPartition
     
     .. py:attribute:: storageType
     
-        Indicates the storage type of the diagnostic partition.
+        Indicates the storage type of the diagnostic partition.See DiagnosticPartitionStorageType
         
     

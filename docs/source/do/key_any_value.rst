@@ -13,6 +13,7 @@ KeyAnyValue
     :py:class:`~pyvisdk.do.license_downgrade_disallowed.LicenseDowngradeDisallowed`,
     :py:class:`~pyvisdk.do.license_manager_evaluation_info.LicenseManagerEvaluationInfo`,
     :py:class:`~pyvisdk.do.license_manager_license_info.LicenseManagerLicenseInfo`,
+    :py:class:`~pyvisdk.do.localizable_message.LocalizableMessage`,
     :py:class:`~pyvisdk.do.policy_option.PolicyOption`,
     :py:class:`~pyvisdk.do.profile_deferred_policy_option_parameter.ProfileDeferredPolicyOptionParameter`,
     :py:class:`~pyvisdk.do.profile_simple_expression.ProfileSimpleExpression`

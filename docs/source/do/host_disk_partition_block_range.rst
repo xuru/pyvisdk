@@ -41,6 +41,6 @@ HostDiskPartitionBlockRange
     
     .. py:attribute:: type
     
-        The type of data in the partition.
+        The type of data in the partition.See type
         
     

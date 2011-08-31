@@ -32,7 +32,7 @@ VirtualMachineFlagInfo
     
     .. py:attribute:: htSharing
     
-        Specifies how the VCPUs of a virtual machine are allowed to share physical cores on a hyperthreaded system. Two VCPUs are "sharing" a core if they are both running on logical CPUs of the core at the same time.
+        Specifies how the VCPUs of a virtual machine are allowed to share physical cores on a hyperthreaded system. Two VCPUs are "sharing" a core if they are both running on logical CPUs of the core at the same time.See VirtualMachineHtSharing
         
     
     .. py:attribute:: monitorType
@@ -62,7 +62,7 @@ VirtualMachineFlagInfo
     
     .. py:attribute:: snapshotPowerOffBehavior
     
-        Specifies the power-off behavior for a virtual machine that has a snapshot. If the value is unset, the behavior 'powerOff' will be used.
+        Specifies the power-off behavior for a virtual machine that has a snapshot. If the value is unset, the behavior 'powerOff' will be used.See VirtualMachinePowerOffBehavior
         
     
     .. py:attribute:: useToe

@@ -22,6 +22,6 @@ VmfsDatastoreSpec
     
     .. py:attribute:: diskUuid
     
-        The UUID of the SCSI disk on which the VMFS datastore is located.
+        The UUID of the SCSI disk on which the VMFS datastore is located.See HostScsiDiskSee uuid
         
     

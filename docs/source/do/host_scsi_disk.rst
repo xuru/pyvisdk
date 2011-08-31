@@ -30,6 +30,6 @@ HostScsiDisk
     
     .. py:attribute:: devicePath
     
-        The device path of the ScsiDisk. This device path is a file path that can be opened to create partitions on the disk.
+        The device path of the ScsiDisk. This device path is a file path that can be opened to create partitions on the disk.See RetrieveDiskPartitionInfoSee UpdateDiskPartitions
         
     

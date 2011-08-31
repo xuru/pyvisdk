@@ -72,6 +72,7 @@ VirtualMachine
     :py:class:`~pyvisdk.do.http_nfc_lease.HttpNfcLease`,
     :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`,
     :py:class:`~pyvisdk.do.managed_entity_status.ManagedEntityStatus`,
+    :py:class:`~pyvisdk.do.method_fault.MethodFault`,
     :py:class:`~pyvisdk.do.network.Network`,
     :py:class:`~pyvisdk.do.resource_config_spec.ResourceConfigSpec`,
     :py:class:`~pyvisdk.do.resource_pool.ResourcePool`,

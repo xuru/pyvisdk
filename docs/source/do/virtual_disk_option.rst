@@ -22,6 +22,6 @@ VirtualDiskOption
     
     .. py:attribute:: ioAllocationOption
     
-        Minumum, maximum, and default values for Storage I/O allocation.
+        Minumum, maximum, and default values for Storage I/O allocation.See StorageIOAllocationInfo
         
     

@@ -74,7 +74,7 @@ ScsiLun
     
     .. py:attribute:: operationalState
     
-        The operational states of the LUN. When more than one item is present in the array, the first state should be considered the primary state. For example, a LUN may be "ok" and "degraded" indicating I/O is still possible to the LUN, but it is operating in a degraded mode.
+        The operational states of the LUN. When more than one item is present in the array, the first state should be considered the primary state. For example, a LUN may be "ok" and "degraded" indicating I/O is still possible to the LUN, but it is operating in a degraded mode.See ScsiLunState
         
     
     .. py:attribute:: queueDepth

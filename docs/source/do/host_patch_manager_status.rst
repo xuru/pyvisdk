@@ -43,12 +43,12 @@ HostPatchManagerStatus
     
     .. py:attribute:: installState
     
-        The installation state of the update. Unset if the update is not installed on the server.
+        The installation state of the update. Unset if the update is not installed on the server.See HostPatchManagerInstallState
         
     
     .. py:attribute:: integrity
     
-        The integrity status of the update's metadata. The value would be unset if the integrity status is unknown to the server.
+        The integrity status of the update's metadata. The value would be unset if the integrity status is unknown to the server.See HostPatchManagerIntegrityStatus
         
     
     .. py:attribute:: prerequisitePatch
@@ -58,7 +58,7 @@ HostPatchManagerStatus
     
     .. py:attribute:: reason
     
-        Possible reasons why an update is not applicable to the ESX host.
+        Possible reasons why an update is not applicable to the ESX host.See HostPatchManagerReason
         
     
     .. py:attribute:: reconnectRequired

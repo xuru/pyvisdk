@@ -28,3 +28,8 @@ PropertyChange
         Change operation for the property. Valid values are:
         
     
+    .. py:attribute:: val
+    
+        New value for the property when "op" is either "add" or "assign".
+        
+    

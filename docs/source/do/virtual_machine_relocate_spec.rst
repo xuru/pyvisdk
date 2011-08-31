@@ -54,6 +54,6 @@ VirtualMachineRelocateSpec
     
     .. py:attribute:: transform
     
-        Transformation to perform on the disks. The backend is free to ignore this hint if it is not valid for the current operation. This can be used by clients, for example, to create sparse disks for templates.
+        Transformation to perform on the disks. The backend is free to ignore this hint if it is not valid for the current operation. This can be used by clients, for example, to create sparse disks for templates.See VirtualMachineRelocateTransformation
         
     

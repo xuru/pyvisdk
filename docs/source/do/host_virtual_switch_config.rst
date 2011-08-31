@@ -20,7 +20,7 @@ HostVirtualSwitchConfig
     
     .. py:attribute:: changeOperation
     
-        This property indicates the change operation to apply on this configuration specification.
+        This property indicates the change operation to apply on this configuration specification.See HostConfigChangeOperation
         
     
     .. py:attribute:: name

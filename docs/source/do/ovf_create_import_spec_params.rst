@@ -27,7 +27,7 @@ OvfCreateImportSpecParams
     
     .. py:attribute:: diskProvisioning
     
-        An optional disk provisioning. If set, all the disks in the deployed OVF will have get the same specified disk type (e.g., thin provisioned). The valide values for disk provisioning are: * monolithicSparse * monolithicFlat * twoGbMaxExtentSparse * twoGbMaxExtentFlat * thin * thick * sparse * flat
+        An optional disk provisioning. If set, all the disks in the deployed OVF will have get the same specified disk type (e.g., thin provisioned). The valide values for disk provisioning are: * monolithicSparse * monolithicFlat * twoGbMaxExtentSparse * twoGbMaxExtentFlat * thin * thick * sparse * flat See VirtualDiskMode
         
     
     .. py:attribute:: entityName

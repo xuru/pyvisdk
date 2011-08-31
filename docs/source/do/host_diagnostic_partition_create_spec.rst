@@ -30,7 +30,7 @@ HostDiagnosticPartitionCreateSpec
     
     .. py:attribute:: diagnosticType
     
-        Indicates the type of the diagnostic partition to be created.
+        Indicates the type of the diagnostic partition to be created.See DiagnosticPartitionType
         
     
     .. py:attribute:: id
@@ -45,6 +45,6 @@ HostDiagnosticPartitionCreateSpec
     
     .. py:attribute:: storageType
     
-        Indicates the storage type where the diagnostic partition will be created.
+        Indicates the storage type where the diagnostic partition will be created.See DiagnosticPartitionStorageType
         
     

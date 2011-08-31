@@ -24,7 +24,7 @@ HostNumericSensorInfo
     
     .. py:attribute:: baseUnits
     
-        The base units in which the sensor reading is specified. If rateUnits is set the units of the current reading is further qualified by the rateUnits.
+        The base units in which the sensor reading is specified. If rateUnits is set the units of the current reading is further qualified by the rateUnits.See rateUnits
         
     
     .. py:attribute:: currentReading
@@ -34,7 +34,7 @@ HostNumericSensorInfo
     
     .. py:attribute:: healthState
     
-        The health state of the of the element indicated by the sensor. This property is populated only for sensors that support threshold settings.
+        The health state of the of the element indicated by the sensor. This property is populated only for sensors that support threshold settings.See HostNumericSensorHealthState
         
     
     .. py:attribute:: name
@@ -49,7 +49,7 @@ HostNumericSensorInfo
     
     .. py:attribute:: sensorType
     
-        The type of the sensor. If the sensor type is set to Other the sensor name can be used to further identify the type of sensor. The sensor units can also be used to further implicitly determine the type of the sensor.
+        The type of the sensor. If the sensor type is set to Other the sensor name can be used to further identify the type of sensor. The sensor units can also be used to further implicitly determine the type of the sensor.See HostNumericSensorType
         
     
     .. py:attribute:: unitModifier

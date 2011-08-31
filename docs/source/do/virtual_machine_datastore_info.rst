@@ -36,6 +36,6 @@ VirtualMachineDatastoreInfo
     
     .. py:attribute:: mode
     
-        Access mode for this datastore. This is either readOnly or readWrite. A virtual disk needs to be stored on readWrite datastore. ISOs can be read from a readOnly datastore.
+        Access mode for this datastore. This is either readOnly or readWrite. A virtual disk needs to be stored on readWrite datastore. ISOs can be read from a readOnly datastore.See HostMountMode
         
     

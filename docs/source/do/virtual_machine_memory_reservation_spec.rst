@@ -20,7 +20,7 @@ VirtualMachineMemoryReservationSpec
     
     .. py:attribute:: allocationPolicy
     
-        Policy for allocating additional memory for virtual machines.
+        Policy for allocating additional memory for virtual machines.See VirtualMachineReservationInfo.AllocationPolicy
         
     
     .. py:attribute:: virtualMachineReserved

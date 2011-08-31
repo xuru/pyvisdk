@@ -10,6 +10,7 @@ ScheduledTaskInfo
     
 .. describe:: See also
     
+    :py:class:`~pyvisdk.do.localized_method_fault.LocalizedMethodFault`,
     :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`,
     :py:class:`~pyvisdk.do.scheduled_task.ScheduledTask`,
     :py:class:`~pyvisdk.do.task.Task`,

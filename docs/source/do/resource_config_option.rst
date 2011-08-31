@@ -28,11 +28,11 @@ ResourceConfigOption
     
     .. py:attribute:: cpuAllocationOption
     
-        Resource allocation options for CPU.
+        Resource allocation options for CPU.See ResourceAllocationInfo
         
     
     .. py:attribute:: memoryAllocationOption
     
-        Resource allocation options for memory.
+        Resource allocation options for memory.See ResourceAllocationInfo
         
     

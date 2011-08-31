@@ -21,7 +21,7 @@ HostDiagnosticPartitionCreateDescription
     
     .. py:attribute:: diskUuid
     
-        The UUID of the SCSI disk on which to create the diagnostic partition. This disk UUID will match that found in the identification field of the creation spec.
+        The UUID of the SCSI disk on which to create the diagnostic partition. This disk UUID will match that found in the identification field of the creation spec.See HostScsiDiskSee uuid
         
     
     .. py:attribute:: layout

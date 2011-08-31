@@ -16,7 +16,7 @@ VirtualMachineDatastoreVolumeOption
     
     .. py:attribute:: fileSystemType
     
-        The type name of the file system volume information object for this option.
+        The type name of the file system volume information object for this option.See HostFileSystemVolumeInfo
         
     
     .. py:attribute:: majorVersion

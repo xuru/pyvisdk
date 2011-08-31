@@ -20,7 +20,7 @@ HostVirtualNicConfig
     
     .. py:attribute:: changeOperation
     
-        The change operation to apply on this configuration specification.
+        The change operation to apply on this configuration specification.See HostConfigChangeOperation
         
     
     .. py:attribute:: device

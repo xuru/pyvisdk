@@ -6,6 +6,7 @@ LicenseAssignmentManagerLicenseAssignment
 
 .. describe:: See also
     
+    :py:class:`~pyvisdk.do.key_any_value.KeyAnyValue`,
     :py:class:`~pyvisdk.do.license_manager_license_info.LicenseManagerLicenseInfo`
     
 .. describe:: Since

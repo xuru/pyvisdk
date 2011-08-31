@@ -32,7 +32,7 @@ HostListSummary
     
     .. py:attribute:: currentEVCModeKey
     
-        The Enhanced VMotion Compatibility mode that is currently in effect for this host. If the host is in a cluster where EVC is active, this will match the cluster's EVC mode; otherwise this will be unset.
+        The Enhanced VMotion Compatibility mode that is currently in effect for this host. If the host is in a cluster where EVC is active, this will match the cluster's EVC mode; otherwise this will be unset.See supportedEVCMode
         
     
     .. py:attribute:: customValue
@@ -57,7 +57,7 @@ HostListSummary
     
     .. py:attribute:: maxEVCModeKey
     
-        The most capable Enhanced VMotion Compatibility mode supported by the host hardware and software; unset if this host cannot participate in any EVC mode.
+        The most capable Enhanced VMotion Compatibility mode supported by the host hardware and software; unset if this host cannot participate in any EVC mode.See supportedEVCMode
         
     
     .. py:attribute:: overallStatus

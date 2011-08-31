@@ -10,6 +10,7 @@ ProfileExecuteError
     
 .. describe:: See also
     
+    :py:class:`~pyvisdk.do.localizable_message.LocalizableMessage`,
     :py:class:`~pyvisdk.do.profile_property_path.ProfilePropertyPath`
     
 .. describe:: Since

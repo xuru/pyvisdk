@@ -39,7 +39,7 @@ HostRuntimeInfo
     
     .. py:attribute:: inMaintenanceMode
     
-        The flag to indicate whether or not the host is in maintenance mode. This flag is set when the host has entered the maintenance mode. It is not set during the entering phase of maintenance mode.
+        The flag to indicate whether or not the host is in maintenance mode. This flag is set when the host has entered the maintenance mode. It is not set during the entering phase of maintenance mode.See EnterMaintenanceMode_TaskSee ExitMaintenanceMode_Task
         
     
     .. py:attribute:: powerState

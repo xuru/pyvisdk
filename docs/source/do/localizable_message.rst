@@ -12,6 +12,7 @@ LocalizableMessage
     
     :py:class:`~pyvisdk.do.compliance_failure.ComplianceFailure`,
     :py:class:`~pyvisdk.do.host_profile_manager_config_task_list.HostProfileManagerConfigTaskList`,
+    :py:class:`~pyvisdk.do.method_fault.MethodFault`,
     :py:class:`~pyvisdk.do.profile_description_section.ProfileDescriptionSection`,
     :py:class:`~pyvisdk.do.profile_execute_error.ProfileExecuteError`,
     :py:class:`~pyvisdk.do.profile_update_failed_update_failure.ProfileUpdateFailedUpdateFailure`,

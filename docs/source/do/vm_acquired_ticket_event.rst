@@ -16,6 +16,6 @@ VmAcquiredTicketEvent
     
     .. py:attribute:: ticketType
     
-        The type of the ticket
+        The type of the ticketSee VirtualMachine.TicketType
         
     

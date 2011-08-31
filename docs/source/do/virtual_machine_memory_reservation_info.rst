@@ -21,7 +21,7 @@ VirtualMachineMemoryReservationInfo
     
     .. py:attribute:: allocationPolicy
     
-        Policy for allocating additional memory for virtual machines.
+        Policy for allocating additional memory for virtual machines.See AllocationPolicy
         
     
     .. py:attribute:: virtualMachineMax

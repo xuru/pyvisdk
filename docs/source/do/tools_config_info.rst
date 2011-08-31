@@ -52,7 +52,7 @@ ToolsConfigInfo
     
     .. py:attribute:: toolsUpgradePolicy
     
-        Tools upgrade policy setting for the virtual machine.
+        Tools upgrade policy setting for the virtual machine.See UpgradePolicy
         
     
     .. py:attribute:: toolsVersion

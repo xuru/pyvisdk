@@ -33,6 +33,6 @@ HostHardwareElementInfo
     
     .. py:attribute:: status
     
-        The operational status of the physical element. The status is one of the values specified in HostHardwareElementStatus.
+        The operational status of the physical element. The status is one of the values specified in HostHardwareElementStatus.See HostHardwareElementStatus
         
     

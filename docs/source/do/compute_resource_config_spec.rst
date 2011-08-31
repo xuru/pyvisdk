@@ -25,6 +25,6 @@ ComputeResourceConfigSpec
     
     .. py:attribute:: vmSwapPlacement
     
-        New setting for the swapfile placement policy. Any change to this policy will affect virtual machines that subsequently power on or resume from a suspended state in this compute resource, or that migrate to a host in this compute resource while powered on; virtual machines that are currently powered on in this compute resource will not yet be affected.
+        New setting for the swapfile placement policy. Any change to this policy will affect virtual machines that subsequently power on or resume from a suspended state in this compute resource, or that migrate to a host in this compute resource while powered on; virtual machines that are currently powered on in this compute resource will not yet be affected.See VirtualMachineConfigInfoSwapPlacementType
         
     

@@ -25,7 +25,7 @@ HostSystemIdentificationInfo
     
     .. py:attribute:: identifierType
     
-        The description of the identifying information.
+        The description of the identifying information.See HostSystemIdentificationInfoIdentifier
         
     
     .. py:attribute:: identifierValue
