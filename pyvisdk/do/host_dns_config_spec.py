@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostDnsConfigSpec(vim, *args, **kwargs):
-    ''''''
+    '''Dataobject for configuring the DNS settings on the host.'''
     
     obj = vim.client.factory.create('ns0:HostDnsConfigSpec')
     
@@ -17,17 +17,18 @@ def HostDnsConfigSpec(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 3:
         raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [ 'dhcp', 'domainName', 'hostName' ]
-    inherited = [ 'address', 'searchDomain', 'virtualNicDevice', 'virtualNicConnection' ]
+    required = [ 'dhcp', 'domainName', 'hostName' ]
+    optional = [ 'virtualNicConnection', 'address', 'searchDomain', 'virtualNicDevice',
+        'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

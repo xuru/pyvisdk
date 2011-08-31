@@ -9,8 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def StorageIORMConfigSpec(vim, *args, **kwargs):
-    '''All fields are defined as optional. If a field is unset, the property is not
-    changed.'''
+    '''Configuration settings used for creating or reconfiguring storage I/O resource
+    management.All fields are defined as optional. If a field is unset, the
+    property is not changed.'''
     
     obj = vim.client.factory.create('ns0:StorageIORMConfigSpec')
     
@@ -18,17 +19,17 @@ def StorageIORMConfigSpec(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'congestionThreshold', 'enabled' ]
+    required = [  ]
+    optional = [ 'congestionThreshold', 'enabled', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

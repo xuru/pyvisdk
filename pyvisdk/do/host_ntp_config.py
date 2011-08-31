@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNtpConfig(vim, *args, **kwargs):
-    ''''''
+    '''Configuration information for the NTP (Network Time Protocol) service.'''
     
     obj = vim.client.factory.create('ns0:HostNtpConfig')
     
@@ -17,17 +17,17 @@ def HostNtpConfig(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'server' ]
+    required = [  ]
+    optional = [ 'server', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

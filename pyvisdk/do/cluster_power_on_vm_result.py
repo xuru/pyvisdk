@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterPowerOnVmResult(vim, *args, **kwargs):
-    ''''''
+    '''PowerOnVmResult is the base class of the result returned to the
+    PowerOnMultiVM_Task method.'''
     
     obj = vim.client.factory.create('ns0:ClusterPowerOnVmResult')
     
@@ -17,17 +18,18 @@ def ClusterPowerOnVmResult(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'attempted', 'notAttempted', 'recommendations' ]
+    required = [  ]
+    optional = [ 'attempted', 'notAttempted', 'recommendations', 'dynamicProperty',
+        'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

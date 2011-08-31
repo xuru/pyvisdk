@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def EvaluationLicenseSource(vim, *args, **kwargs):
-    ''''''
+    '''Specify an evaluation license source. Feature licensing is not required while
+    the remaining hours is greater than zero.'''
     
     obj = vim.client.factory.create('ns0:EvaluationLicenseSource')
     
@@ -17,17 +18,17 @@ def EvaluationLicenseSource(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'remainingHours' ]
+    required = [  ]
+    optional = [ 'remainingHours', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

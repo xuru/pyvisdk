@@ -9,7 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostHostBusAdapter(vim, *args, **kwargs):
-    ''''''
+    '''This data object type describes the bus adapter for the host. A host bus
+    adapter (HBA) is a hardware or software adapter that connects the host to
+    storage devices.'''
     
     obj = vim.client.factory.create('ns0:HostHostBusAdapter')
     
@@ -17,17 +19,17 @@ def HostHostBusAdapter(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 4:
         raise IndexError('Expected at least 5 arguments got: %d' % len(args))
         
-    signature = [ 'bus', 'device', 'model', 'status' ]
-    inherited = [ 'driver', 'key', 'pci' ]
+    required = [ 'bus', 'device', 'model', 'status' ]
+    optional = [ 'driver', 'key', 'pci', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

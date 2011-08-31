@@ -12,7 +12,7 @@ def ClusterVmHostRuleInfo(vim, *args, **kwargs):
     '''A ClusterVmHostRuleInfo object identifies virtual machines and host groups that
     determine virtual machine placement. The virtual machines and hosts referenced
     by a VM-Host rule must be in the same cluster.A VM-Host rule identifies the
-    following groups. * A virtual machine group (ClusterVmGroup). * Two host groups
+    following groups.* A virtual machine group (ClusterVmGroup). * Two host groups
     - an affine host group and an anti-affine host group (ClusterHostGroup). At
     least one of the groups must contain one or more hosts.ClusterVmHostRuleInfo
     stores only the names of the relevant virtual machine and host groups. The
@@ -25,18 +25,19 @@ def ClusterVmHostRuleInfo(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'enabled', 'inCompliance', 'key', 'mandatory', 'name', 'status', 'userCreated',
-        'affineHostGroupName', 'antiAffineHostGroupName', 'vmGroupName' ]
+    required = [  ]
+    optional = [ 'affineHostGroupName', 'antiAffineHostGroupName', 'vmGroupName', 'enabled',
+        'inCompliance', 'key', 'mandatory', 'name', 'status', 'userCreated',
+        'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

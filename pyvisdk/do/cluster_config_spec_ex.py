@@ -9,30 +9,33 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterConfigSpecEx(vim, *args, **kwargs):
-    '''All fields are optional. If you set the parameter to when you call
-    ReconfigureComputeResource_Task, an unset property has no effect on the
-    existing property value in the cluster configuration on the Server. If you set
-    the parameter to when you reconfigure a cluster, the cluster configuration is
-    reverted to the default values, then the new configuration values are
-    applied.Use the properties defined for this object to configure the following
-    services: * HA (High Availability) - provides failover protection for virtual
-    machines running in a cluster of ESX Server hosts. The virtual machines are
-    located in a Datastore, which provides shared storage for the cluster. When a
-    failure occurs that affects a protected virtual machine, HA will restart the
-    virtual machine on another host. When HA detects a host failure, either the
-    host has failed or it may be isolated from the network. The HA agent on an
-    isolated host will power off or shutdown the virtual machines running on that
-    host so that they can be restarted elsewhere. See
-    ClusterDasVmSettingsIsolationResponse for information about how a host handles
-    network isolation.When it chooses a failover host, HA selects a host that is
-    compatible with the virtual machine and that can support resource allocation
-    for that virtual machine so that service level guarantees remain intact. HA
-    does not consider hosts that are in maintenance mode, standby mode, or which
-    are disconnected from the vCenter Server. When a host powers on or becomes
-    available again, HA is reenabled on that host, so it becomes available for
-    failover again. VMware recommends that you configure hosts and virtual machines
-    so that all virtual machines can run on all hosts in the cluster. This will
-    maximize the chances of restarting a VM after a failure.HA also restarts a
+    '''The ClusterConfigSpecEx data object provides a set of update specifications for
+    complete cluster configuration. You can configure a cluster when you create a
+    new cluster (the CreateClusterEx method) or when you reconfigure an existing
+    cluster (the ReconfigureComputeResource_Task method).All fields are optional.
+    If you set the parameter to when you call ReconfigureComputeResource_Task, an
+    unset property has no effect on the existing property value in the cluster
+    configuration on the Server. If you set the parameter to when you reconfigure a
+    cluster, the cluster configuration is reverted to the default values, then the
+    new configuration values are applied.Use the properties defined for this object
+    to configure the following services:* HA (High Availability) - provides
+    failover protection for virtual machines running in a cluster of ESX Server
+    hosts. The virtual machines are located in a Datastore, which provides shared
+    storage for the cluster. When a failure occurs that affects a protected virtual
+    machine, HA will restart the virtual machine on another host. When HA detects a
+    host failure, either the host has failed or it may be isolated from the
+    network. The HA agent on an isolated host will power off or shutdown the
+    virtual machines running on that host so that they can be restarted elsewhere.
+    See ClusterDasVmSettingsIsolationResponse for information about how a host
+    handles network isolation.When it chooses a failover host, HA selects a host
+    that is compatible with the virtual machine and that can support resource
+    allocation for that virtual machine so that service level guarantees remain
+    intact. HA does not consider hosts that are in maintenance mode, standby mode,
+    or which are disconnected from the vCenter Server. When a host powers on or
+    becomes available again, HA is reenabled on that host, so it becomes available
+    for failover again. VMware recommends that you configure hosts and virtual
+    machines so that all virtual machines can run on all hosts in the cluster. This
+    will maximize the chances of restarting a VM after a failure.HA also restarts a
     virtual machine after a guest operating system failure. In this case, the
     virtual machine health monitoring service detects the guest failure, and HA
     restarts the virtual machine on the same host. The service monitors heartbeats
@@ -41,13 +44,13 @@ def ClusterConfigSpecEx(vim, *args, **kwargs):
     ClusterDasConfigInfo.vmMonitoring.To enable HA for a cluster, set the
     ClusterDasConfigInfo.enabled property to and the
     ClusterDasConfigInfo.hostMonitoring property to enabled. (The vSphere API uses
-    the substring "das" in object, property, and method names for HA. ) * DRS
+    the substring "das" in object, property, and method names for HA. )* DRS
     (Distributed Resource Scheduling) - provides automatic initial virtual machine
     placement on any of the hosts in the cluster. DRS also makes automatic resource
     relocation and optimization decisions as hosts or virtual machines are added or
     removed from the cluster. You can also configure DRS for manual control, so
     that it only makes recommendations that you can review and carry out.To enable
-    DRS for a cluster, set the ClusterDrsConfigInfo.enabled property to . * DPM
+    DRS for a cluster, set the ClusterDrsConfigInfo.enabled property to .* DPM
     (Distributed Power Management) - supports optimized power consumption on the
     cluster. When virtual machines in a DRS cluster require fewer resources, DPM
     consolidates workloads onto fewer servers while maintaining quality of service
@@ -58,7 +61,7 @@ def ClusterConfigSpecEx(vim, *args, **kwargs):
     vMotion Compatibility) services. Use the CreateSecondaryVM_Task method to
     establish fault tolerance for a virtual machine. Use the vSphere Client to
     configure EVC. The HA, DRS, DPM, FT, and EVC services interact under the
-    following circumstances. * To determine initial placement of a virtual machine,
+    following circumstances.* To determine initial placement of a virtual machine,
     DRS checks to see if the HA admission control policy on a potential host
     supports the addition of the powered on virtual machine. With the default
     setting, DRS will not power on more than four FT virtual machines per host. You
@@ -80,7 +83,7 @@ def ClusterConfigSpecEx(vim, *args, **kwargs):
     This is because resources are reserved to maintain the failover level. You must
     use vMotion to manually migrate the virtual machines off the hosts.When
     admission control is disabled, failover resource constraints are not passed on
-    to DRS and DPM. The constraints are not enforced. * DRS determines virtual
+    to DRS and DPM. The constraints are not enforced.* DRS determines virtual
     machine placement and status (maintenance mode, standby mode) regardless of the
     impact this might have on failover requirements. * DPM powers off hosts (places
     them in standby mode) even if doing so violates failover requirements. If there
@@ -91,12 +94,13 @@ def ClusterConfigSpecEx(vim, *args, **kwargs):
     disabled, vCenter automatically creates overrides to disable DRS for FT
     primary/secondary pairs in the cluster. vCenter will still use DRS to place a
     secondary virtual machine when it powers on. Attempts to remove the overrides
-    or to enable DRS operations will fail. * EVC clusters support load balancing of
+    or to enable DRS operations will fail.* EVC clusters support load balancing of
     powered on FT primary and secondary virtual machines. DRS behavior is governed
     by the overrides defined for the primary virtual machine. The secondary
     inherits DRS behavior from its primary. If you do not configure a DRS override
-    for an FT virtual machine, DRS uses the cluster default (defaultVmBehavior).
-    High Availability was previously called Distributed Availability Services.'''
+    for an FT virtual machine, DRS uses the cluster default
+    (defaultVmBehavior).High Availability was previously called Distributed
+    Availability Services.'''
     
     obj = vim.client.factory.create('ns0:ClusterConfigSpecEx')
     
@@ -104,18 +108,19 @@ def ClusterConfigSpecEx(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'vmSwapPlacement', 'dasConfig', 'dasVmConfigSpec', 'dpmConfig',
-        'dpmHostConfigSpec', 'drsConfig', 'drsVmConfigSpec', 'groupSpec', 'rulesSpec' ]
+    required = [  ]
+    optional = [ 'dasConfig', 'dasVmConfigSpec', 'dpmConfig', 'dpmHostConfigSpec', 'drsConfig',
+        'drsVmConfigSpec', 'groupSpec', 'rulesSpec', 'vmSwapPlacement',
+        'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostIpRouteTableConfig(vim, *args, **kwargs):
-    ''''''
+    '''IpRouteEntry. Routing entries are individual static routes which combined with
+    the default route form all of the routing rules for a host.'''
     
     obj = vim.client.factory.create('ns0:HostIpRouteTableConfig')
     
@@ -17,17 +18,17 @@ def HostIpRouteTableConfig(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'ipRoute', 'ipv6Route' ]
+    required = [  ]
+    optional = [ 'ipRoute', 'ipv6Route', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

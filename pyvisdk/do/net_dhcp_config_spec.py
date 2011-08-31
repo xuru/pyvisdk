@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetDhcpConfigSpec(vim, *args, **kwargs):
-    ''''''
+    '''Dynamic Host Configuration Protocol Configuration for IP version 4 and version
+    6.'''
     
     obj = vim.client.factory.create('ns0:NetDhcpConfigSpec')
     
@@ -17,17 +18,17 @@ def NetDhcpConfigSpec(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'ipv4', 'ipv6' ]
+    required = [  ]
+    optional = [ 'ipv4', 'ipv6', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostConfigSpec(vim, *args, **kwargs):
-    ''''''
+    '''The HostConfigSpec data object provides access to data objects that specify
+    configuration changes to be applied to an ESX host.'''
     
     obj = vim.client.factory.create('ns0:HostConfigSpec')
     
@@ -17,20 +18,20 @@ def HostConfigSpec(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'activeDirectory', 'datastorePrincipal', 'datastorePrincipalPasswd',
+    required = [  ]
+    optional = [ 'activeDirectory', 'datastorePrincipal', 'datastorePrincipalPasswd',
         'datetime', 'firewall', 'license', 'memory', 'nasDatastore', 'network',
         'nicTypeSelection', 'option', 'security', 'service', 'storageDevice',
-        'userAccount', 'usergroupAccount' ]
+        'userAccount', 'usergroupAccount', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

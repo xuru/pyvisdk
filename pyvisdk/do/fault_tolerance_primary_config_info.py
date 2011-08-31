@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def FaultTolerancePrimaryConfigInfo(vim, *args, **kwargs):
-    ''''''
+    '''FaultTolerancePrimaryConfigInfo is a data object type containing Fault
+    Tolerance settings for a primary virtual machine in a fault tolerance group'''
     
     obj = vim.client.factory.create('ns0:FaultTolerancePrimaryConfigInfo')
     
@@ -17,17 +18,17 @@ def FaultTolerancePrimaryConfigInfo(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 4:
         raise IndexError('Expected at least 5 arguments got: %d' % len(args))
         
-    signature = [ 'configPaths', 'instanceUuids', 'role', 'secondaries' ]
-    inherited = [  ]
+    required = [ 'secondaries', 'configPaths', 'instanceUuids', 'role' ]
+    optional = [ 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

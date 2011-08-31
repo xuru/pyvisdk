@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualPCIControllerOption(vim, *args, **kwargs):
-    ''''''
+    '''This data object type contains the options for a virtual PCI Controller.'''
     
     obj = vim.client.factory.create('ns0:VirtualPCIControllerOption')
     
@@ -17,22 +17,23 @@ def VirtualPCIControllerOption(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 15:
         raise IndexError('Expected at least 16 arguments got: %d' % len(args))
         
-    signature = [ 'deprecated', 'hotRemoveSupported', 'plugAndPlay', 'type', 'devices',
-        'numEthernetCards', 'numParaVirtualSCSIControllers',
+    required = [ 'numEthernetCards', 'numParaVirtualSCSIControllers',
         'numPCIPassthroughDevices', 'numSasSCSIControllers', 'numSCSIControllers',
         'numSoundCards', 'numVideoCards', 'numVmciDevices', 'numVmiRoms',
-        'numVmxnet3EthernetCards' ]
-    inherited = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
-        'defaultBackingOptionIndex', 'licensingLimit', 'supportedDevice' ]
+        'numVmxnet3EthernetCards', 'devices', 'deprecated', 'hotRemoveSupported',
+        'plugAndPlay', 'type' ]
+    optional = [ 'supportedDevice', 'autoAssignController', 'backingOption', 'connectOption',
+        'controllerType', 'defaultBackingOptionIndex', 'licensingLimit',
+        'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostNetCapabilities(vim, *args, **kwargs):
-    ''''''
+    '''Capability vector indicating the available product features.'''
     
     obj = vim.client.factory.create('ns0:HostNetCapabilities')
     
@@ -17,20 +17,20 @@ def HostNetCapabilities(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 11:
         raise IndexError('Expected at least 12 arguments got: %d' % len(args))
         
-    signature = [ 'canSetPhysicalNicLinkSpeed', 'dhcpOnVnicSupported', 'dnsConfigSupported',
+    required = [ 'canSetPhysicalNicLinkSpeed', 'dhcpOnVnicSupported', 'dnsConfigSupported',
         'ipRouteConfigSupported', 'ipV6Supported', 'supportsNetworkHints',
         'supportsNicTeaming', 'supportsVlan', 'usesServiceConsoleNic',
         'vnicConfigSupported', 'vswitchConfigSupported' ]
-    inherited = [ 'maxPortGroupsPerVswitch', 'nicTeamingPolicy' ]
+    optional = [ 'maxPortGroupsPerVswitch', 'nicTeamingPolicy', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

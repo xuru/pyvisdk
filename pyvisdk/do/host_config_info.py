@@ -9,8 +9,10 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostConfigInfo(vim, *args, **kwargs):
-    '''VirtualCenter can retrieve this set of information very efficiently even for a
-    large set of hosts.'''
+    '''This data object type encapsulates a typical set of host configuration
+    information that is useful for displaying and configuring a host.VirtualCenter
+    can retrieve this set of information very efficiently even for a large set of
+    hosts.'''
     
     obj = vim.client.factory.create('ns0:HostConfigInfo')
     
@@ -18,24 +20,25 @@ def HostConfigInfo(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 2:
         raise IndexError('Expected at least 3 arguments got: %d' % len(args))
         
-    signature = [ 'host', 'product' ]
-    inherited = [ 'activeDiagnosticPartition', 'adminDisabled', 'authenticationManagerInfo',
+    required = [ 'host', 'product' ]
+    optional = [ 'activeDiagnosticPartition', 'adminDisabled', 'authenticationManagerInfo',
         'autoStart', 'capabilities', 'consoleReservation', 'datastoreCapabilities',
         'datastorePrincipal', 'dateTimeInfo', 'featureVersion', 'fileSystemVolume',
         'firewall', 'flags', 'hyperThread', 'ipmi', 'localSwapDatastore',
         'multipathState', 'network', 'offloadCapabilities', 'option', 'optionDef',
         'pciPassthruInfo', 'powerSystemCapability', 'powerSystemInfo', 'service',
         'sslThumbprintInfo', 'storageDevice', 'systemFile', 'systemResources',
-        'virtualMachineReservation', 'virtualNicManagerInfo', 'vmotion' ]
+        'virtualMachineReservation', 'virtualNicManagerInfo', 'vmotion',
+        'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

@@ -9,7 +9,10 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DatastoreRenamedOnHostEvent(vim, *args, **kwargs):
-    ''''''
+    '''This event records when a datastore is added to VirtualCenter and is renamed by
+    VirtualCenter because this datastore already exists in VirtualCenter with a
+    different name, or because the name conflicts with another datastore in
+    VirtualCenter.'''
     
     obj = vim.client.factory.create('ns0:DatastoreRenamedOnHostEvent')
     
@@ -17,18 +20,18 @@ def DatastoreRenamedOnHostEvent(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 6:
         raise IndexError('Expected at least 7 arguments got: %d' % len(args))
         
-    signature = [ 'chainId', 'createdTime', 'key', 'userName', 'newName', 'oldName' ]
-    inherited = [ 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
-        'fullFormattedMessage', 'host', 'net', 'vm' ]
+    required = [ 'newName', 'oldName', 'chainId', 'createdTime', 'key', 'userName' ]
+    optional = [ 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
+        'fullFormattedMessage', 'host', 'net', 'vm', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

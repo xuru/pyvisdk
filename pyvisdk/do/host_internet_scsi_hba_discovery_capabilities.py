@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostInternetScsiHbaDiscoveryCapabilities(vim, *args, **kwargs):
-    ''''''
+    '''The discovery capabilities for this host bus adapter. At least one discovery
+    mode must always be active. Multiple modes may be active at the same time.'''
     
     obj = vim.client.factory.create('ns0:HostInternetScsiHbaDiscoveryCapabilities')
     
@@ -17,18 +18,18 @@ def HostInternetScsiHbaDiscoveryCapabilities(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 4:
         raise IndexError('Expected at least 5 arguments got: %d' % len(args))
         
-    signature = [ 'iSnsDiscoverySettable', 'sendTargetsDiscoverySettable',
+    required = [ 'iSnsDiscoverySettable', 'sendTargetsDiscoverySettable',
         'slpDiscoverySettable', 'staticTargetDiscoverySettable' ]
-    inherited = [  ]
+    optional = [ 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

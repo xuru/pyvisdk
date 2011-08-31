@@ -9,7 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VmfsDatastoreSingleExtentOption(vim, *args, **kwargs):
-    ''''''
+    '''Datastore addition policy to use a single extent on the disk for a VMFS
+    datastore. A single extent implies that one disk partition will be created on
+    the disk for creating or increasing the capacity of a VMFS datastore.'''
     
     obj = vim.client.factory.create('ns0:VmfsDatastoreSingleExtentOption')
     
@@ -17,17 +19,17 @@ def VmfsDatastoreSingleExtentOption(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 2:
         raise IndexError('Expected at least 3 arguments got: %d' % len(args))
         
-    signature = [ 'layout', 'vmfsExtent' ]
-    inherited = [  ]
+    required = [ 'vmfsExtent', 'layout' ]
+    optional = [ 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

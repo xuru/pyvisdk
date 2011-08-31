@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualE1000(vim, *args, **kwargs):
-    ''''''
+    '''The VirtualE1000 data object type represents an instance of the E1000 virtual
+    Ethernet adapter attached to a virtual machine.'''
     
     obj = vim.client.factory.create('ns0:VirtualE1000')
     
@@ -17,18 +18,18 @@ def VirtualE1000(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
         
-    signature = [ 'key' ]
-    inherited = [ 'backing', 'connectable', 'controllerKey', 'deviceInfo', 'unitNumber',
-        'addressType', 'macAddress', 'wakeOnLanEnabled' ]
+    required = [ 'key' ]
+    optional = [ 'addressType', 'macAddress', 'wakeOnLanEnabled', 'backing', 'connectable',
+        'controllerKey', 'deviceInfo', 'unitNumber', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

@@ -9,7 +9,10 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def FileQuery(vim, *args, **kwargs):
-    ''''''
+    '''The data object type that describes the base query specification. Contains
+    query filters and details that apply to every file. Querying only file details
+    generally does not require opening files and so is an efficient query. Derived
+    types add query parameters specific to the type of file.'''
     
     obj = vim.client.factory.create('ns0:FileQuery')
     
@@ -17,17 +20,17 @@ def FileQuery(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [  ]
+    required = [  ]
+    optional = [ 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

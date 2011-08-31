@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterAffinityRuleSpec(vim, *args, **kwargs):
-    ''''''
+    '''The ClusterAffinityRuleSpec data object defines a set of virtual machines. DRS
+    will attempt to schedule the virtual machines to run on the same host.'''
     
     obj = vim.client.factory.create('ns0:ClusterAffinityRuleSpec')
     
@@ -17,17 +18,18 @@ def ClusterAffinityRuleSpec(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
         
-    signature = [ 'vm' ]
-    inherited = [ 'enabled', 'inCompliance', 'key', 'mandatory', 'name', 'status', 'userCreated' ]
+    required = [ 'vm' ]
+    optional = [ 'enabled', 'inCompliance', 'key', 'mandatory', 'name', 'status', 'userCreated',
+        'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

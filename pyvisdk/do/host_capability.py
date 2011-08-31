@@ -9,7 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostCapability(vim, *args, **kwargs):
-    ''''''
+    '''Specifies the capabilities of the particular host. This set of capabilities is
+    referenced in other parts of the API specification to indicate under what
+    circumstances an API will throw a NotSupported fault.'''
     
     obj = vim.client.factory.create('ns0:HostCapability')
     
@@ -17,7 +19,7 @@ def HostCapability(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 35:
         raise IndexError('Expected at least 36 arguments got: %d' % len(args))
         
-    signature = [ 'backgroundSnapshotsSupported', 'cloneFromSnapshotSupported',
+    required = [ 'backgroundSnapshotsSupported', 'cloneFromSnapshotSupported',
         'cpuMemoryResourceConfigurationSupported', 'datastorePrincipalSupported',
         'deltaDiskBackingsSupported', 'ftSupported', 'highGuestMemSupported',
         'iscsiSupported', 'localSwapDatastoreSupported', 'maintenanceModeSupported',
@@ -31,20 +33,20 @@ def HostCapability(vim, *args, **kwargs):
         'virtualExecUsageSupported', 'vlanTaggingSupported',
         'vmDirectPathGen2Supported', 'vmotionSupported',
         'vmotionWithStorageVMotionSupported', 'vStorageCapable' ]
-    inherited = [ 'ftCompatibilityIssues', 'ipmiSupported', 'loginBySSLThumbprintSupported',
+    optional = [ 'ftCompatibilityIssues', 'ipmiSupported', 'loginBySSLThumbprintSupported',
         'maxRunningVMs', 'maxSupportedVcpus', 'maxSupportedVMs',
         'replayCompatibilityIssues', 'replayUnsupportedReason', 'supportedCpuFeature',
         'vmDirectPathGen2UnsupportedReason',
-        'vmDirectPathGen2UnsupportedReasonExtended' ]
+        'vmDirectPathGen2UnsupportedReasonExtended', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

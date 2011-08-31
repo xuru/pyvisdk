@@ -9,8 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterDpmConfigInfo(vim, *args, **kwargs):
-    '''All fields are defined as optional. In case of a reconfiguration, unset fields
-    are not changed.'''
+    '''Configuration of the VMware DPM service.All fields are defined as optional. In
+    case of a reconfiguration, unset fields are not changed.'''
     
     obj = vim.client.factory.create('ns0:ClusterDpmConfigInfo')
     
@@ -18,17 +18,18 @@ def ClusterDpmConfigInfo(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'defaultDpmBehavior', 'enabled', 'hostPowerActionRate', 'option' ]
+    required = [  ]
+    optional = [ 'defaultDpmBehavior', 'enabled', 'hostPowerActionRate', 'option',
+        'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

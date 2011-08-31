@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineUsbInfo(vim, *args, **kwargs):
-    ''''''
+    '''This data object contains information about a physical USB device on the host.'''
     
     obj = vim.client.factory.create('ns0:VirtualMachineUsbInfo')
     
@@ -17,17 +17,18 @@ def VirtualMachineUsbInfo(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 5:
         raise IndexError('Expected at least 6 arguments got: %d' % len(args))
         
-    signature = [ 'name', 'description', 'physicalPath', 'product', 'vendor' ]
-    inherited = [ 'configurationTag', 'family', 'speed', 'summary' ]
+    required = [ 'description', 'physicalPath', 'product', 'vendor', 'name' ]
+    optional = [ 'family', 'speed', 'summary', 'configurationTag', 'dynamicProperty',
+        'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

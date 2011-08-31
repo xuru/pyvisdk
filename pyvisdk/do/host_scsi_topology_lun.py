@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostScsiTopologyLun(vim, *args, **kwargs):
-    ''''''
+    '''This data object type describes the SCSI logical unit.'''
     
     obj = vim.client.factory.create('ns0:HostScsiTopologyLun')
     
@@ -17,17 +17,17 @@ def HostScsiTopologyLun(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 3:
         raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [ 'key', 'lun', 'scsiLun' ]
-    inherited = [  ]
+    required = [ 'key', 'lun', 'scsiLun' ]
+    optional = [ 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

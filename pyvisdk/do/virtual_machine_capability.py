@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineCapability(vim, *args, **kwargs):
-    ''''''
+    '''This data object type contains information about the operation/capabailities of
+    a virtual machine'''
     
     obj = vim.client.factory.create('ns0:VirtualMachineCapability')
     
@@ -17,7 +18,7 @@ def VirtualMachineCapability(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 28:
         raise IndexError('Expected at least 29 arguments got: %d' % len(args))
         
-    signature = [ 'bootOptionsSupported', 'bootRetryOptionsSupported', 'changeTrackingSupported',
+    required = [ 'bootOptionsSupported', 'bootRetryOptionsSupported', 'changeTrackingSupported',
         'consolePreferencesSupported', 'cpuFeatureMaskSupported',
         'disableSnapshotsSupported', 'diskSharesSupported', 'lockSnapshotsSupported',
         'memorySnapshotsSupported', 'multipleSnapshotsSupported',
@@ -30,16 +31,16 @@ def VirtualMachineCapability(vim, *args, **kwargs):
         'toolsAutoUpdateSupported', 'toolsSyncTimeSupported',
         'virtualMmuUsageSupported', 'vmNpivWwnDisableSupported', 'vmNpivWwnSupported',
         'vmNpivWwnUpdateSupported' ]
-    inherited = [  ]
+    optional = [ 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

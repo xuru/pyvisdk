@@ -9,7 +9,10 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DynamicData(vim, *args, **kwargs):
-    ''''''
+    '''DynamicData is a builtin object model data object type for manipulating data
+    properties dynamically. The primary usage is as a base class for types that may
+    be extended with subtypes in the future, where new properties should be sent to
+    old clients as a set of dynamic properties.'''
     
     obj = vim.client.factory.create('ns0:DynamicData')
     
@@ -17,17 +20,17 @@ def DynamicData(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [  ]
+    required = [  ]
+    optional = [ 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

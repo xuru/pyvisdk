@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DVSNetworkResourcePoolConfigSpec(vim, *args, **kwargs):
-    ''''''
+    '''The configuration specification data object to update the resource
+    configuration for a network resource pool.'''
     
     obj = vim.client.factory.create('ns0:DVSNetworkResourcePoolConfigSpec')
     
@@ -17,17 +18,17 @@ def DVSNetworkResourcePoolConfigSpec(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
         
-    signature = [ 'key' ]
-    inherited = [ 'allocationInfo', 'configVersion' ]
+    required = [ 'key' ]
+    optional = [ 'allocationInfo', 'configVersion', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostPatchManagerPatchManagerOperationSpec(vim, *args, **kwargs):
-    ''''''
+    '''Optional parameters for hostd to pass to exupdate.'''
     
     obj = vim.client.factory.create('ns0:HostPatchManagerPatchManagerOperationSpec')
     
@@ -17,17 +17,18 @@ def HostPatchManagerPatchManagerOperationSpec(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'cmdOption', 'password', 'port', 'proxy', 'userName' ]
+    required = [  ]
+    optional = [ 'cmdOption', 'password', 'port', 'proxy', 'userName', 'dynamicProperty',
+        'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

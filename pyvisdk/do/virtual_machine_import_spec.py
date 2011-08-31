@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineImportSpec(vim, *args, **kwargs):
-    '''It provides all information needed to import a VirtualMachine. So far, this
+    '''A VmImportSpec is used by ResourcePool.importVApp when importing entities.It
+    provides all information needed to import a VirtualMachine. So far, this
     coincides with VirtualMachineConfigSpec.A VmImportSpec can be contained in a
     VirtualAppImportSpec as part of the ImportSpec for an entity.See also
     ImportSpec.'''
@@ -20,17 +21,17 @@ def VirtualMachineImportSpec(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
         
-    signature = [ 'configSpec' ]
-    inherited = [ 'entityConfig', 'resPoolEntity' ]
+    required = [ 'configSpec' ]
+    optional = [ 'resPoolEntity', 'entityConfig', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

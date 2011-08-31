@@ -9,7 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostScsiDisk(vim, *args, **kwargs):
-    ''''''
+    '''This data object type describes a SCSI disk. A SCSI disk contains a partition
+    table which can be changed. To change a SCSI disk, use the device name and the
+    partition specification.See RetrieveDiskPartitionInfoSee UpdateDiskPartitions'''
     
     obj = vim.client.factory.create('ns0:HostScsiDisk')
     
@@ -17,20 +19,21 @@ def HostScsiDisk(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 7:
         raise IndexError('Expected at least 8 arguments got: %d' % len(args))
         
-    signature = [ 'deviceName', 'deviceType', 'lunType', 'operationalState', 'uuid', 'capacity',
-        'devicePath' ]
-    inherited = [ 'alternateName', 'canonicalName', 'capabilities', 'descriptor', 'displayName',
+    required = [ 'capacity', 'devicePath', 'lunType', 'operationalState', 'uuid', 'deviceName',
+        'deviceType' ]
+    optional = [ 'alternateName', 'canonicalName', 'capabilities', 'descriptor', 'displayName',
         'durableName', 'key', 'model', 'queueDepth', 'revision', 'scsiLevel',
-        'serialNumber', 'standardInquiry', 'vendor', 'vStorageSupport' ]
+        'serialNumber', 'standardInquiry', 'vendor', 'vStorageSupport',
+        'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

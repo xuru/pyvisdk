@@ -9,7 +9,12 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualMachineFileLayout(vim, *args, **kwargs):
-    ''''''
+    '''Describes the set of files that makes up a virtual machine on disk. The file
+    layout is broken into 4 major sections:* Configuration: Files stored in the
+    configuration directory * Log: Files stored in the log directory * Disk: Files
+    stored relative to a disk configuration file * Snapshot: Stored in the snapshot
+    directoryOften the same directory is used for configuration, log, disk and
+    snapshots.'''
     
     obj = vim.client.factory.create('ns0:VirtualMachineFileLayout')
     
@@ -17,17 +22,18 @@ def VirtualMachineFileLayout(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'configFile', 'disk', 'logFile', 'snapshot', 'swapFile' ]
+    required = [  ]
+    optional = [ 'configFile', 'disk', 'logFile', 'snapshot', 'swapFile', 'dynamicProperty',
+        'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

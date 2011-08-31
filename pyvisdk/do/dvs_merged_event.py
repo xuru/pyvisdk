@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def DvsMergedEvent(vim, *args, **kwargs):
-    ''''''
+    '''Two distributed virtual switches was merged.'''
     
     obj = vim.client.factory.create('ns0:DvsMergedEvent')
     
@@ -17,18 +17,18 @@ def DvsMergedEvent(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 6:
         raise IndexError('Expected at least 7 arguments got: %d' % len(args))
         
-    signature = [ 'chainId', 'createdTime', 'key', 'userName', 'destinationDvs', 'sourceDvs' ]
-    inherited = [ 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
-        'fullFormattedMessage', 'host', 'net', 'vm' ]
+    required = [ 'destinationDvs', 'sourceDvs', 'chainId', 'createdTime', 'key', 'userName' ]
+    optional = [ 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
+        'fullFormattedMessage', 'host', 'net', 'vm', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostPatchManagerResult(vim, *args, **kwargs):
-    ''''''
+    '''The result of the operation. Some of the fields are only valid for specific
+    operations.'''
     
     obj = vim.client.factory.create('ns0:HostPatchManagerResult')
     
@@ -17,17 +18,17 @@ def HostPatchManagerResult(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
         
-    signature = [ 'version' ]
-    inherited = [ 'status', 'xmlResult' ]
+    required = [ 'version' ]
+    optional = [ 'status', 'xmlResult', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

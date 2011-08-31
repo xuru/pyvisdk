@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ToolsConfigInfo(vim, *args, **kwargs):
-    ''''''
+    '''ToolsConfigInfo is a data object type containing settings for the VMware Tools
+    software running in the guest operating system.'''
     
     obj = vim.client.factory.create('ns0:ToolsConfigInfo')
     
@@ -17,19 +18,19 @@ def ToolsConfigInfo(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'afterPowerOn', 'afterResume', 'beforeGuestReboot', 'beforeGuestShutdown',
+    required = [  ]
+    optional = [ 'afterPowerOn', 'afterResume', 'beforeGuestReboot', 'beforeGuestShutdown',
         'beforeGuestStandby', 'pendingCustomization', 'syncTimeWithHost',
-        'toolsUpgradePolicy', 'toolsVersion' ]
+        'toolsUpgradePolicy', 'toolsVersion', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

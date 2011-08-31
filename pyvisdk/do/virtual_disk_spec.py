@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDiskSpec(vim, *args, **kwargs):
-    ''''''
+    '''Specification used to create or clone a virtual disk'''
     
     obj = vim.client.factory.create('ns0:VirtualDiskSpec')
     
@@ -17,17 +17,17 @@ def VirtualDiskSpec(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 2:
         raise IndexError('Expected at least 3 arguments got: %d' % len(args))
         
-    signature = [ 'adapterType', 'diskType' ]
-    inherited = [  ]
+    required = [ 'adapterType', 'diskType' ]
+    optional = [ 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

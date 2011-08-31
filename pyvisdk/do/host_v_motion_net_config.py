@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostVMotionNetConfig(vim, *args, **kwargs):
-    ''''''
+    '''The NetConfig data object type contains the networking configuration for
+    VMotion operations.'''
     
     obj = vim.client.factory.create('ns0:HostVMotionNetConfig')
     
@@ -17,17 +18,17 @@ def HostVMotionNetConfig(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
         
-    signature = [  ]
-    inherited = [ 'candidateVnic', 'selectedVnic' ]
+    required = [  ]
+    optional = [ 'candidateVnic', 'selectedVnic', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

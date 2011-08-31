@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostService(vim, *args, **kwargs):
-    ''''''
+    '''Data object that describes a single service that runs on the host.'''
     
     obj = vim.client.factory.create('ns0:HostService')
     
@@ -17,17 +17,17 @@ def HostService(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 6:
         raise IndexError('Expected at least 7 arguments got: %d' % len(args))
         
-    signature = [ 'key', 'label', 'policy', 'required', 'running', 'uninstallable' ]
-    inherited = [ 'ruleset' ]
+    required = [ 'key', 'label', 'policy', 'required', 'running', 'uninstallable' ]
+    optional = [ 'ruleset', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

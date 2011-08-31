@@ -9,8 +9,10 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualDiskFlatVer1BackingInfo(vim, *args, **kwargs):
-    '''Flat disks are allocated when created, unlike sparse disks, which grow as
-    needed.'''
+    '''This data object type contains information about backing a virtual disk by
+    using a virtual disk file on the host, in the flat file format used by GSX
+    Server 2.x.Flat disks are allocated when created, unlike sparse disks, which
+    grow as needed.'''
     
     obj = vim.client.factory.create('ns0:VirtualDiskFlatVer1BackingInfo')
     
@@ -18,17 +20,18 @@ def VirtualDiskFlatVer1BackingInfo(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 2:
         raise IndexError('Expected at least 3 arguments got: %d' % len(args))
         
-    signature = [ 'fileName', 'diskMode' ]
-    inherited = [ 'datastore', 'contentId', 'parent', 'split', 'writeThrough' ]
+    required = [ 'diskMode', 'fileName' ]
+    optional = [ 'contentId', 'parent', 'split', 'writeThrough', 'datastore', 'dynamicProperty',
+        'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

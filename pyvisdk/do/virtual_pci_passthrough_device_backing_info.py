@@ -9,7 +9,9 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualPCIPassthroughDeviceBackingInfo(vim, *args, **kwargs):
-    ''''''
+    '''The VirtualPCIPassthrough.DeviceBackingInfo data object type contains
+    information about the backing that maps the virtual device onto a physical
+    device.'''
     
     obj = vim.client.factory.create('ns0:VirtualPCIPassthroughDeviceBackingInfo')
     
@@ -17,17 +19,17 @@ def VirtualPCIPassthroughDeviceBackingInfo(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 5:
         raise IndexError('Expected at least 6 arguments got: %d' % len(args))
         
-    signature = [ 'deviceName', 'deviceId', 'id', 'systemId', 'vendorId' ]
-    inherited = [ 'useAutoDetect' ]
+    required = [ 'deviceId', 'id', 'systemId', 'vendorId', 'deviceName' ]
+    optional = [ 'useAutoDetect', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

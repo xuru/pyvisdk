@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetIpRouteConfigInfoIpRoute(vim, *args, **kwargs):
-    ''''''
+    '''IpRoute report an individual host, network or default destination network
+    reachable through a given gateway.'''
     
     obj = vim.client.factory.create('ns0:NetIpRouteConfigInfoIpRoute')
     
@@ -17,17 +18,17 @@ def NetIpRouteConfigInfoIpRoute(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 3:
         raise IndexError('Expected at least 4 arguments got: %d' % len(args))
         
-    signature = [ 'gateway', 'network', 'prefixLength' ]
-    inherited = [  ]
+    required = [ 'gateway', 'network', 'prefixLength' ]
+    optional = [ 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     

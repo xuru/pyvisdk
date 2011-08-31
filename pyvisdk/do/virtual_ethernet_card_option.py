@@ -9,7 +9,8 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def VirtualEthernetCardOption(vim, *args, **kwargs):
-    ''''''
+    '''This data object type contains the options for the virtual ethernet card data
+    object type.'''
     
     obj = vim.client.factory.create('ns0:VirtualEthernetCardOption')
     
@@ -17,19 +18,19 @@ def VirtualEthernetCardOption(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 8:
         raise IndexError('Expected at least 9 arguments got: %d' % len(args))
         
-    signature = [ 'deprecated', 'hotRemoveSupported', 'plugAndPlay', 'type', 'macType',
-        'supportedOUI', 'vmDirectPathGen2Supported', 'wakeOnLanEnabled' ]
-    inherited = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
-        'defaultBackingOptionIndex', 'licensingLimit' ]
+    required = [ 'macType', 'supportedOUI', 'vmDirectPathGen2Supported', 'wakeOnLanEnabled',
+        'deprecated', 'hotRemoveSupported', 'plugAndPlay', 'type' ]
+    optional = [ 'autoAssignController', 'backingOption', 'connectOption', 'controllerType',
+        'defaultBackingOptionIndex', 'licensingLimit', 'dynamicProperty', 'dynamicType' ]
     
-    for name, arg in zip(signature+inherited, args):
+    for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
     
     for name, value in kwargs.items():
-        if name in signature + inherited:
+        if name in required + optional:
             setattr(obj, name, value)
         else:
-            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(signature + inherited)))
+            raise InvalidArgumentError("Invalid argument: %s.  Expected one of %s" % (name, ", ".join(required + optional)))
 
     return obj
     
