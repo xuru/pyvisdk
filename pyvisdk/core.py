@@ -4,7 +4,7 @@ Created on Feb 15, 2011
 @author: eplaster
 '''
 from suds.sudsobject import Property
-import types
+import types, time
 import logging
 import urllib2
 import xml.etree.cElementTree as etree
@@ -21,6 +21,7 @@ from pyvisdk.do.traversal_spec import TraversalSpec
 from pyvisdk.do.property_filter_spec import PropertyFilterSpec
 from pyvisdk.do.property_spec import PropertySpec
 from pyvisdk.do.selection_spec import SelectionSpec
+from pyvisdk.do.retrieve_options import RetrieveOptions
 from pyvisdk.enums.task_info_state import TaskInfoState
 from pyvisdk.exceptions import VisdkTaskError
 from pyvisdk.mo.service_instance import ServiceInstance
@@ -407,6 +408,7 @@ class VimBase(object):
             updateset = self.property_collector.WaitForUpdates(version)
             status = self._parseTaskResponse(updateset)
             log.debug("**** status: %s" % status)
+            time.sleep(0.1)
         
         log.debug("Finished task...")
         # Destroy the filter when we are done.
