@@ -7,9 +7,17 @@ from suds import MethodNotFound
 import logging
 import os.path
 import suds
+from suds.plugin import MessagePlugin
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
+
+class MyPlugin(MessagePlugin):
+    def addAttributeForValue(self, node):
+        if node.name == 'value':
+            node.set('xsi:type', 'xsd:string')
+    def marshalled(self, context):
+        context.envelope.walk(self.addAttributeForValue)
 
 class Client(object):
     '''
@@ -22,7 +30,7 @@ class Client(object):
         '''
         wsdl_dir = os.path.abspath(os.path.dirname(__file__))
         url = "https://" + server + '/sdk'
-        client = suds.client.Client("file://" + os.path.join(wsdl_dir, 'wsdl', 'vimService.wsdl'))
+        client = suds.client.Client("file://" + os.path.join(wsdl_dir, 'wsdl', 'vimService.wsdl'), plugins=[MyPlugin()])
         client.set_options(faults=True)
         client.set_options(location=url)
         client.set_options(timeout=timeout)
