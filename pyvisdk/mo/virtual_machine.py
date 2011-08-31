@@ -139,10 +139,7 @@ class VirtualMachine(ManagedEntity):
         virtual machine is running, and the ESX server must be reachable to the
         management client from the address made available to the client via the
         ticket.Acquiring a virtual machine ticket requires different privileges
-        depending on the types of ticket:* VirtualMachine.Interact.DeviceConnection if
-        requesting a device ticket. * VirtualMachine.Interact.GuestControl if
-        requesting a guestControl ticket. * VirtualMachine.Interact.ConsoleInteract if
-        requesting an mks ticket.
+        depending on the types of ticket:
         
         :param ticketType: The type of service to acquire, the set of possible values is described in VirtualMachineTicketType.
         
@@ -177,34 +174,24 @@ class VirtualMachine(ManagedEntity):
         character used in this name parameter must be escaped, unless it is used to
         start an escape sequence. Clients may also escape any other characters in this
         name parameter.The privilege required on the source virtual machine depends on
-        the source and destination types:* source is virtual machine, destination is
-        virtual machine - VirtualMachine.Provisioning.Clone * source is virtual
-        machine, destination is template -
-        VirtualMachine.Provisioning.CreateTemplateFromVM * source is template,
-        destination is virtual machine - VirtualMachine.Provisioning.DeployTemplate *
-        source is template, destination is template -
-        VirtualMachine.Provisioning.CloneTemplateIf customization is requested in the
+        the source and destination types:If customization is requested in the
         CloneSpec, then the VirtualMachine.Provisioning.Customize privilege must also
         be held on the source virtual machine.The Resource.AssignVMToPool privilege is
         also required for the resource pool specified in the CloneSpec, if the
         destination is not a template. The Datastore.AllocateSpace privilege is
         required on all datastores where the clone is created.
         
-        :param folder: to a FolderThe location of the new virtual machine.
+        :param folder: The location of the new virtual machine.
         
         :param name: The name of the new virtual machine.
         
         :param spec: Specifies how to clone the virtual machine.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("CloneVM_Task")(folder, name, spec)
     
     def CreateScreenshot_Task(self):
         '''Create a screen shot of a virtual machine.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("CreateScreenshot_Task")()
@@ -223,9 +210,7 @@ class VirtualMachine(ManagedEntity):
         using ApplyRecommendation. Failure to power on the secondary virtual machine
         will not fail the creation of the secondary.
         
-        :param host: to a HostSystemThe host where the secondary virtual machine is to be created and powered on. If no host is specified, a compatible host will be selected by the system. If a host cannot be found for the secondary or the specified host is not suitable, the secondary will not be created and a fault will be returned.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param host: The host where the secondary virtual machine is to be created and powered on. If no host is specified, a compatible host will be selected by the system. If a host cannot be found for the secondary or the specified host is not suitable, the secondary will not be created and a fault will be returned.
         
         '''
         return self.delegate("CreateSecondaryVM_Task")(host)
@@ -245,8 +230,6 @@ class VirtualMachine(ManagedEntity):
         
         :param quiesce: If TRUE and the virtual machine is powered on when the snapshot is taken, VMware Tools is used to quiesce the file system in the virtual machine. This assures that a disk snapshot represents a consistent state of the guest file systems. If the virtual machine is powered off or VMware Tools are not available, the quiesce flag is ignored.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("CreateSnapshot_Task")(name, description, memory, quiesce)
     
@@ -254,8 +237,6 @@ class VirtualMachine(ManagedEntity):
         '''Customizes a virtual machine's guest operating system.
         
         :param spec: The customization specification object.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("CustomizeVM_Task")(spec)
@@ -272,9 +253,7 @@ class VirtualMachine(ManagedEntity):
         power-on of the primary virtual machine. This operation could leave the primary
         virtual machine in a non-fault tolerant state.
         
-        :param vm: to a VirtualMachineThe secondary virtual machine specified will be disabed. This field must specify a secondary virtual machine that is part of the fault tolerant group that this virtual machine is currently associated with. It can only be invoked from the primary virtual machine in the group.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param vm: The secondary virtual machine specified will be disabed. This field must specify a secondary virtual machine that is part of the fault tolerant group that this virtual machine is currently associated with. It can only be invoked from the primary virtual machine in the group.
         
         '''
         return self.delegate("DisableSecondaryVM_Task")(vm)
@@ -295,11 +274,9 @@ class VirtualMachine(ManagedEntity):
         will remain powered off until the recommendation is approved using
         ApplyRecommendation.
         
-        :param vm: to a VirtualMachineThe secondary virtual machine specified will be enabled. This field must specify a secondary virtual machine that is part of the fault tolerant group that this virtual machine is currently associated with. It can only be invoked from the primary virtual machine in the group.
+        :param vm: The secondary virtual machine specified will be enabled. This field must specify a secondary virtual machine that is part of the fault tolerant group that this virtual machine is currently associated with. It can only be invoked from the primary virtual machine in the group.
         
-        :param host: to a HostSystemThe host on which the secondary virtual machine is to be enabled and possibly powered on. If no host is specified, a compatible host will be selected by the system. If the secondary virtual machine is not compatible with the specified host, the secondary will not be re-enabled and a fault will be returned.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param host: The host on which the secondary virtual machine is to be enabled and possibly powered on. If no host is specified, a compatible host will be selected by the system. If the secondary virtual machine is not compatible with the specified host, the secondary will not be re-enabled and a fault will be returned.
         
         '''
         return self.delegate("EnableSecondaryVM_Task")(vm, host)
@@ -309,8 +286,6 @@ class VirtualMachine(ManagedEntity):
         list of URLs for the virtual disks for this virtual machine, as well as a
         ticket giving access to the URLs.See HttpNfcLease for information on how to use
         the lease.
-        
-        :rtype: ManagedObjectReference to a HttpNfcLease
         
         '''
         return self.delegate("ExportVm")()
@@ -328,9 +303,7 @@ class VirtualMachine(ManagedEntity):
         '''Makes the specified secondary virtual machine from this fault tolerant group as
         the primary virtual machine.
         
-        :param vm: to a VirtualMachineThe secondary virtual machine specified will be made the primary virtual machine. This field must specify a secondary virtual machine that is part of the fault tolerant group that this virtual machine is currently associated with. It can only be invoked from the primary virtual machine in the group.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param vm: The secondary virtual machine specified will be made the primary virtual machine. This field must specify a secondary virtual machine that is part of the fault tolerant group that this virtual machine is currently associated with. It can only be invoked from the primary virtual machine in the group.
         
         '''
         return self.delegate("MakePrimaryVM_Task")(vm)
@@ -346,9 +319,9 @@ class VirtualMachine(ManagedEntity):
         '''Clears the 'isTemplate' flag and reassociates the virtual machine with a
         resource pool and host.
         
-        :param pool: to a ResourcePoolResource pool to associate with the virtual machine.
+        :param pool: Resource pool to associate with the virtual machine.
         
-        :param host: to a HostSystemThe target host on which the virtual machine is intended to run. The host parameter must specify a host that is a member of the ComputeResource indirectly specified by the pool. For a stand-alone host or a cluster with DRS, it can be omitted and the system selects a default.
+        :param host: The target host on which the virtual machine is intended to run. The host parameter must specify a host that is a member of the ComputeResource indirectly specified by the pool. For a stand-alone host or a cluster with DRS, it can be omitted and the system selects a default.
         
         '''
         return self.delegate("MarkAsVirtualMachine")(pool, host)
@@ -359,15 +332,13 @@ class VirtualMachine(ManagedEntity):
         on or Resource.ColdMigrate privilege if the virtual machine is powered off or
         suspended.
         
-        :param pool: to a ResourcePoolThe target resource pool for the virtual machine. If the pool parameter is left unset, the virtual machine's current pool is used as the target pool.
+        :param pool: The target resource pool for the virtual machine. If the pool parameter is left unset, the virtual machine's current pool is used as the target pool.
         
-        :param host: to a HostSystemThe target host to which the virtual machine is intended to migrate. The host parameter may be left unset if the compute resource associated with the target pool represents a stand-alone host or a DRS-enabled cluster. In the former case the stand-alone host is used as the target host. In the latter case, the DRS system selects an appropriate target host from the cluster.
+        :param host: The target host to which the virtual machine is intended to migrate. The host parameter may be left unset if the compute resource associated with the target pool represents a stand-alone host or a DRS-enabled cluster. In the former case the stand-alone host is used as the target host. In the latter case, the DRS system selects an appropriate target host from the cluster.
         
         :param priority: The task priority (@see vim.VirtualMachine.MovePriority).
         
         :param state: If specified, the virtual machine migrates only if its state matches the specified state.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("MigrateVM_Task")(pool, host, priority, state)
@@ -384,8 +355,6 @@ class VirtualMachine(ManagedEntity):
         '''Powers off this virtual machine. If this virtual machine is a fault tolerant
         primary virtual machine, this will result in the secondary virtual machine(s)
         getting powered off as well.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("PowerOffVM_Task")()
@@ -406,9 +375,7 @@ class VirtualMachine(ManagedEntity):
         obtain placements for the secondaries but no vmotion nor host power operations
         will be considered for these power ons.
         
-        :param host: to a HostSystem(optional) The host where the virtual machine is to be powered on. If no host is specified, the current associated host is used. This field must specify a host that is part of the same compute resource that the virtual machine is currently associated with. If this host is not compatible, the current host association is used.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param host: (optional) The host where the virtual machine is to be powered on. If no host is specified, the current associated host is used. This field must specify a host that is part of the same compute resource that the virtual machine is currently associated with. If this host is not compatible, the current host association is used.
         
         '''
         return self.delegate("PowerOnVM_Task")(host)
@@ -425,8 +392,6 @@ class VirtualMachine(ManagedEntity):
         
         :param disks: The set of disks that are to be promoted. If this value is unset or the array is empty, all disks which have delta disk backings are promoted.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("PromoteDisks_Task")(unlink, disks)
     
@@ -438,7 +403,7 @@ class VirtualMachine(ManagedEntity):
         contain "false positives" (i.e: flag areas of the disk as modified that are
         not). However, it is guaranteed that no changes will be missed.
         
-        :param snapshot: to a VirtualMachineSnapshotSnapshot for which changes that have been made sine "changeId" should be computed. If not set, changes are computed against the "current" snapshot of the virtual machine. However, using the "current" snapshot will only work for virtual machines that are powered off.
+        :param snapshot: Snapshot for which changes that have been made sine "changeId" should be computed. If not set, changes are computed against the "current" snapshot of the virtual machine. However, using the "current" snapshot will only work for virtual machines that are powered off.
         
         :param deviceKey: Identifies the virtual disk for which to compute changes.
         
@@ -481,47 +446,10 @@ class VirtualMachine(ManagedEntity):
         '''Reconfigures this virtual machine. All the changes in the given configuration
         are applied to the virtual machine as an atomic operation.Reconfiguring the
         virtual machine may require any of the following privileges depending on what
-        is being changed:* VirtualMachine.Interact.DeviceConnection if changing the
-        runtime connection state of a device as embodied by the Connectable property. *
-        VirtualMachine.Interact.SetCDMedia if changing the backing of a CD-ROM device *
-        VirtualMachine.Interact.SetFloppyMedia if changing the backing of a floppy
-        device * VirtualMachine.Config.Rename if renaming the virtual machine *
-        VirtualMachine.Config.AddExistingDisk if adding a virtual disk device that is
-        backed by an existing virtual disk file * VirtualMachine.Config.AddNewDisk if
-        adding a virtual disk device for which the backing virtual disk file is to be
-        created * VirtualMachine.Config.RemoveDisk if removing a virtual disk device
-        that refers to a virtual disk file * VirtualMachine.Config.CPUCount if changing
-        the number of CPUs * VirtualMachine.Config.Memory if changing the amount of
-        memory * VirtualMachine.Config.RawDevice if adding, removing or editing a raw
-        device mapping (RDM) or SCSI passthrough device *
-        VirtualMachine.Config.AddRemoveDevice if adding or removing any device other
-        than disk, raw, or USB device * VirtualMachine.Config.EditDevice if changing
-        the settings of any device * VirtualMachine.Config.Settings if changing any
-        basic settings such as those in ToolsConfigInfo, FlagInfo, or
-        DefaultPowerOpInfo * VirtualMachine.Config.Resource if changing resource
-        allocations, affinities, or setting network traffic shaping or virtual disk
-        shares * VirtualMachine.Config.AdvancedConfig if changing values in extraConfig
-        * VirtualMachine.Config.SwapPlacement if changing swapPlacement *
-        VirtualMachine.Config.HostUSBDevice if adding, removing or editing a VirtualUSB
-        device backed by the host USB device. * VirtualMachine.Config.DiskExtend if
-        extending an existing VirtualDisk device. *
-        VirtualMachine.Config.ChangeTracking if enabling/disabling changed block
-        tracking for the virtual machine's disks. * DVSwitch.CanUse if connecting a
-        VirtualEthernetAdapter to a port in a DistributedVirtualSwitch. *
-        DVPortgroup.CanUse if connecting a VirtualEthernetAdapter to a
-        DistributedVirtualPortgroup.Creating a virtual machine may require the
-        following privileges:* VirtualMachine.Config.RawDevice if adding a raw device *
-        VirtualMachine.Config.AddExistingDisk if adding a VirtualDisk and the
-        fileOperation is unset * VirtualMachine.Config.AddNewDisk if adding a
-        VirtualDisk and the fileOperation is set * VirtualMachine.Config.HostUSBDevice
-        if adding a VirtualUSB device backed by the host USB device.In addition, this
-        operation may require the following privileges:* Datastore.AllocateSpace on any
-        datastore where virtual disks will be created or extended. * Network.Assign on
-        any network the virtual machine will be connected to.
+        is being changed:Creating a virtual machine may require the following
+        privileges:In addition, this operation may require the following privileges:
         
         :param spec: The new configuration values.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("ReconfigVM_Task")(spec)
@@ -545,8 +473,6 @@ class VirtualMachine(ManagedEntity):
         referenced configuration path does not refer to a valid virtual machine,
         configuration information for the virtual machine object may be lost.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("reloadVirtualMachineFromPath_Task")()
     
@@ -563,8 +489,6 @@ class VirtualMachine(ManagedEntity):
         
         :param priority: The task priority (@see vim.VirtualMachine.MovePriority).vSphere API 4.0
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("RelocateVM_Task")(spec, priority)
     
@@ -572,8 +496,6 @@ class VirtualMachine(ManagedEntity):
         '''Remove all the snapshots associated with this virtual machine. If the virtual
         machine does not have any snapshots, then this operation simply returns
         successfully.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("RemoveAllSnapshots_Task")()
@@ -594,8 +516,6 @@ class VirtualMachine(ManagedEntity):
         other clients, meaning that other power operations cannot be performed until
         the reset method completes.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("ResetVM_Task")()
     
@@ -604,11 +524,9 @@ class VirtualMachine(ManagedEntity):
         doing snapshot.currentSnapshot.revert.If no snapshot exists, then the operation
         does nothing, and the virtual machine state remains unchanged.
         
-        :param host: to a HostSystem(optional) Choice of host for the virtual machine, in case this operation causes the virtual machine to power on.
+        :param host: (optional) Choice of host for the virtual machine, in case this operation causes the virtual machine to power on.
         
         :param suppressPowerOn: (optional) If set to true, the virtual machine will not be powered on regardless of the power state when the current snapshot was created. Default to false.vSphere API 4.0
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("RevertToCurrentSnapshot_Task")(host, suppressPowerOn)
@@ -657,8 +575,6 @@ class VirtualMachine(ManagedEntity):
         
         :param description: A description for the snapshot associated with this recording. If omitted, a default description may be provided.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("StartRecording_Task")(name, description)
     
@@ -667,9 +583,7 @@ class VirtualMachine(ManagedEntity):
         operation updates the current snapshot of the virtual machine.This is an
         experimental interface that is not intended for use in production code.
         
-        :param replaySnapshot: to a VirtualMachineSnapshotThe snapshot from which to start the replay. This snapshot must have been created by a record operation on the virtual machine.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param replaySnapshot: The snapshot from which to start the replay. This snapshot must have been created by a record operation on the virtual machine.
         
         '''
         return self.delegate("StartReplaying_Task")(replaySnapshot)
@@ -678,8 +592,6 @@ class VirtualMachine(ManagedEntity):
         '''Stops a currently active recording session on this virtual machine.This is an
         experimental interface that is not intended for use in production code.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("StopRecording_Task")()
     
@@ -687,15 +599,11 @@ class VirtualMachine(ManagedEntity):
         '''Stops a replay session on this virtual machine.This is an experimental
         interface that is not intended for use in production code.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("StopReplaying_Task")()
     
     def SuspendVM_Task(self):
         '''Suspends execution in this virtual machine.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("SuspendVM_Task")()
@@ -705,9 +613,7 @@ class VirtualMachine(ManagedEntity):
         This can be used to test fault tolerance on a given virtual machine, and should
         be used with care.
         
-        :param vm: to a VirtualMachineThe secondary virtual machine specified will be terminated, allowing fault tolerance to activate. If no virtual machine is specified, all secondary virtual machines will be terminated. If vm is a primary, InvalidArgument exception is thrown. This field must specify a virtual machine that is part of the fault tolerant group that this virtual machine is currently associated with. It can only be invoked from the primary virtual machine in the group. If the primary virtual machine is terminated, an available secondary virtual machine will be promoted to primary. If no secondary exists, an exception will be thrown and the primary virtual machine will not be terminated. If a secondary virtual machine is terminated, it may be respawned on a potentially different host.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param vm: The secondary virtual machine specified will be terminated, allowing fault tolerance to activate. If no virtual machine is specified, all secondary virtual machines will be terminated. If vm is a primary, InvalidArgument exception is thrown. This field must specify a virtual machine that is part of the fault tolerant group that this virtual machine is currently associated with. It can only be invoked from the primary virtual machine in the group. If the primary virtual machine is terminated, an available secondary virtual machine will be promoted to primary. If no secondary exists, an exception will be thrown and the primary virtual machine will not be terminated. If a secondary virtual machine is terminated, it may be respawned on a potentially different host.
         
         '''
         return self.delegate("TerminateFaultTolerantVM_Task")(vm)
@@ -716,8 +622,6 @@ class VirtualMachine(ManagedEntity):
         '''Removes all secondary virtual machines associated with the fault tolerant group
         and turns off protection for this virtual machine. This operation can only be
         invoked from the primary virtual machine in the group.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("TurnOffFaultToleranceForVM_Task")()
@@ -749,8 +653,6 @@ class VirtualMachine(ManagedEntity):
         
         :param installerOptions: Command line options passed to the installer to modify the installation procedure for tools.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("UpgradeTools_Task")(installerOptions)
     
@@ -759,8 +661,6 @@ class VirtualMachine(ManagedEntity):
         supported by the virtual machine's current host.
         
         :param version: If specified, upgrade to that specified version. If not specified, upgrade to the most current virtual hardware supported on the host.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("UpgradeVM_Task")(version)

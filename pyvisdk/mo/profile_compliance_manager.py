@@ -24,11 +24,9 @@ class ProfileComplianceManager(BaseEntity):
     def CheckCompliance_Task(self, profile, entity):
         '''Check compliance of an entity against a Profile.
         
-        :param profile: to a Profile[]If specified, check compliance against the specified profiles. If not specified, use the profiles associated with the entities. If both Profiles and Entities are specified, Check the compliance of each Entity against each of the profile specified.For more information, look at the KMap below.P represents if Profile is specified.E represents if Entity is specified.
+        :param profile: If specified, check compliance against the specified profiles. If not specified, use the profiles associated with the entities. If both Profiles and Entities are specified, Check the compliance of each Entity against each of the profile specified. For more information, look at the KMap below. P represents if Profile is specified. E represents if Entity is specified.
         
-        :param entity: to a ManagedEntity[]If specified, the compliance check is done against this entity.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param entity: If specified, the compliance check is done against this entity.
         
         '''
         return self.delegate("CheckCompliance_Task")(profile, entity)
@@ -37,9 +35,9 @@ class ProfileComplianceManager(BaseEntity):
         '''Clear the saved ComplianceResult based on profile and entity filtering
         criteria.
         
-        :param profile: to a Profile[]If specified, clear the ComplianceResult related to the Profile.
+        :param profile: If specified, clear the ComplianceResult related to the Profile.
         
-        :param entity: to a ManagedEntity[]If specified, clear the ComplianceResult related to the entity. If profile and entity are not specified, all the ComplianceResults will be cleared.
+        :param entity: If specified, clear the ComplianceResult related to the entity. If profile and entity are not specified, all the ComplianceResults will be cleared.
         
         '''
         return self.delegate("ClearComplianceStatus")(profile, entity)
@@ -47,9 +45,9 @@ class ProfileComplianceManager(BaseEntity):
     def QueryComplianceStatus(self, profile, entity):
         '''Query the compliance status based on Profile and Entity filter.
         
-        :param profile: to a Profile[]If specified, compliance result for the specified profiles will be returned. This acts like a filtering criteria for the ComplianceResults based on specified profiles.
+        :param profile: If specified, compliance result for the specified profiles will be returned. This acts like a filtering criteria for the ComplianceResults based on specified profiles.
         
-        :param entity: to a ManagedEntity[]If specified, compliance results for these entities will be returned. This acts like a filtering criteria for the ComplianceResults based on entities.
+        :param entity: If specified, compliance results for these entities will be returned. This acts like a filtering criteria for the ComplianceResults based on entities.
         
         '''
         return self.delegate("QueryComplianceStatus")(profile, entity)

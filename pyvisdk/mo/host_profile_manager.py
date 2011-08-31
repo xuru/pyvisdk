@@ -24,11 +24,9 @@ class HostProfileManager(ProfileManager):
     def ApplyHostConfig_Task(self, host, configSpec):
         '''Apply the configuration to the host.
         
-        :param host: to a HostSystemHost to which the configuration needs to be applied. Depending on the contents of the configSpec, user has to have different privileges to perform this operation.
+        :param host: Host to which the configuration needs to be applied. Depending on the contents of the configSpec, user has to have different privileges to perform this operation.
         
         :param configSpec: Set of configuration changes that need to be applied to the host.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("ApplyHostConfig_Task")(host, configSpec)
@@ -47,7 +45,7 @@ class HostProfileManager(ProfileManager):
         
         :param configSpec: ConfigSpec which was proposed by ExecuteHostProfile method.
         
-        :param host: to a HostSystemHost on which the HostProfile application needs to be carried out.
+        :param host: Host on which the HostProfile application needs to be carried out.
         
         '''
         return self.delegate("GenerateConfigTaskList")(configSpec, host)

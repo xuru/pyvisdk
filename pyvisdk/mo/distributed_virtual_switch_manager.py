@@ -32,13 +32,11 @@ class DistributedVirtualSwitchManager(BaseEntity):
         '''This operation returns a list of hosts that are compatible with the given
         DistributedVirtualSwitch product specification.
         
-        :param container: to a ManagedEntityWhere to look for hosts. Supported types of objects for this parameter are Datacenter, ComputeResource and Folder.
+        :param container: Where to look for hosts. Supported types of objects for this parameter are Datacenter, ComputeResource and Folder.
         
         :param recursive: Whether to search for hosts in the subfolders, if applicable. In the case when container is a Datacenter, the recursive flag is applied to its HostFolder.
         
-        :param dvs: to a DistributedVirtualSwitchSearch the host based on the specification published in the compatibleHostComponentProductInfo of a DistributedVirtualSwitch. If not set, it is assumed to be the specification that a DistributedVirtualSwitch would have if it is created with the default DistributedVirtualSwitchProductSpec.
-        
-        :rtype: ManagedObjectReference[] to a HostSystem[]
+        :param dvs: Search the host based on the specification published in the compatibleHostComponentProductInfo of a DistributedVirtualSwitch. If not set, it is assumed to be the specification that a DistributedVirtualSwitch would have if it is created with the default DistributedVirtualSwitchProductSpec.
         
         '''
         return self.delegate("QueryCompatibleHostForExistingDvs")(container, recursive, dvs)
@@ -47,21 +45,17 @@ class DistributedVirtualSwitchManager(BaseEntity):
         '''This operation returns a list of hosts that are compatible with the given
         DistributedVirtualSwitch product specification.
         
-        :param container: to a ManagedEntityWhere to look for hosts. Supported types of objects for this parameter are Datacenter, ComputeResource and Folder.
+        :param container: Where to look for hosts. Supported types of objects for this parameter are Datacenter, ComputeResource and Folder.
         
         :param recursive: Whether to search for hosts in the subfolders, if applicable. In the case when container is a Datacenter, the recursive flag is applied to its HostFolder.
         
         :param switchProductSpec: The productSpec of a DistributedVirtualSwitch. If not set, it is assumed to be the default one used for DistributedVirtualSwitch creation.
-        
-        :rtype: ManagedObjectReference[] to a HostSystem[]
         
         '''
         return self.delegate("QueryCompatibleHostForNewDvs")(container, recursive, switchProductSpec)
     
     def QueryDvsByUuid(self):
         '''This operation returns a DistributedVirtualSwitch given a UUID.
-        
-        :rtype: ManagedObjectReference to a DistributedVirtualSwitch
         
         '''
         return self.delegate("QueryDvsByUuid")()
@@ -74,13 +68,7 @@ class DistributedVirtualSwitchManager(BaseEntity):
         against which compatibility is checked. If caller did not have view privileges
         on the host entity in an element of the CompatibilityResult array, then that
         entire element would be removed from the CompatibilityResult array. Typical
-        uses:* For the createDVS situation, hostFilterSpec is of type HostDvsFilterSpec
-        and DvsProductSpec will have newSwitchProductSpec set. * For the Add-Host-To-
-        DVS situation, you can use either HostDvsFilterSpec or HostDvsMembershipFilter
-        with inclusive being false, and pass the DVS in DvsProductSpec. * For the
-        Upgrade-DVS situation, you can use either HostDvsFilterSpec or
-        HostDvsMembershipFilter with inclusive being true, and pass the new desired
-        ProductSpec for DVS in newSwitchProductSpec.
+        uses:
         
         :param hostContainer: The container of hosts on which we check the compatibility. This container can be a datacenter, folder, or computeResource. We can also include all the hosts in the hierarchy with container as root of the tree.
         
@@ -104,9 +92,9 @@ class DistributedVirtualSwitchManager(BaseEntity):
         '''This operation returns the DistributedVirtualSwitch or
         DistributedVirtualPortgroup config target on a host.
         
-        :param host: to a HostSystemThe host on which the query is to be made. If called directly on the host this parameter need not be specified.
+        :param host: The host on which the query is to be made. If called directly on the host this parameter need not be specified.
         
-        :param dvs: to a DistributedVirtualSwitchThe distributed virtual switch on which the query is to be made. If unspecified the config target will encompass all the distributed virtual switches available on the host.
+        :param dvs: The distributed virtual switch on which the query is to be made. If unspecified the config target will encompass all the distributed virtual switches available on the host.
         
         '''
         return self.delegate("QueryDvsConfigTarget")(host, dvs)

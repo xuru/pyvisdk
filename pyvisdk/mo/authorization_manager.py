@@ -31,26 +31,24 @@ class AuthorizationManager(BaseEntity):
     specified roles.Managed entities may be collected together into a "complex
     entity" for the purpose of applying permissions consistently. Complex entities
     may have a Datacenter, ComputeResource, or ClusterComputeResource as a parent,
-    with other child managed objects as additional parts of the complex entity:* A
-    Datacenter's child objects are the root virtual machine and host Folders. * A
-    ComputeResource's child objects are the root ResourcePool and HostSystem. * A
-    ClusterComputeResource has only the root ResourcePool as a child object.Child
-    objects in a complex entity are forced to inherit permissions from the parent
-    object. When query operations are used to discover permissions on child objects
-    of complex entities, different results may be returned for the owner of the
-    permission. In some cases, the child object of the complex entity is returned
-    as the object that defines the permission, and in other cases, the parent from
-    which the permission is propagated is returned as the object that defines the
-    permission. In both cases, the information about the owner of the permission is
-    correct, since the entities within a complex entity are considered equivalent.
-    Permissions defined on complex entities are always applicable on the child
-    entities, regardless of the propagation flag, but may only be defined or
-    modified on the parent object.In a group of fault-tolerance (FT) protected
-    VirtualMachines, the secondary VirtualMachines are forced to inherit
-    permissions from the primary VirtualMachine. Queries to discover permissions on
-    FT secondary VMs always return the primary VM as the object that defines the
-    permissions. Permissions defined on an FT primary VM are always applicable on
-    its secondary VMs, but can only be defined or modified on the primary VM.'''
+    with other child managed objects as additional parts of the complex
+    entity:Child objects in a complex entity are forced to inherit permissions from
+    the parent object. When query operations are used to discover permissions on
+    child objects of complex entities, different results may be returned for the
+    owner of the permission. In some cases, the child object of the complex entity
+    is returned as the object that defines the permission, and in other cases, the
+    parent from which the permission is propagated is returned as the object that
+    defines the permission. In both cases, the information about the owner of the
+    permission is correct, since the entities within a complex entity are
+    considered equivalent. Permissions defined on complex entities are always
+    applicable on the child entities, regardless of the propagation flag, but may
+    only be defined or modified on the parent object.In a group of fault-tolerance
+    (FT) protected VirtualMachines, the secondary VirtualMachines are forced to
+    inherit permissions from the primary VirtualMachine. Queries to discover
+    permissions on FT secondary VMs always return the primary VM as the object that
+    defines the permissions. Permissions defined on an FT primary VM are always
+    applicable on its secondary VMs, but can only be defined or modified on the
+    primary VM.'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.AuthorizationManager):
         super(AuthorizationManager, self).__init__(core, name=name, ref=ref, type=type)
@@ -112,7 +110,7 @@ class AuthorizationManager(BaseEntity):
         VirtualMachine. Such a VirtualMachine always has the same permissions as its FT
         primary VirtualMachine.
         
-        :param entity: to a ManagedEntityEntity on which a permission is removed.
+        :param entity: Entity on which a permission is removed.
         
         :param user: User or group for which the permission is defined.
         
@@ -142,7 +140,7 @@ class AuthorizationManager(BaseEntity):
         tolerance (FT) secondary VirtualMachine. Such a VirtualMachine always has the
         same permissions as its FT primary VirtualMachine.
         
-        :param entity: to a ManagedEntityThe entity on which permissions are updated.
+        :param entity: The entity on which permissions are updated.
         
         :param permission: The list of Permission objects that define the new rules for access to the entity and potentially entities below it. If the list is empty, all permissions on the entity are removed.
         
@@ -156,7 +154,7 @@ class AuthorizationManager(BaseEntity):
         '''
         return self.delegate("RetrieveAllPermissions")()
     
-    def RetrieveEntityPermissions(self, entity, inherited):
+    def RetrieveEntityPermissions(self, inherited):
         '''Gets permissions defined on or effective on a managed entity. This returns the
         actual permission objects defined in the system for all users and groups
         relative to the managed entity. The inherited flag specifies whether or not to
@@ -168,12 +166,10 @@ class AuthorizationManager(BaseEntity):
         permissions are found on the effectiveRole property of the user's
         ManagedEntity.
         
-        :param entity: to a ManagedEntity
-        
         :param inherited: Whether or not to include propagating permissions defined by parent entities.
         
         '''
-        return self.delegate("RetrieveEntityPermissions")(entity, inherited)
+        return self.delegate("RetrieveEntityPermissions")(inherited)
     
     def RetrieveRolePermissions(self):
         '''Finds all the permissions that use a particular role. The result is restricted
@@ -199,7 +195,7 @@ class AuthorizationManager(BaseEntity):
         VirtualMachine. Such a VirtualMachine always has the same permissions as its FT
         primary VirtualMachine.
         
-        :param entity: to a ManagedEntityThe entity on which to set permissions.
+        :param entity: The entity on which to set permissions.
         
         :param permission: An array of specifications for permissions on the entity.
         

@@ -34,3 +34,9 @@ class DistributedVirtualPortgroup(Network):
         return self.update('portKeys')
     
     
+    
+    def ReconfigureDVPortgroup_Task(self):
+        '''The DistributedVirtualPortgroups to be reconfigured
+        
+        '''
+        return self.delegate("ReconfigureDVPortgroup_Task")()

@@ -36,3 +36,10 @@ class PropertyFilter(BaseEntity):
         return self.update('spec')
     
     
+    
+    def DestroyPropertyFilter(self):
+        '''Destroys this filter.This operation can be called explicitly, or it can take
+        place implicitly when the session that created the filter is closed.
+        
+        '''
+        return self.delegate("DestroyPropertyFilter")()

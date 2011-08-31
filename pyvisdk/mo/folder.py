@@ -15,21 +15,20 @@ class Folder(ManagedEntity):
     '''The Folder managed object is a container for storing and organizing inventory
     objects. Folders can contain folders and other objects. The childType property
     identifies a folder's type and determines the types of folders and objects the
-    folder can contain.* A folder can contain a child folder of the same type as
-    the parent folder. * All Datacenter objects contain dedicated folders for:See
-    ServiceInstance for a representation of the organization of the inventory.The
-    Folder managed object also acts as a factory object, meaning it creates new
-    entities in a folder. The object provides methods to create child folders and
-    objects, methods to add existing objects to folders, and methods to remove
-    objects from folders and to delete folders.Folder inherits the Destroy_Task
-    method. Destroy_Task is a recursive operation that removes all child objects
-    and folders. When you call Destroy_Task to destroy a folder, the system uses
-    the specified folder as a root and traverses its descendant hierarchy, calling
-    Destroy_Task on each object. Destroy_Task is a single operation that treats
-    each recursive call as a single transaction, committing each call to remove an
-    object individually. If Destroy_Task fails on an object, the method terminates
-    at that point with an exception, leaving some or all of the objects still in
-    the inventory.Notes on the folder destroy method:'''
+    folder can contain.See ServiceInstance for a representation of the organization
+    of the inventory.The Folder managed object also acts as a factory object,
+    meaning it creates new entities in a folder. The object provides methods to
+    create child folders and objects, methods to add existing objects to folders,
+    and methods to remove objects from folders and to delete folders.Folder
+    inherits the Destroy_Task method. Destroy_Task is a recursive operation that
+    removes all child objects and folders. When you call Destroy_Task to destroy a
+    folder, the system uses the specified folder as a root and traverses its
+    descendant hierarchy, calling Destroy_Task on each object. Destroy_Task is a
+    single operation that treats each recursive call as a single transaction,
+    committing each call to remove an object individually. If Destroy_Task fails on
+    an object, the method terminates at that point with an exception, leaving some
+    or all of the objects still in the inventory.Notes on the folder destroy
+    method:'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.Folder):
         super(Folder, self).__init__(core, name=name, ref=ref, type=type)
@@ -82,8 +81,6 @@ class Folder(ManagedEntity):
         
         :param license: Provide a licenseKey or licenseKeyType. See LicenseManagervSphere API 4.0
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("AddStandaloneHost_Task")(spec, compResSpec, addConnected, license)
     
@@ -94,8 +91,6 @@ class Folder(ManagedEntity):
         :param name: Name for the new cluster.
         
         :param spec: Specification for the cluster.
-        
-        :rtype: ManagedObjectReference to a ClusterComputeResource
         
         '''
         return self.delegate("CreateCluster")(name, spec)
@@ -110,8 +105,6 @@ class Folder(ManagedEntity):
         
         :param spec: Specification for the cluster.
         
-        :rtype: ManagedObjectReference to a ClusterComputeResource
-        
         '''
         return self.delegate("CreateClusterEx")(name, spec)
     
@@ -122,8 +115,6 @@ class Folder(ManagedEntity):
         
         :param name: Name for the new datacenter. An entity name must be a non-empty string of less than 80 characters. The slash (/), backslash (\) and percent (%) will be escaped using the URL syntax. For example, %2F.
         
-        :rtype: ManagedObjectReference to a Datacenter
-        
         '''
         return self.delegate("CreateDatacenter")(name)
     
@@ -132,8 +123,6 @@ class Folder(ManagedEntity):
         (@link vim.DistributedVirtualSwitch.CreateSpec).
         
         :param spec: The (@link vim.DistributedVirtualSwitch.CreateSpec) to create the Distributed Virtual Switch.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("CreateDVS_Task")(spec)
@@ -146,8 +135,6 @@ class Folder(ManagedEntity):
         in this name parameter.
         
         :param name: The name to be given the new folder. An entity name must be a non-empty string of less than 80 characters. The slash (/), backslash (\) and percent (%) will be escaped using the URL syntax. For example, %2F.
-        
-        :rtype: ManagedObjectReference to a Folder
         
         '''
         return self.delegate("CreateFolder")(name)
@@ -165,11 +152,9 @@ class Folder(ManagedEntity):
         
         :param config: The configuration of the virtual machine hardware.
         
-        :param pool: to a ResourcePoolThe resource pool to which the virtual machine will be attached.
+        :param pool: The resource pool to which the virtual machine will be attached.
         
-        :param host: to a HostSystemThe target host on which the virtual machine will run. This must specify a host that is a member of the ComputeResource indirectly specified by the pool. For a stand-alone host or a cluster with DRS, host can be omitted, and the system selects a default.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param host: The target host on which the virtual machine will run. This must specify a host that is a member of the ComputeResource indirectly specified by the pool. For a stand-alone host or a cluster with DRS, host can be omitted, and the system selects a default.
         
         '''
         return self.delegate("CreateVM_Task")(config, pool, host)
@@ -209,9 +194,7 @@ class Folder(ManagedEntity):
         HostSystem, and Host.Inventory.EditCluster on the host's original
         ComputeResource.
         
-        :param list: to a ManagedEntity[]The list of objects to be moved into the folder.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param list: The list of objects to be moved into the folder.
         
         '''
         return self.delegate("MoveIntoFolder_Task")(list)
@@ -228,11 +211,9 @@ class Folder(ManagedEntity):
         
         :param asTemplate: Flag to specify whether or not the virtual machine should be marked as a template.
         
-        :param pool: to a ResourcePoolThe resource pool to which the virtual machine should be attached. If imported as a template, this parameter is not set.
+        :param pool: The resource pool to which the virtual machine should be attached. If imported as a template, this parameter is not set.
         
-        :param host: to a HostSystemThe target host on which the virtual machine will run. This parameter must specify a host that is a member of the ComputeResource indirectly specified by the pool. For a stand-alone host or a cluster with DRS, the parameter can be omitted, and the system selects a default.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param host: The target host on which the virtual machine will run. This parameter must specify a host that is a member of the ComputeResource indirectly specified by the pool. For a stand-alone host or a cluster with DRS, the parameter can be omitted, and the system selects a default.
         
         '''
         return self.delegate("RegisterVM_Task")(path, name, asTemplate, pool, host)
@@ -257,8 +238,6 @@ class Folder(ManagedEntity):
         you are removing virtual applications, you must hold the VApp.Delete privilege
         on all of the virtual applications to be unregistered, and on their parent
         folders.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("UnregisterAndDestroy_Task")()

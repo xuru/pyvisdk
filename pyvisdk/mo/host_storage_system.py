@@ -80,7 +80,7 @@ class HostStorageSystem(ExtensibleManagedObject):
     def ComputeDiskPartitionInfo(self, devicePath, layout):
         '''Computes the disk partition information given the desired disk layout. The
         server computes a new partition information object for a specific disk
-        representing the desired layout. See HostDiskPartitionInfoPartitionFormat
+        representing the desired layout.See HostDiskPartitionInfoPartitionFormat
         
         :param devicePath: The name of the device path for the specific disk.See HostDiskPartitionInfoPartitionFormat
         
@@ -91,7 +91,7 @@ class HostStorageSystem(ExtensibleManagedObject):
     
     def ComputeDiskPartitionInfoForResize(self, partition, blockRange):
         '''Computes the disk partition information for the purpose of resizing a given
-        partition. See HostDiskPartitionInfoPartitionFormat
+        partition.See HostDiskPartitionInfoPartitionFormat
         
         :param partition: The disk partition to resize.See HostDiskPartitionInfoPartitionFormat
         

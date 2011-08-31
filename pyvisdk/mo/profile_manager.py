@@ -30,8 +30,6 @@ class ProfileManager(BaseEntity):
         
         :param createSpec: Specification for the profile being created. Usually a derived class CreateSpec can be used to create the Profile.
         
-        :rtype: ManagedObjectReference to a Profile
-        
         '''
         return self.delegate("CreateProfile")(createSpec)
     
@@ -39,9 +37,7 @@ class ProfileManager(BaseEntity):
         '''Get the profile(s) to which this entity is associated. The list of profiles
         will only include profiles known to this profileManager.
         
-        :param entity: to a ManagedEntityEntity for which profile is being looked up.
-        
-        :rtype: ManagedObjectReference[] to a Profile[]
+        :param entity: Entity for which profile is being looked up.
         
         '''
         return self.delegate("FindAssociatedProfile")(entity)

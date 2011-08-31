@@ -20,3 +20,11 @@ class ClusterProfile(Profile):
     
     
     
+    
+    def UpdateClusterProfile(self, config):
+        '''Update the ClusterProfile with the specified config.
+        
+        :param config: Specification which describes the changes.
+        
+        '''
+        return self.delegate("UpdateClusterProfile")(config)

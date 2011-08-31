@@ -30,11 +30,9 @@ class StorageResourceManager(BaseEntity):
         all the hosts that are attached to the datastore support this feature.This
         method is only supported by vCenter server.
         
-        :param datastore: to a DatastoreThe datastore to be configured.
+        :param datastore: The datastore to be configured.
         
         :param spec: The configuration spec.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("ConfigureDatastoreIORM_Task")(datastore, spec)
@@ -42,7 +40,7 @@ class StorageResourceManager(BaseEntity):
     def QueryIORMConfigOption(self, host):
         '''Query configuration options for storage I/O resource management.
         
-        :param host: to a HostSystem[in] - The host VC will forward the query to. This parameter is ignored by host if this method is called on a host directly.
+        :param host: [in] - The host VC will forward the query to. This parameter is ignored by host if this method is called on a host directly.
         
         '''
         return self.delegate("QueryIORMConfigOption")(host)

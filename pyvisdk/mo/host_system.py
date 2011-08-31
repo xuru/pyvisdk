@@ -86,8 +86,6 @@ class HostSystem(ManagedEntity):
     def DisconnectHost_Task(self):
         '''Disconnects from a host and instructs the server to stop sending heartbeats.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("DisconnectHost_Task")()
     
@@ -98,7 +96,7 @@ class HostSystem(ManagedEntity):
         connected to the host is blocked. Access though other services running on the
         host is also blocked.If the operation is successful, adminDisabled will be set
         to true. This API is not supported on the host, If invoked directly on a host,
-        a NotSupported fault will be thrown. See AuthorizationManager
+        a NotSupported fault will be thrown.See AuthorizationManager
         
         '''
         return self.delegate("EnterLockdownMode")()
@@ -124,8 +122,6 @@ class HostSystem(ManagedEntity):
         
         :param evacuatePoweredOffVms: This is a parameter only supported by VirtualCenter. If set to true, for a DRS disabled cluster, the task will not succeed unless all powered-off virtual machines have been manually reregistered; for a DRS enabled cluster, VirtualCenter will automatically reregister powered-off virtual machines and a powered-off virtual machine may remain at the host only for two reasons: (a) no compatible host found for reregistration, (b) DRS is disabled for the virtual machine. If set to false, powered-off virtual machines do not need to be moved.VI API 2.5
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("EnterMaintenanceMode_Task")(timeout, evacuatePoweredOffVms)
     
@@ -133,8 +129,8 @@ class HostSystem(ManagedEntity):
         '''Restores Administrator permission for the local administrative account for the
         host that was removed by prior call to EnterLockdownMode. If the operation is
         successful, adminDisabled will be set to false. This API is not supported on
-        the host. If invoked directly on a host, a NotSupported fault will be thrown.
-        See AuthorizationManager
+        the host. If invoked directly on a host, a NotSupported fault will be
+        thrown.See AuthorizationManager
         
         '''
         return self.delegate("ExitLockdownMode")()
@@ -145,8 +141,6 @@ class HostSystem(ManagedEntity):
         example, if VMFS volumes are being upgraded.The task is cancellable.
         
         :param timeout: Number of seconds to wait for the exit maintenance mode to succeed. If the timeout is less than or equal to zero, there is no timeout.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("ExitMaintenanceMode_Task")(timeout)
@@ -174,8 +168,6 @@ class HostSystem(ManagedEntity):
         
         :param evacuatePoweredOffVms: This is a parameter used only by VirtualCenter. If set to true, for a DRS disabled cluster, the task will not succeed unless all powered-off virtual machines have been manually reregistered; for a DRS enabled cluster, VirtualCenter will automatically reregister powered-off virtual machines and a powered-off virtual machine may remain at the host only for two reasons: (a) no compatible host found for reregistration, (b) DRS is disabled for the virtual machine.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("PowerDownHostToStandBy_Task")(timeoutSec, evacuatePoweredOffVms)
     
@@ -189,8 +181,6 @@ class HostSystem(ManagedEntity):
         wakeup request has made it to the host.The task is cancellable.
         
         :param timeoutSec: The task completes when the host successfully exits standby state and sends a heartbeat signal. If nothing is received from the host for timeoutSec seconds, the host is declared timedout, and the task is assumed failed.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("PowerUpHostFromStandBy_Task")(timeoutSec)
@@ -233,8 +223,6 @@ class HostSystem(ManagedEntity):
         
         :param force: Flag to specify whether or not the host should be rebooted regardless of whether it is in maintenance mode. If true, the host is rebooted, even if there are virtual machines running or other operations in progress.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("RebootHost_Task")(force)
     
@@ -244,8 +232,6 @@ class HostSystem(ManagedEntity):
         if a host is added to a HA enabled cluster and the automatic HA configuration
         system task fails. Automatic HA configuration may fail for a variety of
         reasons. For example, the host is configured incorrectly.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("ReconfigureHostForDAS_Task")()
@@ -266,8 +252,6 @@ class HostSystem(ManagedEntity):
         
         :param cnxSpec: Includes the parameters to use, including user name and password, when reconnecting to the host. If this parameter is not specified, the default connection parameters is used.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("ReconnectHost_Task")(cnxSpec)
     
@@ -286,8 +270,6 @@ class HostSystem(ManagedEntity):
         hosts. Check the host capability shutdownSupported.
         
         :param force: Flag to specify whether or not the host should be shut down regardless of whether it is in maintenance mode. If true, the host is shut down, even if there are virtual machines running or other operations in progress.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("ShutdownHost_Task")(force)

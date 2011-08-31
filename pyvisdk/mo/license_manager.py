@@ -95,7 +95,7 @@ class LicenseManager(BaseEntity):
         '''Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Returns
         whether or not a given feature is enabled.
         
-        :param host: to a HostSystemHost to act on if LicenseManager is not on a host.
+        :param host: Host to act on if LicenseManager is not on a host.
         
         :param featureKey: Name of the feature to enable.
         
@@ -106,7 +106,7 @@ class LicenseManager(BaseEntity):
         '''Deprecated. As of vSphere API 4.0, use UpdateLicense instead. Allows for
         reconfiguration of the License Manager license source.
         
-        :param host: to a HostSystemHost for which the license manager should be reconfigured.
+        :param host: Host for which the license manager should be reconfigured.
         
         :param licenseSource: ServedSource or LocalSource.
         
@@ -125,7 +125,7 @@ class LicenseManager(BaseEntity):
         '''Deprecated. As of vSphere API 4.0, use RemoveAssignedLicense instead. Release
         licenses for an optional feature.
         
-        :param host: to a HostSystemHost to act on if LicenseManager is not on a host.
+        :param host: Host to act on if LicenseManager is not on a host.
         
         :param featureKey: key of the feature to disable.
         
@@ -136,7 +136,7 @@ class LicenseManager(BaseEntity):
         '''Deprecated. As of vSphere API 4.0, use UpdateAssignedLicense instead. Enable a
         feature that has an optional state.
         
-        :param host: to a HostSystemHost to act on if LicenseManager is not on a host.
+        :param host: Host to act on if LicenseManager is not on a host.
         
         :param featureKey: Name of the feature to enable.
         
@@ -148,7 +148,7 @@ class LicenseManager(BaseEntity):
         the current license source for total and available licenses available for each
         feature known to this system.
         
-        :param host: to a HostSystemUse the license source of the specified host.
+        :param host: Use the license source of the specified host.
         
         '''
         return self.delegate("QueryLicenseSourceAvailability")(host)
@@ -158,7 +158,7 @@ class LicenseManager(BaseEntity):
         the license usage. The license usage is a list of supported features and the
         number of licenses that have been reserved.
         
-        :param host: to a HostSystemHost to query for usage. If missing, query the server the LicenseManager is on.
+        :param host: Host to query for usage. If missing, query the server the LicenseManager is on.
         
         '''
         return self.delegate("QueryLicenseUsage")(host)
@@ -168,7 +168,7 @@ class LicenseManager(BaseEntity):
         the current license source for a list of available licenses that can be
         licensed from this system.
         
-        :param host: to a HostSystemUse the license source of the specified host.
+        :param host: Use the license source of the specified host.
         
         '''
         return self.delegate("QuerySupportedFeatures")(host)
@@ -197,7 +197,7 @@ class LicenseManager(BaseEntity):
         server requires. This, in turn, determines the core set of functionality
         provided by the product and the additional features that can be licensed.
         
-        :param host: to a HostSystemHost to act on if LicenseManager is not on a host.
+        :param host: Host to act on if LicenseManager is not on a host.
         
         :param featureKey: Name of edition feature to select. If featureKey is not set or set to empty string, the product becomes unlicensed.
         

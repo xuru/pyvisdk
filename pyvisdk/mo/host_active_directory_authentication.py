@@ -36,8 +36,6 @@ class HostActiveDirectoryAuthentication(HostDirectoryStore):
         
         :param password: Password for theaccount.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("JoinDomain_Task")(domainName, userName, password)
     
@@ -45,8 +43,6 @@ class HostActiveDirectoryAuthentication(HostDirectoryStore):
         '''Removes the host from the Active Directory domain to which it belongs.
         
         :param force: If, any existing permissions on managed entities for Active Directory users will be deleted. Ifand such permissions exist, the operation will fail.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("LeaveCurrentDomain_Task")(force)

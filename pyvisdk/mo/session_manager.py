@@ -62,7 +62,7 @@ class SessionManager(BaseEntity):
         The ticket is only valid on the server which issued it.This sequence of
         operations is conceptually similar to the functionality provided by
         AcquireLocalTicket, however the methods can be used by remote clients and do
-        not require a shared filesystem for transport. See CloneSession
+        not require a shared filesystem for transport.See CloneSession
         
         '''
         return self.delegate("AcquireCloneTicket")()
@@ -91,7 +91,7 @@ class SessionManager(BaseEntity):
         '''Clone the session specified by the clone ticket and associate it with the
         current connection. The current session will take on the identity and
         authorization level of the UserSession associated with the specified cloning
-        ticket. See AcquireCloneTicket
+        ticket.See AcquireCloneTicket
         
         :param cloneTicket: ticket string acquired via AcquireCloneTicket.See AcquireCloneTicket
         

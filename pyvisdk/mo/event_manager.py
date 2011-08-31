@@ -43,15 +43,13 @@ class EventManager(BaseEntity):
         
         :param filter: The event query filter.
         
-        :rtype: ManagedObjectReference to a EventHistoryCollector
-        
         '''
         return self.delegate("CreateCollectorForEvents")(filter)
     
     def LogUserEvent(self, entity, msg):
         '''Logs a user defined event against a particular managed entity.
         
-        :param entity: to a ManagedEntityThe entity against which the event is logged. The entity must be the root folder, a DataCenter, a VirtualMachine, a HostSystem, or a ComputeResource.
+        :param entity: The entity against which the event is logged. The entity must be the root folder, a DataCenter, a VirtualMachine, a HostSystem, or a ComputeResource.
         
         :param msg: The message to be logged.
         

@@ -111,8 +111,6 @@ class ManagedEntity(ExtensibleManagedObject):
         that is being removed. See comments for each entity for more information on
         destroy behavior.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("Destroy_Task")()
     
@@ -135,8 +133,6 @@ class ManagedEntity(ExtensibleManagedObject):
         Clients may also escape any other characters in this name parameter.See name
         
         :param newName: See name
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("Rename_Task")(newName)

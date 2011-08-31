@@ -61,3 +61,13 @@ class ComputeResource(ManagedEntity):
         return self.update('summary')
     
     
+    
+    def ReconfigureComputeResource_Task(self, spec, modify):
+        '''Change the compute resource configuration.
+        
+        :param spec: A set of configuration changes to apply to the compute resource. The specification can be a complete set of changes or a partial set of changes, applied incrementally. When invoking reconfigureEx on a cluster, this argument may be a ClusterConfigSpecEx object.
+        
+        :param modify: Flag to specify whether the specification ("spec") should be applied incrementally. If "modify" is false and the operation succeeds, then the configuration of the cluster matches the specification exactly; in this case any unset portions of the specification will result in unset or default portions of the configuration.
+        
+        '''
+        return self.delegate("ReconfigureComputeResource_Task")(spec, modify)

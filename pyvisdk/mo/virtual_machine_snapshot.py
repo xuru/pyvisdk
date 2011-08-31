@@ -37,8 +37,6 @@ class VirtualMachineSnapshot(ExtensibleManagedObject):
         
         :param removeChildren: Flag to specify removal of the entire snapshot subtree.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("RemoveSnapshot_Task")(removeChildren)
     
@@ -57,11 +55,9 @@ class VirtualMachineSnapshot(ExtensibleManagedObject):
         '''Change the execution state of the virtual machine to the state of this
         snapshot.
         
-        :param host: to a HostSystem(optional) Choice of host for the virtual machine, in case this operation causes the virtual machine to power on.
+        :param host: (optional) Choice of host for the virtual machine, in case this operation causes the virtual machine to power on.
         
         :param suppressPowerOn: (optional) If set to true, the virtual machine will not be powered on regardless of the power state when the snapshot was created. Default to false.vSphere API 4.0
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("RevertToSnapshot_Task")(host, suppressPowerOn)

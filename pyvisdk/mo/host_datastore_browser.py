@@ -42,7 +42,7 @@ class HostDatastoreBrowser(BaseEntity):
     extra details or the use of type specific filters can sometimes only be
     implemented by examining the contents of a file. As a result, the use of these
     conveniences comes with the cost of additional latency in the request and
-    possible side effects on the system as a whole. See FileInfo'''
+    possible side effects on the system as a whole.See FileInfo'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostDatastoreBrowser):
         super(HostDatastoreBrowser, self).__init__(core, name=name, ref=ref, type=type)
@@ -76,8 +76,6 @@ class HostDatastoreBrowser(BaseEntity):
         The Datastore.Browse privilege must be held on the datastore identified by the
         datastore path.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("SearchDatastore_Task")()
     
@@ -86,8 +84,6 @@ class HostDatastoreBrowser(BaseEntity):
         SearchResults[] object. Searches the folder specified by the datastore path and
         all subfolders. The Datastore.Browse privilege must be held on the datastore
         identified by the datastore path.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("SearchDatastoreSubFolders_Task")()

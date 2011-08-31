@@ -126,7 +126,5 @@ class Datastore(ManagedEntity):
         
         :param mountPathDatastoreMapping: Old mount path to datastore mapping.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("UpdateVirtualMachineFiles_Task")(mountPathDatastoreMapping)

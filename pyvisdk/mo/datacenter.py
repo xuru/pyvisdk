@@ -17,12 +17,8 @@ class Datacenter(ManagedEntity):
     must be under a distinct datacenter in the inventory, and datacenters may not
     be nested under other datacenters.Every Datacenter has the following set of
     dedicated folders. These folders are empty until you create entities for the
-    Datacenter.* A folder for VirtualMachine, template, and VirtualApp objects. * A
-    folder for a ComputeResource hierarchy. * A folder for Network,
-    DistributedVirtualSwitch, and DistributedVirtualPortgroup objects. * A folder
-    for Datastore objects.For a visual representation of the organization of
-    objects in a vCenter hierarchy, see the description of the ServiceInstance
-    object.'''
+    Datacenter.For a visual representation of the organization of objects in a
+    vCenter hierarchy, see the description of the ServiceInstance object.'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.Datacenter):
         super(Datacenter, self).__init__(core, name=name, ref=ref, type=type)
@@ -77,11 +73,9 @@ class Datacenter(ManagedEntity):
         virtual machine in a cluster, the system might do an implicit relocation of the
         virtual machine to another host.
         
-        :param vm: to a VirtualMachine[]The virtual machines to power on.
+        :param vm: The virtual machines to power on.
         
         :param option: An array of OptionValue options for this power-on session. The names and values of the options are defined in ClusterPowerOnVmOption.vSphere API 4.1
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("PowerOnMultiVM_Task")(vm, option)

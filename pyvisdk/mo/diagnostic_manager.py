@@ -27,7 +27,7 @@ class DiagnosticManager(BaseEntity):
         '''Returns part of a log file. Log entries are always returned chronologically,
         typically with the newest event last.
         
-        :param host: to a HostSystemSpecifies the host. If not specified, then it defaults to the default server. For example, if called on VirtualCenter, then the value defaults to VirtualCenter logs.
+        :param host: Specifies the host. If not specified, then it defaults to the default server. For example, if called on VirtualCenter, then the value defaults to VirtualCenter logs.
         
         :param key: A string key specifying the key for the log file to browse. Keys can be obtained using the queryDescriptions method.
         
@@ -46,9 +46,7 @@ class DiagnosticManager(BaseEntity):
         
         :param includeDefault: Specifies if the bundle should include the default server. If called on a VirtualCenter server, then this means the VirtualCenter diagnostic files. If called directly on a host, then includeDefault must be set to true.
         
-        :param host: to a HostSystem[]Lists hosts that are included. This is only used when called on VirtualCenter. If called directly on a host, then this parameter must be empty.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param host: Lists hosts that are included. This is only used when called on VirtualCenter. If called directly on a host, then this parameter must be empty.
         
         '''
         return self.delegate("GenerateLogBundles_Task")(includeDefault, host)
@@ -56,7 +54,7 @@ class DiagnosticManager(BaseEntity):
     def QueryDescriptions(self, host):
         '''Returns a list of diagnostic files for a given system.
         
-        :param host: to a HostSystemSpecifies the host. If not specified, then it defaults to the server itself. For example, if called on VirtualCenter, then the value defaults to VirtualCenter logs. When called on an ESX server host, the host should not be specified.
+        :param host: Specifies the host. If not specified, then it defaults to the server itself. For example, if called on VirtualCenter, then the value defaults to VirtualCenter logs. When called on an ESX server host, the host should not be specified.
         
         '''
         return self.delegate("QueryDescriptions")(host)

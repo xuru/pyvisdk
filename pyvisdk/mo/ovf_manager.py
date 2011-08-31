@@ -71,7 +71,7 @@ class OvfManager(BaseEntity):
         must release the lock on the entity given to it by VirtualMachine.exportVm or
         VirtualApp.exportVApp.
         
-        :param obj: to a ManagedEntityThe entity to export. Supported types are VirtualMachine and VirtualApp.
+        :param obj: The entity to export. Supported types are VirtualMachine and VirtualApp.
         
         :param cdp: Parameters to the method, bundled in an instance of CreateDescriptorParams.
         
@@ -80,15 +80,13 @@ class OvfManager(BaseEntity):
     
     def CreateImportSpec(self, ovfDescriptor, resourcePool, datastore, cisp):
         '''Validate the OVF descriptor against the hardware supported by the host system.
-        If the validation succeeds, return a result containing:* An ImportSpec to use
-        when importing the entity. * A list of items to upload (for example disk
-        backing files, ISO images etc.)
+        If the validation succeeds, return a result containing:
         
         :param ovfDescriptor: The OVF descriptor of the entity.
         
-        :param resourcePool: to a ResourcePoolThe resource pool to import the entity to. May be a vApp.
+        :param resourcePool: The resource pool to import the entity to. May be a vApp.
         
-        :param datastore: to a DatastoreThe datastore on which to create the inventory objects of the entity, for example "storage1". The privilege Datastore.AllocateSpace is required on the datastore.
+        :param datastore: The datastore on which to create the inventory objects of the entity, for example "storage1". The privilege Datastore.AllocateSpace is required on the datastore.
         
         :param cisp: Additional parameters to the method, bundled in an instance of CreateImportSpecParams.
         
@@ -117,7 +115,7 @@ class OvfManager(BaseEntity):
         
         :param ovfDescriptor: The OVF descriptor to examine.
         
-        :param host: to a HostSystemThe host to validate against.
+        :param host: The host to validate against.
         
         :param vhp: Additional parameters for validateHost, wrapped in a ValidateHostParams instance.
         

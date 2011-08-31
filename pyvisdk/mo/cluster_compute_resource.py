@@ -76,11 +76,9 @@ class ClusterComputeResource(ComputeResource):
         
         :param asConnected: Flag to specify whether or not the host should be connected immediately after it is added. If the host is to be connected immediately after it is added, but the connection fails, then an exception is thrown.
         
-        :param resourcePool: to a ResourcePoolthe resource pool for the root resource pool from the host.
+        :param resourcePool: the resource pool for the root resource pool from the host.
         
         :param license: Provide a licenseKey or licenseKeyType. See LicenseManagervSphere API 4.0
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("AddHost_Task")(spec, asConnected, resourcePool, license)
@@ -121,11 +119,9 @@ class ClusterComputeResource(ComputeResource):
         nested resource pools or the resourcePool argument is not specified, then the
         stand-alone host resource hierarchy is ignored.
         
-        :param host: to a HostSystemThe list of hosts to move into the cluster.
+        :param host: The list of hosts to move into the cluster.
         
-        :param resourcePool: to a ResourcePoolThe resource pool to match the root resource pool of stand-alone hosts. This argument has no effect if the host is part of a cluster.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param resourcePool: The resource pool to match the root resource pool of stand-alone hosts. This argument has no effect if the host is part of a cluster.
         
         '''
         return self.delegate("MoveHostInto_Task")(host, resourcePool)
@@ -149,9 +145,7 @@ class ClusterComputeResource(ComputeResource):
         mentioned, the user must also hold Host.Inventory.EditCluster on the host's
         source ComputeResource object.
         
-        :param host: to a HostSystem[]The list of hosts to move into the cluster.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param host: The list of hosts to move into the cluster.
         
         '''
         return self.delegate("MoveInto_Task")(host)
@@ -165,9 +159,9 @@ class ClusterComputeResource(ComputeResource):
         state, or to migrate a specific virtual machine. If no host is found, an empty
         list is returned.
         
-        :param vm: to a VirtualMachineSpecifies the virtual machine for which the user is requesting a recommendations.
+        :param vm: Specifies the virtual machine for which the user is requesting a recommendations.
         
-        :param pool: to a ResourcePoolSpecifies the ResourcePool into which the virtual machine is to be migrated. If the virtual machine is powered-on, this argument must be specified and it is relevant only when the virtual machine is powered-on. This ResourcePool cannot be in the same cluster as the virtual machine.
+        :param pool: Specifies the ResourcePool into which the virtual machine is to be migrated. If the virtual machine is powered-on, this argument must be specified and it is relevant only when the virtual machine is powered-on. This ResourcePool cannot be in the same cluster as the virtual machine.
         
         '''
         return self.delegate("RecommendHostsForVm")(vm, pool)
@@ -179,8 +173,6 @@ class ClusterComputeResource(ComputeResource):
         :param spec: A set of configuration changes to apply to the cluster. The specification can be a complete set of changes or a partial set of changes, applied incrementally.
         
         :param modify: Flag to specify whether the specification ("spec") should be applied incrementally. If "modify" is false and the operation succeeds, then the configuration of the cluster matches the specification exactly; in this case any unset portions of the specification will result in unset or default portions of the configuration.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("ReconfigureCluster_Task")(spec, modify)

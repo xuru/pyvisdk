@@ -45,8 +45,6 @@ class TaskManager(BaseEntity):
         
         :param filter: The specification for the task query filter.
         
-        :rtype: ManagedObjectReference to a TaskHistoryCollector
-        
         '''
         return self.delegate("CreateCollectorForTasks")(filter)
     

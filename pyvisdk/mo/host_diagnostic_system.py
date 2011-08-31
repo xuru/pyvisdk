@@ -14,9 +14,7 @@ log = logging.getLogger(__name__)
 class HostDiagnosticSystem(BaseEntity):
     '''The DiagnosticSystem managed object is used to configure the diagnostic
     mechanisms specific to the host. The DiagnosticSystem interface supports the
-    following concepts:* Notion of an active diagnostic partition that is selected
-    from a set of available partitions. * Ability to create a diagnostic partition
-    that gets added to the list of available partitions and could be made active.'''
+    following concepts:'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostDiagnosticSystem):
         super(HostDiagnosticSystem, self).__init__(core, name=name, ref=ref, type=type)
@@ -53,7 +51,7 @@ class HostDiagnosticSystem(BaseEntity):
         '''For a disk, query for the diagnostic partition creation description. The
         description details how the diagnostic partition will be created on the disk
         and provides a creation specification that is needed to invoke the create
-        operation. See HostScsiDisk See uuid
+        operation.See HostScsiDiskSee uuid
         
         :param diskUuid: See HostScsiDiskSee uuid
         

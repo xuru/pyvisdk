@@ -16,12 +16,7 @@ class FileManager(BaseEntity):
     subject to change in future releases.This managed object type provides a way to
     manage and manipulate files and folders on datastores. The source and the
     destination names are in the form of a URL or a datastore path.A URL has the
-    formwhere* is or . * specifies the hostname or IP address of the VirtualCenter
-    or ESX server and optionally the port. * is the inventory path to the
-    Datacenter containing the Datastore. * is the name of the Datastore. * is a
-    slash-delimited path from the root of the datastore.A datastore path has the
-    formwhere* is the datastore name. * is a slash-delimited path from the root of
-    the datastore.'''
+    formwhereA datastore path has the formwhere'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.FileManager):
         super(FileManager, self).__init__(core, name=name, ref=ref, type=type)
@@ -30,13 +25,11 @@ class FileManager(BaseEntity):
     
     
     
-    def ChangeOwner(self, datacenter):
+    def ChangeOwner(self):
         '''Change the owner for a file.This method is currently not supported.
         
-        :param datacenter: to a Datacenter
-        
         '''
-        return self.delegate("ChangeOwner")(datacenter)
+        return self.delegate("ChangeOwner")()
     
     def CopyDatastoreFile_Task(self, sourceName, sourceDatacenter, destinationName, destinationDatacenter, force):
         '''Copies the source file or folder to the destination.If the destination file
@@ -61,15 +54,13 @@ class FileManager(BaseEntity):
         
         :param sourceName: The name of the source, either a URL or a datastore path referring to the file or folder to be copied.
         
-        :param sourceDatacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,must be a URL.
+        :param sourceDatacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,must be a URL.
         
         :param destinationName: The name of the destination, either a URL or a datastore path referring to the destination file or folder.
         
-        :param destinationDatacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter, it is assumed that the destination path belongs to the source datacenter.
+        :param destinationDatacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter, it is assumed that the destination path belongs to the source datacenter.
         
         :param force: If true, overwrite any identically named file at the destination. If not specified, it is assumed to be false.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("CopyDatastoreFile_Task")(sourceName, sourceDatacenter, destinationName, destinationDatacenter, force)
@@ -88,9 +79,7 @@ class FileManager(BaseEntity):
         
         :param name: The name of the file or folder, either a URL or a datastore path referring to the file or folder to be deleted.
         
-        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,must be a URL.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param datacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,must be a URL.
         
         '''
         return self.delegate("DeleteDatastoreFile_Task")(name, datacenter)
@@ -105,7 +94,7 @@ class FileManager(BaseEntity):
         
         :param name: The name of the folder, either a URL or a datastore path referring to the folder to be created.
         
-        :param datacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,must be a URL.
+        :param datacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,must be a URL.
         
         :param createParentDirectories: If true, any non-existent intermediate level folders will be created. If not specified, it is assumed to be false.
         
@@ -136,15 +125,13 @@ class FileManager(BaseEntity):
         
         :param sourceName: The name of the source, either a URL or a datastore path referring to the file or folder to be moved.
         
-        :param sourceDatacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,must be a URL.
+        :param sourceDatacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter,must be a URL.
         
         :param destinationName: The name of the destination, either a URL or a datastore path referring to the destination file or folder.
         
-        :param destinationDatacenter: to a DatacenterIfis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter, it is assumed that the destination path belongs to the source datacenter.
+        :param destinationDatacenter: Ifis a datastore path, the datacenter for that datastore path. Not needed when invoked directly on ESX. If not specified on a call to VirtualCenter, it is assumed that the destination path belongs to the source datacenter.
         
         :param force: If true, overwrite any identically named file at the destination. If not specified, it is assumed to be false.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("MoveDatastoreFile_Task")(sourceName, sourceDatacenter, destinationName, destinationDatacenter, force)

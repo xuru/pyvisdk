@@ -20,3 +20,11 @@ class ResourcePlanningManager(BaseEntity):
     
     
     
+    
+    def EstimateDatabaseSize(self, dbSizeParam):
+        '''Estimates the database size required to store VirtualCenter data.
+        
+        :param dbSizeParam: DatabaseSizeParam Contains the summary of an inventory for which the database size requirements are to be computed. It also contains the historic interval setting for which the database computations are to be done. This is an optional parameter and the current virtual center historical settings are used by default. There are many other optional fields in the dbSizeParam structure that are appropriately filled up based on some heuristics.
+        
+        '''
+        return self.delegate("EstimateDatabaseSize")(dbSizeParam)

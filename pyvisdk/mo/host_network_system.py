@@ -44,7 +44,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
     def networkConfig(self):
         '''Network configuration information. This information can be applied using the
         updateNetworkConfig() method. The information is a strict subset of the
-        information available in NetworkInfo.'''
+        information available in NetworkInfo.See HostNetworkInfo'''
         return self.update('networkConfig')
     @property
     def networkInfo(self):
@@ -70,7 +70,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
         that users have Host.Config.Network privilege on the host, and Network.Assign
         privilege on the connecting DVPortGroup, or DVS if connecting to a standalone
         DVPort. Network.Assign privilege is not required for operations on standard
-        network. See usesServiceConsoleNic
+        network.See usesServiceConsoleNic
         
         :param portgroup: See usesServiceConsoleNic
         
@@ -94,7 +94,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
     def AddVirtualSwitch(self, vswitchName, spec):
         '''Adds a new virtual switch to the system with the given name. The name must be
         unique with respect to other virtual switches on the host and is limited to 32
-        characters. See UpdateVirtualSwitch
+        characters.See UpdateVirtualSwitch
         
         :param vswitchName: See UpdateVirtualSwitch
         
@@ -109,7 +109,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
         adapter is attached. The method receives in a list of physical network adapter
         devices and returns an equal number of hints if some devices are provided. If
         the list of devices is empty, then the method accesses hints for all physical
-        network adapters. See supportsNetworkHints See device
+        network adapters.See supportsNetworkHintsSee device
         
         :param device: See supportsNetworkHintsSee device
         
@@ -130,7 +130,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
         return self.delegate("RemovePortGroup")()
     
     def RemoveServiceConsoleVirtualNic(self, device):
-        '''Removes a virtual service console network adapter. See usesServiceConsoleNic
+        '''Removes a virtual service console network adapter.See usesServiceConsoleNic
         
         :param device: See usesServiceConsoleNic
         
@@ -153,7 +153,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
         '''Restart the service console virtual network adapter interface. If the service
         console virtual network adapter uses DHCP, restarting the interface may result
         it with a different IP configuration, or even fail to be brought up depending
-        on the host system network configuration. See usesServiceConsoleNic
+        on the host system network configuration.See usesServiceConsoleNic
         
         :param device: See usesServiceConsoleNic
         
@@ -197,7 +197,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
     
     def UpdatePhysicalNicLinkSpeed(self, device, linkSpeed):
         '''Configures link speed and duplexity. If linkSpeed is not specified, physical
-        network adapter will be set to autonegotiate. See canSetPhysicalNicLinkSpeed
+        network adapter will be set to autonegotiate.See canSetPhysicalNicLinkSpeed
         
         :param device: See canSetPhysicalNicLinkSpeed
         
@@ -217,7 +217,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
         adapter.IP configuration is required although it does not have to be enabled if
         the host is an ESX Server system. The dynamic privilege check will check that
         the users have Network.Assign privilege on the DVPortGroup or the DVS if the
-        port resides on a DVPortGroup or is a stand-alone DVS port. See
+        port resides on a DVPortGroup or is a stand-alone DVS port.See
         usesServiceConsoleNic
         
         :param device: See usesServiceConsoleNic
@@ -246,7 +246,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
         adapter order policy. If a network adapter is removed from the bridge
         configuration, then the network adapter is removed from the network adapter
         teaming order.The BondBridge configuration is the only valid bridge
-        configuration for an ESX Server system. See HostNicOrderPolicy
+        configuration for an ESX Server system.See HostNicOrderPolicy
         
         :param vswitchName: See HostNicOrderPolicy
         

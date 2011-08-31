@@ -36,3 +36,15 @@ class ExtensibleManagedObject(BaseEntity):
         return self.update('value')
     
     
+    
+    def setCustomValue(self, key, value):
+        '''Assigns a value to a custom field. The setCustomValue method requires whichever
+        updatePrivilege is defined as one of the fieldInstancePrivileges for the
+        CustomFieldDef whose value is being changed.
+        
+        :param key: The name of the field whose value is to be updated.
+        
+        :param value: Value to be assigned to the custom field.
+        
+        '''
+        return self.delegate("setCustomValue")(key, value)

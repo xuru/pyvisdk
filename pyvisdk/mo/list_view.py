@@ -13,7 +13,9 @@ log = logging.getLogger(__name__)
 
 class ListView(ManagedObjectView):
     '''The ListView managed object provides access to updates on a specific set of
-    objects. You can use a ListView with a ViewManager.When you invoke the
+    objects. You can use a ListView with a PropertyCollector method to retrieve
+    data or receive notification of changes. For information about using views with
+    the PropertyCollector, see the description of ViewManager.When you invoke the
     CreateListView method, you specify a list of objects. The view list always
     represents the current configuration of the virtual environment and reflects
     any subsequent changes that occur.'''
@@ -52,7 +54,7 @@ class ListView(ManagedObjectView):
     def ResetListViewFromView(self, view):
         '''Replaces the list with the set of objects in a given view.
         
-        :param view: to a ViewThe view to copy objects from.
+        :param view: The view to copy objects from.
         
         '''
         return self.delegate("ResetListViewFromView")(view)

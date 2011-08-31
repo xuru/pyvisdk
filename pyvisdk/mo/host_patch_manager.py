@@ -33,8 +33,6 @@ class HostPatchManager(BaseEntity):
         
         :param bundleUrls: a list of urls pointing to an "offline" bundle.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("CheckHostPatch_Task")(metaUrls, bundleUrls)
     
@@ -49,8 +47,6 @@ class HostPatchManager(BaseEntity):
         :param updateID: The update to be installed on the host.
         
         :param force: Specify whether to force reinstall an update. By default, installing an already-installed update would fail with the PatchAlreadyInstalled fault. If force is set to true, the update will be forcifully reinstalled, thus overwriting the already installed update.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("InstallHostPatch_Task")(repository, updateID, force)
@@ -67,15 +63,11 @@ class HostPatchManager(BaseEntity):
         
         :param vibUrls: The urls of update binary files to be installed.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("InstallHostPatchV2_Task")(metaUrls, bundleUrls, vibUrls)
     
     def QueryHostPatch_Task(self):
         '''Query the host for installed bulletins.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("QueryHostPatch_Task")()
@@ -89,8 +81,6 @@ class HostPatchManager(BaseEntity):
         
         :param updateID: The updates to scan. Wildcards can be used to specify the update IDs. The wildcards will be expanded to include all updates whose IDs match the specified wildcard and whose metadata is available in the repository. Specifying no update is equivalent to a wildcard "*". In this case all updates available in the repository will be scanned.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("ScanHostPatch_Task")(repository, updateID)
     
@@ -102,8 +92,6 @@ class HostPatchManager(BaseEntity):
         :param metaUrls: a list of urls pointing to metadata.zip.
         
         :param bundleUrls: a list of urls pointing to an "offline" bundle.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("ScanHostPatchV2_Task")(metaUrls, bundleUrls)
@@ -117,8 +105,6 @@ class HostPatchManager(BaseEntity):
         
         :param vibUrls: The urls of update binary files to be staged.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("StageHostPatch_Task")(metaUrls, bundleUrls, vibUrls)
     
@@ -126,8 +112,6 @@ class HostPatchManager(BaseEntity):
         '''Uninstall patch from the host. The operation is not cancelable.
         
         :param bulletinIds: A list of bulletin IDs to be removed.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("UninstallHostPatch_Task")(bulletinIds)

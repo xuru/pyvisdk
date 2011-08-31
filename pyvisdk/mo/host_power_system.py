@@ -29,3 +29,11 @@ class HostPowerSystem(BaseEntity):
         return self.update('info')
     
     
+    
+    def ConfigurePowerPolicy(self, key):
+        '''Configure host power policy.
+        
+        :param key: A key from one of the policies in availablePolicy.
+        
+        '''
+        return self.delegate("ConfigurePowerPolicy")(key)

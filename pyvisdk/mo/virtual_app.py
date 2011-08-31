@@ -64,20 +64,15 @@ class VirtualApp(ResourcePool):
         '''Creates a clone of this vApp.Any % (percent) character used in this name
         parameter must be escaped, unless it is used to start an escape sequence.
         Clients may also escape any other characters in this name parameter.When
-        invoking this method, the following privilege checks occur:* The privilege
-        VApp.Clone is required on this vApp. * If the target is a resource pool, the
-        privilege Resource.AssignVAppToPool is required on it. * If the target is a
-        vApp, the privileges VApp.Clone and VApp.AssignVApp are required on
-        it.Additional privileges are required by the clone spec provided. See
-        VAppCloneSpec for details.
+        invoking this method, the following privilege checks occur:Additional
+        privileges are required by the clone spec provided. See VAppCloneSpec for
+        details.
         
         :param name: The name of the new vApp.
         
-        :param target: to a ResourcePoolThe parent entity of the new vApp. Must be of type ResourcePool or VirtualApp.
+        :param target: The parent entity of the new vApp. Must be of type ResourcePool or VirtualApp.
         
         :param spec: Specifies how to clone the vApp.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("CloneVApp_Task")(name, target, spec)
@@ -87,8 +82,6 @@ class VirtualApp(ResourcePool):
         for the disks of the virtual machines in this vApp, as well as a ticket that
         gives access to these URLs.See HttpNfcLease for information on how to use the
         lease.
-        
-        :rtype: ManagedObjectReference to a HttpNfcLease
         
         '''
         return self.delegate("ExportVApp")()
@@ -102,8 +95,6 @@ class VirtualApp(ResourcePool):
         through the VIM API. They will throw TaskInProgress.
         
         :param force: If force is false, the shutdown order in the vApp is executed. If force is true, all virtual machines are powered-off (regardless of shutdown order).
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("PowerOffVApp_Task")(force)
@@ -119,8 +110,6 @@ class VirtualApp(ResourcePool):
         power-on sequence will be terminated. In case of a failure, virtual machines
         that are already started will remain powered-on.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("PowerOnVApp_Task")()
     
@@ -131,8 +120,6 @@ class VirtualApp(ResourcePool):
         sequence).While a vApp is being suspended, all power operations performed on
         sub entities are disabled through the VIM API. They will throw TaskInProgress.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("SuspendVApp_Task")()
     
@@ -141,8 +128,6 @@ class VirtualApp(ResourcePool):
         machine's files on disk. All high-level information stored with the management
         server (ESX Server or VirtualCenter) is removed, including information such as
         vApp configuration, statistics, permissions, and alarms.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("unregisterVApp_Task")()
@@ -156,21 +141,17 @@ class VirtualApp(ResourcePool):
         in a vApp with a cycle. For example, a vApp cannot be linked to itself.The
         removeSet must refer to managed entities that are currently linked children.
         Otherwise, an InvalidArgument exception is thrown.For each entity being linked,
-        the operation is subject to the following privilege checks:* If the object
-        being linked is a vApp, VApp.Move must be held on the vApp being linked and its
-        former parent vApp (if any). The privilege VApp.AssignVApp must be held on this
-        vApp. * If the object being linked is a VirtualMachine, VApp.AssignVM is
-        required on both the target vApp, the VirtualMachine, and its former parent
-        vApp (if any).Privilege checks for each entity in the removeSet are similar to
-        the entities in the addChangeSet, except that there is no target vApp.This
-        operation is only transactional with respect to each individual link change.
-        The changes are processed sequentially and committed one at a time. The
-        addChangeSet is processed first, followed by the removeSet. If a failure is
-        detected, then the method terminates with an exception.
+        the operation is subject to the following privilege checks:Privilege checks for
+        each entity in the removeSet are similar to the entities in the addChangeSet,
+        except that there is no target vApp.This operation is only transactional with
+        respect to each individual link change. The changes are processed sequentially
+        and committed one at a time. The addChangeSet is processed first, followed by
+        the removeSet. If a failure is detected, then the method terminates with an
+        exception.
         
         :param addChangeSet: a set of LinkInfo objects that either add a new link or modify an exisiting link.
         
-        :param removeSet: to a ManagedEntity[]a set of entities that should no longer link to this vApp.
+        :param removeSet: a set of entities that should no longer link to this vApp.
         
         '''
         return self.delegate("UpdateLinkedChildren")(addChangeSet, removeSet)

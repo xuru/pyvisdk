@@ -25,32 +25,15 @@ class PerformanceManager(BaseEntity):
     available metrics. Each counter has a unique key, referred to as the counterId.
     The actual performance metrics generated at runtime are identified by this
     counterId. Counters are organized by groups of finite system resources, such as
-    group. Each page contains a table that includes data extracted from instances
-    of the PerfCounterInfo data object, including the counter name, its Label,
-    Unit, StatsType, RollupType, and Level:* * * * * * * Storage Capacity: * *
-    Storage I/O: * * * * * * *Other performance-counter groups, in addition to
-    those listed here, exist on the system. However, only the counter groups listed
-    are considered of possible interest to third-party developers.This interface
-    provides these query operations:* QueryPerfProviderSummary, for obtaining
-    metatdata about performance providers * QueryPerfCounter and
-    QueryPerfCounterByLevel for obtaining metadata about supported counters. *
-    QueryPerf, QueryAvailablePerfMetric, and QueryPerfComposite for obtaining
-    statistics for one or more entities: * Use QueryPerf to obtain metrics for
-    multiple entities in a single call. * Use QueryPerfComposite to obtain
-    statistics for a single entity with its descendent objectsstatistics for a
-    host and all its virtual machines, for example.Some differences between ESX and
-    vCenter Server implementations of this interface include:* For ESX systems,
-    this interface provides access to real-time data, and to real-time data that
-    has been rolled up into "PastDay" statistics (if applicable for the specific
-    counter). * For vCenter Server systems, this interface provides access to real-
-    time and historical data. vCenter Server collects statistics on a regular basis
-    from all ESX systems that it manages, and aggregates the results based on the
-    level settings for the server. * Default sampling interval is product- and
-    version-specific: * ESX 3.x (and subsequent) systems: 20 second interval * ESX
-    2.x systems: 60 second interval * VirtualCenter Server 2.5 (and subsequent
-    vCenter Server) systems initially collect statistics data 10 minutes after
-    system startup, and then hourly thereafter.See the Programming Guide for more
-    information about using PerformanceManager.'''
+    , , , and so on. The links in this list contain documentation for performance
+    counters, by group. Each page contains a table that includes data extracted
+    from instances of the PerfCounterInfo data object, including the counter name,
+    its Label, Unit, StatsType, RollupType, and Level:Other performance-counter
+    groups, in addition to those listed here, exist on the system. However, only
+    the counter groups listed are considered of possible interest to third-party
+    developers.This interface provides these query operations:Some differences
+    between ESX and vCenter Server implementations of this interface include:See
+    the Programming Guide for more information about using PerformanceManager.'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.PerformanceManager):
         super(PerformanceManager, self).__init__(core, name=name, ref=ref, type=type)

@@ -18,11 +18,7 @@ class PropertyCollector(BaseEntity):
     change detection and supports both polling and notification.For change
     detection a client creates one or more filters to specify the subset of managed
     objects in which the client is interested. Filters keep per-session state to
-    track incremental changes. Because this state is per-session:* A session cannot
-    share its PropertyCollector filters with other sessions * two different clients
-    can share the same session, and so can share the same filters, but this is not
-    recommended * When a session terminates, the associated PropertyCollector
-    filters are automatically destroyed.'''
+    track incremental changes. Because this state is per-session:'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.PropertyCollector):
         super(PropertyCollector, self).__init__(core, name=name, ref=ref, type=type)
@@ -80,8 +76,6 @@ class PropertyCollector(BaseEntity):
         
         :param partialUpdates: Flag to specify whether a change to a nested property should report only the nested change or the entire specified property value. If the value is true, a change should report only the nested property. If the value is false, a change should report the enclosing property named in the filter.
         
-        :rtype: ManagedObjectReference to a PropertyFilter
-        
         '''
         return self.delegate("CreateFilter")(spec, partialUpdates)
     
@@ -114,8 +108,6 @@ class PropertyCollector(BaseEntity):
         type will automatically create a default PropertyCollector and provide some way
         to obtain a reference to this PropertyCollector. If not, it will have to
         provide some service-specific way to create the a PropertyCollector.
-        
-        :rtype: ManagedObjectReference to a PropertyCollector
         
         '''
         return self.delegate("CreatePropertyCollector")()

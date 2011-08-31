@@ -52,8 +52,6 @@ class DistributedVirtualSwitch(ManagedEntity):
         
         :param spec: The specification for the portgroup.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("AddDVPortgroup_Task")(spec)
     
@@ -88,31 +86,9 @@ class DistributedVirtualSwitch(ManagedEntity):
         will be transferred to the destination switch. This operation disconnects the
         entities from the source switch, tears down its host proxy VirtualSwitches,
         creates new ones for the destination switch, and reconnects the entities to the
-        destination switch.In summary, this operation does the following:* Adds the
-        maxPorts of the source switch to the maxPorts of the destination switch. * The
-        host members of the source switch leave the source switch and join the
-        destination switch with the same pNIC and VirtualSwitch (if applicable). A set
-        of new uplink ports, compliant with the uplinkPortPolicy, is created as the
-        hosts join the destination switch. * The portgroups on the source switch are
-        copied over to destination switch, by calculating the effective default port
-        config and creating a portgroup of the same name in the destination switch. If
-        the name already exists, the copied portgroup uses names like "Copy of switch-
-        portgroup-name" scheme to avoid conflict. The same number of ports are created
-        inside each copied portgroup. * The standalone DVPorts are not copied, unless
-        there is a Virtual Machine or host vNIC connecting to it. In that case, the
-        operation calculates the effective port config and creates a port in the
-        designation DVS with the same name. Name conflict is resolved by numbers like
-        "original-port-name(1)". The uplink ports are not copied over. * The Virtual
-        Machine host vNICs are disconnected from the source switch and reconnected with
-        the destination switch, either to the copied standalone port or portgroup. *
-        (Applicable to VmwareDistributedVirtualSwitch object only) Unless the PVLAN map
-        contains exactly the same entries between the source and destination switches,
-        the operation raises a fault if pvlanId is set in any port, portgroup, or
-        switch that will be copied.
+        destination switch.In summary, this operation does the following:
         
-        :param dvs: to a DistributedVirtualSwitchThe switch (source) to be merged
-        
-        :rtype: ManagedObjectReference to a Task
+        :param dvs: The switch (source) to be merged
         
         '''
         return self.delegate("MergeDvs_Task")(dvs)
@@ -127,8 +103,6 @@ class DistributedVirtualSwitch(ManagedEntity):
         
         :param destinationPortgroupKey: The key of the portgroup to be moved into. If unset, the port will be moved under the switch.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("MoveDVPort_Task")(portKey, destinationPortgroupKey)
     
@@ -139,8 +113,6 @@ class DistributedVirtualSwitch(ManagedEntity):
         :param operation: The operation. See DistributedVirtualSwitchProductSpecOperationType for valid values. For VmwareDistributedVirtualSwitch, only upgrade is valid.
         
         :param productSpec: The product info of the implementation.
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("PerformDvsProductSpecOperation_Task")(operation, productSpec)
@@ -156,21 +128,14 @@ class DistributedVirtualSwitch(ManagedEntity):
         
         :param port: The specification of the ports.
         
-        :rtype: ManagedObjectReference to a Task
-        
         '''
         return self.delegate("ReconfigureDVPort_Task")(port)
     
     def ReconfigureDvs_Task(self, spec):
         '''Reconfigure the switch.Reconfiguring the switch may require any of the
-        following privileges, depending on what is being changed:* DVSwitch.PolicyOp if
-        policy is set. * DVSwitch.PortSetting if defaultPortConfig is set. *
-        DVSwitch.HostOp if policy is set. The user will also need the
-        Host.Config.Network privilege on the host. * DVSwitch.Modify for anything else.
+        following privileges, depending on what is being changed:
         
         :param spec: The configuration of the switch
-        
-        :rtype: ManagedObjectReference to a Task
         
         '''
         return self.delegate("ReconfigureDvs_Task")(spec)
@@ -179,9 +144,7 @@ class DistributedVirtualSwitch(ManagedEntity):
         '''Update the switch configuration on the host to bring them in sync with the
         current configuration in vCenter Server.
         
-        :param hosts: to a HostSystem[]The hosts to be refreshed. If not set, all hosts are rectified.
-        
-        :rtype: ManagedObjectReference to a Task
+        :param hosts: The hosts to be refreshed. If not set, all hosts are rectified.
         
         '''
         return self.delegate("RectifyDvsHost_Task")(hosts)
