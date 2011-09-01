@@ -63,42 +63,36 @@
 <dl class="describe">
 <dt>
 <tt class="descname">DistributedVirtualSwitchProductSpecOperationType</tt></dt>
-<dt>
-<tt class="descname">The product spec operation types.</tt></dt>
-<dd><dl class="data">
+<dd><p>The product spec operation types.</p>
+<dl class="data">
 <dt id="DistributedVirtualSwitchProductSpecOperationType.notifyAvailableUpgrade">
 <tt class="descclassname">DistributedVirtualSwitchProductSpecOperationType.</tt><tt class="descname">notifyAvailableUpgrade</tt><a class="headerlink" href="#DistributedVirtualSwitchProductSpecOperationType.notifyAvailableUpgrade" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Set the product information for an available switch upgrade that would be done by the switch implementation. This operation will post a config issue on the switch to signal the availability of an upgrade. This operation is applicable only in the case when switch policy autoUpgradeAllowed is set to false.</tt></dt>
-<dd></dd></dl>
+<dd><p>Set the product information for an available switch upgrade that would be done by the switch implementation. This operation will post a config issue on the switch to signal the availability of an upgrade. This operation is applicable only in the case when switch policy autoUpgradeAllowed is set to false.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="DistributedVirtualSwitchProductSpecOperationType.preInstall">
 <tt class="descclassname">DistributedVirtualSwitchProductSpecOperationType.</tt><tt class="descname">preInstall</tt><a class="headerlink" href="#DistributedVirtualSwitchProductSpecOperationType.preInstall" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Push the switch's host component of the specified product info to the host members of the switch at a fixed location known by the host.</tt></dt>
-<dd></dd></dl>
+<dd><p>Push the switch&#8217;s host component of the specified product info to the host members of the switch at a fixed location known by the host.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="DistributedVirtualSwitchProductSpecOperationType.proceedWithUpgrade">
 <tt class="descclassname">DistributedVirtualSwitchProductSpecOperationType.</tt><tt class="descname">proceedWithUpgrade</tt><a class="headerlink" href="#DistributedVirtualSwitchProductSpecOperationType.proceedWithUpgrade" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">If productSpec is set to be same as that in the DvsUpgradeAvailableEvent configIssue, the switch implementation will proceed with the upgrade. To reject or stop the upgrade, leave the productSpec unset. If productSpec is set but does not match that in DvsUpgradeAvailableEvent configIssue, a fault will be raised. This operation is applicable only in the case when switch policy autoUpgradeAllowed is set to false.</tt></dt>
-<dd></dd></dl>
+<dd><p>If productSpec is set to be same as that in the DvsUpgradeAvailableEvent configIssue, the switch implementation will proceed with the upgrade. To reject or stop the upgrade, leave the productSpec unset. If productSpec is set but does not match that in DvsUpgradeAvailableEvent configIssue, a fault will be raised. This operation is applicable only in the case when switch policy autoUpgradeAllowed is set to false.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="DistributedVirtualSwitchProductSpecOperationType.updateBundleInfo">
 <tt class="descclassname">DistributedVirtualSwitchProductSpecOperationType.</tt><tt class="descname">updateBundleInfo</tt><a class="headerlink" href="#DistributedVirtualSwitchProductSpecOperationType.updateBundleInfo" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Update the bundle URL and ID information. If other properties in the specified product info differ from the corresponding properties of the switch's product info, a fault will be thrown. Updating the bundle ID will result in installing the new host component identified by the bundle ID.</tt></dt>
-<dd></dd></dl>
+<dd><p>Update the bundle URL and ID information. If other properties in the specified product info differ from the corresponding properties of the switch&#8217;s product info, a fault will be thrown. Updating the bundle ID will result in installing the new host component identified by the bundle ID.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="DistributedVirtualSwitchProductSpecOperationType.upgrade">
 <tt class="descclassname">DistributedVirtualSwitchProductSpecOperationType.</tt><tt class="descname">upgrade</tt><a class="headerlink" href="#DistributedVirtualSwitchProductSpecOperationType.upgrade" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Change the switch implementation to use the specified one. If the property values in the specified product info are different from those of the corresponding properties in the switch's product info, a host component preinstall and switch upgrade will be performed.</tt></dt>
-<dd></dd></dl>
+<dd><p>Change the switch implementation to use the specified one. If the property values in the specified product info are different from those of the corresponding properties in the switch&#8217;s product info, a host component preinstall and switch upgrade will be performed.</p>
+</dd></dl>
 
 </dd></dl>
 

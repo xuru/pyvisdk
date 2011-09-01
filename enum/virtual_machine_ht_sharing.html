@@ -63,28 +63,24 @@
 <dl class="describe">
 <dt>
 <tt class="descname">VirtualMachineHtSharing</tt></dt>
-<dt>
-<tt class="descname">Set of possible values for htSharing.</tt></dt>
-<dd><dl class="data">
+<dd><p>Set of possible values for htSharing.</p>
+<dl class="data">
 <dt id="VirtualMachineHtSharing.any">
 <tt class="descclassname">VirtualMachineHtSharing.</tt><tt class="descname">any</tt><a class="headerlink" href="#VirtualMachineHtSharing.any" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">VCPUs may freely share cores at any time with any other VCPUs (default for all virtual machines on a hyperthreaded system).</tt></dt>
-<dd></dd></dl>
+<dd><p>VCPUs may freely share cores at any time with any other VCPUs (default for all virtual machines on a hyperthreaded system).</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualMachineHtSharing.internal">
 <tt class="descclassname">VirtualMachineHtSharing.</tt><tt class="descname">internal</tt><a class="headerlink" href="#VirtualMachineHtSharing.internal" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Similar to &quot;none&quot;, in that VCPUs from this virtual machine will not be allowed to share cores with VCPUs from other virtual machines. However, other VCPUs from the same virtual machine will be allowed to share cores together. This configuration option is only permitted for SMP virtual machines. If applied to a uniprocessor virtual machine, it will be converted to the &quot;none&quot; sharing option.</tt></dt>
-<dd></dd></dl>
+<dd><p>Similar to &#8220;none&#8221;, in that VCPUs from this virtual machine will not be allowed to share cores with VCPUs from other virtual machines. However, other VCPUs from the same virtual machine will be allowed to share cores together. This configuration option is only permitted for SMP virtual machines. If applied to a uniprocessor virtual machine, it will be converted to the &#8220;none&#8221; sharing option.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualMachineHtSharing.none">
 <tt class="descclassname">VirtualMachineHtSharing.</tt><tt class="descname">none</tt><a class="headerlink" href="#VirtualMachineHtSharing.none" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">VCPUs should not share cores with each other or with VCPUs from other virtual machines. That is, each VCPU from this virtual machine should always get a whole core to itself, with the other logical CPU on that core being placed into the &quot;halted&quot; state.</tt></dt>
-<dd></dd></dl>
+<dd><p>VCPUs should not share cores with each other or with VCPUs from other virtual machines. That is, each VCPU from this virtual machine should always get a whole core to itself, with the other logical CPU on that core being placed into the &#8220;halted&#8221; state.</p>
+</dd></dl>
 
 </dd></dl>
 

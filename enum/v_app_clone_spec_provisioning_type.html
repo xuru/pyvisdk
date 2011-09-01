@@ -63,28 +63,24 @@
 <dl class="describe">
 <dt>
 <tt class="descname">VAppCloneSpecProvisioningType</tt></dt>
-<dt>
-<tt class="descname">The cloned VMs can either be provisioned the same way as the VMs they are a clone of, thin provisioned or thick provisioned, or linked clones (i.e., using delta disks).</tt></dt>
-<dd><dl class="data">
+<dd><p>The cloned VMs can either be provisioned the same way as the VMs they are a clone of, thin provisioned or thick provisioned, or linked clones (i.e., using delta disks).</p>
+<dl class="data">
 <dt id="VAppCloneSpecProvisioningType.sameAsSource">
 <tt class="descclassname">VAppCloneSpecProvisioningType.</tt><tt class="descname">sameAsSource</tt><a class="headerlink" href="#VAppCloneSpecProvisioningType.sameAsSource" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Each disk in the cloned virtual machines will have the same type of disk as the source vApp.</tt></dt>
-<dd></dd></dl>
+<dd><p>Each disk in the cloned virtual machines will have the same type of disk as the source vApp.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VAppCloneSpecProvisioningType.thick">
 <tt class="descclassname">VAppCloneSpecProvisioningType.</tt><tt class="descname">thick</tt><a class="headerlink" href="#VAppCloneSpecProvisioningType.thick" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Each disk in the cloned virtual machines are allocated and committed in full size immediately.</tt></dt>
-<dd></dd></dl>
+<dd><p>Each disk in the cloned virtual machines are allocated and committed in full size immediately.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VAppCloneSpecProvisioningType.thin">
 <tt class="descclassname">VAppCloneSpecProvisioningType.</tt><tt class="descname">thin</tt><a class="headerlink" href="#VAppCloneSpecProvisioningType.thin" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Each disk in the cloned virtual machines is allocated in full size now and committed on demand. This is only supported on VMFS-3 and newer datastores. Other types of datastores may create thick disks.</tt></dt>
-<dd></dd></dl>
+<dd><p>Each disk in the cloned virtual machines is allocated in full size now and committed on demand. This is only supported on VMFS-3 and newer datastores. Other types of datastores may create thick disks.</p>
+</dd></dl>
 
 </dd></dl>
 

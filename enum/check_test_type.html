@@ -63,35 +63,30 @@
 <dl class="describe">
 <dt>
 <tt class="descname">CheckTestType</tt></dt>
-<dt>
-<tt class="descname">The types of tests which can requested by any of the methods in either VirtualMachineCompatibilityChecker or VirtualMachineProvisioningChecker.</tt></dt>
-<dd><dl class="data">
+<dd><p>The types of tests which can requested by any of the methods in either VirtualMachineCompatibilityChecker or VirtualMachineProvisioningChecker.</p>
+<dl class="data">
 <dt id="CheckTestType.datastoreTests">
 <tt class="descclassname">CheckTestType.</tt><tt class="descname">datastoreTests</tt><a class="headerlink" href="#CheckTestType.datastoreTests" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Tests that check that the destination host or cluster can see the datastores where the virtual machine's virtual disks are goint to be located. The destination resource pool is irrelevant.</tt></dt>
-<dd></dd></dl>
+<dd><p>Tests that check that the destination host or cluster can see the datastores where the virtual machine&#8217;s virtual disks are goint to be located. The destination resource pool is irrelevant.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="CheckTestType.hostTests">
 <tt class="descclassname">CheckTestType.</tt><tt class="descname">hostTests</tt><a class="headerlink" href="#CheckTestType.hostTests" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Tests that examine both the virtual machine and the destination host or cluster; the destination resource pool is irrelevant. This set excludes tests that fall into the datastoreTests group.</tt></dt>
-<dd></dd></dl>
+<dd><p>Tests that examine both the virtual machine and the destination host or cluster; the destination resource pool is irrelevant. This set excludes tests that fall into the datastoreTests group.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="CheckTestType.resourcePoolTests">
 <tt class="descclassname">CheckTestType.</tt><tt class="descname">resourcePoolTests</tt><a class="headerlink" href="#CheckTestType.resourcePoolTests" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Tests that check that the destination resource pool can support the virtual machine if it is powered on. The destination host or cluster is relevant because it will affect the amount of overhead memory required to run the virtual machine.</tt></dt>
-<dd></dd></dl>
+<dd><p>Tests that check that the destination resource pool can support the virtual machine if it is powered on. The destination host or cluster is relevant because it will affect the amount of overhead memory required to run the virtual machine.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="CheckTestType.sourceTests">
 <tt class="descclassname">CheckTestType.</tt><tt class="descname">sourceTests</tt><a class="headerlink" href="#CheckTestType.sourceTests" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Tests that examine only the configuration of the virtual machine and its current host; the destination resource pool and host or cluster are irrelevant.</tt></dt>
-<dd></dd></dl>
+<dd><p>Tests that examine only the configuration of the virtual machine and its current host; the destination resource pool and host or cluster are irrelevant.</p>
+</dd></dl>
 
 </dd></dl>
 

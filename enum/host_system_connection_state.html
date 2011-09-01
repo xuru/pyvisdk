@@ -63,28 +63,24 @@
 <dl class="describe">
 <dt>
 <tt class="descname">HostSystemConnectionState</tt></dt>
-<dt>
-<tt class="descname">Defines a host's connection state.</tt></dt>
-<dd><dl class="data">
+<dd><p>Defines a host&#8217;s connection state.</p>
+<dl class="data">
 <dt id="HostSystemConnectionState.connected">
 <tt class="descclassname">HostSystemConnectionState.</tt><tt class="descname">connected</tt><a class="headerlink" href="#HostSystemConnectionState.connected" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Connected to the server. For ESX Server, this is always the setting.</tt></dt>
-<dd></dd></dl>
+<dd><p>Connected to the server. For ESX Server, this is always the setting.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="HostSystemConnectionState.disconnected">
 <tt class="descclassname">HostSystemConnectionState.</tt><tt class="descname">disconnected</tt><a class="headerlink" href="#HostSystemConnectionState.disconnected" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">The user has explicitly taken the host down. VirtualCenter does not expect to receive heartbeats from the host. The next time a heartbeat is received, the host is moved to the connected state again and an event is logged.</tt></dt>
-<dd></dd></dl>
+<dd><p>The user has explicitly taken the host down. VirtualCenter does not expect to receive heartbeats from the host. The next time a heartbeat is received, the host is moved to the connected state again and an event is logged.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="HostSystemConnectionState.notResponding">
 <tt class="descclassname">HostSystemConnectionState.</tt><tt class="descname">notResponding</tt><a class="headerlink" href="#HostSystemConnectionState.notResponding" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">VirtualCenter is not receiving heartbeats from the server. The state automatically changes to connected once heartbeats are received again. This state is typically used to trigger an alarm on the host.</tt></dt>
-<dd></dd></dl>
+<dd><p>VirtualCenter is not receiving heartbeats from the server. The state automatically changes to connected once heartbeats are received again. This state is typically used to trigger an alarm on the host.</p>
+</dd></dl>
 
 </dd></dl>
 

@@ -63,28 +63,24 @@
 <dl class="describe">
 <dt>
 <tt class="descname">ClusterDasConfigInfoVmMonitoringState</tt></dt>
-<dt>
-<tt class="descname">The ClusterDasConfigInfoVmMonitoringState enum defines values that indicate the state of Virtual Machine Health Monitoring. Health Monitoring uses the vmTools (guest) and application agent heartbeat modules. You can configure HA to respond to heartbeat failures of either one or both modules. You can also disable the HA response to heartbeat failures.* To set the cluster default for health monitoring, use the ClusterConfigSpecEx.dasConfig.vmMonitoring property. * To set health monitoring for a virtual machine, use the ClusterConfigSpecEx.dasVmConfigSpec.info.dasSettings.vmToolsMonitoringSettings property. * To retrieve the current state of health monitoring (cluster setting), use the ClusterConfigInfoEx.dasConfig.vmMonitoring property. * To retrieve the current state of health monitoring for a virtual machine, use the ClusterConfigInfoEx.dasVmConfig[].dasSettings.vmToolsMonitoringSettings.vmMonitoring property.</tt></dt>
-<dd><dl class="data">
+<dd><p>The ClusterDasConfigInfoVmMonitoringState enum defines values that indicate the state of Virtual Machine Health Monitoring. Health Monitoring uses the vmTools (guest) and application agent heartbeat modules. You can configure HA to respond to heartbeat failures of either one or both modules. You can also disable the HA response to heartbeat failures.* To set the cluster default for health monitoring, use the ClusterConfigSpecEx.dasConfig.vmMonitoring property. * To set health monitoring for a virtual machine, use the ClusterConfigSpecEx.dasVmConfigSpec.info.dasSettings.vmToolsMonitoringSettings property. * To retrieve the current state of health monitoring (cluster setting), use the ClusterConfigInfoEx.dasConfig.vmMonitoring property. * To retrieve the current state of health monitoring for a virtual machine, use the ClusterConfigInfoEx.dasVmConfig[].dasSettings.vmToolsMonitoringSettings.vmMonitoring property.</p>
+<dl class="data">
 <dt id="ClusterDasConfigInfoVmMonitoringState.vmAndAppMonitoring">
 <tt class="descclassname">ClusterDasConfigInfoVmMonitoringState.</tt><tt class="descname">vmAndAppMonitoring</tt><a class="headerlink" href="#ClusterDasConfigInfoVmMonitoringState.vmAndAppMonitoring" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">HA response to both guest and application heartbeat failure is enabled. * To retrieve the guest heartbeat status, use the VirtualMachine.guestHeartbeatStatus property. * To retrieve the application heartbeat status, use the GuestInfo.appHeartbeatStatus property.</tt></dt>
-<dd></dd></dl>
+<dd><p>HA response to both guest and application heartbeat failure is enabled. * To retrieve the guest heartbeat status, use the VirtualMachine.guestHeartbeatStatus property. * To retrieve the application heartbeat status, use the GuestInfo.appHeartbeatStatus property.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="ClusterDasConfigInfoVmMonitoringState.vmMonitoringDisabled">
 <tt class="descclassname">ClusterDasConfigInfoVmMonitoringState.</tt><tt class="descname">vmMonitoringDisabled</tt><a class="headerlink" href="#ClusterDasConfigInfoVmMonitoringState.vmMonitoringDisabled" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Virtual machine health monitoring is disabled. In this state, HA response to guest and application heartbeat failures are disabled.</tt></dt>
-<dd></dd></dl>
+<dd><p>Virtual machine health monitoring is disabled. In this state, HA response to guest and application heartbeat failures are disabled.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="ClusterDasConfigInfoVmMonitoringState.vmMonitoringOnly">
 <tt class="descclassname">ClusterDasConfigInfoVmMonitoringState.</tt><tt class="descname">vmMonitoringOnly</tt><a class="headerlink" href="#ClusterDasConfigInfoVmMonitoringState.vmMonitoringOnly" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">HA response to guest heartbeat failure is enabled. To retrieve the guest heartbeat status, use the VirtualMachine.guestHeartbeatStatus property.</tt></dt>
-<dd></dd></dl>
+<dd><p>HA response to guest heartbeat failure is enabled. To retrieve the guest heartbeat status, use the VirtualMachine.guestHeartbeatStatus property.</p>
+</dd></dl>
 
 </dd></dl>
 

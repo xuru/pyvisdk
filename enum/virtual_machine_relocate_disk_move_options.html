@@ -63,35 +63,30 @@
 <dl class="describe">
 <dt>
 <tt class="descname">VirtualMachineRelocateDiskMoveOptions</tt></dt>
-<dt>
-<tt class="descname">Specifies how a virtual disk is moved or copied to a datastore.In all cases after the move or copy the virtual machine's current running point will be placed on the target datastore. The current running point is defined as the disk backing which the virtual machine is currently writing to. This end state can be achieved in multiple ways, and the supported options are described in this enumeration.These options are only relevant when the backing of the specified disk is a file backing.Since disk backings may become shared as the result of either a clone operation or a relocate operation, PromoteDisks_Task has been provided as a way to unshare such disk backings.See parentSee parentSee parentSee parentSee parentSee diskMoveTypeSee diskMoveType</tt></dt>
-<dd><dl class="data">
+<dd><p>Specifies how a virtual disk is moved or copied to a datastore.In all cases after the move or copy the virtual machine&#8217;s current running point will be placed on the target datastore. The current running point is defined as the disk backing which the virtual machine is currently writing to. This end state can be achieved in multiple ways, and the supported options are described in this enumeration.These options are only relevant when the backing of the specified disk is a file backing.Since disk backings may become shared as the result of either a clone operation or a relocate operation, PromoteDisks_Task has been provided as a way to unshare such disk backings.See parentSee parentSee parentSee parentSee parentSee diskMoveTypeSee diskMoveType</p>
+<dl class="data">
 <dt id="VirtualMachineRelocateDiskMoveOptions.createNewChildDiskBacking">
 <tt class="descclassname">VirtualMachineRelocateDiskMoveOptions.</tt><tt class="descname">createNewChildDiskBacking</tt><a class="headerlink" href="#VirtualMachineRelocateDiskMoveOptions.createNewChildDiskBacking" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Create a new child disk backing on the destination datastore. None of the virtual disk's existing files should be moved from their current locations.</tt></dt>
-<dd></dd></dl>
+<dd><p>Create a new child disk backing on the destination datastore. None of the virtual disk&#8217;s existing files should be moved from their current locations.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualMachineRelocateDiskMoveOptions.moveAllDiskBackingsAndAllowSharing">
 <tt class="descclassname">VirtualMachineRelocateDiskMoveOptions.</tt><tt class="descname">moveAllDiskBackingsAndAllowSharing</tt><a class="headerlink" href="#VirtualMachineRelocateDiskMoveOptions.moveAllDiskBackingsAndAllowSharing" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">All of the virtual disk's backings should be moved to the new datastore.</tt></dt>
-<dd></dd></dl>
+<dd><p>All of the virtual disk&#8217;s backings should be moved to the new datastore.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualMachineRelocateDiskMoveOptions.moveAllDiskBackingsAndDisallowSharing">
 <tt class="descclassname">VirtualMachineRelocateDiskMoveOptions.</tt><tt class="descname">moveAllDiskBackingsAndDisallowSharing</tt><a class="headerlink" href="#VirtualMachineRelocateDiskMoveOptions.moveAllDiskBackingsAndDisallowSharing" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">All of the virtual disk's backings should be moved to the new datastore. It is not acceptable to attach to a disk backing with the same content ID on the destination datastore. During a clone operation any delta disk backings will be consolidated.</tt></dt>
-<dd></dd></dl>
+<dd><p>All of the virtual disk&#8217;s backings should be moved to the new datastore. It is not acceptable to attach to a disk backing with the same content ID on the destination datastore. During a clone operation any delta disk backings will be consolidated.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualMachineRelocateDiskMoveOptions.moveChildMostDiskBacking">
 <tt class="descclassname">VirtualMachineRelocateDiskMoveOptions.</tt><tt class="descname">moveChildMostDiskBacking</tt><a class="headerlink" href="#VirtualMachineRelocateDiskMoveOptions.moveChildMostDiskBacking" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Move only the child-most disk backing. Any parent disk backings should be left in their current locations.</tt></dt>
-<dd></dd></dl>
+<dd><p>Move only the child-most disk backing. Any parent disk backings should be left in their current locations.</p>
+</dd></dl>
 
 </dd></dl>
 

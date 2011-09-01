@@ -63,49 +63,42 @@
 <dl class="describe">
 <dt>
 <tt class="descname">VirtualMachineFaultToleranceState</tt></dt>
-<dt>
-<tt class="descname">The FaultToleranceState type defines a simple set of states for a fault tolerant virtual machine: disabled, starting, and enabled.</tt></dt>
-<dd><dl class="data">
+<dd><p>The FaultToleranceState type defines a simple set of states for a fault tolerant virtual machine: disabled, starting, and enabled.</p>
+<dl class="data">
 <dt id="VirtualMachineFaultToleranceState.disabled">
 <tt class="descclassname">VirtualMachineFaultToleranceState.</tt><tt class="descname">disabled</tt><a class="headerlink" href="#VirtualMachineFaultToleranceState.disabled" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">For a virtual machine that is the primary in a fault tolerant group, this state indicates that the virtual machine has at least one registered secondary, but no secondary is enabled. For a virtual machine that is the secondary in a fault tolerant group, this state indicates that the secondary is disabled.</tt></dt>
-<dd></dd></dl>
+<dd><p>For a virtual machine that is the primary in a fault tolerant group, this state indicates that the virtual machine has at least one registered secondary, but no secondary is enabled. For a virtual machine that is the secondary in a fault tolerant group, this state indicates that the secondary is disabled.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualMachineFaultToleranceState.enabled">
 <tt class="descclassname">VirtualMachineFaultToleranceState.</tt><tt class="descname">enabled</tt><a class="headerlink" href="#VirtualMachineFaultToleranceState.enabled" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">For a virtual machine that is the primary in a fault tolerant group, this state indicates that the virtual machine is not currently powered on, but has at least one enabled secondary For a virtual machine that is the secondary in a fault tolerant group, this state indicates that the secondary is enabled, but is not currently powered on.</tt></dt>
-<dd></dd></dl>
+<dd><p>For a virtual machine that is the primary in a fault tolerant group, this state indicates that the virtual machine is not currently powered on, but has at least one enabled secondary For a virtual machine that is the secondary in a fault tolerant group, this state indicates that the secondary is enabled, but is not currently powered on.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualMachineFaultToleranceState.needSecondary">
 <tt class="descclassname">VirtualMachineFaultToleranceState.</tt><tt class="descname">needSecondary</tt><a class="headerlink" href="#VirtualMachineFaultToleranceState.needSecondary" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">For a virtual machine that is the primary in a fault tolerant group, this state indicates that the virtual machine is powered on and has at least one enabled secondary, but no secondary is currenly active. This state is not valid for a virtual machine that is a secondary in a fault tolerant group.</tt></dt>
-<dd></dd></dl>
+<dd><p>For a virtual machine that is the primary in a fault tolerant group, this state indicates that the virtual machine is powered on and has at least one enabled secondary, but no secondary is currenly active. This state is not valid for a virtual machine that is a secondary in a fault tolerant group.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualMachineFaultToleranceState.notConfigured">
 <tt class="descclassname">VirtualMachineFaultToleranceState.</tt><tt class="descname">notConfigured</tt><a class="headerlink" href="#VirtualMachineFaultToleranceState.notConfigured" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">This state indicates that the virtual machine has not been configured for fault tolerance.</tt></dt>
-<dd></dd></dl>
+<dd><p>This state indicates that the virtual machine has not been configured for fault tolerance.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualMachineFaultToleranceState.running">
 <tt class="descclassname">VirtualMachineFaultToleranceState.</tt><tt class="descname">running</tt><a class="headerlink" href="#VirtualMachineFaultToleranceState.running" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">This state indicates that the virtual machine is running with fault tolerance protection.</tt></dt>
-<dd></dd></dl>
+<dd><p>This state indicates that the virtual machine is running with fault tolerance protection.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualMachineFaultToleranceState.starting">
 <tt class="descclassname">VirtualMachineFaultToleranceState.</tt><tt class="descname">starting</tt><a class="headerlink" href="#VirtualMachineFaultToleranceState.starting" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">For a virtual machine that is the primary in a fault tolerant group, this state indicates that the virtual machine is powered on and has at least one secondary that is synchronizing its state with the primary. For a virtual machine that is the secondary in a fault tolerant group, this state indicates that the secondary is powered on and is synchronizing its state with the primary virtual machine.</tt></dt>
-<dd></dd></dl>
+<dd><p>For a virtual machine that is the primary in a fault tolerant group, this state indicates that the virtual machine is powered on and has at least one secondary that is synchronizing its state with the primary. For a virtual machine that is the secondary in a fault tolerant group, this state indicates that the secondary is powered on and is synchronizing its state with the primary virtual machine.</p>
+</dd></dl>
 
 </dd></dl>
 

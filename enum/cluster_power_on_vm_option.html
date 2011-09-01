@@ -63,21 +63,18 @@
 <dl class="describe">
 <dt>
 <tt class="descname">ClusterPowerOnVmOption</tt></dt>
-<dt>
-<tt class="descname">Defines the options for a Datacenter::powerOnVm() invocation.</tt></dt>
-<dd><dl class="data">
+<dd><p>Defines the options for a Datacenter::powerOnVm() invocation.</p>
+<dl class="data">
 <dt id="ClusterPowerOnVmOption.OverrideAutomationLevel">
 <tt class="descclassname">ClusterPowerOnVmOption.</tt><tt class="descname">OverrideAutomationLevel</tt><a class="headerlink" href="#ClusterPowerOnVmOption.OverrideAutomationLevel" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Override the DRS automation level. Value type: DrsBehavior Default value: current behavior</tt></dt>
-<dd></dd></dl>
+<dd><p>Override the DRS automation level. Value type: DrsBehavior Default value: current behavior</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="ClusterPowerOnVmOption.ReserveResources">
 <tt class="descclassname">ClusterPowerOnVmOption.</tt><tt class="descname">ReserveResources</tt><a class="headerlink" href="#ClusterPowerOnVmOption.ReserveResources" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Reserve resources for the powering-on VMs throughout the power-on session. When this option is set to true, the server will return at most one recommended host per manual VM, and the VM's reservations are held on the recommended host until the VM is actually powered on (either by applying the recommendation or by a power-on request on the VM), or until the recommendation is cancelled, or until the recommendation expires. The expiration time is currently set to 10 minutes. This option does not have an effect on automatic VMs since their recommendations are executed immediately. This option is effective on DRS clusters only. Value type: boolean Default value: false</tt></dt>
-<dd></dd></dl>
+<dd><p>Reserve resources for the powering-on VMs throughout the power-on session. When this option is set to true, the server will return at most one recommended host per manual VM, and the VM&#8217;s reservations are held on the recommended host until the VM is actually powered on (either by applying the recommendation or by a power-on request on the VM), or until the recommendation is cancelled, or until the recommendation expires. The expiration time is currently set to 10 minutes. This option does not have an effect on automatic VMs since their recommendations are executed immediately. This option is effective on DRS clusters only. Value type: boolean Default value: false</p>
+</dd></dl>
 
 </dd></dl>
 

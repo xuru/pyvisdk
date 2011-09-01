@@ -63,42 +63,36 @@
 <dl class="describe">
 <dt>
 <tt class="descname">VirtualMachineConnectionState</tt></dt>
-<dt>
-<tt class="descname">The connectivity state of a virtual machine. When the API is provided directly by a server product, such as ESX Server, then the disconnected state is not possible. However, when accessed through VirtualCenter, the state of a virtual machine is set to disconnected if the hosts that manage the virtual machine becomes unavailable.</tt></dt>
-<dd><dl class="data">
+<dd><p>The connectivity state of a virtual machine. When the API is provided directly by a server product, such as ESX Server, then the disconnected state is not possible. However, when accessed through VirtualCenter, the state of a virtual machine is set to disconnected if the hosts that manage the virtual machine becomes unavailable.</p>
+<dl class="data">
 <dt id="VirtualMachineConnectionState.connected">
 <tt class="descclassname">VirtualMachineConnectionState.</tt><tt class="descname">connected</tt><a class="headerlink" href="#VirtualMachineConnectionState.connected" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">The server has access to the virtual machine.</tt></dt>
-<dd></dd></dl>
+<dd><p>The server has access to the virtual machine.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualMachineConnectionState.disconnected">
 <tt class="descclassname">VirtualMachineConnectionState.</tt><tt class="descname">disconnected</tt><a class="headerlink" href="#VirtualMachineConnectionState.disconnected" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">The server is currently disconnected from the virtual machine, since its host is disconnected. See general comment for this enumerated type for more details.</tt></dt>
-<dd></dd></dl>
+<dd><p>The server is currently disconnected from the virtual machine, since its host is disconnected. See general comment for this enumerated type for more details.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualMachineConnectionState.inaccessible">
 <tt class="descclassname">VirtualMachineConnectionState.</tt><tt class="descname">inaccessible</tt><a class="headerlink" href="#VirtualMachineConnectionState.inaccessible" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">One or more of the virtual machine configuration files are inaccessible. For example, this can be due to transient disk failures. In this case, no configuration can be returned for a virtual machine.</tt></dt>
-<dd></dd></dl>
+<dd><p>One or more of the virtual machine configuration files are inaccessible. For example, this can be due to transient disk failures. In this case, no configuration can be returned for a virtual machine.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualMachineConnectionState.invalid">
 <tt class="descclassname">VirtualMachineConnectionState.</tt><tt class="descname">invalid</tt><a class="headerlink" href="#VirtualMachineConnectionState.invalid" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">The virtual machine configuration format is invalid. Thus, it is accessible on disk, but corrupted in a way that does not allow the server to read the content. In this case, no configuration can be returned for a virtual machine.</tt></dt>
-<dd></dd></dl>
+<dd><p>The virtual machine configuration format is invalid. Thus, it is accessible on disk, but corrupted in a way that does not allow the server to read the content. In this case, no configuration can be returned for a virtual machine.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualMachineConnectionState.orphaned">
 <tt class="descclassname">VirtualMachineConnectionState.</tt><tt class="descname">orphaned</tt><a class="headerlink" href="#VirtualMachineConnectionState.orphaned" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">The virtual machine is no longer registered on the host it is associated with. For example, a virtual machine that is unregistered or deleted directly on a host managed by VirtualCenter shows up in this state.</tt></dt>
-<dd></dd></dl>
+<dd><p>The virtual machine is no longer registered on the host it is associated with. For example, a virtual machine that is unregistered or deleted directly on a host managed by VirtualCenter shows up in this state.</p>
+</dd></dl>
 
 </dd></dl>
 

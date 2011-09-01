@@ -63,84 +63,72 @@
 <dl class="describe">
 <dt>
 <tt class="descname">VirtualDiskType</tt></dt>
-<dt>
-<tt class="descname">The types of virtual disks that can be created or cloned.</tt></dt>
-<dd><dl class="data">
+<dd><p>The types of virtual disks that can be created or cloned.</p>
+<dl class="data">
 <dt id="VirtualDiskType.eagerZeroedThick">
 <tt class="descclassname">VirtualDiskType.</tt><tt class="descname">eagerZeroedThick</tt><a class="headerlink" href="#VirtualDiskType.eagerZeroedThick" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">An eager zeroed thick disk has all space allocated and wiped clean of any previous contents on the physical media at creation time. Such disks may take longer time during creation compared to other disk formats.</tt></dt>
-<dd></dd></dl>
+<dd><p>An eager zeroed thick disk has all space allocated and wiped clean of any previous contents on the physical media at creation time. Such disks may take longer time during creation compared to other disk formats.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualDiskType.flatMonolithic">
 <tt class="descclassname">VirtualDiskType.</tt><tt class="descname">flatMonolithic</tt><a class="headerlink" href="#VirtualDiskType.flatMonolithic" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">A preallocated monolithic disk. Disks in this format can be used with other VMware products. This format is only applicable as a destination format in a clone operation, and not usable for disk creation. vSphere API 4.0</tt></dt>
-<dd></dd></dl>
+<dd><p>A preallocated monolithic disk. Disks in this format can be used with other VMware products. This format is only applicable as a destination format in a clone operation, and not usable for disk creation. vSphere API 4.0</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualDiskType.preallocated">
 <tt class="descclassname">VirtualDiskType.</tt><tt class="descname">preallocated</tt><a class="headerlink" href="#VirtualDiskType.preallocated" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">A preallocated disk has all space allocated at creation time and the space is zeroed on demand as the space is used.</tt></dt>
-<dd></dd></dl>
+<dd><p>A preallocated disk has all space allocated at creation time and the space is zeroed on demand as the space is used.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualDiskType.raw">
 <tt class="descclassname">VirtualDiskType.</tt><tt class="descname">raw</tt><a class="headerlink" href="#VirtualDiskType.raw" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Raw device.</tt></dt>
-<dd></dd></dl>
+<dd><p>Raw device.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualDiskType.rdm">
 <tt class="descclassname">VirtualDiskType.</tt><tt class="descname">rdm</tt><a class="headerlink" href="#VirtualDiskType.rdm" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Virtual compatibility mode raw disk mapping. An rdm virtual disk grants access to the entire raw disk and the virtual disk can participate in snapshots.</tt></dt>
-<dd></dd></dl>
+<dd><p>Virtual compatibility mode raw disk mapping. An rdm virtual disk grants access to the entire raw disk and the virtual disk can participate in snapshots.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualDiskType.rdmp">
 <tt class="descclassname">VirtualDiskType.</tt><tt class="descname">rdmp</tt><a class="headerlink" href="#VirtualDiskType.rdmp" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Physical compatibility mode (pass-through) raw disk mapping. An rdmp virtual disk passes SCSI commands directly to the hardware, but the virtual disk cannot participate in snapshots.</tt></dt>
-<dd></dd></dl>
+<dd><p>Physical compatibility mode (pass-through) raw disk mapping. An rdmp virtual disk passes SCSI commands directly to the hardware, but the virtual disk cannot participate in snapshots.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualDiskType.sparse2Gb">
 <tt class="descclassname">VirtualDiskType.</tt><tt class="descname">sparse2Gb</tt><a class="headerlink" href="#VirtualDiskType.sparse2Gb" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">A sparse disk with 2GB maximum extent size. Disks in this format can be used with other VMware products. The 2GB extent size makes these disks easier to burn to dvd or use on filesystems that don't support large files. This format is only applicable as a destination format in a clone operation, and not usable for disk creation.</tt></dt>
-<dd></dd></dl>
+<dd><p>A sparse disk with 2GB maximum extent size. Disks in this format can be used with other VMware products. The 2GB extent size makes these disks easier to burn to dvd or use on filesystems that don&#8217;t support large files. This format is only applicable as a destination format in a clone operation, and not usable for disk creation.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualDiskType.sparseMonolithic">
 <tt class="descclassname">VirtualDiskType.</tt><tt class="descname">sparseMonolithic</tt><a class="headerlink" href="#VirtualDiskType.sparseMonolithic" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">A sparse monolithic disk. Disks in this format can be used with other VMware products. This format is only applicable as a destination format in a clone operation, and not usable for disk creation. vSphere API 4.0</tt></dt>
-<dd></dd></dl>
+<dd><p>A sparse monolithic disk. Disks in this format can be used with other VMware products. This format is only applicable as a destination format in a clone operation, and not usable for disk creation. vSphere API 4.0</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualDiskType.thick">
 <tt class="descclassname">VirtualDiskType.</tt><tt class="descname">thick</tt><a class="headerlink" href="#VirtualDiskType.thick" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">A thick disk has all space allocated at creation time. This space may contain stale data on the physical media. Thick disks are primarily used for virtual machine clustering, but they are generally insecure and should not be used. Due to better performance and security properties, the use of the 'preallocated' format is preferred over this format.</tt></dt>
-<dd></dd></dl>
+<dd><p>A thick disk has all space allocated at creation time. This space may contain stale data on the physical media. Thick disks are primarily used for virtual machine clustering, but they are generally insecure and should not be used. Due to better performance and security properties, the use of the &#8216;preallocated&#8217; format is preferred over this format.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualDiskType.thick2Gb">
 <tt class="descclassname">VirtualDiskType.</tt><tt class="descname">thick2Gb</tt><a class="headerlink" href="#VirtualDiskType.thick2Gb" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">A thick disk with 2GB maximum extent size. Disks in this format can be used with other VMware products. The 2GB extent size makes these disks easier to burn to dvd or use on filesystems that don't support large files. This format is only applicable as a destination format in a clone operation, and not usable for disk creation.</tt></dt>
-<dd></dd></dl>
+<dd><p>A thick disk with 2GB maximum extent size. Disks in this format can be used with other VMware products. The 2GB extent size makes these disks easier to burn to dvd or use on filesystems that don&#8217;t support large files. This format is only applicable as a destination format in a clone operation, and not usable for disk creation.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="VirtualDiskType.thin">
 <tt class="descclassname">VirtualDiskType.</tt><tt class="descname">thin</tt><a class="headerlink" href="#VirtualDiskType.thin" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Space required for thin-provisioned virtual disk is allocated and zeroed on demand asthe space is used.</tt></dt>
-<dd></dd></dl>
+<dd><p>Space required for thin-provisioned virtual disk is allocated and zeroed on demand asthe space is used.</p>
+</dd></dl>
 
 </dd></dl>
 

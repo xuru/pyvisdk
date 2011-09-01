@@ -63,42 +63,36 @@
 <dl class="describe">
 <dt>
 <tt class="descname">ClusterDasVmSettingsRestartPriority</tt></dt>
-<dt>
-<tt class="descname">The ClusterDasVmSettingsRestartPriority enum defines virtual machine restart priority values to resolve resource contention. The priority determines the preference that HA gives to a virtual machine if sufficient capacity is not available to power on all failed virtual machines. For example, high priority virtual machines on a host get preference over low priority virtual machines.All priority values are valid for the restart priority specified in a single virtual machine HA configuration (dasSettings). All values except for are valid for the cluster-wide default HA configuration for virtual machines (defaultVmSettings).</tt></dt>
-<dd><dl class="data">
+<dd><p>The ClusterDasVmSettingsRestartPriority enum defines virtual machine restart priority values to resolve resource contention. The priority determines the preference that HA gives to a virtual machine if sufficient capacity is not available to power on all failed virtual machines. For example, high priority virtual machines on a host get preference over low priority virtual machines.All priority values are valid for the restart priority specified in a single virtual machine HA configuration (dasSettings). All values except for are valid for the cluster-wide default HA configuration for virtual machines (defaultVmSettings).</p>
+<dl class="data">
 <dt id="ClusterDasVmSettingsRestartPriority.clusterRestartPriority">
 <tt class="descclassname">ClusterDasVmSettingsRestartPriority.</tt><tt class="descname">clusterRestartPriority</tt><a class="headerlink" href="#ClusterDasVmSettingsRestartPriority.clusterRestartPriority" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Virtual machines with this priority use the default restart priority defined for the cluster that contains this virtual machine.</tt></dt>
-<dd></dd></dl>
+<dd><p>Virtual machines with this priority use the default restart priority defined for the cluster that contains this virtual machine.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="ClusterDasVmSettingsRestartPriority.disabled">
 <tt class="descclassname">ClusterDasVmSettingsRestartPriority.</tt><tt class="descname">disabled</tt><a class="headerlink" href="#ClusterDasVmSettingsRestartPriority.disabled" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">VMware HA is disabled for this virtual machine.</tt></dt>
-<dd></dd></dl>
+<dd><p>VMware HA is disabled for this virtual machine.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="ClusterDasVmSettingsRestartPriority.high">
 <tt class="descclassname">ClusterDasVmSettingsRestartPriority.</tt><tt class="descname">high</tt><a class="headerlink" href="#ClusterDasVmSettingsRestartPriority.high" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Virtual machines with this priority have a higher chance of powering on after a failure if there is insufficient capacity on hosts to meet all virtual machine needs.</tt></dt>
-<dd></dd></dl>
+<dd><p>Virtual machines with this priority have a higher chance of powering on after a failure if there is insufficient capacity on hosts to meet all virtual machine needs.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="ClusterDasVmSettingsRestartPriority.low">
 <tt class="descclassname">ClusterDasVmSettingsRestartPriority.</tt><tt class="descname">low</tt><a class="headerlink" href="#ClusterDasVmSettingsRestartPriority.low" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Virtual machines with this priority have a lower chance of powering on after a failure if there is insufficient capacity on hosts to meet all virtual machine needs.</tt></dt>
-<dd></dd></dl>
+<dd><p>Virtual machines with this priority have a lower chance of powering on after a failure if there is insufficient capacity on hosts to meet all virtual machine needs.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="ClusterDasVmSettingsRestartPriority.medium">
 <tt class="descclassname">ClusterDasVmSettingsRestartPriority.</tt><tt class="descname">medium</tt><a class="headerlink" href="#ClusterDasVmSettingsRestartPriority.medium" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">Virtual machines with this priority have an intermediate chance of powering on after a failure if there is insufficient capacity on hosts to meet all virtual machine needs.</tt></dt>
-<dd></dd></dl>
+<dd><p>Virtual machines with this priority have an intermediate chance of powering on after a failure if there is insufficient capacity on hosts to meet all virtual machine needs.</p>
+</dd></dl>
 
 </dd></dl>
 

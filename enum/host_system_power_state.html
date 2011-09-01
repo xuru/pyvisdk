@@ -63,35 +63,30 @@
 <dl class="describe">
 <dt>
 <tt class="descname">HostSystemPowerState</tt></dt>
-<dt>
-<tt class="descname">Defines a host's power state.</tt></dt>
-<dd><dl class="data">
+<dd><p>Defines a host&#8217;s power state.</p>
+<dl class="data">
 <dt id="HostSystemPowerState.poweredOff">
 <tt class="descclassname">HostSystemPowerState.</tt><tt class="descname">poweredOff</tt><a class="headerlink" href="#HostSystemPowerState.poweredOff" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">The host was specifically powered off by the user through VirtualCenter. This state is not a cetain state, because after VirtualCenter issues the command to power off the host, the host might crash, or kill all the processes but fail to power off.</tt></dt>
-<dd></dd></dl>
+<dd><p>The host was specifically powered off by the user through VirtualCenter. This state is not a cetain state, because after VirtualCenter issues the command to power off the host, the host might crash, or kill all the processes but fail to power off.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="HostSystemPowerState.poweredOn">
 <tt class="descclassname">HostSystemPowerState.</tt><tt class="descname">poweredOn</tt><a class="headerlink" href="#HostSystemPowerState.poweredOn" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">The host is powered on. A host that is entering standby mode entering is also in this state.</tt></dt>
-<dd></dd></dl>
+<dd><p>The host is powered on. A host that is entering standby mode entering is also in this state.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="HostSystemPowerState.standBy">
 <tt class="descclassname">HostSystemPowerState.</tt><tt class="descname">standBy</tt><a class="headerlink" href="#HostSystemPowerState.standBy" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">The host was specifically put in standby mode, either explicitly by the user, or automatically by DPM. This state is not a cetain state, because after VirtualCenter issues the command to put the host in standby state, the host might crash, or kill all the processes but fail to power off. A host that is exiting standby mode exiting is also in this state.</tt></dt>
-<dd></dd></dl>
+<dd><p>The host was specifically put in standby mode, either explicitly by the user, or automatically by DPM. This state is not a cetain state, because after VirtualCenter issues the command to put the host in standby state, the host might crash, or kill all the processes but fail to power off. A host that is exiting standby mode exiting is also in this state.</p>
+</dd></dl>
 
 <dl class="data">
 <dt id="HostSystemPowerState.unknown">
 <tt class="descclassname">HostSystemPowerState.</tt><tt class="descname">unknown</tt><a class="headerlink" href="#HostSystemPowerState.unknown" title="Permalink to this definition">¶</a></dt>
-<dt>
-<tt class="descname">If the host is disconnected, or notResponding, we cannot possibly have knowledge of its power state. Hence, the host is marked as unknown.</tt></dt>
-<dd></dd></dl>
+<dd><p>If the host is disconnected, or notResponding, we cannot possibly have knowledge of its power state. Hence, the host is marked as unknown.</p>
+</dd></dl>
 
 </dd></dl>
 
