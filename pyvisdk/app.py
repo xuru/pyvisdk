@@ -13,7 +13,7 @@ log.setLevel(logging.INFO)
 
 class PyvisdkApp(object):
     '''
-    classdocs
+    Base class implementation of a command line application.  See the :py:class:`~pyvisdk.Options` class for documentation on the format of the options file.
     '''
 
 
