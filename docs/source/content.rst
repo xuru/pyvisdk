@@ -27,8 +27,13 @@ Documentation
    
    getting-started.rst
    client.rst
+   app.rst
+   exceptions.rst
+   
    Managed Objects <mo.rst>
    Data Objects <do.rst>
+   Enum Objects <enum.rst>
+   
    changes.rst
 
 Indices and tables
