@@ -1,3 +1,33 @@
+Version 0.9 (Sep 1, 2011)
+--------------------------
+I feel that we are getting close to having a stable library, and have increased the version to 0.9 in preparation of having a stable build at 1.0.  Please feel free to add any issues into the issue tracker so that we can get closer to a stable build.  Thanks!
+
+Core Updates
+^^^^^^^^^^^^
+* Added a sleep while it's waiting on a task to complete.
+
+Data Objects and Managed Objects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* Regenerated managed and data objects with better documentation and accurate attributes.
+
+App
+^^^
+* Added the sample VMCreate.py to mimic VMCreate.java in the SDK
+
+Other Updates
+^^^^^^^^^^^^^
+* Added ghp-import to the build
+* Updated build files, and change log
+
+Documentation
+^^^^^^^^^^^^^
+* Added the new project vmware-scraper to github.  This scraper (using scrapy) scrapes vmwares API documentation and puts it into sphinx documentation for pyvisdk.
+* Updated documentation
+* The comments are more accurate now.
+* Much better documentation extraction.
+* Added sphinxtogithub as a sphinx plugin.
+* Added templates
+
 Version 0.7 (Aug 18, 2011)
 --------------------------
 Core Updates
