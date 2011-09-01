@@ -1,0 +1,331 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7. Enum Objects &mdash; pyvisdk v0.9 documentation</title>
+    <link rel="stylesheet" href="static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.9 documentation" href="index.html" />
+    <link rel="next" title="7.1. ActionParameter" href="enum/action_parameter.html" />
+    <link rel="prev" title="6.1428. WinNetBIOSConfigInfo" href="do/win_net_bios_config_info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="enum/action_parameter.html" title="7.1. ActionParameter"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="do/win_net_bios_config_info.html" title="6.1428. WinNetBIOSConfigInfo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">home</a>&nbsp;|&nbsp;</li>
+        <li><a href="search.html">search</a>&nbsp;|&nbsp;</li>
+        <li><a href="mo.html">managed objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="do.html">data objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="#">enumerations</a>&nbsp;|&nbsp;</li>
+        <li><a href="changes.html">changes</a> &raquo;</li>
+ 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="enum-objects">
+<span id="api-enum"></span><h1>7. Enum Objects<a class="headerlink" href="#enum-objects" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enum/action_parameter.html">7.1. ActionParameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/action_type.html">7.2. ActionType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/affinity_type.html">7.3. AffinityType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/agent_install_failed_reason.html">7.4. AgentInstallFailedReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/array_update_operation.html">7.5. ArrayUpdateOperation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/auto_start_action.html">7.6. AutoStartAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/auto_start_wait_heartbeat_setting.html">7.7. AutoStartWaitHeartbeatSetting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/cannot_move_fault_tolerance_vm_move_type.html">7.8. CannotMoveFaultToleranceVmMoveType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/check_test_type.html">7.9. CheckTestType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/cluster_das_aam_node_state_das_state.html">7.10. ClusterDasAamNodeStateDasState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/cluster_das_config_info_service_state.html">7.11. ClusterDasConfigInfoServiceState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/cluster_das_config_info_vm_monitoring_state.html">7.12. ClusterDasConfigInfoVmMonitoringState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/cluster_das_vm_settings_isolation_response.html">7.13. ClusterDasVmSettingsIsolationResponse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/cluster_das_vm_settings_restart_priority.html">7.14. ClusterDasVmSettingsRestartPriority</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/cluster_power_on_vm_option.html">7.15. ClusterPowerOnVmOption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/cluster_profile_service_type.html">7.16. ClusterProfileServiceType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/compliance_result_status.html">7.17. ComplianceResultStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/config_spec_operation.html">7.18. ConfigSpecOperation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/customization_license_data_mode.html">7.19. CustomizationLicenseDataMode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/customization_net_bios_mode.html">7.20. CustomizationNetBIOSMode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/customization_sysprep_reboot_option.html">7.21. CustomizationSysprepRebootOption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/das_config_fault_das_config_fault_reason.html">7.22. DasConfigFaultDasConfigFaultReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/das_vm_priority.html">7.23. DasVmPriority</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/datastore_accessible.html">7.24. DatastoreAccessible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/day_of_week.html">7.25. DayOfWeek</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/device_not_supported_reason.html">7.26. DeviceNotSupportedReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/diagnostic_manager_log_creator.html">7.27. DiagnosticManagerLogCreator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/diagnostic_manager_log_format.html">7.28. DiagnosticManagerLogFormat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/diagnostic_partition_storage_type.html">7.29. DiagnosticPartitionStorageType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/diagnostic_partition_type.html">7.30. DiagnosticPartitionType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/distributed_virtual_portgroup_meta_tag_name.html">7.31. DistributedVirtualPortgroupMetaTagName</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/distributed_virtual_portgroup_portgroup_type.html">7.32. DistributedVirtualPortgroupPortgroupType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/distributed_virtual_switch_host_member_host_component_state.html">7.33. DistributedVirtualSwitchHostMemberHostComponentState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/distributed_virtual_switch_nic_teaming_policy_mode.html">7.34. DistributedVirtualSwitchNicTeamingPolicyMode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/distributed_virtual_switch_port_connectee_connectee_type.html">7.35. DistributedVirtualSwitchPortConnecteeConnecteeType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/distributed_virtual_switch_product_spec_operation_type.html">7.36. DistributedVirtualSwitchProductSpecOperationType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/dpm_behavior.html">7.37. DpmBehavior</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/drs_behavior.html">7.38. DrsBehavior</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/drs_recommendation_reason_code.html">7.39. DrsRecommendationReasonCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/dv_port_status_vm_direct_path_gen2_inactive_reason_network.html">7.40. DVPortStatusVmDirectPathGen2InactiveReasonNetwork</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/dv_port_status_vm_direct_path_gen2_inactive_reason_other.html">7.41. DVPortStatusVmDirectPathGen2InactiveReasonOther</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/event_alarm_expression_comparison_operator.html">7.42. EventAlarmExpressionComparisonOperator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/event_category.html">7.43. EventCategory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/event_event_severity.html">7.44. EventEventSeverity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/event_filter_spec_recursion_option.html">7.45. EventFilterSpecRecursionOption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/fibre_channel_port_type.html">7.46. FibreChannelPortType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/file_system_mount_info_v_storage_support_status.html">7.47. FileSystemMountInfoVStorageSupportStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/ft_issues_on_host_host_selection_type.html">7.48. FtIssuesOnHostHostSelectionType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_active_directory_info_domain_membership_status.html">7.49. HostActiveDirectoryInfoDomainMembershipStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_capability_ft_unsupported_reason.html">7.50. HostCapabilityFtUnsupportedReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_capability_vm_direct_path_gen2_unsupported_reason.html">7.51. HostCapabilityVmDirectPathGen2UnsupportedReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_config_change_mode.html">7.52. HostConfigChangeMode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_config_change_operation.html">7.53. HostConfigChangeOperation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_cpu_package_vendor.html">7.54. HostCpuPackageVendor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_cpu_power_management_info_policy_type.html">7.55. HostCpuPowerManagementInfoPolicyType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_das_error_event_host_das_error_reason.html">7.56. HostDasErrorEventHostDasErrorReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_digest_info_digest_method_type.html">7.57. HostDigestInfoDigestMethodType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_disconnected_event_reason_code.html">7.58. HostDisconnectedEventReasonCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_disk_partition_info_type.html">7.59. HostDiskPartitionInfoType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_distributed_virtual_switch_manager_network_resource_pool_key.html">7.60. HostDistributedVirtualSwitchManagerNetworkResourcePoolKey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_feature_version_key.html">7.61. HostFeatureVersionKey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_firewall_rule_direction.html">7.62. HostFirewallRuleDirection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_firewall_rule_protocol.html">7.63. HostFirewallRuleProtocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_hardware_element_status.html">7.64. HostHardwareElementStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_incompatible_for_fault_tolerance_reason.html">7.65. HostIncompatibleForFaultToleranceReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_incompatible_for_record_replay_reason.html">7.66. HostIncompatibleForRecordReplayReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_internet_scsi_hba_chap_authentication_type.html">7.67. HostInternetScsiHbaChapAuthenticationType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_internet_scsi_hba_digest_type.html">7.68. HostInternetScsiHbaDigestType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_ip_config_ip_v6_address_config_type.html">7.69. HostIpConfigIpV6AddressConfigType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_ip_config_ip_v6_address_status.html">7.70. HostIpConfigIpV6AddressStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_low_level_provisioning_manager_reload_target.html">7.71. HostLowLevelProvisioningManagerReloadTarget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_mount_mode.html">7.72. HostMountMode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_numeric_sensor_health_state.html">7.73. HostNumericSensorHealthState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_numeric_sensor_type.html">7.74. HostNumericSensorType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_patch_manager_install_state.html">7.75. HostPatchManagerInstallState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_patch_manager_integrity_status.html">7.76. HostPatchManagerIntegrityStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_patch_manager_reason.html">7.77. HostPatchManagerReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_power_operation_type.html">7.78. HostPowerOperationType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_replay_unsupported_reason.html">7.79. HostReplayUnsupportedReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_service_policy.html">7.80. HostServicePolicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_snmp_agent_capability.html">7.81. HostSnmpAgentCapability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_standby_mode.html">7.82. HostStandbyMode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_system_connection_state.html">7.83. HostSystemConnectionState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_system_identification_info_identifier.html">7.84. HostSystemIdentificationInfoIdentifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_system_power_state.html">7.85. HostSystemPowerState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_unresolved_vmfs_extent_unresolved_reason.html">7.86. HostUnresolvedVmfsExtentUnresolvedReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_unresolved_vmfs_resolution_spec_vmfs_uuid_resolution.html">7.87. HostUnresolvedVmfsResolutionSpecVmfsUuidResolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/host_virtual_nic_manager_nic_type.html">7.88. HostVirtualNicManagerNicType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/http_nfc_lease_state.html">7.89. HttpNfcLeaseState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/internet_scsi_sns_discovery_method.html">7.90. InternetScsiSnsDiscoveryMethod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/license_assignment_failed_reason.html">7.91. LicenseAssignmentFailedReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/license_feature_info_source_restriction.html">7.92. LicenseFeatureInfoSourceRestriction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/license_feature_info_state.html">7.93. LicenseFeatureInfoState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/license_feature_info_unit.html">7.94. LicenseFeatureInfoUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/license_manager_license_key.html">7.95. LicenseManagerLicenseKey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/license_manager_state.html">7.96. LicenseManagerState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/license_reservation_info_state.html">7.97. LicenseReservationInfoState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/link_discovery_protocol_config_operation_type.html">7.98. LinkDiscoveryProtocolConfigOperationType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/link_discovery_protocol_config_protocol_type.html">7.99. LinkDiscoveryProtocolConfigProtocolType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/managed_entity_status.html">7.100. ManagedEntityStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/metric_alarm_operator.html">7.101. MetricAlarmOperator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/multipath_state.html">7.102. MultipathState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/net_bios_config_info_mode.html">7.103. NetBIOSConfigInfoMode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/net_ip_config_info_ip_address_origin.html">7.104. NetIpConfigInfoIpAddressOrigin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/net_ip_config_info_ip_address_status.html">7.105. NetIpConfigInfoIpAddressStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/net_ip_stack_info_entry_type.html">7.106. NetIpStackInfoEntryType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/net_ip_stack_info_preference.html">7.107. NetIpStackInfoPreference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/not_supported_device_for_ft_device_type.html">7.108. NotSupportedDeviceForFTDeviceType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/num_virtual_cpus_incompatible_reason.html">7.109. NumVirtualCpusIncompatibleReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/object_update_kind.html">7.110. ObjectUpdateKind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/ovf_create_import_spec_params_disk_provisioning_type.html">7.111. OvfCreateImportSpecParamsDiskProvisioningType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/perf_format.html">7.112. PerfFormat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/perf_stats_type.html">7.113. PerfStatsType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/perf_summary_type.html">7.114. PerfSummaryType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/performance_manager_unit.html">7.115. PerformanceManagerUnit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/physical_nic_resource_pool_scheduler_disallowed_reason.html">7.116. PhysicalNicResourcePoolSchedulerDisallowedReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/physical_nic_vm_direct_path_gen2_supported_mode.html">7.117. PhysicalNicVmDirectPathGen2SupportedMode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/port_group_connectee_type.html">7.118. PortGroupConnecteeType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/profile_execute_result_status.html">7.119. ProfileExecuteResultStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/profile_numeric_comparator.html">7.120. ProfileNumericComparator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/property_change_op.html">7.121. PropertyChangeOp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/recommendation_reason_code.html">7.122. RecommendationReasonCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/recommendation_type.html">7.123. RecommendationType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/scsi_lun_descriptor_quality.html">7.124. ScsiLunDescriptorQuality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/scsi_lun_state.html">7.125. ScsiLunState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/scsi_lun_type.html">7.126. ScsiLunType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/scsi_lun_v_storage_support_status.html">7.127. ScsiLunVStorageSupportStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/shares_level.html">7.128. SharesLevel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/slp_discovery_method.html">7.129. SlpDiscoveryMethod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/state_alarm_operator.html">7.130. StateAlarmOperator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/task_filter_spec_recursion_option.html">7.131. TaskFilterSpecRecursionOption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/task_filter_spec_time_option.html">7.132. TaskFilterSpecTimeOption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/task_info_state.html">7.133. TaskInfoState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/upgrade_policy.html">7.134. UpgradePolicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/v_app_auto_start_action.html">7.135. VAppAutoStartAction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/v_app_clone_spec_provisioning_type.html">7.136. VAppCloneSpecProvisioningType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/v_app_ip_assignment_info_allocation_schemes.html">7.137. VAppIPAssignmentInfoAllocationSchemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/v_app_ip_assignment_info_ip_allocation_policy.html">7.138. VAppIPAssignmentInfoIpAllocationPolicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/v_app_ip_assignment_info_protocols.html">7.139. VAppIPAssignmentInfoProtocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/v_motion_compatibility_type.html">7.140. VMotionCompatibilityType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/validate_migration_test_type.html">7.141. ValidateMigrationTestType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_app_v_app_state.html">7.142. VirtualAppVAppState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_device_config_spec_file_operation.html">7.143. VirtualDeviceConfigSpecFileOperation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_device_config_spec_operation.html">7.144. VirtualDeviceConfigSpecOperation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_device_connect_info_status.html">7.145. VirtualDeviceConnectInfoStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_device_file_extension.html">7.146. VirtualDeviceFileExtension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_device_uri_backing_option_direction.html">7.147. VirtualDeviceURIBackingOptionDirection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_disk_adapter_type.html">7.148. VirtualDiskAdapterType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_disk_compatibility_mode.html">7.149. VirtualDiskCompatibilityMode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_disk_mode.html">7.150. VirtualDiskMode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_disk_type.html">7.151. VirtualDiskType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_ethernet_card_legacy_network_device_name.html">7.152. VirtualEthernetCardLegacyNetworkDeviceName</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_ethernet_card_mac_type.html">7.153. VirtualEthernetCardMacType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_app_heartbeat_status_type.html">7.154. VirtualMachineAppHeartbeatStatusType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_config_info_npiv_wwn_type.html">7.155. VirtualMachineConfigInfoNpivWwnType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_config_info_swap_placement_type.html">7.156. VirtualMachineConfigInfoSwapPlacementType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_config_spec_npiv_wwn_op.html">7.157. VirtualMachineConfigSpecNpivWwnOp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_connection_state.html">7.158. VirtualMachineConnectionState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_device_runtime_info_virtual_ethernet_card_runtime_state_vm_direct_path_gen2_inactive_reason_other.html">7.159. VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeStateVmDirectPathGen2InactiveReasonOther</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_device_runtime_info_virtual_ethernet_card_runtime_state_vm_direct_path_gen2_inactive_reason_vm.html">7.160. VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeStateVmDirectPathGen2InactiveReasonVm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_fault_tolerance_state.html">7.161. VirtualMachineFaultToleranceState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_file_layout_ex_file_type.html">7.162. VirtualMachineFileLayoutExFileType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_flag_info_monitor_type.html">7.163. VirtualMachineFlagInfoMonitorType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_flag_info_virtual_exec_usage.html">7.164. VirtualMachineFlagInfoVirtualExecUsage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_flag_info_virtual_mmu_usage.html">7.165. VirtualMachineFlagInfoVirtualMmuUsage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_guest_os_family.html">7.166. VirtualMachineGuestOsFamily</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_guest_os_identifier.html">7.167. VirtualMachineGuestOsIdentifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_guest_state.html">7.168. VirtualMachineGuestState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_ht_sharing.html">7.169. VirtualMachineHtSharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_memory_allocation_policy.html">7.170. VirtualMachineMemoryAllocationPolicy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_move_priority.html">7.171. VirtualMachineMovePriority</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_need_secondary_reason.html">7.172. VirtualMachineNeedSecondaryReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_power_off_behavior.html">7.173. VirtualMachinePowerOffBehavior</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_power_op_type.html">7.174. VirtualMachinePowerOpType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_power_state.html">7.175. VirtualMachinePowerState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_record_replay_state.html">7.176. VirtualMachineRecordReplayState</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_relocate_disk_move_options.html">7.177. VirtualMachineRelocateDiskMoveOptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_relocate_transformation.html">7.178. VirtualMachineRelocateTransformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_scsi_passthrough_type.html">7.179. VirtualMachineScsiPassthroughType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_standby_action_type.html">7.180. VirtualMachineStandbyActionType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_target_info_configuration_tag.html">7.181. VirtualMachineTargetInfoConfigurationTag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_ticket_type.html">7.182. VirtualMachineTicketType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_tools_running_status.html">7.183. VirtualMachineToolsRunningStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_tools_status.html">7.184. VirtualMachineToolsStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_tools_version_status.html">7.185. VirtualMachineToolsVersionStatus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_usb_info_family.html">7.186. VirtualMachineUsbInfoFamily</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_machine_usb_info_speed.html">7.187. VirtualMachineUsbInfoSpeed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_pointing_device_host_choice.html">7.188. VirtualPointingDeviceHostChoice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_scsi_sharing.html">7.189. VirtualSCSISharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/virtual_serial_port_end_point.html">7.190. VirtualSerialPortEndPoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/vm_das_being_reset_event_reason_code.html">7.191. VmDasBeingResetEventReasonCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/vm_failed_starting_secondary_event_failure_reason.html">7.192. VmFailedStartingSecondaryEventFailureReason</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/vm_fault_tolerance_config_issue_reason_for_issue.html">7.193. VmFaultToleranceConfigIssueReasonForIssue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/vm_fault_tolerance_invalid_file_backing_device_type.html">7.194. VmFaultToleranceInvalidFileBackingDeviceType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/vm_shutdown_on_isolation_event_operation.html">7.195. VmShutdownOnIsolationEventOperation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/vmware_distributed_virtual_switch_pvlan_port_type.html">7.196. VmwareDistributedVirtualSwitchPvlanPortType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enum/week_of_month.html">7.197. WeekOfMonth</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="content.html">
+              <img class="logo" src="static/logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="do/win_net_bios_config_info.html"
+                        title="previous chapter">6.1428. WinNetBIOSConfigInfo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="enum/action_parameter.html"
+                        title="next chapter">7.1. ActionParameter</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="sources/enum.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="enum/action_parameter.html" title="7.1. ActionParameter"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="do/win_net_bios_config_info.html" title="6.1428. WinNetBIOSConfigInfo"
+             >previous</a> |</li>
+        <li><a href="index.html">home</a>&nbsp;|&nbsp;</li>
+        <li><a href="search.html">search</a>&nbsp;|&nbsp;</li>
+        <li><a href="mo.html">managed objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="do.html">data objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="#">enumerations</a>&nbsp;|&nbsp;</li>
+        <li><a href="changes.html">changes</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Last updated on Sep 01, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

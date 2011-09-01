@@ -1,0 +1,182 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7.161. VirtualMachineFaultToleranceState &mdash; pyvisdk v0.9 documentation</title>
+    <link rel="stylesheet" href="../static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.9 documentation" href="../index.html" />
+    <link rel="up" title="7. Enum Objects" href="../enum.html" />
+    <link rel="next" title="7.162. VirtualMachineFileLayoutExFileType" href="virtual_machine_file_layout_ex_file_type.html" />
+    <link rel="prev" title="7.160. VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeStateVmDirectPathGen2InactiveReasonVm" href="virtual_machine_device_runtime_info_virtual_ethernet_card_runtime_state_vm_direct_path_gen2_inactive_reason_vm.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_file_layout_ex_file_type.html" title="7.162. VirtualMachineFileLayoutExFileType"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_device_runtime_info_virtual_ethernet_card_runtime_state_vm_direct_path_gen2_inactive_reason_vm.html" title="7.160. VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeStateVmDirectPathGen2InactiveReasonVm"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">home</a>&nbsp;|&nbsp;</li>
+        <li><a href="../search.html">search</a>&nbsp;|&nbsp;</li>
+        <li><a href="../mo.html">managed objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="../do.html">data objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="../enum.html">enumerations</a>&nbsp;|&nbsp;</li>
+        <li><a href="../changes.html">changes</a> &raquo;</li>
+
+          <li><a href="../enum.html" accesskey="U">7. Enum Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualmachinefaulttolerancestate">
+<h1>7.161. VirtualMachineFaultToleranceState<a class="headerlink" href="#virtualmachinefaulttolerancestate" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">VirtualMachineFaultToleranceState</tt></dt>
+<dt>
+<tt class="descname">The FaultToleranceState type defines a simple set of states for a fault tolerant virtual machine: disabled, starting, and enabled.</tt></dt>
+<dd><dl class="data">
+<dt id="VirtualMachineFaultToleranceState.disabled">
+<tt class="descclassname">VirtualMachineFaultToleranceState.</tt><tt class="descname">disabled</tt><a class="headerlink" href="#VirtualMachineFaultToleranceState.disabled" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">For a virtual machine that is the primary in a fault tolerant group, this state indicates that the virtual machine has at least one registered secondary, but no secondary is enabled. For a virtual machine that is the secondary in a fault tolerant group, this state indicates that the secondary is disabled.</tt></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VirtualMachineFaultToleranceState.enabled">
+<tt class="descclassname">VirtualMachineFaultToleranceState.</tt><tt class="descname">enabled</tt><a class="headerlink" href="#VirtualMachineFaultToleranceState.enabled" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">For a virtual machine that is the primary in a fault tolerant group, this state indicates that the virtual machine is not currently powered on, but has at least one enabled secondary For a virtual machine that is the secondary in a fault tolerant group, this state indicates that the secondary is enabled, but is not currently powered on.</tt></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VirtualMachineFaultToleranceState.needSecondary">
+<tt class="descclassname">VirtualMachineFaultToleranceState.</tt><tt class="descname">needSecondary</tt><a class="headerlink" href="#VirtualMachineFaultToleranceState.needSecondary" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">For a virtual machine that is the primary in a fault tolerant group, this state indicates that the virtual machine is powered on and has at least one enabled secondary, but no secondary is currenly active. This state is not valid for a virtual machine that is a secondary in a fault tolerant group.</tt></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VirtualMachineFaultToleranceState.notConfigured">
+<tt class="descclassname">VirtualMachineFaultToleranceState.</tt><tt class="descname">notConfigured</tt><a class="headerlink" href="#VirtualMachineFaultToleranceState.notConfigured" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">This state indicates that the virtual machine has not been configured for fault tolerance.</tt></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VirtualMachineFaultToleranceState.running">
+<tt class="descclassname">VirtualMachineFaultToleranceState.</tt><tt class="descname">running</tt><a class="headerlink" href="#VirtualMachineFaultToleranceState.running" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">This state indicates that the virtual machine is running with fault tolerance protection.</tt></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VirtualMachineFaultToleranceState.starting">
+<tt class="descclassname">VirtualMachineFaultToleranceState.</tt><tt class="descname">starting</tt><a class="headerlink" href="#VirtualMachineFaultToleranceState.starting" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">For a virtual machine that is the primary in a fault tolerant group, this state indicates that the virtual machine is powered on and has at least one secondary that is synchronizing its state with the primary. For a virtual machine that is the secondary in a fault tolerant group, this state indicates that the secondary is powered on and is synchronizing its state with the primary virtual machine.</tt></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../content.html">
+              <img class="logo" src="../static/logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_machine_device_runtime_info_virtual_ethernet_card_runtime_state_vm_direct_path_gen2_inactive_reason_vm.html"
+                        title="previous chapter">7.160. VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeStateVmDirectPathGen2InactiveReasonVm</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_machine_file_layout_ex_file_type.html"
+                        title="next chapter">7.162. VirtualMachineFileLayoutExFileType</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/enum/virtual_machine_fault_tolerance_state.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_file_layout_ex_file_type.html" title="7.162. VirtualMachineFileLayoutExFileType"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_device_runtime_info_virtual_ethernet_card_runtime_state_vm_direct_path_gen2_inactive_reason_vm.html" title="7.160. VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeStateVmDirectPathGen2InactiveReasonVm"
+             >previous</a> |</li>
+        <li><a href="../index.html">home</a>&nbsp;|&nbsp;</li>
+        <li><a href="../search.html">search</a>&nbsp;|&nbsp;</li>
+        <li><a href="../mo.html">managed objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="../do.html">data objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="../enum.html">enumerations</a>&nbsp;|&nbsp;</li>
+        <li><a href="../changes.html">changes</a> &raquo;</li>
+
+          <li><a href="../enum.html" >7. Enum Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Last updated on Sep 01, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

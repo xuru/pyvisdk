@@ -1,0 +1,175 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7.158. VirtualMachineConnectionState &mdash; pyvisdk v0.9 documentation</title>
+    <link rel="stylesheet" href="../static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.9 documentation" href="../index.html" />
+    <link rel="up" title="7. Enum Objects" href="../enum.html" />
+    <link rel="next" title="7.159. VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeStateVmDirectPathGen2InactiveReasonOther" href="virtual_machine_device_runtime_info_virtual_ethernet_card_runtime_state_vm_direct_path_gen2_inactive_reason_other.html" />
+    <link rel="prev" title="7.157. VirtualMachineConfigSpecNpivWwnOp" href="virtual_machine_config_spec_npiv_wwn_op.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_device_runtime_info_virtual_ethernet_card_runtime_state_vm_direct_path_gen2_inactive_reason_other.html" title="7.159. VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeStateVmDirectPathGen2InactiveReasonOther"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_config_spec_npiv_wwn_op.html" title="7.157. VirtualMachineConfigSpecNpivWwnOp"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">home</a>&nbsp;|&nbsp;</li>
+        <li><a href="../search.html">search</a>&nbsp;|&nbsp;</li>
+        <li><a href="../mo.html">managed objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="../do.html">data objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="../enum.html">enumerations</a>&nbsp;|&nbsp;</li>
+        <li><a href="../changes.html">changes</a> &raquo;</li>
+
+          <li><a href="../enum.html" accesskey="U">7. Enum Objects</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="virtualmachineconnectionstate">
+<h1>7.158. VirtualMachineConnectionState<a class="headerlink" href="#virtualmachineconnectionstate" title="Permalink to this headline">¶</a></h1>
+<dl class="describe">
+<dt>
+<tt class="descname">VirtualMachineConnectionState</tt></dt>
+<dt>
+<tt class="descname">The connectivity state of a virtual machine. When the API is provided directly by a server product, such as ESX Server, then the disconnected state is not possible. However, when accessed through VirtualCenter, the state of a virtual machine is set to disconnected if the hosts that manage the virtual machine becomes unavailable.</tt></dt>
+<dd><dl class="data">
+<dt id="VirtualMachineConnectionState.connected">
+<tt class="descclassname">VirtualMachineConnectionState.</tt><tt class="descname">connected</tt><a class="headerlink" href="#VirtualMachineConnectionState.connected" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">The server has access to the virtual machine.</tt></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VirtualMachineConnectionState.disconnected">
+<tt class="descclassname">VirtualMachineConnectionState.</tt><tt class="descname">disconnected</tt><a class="headerlink" href="#VirtualMachineConnectionState.disconnected" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">The server is currently disconnected from the virtual machine, since its host is disconnected. See general comment for this enumerated type for more details.</tt></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VirtualMachineConnectionState.inaccessible">
+<tt class="descclassname">VirtualMachineConnectionState.</tt><tt class="descname">inaccessible</tt><a class="headerlink" href="#VirtualMachineConnectionState.inaccessible" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">One or more of the virtual machine configuration files are inaccessible. For example, this can be due to transient disk failures. In this case, no configuration can be returned for a virtual machine.</tt></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VirtualMachineConnectionState.invalid">
+<tt class="descclassname">VirtualMachineConnectionState.</tt><tt class="descname">invalid</tt><a class="headerlink" href="#VirtualMachineConnectionState.invalid" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">The virtual machine configuration format is invalid. Thus, it is accessible on disk, but corrupted in a way that does not allow the server to read the content. In this case, no configuration can be returned for a virtual machine.</tt></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="VirtualMachineConnectionState.orphaned">
+<tt class="descclassname">VirtualMachineConnectionState.</tt><tt class="descname">orphaned</tt><a class="headerlink" href="#VirtualMachineConnectionState.orphaned" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">The virtual machine is no longer registered on the host it is associated with. For example, a virtual machine that is unregistered or deleted directly on a host managed by VirtualCenter shows up in this state.</tt></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../content.html">
+              <img class="logo" src="../static/logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="virtual_machine_config_spec_npiv_wwn_op.html"
+                        title="previous chapter">7.157. VirtualMachineConfigSpecNpivWwnOp</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="virtual_machine_device_runtime_info_virtual_ethernet_card_runtime_state_vm_direct_path_gen2_inactive_reason_other.html"
+                        title="next chapter">7.159. VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeStateVmDirectPathGen2InactiveReasonOther</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/enum/virtual_machine_connection_state.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_device_runtime_info_virtual_ethernet_card_runtime_state_vm_direct_path_gen2_inactive_reason_other.html" title="7.159. VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeStateVmDirectPathGen2InactiveReasonOther"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtual_machine_config_spec_npiv_wwn_op.html" title="7.157. VirtualMachineConfigSpecNpivWwnOp"
+             >previous</a> |</li>
+        <li><a href="../index.html">home</a>&nbsp;|&nbsp;</li>
+        <li><a href="../search.html">search</a>&nbsp;|&nbsp;</li>
+        <li><a href="../mo.html">managed objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="../do.html">data objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="../enum.html">enumerations</a>&nbsp;|&nbsp;</li>
+        <li><a href="../changes.html">changes</a> &raquo;</li>
+
+          <li><a href="../enum.html" >7. Enum Objects</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Last updated on Sep 01, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
