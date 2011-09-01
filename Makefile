@@ -1,4 +1,4 @@
-PYTHON?=python
+PYTHON?=./bin/python
 SETUPFLAGS=
 TESTRUNNER=$(shell which nosetests)
 API_DOC_DIR=docs/html
@@ -8,9 +8,8 @@ VERSION=0.9
 all: build
 
 build:
-	$(PYTHON) ./bootstrap.py -d
+	python ./bootstrap.py -d
 	./bin/buildout
-	PYTHONPATH=. $(PYTHON) setup.py $(SETUPFLAGS) build
 
 test:
 	PYTHONPATH=. $(PYTHON) ./bin/test
