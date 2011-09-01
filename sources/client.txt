@@ -1,4 +1,4 @@
-Basic pyvisdk API: pyvisdk.vim
+pyvisdk.vim
 =================================
 
 .. automodule:: pyvisdk.vim
@@ -13,9 +13,5 @@ Basic pyvisdk API: pyvisdk.vim
    :show-inheritance:
 
 .. autoclass:: pyvisdk.client.Client
-   :members:
-   :show-inheritance:
-
-.. autoclass:: pyvisdk.app.PyvisdkApp
    :members:
    :show-inheritance:

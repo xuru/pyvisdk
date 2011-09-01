@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>3. Managed Objects &mdash; pyvisdk v0.9 documentation</title>
+    <title>5. Managed Objects &mdash; pyvisdk v0.9 documentation</title>
     <link rel="stylesheet" href="static/nature.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -22,8 +22,8 @@
     <script type="text/javascript" src="static/underscore.js"></script>
     <script type="text/javascript" src="static/doctools.js"></script>
     <link rel="top" title="pyvisdk v0.9 documentation" href="index.html" />
-    <link rel="next" title="3.1. Alarm" href="mo/alarm.html" />
-    <link rel="prev" title="2. Basic pyvisdk API: pyvisdk.vim" href="client.html" /> 
+    <link rel="next" title="5.1. Alarm" href="mo/alarm.html" />
+    <link rel="prev" title="4. Exceptions" href="exceptions.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,10 +36,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="mo/alarm.html" title="3.1. Alarm"
+          <a href="mo/alarm.html" title="5.1. Alarm"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="client.html" title="2. Basic pyvisdk API: pyvisdk.vim"
+          <a href="exceptions.html" title="4. Exceptions"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">home</a>&nbsp;|&nbsp;</li>
         <li><a href="search.html">search</a>&nbsp;|&nbsp;</li>
@@ -57,103 +57,103 @@
           <div class="body">
             
   <div class="section" id="managed-objects">
-<span id="api-mo"></span><h1>3. Managed Objects<a class="headerlink" href="#managed-objects" title="Permalink to this headline">¶</a></h1>
+<span id="api-mo"></span><h1>5. Managed Objects<a class="headerlink" href="#managed-objects" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="mo/alarm.html">3.1. Alarm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/alarm_manager.html">3.2. AlarmManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/authorization_manager.html">3.3. AuthorizationManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/cluster_compute_resource.html">3.4. ClusterComputeResource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/cluster_profile.html">3.5. ClusterProfile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/cluster_profile_manager.html">3.6. ClusterProfileManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/compute_resource.html">3.7. ComputeResource</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/container_view.html">3.8. ContainerView</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/custom_fields_manager.html">3.9. CustomFieldsManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/customization_spec_manager.html">3.10. CustomizationSpecManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/datacenter.html">3.11. Datacenter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/datastore.html">3.12. Datastore</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/diagnostic_manager.html">3.13. DiagnosticManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/distributed_virtual_portgroup.html">3.14. DistributedVirtualPortgroup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/distributed_virtual_switch.html">3.15. DistributedVirtualSwitch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/distributed_virtual_switch_manager.html">3.16. DistributedVirtualSwitchManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/environment_browser.html">3.17. EnvironmentBrowser</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/event_history_collector.html">3.18. EventHistoryCollector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/event_manager.html">3.19. EventManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/extensible_managed_object.html">3.20. ExtensibleManagedObject</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/extension_manager.html">3.21. ExtensionManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/file_manager.html">3.22. FileManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/folder.html">3.23. Folder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/history_collector.html">3.24. HistoryCollector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_active_directory_authentication.html">3.25. HostActiveDirectoryAuthentication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_authentication_manager.html">3.26. HostAuthenticationManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_authentication_store.html">3.27. HostAuthenticationStore</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_auto_start_manager.html">3.28. HostAutoStartManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_boot_device_system.html">3.29. HostBootDeviceSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_cpu_scheduler_system.html">3.30. HostCpuSchedulerSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_datastore_browser.html">3.31. HostDatastoreBrowser</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_datastore_system.html">3.32. HostDatastoreSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_date_time_system.html">3.33. HostDateTimeSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_diagnostic_system.html">3.34. HostDiagnosticSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_directory_store.html">3.35. HostDirectoryStore</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_firewall_system.html">3.36. HostFirewallSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_firmware_system.html">3.37. HostFirmwareSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_health_status_system.html">3.38. HostHealthStatusSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_kernel_module_system.html">3.39. HostKernelModuleSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_local_account_manager.html">3.40. HostLocalAccountManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_local_authentication.html">3.41. HostLocalAuthentication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_memory_system.html">3.42. HostMemorySystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_network_system.html">3.43. HostNetworkSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_patch_manager.html">3.44. HostPatchManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_pci_passthru_system.html">3.45. HostPciPassthruSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_power_system.html">3.46. HostPowerSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_profile.html">3.47. HostProfile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_profile_manager.html">3.48. HostProfileManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_service_system.html">3.49. HostServiceSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_snmp_system.html">3.50. HostSnmpSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_storage_system.html">3.51. HostStorageSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_system.html">3.52. HostSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_v_motion_system.html">3.53. HostVMotionSystem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/host_virtual_nic_manager.html">3.54. HostVirtualNicManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/http_nfc_lease.html">3.55. HttpNfcLease</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/inventory_view.html">3.56. InventoryView</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/ip_pool_manager.html">3.57. IpPoolManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/license_assignment_manager.html">3.58. LicenseAssignmentManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/license_manager.html">3.59. LicenseManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/list_view.html">3.60. ListView</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/localization_manager.html">3.61. LocalizationManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/managed_entity.html">3.62. ManagedEntity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/managed_object_view.html">3.63. ManagedObjectView</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/network.html">3.64. Network</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/option_manager.html">3.65. OptionManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/ovf_manager.html">3.66. OvfManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/performance_manager.html">3.67. PerformanceManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/profile.html">3.68. Profile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/profile_compliance_manager.html">3.69. ProfileComplianceManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/profile_manager.html">3.70. ProfileManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/property_collector.html">3.71. PropertyCollector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/property_filter.html">3.72. PropertyFilter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/resource_planning_manager.html">3.73. ResourcePlanningManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/resource_pool.html">3.74. ResourcePool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/scheduled_task.html">3.75. ScheduledTask</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/scheduled_task_manager.html">3.76. ScheduledTaskManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/search_index.html">3.77. SearchIndex</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/service_instance.html">3.78. ServiceInstance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/session_manager.html">3.79. SessionManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/storage_resource_manager.html">3.80. StorageResourceManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/task.html">3.81. Task</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/task_history_collector.html">3.82. TaskHistoryCollector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/task_manager.html">3.83. TaskManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/user_directory.html">3.84. UserDirectory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/view.html">3.85. View</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/view_manager.html">3.86. ViewManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/virtual_app.html">3.87. VirtualApp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/virtual_disk_manager.html">3.88. VirtualDiskManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/virtual_machine.html">3.89. VirtualMachine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/virtual_machine_compatibility_checker.html">3.90. VirtualMachineCompatibilityChecker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/virtual_machine_provisioning_checker.html">3.91. VirtualMachineProvisioningChecker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/virtual_machine_snapshot.html">3.92. VirtualMachineSnapshot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/virtualization_manager.html">3.93. VirtualizationManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mo/vmware_distributed_virtual_switch.html">3.94. VmwareDistributedVirtualSwitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/alarm.html">5.1. Alarm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/alarm_manager.html">5.2. AlarmManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/authorization_manager.html">5.3. AuthorizationManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/cluster_compute_resource.html">5.4. ClusterComputeResource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/cluster_profile.html">5.5. ClusterProfile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/cluster_profile_manager.html">5.6. ClusterProfileManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/compute_resource.html">5.7. ComputeResource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/container_view.html">5.8. ContainerView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/custom_fields_manager.html">5.9. CustomFieldsManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/customization_spec_manager.html">5.10. CustomizationSpecManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/datacenter.html">5.11. Datacenter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/datastore.html">5.12. Datastore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/diagnostic_manager.html">5.13. DiagnosticManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/distributed_virtual_portgroup.html">5.14. DistributedVirtualPortgroup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/distributed_virtual_switch.html">5.15. DistributedVirtualSwitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/distributed_virtual_switch_manager.html">5.16. DistributedVirtualSwitchManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/environment_browser.html">5.17. EnvironmentBrowser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/event_history_collector.html">5.18. EventHistoryCollector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/event_manager.html">5.19. EventManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/extensible_managed_object.html">5.20. ExtensibleManagedObject</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/extension_manager.html">5.21. ExtensionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/file_manager.html">5.22. FileManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/folder.html">5.23. Folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/history_collector.html">5.24. HistoryCollector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_active_directory_authentication.html">5.25. HostActiveDirectoryAuthentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_authentication_manager.html">5.26. HostAuthenticationManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_authentication_store.html">5.27. HostAuthenticationStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_auto_start_manager.html">5.28. HostAutoStartManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_boot_device_system.html">5.29. HostBootDeviceSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_cpu_scheduler_system.html">5.30. HostCpuSchedulerSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_datastore_browser.html">5.31. HostDatastoreBrowser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_datastore_system.html">5.32. HostDatastoreSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_date_time_system.html">5.33. HostDateTimeSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_diagnostic_system.html">5.34. HostDiagnosticSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_directory_store.html">5.35. HostDirectoryStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_firewall_system.html">5.36. HostFirewallSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_firmware_system.html">5.37. HostFirmwareSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_health_status_system.html">5.38. HostHealthStatusSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_kernel_module_system.html">5.39. HostKernelModuleSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_local_account_manager.html">5.40. HostLocalAccountManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_local_authentication.html">5.41. HostLocalAuthentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_memory_system.html">5.42. HostMemorySystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_network_system.html">5.43. HostNetworkSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_patch_manager.html">5.44. HostPatchManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_pci_passthru_system.html">5.45. HostPciPassthruSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_power_system.html">5.46. HostPowerSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_profile.html">5.47. HostProfile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_profile_manager.html">5.48. HostProfileManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_service_system.html">5.49. HostServiceSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_snmp_system.html">5.50. HostSnmpSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_storage_system.html">5.51. HostStorageSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_system.html">5.52. HostSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_v_motion_system.html">5.53. HostVMotionSystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/host_virtual_nic_manager.html">5.54. HostVirtualNicManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/http_nfc_lease.html">5.55. HttpNfcLease</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/inventory_view.html">5.56. InventoryView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/ip_pool_manager.html">5.57. IpPoolManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/license_assignment_manager.html">5.58. LicenseAssignmentManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/license_manager.html">5.59. LicenseManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/list_view.html">5.60. ListView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/localization_manager.html">5.61. LocalizationManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/managed_entity.html">5.62. ManagedEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/managed_object_view.html">5.63. ManagedObjectView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/network.html">5.64. Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/option_manager.html">5.65. OptionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/ovf_manager.html">5.66. OvfManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/performance_manager.html">5.67. PerformanceManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/profile.html">5.68. Profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/profile_compliance_manager.html">5.69. ProfileComplianceManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/profile_manager.html">5.70. ProfileManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/property_collector.html">5.71. PropertyCollector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/property_filter.html">5.72. PropertyFilter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/resource_planning_manager.html">5.73. ResourcePlanningManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/resource_pool.html">5.74. ResourcePool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/scheduled_task.html">5.75. ScheduledTask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/scheduled_task_manager.html">5.76. ScheduledTaskManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/search_index.html">5.77. SearchIndex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/service_instance.html">5.78. ServiceInstance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/session_manager.html">5.79. SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/storage_resource_manager.html">5.80. StorageResourceManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/task.html">5.81. Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/task_history_collector.html">5.82. TaskHistoryCollector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/task_manager.html">5.83. TaskManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/user_directory.html">5.84. UserDirectory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/view.html">5.85. View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/view_manager.html">5.86. ViewManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/virtual_app.html">5.87. VirtualApp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/virtual_disk_manager.html">5.88. VirtualDiskManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/virtual_machine.html">5.89. VirtualMachine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/virtual_machine_compatibility_checker.html">5.90. VirtualMachineCompatibilityChecker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/virtual_machine_provisioning_checker.html">5.91. VirtualMachineProvisioningChecker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/virtual_machine_snapshot.html">5.92. VirtualMachineSnapshot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/virtualization_manager.html">5.93. VirtualizationManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mo/vmware_distributed_virtual_switch.html">5.94. VmwareDistributedVirtualSwitch</a></li>
 </ul>
 </div>
 </div>
@@ -168,11 +168,11 @@
               <img class="logo" src="static/logo.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="client.html"
-                        title="previous chapter">2. Basic pyvisdk API: pyvisdk.vim</a></p>
+  <p class="topless"><a href="exceptions.html"
+                        title="previous chapter">4. Exceptions</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="mo/alarm.html"
-                        title="next chapter">3.1. Alarm</a></p>
+                        title="next chapter">5.1. Alarm</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="sources/mo.txt"
@@ -205,10 +205,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="mo/alarm.html" title="3.1. Alarm"
+          <a href="mo/alarm.html" title="5.1. Alarm"
              >next</a> |</li>
         <li class="right" >
-          <a href="client.html" title="2. Basic pyvisdk API: pyvisdk.vim"
+          <a href="exceptions.html" title="4. Exceptions"
              >previous</a> |</li>
         <li><a href="index.html">home</a>&nbsp;|&nbsp;</li>
         <li><a href="search.html">search</a>&nbsp;|&nbsp;</li>

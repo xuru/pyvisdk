@@ -1,0 +1,277 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3. Applications &mdash; pyvisdk v0.9 documentation</title>
+    <link rel="stylesheet" href="static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <link rel="top" title="pyvisdk v0.9 documentation" href="index.html" />
+    <link rel="next" title="4. Exceptions" href="exceptions.html" />
+    <link rel="prev" title="2. pyvisdk.vim" href="client.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="exceptions.html" title="4. Exceptions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="client.html" title="2. pyvisdk.vim"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">home</a>&nbsp;|&nbsp;</li>
+        <li><a href="search.html">search</a>&nbsp;|&nbsp;</li>
+        <li><a href="mo.html">managed objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="do.html">data objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="enum.html">enumerations</a>&nbsp;|&nbsp;</li>
+        <li><a href="changes.html">changes</a> &raquo;</li>
+ 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-pyvisdk.app">
+<span id="applications"></span><h1>3. Applications<a class="headerlink" href="#module-pyvisdk.app" title="Permalink to this headline">¶</a></h1>
+<p>The information here is taken from the <a class="reference external" href="http://www.vmware.com/support/developer/viperltoolkit/doc/perl_toolkit_guide.html">Perl Toolkit Programming Guide</a> found on the <a class="reference external" href="http://www.vmware.com/support/pubs/sdk_pubs.html">VMware APIs and SDKs Documentation page</a>.</p>
+<p>You can provide the required parameters to pyvisdk utility applications in several different ways:</p>
+<ol class="arabic">
+<li><p class="first">Pass parameters at the command line, using the required option flag followed by the value for the option::</p>
+<div class="highlight-python"><pre>--optionname optionvalue</pre>
+</div>
+</li>
+<li><p class="first">Set as environment variables in a Linux profile; in the Environment properties dialog 
+of the Windows System control panel; or at the command-line, for the current session:</p>
+<div class="highlight-python"><pre>set VI_SERVER=your_server_name</pre>
+</div>
+</li>
+<li><p class="first">Create a configuration file (a plaintext file) that contains variable names (for the parameters) 
+and settings. Variables for the built-in options are shown in Table 1, below. Any option with the 
+variable attribute set in the python script or application (.py) can also be specified 
+in a configuration file.:</p>
+<div class="highlight-python"><pre>VI_PROTOCOL=https
+VI_SERVER=prod01.vmware.com
+VI_SERVICEPATH=/sdk
+VI_USERNAME=Administrator
+VI_PASSWORD=*******</pre>
+</div>
+</li>
+</ol>
+<p>The pyvisdk runtime processes options set in the config file first, environment variables next, 
+and command-line entries last. As shown in the example above, you can use a combination of these 
+three approaches.</p>
+<p>For example, assuming that most of your administrative chores take place through a central 
+VirtualCenter Management Server, you can create a configuration file for executing applications 
+and avoid repeatedly entering connection details. If you have multiple VirtualCenter Management 
+Server or ESX Server systems and you need to administer them individually, you can create multiple 
+configuration files using different names for each and then simply pass the &#8211;config option with 
+the appropriate filename when you run the applications.</p>
+<p>Furthermore, each option can be set in multiple ways. Since command-line flags take precedence over 
+environment variables, and environment variables take precedence over settings in the configuration 
+file, you can easily over-ride any parameter when necessary.</p>
+<p>Table 1: Built-in Parameters and Variables</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="13%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Parameter</th>
+<th class="head">Variable</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>config</td>
+<td>VI_CONFIG</td>
+<td>Specify non-default name or location for the pyvisdk configuration file.
+Default name and location for Linux is ~/.visdkrc and for Windows is %HOME%</td>
+</tr>
+<tr><td>isdk.rc.</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>help</td>
+<td>~</td>
+<td>Displays usage information about a script or application to standard output
+(command console).</td>
+</tr>
+<tr><td>password</td>
+<td>VI_PASSWORD</td>
+<td>for the specified username. Sucessful authentication with username and
+password returns a session object that can be saved and used for subsequent
+connections using the same or different script. See sessionfile.</td>
+</tr>
+<tr><td>portnumber</td>
+<td>VI_PORTNUMBER</td>
+<td>Port used for server connection.</td>
+</tr>
+<tr><td>protocol</td>
+<td>VI_PROTOCOL</td>
+<td>Protocol used to connect to server. Default is HTTPS. If the server has been
+configured for HTTP, set to HTTP.</td>
+</tr>
+<tr><td>server</td>
+<td>VI_SERVER</td>
+<td>ESX Server or VirtualCenter Management Server host to which you want the
+application or script to connect. Default is localhost if none specified.</td>
+</tr>
+<tr><td>servicepath</td>
+<td>VI_SERVICEPATH</td>
+<td>Service path for server connection. Default is /sdk/webService.</td>
+</tr>
+<tr><td>sessionfile</td>
+<td>VI_SESSIONFILE</td>
+<td>Name of file containing the token saved from successful login. Alternative
+to specifying username and password. Sessions time out after 30 minutes
+of inactivity.</td>
+</tr>
+<tr><td>url</td>
+<td>VI_URL</td>
+<td>Complete URL for SDK connection. An alternative to specifying protocol,
+server, and servicepath as individual connection parameters. For example,
+perl app_name.pl &#8211;url <a class="reference external" href="https://myserver.mycompany.com/sdk">https://myserver.mycompany.com/sdk</a> &#8211;username root
+&#8211;password mypassword</td>
+</tr>
+<tr><td>username</td>
+<td>VI_USERNAME</td>
+<td>User account that has privileges to connect to the server.</td>
+</tr>
+<tr><td>verbose</td>
+<td>VI_VERBOSE</td>
+<td>Increase loglevel. Use in conjunction with Util::trace subroutine to display
+additional debugging information. By default, value of &#8211;verbose (loglevel)
+is 0.</td>
+</tr>
+<tr><td>version</td>
+<td>~</td>
+<td>Displays script version information, if available.</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="pyvisdk.app.PyvisdkApp">
+<em class="property">class </em><tt class="descclassname">pyvisdk.app.</tt><tt class="descname">PyvisdkApp</tt><big>(</big><em>usage=None</em><big>)</big><a class="headerlink" href="#pyvisdk.app.PyvisdkApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class implementation of a command line application.  See the <a class="reference internal" href="#module-pyvisdk.app" title="pyvisdk.app"><tt class="xref py py-mod docutils literal"><span class="pre">app</span></tt></a> module for documentation on the format of the options file.</p>
+</dd></dl>
+
+<span class="target" id="module-pyvisdk.options"></span><dl class="class">
+<dt id="pyvisdk.options.Options">
+<em class="property">class </em><tt class="descclassname">pyvisdk.options.</tt><tt class="descname">Options</tt><big>(</big><em>**kw</em><big>)</big><a class="headerlink" href="#pyvisdk.options.Options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Options for pyvisdk that will read in the .visdkrc files</p>
+<dl class="method">
+<dt id="pyvisdk.options.Options.load">
+<tt class="descname">load</tt><big>(</big><em>filename=None</em><big>)</big><a class="headerlink" href="#pyvisdk.options.Options.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load saved options from a file.  The format is explained in the <a class="reference external" href="http://www.vmware.com/support/developer/viperltoolkit/doc/perl_toolkit_guide.html#table1">Perl Toolkit Programming Guide, table 1</a> .
+Most variables are supported, where appropriate.</p>
+<p>Currently only VI_SERVER, VI_USERNAME, and VI_PASSWORD are supported.  More to follow...</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> &#8211; <cite>Optional</cite> The filename to load.  Defaults to ~/.visdkrc.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="content.html">
+              <img class="logo" src="static/logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="client.html"
+                        title="previous chapter">2. pyvisdk.vim</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="exceptions.html"
+                        title="next chapter">4. Exceptions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="sources/app.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="exceptions.html" title="4. Exceptions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="client.html" title="2. pyvisdk.vim"
+             >previous</a> |</li>
+        <li><a href="index.html">home</a>&nbsp;|&nbsp;</li>
+        <li><a href="search.html">search</a>&nbsp;|&nbsp;</li>
+        <li><a href="mo.html">managed objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="do.html">data objects</a>&nbsp;|&nbsp;</li>
+        <li><a href="enum.html">enumerations</a>&nbsp;|&nbsp;</li>
+        <li><a href="changes.html">changes</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Eric Plaster.
+      Last updated on Sep 01, 2011.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

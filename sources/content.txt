@@ -27,8 +27,12 @@ Documentation
    
    getting-started.rst
    client.rst
+   app.rst
+   exceptions
+   
    Managed Objects <mo.rst>
    Data Objects <do.rst>
+   
    changes.rst
 
 Indices and tables
