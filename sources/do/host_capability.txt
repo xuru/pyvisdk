@@ -224,7 +224,7 @@ HostCapability
     
     .. py:attribute:: vmDirectPathGen2Supported
     
-        Indicates whether the host supports network passthrough using VMDirectPath Gen 2. Note that this is a general capability for the host and is independent of support by a given physical NIC. If false, the reason(s) for lack of support will be provided in vmDirectPathGen2UnsupportedReason and/or in vmDirectPathGen2UnsupportedReasonExtended.
+        Indicates whether the host supports network passthrough using VMDirectPath Gen 2. Note that this is a general capability for the host and is independent of support by a given physical NIC. If false, the reason(s) for lack of support will be provided in vmDirectPathGen2UnsupportedReason and/or in vmDirectPathGen2UnsupportedReasonExtended.See vmDirectPathGen2Supported
         
     
     .. py:attribute:: vmDirectPathGen2UnsupportedReason

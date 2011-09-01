@@ -25,6 +25,6 @@ ScsiLunDescriptor
     
     .. py:attribute:: quality
     
-        An indicator of the utility of the descriptor as an identifier that is stable, unique, and correlatable.
+        An indicator of the utility of the descriptor as an identifier that is stable, unique, and correlatable.See DescriptorQuality
         
     

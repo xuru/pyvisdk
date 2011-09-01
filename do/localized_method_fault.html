@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>4.761. LocalizedMethodFault &mdash; pyvisdk v0.7 documentation</title>
+    <title>4.761. LocalizedMethodFault &mdash; pyvisdk v0.9 documentation</title>
     <link rel="stylesheet" href="../static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7',
+        VERSION:     '0.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../static/jquery.js"></script>
     <script type="text/javascript" src="../static/underscore.js"></script>
     <script type="text/javascript" src="../static/doctools.js"></script>
-    <link rel="top" title="pyvisdk v0.7 documentation" href="../index.html" />
+    <link rel="top" title="pyvisdk v0.9 documentation" href="../index.html" />
     <link rel="up" title="4. Data Objects" href="../do.html" />
     <link rel="next" title="4.762. LockerMisconfiguredEvent" href="locker_misconfigured_event.html" />
     <link rel="prev" title="4.760. LocalizationManagerMessageCatalog" href="localization_manager_message_catalog.html" /> 
@@ -84,7 +84,10 @@
 <a class="reference internal" href="host_vmfs_rescan_result.html#pyvisdk.do.host_vmfs_rescan_result.HostVmfsRescanResult" title="pyvisdk.do.host_vmfs_rescan_result.HostVmfsRescanResult"><tt class="xref py py-class docutils literal"><span class="pre">HostVmfsRescanResult</span></tt></a>,
 <tt class="xref py py-class docutils literal"><span class="pre">HttpNfcLease</span></tt>,
 <tt class="xref py py-class docutils literal"><span class="pre">IncompatibleHostForFtSecondary</span></tt>,
+<tt class="xref py py-class docutils literal"><span class="pre">MethodFault</span></tt>,
 <a class="reference internal" href="migration_event.html#pyvisdk.do.migration_event.MigrationEvent" title="pyvisdk.do.migration_event.MigrationEvent"><tt class="xref py py-class docutils literal"><span class="pre">MigrationEvent</span></tt></a>,
+<a class="reference internal" href="missing_object.html#pyvisdk.do.missing_object.MissingObject" title="pyvisdk.do.missing_object.MissingObject"><tt class="xref py py-class docutils literal"><span class="pre">MissingObject</span></tt></a>,
+<a class="reference internal" href="missing_property.html#pyvisdk.do.missing_property.MissingProperty" title="pyvisdk.do.missing_property.MissingProperty"><tt class="xref py py-class docutils literal"><span class="pre">MissingProperty</span></tt></a>,
 <tt class="xref py py-class docutils literal"><span class="pre">NoCompatibleHost</span></tt>,
 <a class="reference internal" href="ovf_create_descriptor_result.html#pyvisdk.do.ovf_create_descriptor_result.OvfCreateDescriptorResult" title="pyvisdk.do.ovf_create_descriptor_result.OvfCreateDescriptorResult"><tt class="xref py py-class docutils literal"><span class="pre">OvfCreateDescriptorResult</span></tt></a>,
 <a class="reference internal" href="ovf_create_import_spec_result.html#pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult" title="pyvisdk.do.ovf_create_import_spec_result.OvfCreateImportSpecResult"><tt class="xref py py-class docutils literal"><span class="pre">OvfCreateImportSpecResult</span></tt></a>,
@@ -97,6 +100,7 @@
 <tt class="xref py py-class docutils literal"><span class="pre">SnapshotIncompatibleDeviceInVm</span></tt>,
 <a class="reference internal" href="task_info.html#pyvisdk.do.task_info.TaskInfo" title="pyvisdk.do.task_info.TaskInfo"><tt class="xref py py-class docutils literal"><span class="pre">TaskInfo</span></tt></a>,
 <a class="reference internal" href="template_upgrade_failed_event.html#pyvisdk.do.template_upgrade_failed_event.TemplateUpgradeFailedEvent" title="pyvisdk.do.template_upgrade_failed_event.TemplateUpgradeFailedEvent"><tt class="xref py py-class docutils literal"><span class="pre">TemplateUpgradeFailedEvent</span></tt></a>,
+<tt class="xref py py-class docutils literal"><span class="pre">UnexpectedFault</span></tt>,
 <a class="reference internal" href="update_virtual_machine_files_result_failed_vm_file_info.html#pyvisdk.do.update_virtual_machine_files_result_failed_vm_file_info.UpdateVirtualMachineFilesResultFailedVmFileInfo" title="pyvisdk.do.update_virtual_machine_files_result_failed_vm_file_info.UpdateVirtualMachineFilesResultFailedVmFileInfo"><tt class="xref py py-class docutils literal"><span class="pre">UpdateVirtualMachineFilesResultFailedVmFileInfo</span></tt></a>,
 <a class="reference internal" href="vm_clone_failed_event.html#pyvisdk.do.vm_clone_failed_event.VmCloneFailedEvent" title="pyvisdk.do.vm_clone_failed_event.VmCloneFailedEvent"><tt class="xref py py-class docutils literal"><span class="pre">VmCloneFailedEvent</span></tt></a>,
 <tt class="xref py py-class docutils literal"><span class="pre">VmConfigIncompatibleForFaultTolerance</span></tt>,
@@ -213,7 +217,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2011, Eric Plaster.
-      Last updated on Aug 24, 2011.
+      Last updated on Sep 01, 2011.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>

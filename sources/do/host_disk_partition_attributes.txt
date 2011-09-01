@@ -41,6 +41,6 @@ HostDiskPartitionAttributes
     
     .. py:attribute:: type
     
-        Type of data in the partition. If it is a well-known partition type, it will be one of the defined types. If it is not, then it will be reported as a hexadecimal number. For example, "none", "vmfs", "linux", and "0x20" are all valid values.
+        Type of data in the partition. If it is a well-known partition type, it will be one of the defined types. If it is not, then it will be reported as a hexadecimal number. For example, "none", "vmfs", "linux", and "0x20" are all valid values.See HostDiskPartitionInfoType
         
     

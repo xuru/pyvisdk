@@ -56,6 +56,6 @@ EventEx
     
     .. py:attribute:: severity
     
-        The severity level of the message: null=>info.
+        The severity level of the message: null=>info.See EventEventSeverity
         
     

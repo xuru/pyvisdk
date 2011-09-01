@@ -26,7 +26,7 @@ VirtualDiskSparseVer2BackingInfo
     
     .. py:attribute:: diskMode
     
-        The disk persistence mode. Valid modes are: * persistent * independent_persistent * independent_nonpersistent
+        The disk persistence mode. Valid modes are: * persistent * independent_persistent * independent_nonpersistent See VirtualDiskMode
         
     
     .. py:attribute:: parent

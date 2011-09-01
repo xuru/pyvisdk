@@ -52,7 +52,7 @@ DatastoreSummary
     
     .. py:attribute:: type
     
-        Type of file system volume, such as VMFS or NFS.
+        Type of file system volume, such as VMFS or NFS.See type
         
     
     .. py:attribute:: uncommitted

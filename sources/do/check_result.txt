@@ -7,6 +7,7 @@ CheckResult
 .. describe:: See also
     
     :py:class:`~pyvisdk.do.host_system.HostSystem`,
+    :py:class:`~pyvisdk.do.localized_method_fault.LocalizedMethodFault`,
     :py:class:`~pyvisdk.do.virtual_machine.VirtualMachine`
     
 .. describe:: Since

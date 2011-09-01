@@ -16,7 +16,7 @@ VirtualDiskRawDiskMappingVer1BackingOption
     
     .. py:attribute:: compatibilityMode
     
-        The supported raw disk mapping compatibility modes.
+        The supported raw disk mapping compatibility modes.See VirtualDiskCompatibilityMode
         
     
     .. py:attribute:: descriptorFileNameExtensions
@@ -26,7 +26,7 @@ VirtualDiskRawDiskMappingVer1BackingOption
     
     .. py:attribute:: diskMode
     
-        The disk mode. Valid values are: * persistent * independent_persistent * independent_nonpersistent
+        The disk mode. Valid values are: * persistent * independent_persistent * independent_nonpersistent See VirtualDiskMode
         
     
     .. py:attribute:: uuid

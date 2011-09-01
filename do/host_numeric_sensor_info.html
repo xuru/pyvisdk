@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>4.608. HostNumericSensorInfo &mdash; pyvisdk v0.7 documentation</title>
+    <title>4.608. HostNumericSensorInfo &mdash; pyvisdk v0.9 documentation</title>
     <link rel="stylesheet" href="../static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7',
+        VERSION:     '0.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../static/jquery.js"></script>
     <script type="text/javascript" src="../static/underscore.js"></script>
     <script type="text/javascript" src="../static/doctools.js"></script>
-    <link rel="top" title="pyvisdk v0.7 documentation" href="../index.html" />
+    <link rel="top" title="pyvisdk v0.9 documentation" href="../index.html" />
     <link rel="up" title="4. Data Objects" href="../do.html" />
     <link rel="next" title="4.609. HostOvercommittedEvent" href="host_overcommitted_event.html" />
     <link rel="prev" title="4.607. HostNumaNode" href="host_numa_node.html" /> 
@@ -90,7 +90,7 @@
 <dd><dl class="attribute">
 <dt id="pyvisdk.do.host_numeric_sensor_info.HostNumericSensorInfo.baseUnits">
 <tt class="descname">baseUnits</tt><a class="headerlink" href="#pyvisdk.do.host_numeric_sensor_info.HostNumericSensorInfo.baseUnits" title="Permalink to this definition">¶</a></dt>
-<dd><p>The base units in which the sensor reading is specified. If rateUnits is set the units of the current reading is further qualified by the rateUnits.</p>
+<dd><p>The base units in which the sensor reading is specified. If rateUnits is set the units of the current reading is further qualified by the rateUnits.See rateUnits</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -102,7 +102,7 @@
 <dl class="attribute">
 <dt id="pyvisdk.do.host_numeric_sensor_info.HostNumericSensorInfo.healthState">
 <tt class="descname">healthState</tt><a class="headerlink" href="#pyvisdk.do.host_numeric_sensor_info.HostNumericSensorInfo.healthState" title="Permalink to this definition">¶</a></dt>
-<dd><p>The health state of the of the element indicated by the sensor. This property is populated only for sensors that support threshold settings.</p>
+<dd><p>The health state of the of the element indicated by the sensor. This property is populated only for sensors that support threshold settings.See HostNumericSensorHealthState</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -120,7 +120,7 @@
 <dl class="attribute">
 <dt id="pyvisdk.do.host_numeric_sensor_info.HostNumericSensorInfo.sensorType">
 <tt class="descname">sensorType</tt><a class="headerlink" href="#pyvisdk.do.host_numeric_sensor_info.HostNumericSensorInfo.sensorType" title="Permalink to this definition">¶</a></dt>
-<dd><p>The type of the sensor. If the sensor type is set to Other the sensor name can be used to further identify the type of sensor. The sensor units can also be used to further implicitly determine the type of the sensor.</p>
+<dd><p>The type of the sensor. If the sensor type is set to Other the sensor name can be used to further identify the type of sensor. The sensor units can also be used to further implicitly determine the type of the sensor.See HostNumericSensorType</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -197,7 +197,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2011, Eric Plaster.
-      Last updated on Aug 24, 2011.
+      Last updated on Sep 01, 2011.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>

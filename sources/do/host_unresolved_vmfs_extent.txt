@@ -49,7 +49,7 @@ HostUnresolvedVmfsExtent
     
     .. py:attribute:: reason
     
-        Reason as to why the partition is marked as copy of a VMFS volume's extent. Possible reasons are the disk id is not matching with what the scsi inq is saying or disk uuid is not matching
+        Reason as to why the partition is marked as copy of a VMFS volume's extent. Possible reasons are the disk id is not matching with what the scsi inq is saying or disk uuid is not matchingSee HostUnresolvedVmfsExtentUnresolvedReason
         
     
     .. py:attribute:: startBlock

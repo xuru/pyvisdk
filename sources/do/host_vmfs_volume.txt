@@ -61,6 +61,6 @@ HostVmfsVolume
     
     .. py:attribute:: vmfsUpgradable
     
-        Can the filesystem be upgraded to a newer version.
+        Can the filesystem be upgraded to a newer version.See UpgradeVmfs
         
     

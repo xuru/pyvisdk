@@ -17,7 +17,7 @@ VirtualDiskSparseVer1BackingOption
     
     .. py:attribute:: diskModes
     
-        The disk mode. Valid disk modes are: * persistent * nonpersistent * undoable * independent_persistent * independent_nonpersistent * append
+        The disk mode. Valid disk modes are: * persistent * nonpersistent * undoable * independent_persistent * independent_nonpersistent * append See VirtualDiskMode
         
     
     .. py:attribute:: growable

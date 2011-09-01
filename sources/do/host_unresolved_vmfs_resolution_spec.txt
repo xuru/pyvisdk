@@ -29,6 +29,6 @@ HostUnresolvedVmfsResolutionSpec
     
     .. py:attribute:: uuidResolution
     
-        When set to Resignature, new Uuid is assigned to the VMFS volume. When set to 'forceMount', existing uuid is assigned to the Vmfs volume and Vmfs volumes metadata doesn't change.
+        When set to Resignature, new Uuid is assigned to the VMFS volume. When set to 'forceMount', existing uuid is assigned to the Vmfs volume and Vmfs volumes metadata doesn't change.See VmfsUuidResolution
         
     

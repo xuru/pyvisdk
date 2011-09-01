@@ -24,7 +24,7 @@ HostProxySwitchConfig
     
     .. py:attribute:: changeOperation
     
-        This property indicates the change operation to apply on this configuration specification. Valid values are: * edit * remove
+        This property indicates the change operation to apply on this configuration specification. Valid values are: * edit * remove See HostConfigChangeOperation
         
     
     .. py:attribute:: spec

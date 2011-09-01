@@ -28,11 +28,11 @@ HostDiskPartitionInfo
     
     .. py:attribute:: layout
     
-        A convenient format for describing disk layout. This layout specification can be converted to a Specification object.
+        A convenient format for describing disk layout. This layout specification can be converted to a Specification object.See ComputeDiskPartitionInfo
         
     
     .. py:attribute:: spec
     
-        The detailed disk partition specification. Use this specification for manipulating the file system.
+        The detailed disk partition specification. Use this specification for manipulating the file system.See RetrieveDiskPartitionInfoSee UpdateDiskPartitions
         
     

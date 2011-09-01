@@ -21,7 +21,7 @@ VirtualDiskFlatVer1BackingInfo
     
     .. py:attribute:: diskMode
     
-        The disk persistence mode. Valid modes are: * persistent * nonpersistent * undoable
+        The disk persistence mode. Valid modes are: * persistent * nonpersistent * undoable See VirtualDiskMode
         
     
     .. py:attribute:: parent

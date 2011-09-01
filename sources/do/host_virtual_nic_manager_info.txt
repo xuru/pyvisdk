@@ -25,6 +25,6 @@ HostVirtualNicManagerInfo
     
     .. py:attribute:: netConfig
     
-        List of VirtualNicManager network configuration.
+        List of VirtualNicManager network configuration.See VirtualNicManagerNetConfig
         
     

@@ -7,6 +7,7 @@ OvfParseDescriptorResult
 .. describe:: See also
     
     :py:class:`~pyvisdk.do.key_value.KeyValue`,
+    :py:class:`~pyvisdk.do.localized_method_fault.LocalizedMethodFault`,
     :py:class:`~pyvisdk.do.ovf_deployment_option.OvfDeploymentOption`,
     :py:class:`~pyvisdk.do.ovf_network_info.OvfNetworkInfo`,
     :py:class:`~pyvisdk.do.v_app_product_info.VAppProductInfo`,

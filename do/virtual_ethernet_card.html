@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>4.1117. VirtualEthernetCard &mdash; pyvisdk v0.7 documentation</title>
+    <title>4.1117. VirtualEthernetCard &mdash; pyvisdk v0.9 documentation</title>
     <link rel="stylesheet" href="../static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7',
+        VERSION:     '0.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../static/jquery.js"></script>
     <script type="text/javascript" src="../static/underscore.js"></script>
     <script type="text/javascript" src="../static/doctools.js"></script>
-    <link rel="top" title="pyvisdk v0.7 documentation" href="../index.html" />
+    <link rel="top" title="pyvisdk v0.9 documentation" href="../index.html" />
     <link rel="up" title="4. Data Objects" href="../do.html" />
     <link rel="next" title="4.1118. VirtualEthernetCardDistributedVirtualPortBackingInfo" href="virtual_ethernet_card_distributed_virtual_port_backing_info.html" />
     <link rel="prev" title="4.1116. VirtualEnsoniq1371Option" href="virtual_ensoniq1371_option.html" /> 
@@ -81,6 +81,18 @@
 <dt id="pyvisdk.do.virtual_ethernet_card.VirtualEthernetCard.addressType">
 <tt class="descname">addressType</tt><a class="headerlink" href="#pyvisdk.do.virtual_ethernet_card.VirtualEthernetCard.addressType" title="Permalink to this definition">¶</a></dt>
 <dd><p>MAC address type.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_ethernet_card.VirtualEthernetCard.macAddress">
+<tt class="descname">macAddress</tt><a class="headerlink" href="#pyvisdk.do.virtual_ethernet_card.VirtualEthernetCard.macAddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>MAC address assigned to the virtual network adapter. Clients can set this property to any of the allowed address types. The server might override the specified value for &#8220;Generated&#8221; or &#8220;Assigned&#8221; if it does not fall in the right ranges or is determined to be a duplicate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyvisdk.do.virtual_ethernet_card.VirtualEthernetCard.wakeOnLanEnabled">
+<tt class="descname">wakeOnLanEnabled</tt><a class="headerlink" href="#pyvisdk.do.virtual_ethernet_card.VirtualEthernetCard.wakeOnLanEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether wake-on-LAN is enabled on this virtual network adapter. Clients can set this property to selectively enable or disable wake-on-LAN.</p>
 </dd></dl>
 
 </dd></dl>
@@ -151,7 +163,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2011, Eric Plaster.
-      Last updated on Aug 24, 2011.
+      Last updated on Sep 01, 2011.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>

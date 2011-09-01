@@ -21,7 +21,7 @@ VirtualDiskSparseVer1BackingInfo
     
     .. py:attribute:: diskMode
     
-        The disk persistence mode. Valid values are: * persistent * nonpersistent * undoable * independent_persistent * independent_nonpersistent * append
+        The disk persistence mode. Valid values are: * persistent * nonpersistent * undoable * independent_persistent * independent_nonpersistent * append See VirtualDiskMode
         
     
     .. py:attribute:: parent

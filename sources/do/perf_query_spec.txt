@@ -31,7 +31,7 @@ PerfQuerySpec
     
     .. py:attribute:: format
     
-        The format to be used while returning the statistics.
+        The format to be used while returning the statistics.See PerfFormat
         
     
     .. py:attribute:: intervalId

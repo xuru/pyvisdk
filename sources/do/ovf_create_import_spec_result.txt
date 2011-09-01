@@ -7,6 +7,7 @@ OvfCreateImportSpecResult
 .. describe:: See also
     
     :py:class:`~pyvisdk.do.import_spec.ImportSpec`,
+    :py:class:`~pyvisdk.do.localized_method_fault.LocalizedMethodFault`,
     :py:class:`~pyvisdk.do.ovf_file_item.OvfFileItem`
     
 .. describe:: Since

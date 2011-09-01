@@ -41,7 +41,7 @@ ClusterDasFailoverLevelAdvancedRuntimeInfo
     
     .. py:attribute:: totalSlots
     
-        The total number of slots available in the cluster.
+        The total number of slots available in the cluster.See SlotInfo
         
     
     .. py:attribute:: totalVms
@@ -51,11 +51,11 @@ ClusterDasFailoverLevelAdvancedRuntimeInfo
     
     .. py:attribute:: unreservedSlots
     
-        The number of slots that are not used by currently powered on virtual machines and not reserved to satisfy the configured failover level. This number gives an indication of how many additional virtual machines can be powered on in this cluster without violating the failover level (assuming the new virtual machine's reservations are satisfied by the current slot size). This value is computed as follows (where m is the configured failover level): Remove the m largest hosts (ie. the ones with the most slots) from the list of "good" hosts (see totalGoodHosts). Sum up the number of slots on the remaining hosts and deduct the number of currently used slots (see usedSlots). If this number is negative, use zero instead.
+        The number of slots that are not used by currently powered on virtual machines and not reserved to satisfy the configured failover level. This number gives an indication of how many additional virtual machines can be powered on in this cluster without violating the failover level (assuming the new virtual machine's reservations are satisfied by the current slot size). This value is computed as follows (where m is the configured failover level): Remove the m largest hosts (ie. the ones with the most slots) from the list of "good" hosts (see totalGoodHosts). Sum up the number of slots on the remaining hosts and deduct the number of currently used slots (see usedSlots). If this number is negative, use zero instead.See SlotInfo
         
     
     .. py:attribute:: usedSlots
     
-        The number of slots currently being used.
+        The number of slots currently being used.See SlotInfo
         
     

@@ -21,3 +21,13 @@ VirtualEthernetCard
         MAC address type.
         
     
+    .. py:attribute:: macAddress
+    
+        MAC address assigned to the virtual network adapter. Clients can set this property to any of the allowed address types. The server might override the specified value for "Generated" or "Assigned" if it does not fall in the right ranges or is determined to be a duplicate.
+        
+    
+    .. py:attribute:: wakeOnLanEnabled
+    
+        Indicates whether wake-on-LAN is enabled on this virtual network adapter. Clients can set this property to selectively enable or disable wake-on-LAN.
+        
+    

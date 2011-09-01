@@ -26,7 +26,7 @@ ClusterDpmHostConfigInfo
     
     .. py:attribute:: behavior
     
-        Specifies the particular DPM behavior for this host.
+        Specifies the particular DPM behavior for this host.See ClusterDpmConfigInfo
         
     
     .. py:attribute:: enabled

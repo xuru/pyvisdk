@@ -15,6 +15,8 @@ TaskInfo
     
 .. describe:: See also
     
+    :py:class:`~pyvisdk.do.localizable_message.LocalizableMessage`,
+    :py:class:`~pyvisdk.do.localized_method_fault.LocalizedMethodFault`,
     :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`,
     :py:class:`~pyvisdk.do.task.Task`,
     :py:class:`~pyvisdk.do.task_info_state.TaskInfoState`,

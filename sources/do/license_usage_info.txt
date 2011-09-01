@@ -32,11 +32,11 @@ LicenseUsageInfo
     
     .. py:attribute:: source
     
-        The source from which licensing data is acquired.
+        The source from which licensing data is acquired.See LicenseSource
         
     
     .. py:attribute:: sourceAvailable
     
-        Returns whether or not the source is currently available.
+        Returns whether or not the source is currently available.See sourceAvailable
         
     

@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Index &mdash; pyvisdk v0.7 documentation</title>
+    <title>Index &mdash; pyvisdk v0.9 documentation</title>
     <link rel="stylesheet" href="static/nature.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.7',
+        VERSION:     '0.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -21,7 +21,7 @@
     <script type="text/javascript" src="static/jquery.js"></script>
     <script type="text/javascript" src="static/underscore.js"></script>
     <script type="text/javascript" src="static/doctools.js"></script>
-    <link rel="top" title="pyvisdk v0.7 documentation" href="index.html" /> 
+    <link rel="top" title="pyvisdk v0.9 documentation" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -2439,6 +2439,7 @@
       <dt><a href="do/duplicate_ip_detected_event.html#pyvisdk.do.duplicate_ip_detected_event.DuplicateIpDetectedEvent.macAddress">(pyvisdk.do.duplicate_ip_detected_event.DuplicateIpDetectedEvent attribute)</a></dt>
       <dt><a href="do/dv_port_status.html#pyvisdk.do.dv_port_status.DVPortStatus.macAddress">(pyvisdk.do.dv_port_status.DVPortStatus attribute)</a></dt>
       <dt><a href="do/guest_nic_info.html#pyvisdk.do.guest_nic_info.GuestNicInfo.macAddress">(pyvisdk.do.guest_nic_info.GuestNicInfo attribute)</a></dt>
+      <dt><a href="do/virtual_ethernet_card.html#pyvisdk.do.virtual_ethernet_card.VirtualEthernetCard.macAddress">(pyvisdk.do.virtual_ethernet_card.VirtualEthernetCard attribute)</a></dt>
   </dl></dd>
     <dt><a href="do/dvs_security_policy.html#pyvisdk.do.dvs_security_policy.DVSSecurityPolicy.macChanges">macChanges (pyvisdk.do.dvs_security_policy.DVSSecurityPolicy attribute)</a></dt>
     <dd><dl>
@@ -6130,6 +6131,7 @@
     <dt><a href="do/dynamic_array.html#pyvisdk.do.dynamic_array.DynamicArray.val">val (pyvisdk.do.dynamic_array.DynamicArray attribute)</a></dt>
     <dd><dl>
       <dt><a href="do/dynamic_property.html#pyvisdk.do.dynamic_property.DynamicProperty.val">(pyvisdk.do.dynamic_property.DynamicProperty attribute)</a></dt>
+      <dt><a href="do/property_change.html#pyvisdk.do.property_change.PropertyChange.val">(pyvisdk.do.property_change.PropertyChange attribute)</a></dt>
   </dl></dd>
     <dt><a href="do/string_option.html#pyvisdk.do.string_option.StringOption.validCharacters">validCharacters (pyvisdk.do.string_option.StringOption attribute)</a></dt>
     <dt><a href="do/physical_nic.html#pyvisdk.do.physical_nic.PhysicalNic.validLinkSpecification">validLinkSpecification (pyvisdk.do.physical_nic.PhysicalNic attribute)</a></dt>
@@ -6309,6 +6311,7 @@
     <dd><dl>
       <dt><a href="do/host_capability.html#pyvisdk.do.host_capability.HostCapability.vmDirectPathGen2Supported">(pyvisdk.do.host_capability.HostCapability attribute)</a></dt>
       <dt><a href="do/physical_nic.html#pyvisdk.do.physical_nic.PhysicalNic.vmDirectPathGen2Supported">(pyvisdk.do.physical_nic.PhysicalNic attribute)</a></dt>
+      <dt><a href="do/virtual_ethernet_card_option.html#pyvisdk.do.virtual_ethernet_card_option.VirtualEthernetCardOption.vmDirectPathGen2Supported">(pyvisdk.do.virtual_ethernet_card_option.VirtualEthernetCardOption attribute)</a></dt>
   </dl></dd>
     <dt><a href="do/physical_nic.html#pyvisdk.do.physical_nic.PhysicalNic.vmDirectPathGen2SupportedMode">vmDirectPathGen2SupportedMode (pyvisdk.do.physical_nic.PhysicalNic attribute)</a></dt>
     <dt><a href="do/host_capability.html#pyvisdk.do.host_capability.HostCapability.vmDirectPathGen2UnsupportedReason">vmDirectPathGen2UnsupportedReason (pyvisdk.do.host_capability.HostCapability attribute)</a></dt>
@@ -6399,6 +6402,10 @@
       <dt><a href="do/auto_start_power_info.html#pyvisdk.do.auto_start_power_info.AutoStartPowerInfo.waitForHeartbeat">(pyvisdk.do.auto_start_power_info.AutoStartPowerInfo attribute)</a></dt>
   </dl></dd>
     <dt><a href="do/v_app_entity_config_info.html#pyvisdk.do.v_app_entity_config_info.VAppEntityConfigInfo.waitingForGuest">waitingForGuest (pyvisdk.do.v_app_entity_config_info.VAppEntityConfigInfo attribute)</a></dt>
+    <dt><a href="do/virtual_ethernet_card.html#pyvisdk.do.virtual_ethernet_card.VirtualEthernetCard.wakeOnLanEnabled">wakeOnLanEnabled (pyvisdk.do.virtual_ethernet_card.VirtualEthernetCard attribute)</a></dt>
+    <dd><dl>
+      <dt><a href="do/virtual_ethernet_card_option.html#pyvisdk.do.virtual_ethernet_card_option.VirtualEthernetCardOption.wakeOnLanEnabled">(pyvisdk.do.virtual_ethernet_card_option.VirtualEthernetCardOption attribute)</a></dt>
+  </dl></dd>
     <dt><a href="do/physical_nic.html#pyvisdk.do.physical_nic.PhysicalNic.wakeOnLanSupported">wakeOnLanSupported (pyvisdk.do.physical_nic.PhysicalNic attribute)</a></dt>
     <dt><a href="do/check_result.html#pyvisdk.do.check_result.CheckResult.warning">warning (pyvisdk.do.check_result.CheckResult attribute)</a></dt>
     <dd><dl>
@@ -6409,9 +6416,9 @@
   </dl></dd>
     <dt><a href="do/weekly_task_scheduler.html#pyvisdk.do.weekly_task_scheduler.WeeklyTaskScheduler.wednesday">wednesday (pyvisdk.do.weekly_task_scheduler.WeeklyTaskScheduler attribute)</a></dt>
     <dt><a href="do/monthly_by_weekday_task_scheduler.html#pyvisdk.do.monthly_by_weekday_task_scheduler.MonthlyByWeekdayTaskScheduler.weekday">weekday (pyvisdk.do.monthly_by_weekday_task_scheduler.MonthlyByWeekdayTaskScheduler attribute)</a></dt>
-    <dt><a href="do/scheduled_task_description.html#pyvisdk.do.scheduled_task_description.ScheduledTaskDescription.weekOfMonth">weekOfMonth (pyvisdk.do.scheduled_task_description.ScheduledTaskDescription attribute)</a></dt>
 </dl></td>
   <td style="width: 33%" valign="top"><dl>
+    <dt><a href="do/scheduled_task_description.html#pyvisdk.do.scheduled_task_description.ScheduledTaskDescription.weekOfMonth">weekOfMonth (pyvisdk.do.scheduled_task_description.ScheduledTaskDescription attribute)</a></dt>
     <dt><a href="do/host_file_access.html#pyvisdk.do.host_file_access.HostFileAccess.what">what (pyvisdk.do.host_file_access.HostFileAccess attribute)</a></dt>
     <dt><a href="do/host_file_access.html#pyvisdk.do.host_file_access.HostFileAccess.who">who (pyvisdk.do.host_file_access.HostFileAccess attribute)</a></dt>
     <dt><a href="do/guest_screen_info.html#pyvisdk.do.guest_screen_info.GuestScreenInfo.width">width (pyvisdk.do.guest_screen_info.GuestScreenInfo attribute)</a></dt>
@@ -6523,7 +6530,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2011, Eric Plaster.
-      Last updated on Aug 24, 2011.
+      Last updated on Sep 01, 2011.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>

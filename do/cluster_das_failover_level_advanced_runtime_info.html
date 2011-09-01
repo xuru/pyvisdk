@@ -6,13 +6,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>4.68. ClusterDasFailoverLevelAdvancedRuntimeInfo &mdash; pyvisdk v0.7 documentation</title>
+    <title>4.68. ClusterDasFailoverLevelAdvancedRuntimeInfo &mdash; pyvisdk v0.9 documentation</title>
     <link rel="stylesheet" href="../static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7',
+        VERSION:     '0.9',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../static/jquery.js"></script>
     <script type="text/javascript" src="../static/underscore.js"></script>
     <script type="text/javascript" src="../static/doctools.js"></script>
-    <link rel="top" title="pyvisdk v0.7 documentation" href="../index.html" />
+    <link rel="top" title="pyvisdk v0.9 documentation" href="../index.html" />
     <link rel="up" title="4. Data Objects" href="../do.html" />
     <link rel="next" title="4.69. ClusterDasFailoverLevelAdvancedRuntimeInfoHostSlots" href="cluster_das_failover_level_advanced_runtime_info_host_slots.html" />
     <link rel="prev" title="4.67. ClusterDasConfigInfo" href="cluster_das_config_info.html" /> 
@@ -108,7 +108,7 @@
 <dl class="attribute">
 <dt id="pyvisdk.do.cluster_das_failover_level_advanced_runtime_info.ClusterDasFailoverLevelAdvancedRuntimeInfo.totalSlots">
 <tt class="descname">totalSlots</tt><a class="headerlink" href="#pyvisdk.do.cluster_das_failover_level_advanced_runtime_info.ClusterDasFailoverLevelAdvancedRuntimeInfo.totalSlots" title="Permalink to this definition">¶</a></dt>
-<dd><p>The total number of slots available in the cluster.</p>
+<dd><p>The total number of slots available in the cluster.See SlotInfo</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -120,13 +120,13 @@
 <dl class="attribute">
 <dt id="pyvisdk.do.cluster_das_failover_level_advanced_runtime_info.ClusterDasFailoverLevelAdvancedRuntimeInfo.unreservedSlots">
 <tt class="descname">unreservedSlots</tt><a class="headerlink" href="#pyvisdk.do.cluster_das_failover_level_advanced_runtime_info.ClusterDasFailoverLevelAdvancedRuntimeInfo.unreservedSlots" title="Permalink to this definition">¶</a></dt>
-<dd><p>The number of slots that are not used by currently powered on virtual machines and not reserved to satisfy the configured failover level. This number gives an indication of how many additional virtual machines can be powered on in this cluster without violating the failover level (assuming the new virtual machine&#8217;s reservations are satisfied by the current slot size). This value is computed as follows (where m is the configured failover level): Remove the m largest hosts (ie. the ones with the most slots) from the list of &#8220;good&#8221; hosts (see totalGoodHosts). Sum up the number of slots on the remaining hosts and deduct the number of currently used slots (see usedSlots). If this number is negative, use zero instead.</p>
+<dd><p>The number of slots that are not used by currently powered on virtual machines and not reserved to satisfy the configured failover level. This number gives an indication of how many additional virtual machines can be powered on in this cluster without violating the failover level (assuming the new virtual machine&#8217;s reservations are satisfied by the current slot size). This value is computed as follows (where m is the configured failover level): Remove the m largest hosts (ie. the ones with the most slots) from the list of &#8220;good&#8221; hosts (see totalGoodHosts). Sum up the number of slots on the remaining hosts and deduct the number of currently used slots (see usedSlots). If this number is negative, use zero instead.See SlotInfo</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyvisdk.do.cluster_das_failover_level_advanced_runtime_info.ClusterDasFailoverLevelAdvancedRuntimeInfo.usedSlots">
 <tt class="descname">usedSlots</tt><a class="headerlink" href="#pyvisdk.do.cluster_das_failover_level_advanced_runtime_info.ClusterDasFailoverLevelAdvancedRuntimeInfo.usedSlots" title="Permalink to this definition">¶</a></dt>
-<dd><p>The number of slots currently being used.</p>
+<dd><p>The number of slots currently being used.See SlotInfo</p>
 </dd></dl>
 
 </dd></dl>
@@ -197,7 +197,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2011, Eric Plaster.
-      Last updated on Aug 24, 2011.
+      Last updated on Sep 01, 2011.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>

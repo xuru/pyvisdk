@@ -26,7 +26,7 @@ HostService
     
     .. py:attribute:: policy
     
-        Service activation policy.
+        Service activation policy.See Policy
         
     
     .. py:attribute:: required

@@ -22,7 +22,7 @@ HostVirtualSwitchBondBridge
     
     .. py:attribute:: linkDiscoveryProtocolConfig
     
-        The link discovery protocol configuration for the virtual switch.
+        The link discovery protocol configuration for the virtual switch.See LinkDiscoveryProtocolConfig
         
     
     .. py:attribute:: nicDevice

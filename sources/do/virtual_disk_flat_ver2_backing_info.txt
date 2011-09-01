@@ -26,7 +26,7 @@ VirtualDiskFlatVer2BackingInfo
     
     .. py:attribute:: diskMode
     
-        The disk persistence mode. Valid modes are: * persistent * independent_persistent * independent_nonpersistent * nonpersistent * undoable * append
+        The disk persistence mode. Valid modes are: * persistent * independent_persistent * independent_nonpersistent * nonpersistent * undoable * append See VirtualDiskMode
         
     
     .. py:attribute:: eagerlyScrub
@@ -46,7 +46,7 @@ VirtualDiskFlatVer2BackingInfo
     
     .. py:attribute:: thinProvisioned
     
-        Flag to indicate to the underlying filesystem, whether the virtual disk backing file should be allocated lazily (using thin provisioning). This flag is only used for file systems that support configuring the provisioning policy on a per file basis, such as VMFS3.
+        Flag to indicate to the underlying filesystem, whether the virtual disk backing file should be allocated lazily (using thin provisioning). This flag is only used for file systems that support configuring the provisioning policy on a per file basis, such as VMFS3.See perFileThinProvisioningSupported
         
     
     .. py:attribute:: uuid

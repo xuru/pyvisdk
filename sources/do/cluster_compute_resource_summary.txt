@@ -26,7 +26,7 @@ ClusterComputeResourceSummary
     
     .. py:attribute:: currentEVCModeKey
     
-        The Enhanced VMotion Compatibility mode that is currently in effect for all hosts in this cluster; unset if no EVC mode is active.
+        The Enhanced VMotion Compatibility mode that is currently in effect for all hosts in this cluster; unset if no EVC mode is active.See supportedEVCMode
         
     
     .. py:attribute:: currentFailoverLevel

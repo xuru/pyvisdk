@@ -31,3 +31,13 @@ VirtualEthernetCardOption
         The valid Organizational Unique Identifiers (OUIs) supported by this virtual Ethernet card.
         
     
+    .. py:attribute:: vmDirectPathGen2Supported
+    
+        Flag to indicate whether VMDirectPath Gen 2 is available on this device.
+        
+    
+    .. py:attribute:: wakeOnLanEnabled
+    
+        Flag to indicate whether or not wake-on-LAN is settable on this device.
+        
+    

@@ -30,7 +30,7 @@ HostScsiDiskPartition
     
     .. py:attribute:: diskName
     
-        The SCSI disk device on which a VMware File System (VMFS) extent resides.
+        The SCSI disk device on which a VMware File System (VMFS) extent resides.See HostScsiDiskSee canonicalName
         
     
     .. py:attribute:: partition

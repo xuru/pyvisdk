@@ -26,11 +26,11 @@ VirtualDiskSpec
     
     .. py:attribute:: adapterType
     
-        The type of the virtual disk adapter for the new virtual disk.
+        The type of the virtual disk adapter for the new virtual disk.See VirtualDiskAdapterType
         
     
     .. py:attribute:: diskType
     
-        The type of the new virtual disk.
+        The type of the new virtual disk.See VirtualDiskType
         
     

@@ -45,7 +45,7 @@ VirtualDevice
     
     .. py:attribute:: backing
     
-        Information about the backing of this virtual device presented in the context of the virtual machine's environment. Not all devices are required to have backing information.
+        Information about the backing of this virtual device presented in the context of the virtual machine's environment. Not all devices are required to have backing information.See VirtualMachineConfigOption
         
     
     .. py:attribute:: connectable

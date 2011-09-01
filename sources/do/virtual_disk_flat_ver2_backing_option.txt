@@ -17,7 +17,7 @@ VirtualDiskFlatVer2BackingOption
     
     .. py:attribute:: diskMode
     
-        The disk mode. Valid disk modes are: * persistent * independent_persistent * independent_nonpersistent
+        The disk mode. Valid disk modes are: * persistent * independent_persistent * independent_nonpersistent See VirtualDiskMode
         
     
     .. py:attribute:: eagerlyScrub

@@ -16,6 +16,6 @@ DeviceBackedVirtualDiskSpec
     
     .. py:attribute:: device
     
-        The deviceName of the backing device
+        The deviceName of the backing deviceSee ScsiLun
         
     

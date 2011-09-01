@@ -32,6 +32,7 @@ ServiceContent
     :py:class:`~pyvisdk.do.ovf_manager.OvfManager`,
     :py:class:`~pyvisdk.do.performance_manager.PerformanceManager`,
     :py:class:`~pyvisdk.do.profile_compliance_manager.ProfileComplianceManager`,
+    :py:class:`~pyvisdk.do.property_collector.PropertyCollector`,
     :py:class:`~pyvisdk.do.scheduled_task_manager.ScheduledTaskManager`,
     :py:class:`~pyvisdk.do.search_index.SearchIndex`,
     :py:class:`~pyvisdk.do.session_manager.SessionManager`,
@@ -176,7 +177,7 @@ ServiceContent
     
     .. py:attribute:: setting
     
-        Generic configuration for a management server. This is for example by vCenter to store the vCenter Settings. This is not used for a stand-alone host, instead the vim.host.ConfigManager.advancedOption is used.
+        Generic configuration for a management server. This is for example by vCenter to store the vCenter Settings. This is not used for a stand-alone host, instead the vim.host.ConfigManager.advancedOption is used.See HostConfigManager
         
     
     .. py:attribute:: snmpSystem
