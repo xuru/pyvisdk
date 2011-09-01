@@ -4,13 +4,13 @@ ComputeResource
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.compute_resource_event_argument.ComputeResourceEventArgument`,
     :py:class:`~pyvisdk.do.no_active_host_in_cluster.NoActiveHostInCluster`,
     :py:class:`~pyvisdk.do.resource_pool.ResourcePool`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.compute_resource_config_info.ComputeResourceConfigInfo`,
     :py:class:`~pyvisdk.do.compute_resource_config_spec.ComputeResourceConfigSpec`,
@@ -21,15 +21,15 @@ ComputeResource
     :py:class:`~pyvisdk.do.network.Network`,
     :py:class:`~pyvisdk.do.resource_pool.ResourcePool`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`
     
-.. describe:: Extended by
+**Extended by**
     
     :py:class:`~pyvisdk.do.cluster_compute_resource.ClusterComputeResource`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.add_standalone_host__task.AddStandaloneHost_Task`
     

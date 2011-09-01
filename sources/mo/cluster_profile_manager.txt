@@ -4,15 +4,15 @@ ClusterProfileManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.0
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.profile_manager.ProfileManager`
     

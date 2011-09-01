@@ -4,7 +4,7 @@ Datastore
 ================================================================================
 
 
-.. describe:: Parameter to
+**Parameter to**
     
     :py:meth:`~pyvisdk.do.configure_datastore_iorm__task.ConfigureDatastoreIORM_Task`,
     :py:meth:`~pyvisdk.do.create_import_spec.CreateImportSpec`,
@@ -16,7 +16,7 @@ Datastore
     :py:meth:`~pyvisdk.do.remove_datastore.RemoveDatastore`,
     :py:meth:`~pyvisdk.do.update_local_swap_datastore.UpdateLocalSwapDatastore`
     
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.compute_resource.ComputeResource`,
     :py:class:`~pyvisdk.do.datacenter.Datacenter`,
@@ -43,7 +43,7 @@ Datastore
     :py:class:`~pyvisdk.do.virtual_machine_relocate_spec_disk_locator.VirtualMachineRelocateSpecDiskLocator`,
     :py:class:`~pyvisdk.do.virtual_machine_usage_on_datastore.VirtualMachineUsageOnDatastore`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.datastore_capability.DatastoreCapability`,
     :py:class:`~pyvisdk.do.datastore_host_mount.DatastoreHostMount`,
@@ -55,11 +55,11 @@ Datastore
     :py:class:`~pyvisdk.do.update_virtual_machine_files_result.UpdateVirtualMachineFilesResult`,
     :py:class:`~pyvisdk.do.virtual_machine.VirtualMachine`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.create_local_datastore.CreateLocalDatastore`,
     :py:meth:`~pyvisdk.do.create_nas_datastore.CreateNasDatastore`,

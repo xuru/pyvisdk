@@ -1,12 +1,12 @@
 
 ================================================================================
-TaskHistoryCollector
+EventHistoryCollector
 ================================================================================
 
 
 **See also**
     
-    :py:class:`~pyvisdk.do.task_info.TaskInfo`
+    :py:class:`~pyvisdk.do.event.Event`
     
 **Extends**
     
@@ -14,8 +14,8 @@ TaskHistoryCollector
     
 **Returned by**
     
-    :py:meth:`~pyvisdk.do.create_collector_for_tasks.CreateCollectorForTasks`
+    :py:meth:`~pyvisdk.do.create_collector_for_events.CreateCollectorForEvents`
     
-.. 'autoclass':: pyvisdk.mo.task_history_collector.TaskHistoryCollector
+.. 'autoclass':: pyvisdk.mo.event_history_collector.EventHistoryCollector
     :members:
     :inherited-members:

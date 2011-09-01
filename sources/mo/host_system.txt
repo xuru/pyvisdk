@@ -4,7 +4,7 @@ HostSystem
 ================================================================================
 
 
-.. describe:: Parameter to
+**Parameter to**
     
     :py:meth:`~pyvisdk.do.apply_host_config__task.ApplyHostConfig_Task`,
     :py:meth:`~pyvisdk.do.browse_diagnostic_log.BrowseDiagnosticLog`,
@@ -48,7 +48,7 @@ HostSystem
     :py:meth:`~pyvisdk.do.validate_host.ValidateHost`,
     :py:meth:`~pyvisdk.do.validate_migration.ValidateMigration`
     
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.check_result.CheckResult`,
     :py:class:`~pyvisdk.do.cluster_das_aam_node_state.ClusterDasAamNodeState`,
@@ -105,7 +105,7 @@ HostSystem
     :py:class:`~pyvisdk.do.v_motion_interface_issue.VMotionInterfaceIssue`,
     :py:class:`~pyvisdk.do.vm_wwn_conflict.VmWwnConflict`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.datastore.Datastore`,
     :py:class:`~pyvisdk.do.host_capability.HostCapability`,
@@ -125,11 +125,11 @@ HostSystem
     :py:class:`~pyvisdk.do.virtual_machine.VirtualMachine`,
     :py:class:`~pyvisdk.do.virtual_machine_config_info.VirtualMachineConfigInfo`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.add_host__task.AddHost_Task`,
     :py:meth:`~pyvisdk.do.query_compatible_host_for_existing_dvs.QueryCompatibleHostForExistingDvs`,

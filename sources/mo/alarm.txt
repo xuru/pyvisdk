@@ -4,11 +4,11 @@ Alarm
 ================================================================================
 
 
-.. describe:: Parameter to
+**Parameter to**
     
     :py:meth:`~pyvisdk.do.acknowledge_alarm.AcknowledgeAlarm`
     
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.alarm_event_argument.AlarmEventArgument`,
     :py:class:`~pyvisdk.do.alarm_info.AlarmInfo`,
@@ -17,16 +17,16 @@ Alarm
     :py:class:`~pyvisdk.do.task_filter_spec.TaskFilterSpec`,
     :py:class:`~pyvisdk.do.task_reason_alarm.TaskReasonAlarm`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.alarm_info.AlarmInfo`,
     :py:class:`~pyvisdk.do.alarm_spec.AlarmSpec`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.create_alarm.CreateAlarm`,
     :py:meth:`~pyvisdk.do.get_alarm.GetAlarm`

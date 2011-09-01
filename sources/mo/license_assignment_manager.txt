@@ -4,16 +4,16 @@ LicenseAssignmentManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.license_manager.LicenseManager`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.license_assignment_manager_license_assignment.LicenseAssignmentManagerLicenseAssignment`,
     :py:class:`~pyvisdk.do.license_manager_license_info.LicenseManagerLicenseInfo`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.0
     

@@ -4,11 +4,11 @@ HostDatastoreSystem
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.host_config_manager.HostConfigManager`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.datastore.Datastore`,
     :py:class:`~pyvisdk.do.host_datastore_system_capabilities.HostDatastoreSystemCapabilities`,

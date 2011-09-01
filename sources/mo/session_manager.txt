@@ -4,11 +4,11 @@ SessionManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.session_manager_local_ticket.SessionManagerLocalTicket`,
     :py:class:`~pyvisdk.do.user_session.UserSession`

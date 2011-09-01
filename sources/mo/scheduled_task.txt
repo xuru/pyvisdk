@@ -4,7 +4,7 @@ ScheduledTask
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.event_filter_spec.EventFilterSpec`,
     :py:class:`~pyvisdk.do.scheduled_task_event_argument.ScheduledTaskEventArgument`,
@@ -13,16 +13,16 @@ ScheduledTask
     :py:class:`~pyvisdk.do.task_filter_spec.TaskFilterSpec`,
     :py:class:`~pyvisdk.do.task_reason_schedule.TaskReasonSchedule`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.scheduled_task_info.ScheduledTaskInfo`,
     :py:class:`~pyvisdk.do.scheduled_task_spec.ScheduledTaskSpec`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.create_object_scheduled_task.CreateObjectScheduledTask`,
     :py:meth:`~pyvisdk.do.create_scheduled_task.CreateScheduledTask`,

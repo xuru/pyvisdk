@@ -4,11 +4,11 @@ DistributedVirtualSwitchManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.distributed_virtual_switch.DistributedVirtualSwitch`,
     :py:class:`~pyvisdk.do.distributed_virtual_switch_host_product_spec.DistributedVirtualSwitchHostProductSpec`,
@@ -22,7 +22,7 @@ DistributedVirtualSwitchManager
     :py:class:`~pyvisdk.do.host_system.HostSystem`,
     :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.0
     

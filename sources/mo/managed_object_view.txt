@@ -4,17 +4,17 @@ ManagedObjectView
 ================================================================================
 
 
-.. describe:: Extended by
+**Extended by**
     
     :py:class:`~pyvisdk.do.container_view.ContainerView`,
     :py:class:`~pyvisdk.do.inventory_view.InventoryView`,
     :py:class:`~pyvisdk.do.list_view.ListView`
     
-.. describe:: Since
+**Since**
     
     VI API 2.5
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.view.View`
     

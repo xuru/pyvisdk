@@ -4,7 +4,7 @@ Datacenter
 ================================================================================
 
 
-.. describe:: Parameter to
+**Parameter to**
     
     :py:meth:`~pyvisdk.do.change_owner.ChangeOwner`,
     :py:meth:`~pyvisdk.do.copy_datastore_file__task.CopyDatastoreFile_Task`,
@@ -41,13 +41,13 @@ Datacenter
     :py:meth:`~pyvisdk.do.update_ip_pool.UpdateIpPool`,
     :py:meth:`~pyvisdk.do.zero_fill_virtual_disk__task.ZeroFillVirtualDisk_Task`
     
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.datacenter_event_argument.DatacenterEventArgument`,
     :py:class:`~pyvisdk.do.datacenter_mismatch.DatacenterMismatch`,
     :py:class:`~pyvisdk.do.datacenter_mismatch_argument.DatacenterMismatchArgument`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.cluster_power_on_vm_result.ClusterPowerOnVmResult`,
     :py:class:`~pyvisdk.do.datastore.Datastore`,
@@ -57,11 +57,11 @@ Datacenter
     :py:class:`~pyvisdk.do.option_value.OptionValue`,
     :py:class:`~pyvisdk.do.virtual_machine.VirtualMachine`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.create_datacenter.CreateDatacenter`
     

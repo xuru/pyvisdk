@@ -4,7 +4,7 @@ Task
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.cluster_attempted_vm_info.ClusterAttemptedVmInfo`,
     :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`,
@@ -13,18 +13,18 @@ Task
     :py:class:`~pyvisdk.do.task_in_progress.TaskInProgress`,
     :py:class:`~pyvisdk.do.task_manager.TaskManager`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.localizable_message.LocalizableMessage`,
     :py:class:`~pyvisdk.do.method_fault.MethodFault`,
     :py:class:`~pyvisdk.do.task_info.TaskInfo`,
     :py:class:`~pyvisdk.do.task_info_state.TaskInfoState`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.add_dv_portgroup__task.AddDVPortgroup_Task`,
     :py:meth:`~pyvisdk.do.add_host__task.AddHost_Task`,

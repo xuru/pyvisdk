@@ -4,12 +4,12 @@ HostSnmpSystem
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.host_config_manager.HostConfigManager`,
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.host_snmp_config_spec.HostSnmpConfigSpec`,
     :py:class:`~pyvisdk.do.host_snmp_system_agent_limits.HostSnmpSystemAgentLimits`

@@ -4,12 +4,12 @@ LicenseManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.host_config_manager.HostConfigManager`,
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.host_system.HostSystem`,
     :py:class:`~pyvisdk.do.key_value.KeyValue`,

@@ -4,11 +4,11 @@ VmwareDistributedVirtualSwitch
 ================================================================================
 
 
-.. describe:: Since
+**Since**
     
     vSphere API 4.0
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.distributed_virtual_switch.DistributedVirtualSwitch`
     

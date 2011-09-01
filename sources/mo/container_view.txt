@@ -4,19 +4,19 @@ ContainerView
 ================================================================================
 
 
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`
     
-.. describe:: Since
+**Since**
     
     VI API 2.5
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.managed_object_view.ManagedObjectView`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.create_container_view.CreateContainerView`
     

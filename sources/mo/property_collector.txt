@@ -4,11 +4,11 @@ PropertyCollector
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.object_content.ObjectContent`,
     :py:class:`~pyvisdk.do.property_filter.PropertyFilter`,
@@ -18,7 +18,7 @@ PropertyCollector
     :py:class:`~pyvisdk.do.update_set.UpdateSet`,
     :py:class:`~pyvisdk.do.wait_options.WaitOptions`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.create_property_collector.CreatePropertyCollector`
     

@@ -4,18 +4,18 @@ HostProfile
 ================================================================================
 
 
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.host_profile_config_spec.HostProfileConfigSpec`,
     :py:class:`~pyvisdk.do.host_system.HostSystem`,
     :py:class:`~pyvisdk.do.profile_deferred_policy_option_parameter.ProfileDeferredPolicyOptionParameter`,
     :py:class:`~pyvisdk.do.profile_execute_result.ProfileExecuteResult`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.0
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.profile.Profile`
     

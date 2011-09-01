@@ -4,11 +4,11 @@ AuthorizationManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.authorization_description.AuthorizationDescription`,
     :py:class:`~pyvisdk.do.authorization_privilege.AuthorizationPrivilege`,

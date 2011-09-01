@@ -4,15 +4,15 @@ HostCpuSchedulerSystem
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.host_config_manager.HostConfigManager`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.host_hyper_thread_schedule_info.HostHyperThreadScheduleInfo`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject`
     

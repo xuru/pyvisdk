@@ -4,16 +4,16 @@ IpPoolManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.datacenter.Datacenter`,
     :py:class:`~pyvisdk.do.ip_pool.IpPool`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.0
     

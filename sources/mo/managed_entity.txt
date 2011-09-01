@@ -4,7 +4,7 @@ ManagedEntity
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.alarm_info.AlarmInfo`,
     :py:class:`~pyvisdk.do.alarm_state.AlarmState`,
@@ -41,7 +41,7 @@ ManagedEntity
     :py:class:`~pyvisdk.do.vm_fault_tolerance_config_issue.VmFaultToleranceConfigIssue`,
     :py:class:`~pyvisdk.do.vm_fault_tolerance_config_issue_wrapper.VmFaultToleranceConfigIssueWrapper`
     
-.. describe:: Extended by
+**Extended by**
     
     :py:class:`~pyvisdk.do.compute_resource.ComputeResource`,
     :py:class:`~pyvisdk.do.datacenter.Datacenter`,
@@ -53,11 +53,11 @@ ManagedEntity
     :py:class:`~pyvisdk.do.resource_pool.ResourcePool`,
     :py:class:`~pyvisdk.do.virtual_machine.VirtualMachine`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.close_inventory_view_folder.CloseInventoryViewFolder`,
     :py:meth:`~pyvisdk.do.find_all_by_dns_name.FindAllByDnsName`,
@@ -70,7 +70,7 @@ ManagedEntity
     :py:meth:`~pyvisdk.do.find_child.FindChild`,
     :py:meth:`~pyvisdk.do.open_inventory_view_folder.OpenInventoryViewFolder`
     
-.. describe:: Parameter to
+**Parameter to**
     
     :py:meth:`~pyvisdk.do.acknowledge_alarm.AcknowledgeAlarm`,
     :py:meth:`~pyvisdk.do.are_alarm_actions_enabled.AreAlarmActionsEnabled`,
@@ -104,7 +104,7 @@ ManagedEntity
     :py:meth:`~pyvisdk.do.set_field.SetField`,
     :py:meth:`~pyvisdk.do.update_linked_children.UpdateLinkedChildren`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.alarm_state.AlarmState`,
     :py:class:`~pyvisdk.do.custom_field_value.CustomFieldValue`,
