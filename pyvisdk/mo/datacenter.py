@@ -17,8 +17,12 @@ class Datacenter(ManagedEntity):
     must be under a distinct datacenter in the inventory, and datacenters may not
     be nested under other datacenters.Every Datacenter has the following set of
     dedicated folders. These folders are empty until you create entities for the
-    Datacenter.For a visual representation of the organization of objects in a
-    vCenter hierarchy, see the description of the ServiceInstance object.'''
+    Datacenter.* A folder for VirtualMachine, template, and VirtualApp objects. * A
+    folder for a ComputeResource hierarchy. * A folder for Network,
+    DistributedVirtualSwitch, and DistributedVirtualPortgroup objects. * A folder
+    for Datastore objects.For a visual representation of the organization of
+    objects in a vCenter hierarchy, see the description of the ServiceInstance
+    object.'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.Datacenter):
         super(Datacenter, self).__init__(core, name=name, ref=ref, type=type)

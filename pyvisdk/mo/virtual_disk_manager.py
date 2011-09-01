@@ -16,7 +16,12 @@ class VirtualDiskManager(BaseEntity):
     subject to change in future releases.This managed object type provides a way to
     manage and manipulate virtual disks on datastores. The source and the
     destination names are in the form of a URL or a datastore path.A URL has the
-    formwhereA datastore path has the formwhere'''
+    formwhere* is or . * specifies the hostname or IP address of the VirtualCenter
+    or ESX server and optionally the port. * is the inventory path to the
+    Datacenter containing the Datastore. * is the name of the Datastore. * is a
+    slash-delimited path from the root of the datastore.A datastore path has the
+    formwhere* is the datastore name. * is a slash-delimited path from the root of
+    the datastore.'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.VirtualDiskManager):
         super(VirtualDiskManager, self).__init__(core, name=name, ref=ref, type=type)

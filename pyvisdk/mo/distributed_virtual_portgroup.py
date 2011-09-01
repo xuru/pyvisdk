@@ -36,7 +36,9 @@ class DistributedVirtualPortgroup(Network):
     
     
     def ReconfigureDVPortgroup_Task(self):
-        '''The DistributedVirtualPortgroups to be reconfigured
+        '''The DistributedVirtualPortgroups to be reconfigured* DVPortgroup.PolicyOp if
+        changing the policy of the portgroup. * DVPortgroup.ScopeOp if changing the
+        scope of the portgroup. * DVPortgroup.Modify for anything else.
         
         '''
         return self.delegate("ReconfigureDVPortgroup_Task")()

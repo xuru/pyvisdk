@@ -80,7 +80,9 @@ class OvfManager(BaseEntity):
     
     def CreateImportSpec(self, ovfDescriptor, resourcePool, datastore, cisp):
         '''Validate the OVF descriptor against the hardware supported by the host system.
-        If the validation succeeds, return a result containing:
+        If the validation succeeds, return a result containing:* An ImportSpec to use
+        when importing the entity. * A list of items to upload (for example disk
+        backing files, ISO images etc.)
         
         :param ovfDescriptor: The OVF descriptor of the entity.
         

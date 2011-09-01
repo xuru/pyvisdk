@@ -18,7 +18,14 @@ class UserDirectory(BaseEntity):
     criteria - user name, group name, sub-string or string matching, and, on
     Windows, domain. Use the results as input to the AuthorizationManager methods
     SetEntityPermissions and ResetEntityPermissions.The content of the returned
-    results depends on the server environment:'''
+    results depends on the server environment:* On a Windows host,
+    RetrieveUserGroups can search from the set of trusted domains on the host,
+    including the primary domain of the system. A special domain (specified as an
+    empty string - "") refers to the users and groups local to the host. * On an
+    ESX Server or a Linux host, the search operates on the users and groups defined
+    in the /etc/passwd file. Always specify an empty string ("") for the domain
+    argument. If the /etc/passwd file contains Sun NIS or NIS+ users and groups,
+    RetrieveUserGroups returns information about these accounts as well.'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.UserDirectory):
         super(UserDirectory, self).__init__(core, name=name, ref=ref, type=type)
@@ -34,10 +41,15 @@ class UserDirectory(BaseEntity):
     
     def RetrieveUserGroups(self, domain, searchStr, belongsToGroup, belongsToUser, exactMatch, findUsers, findGroups):
         '''Returns a list of UserSearchResult objects describing the users and groups
-        defined for the server.You must hold the Authorization.ModifyPermissions
-        privilege to invoke this method. If you hold the privilege on any
-        ManagedEntity, you will have access to user and group information for the
-        server.
+        defined for the server.* On Windows, the search for users and groups is
+        restricted to the given domain. If you omit the domain argument, then the
+        search is performed on local users and groups. * On ESX Server (or Linux
+        systems), the method returns the list of users and groups that are specified in
+        the /etc/passwd file. If the password file contains Sun NIS or NIS+ users and
+        groups, the returned list includes information about those as well.You must
+        hold the Authorization.ModifyPermissions privilege to invoke this method. If
+        you hold the privilege on any ManagedEntity, you will have access to user and
+        group information for the server.
         
         :param domain: Domain to be searched. If not set, then the method searches the local machine.
         

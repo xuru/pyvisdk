@@ -15,20 +15,21 @@ class Folder(ManagedEntity):
     '''The Folder managed object is a container for storing and organizing inventory
     objects. Folders can contain folders and other objects. The childType property
     identifies a folder's type and determines the types of folders and objects the
-    folder can contain.See ServiceInstance for a representation of the organization
-    of the inventory.The Folder managed object also acts as a factory object,
-    meaning it creates new entities in a folder. The object provides methods to
-    create child folders and objects, methods to add existing objects to folders,
-    and methods to remove objects from folders and to delete folders.Folder
-    inherits the Destroy_Task method. Destroy_Task is a recursive operation that
-    removes all child objects and folders. When you call Destroy_Task to destroy a
-    folder, the system uses the specified folder as a root and traverses its
-    descendant hierarchy, calling Destroy_Task on each object. Destroy_Task is a
-    single operation that treats each recursive call as a single transaction,
-    committing each call to remove an object individually. If Destroy_Task fails on
-    an object, the method terminates at that point with an exception, leaving some
-    or all of the objects still in the inventory.Notes on the folder destroy
-    method:'''
+    folder can contain.* A folder can contain a child folder of the same type as
+    the parent folder. * All Datacenter objects contain dedicated folders for:See
+    ServiceInstance for a representation of the organization of the inventory.The
+    Folder managed object also acts as a factory object, meaning it creates new
+    entities in a folder. The object provides methods to create child folders and
+    objects, methods to add existing objects to folders, and methods to remove
+    objects from folders and to delete folders.Folder inherits the Destroy_Task
+    method. Destroy_Task is a recursive operation that removes all child objects
+    and folders. When you call Destroy_Task to destroy a folder, the system uses
+    the specified folder as a root and traverses its descendant hierarchy, calling
+    Destroy_Task on each object. Destroy_Task is a single operation that treats
+    each recursive call as a single transaction, committing each call to remove an
+    object individually. If Destroy_Task fails on an object, the method terminates
+    at that point with an exception, leaving some or all of the objects still in
+    the inventory.Notes on the folder destroy method:'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.Folder):
         super(Folder, self).__init__(core, name=name, ref=ref, type=type)

@@ -19,7 +19,8 @@ class ContainerView(ManagedObjectView):
     PropertyCollector, see the description of ViewManager.When you invoke the
     CreateContainerView method, you specify a managed object instance that provides
     the starting point for object selection. You can use the following managed
-    objects as the basis of a container view:Once you have created the view, the
+    objects as the basis of a container view:* Folder * Datacenter *
+    ComputeResource * ResourcePool * HostSystemOnce you have created the view, the
     view list always represents the current configuration of the virtual
     environment and reflects any subsequent changes that occur.'''
     

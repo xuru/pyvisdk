@@ -18,7 +18,11 @@ class PropertyCollector(BaseEntity):
     change detection and supports both polling and notification.For change
     detection a client creates one or more filters to specify the subset of managed
     objects in which the client is interested. Filters keep per-session state to
-    track incremental changes. Because this state is per-session:'''
+    track incremental changes. Because this state is per-session:* A session cannot
+    share its PropertyCollector filters with other sessions * two different clients
+    can share the same session, and so can share the same filters, but this is not
+    recommended * When a session terminates, the associated PropertyCollector
+    filters are automatically destroyed.'''
     
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.PropertyCollector):
         super(PropertyCollector, self).__init__(core, name=name, ref=ref, type=type)

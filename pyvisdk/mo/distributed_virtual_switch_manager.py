@@ -68,7 +68,13 @@ class DistributedVirtualSwitchManager(BaseEntity):
         against which compatibility is checked. If caller did not have view privileges
         on the host entity in an element of the CompatibilityResult array, then that
         entire element would be removed from the CompatibilityResult array. Typical
-        uses:
+        uses:* For the createDVS situation, hostFilterSpec is of type HostDvsFilterSpec
+        and DvsProductSpec will have newSwitchProductSpec set. * For the Add-Host-To-
+        DVS situation, you can use either HostDvsFilterSpec or HostDvsMembershipFilter
+        with inclusive being false, and pass the DVS in DvsProductSpec. * For the
+        Upgrade-DVS situation, you can use either HostDvsFilterSpec or
+        HostDvsMembershipFilter with inclusive being true, and pass the new desired
+        ProductSpec for DVS in newSwitchProductSpec.
         
         :param hostContainer: The container of hosts on which we check the compatibility. This container can be a datacenter, folder, or computeResource. We can also include all the hosts in the hierarchy with container as root of the tree.
         

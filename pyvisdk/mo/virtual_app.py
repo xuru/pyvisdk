@@ -64,9 +64,12 @@ class VirtualApp(ResourcePool):
         '''Creates a clone of this vApp.Any % (percent) character used in this name
         parameter must be escaped, unless it is used to start an escape sequence.
         Clients may also escape any other characters in this name parameter.When
-        invoking this method, the following privilege checks occur:Additional
-        privileges are required by the clone spec provided. See VAppCloneSpec for
-        details.
+        invoking this method, the following privilege checks occur:* The privilege
+        VApp.Clone is required on this vApp. * If the target is a resource pool, the
+        privilege Resource.AssignVAppToPool is required on it. * If the target is a
+        vApp, the privileges VApp.Clone and VApp.AssignVApp are required on
+        it.Additional privileges are required by the clone spec provided. See
+        VAppCloneSpec for details.
         
         :param name: The name of the new vApp.
         
@@ -141,13 +144,17 @@ class VirtualApp(ResourcePool):
         in a vApp with a cycle. For example, a vApp cannot be linked to itself.The
         removeSet must refer to managed entities that are currently linked children.
         Otherwise, an InvalidArgument exception is thrown.For each entity being linked,
-        the operation is subject to the following privilege checks:Privilege checks for
-        each entity in the removeSet are similar to the entities in the addChangeSet,
-        except that there is no target vApp.This operation is only transactional with
-        respect to each individual link change. The changes are processed sequentially
-        and committed one at a time. The addChangeSet is processed first, followed by
-        the removeSet. If a failure is detected, then the method terminates with an
-        exception.
+        the operation is subject to the following privilege checks:* If the object
+        being linked is a vApp, VApp.Move must be held on the vApp being linked and its
+        former parent vApp (if any). The privilege VApp.AssignVApp must be held on this
+        vApp. * If the object being linked is a VirtualMachine, VApp.AssignVM is
+        required on both the target vApp, the VirtualMachine, and its former parent
+        vApp (if any).Privilege checks for each entity in the removeSet are similar to
+        the entities in the addChangeSet, except that there is no target vApp.This
+        operation is only transactional with respect to each individual link change.
+        The changes are processed sequentially and committed one at a time. The
+        addChangeSet is processed first, followed by the removeSet. If a failure is
+        detected, then the method terminates with an exception.
         
         :param addChangeSet: a set of LinkInfo objects that either add a new link or modify an exisiting link.
         
