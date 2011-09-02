@@ -4,11 +4,11 @@ VirtualizationManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: Since
+**Since**
     
     VI API 2.5
     

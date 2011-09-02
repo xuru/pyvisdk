@@ -4,11 +4,11 @@ HostStorageSystem
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.host_config_manager.HostConfigManager`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.host_disk_partition_block_range.HostDiskPartitionBlockRange`,
     :py:class:`~pyvisdk.do.host_disk_partition_info.HostDiskPartitionInfo`,
@@ -35,7 +35,7 @@ HostStorageSystem
     :py:class:`~pyvisdk.do.host_vmfs_spec.HostVmfsSpec`,
     :py:class:`~pyvisdk.do.host_vmfs_volume.HostVmfsVolume`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject`
     

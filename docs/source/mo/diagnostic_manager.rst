@@ -4,11 +4,11 @@ DiagnosticManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.diagnostic_manager_bundle_info.DiagnosticManagerBundleInfo`,
     :py:class:`~pyvisdk.do.diagnostic_manager_log_descriptor.DiagnosticManagerLogDescriptor`,

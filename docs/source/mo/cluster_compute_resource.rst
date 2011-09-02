@@ -4,7 +4,7 @@ ClusterComputeResource
 ================================================================================
 
 
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.cluster_action_history.ClusterActionHistory`,
     :py:class:`~pyvisdk.do.cluster_config_info.ClusterConfigInfo`,
@@ -20,11 +20,11 @@ ClusterComputeResource
     :py:class:`~pyvisdk.do.resource_pool.ResourcePool`,
     :py:class:`~pyvisdk.do.virtual_machine.VirtualMachine`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.compute_resource.ComputeResource`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.create_cluster.CreateCluster`,
     :py:meth:`~pyvisdk.do.create_cluster_ex.CreateClusterEx`

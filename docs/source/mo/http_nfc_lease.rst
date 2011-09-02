@@ -4,11 +4,11 @@ HttpNfcLease
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.http_nfc_lease_info.HttpNfcLeaseInfo`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.http_nfc_lease_info.HttpNfcLeaseInfo`,
     :py:class:`~pyvisdk.do.http_nfc_lease_manifest_entry.HttpNfcLeaseManifestEntry`,
@@ -16,11 +16,11 @@ HttpNfcLease
     :py:class:`~pyvisdk.do.localized_method_fault.LocalizedMethodFault`,
     :py:class:`~pyvisdk.do.method_fault.MethodFault`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.0
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.export_v_app.ExportVApp`,
     :py:meth:`~pyvisdk.do.export_vm.ExportVm`,

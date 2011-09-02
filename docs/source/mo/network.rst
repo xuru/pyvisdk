@@ -4,7 +4,7 @@ Network
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.compute_resource.ComputeResource`,
     :py:class:`~pyvisdk.do.datacenter.Datacenter`,
@@ -19,17 +19,17 @@ Network
     :py:class:`~pyvisdk.do.virtual_ethernet_card_network_backing_info.VirtualEthernetCardNetworkBackingInfo`,
     :py:class:`~pyvisdk.do.virtual_machine.VirtualMachine`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.host_system.HostSystem`,
     :py:class:`~pyvisdk.do.network_summary.NetworkSummary`,
     :py:class:`~pyvisdk.do.virtual_machine.VirtualMachine`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`
     
-.. describe:: Extended by
+**Extended by**
     
     :py:class:`~pyvisdk.do.distributed_virtual_portgroup.DistributedVirtualPortgroup`
     

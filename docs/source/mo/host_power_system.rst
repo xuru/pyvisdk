@@ -4,16 +4,16 @@ HostPowerSystem
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.host_config_manager.HostConfigManager`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.power_system_capability.PowerSystemCapability`,
     :py:class:`~pyvisdk.do.power_system_info.PowerSystemInfo`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.1
     

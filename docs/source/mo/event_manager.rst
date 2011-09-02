@@ -4,11 +4,11 @@ EventManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.event.Event`,
     :py:class:`~pyvisdk.do.event_arg_desc.EventArgDesc`,

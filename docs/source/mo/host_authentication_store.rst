@@ -4,19 +4,19 @@ HostAuthenticationStore
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.host_authentication_manager.HostAuthenticationManager`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.host_authentication_store_info.HostAuthenticationStoreInfo`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.1
     
-.. describe:: Extended by
+**Extended by**
     
     :py:class:`~pyvisdk.do.host_directory_store.HostDirectoryStore`,
     :py:class:`~pyvisdk.do.host_local_authentication.HostLocalAuthentication`

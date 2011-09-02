@@ -4,16 +4,16 @@ PropertyFilter
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.property_collector.PropertyCollector`,
     :py:class:`~pyvisdk.do.property_filter_update.PropertyFilterUpdate`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.property_filter_spec.PropertyFilterSpec`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.create_filter.CreateFilter`
     

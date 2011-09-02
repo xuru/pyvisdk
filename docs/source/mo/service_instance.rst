@@ -4,7 +4,7 @@ ServiceInstance
 ================================================================================
 
 
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.capability.Capability`,
     :py:class:`~pyvisdk.do.event.Event`,

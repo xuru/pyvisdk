@@ -4,19 +4,19 @@ ListView
 ================================================================================
 
 
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.view.View`
     
-.. describe:: Since
+**Since**
     
     VI API 2.5
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.managed_object_view.ManagedObjectView`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.create_list_view.CreateListView`,
     :py:meth:`~pyvisdk.do.create_list_view_from_view.CreateListViewFromView`

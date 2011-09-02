@@ -4,13 +4,13 @@ HostDatastoreBrowser
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.datastore.Datastore`,
     :py:class:`~pyvisdk.do.environment_browser.EnvironmentBrowser`,
     :py:class:`~pyvisdk.do.host_system.HostSystem`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.datastore.Datastore`,
     :py:class:`~pyvisdk.do.file_query.FileQuery`,

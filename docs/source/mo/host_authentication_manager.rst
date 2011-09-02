@@ -4,16 +4,16 @@ HostAuthenticationManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.host_config_manager.HostConfigManager`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.host_authentication_manager_info.HostAuthenticationManagerInfo`,
     :py:class:`~pyvisdk.do.host_authentication_store.HostAuthenticationStore`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.1
     

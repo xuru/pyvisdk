@@ -4,11 +4,11 @@ HostActiveDirectoryAuthentication
 ================================================================================
 
 
-.. describe:: Since
+**Since**
     
     vSphere API 4.1
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.host_directory_store.HostDirectoryStore`
     

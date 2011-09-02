@@ -4,11 +4,11 @@ PerformanceManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.perf_composite_metric.PerfCompositeMetric`,
     :py:class:`~pyvisdk.do.perf_counter_info.PerfCounterInfo`,

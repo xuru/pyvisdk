@@ -4,11 +4,11 @@ CustomFieldsManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.custom_field_def.CustomFieldDef`,
     :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`,

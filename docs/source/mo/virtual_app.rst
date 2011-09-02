@@ -4,7 +4,7 @@ VirtualApp
 ================================================================================
 
 
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.datastore.Datastore`,
     :py:class:`~pyvisdk.do.folder.Folder`,
@@ -17,15 +17,15 @@ VirtualApp
     :py:class:`~pyvisdk.do.v_app_config_spec.VAppConfigSpec`,
     :py:class:`~pyvisdk.do.virtual_app_link_info.VirtualAppLinkInfo`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.0
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.resource_pool.ResourcePool`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.clone_v_app__task.CloneVApp_Task`,
     :py:meth:`~pyvisdk.do.create_v_app.CreateVApp`

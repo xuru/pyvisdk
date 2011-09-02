@@ -4,7 +4,7 @@ VirtualMachine
 ================================================================================
 
 
-.. describe:: Parameter to
+**Parameter to**
     
     :py:meth:`~pyvisdk.do.check_compatibility__task.CheckCompatibility_Task`,
     :py:meth:`~pyvisdk.do.check_migrate__task.CheckMigrate_Task`,
@@ -19,7 +19,7 @@ VirtualMachine
     :py:meth:`~pyvisdk.do.terminate_fault_tolerant_vm__task.TerminateFaultTolerantVM_Task`,
     :py:meth:`~pyvisdk.do.validate_migration.ValidateMigration`
     
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.auto_start_power_info.AutoStartPowerInfo`,
     :py:class:`~pyvisdk.do.cannot_change_drs_behavior_for_ft_secondary.CannotChangeDrsBehaviorForFtSecondary`,
@@ -59,7 +59,7 @@ VirtualMachine
     :py:class:`~pyvisdk.do.vm_event_argument.VmEventArgument`,
     :py:class:`~pyvisdk.do.vm_wwn_conflict.VmWwnConflict`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.customization_spec.CustomizationSpec`,
     :py:class:`~pyvisdk.do.datastore.Datastore`,
@@ -95,11 +95,11 @@ VirtualMachine
     :py:class:`~pyvisdk.do.virtual_machine_summary.VirtualMachineSummary`,
     :py:class:`~pyvisdk.do.virtual_machine_ticket.VirtualMachineTicket`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.clone_vm__task.CloneVM_Task`,
     :py:meth:`~pyvisdk.do.create_child_vm__task.CreateChildVM_Task`,

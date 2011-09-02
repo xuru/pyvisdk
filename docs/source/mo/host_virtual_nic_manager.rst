@@ -4,20 +4,20 @@ HostVirtualNicManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.host_config_manager.HostConfigManager`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.host_virtual_nic_manager_info.HostVirtualNicManagerInfo`,
     :py:class:`~pyvisdk.do.virtual_nic_manager_net_config.VirtualNicManagerNetConfig`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.0
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject`
     

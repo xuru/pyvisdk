@@ -4,12 +4,12 @@ VirtualMachineSnapshot
 ================================================================================
 
 
-.. describe:: Parameter to
+**Parameter to**
     
     :py:meth:`~pyvisdk.do.query_changed_disk_areas.QueryChangedDiskAreas`,
     :py:meth:`~pyvisdk.do.start_replaying__task.StartReplaying_Task`
     
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.virtual_machine.VirtualMachine`,
     :py:class:`~pyvisdk.do.virtual_machine_clone_spec.VirtualMachineCloneSpec`,
@@ -19,17 +19,17 @@ VirtualMachineSnapshot
     :py:class:`~pyvisdk.do.virtual_machine_snapshot_info.VirtualMachineSnapshotInfo`,
     :py:class:`~pyvisdk.do.virtual_machine_snapshot_tree.VirtualMachineSnapshotTree`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.host_system.HostSystem`,
     :py:class:`~pyvisdk.do.virtual_machine_config_info.VirtualMachineConfigInfo`,
     :py:class:`~pyvisdk.do..`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.create_snapshot__task.CreateSnapshot_Task`,
     :py:meth:`~pyvisdk.do.start_recording__task.StartRecording_Task`

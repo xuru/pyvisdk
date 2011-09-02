@@ -4,15 +4,15 @@ HostHealthStatusSystem
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.host_config_manager.HostConfigManager`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.health_system_runtime.HealthSystemRuntime`
     
-.. describe:: Since
+**Since**
     
     VI API 2.5
     

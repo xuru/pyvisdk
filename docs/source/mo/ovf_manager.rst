@@ -4,11 +4,11 @@ OvfManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.datastore.Datastore`,
     :py:class:`~pyvisdk.do.host_system.HostSystem`,
@@ -23,7 +23,7 @@ OvfManager
     :py:class:`~pyvisdk.do.ovf_validate_host_result.OvfValidateHostResult`,
     :py:class:`~pyvisdk.do.resource_pool.ResourcePool`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.0
     

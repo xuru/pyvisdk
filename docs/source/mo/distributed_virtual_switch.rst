@@ -4,7 +4,7 @@ DistributedVirtualSwitch
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.distributed_virtual_switch_info.DistributedVirtualSwitchInfo`,
     :py:class:`~pyvisdk.do.distributed_virtual_switch_manager_dvs_product_spec.DistributedVirtualSwitchManagerDvsProductSpec`,
@@ -12,30 +12,30 @@ DistributedVirtualSwitch
     :py:class:`~pyvisdk.do.dv_portgroup_config_info.DVPortgroupConfigInfo`,
     :py:class:`~pyvisdk.do.dvs_event_argument.DvsEventArgument`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.0
     
-.. describe:: Extended by
+**Extended by**
     
     :py:class:`~pyvisdk.do.vmware_distributed_virtual_switch.VmwareDistributedVirtualSwitch`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.create_dvs__task.CreateDVS_Task`,
     :py:meth:`~pyvisdk.do.query_dvs_by_uuid.QueryDvsByUuid`
     
-.. describe:: Parameter to
+**Parameter to**
     
     :py:meth:`~pyvisdk.do.merge_dvs__task.MergeDvs_Task`,
     :py:meth:`~pyvisdk.do.query_compatible_host_for_existing_dvs.QueryCompatibleHostForExistingDvs`,
     :py:meth:`~pyvisdk.do.query_dvs_config_target.QueryDvsConfigTarget`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.distributed_virtual_port.DistributedVirtualPort`,
     :py:class:`~pyvisdk.do.distributed_virtual_portgroup.DistributedVirtualPortgroup`,

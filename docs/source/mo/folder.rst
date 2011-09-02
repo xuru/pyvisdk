@@ -4,13 +4,13 @@ Folder
 ================================================================================
 
 
-.. describe:: Parameter to
+**Parameter to**
     
     :py:meth:`~pyvisdk.do.clone_vm__task.CloneVM_Task`,
     :py:meth:`~pyvisdk.do.create_v_app.CreateVApp`,
     :py:meth:`~pyvisdk.do.import_v_app.ImportVApp`
     
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.datacenter.Datacenter`,
     :py:class:`~pyvisdk.do.folder_event_argument.FolderEventArgument`,
@@ -19,7 +19,7 @@ Folder
     :py:class:`~pyvisdk.do.v_app_clone_spec.VAppCloneSpec`,
     :py:class:`~pyvisdk.do.virtual_app.VirtualApp`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.cluster_compute_resource.ClusterComputeResource`,
     :py:class:`~pyvisdk.do.cluster_config_spec.ClusterConfigSpec`,
@@ -36,11 +36,11 @@ Folder
     :py:class:`~pyvisdk.do.virtual_machine.VirtualMachine`,
     :py:class:`~pyvisdk.do.virtual_machine_config_spec.VirtualMachineConfigSpec`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.create_folder.CreateFolder`
     

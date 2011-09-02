@@ -4,23 +4,23 @@ DistributedVirtualPortgroup
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.distributed_virtual_portgroup_info.DistributedVirtualPortgroupInfo`,
     :py:class:`~pyvisdk.do.distributed_virtual_switch.DistributedVirtualSwitch`,
     :py:class:`~pyvisdk.do.dvs_config_info.DVSConfigInfo`,
     :py:class:`~pyvisdk.do.dvs_config_spec.DVSConfigSpec`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.dv_portgroup_config_info.DVPortgroupConfigInfo`,
     :py:class:`~pyvisdk.do.dv_portgroup_config_spec.DVPortgroupConfigSpec`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.0
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.network.Network`
     

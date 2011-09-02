@@ -4,12 +4,12 @@ OptionManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.host_config_manager.HostConfigManager`,
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.option_def.OptionDef`,
     :py:class:`~pyvisdk.do.option_value.OptionValue`

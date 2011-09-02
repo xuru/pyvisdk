@@ -4,11 +4,11 @@ HostNetworkSystem
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.host_config_manager.HostConfigManager`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.host_dns_config.HostDnsConfig`,
     :py:class:`~pyvisdk.do.host_ip_route_config.HostIpRouteConfig`,
@@ -24,7 +24,7 @@ HostNetworkSystem
     :py:class:`~pyvisdk.do.physical_nic_hint_info.PhysicalNicHintInfo`,
     :py:class:`~pyvisdk.do.physical_nic_link_info.PhysicalNicLinkInfo`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.extensible_managed_object.ExtensibleManagedObject`
     

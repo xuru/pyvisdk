@@ -4,11 +4,11 @@ ViewManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.container_view.ContainerView`,
     :py:class:`~pyvisdk.do.inventory_view.InventoryView`,
@@ -16,7 +16,7 @@ ViewManager
     :py:class:`~pyvisdk.do.managed_entity.ManagedEntity`,
     :py:class:`~pyvisdk.do.view.View`
     
-.. describe:: Since
+**Since**
     
     VI API 2.5
     

@@ -4,11 +4,11 @@ HostProfileManager
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.service_content.ServiceContent`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.apply_profile.ApplyProfile`,
     :py:class:`~pyvisdk.do.host_config_spec.HostConfigSpec`,
@@ -16,11 +16,11 @@ HostProfileManager
     :py:class:`~pyvisdk.do.host_system.HostSystem`,
     :py:class:`~pyvisdk.do.profile_metadata.ProfileMetadata`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.0
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.profile_manager.ProfileManager`
     

@@ -4,15 +4,15 @@ ClusterProfile
 ================================================================================
 
 
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.cluster_profile_config_spec.ClusterProfileConfigSpec`
     
-.. describe:: Since
+**Since**
     
     vSphere API 4.0
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.profile.Profile`
     

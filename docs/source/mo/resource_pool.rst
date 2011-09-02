@@ -4,7 +4,7 @@ ResourcePool
 ================================================================================
 
 
-.. describe:: Property of
+**Property of**
     
     :py:class:`~pyvisdk.do.cluster_initial_placement_action.ClusterInitialPlacementAction`,
     :py:class:`~pyvisdk.do.compute_resource.ComputeResource`,
@@ -16,19 +16,19 @@ ResourcePool
     :py:class:`~pyvisdk.do.virtual_machine_import_spec.VirtualMachineImportSpec`,
     :py:class:`~pyvisdk.do.virtual_machine_relocate_spec.VirtualMachineRelocateSpec`
     
-.. describe:: Extended by
+**Extended by**
     
     :py:class:`~pyvisdk.do.virtual_app.VirtualApp`
     
-.. describe:: Extends
+**Extends**
     
     :py:class:`~pyvisdk.mo.managed_entity.ManagedEntity`
     
-.. describe:: Returned by
+**Returned by**
     
     :py:meth:`~pyvisdk.do.create_resource_pool.CreateResourcePool`
     
-.. describe:: Parameter to
+**Parameter to**
     
     :py:meth:`~pyvisdk.do.add_host__task.AddHost_Task`,
     :py:meth:`~pyvisdk.do.check_compatibility__task.CheckCompatibility_Task`,
@@ -43,7 +43,7 @@ ResourcePool
     :py:meth:`~pyvisdk.do.register_vm__task.RegisterVM_Task`,
     :py:meth:`~pyvisdk.do.validate_migration.ValidateMigration`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.compute_resource.ComputeResource`,
     :py:class:`~pyvisdk.do.folder.Folder`,

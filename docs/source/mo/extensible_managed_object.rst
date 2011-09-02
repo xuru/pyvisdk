@@ -4,7 +4,7 @@ ExtensibleManagedObject
 ================================================================================
 
 
-.. describe:: Extended by
+**Extended by**
     
     :py:class:`~pyvisdk.do.alarm.Alarm`,
     :py:class:`~pyvisdk.do.host_cpu_scheduler_system.HostCpuSchedulerSystem`,
@@ -21,7 +21,7 @@ ExtensibleManagedObject
     :py:class:`~pyvisdk.do.task.Task`,
     :py:class:`~pyvisdk.do.virtual_machine_snapshot.VirtualMachineSnapshot`
     
-.. describe:: See also
+**See also**
     
     :py:class:`~pyvisdk.do.custom_field_def.CustomFieldDef`,
     :py:class:`~pyvisdk.do.custom_field_value.CustomFieldValue`
