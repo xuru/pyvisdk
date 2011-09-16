@@ -28,7 +28,8 @@ pyvisdk - vSphere SDK  for Python
 from distutils.core import setup
 import os.path
 
-version = open(os.path.join("pyvisdk", "__init__.py")).readline().split()[-1].strip("'")
+location = os.path.abspath(os.path.dirname(__file__))
+version = open(os.path.join(location, "pyvisdk", "__init__.py")).readline().split()[-1].strip("'")
 
 # we need to make sure we have these to python modules in our path
 install_requires = ["suds", "dataflake.cache", "enum"]
