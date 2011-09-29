@@ -401,7 +401,7 @@ class VimBase(object):
         updateset = self.property_collector.WaitForUpdates(version)
         
         status = self._parseTaskResponse(updateset)
-        while status['info.state'] == TaskInfoState.running or status['info.state'] == TaskInfoState.queued: #@UndefinedVariable
+        while status['info.state'] in ['running', 'queued']: #@UndefinedVariable
             log.debug("Waiting for task to complete...")
             
             version = updateset.version
