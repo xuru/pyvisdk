@@ -121,7 +121,16 @@ class Vim(pyvisdk.core.VimBase):
         :rtype: :py:class:`Datacenter`
         """
         return self.getDecendentsByName(_type=ManagedObjectTypes.Datacenter, properties=["name"], name=_name) #@UndefinedVariable
-
+    
+    #------------------------------------------------------------
+    # Resource pool
+    #------------------------------------------------------------
+    def getResourcePools(self):
+        return self.getDecendentsByName(_type=ManagedObjectTypes.ResourcePool, properties=["name"]) #@UndefinedVariable
+    
+    def getResourcePool(self, _name):
+        return self.getDecendentsByName(_type=ManagedObjectTypes.ResourcePool, properties=["name"], name=_name) #@UndefinedVariable
+    
     #------------------------------------------------------------
     # Virtual Machines
     #------------------------------------------------------------
