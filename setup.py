@@ -25,14 +25,14 @@
 pyvisdk - vSphere SDK  for Python
 '''
 
-from distutils.core import setup
+from setuptools import setup, find_packages
 import os.path
 
 location = os.path.abspath(os.path.dirname(__file__))
 version = open(os.path.join(location, "pyvisdk", "__init__.py")).readline().split()[-1].strip("'")
 
 # we need to make sure we have these to python modules in our path
-install_requires = ["suds", "dataflake.cache", "enum"]
+install_requires = ["suds>=0.4", "dataflake.cache", "importlib", "enum"]
 
 setup( 
     name = 'pyvisdk',
@@ -44,7 +44,7 @@ setup(
     url = "https://github.com/xuru/pyvisdk",
     license = "MIT",
     install_requires = install_requires,
-    packages = ["pyvisdk", "pyvisdk.mo"],
+    packages = ["pyvisdk", "pyvisdk.mo", "pyvisdk.base", "pyvisdk.do", "pyvisdk.enums", "pyvisdk.thirdparty"],
     package_data = {'pyvisdk': ['wsdl/*']},
     
     classifiers = ['Development Status :: 4 - Beta',
@@ -55,6 +55,8 @@ setup(
                    'Programming Language :: Python',
                    'Topic :: Software Development :: Libraries :: Python Modules',
                    ],
+    
+    include_package_data=True,
     )
 
 

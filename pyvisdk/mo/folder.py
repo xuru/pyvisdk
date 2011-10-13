@@ -140,7 +140,7 @@ class Folder(ManagedEntity):
         '''
         return self.delegate("CreateFolder")(name)
     
-    def CreateVM_Task(self, config, pool, host):
+    def CreateVM_Task(self, config, pool, host=None):
         '''Creates a new virtual machine in the current folder and attaches it to the
         specified resource pool. This operation creates a virtual machine, instead of
         cloning a virtual machine from an existing one.The server does not support

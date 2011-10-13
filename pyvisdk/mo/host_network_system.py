@@ -57,11 +57,11 @@ class HostNetworkSystem(ExtensibleManagedObject):
     
     
     
-    def AddPortGroup(self):
+    def AddPortGroup(self, host_port_group_spec):
         '''Adds a port group to the virtual switch.
         
         '''
-        return self.delegate("AddPortGroup")()
+        return self.delegate("AddPortGroup")(host_port_group_spec)
     
     def AddServiceConsoleVirtualNic(self, portgroup, nic):
         '''Adds a virtual service console network adapter. Returns the device of the
