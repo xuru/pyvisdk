@@ -368,7 +368,7 @@ class VirtualMachine(ManagedEntity):
         '''
         return self.delegate("PowerOffVM_Task")()
     
-    def PowerOnVM_Task(self, host):
+    def PowerOnVM_Task(self, host=None):
         '''Powers on this virtual machine. If the virtual machine is suspended, this
         method resumes execution from the suspend point.When powering on a virtual
         machine in a cluster, the system might implicitly or due to the host argument,
