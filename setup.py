@@ -32,7 +32,7 @@ location = os.path.abspath(os.path.dirname(__file__))
 version = open(os.path.join(location, "pyvisdk", "__init__.py")).readline().split()[-1].strip("'")
 
 # we need to make sure we have these to python modules in our path
-install_requires = ["suds>=0.4", "dataflake.cache", "importlib", "enum"]
+install_requires = ["suds>=0.4", "dataflake.cache", "enum"]
 
 setup( 
     name = 'pyvisdk',
