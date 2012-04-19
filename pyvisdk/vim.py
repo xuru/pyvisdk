@@ -14,25 +14,25 @@ import pyvisdk.core
 log = logging.getLogger(__name__)
 
 class Vim(pyvisdk.core.VimBase):
-    def __init__(self, server, connect=True, verbose=3):
-        super(Vim, self).__init__(server, connect, verbose)
+    def __init__(self, server, connect=True, verbose=3, certfile=None, keyfile=None):
+        super(Vim, self).__init__(server, connect, verbose, certfile, keyfile)
         self.loggedin = False
         self.username = None
         self.password = None
-        
+
     def login(self, username, password, locale=None):
         """
         Log into the vmware server.
         """
         self.username = username
         self.password = password
-        
+
         if not locale:
             if hasattr(self.session_manager, 'defaultLocale'):
                 locale = self.session_manager.defaultLocale
             else:
                 locale = 'en_US'
-        
+
         if self.verbose > 5:
             self.displayAbout()
 
@@ -56,10 +56,10 @@ class Vim(pyvisdk.core.VimBase):
             self.logout()
         except Exception:
             pass
-            
+
         if self.username and self.password:
             self.login(self.username, self.password)
-        
+
     def displayAbout(self):
         """
         Display version information about the vmware server and library
@@ -74,7 +74,7 @@ class Vim(pyvisdk.core.VimBase):
         for session in self.session_manager.sessionList:
             print "%-30s %-20s Last Active: %-20s Logged In: %-20s" % ("%s(%s)" % (session.fullName, session.userName), session.key, session.lastActiveType, session.loginTime)
         print "=" * 40
-        
+
     def getApiType(self):
         """
         Get the API type
@@ -94,7 +94,7 @@ class Vim(pyvisdk.core.VimBase):
         :rtype: :py:class:`HostSystem`
         """
         return self.getDecendentsByName(_type=ManagedObjectTypes.HostSystem, properties=["name"]) #@UndefinedVariable
-    
+
     def getHostSystem(self, _name=None):
         """
         Get the host system by name
@@ -102,7 +102,7 @@ class Vim(pyvisdk.core.VimBase):
         :rtype: :py:class:`HostSystem`
         """
         return self.getDecendentsByName(_type=ManagedObjectTypes.HostSystem, properties=["name"], name=_name) #@UndefinedVariable
-    
+
     #------------------------------------------------------------
     # Datacenters
     #------------------------------------------------------------
@@ -113,7 +113,7 @@ class Vim(pyvisdk.core.VimBase):
         :rtype: :py:class:`Datacenter`
         """
         return self.getDecendentsByName(_type=ManagedObjectTypes.Datacenter, properties=["name"]) #@UndefinedVariable
-    
+
     def getDatacenter(self, _name):
         """
         Get the data center by name
@@ -121,16 +121,16 @@ class Vim(pyvisdk.core.VimBase):
         :rtype: :py:class:`Datacenter`
         """
         return self.getDecendentsByName(_type=ManagedObjectTypes.Datacenter, properties=["name"], name=_name) #@UndefinedVariable
-    
+
     #------------------------------------------------------------
     # Resource pool
     #------------------------------------------------------------
     def getResourcePools(self):
         return self.getDecendentsByName(_type=ManagedObjectTypes.ResourcePool, properties=["name"]) #@UndefinedVariable
-    
+
     def getResourcePool(self, _name):
         return self.getDecendentsByName(_type=ManagedObjectTypes.ResourcePool, properties=["name"], name=_name) #@UndefinedVariable
-    
+
     #------------------------------------------------------------
     # Virtual Machines
     #------------------------------------------------------------
@@ -141,7 +141,7 @@ class Vim(pyvisdk.core.VimBase):
         :rtype: :py:class:`VirtualMachine`
         """
         return self.getDecendentsByName(_type=ManagedObjectTypes.VirtualMachine, properties=["name", "runtime.powerState"], name=_name) #@UndefinedVariable
-        
+
     def getVirtualMachines(self):
         """
         Get all the virtual machines on the server
@@ -149,15 +149,15 @@ class Vim(pyvisdk.core.VimBase):
         :rtype: :py:class:`VirtualMachine`
         """
         return self.getDecendentsByName(_type=ManagedObjectTypes.VirtualMachine, properties=["name", "runtime.powerState"]) #@UndefinedVariable
-   
+
     #------------------------------------------------------------
     # Hierarchy
     #------------------------------------------------------------
     def _getHierarchy(self):
         mo = self.getContentsRecursively(props=["configIssue", "configStatus", "name", "parent"])
         return mo
-    
-       
+
+
 if __name__ == '__main__':
     from optparse import OptionParser
     import sys
@@ -168,7 +168,7 @@ if __name__ == '__main__':
 
       This program will dump the containers of the ESX environment from the host specified with
       the -s option.'''
-    
+
     parser = OptionParser(usage=usage)
     parser.add_option('-s', '--server', dest='server',
                   help='Specify the vCenter to connect to')
@@ -189,21 +189,21 @@ if __name__ == '__main__':
     print "Connecting to " + options.server
     vim = Vim(options.server, verbose=3)
     vim.login(options.username, options.password)
-    
+
     vms = vim.getAllVirtualMachineRefs()
     for ref in vms:
         name = ref.propSet[0].val
         power = ref.propSet[1].val
         print "%-20s %s" % (name, power)
-            
+
         vm = vim.getVirtualMachine(name)
         sname = vm.createSnapshot()
         print sname
-        
+
         snap = vm.getSnapshotByName(sname)
         print snap
         break
-    
+
     vim.logout()
 
 

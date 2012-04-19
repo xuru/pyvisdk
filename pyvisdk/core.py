@@ -27,12 +27,14 @@ from pyvisdk.exceptions import VisdkTaskError
 from pyvisdk.mo.service_instance import ServiceInstance
 from pyvisdk.mo.folder import Folder
 from pyvisdk.utils import camel_to_under
+from pyvisdk.transport import HttpAuthenticated
 
 fmt = "[%(asctime)s][%(levelname)-8s] %(module)s.%(funcName)s:%(lineno)d %(message)s"
 logging.basicConfig(level=logging.INFO, format=fmt)
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
 
+HTTP_TUNNEL = 'sdkTunnel:8089'
 
 class VimBase(object):
     '''
@@ -40,37 +42,44 @@ class VimBase(object):
     '''
 
 
-    def __init__(self, server, connect=True, verbose=3):
+    def __init__(self, server, connect=True, verbose=3, certfile=None, keyfile=None):
         '''
         Constructor
         '''
         self.server = server
         self.verbose = verbose
         self.connected = False
-        
+        self.certfile = certfile
+        self.keyfile = keyfile
+        if certfile and keyfile:
+            self.server = HTTP_TUNNEL
+            self.proxy = '%s:80' % server
+        self.proxy = None
+
         self.listeners = {}
         for me in ManagedObjectTypes:
             self.listeners[me] = []
-         
+
         # setup logging...
         logging.getLogger('suds.client').setLevel(logging.INFO)
         logging.getLogger('suds.wsdl').setLevel(logging.INFO)
         logging.getLogger('suds.transport').setLevel(logging.INFO)
         logging.getLogger('suds.xsd.schema').setLevel(logging.INFO)
-       
+
         if self.verbose > 5:
             logging.getLogger('suds.client').setLevel(logging.DEBUG)
             logging.getLogger('suds.transport').setLevel(logging.DEBUG)
-        
+
         if connect:
             self.connect()
-        
+
     def connect(self, timeout=1800):
         if self.connected:
             return
-        
+
         self.client = Client(self.server, timeout=timeout)
-        
+        transport = HttpAuthenticated(proxy=self.proxy, certfile=self.certfile, keyfile=self.keyfile)
+        self.client.client.set_options(transport=transport)
         # create the Service Instance managed object
         ref = Property('ServiceInstance')
         ref._type = 'ServiceInstance'
@@ -83,16 +92,16 @@ class VimBase(object):
 
         self.root = self.service_content.rootFolder
         self.connected = True
-    
+
     def getVersions(self):
         versions = []
-        
+
         def get_namespace_name(elem):
             for child in list(elem):
                 if child.tag == "name":
                     return child.text
-            
-        url = urllib2.urlopen("https://"+self.server+"/sdk/vimServiceVersions.xml")
+
+        url = urllib2.urlopen("https://" + self.server + "/sdk/vimServiceVersions.xml")
         root = etree.fromstring(url.read())
         names = root.findall(".//namespace")
         for namesp in names:
@@ -115,11 +124,11 @@ class VimBase(object):
         all = False
         if not properties:
             all = True
-        
+
         pspec = PropertySpec(self, all=all, type=mobj._type, pathSet=properties)
         ospec = ObjectSpec(self, obj=ManagedObjectReference(mobj._type, mobj.value), skip=False)
         spec = PropertyFilterSpec(self, propSet=[pspec], objectSet=[ospec])
-        
+
         obj_content = self.property_collector.RetrieveProperties([spec])
         return self._parse_object_content(obj_content, parent=parent)
 
@@ -151,39 +160,39 @@ class VimBase(object):
                     return obj
 
     def getContentsRecursively(self, props=[], _type=None, collector=None, root=None, recurse=True):
-        if not collector: 
+        if not collector:
             collector = self.property_collector
-        if not root: 
+        if not root:
             root = self.root
-        if not _type: 
+        if not _type:
             _type = ManagedObjectTypes.ManagedEntity #@UndefinedVariable
-            
+
         pspec = PropertySpec(self, type=str(_type), pathSet=props)
         typeinfo = [ pspec ]
 
         selectionSpecs = []
         if recurse:
             selectionSpecs = self._buildFullTraversal()
-         
+
         spec = PropertyFilterSpec(self, propSet=typeinfo, objectSet=[ ObjectSpec(self, root.ref, selectSet=selectionSpecs) ])
         obj_content = self.property_collector.RetrieveProperties([spec])
         return self._parse_object_content(obj_content)
-    
+
     def _parse_object_content(self, obj_content, parent=None):
         rv = None
         class_name = obj_content.__class__.__name__
-        class_name_upper = class_name[0].upper()+class_name[1:]
+        class_name_upper = class_name[0].upper() + class_name[1:]
         if isinstance(obj_content, list):
             rv = []
             for obj in obj_content:
-                rv.append( self._parse_object_content(obj, parent) )
-        
+                rv.append(self._parse_object_content(obj, parent))
+
         elif type(obj_content) == types.NoneType:
             return obj_content
-        
+
         elif issubclass(obj_content.__class__, pyvisdk.base.base_entity.BaseEntity):
             rv = obj_content
-            
+
         elif class_name == 'ObjectContent':
             # create the managed object
             if not parent:
@@ -196,74 +205,74 @@ class VimBase(object):
                         rv.append(self._parse_object_content(prop.val))
                 if len(rv) == 1:
                     rv = rv[0]
-                
+
         elif class_name == "ManagedObjectReference":
             # managed object reference is too generic, so we get to the real type
             mo_f = eval('pyvisdk.mo.%s' % obj_content._type)
             rv = mo_f(self, ref=obj_content)
-            
+
         elif class_name in DataObjectTypes:
             rv = self._create_do_obj(class_name, obj_content, parent)
-            
+
         elif class_name == 'Text':
             rv = str(obj_content)
-            
+
         elif class_name in ['long', 'bool', 'int', 'datetime', 'str']:
             return obj_content
-       
+
         elif "ArrayOf" in class_name:
             rv = []
             _type = class_name[7:]
             _list = getattr(obj_content, _type)
             for obj in _list:
-                rv.append( self._parse_object_content(obj, parent) )
-                
+                rv.append(self._parse_object_content(obj, parent))
+
         elif hasattr(obj_content, 'value') and hasattr(obj_content, '_type'):
             name = obj_content._type
             mod_name = 'pyvisdk.mo.%s' % camel_to_under(name)
             importlib.import_module(mod_name)
             mo = eval('%s.%s' % (mod_name, name))
             rv = mo(self, ref=obj_content)
-            
+
         # TODO: ArrayOf....  ArrayOfManagedObjectReference ArrayOfAlarmState ArrayOfString ArrayOfInt ArrayOfPermission
         # TODO: val datetime datastore  entity host vm key
-       
+
         elif class_name_upper in DataObjectTypes:
             rv = self._create_do_obj(class_name_upper, obj_content, parent)
-            
+
         #elif class_name_upper in ManagedObjectTypes:
         #    rv = self._create_mo_obj(class_name_upper, obj_content, parent)
-            
+
         else:
             log.warning("Unknown content type: %s" % class_name)
             rv = obj_content
-        
+
         return rv
-        
+
     def _create_do_obj(self, class_name, obj_content, parent):
         mod_name = 'pyvisdk.do.%s' % camel_to_under(class_name)
         importlib.import_module(mod_name)
         do = eval('%s.%s' % (mod_name, class_name))
-            
+
         kwargs = {}
         for attr_name in filter(lambda x: not x.startswith('_'), dir(obj_content)):
             attr_data = eval('obj_content.%s' % attr_name)
             kwargs[attr_name] = self._parse_object_content(attr_data, parent=do)
-            
+
         rv = do(self, **kwargs)
         return rv
- 
+
     def _create_mo_obj(self, class_name, obj_content, parent):
         mo_f = eval('pyvisdk.mo.%s' % obj_content.obj._type)
         rv = mo_f(self, ref=obj_content.obj)
-        
+
         # now, run through the propSet
         #if hasattr(obj_content, "propSet"):
         #    for prop in obj_content.propSet:
         #        # for each prop of the new object, create any data/managed objects
         #        setattr(rv, prop.name, self._parse_object_content(prop.val, parent=rv))
         return rv
- 
+
     def _buildFullTraversal(self):
         """
          * This method creates a SelectionSpec[] to traverses the entire inventory
@@ -284,7 +293,7 @@ class VimBase(object):
 
         # Traversal through host branch
         crToH = TraversalSpec(self, name="crToH", type=ManagedObjectTypes.ComputeResource, path="host") #@UndefinedVariable
-        
+
         # Traversal through hostFolder branch
         dcToHf = TraversalSpec(self, name="dcToHf", type=ManagedObjectTypes.Datacenter, path="hostFolder", #@UndefinedVariable
                         selectSet=[SelectionSpec(self, name="visitFolders")])
@@ -296,7 +305,7 @@ class VimBase(object):
         # Recurse through all Hosts
         HToVm = TraversalSpec(self, name="HToVm", type=ManagedObjectTypes.HostSystem, path="vm", #@UndefinedVariable
                         selectSet=[SelectionSpec(self, name="visitFolders")])
-        
+
         # Recurse through the folders
         visitFolders = TraversalSpec(self, name="visitFolders", type=ManagedObjectTypes.Folder, path="childEntity", #@UndefinedVariable
                         selectSet=[ SelectionSpec(self, name="visitFolders"),
@@ -306,24 +315,24 @@ class VimBase(object):
                                      SelectionSpec(self, name="crToRp"),
                                      SelectionSpec(self, name="HToVm"),
                                      SelectionSpec(self, name="rpToVm"), ])
-        
+
         return (visitFolders, dcToVmf, dcToHf, crToH, crToRp, rpToRp, HToVm, rpToVm)
- 
-         
+
+
     #############################################################
     # untested...
     #############################################################
     def callRetrievePropertiesEx(self, maxObjects=0):
         myPropSpec = PropertySpec(self, all=False, type=ManagedObjectTypes.VirtualMachine, pathSet=["name"]) #@UndefinedVariable
-       
+
         myObjSpec = ObjectSpec(self, self.root.ref, selectSet=self._buildFullTraversal())
-       
+
         pSpec = PropertyFilterSpec(self, propSet=[myPropSpec], objectSet=[myObjSpec])
-       
+
         rOptions = RetrieveOptions(int(maxObjects))
-      
+
         retrieveResult = self.property_collector.RetrieveProperties([pSpec], rOptions)
-      
+
         #objContentArrayList = Arrays.asList(retrieveResult.getObjects())
         #if(retrieveResult.getToken() != null && maxObjects == null) {
         #   callContinueRetrieveProperties(retrieveResult.getToken())
@@ -333,7 +342,7 @@ class VimBase(object):
         #   System.out.println("VM Managed Object Reference Value: " + objectContentArray[i].getObj().get_value());
         #}
         return retrieveResult
-    
+
     #############################################################
     #* Illustrating how to create, use and destroy additional property collectors
     #* This allows multiple modules to create their own property filter and process updates independently.
@@ -342,51 +351,51 @@ class VimBase(object):
     #############################################################
     def callCreatePropertyCollectorEx(self):
         collector = self.property_collector.CreatePropertyCollector()
-        
+
         if self.verbose > 5:
             log.debug(str(collector))
-      
-        pSpec = PropertyFilterSpec(self, 
+
+        pSpec = PropertyFilterSpec(self,
                 propSet=[
                     PropertySpec(self, type=ManagedObjectTypes.VirtualMachine, all=False, pathSet=["configIssue", "configStatus", "name", "parent"]) #@UndefinedVariable
                 ],
                 objectSet=[
                     ObjectSpec(self, self.root.ref, selectSet=self._buildFullTraversal())
                 ])
-         
+
         rOptions = RetrieveOptions(maxObjects=0)
-        
+
         retrieveResult = collector.RetrievePropertiesEx(pSpec, rOptions)
         collector.DestroyPropertyCollector()
         return retrieveResult
-         
+
     def update(self, _type="", root=None, properties=[], version="", wait_time=2):
-        if not root: 
+        if not root:
             root = self.root
-        
-        pSpec = PropertyFilterSpec(self, 
-                propSet=[PropertySpec(self, type=_type, pathSet=properties)], 
+
+        pSpec = PropertyFilterSpec(self,
+                propSet=[PropertySpec(self, type=_type, pathSet=properties)],
                 objectSet=[ObjectSpec(self, root.ref)])
-        
+
         filter = self.property_collector.CreateFilter(pSpec, partialUpdates=False)
-        
+
         changeData = self.property_collector.CheckForUpdates(version=version)
-        
+
         # Destroy the filter when we are done.
         filter.DestroyPropertyFilter()
-        
+
         if hasattr(changeData, "filterSet"):
             changeData = changeData.filterSet[0].objectSet[0]
-            
+
         if hasattr(changeData, "changeSet"):
             changeData = changeData.changeSet
-            
+
         return changeData, version
-   
+
     #############################################################
     # end untested...
     #############################################################
-    
+
     def waitForTask(self, objmor):
         version = ""
 
@@ -397,28 +406,28 @@ class VimBase(object):
         pSpec = PropertyFilterSpec(self, propSet=[myPropSpec], objectSet=[myObjSpec])
 
         filter = self.property_collector.CreateFilter(pSpec, partialUpdates=True)
-        
+
         updateset = self.property_collector.WaitForUpdates(version)
-        
+
         status = self._parseTaskResponse(updateset)
         while status['info.state'] in ['running', 'queued']: #@UndefinedVariable
             log.debug("Waiting for task to complete...")
-            
+
             version = updateset.version
             updateset = self.property_collector.WaitForUpdates(version)
             status = self._parseTaskResponse(updateset)
             log.debug("**** status: %s" % status)
             time.sleep(0.1)
-        
+
         log.debug("Finished task...")
         # Destroy the filter when we are done.
         filter.DestroyPropertyFilter()
-        
+
         if status['info.state'] == TaskInfoState.error: #@UndefinedVariable
             error = status['info.error']
             raise VisdkTaskError(error.localizedMessage)
         return status['info.state']
-    
+
     def _parseTaskResponse(self, response):
         status = {}
         for x in response.filterSet[0].objectSet[0].changeSet:
@@ -427,10 +436,10 @@ class VimBase(object):
             else:
                 status[x.name] = x.op
         return status
-      
-        
-        
-        
-        
-    
-    
+
+
+
+
+
+
+
