@@ -30,16 +30,16 @@ class HTTPSClientAuthHandler(urllib2.HTTPSHandler):
         return HTTPSConnection(host, key_file=self.key, cert_file=self.cert)
 
 class HttpAuthenticated(suds.client.HttpAuthenticated):
-    def __init__(self, **kwargs):
-        self.certfile = kwargs.pop('certfile', None)
-        self.keyfile = kwargs.pop('keyfile', None)
-        self.proxy = kwargs.pop('proxy', None)
+    def __init__(self, certfile=None, keyfile=None, proxy=None, **kwargs):
         suds.client.HttpAuthenticated.__init__(self, **kwargs)
+        self._certfile = certfile
+        self._keyfile = keyfile
+        self._proxy = proxy
 
     def u2handlers(self):
         handlers = suds.client.HttpAuthenticated.u2handlers(self)
-        if self.certfile and self.keyfile:
-            handlers.append(urllib2.ProxyHandler({'https':self.proxy}))
-            handlers.append(HTTPSClientAuthHandler(self.keyfile,
-                                                   self.certfile))
+        if self._certfile and self._keyfile:
+            handlers.append(urllib2.ProxyHandler({'https':self._proxy}))
+            handlers.append(HTTPSClientAuthHandler(self._keyfile,
+                                                   self._certfile))
         return handlers

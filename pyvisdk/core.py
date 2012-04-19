@@ -51,10 +51,10 @@ class VimBase(object):
         self.connected = False
         self.certfile = certfile
         self.keyfile = keyfile
+        self.proxy = None
         if certfile and keyfile:
             self.server = HTTP_TUNNEL
             self.proxy = '%s:80' % server
-        self.proxy = None
 
         self.listeners = {}
         for me in ManagedObjectTypes:

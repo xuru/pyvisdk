@@ -41,6 +41,25 @@ class Vim(pyvisdk.core.VimBase):
             log.info("Successfully logged into %s" % self.client.url)
         self.loggedin = True
 
+    def loginByExtensionCertificate(self, extension_key, locale=None):
+        """
+        Log into the vmware server with extension key
+        """
+        self.extension_key = extension_key
+        if not locale:
+            if hasattr(self.session_manager, 'defaultLocale'):
+                locale = self.session_manager.defaultLocale
+            else:
+                locale = 'en_US'
+
+        if self.verbose > 5:
+            self.displayAbout()
+        session = self.session_manager.LoginExtensionByCertificate(extension_key, locale)
+        if self.verbose > 2:
+            log.info("Successfully logged into %s" % self.proxy)
+        self.username = session.userName
+        self.loggedin = True
+
     def logout(self):
         """
         Log out of the vmware server.

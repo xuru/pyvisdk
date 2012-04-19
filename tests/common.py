@@ -48,29 +48,37 @@ def get_options(config_path="~/.visdkrc.vcenter"):
     '''
     Returns an options object, populated from name value pairs in the .visdkrc files
     '''
-    
-    config = expanduser(expandvars(config_path)) 
+
+    config = expanduser(expandvars(config_path))
     options = TestOptions()
-    
+
     if exists(config):
         lines = open(config).readlines()
         for line in lines:
             name, value = line.split("=")
-            
+
             if 'VI_SERVER' == name.strip():
                 options.server = value.strip()
-                
+
             elif 'VI_USERNAME' in name:
                 options.username = value.strip()
-                
+
             elif 'VI_PASSWORD' in name:
                 options.password = value.strip()
+
+            elif 'VI_EXTENSION_CERTIFICATE' in name:
+                options.certfile = value.strip()
+
+            elif 'VI_EXTENSION_PRIVATEKEY' in name:
+                options.keyfile = value.strip()
+
+            elif 'VI_EXTENSION_KEY' in name:
+                options.extension_key = value.strip()
     else:
         raise TestError("Configuration file %s does not exist." % config)
     return options
-                
-                
-                
-                
-                
-                
+
+
+
+
+

@@ -45,7 +45,14 @@ class Test(unittest.TestCase):
         assert("VirtualCenter" == vim.getApiType())
 
     def testLoginExtensionByCertificate(self):
-        self.fail('make this test pass')
+        vim = Vim(self.options.server, verbose=0, certfile=self.options.certfile, keyfile=self.options.keyfile)
+        assert(vim.connected == True)
+
+        vim.loginByExtensionCertificate(self.options.extension_key)
+        assert(vim.loggedin == True)
+
+        vim.logout()
+        assert(vim.loggedin == False)
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
