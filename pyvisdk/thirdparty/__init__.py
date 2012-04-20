@@ -1,2 +1,1 @@
-
-from enum import EnumException, EnumEmptyError, EnumBadKeyError, EnumImmutableError, EnumValue, Enum
+from ..utils import bunchify as Enum

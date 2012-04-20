@@ -1,8 +1,7 @@
 
-from pyvisdk.thirdparty import Enum
+from ..thirdparty import Enum
 
-DataObjectTypes = Enum()
-DataObjectTypes.update( [
+DataObjectTypes = Enum(*[
     "AboutInfo",
     "AccountCreatedEvent",
     "AccountRemovedEvent",
@@ -1431,5 +1430,4 @@ DataObjectTypes.update( [
     "WarningUpgradeEvent",
     "WeeklyTaskScheduler",
     "WinNetBIOSConfigInfo"
-])
-
+    ])

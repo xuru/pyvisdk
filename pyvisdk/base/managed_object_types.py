@@ -1,5 +1,5 @@
 
-from pyvisdk.thirdparty import Enum
+from ..thirdparty import Enum
 
 ManagedObjectTypes = Enum(
     "Alarm",
