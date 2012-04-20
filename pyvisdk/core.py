@@ -8,26 +8,21 @@ import types, time
 import logging
 import urllib2
 import xml.etree.cElementTree as etree
-import pyvisdk
-import pyvisdk.base.base_entity
-import importlib
 
-from pyvisdk.base.base_entity import ManagedObjectReference
-from pyvisdk.base.data_object_types import DataObjectTypes
-from pyvisdk.base.managed_object_types import ManagedObjectTypes
-from pyvisdk.client import Client
-from pyvisdk.do.object_spec import ObjectSpec
-from pyvisdk.do.traversal_spec import TraversalSpec
-from pyvisdk.do.property_filter_spec import PropertyFilterSpec
-from pyvisdk.do.property_spec import PropertySpec
-from pyvisdk.do.selection_spec import SelectionSpec
-from pyvisdk.do.retrieve_options import RetrieveOptions
-from pyvisdk.enums.task_info_state import TaskInfoState
-from pyvisdk.exceptions import VisdkTaskError
-from pyvisdk.mo.service_instance import ServiceInstance
-from pyvisdk.mo.folder import Folder
-from pyvisdk.utils import camel_to_under
-from pyvisdk.transport import HttpAuthenticated
+from .base.base_entity import ManagedObjectReference, BaseEntity
+from .base.data_object_types import DataObjectTypes
+from .base.managed_object_types import ManagedObjectTypes
+from .do.object_spec import ObjectSpec
+from .do.traversal_spec import TraversalSpec
+from .do.property_filter_spec import PropertyFilterSpec
+from .do.property_spec import PropertySpec
+from .do.selection_spec import SelectionSpec
+from .do.retrieve_options import RetrieveOptions
+from .enums.task_info_state import TaskInfoState
+from .exceptions import VisdkTaskError
+from .mo.service_instance import ServiceInstance
+from .utils import camel_to_under
+from brownie.importing import import_string
 
 fmt = "[%(asctime)s][%(levelname)-8s] %(module)s.%(funcName)s:%(lineno)d %(message)s"
 logging.basicConfig(level=logging.INFO, format=fmt)
@@ -74,6 +69,8 @@ class VimBase(object):
             self.connect()
 
     def connect(self, timeout=1800):
+        from .client import Client
+        from .transport import HttpAuthenticated
         if self.connected:
             return
 
@@ -190,7 +187,7 @@ class VimBase(object):
         elif type(obj_content) == types.NoneType:
             return obj_content
 
-        elif issubclass(obj_content.__class__, pyvisdk.base.base_entity.BaseEntity):
+        elif issubclass(obj_content.__class__, BaseEntity):
             rv = obj_content
 
         elif class_name == 'ObjectContent':
@@ -208,7 +205,7 @@ class VimBase(object):
 
         elif class_name == "ManagedObjectReference":
             # managed object reference is too generic, so we get to the real type
-            mo_f = eval('pyvisdk.mo.%s' % obj_content._type)
+            mo_f = import_string('pyvisdk.mo.%s.%s' % (camel_to_under(obj_content._type), obj_content._type))
             rv = mo_f(self, ref=obj_content)
 
         elif class_name in DataObjectTypes:
@@ -230,8 +227,7 @@ class VimBase(object):
         elif hasattr(obj_content, 'value') and hasattr(obj_content, '_type'):
             name = obj_content._type
             mod_name = 'pyvisdk.mo.%s' % camel_to_under(name)
-            importlib.import_module(mod_name)
-            mo = eval('%s.%s' % (mod_name, name))
+            mo = import_string('%s.%s' % (mod_name, name))
             rv = mo(self, ref=obj_content)
 
         # TODO: ArrayOf....  ArrayOfManagedObjectReference ArrayOfAlarmState ArrayOfString ArrayOfInt ArrayOfPermission
@@ -251,8 +247,7 @@ class VimBase(object):
 
     def _create_do_obj(self, class_name, obj_content, parent):
         mod_name = 'pyvisdk.do.%s' % camel_to_under(class_name)
-        importlib.import_module(mod_name)
-        do = eval('%s.%s' % (mod_name, class_name))
+        do = import_string('%s.%s' % (mod_name, class_name))
 
         kwargs = {}
         for attr_name in filter(lambda x: not x.startswith('_'), dir(obj_content)):
@@ -263,7 +258,7 @@ class VimBase(object):
         return rv
 
     def _create_mo_obj(self, class_name, obj_content, parent):
-        mo_f = eval('pyvisdk.mo.%s' % obj_content.obj._type)
+        mo_f = import_string('pyvisdk.mo.%s.%s' % (camel_to_under(obj_content.obj._type), obj_content.obj._type))
         rv = mo_f(self, ref=obj_content.obj)
 
         # now, run through the propSet

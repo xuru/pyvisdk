@@ -1,7 +1,4 @@
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
-from pyvisdk.mo.datacenter import Datacenter
-from pyvisdk.mo.host_system import HostSystem
-from pyvisdk.mo.virtual_machine import VirtualMachine
 import logging
 import pyvisdk.core
 
