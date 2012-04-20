@@ -117,7 +117,7 @@ class BaseEntity(object):
                 self._name = data
         return data
 
-    def getDecendants(self, type=ManagedObjectTypes.ManagedEntity):
+    def getDecendants(self, type=getattr(ManagedObjectTypes, "ManagedEntity")):
         return self.core.getContentsRecursively(_type=type, root=self)
 
     def delegate(self, name):
