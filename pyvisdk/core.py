@@ -51,10 +51,6 @@ class VimBase(object):
             self.server = HTTP_TUNNEL
             self.proxy = '%s:80' % server
 
-        self.listeners = {}
-        for me in ManagedObjectTypes:
-            self.listeners[me] = []
-
         # setup logging...
         logging.getLogger('suds.client').setLevel(logging.INFO)
         logging.getLogger('suds.wsdl').setLevel(logging.INFO)
