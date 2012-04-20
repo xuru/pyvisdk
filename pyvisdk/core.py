@@ -7,7 +7,7 @@ from suds.sudsobject import Property
 import types, time
 import logging
 import urllib2
-import xml.etree.cElementTree as etree
+import lxml.etree as etree
 
 from .base.base_entity import ManagedObjectReference, BaseEntity
 from .base.data_object_types import DataObjectTypes
