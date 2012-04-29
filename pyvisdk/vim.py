@@ -183,11 +183,11 @@ class Vim(pyvisdk.core.VimBase):
         :rtype: :py:class`ManagedEntity`
         """
         # http://www.doublecloud.org/2011/03/how-to-get-a-managed-object-with-its-id-like-task-id/
-        class_name, object_id = ref.split(':', 1)
-        moref = ManagedObjectReference(client, type=class_name, value=object_id)
-        return self._getManagedObjectType(class_name)(client, ref=moref)
+        class_name, object_id = moref.split(':', 1)
+        ref = ManagedObjectReference(self, type=class_name, value=object_id)
+        return self._getManagedObjectType(class_name)(self, ref=ref)
 
-    def _getManagedObjectType(class_name):
+    def _getManagedObjectType(self, class_name):
         # inspired by pyvisdk.vim
         return import_string("pyvisdk.mo.{}.{}".format(camel_to_under(class_name), class_name))
 
