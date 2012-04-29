@@ -33,7 +33,7 @@ class TestHosts(unittest.TestCase):
         
         host = self.vim.getHostSystem(hosts[0].name)
         self.assertIsNotNone(host, "Couldn't get host: %s" % host.name)
-        self.assertEqual(host.type, ManagedObjectTypes.HostSystem, "Host's type isn't HostSystem...")
+        self.assertEqual(host._type, ManagedObjectTypes.HostSystem, "Host's type isn't HostSystem...")
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testHosts']
