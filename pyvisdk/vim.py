@@ -1,4 +1,8 @@
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
+from pyvisdk.do.managed_object_reference import ManagedObjectReference
+from brownie.importing import import_string
+from pyvisdk.utils import camel_to_under
+
 import logging
 import pyvisdk.core
 
@@ -171,3 +175,19 @@ class Vim(pyvisdk.core.VimBase):
     def _getHierarchy(self):
         mo = self.getContentsRecursively(props=["configIssue", "configStatus", "name", "parent"])
         return mo
+
+    def getManagedObjectByReference(self, moref):
+        """
+        Returns the managed object
+        :param moref: moref string. For example: VirtualMachine:vm-16
+        :rtype: :py:class`ManagedEntity`
+        """
+        # http://www.doublecloud.org/2011/03/how-to-get-a-managed-object-with-its-id-like-task-id/
+        class_name, object_id = ref.split(':', 1)
+        moref = ManagedObjectReference(client, type=class_name, value=object_id)
+        return self._getManagedObjectType(class_name)(client, ref=moref)
+
+    def _getManagedObjectType(class_name):
+        # inspired by pyvisdk.vim
+        return import_string("pyvisdk.mo.{}.{}".format(camel_to_under(class_name), class_name))
+
