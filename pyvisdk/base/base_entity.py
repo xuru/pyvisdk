@@ -72,7 +72,7 @@ class BaseEntity(object):
         self.core = core
         self._name = name
         self.ref = ref
-        self.type = type
+        self._type = type
 
         self.cache = TimeoutCache()
         self.cache.setTimeout(60) # timeout to one minute
@@ -81,7 +81,7 @@ class BaseEntity(object):
         self.service = core.client.service
 
         if self.ref:
-            self.ref = ManagedObjectReference(self.type, self.ref.value)
+            self.ref = ManagedObjectReference(self._type, self.ref.value)
 
             # we have a ref, AND we don't already have a name, we can get the name from it...
             if not self._name:
