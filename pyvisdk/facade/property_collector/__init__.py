@@ -6,16 +6,16 @@ from pyvisdk.do.wait_options import WaitOptions
 
 INITIAL_VERSION = ''
 
-class PropertyCollectorFacade(object):
+class CachedPropertyCollector(object):
     """
     Facade for using PropertyCollectors to fetch a list of properties from all instances of a specific object_type
     
     :param vim: :py:class:`Vim` instance
-    :param ojbect_type: A name of managed object type, e.g. HostSystem
-    :param object_properties: A list of properties to fetch, can be nested, e.g. config.storageDevice
+    :param managedObjectTypeName: A name of managed object type, e.g. HostSystem
+    :param propertiesList: A list of properties to fetch, can be nested, e.g. config.storageDevice
     """
     def __init__(self, vim, managedObjectTypeName, propertiesList):
-        super(PropertyCollectorFacade, self).__init__()
+        super(CachedPropertyCollector, self).__init__()
         self._vim = vim
         self._managedObjectTypeName = managedObjectTypeName
         self._propertiesList = propertiesList
@@ -62,6 +62,7 @@ class PropertyCollectorFacade(object):
 
     @cached_method
     def _getPropertyFilterSpec(self):
+        # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.FilterSpec.html
         from pyvisdk.do.property_filter_spec import PropertyFilterSpec
         return PropertyFilterSpec(self._vim, propSet=self._getPropSet(),
                                   objectSet=[self._getObjectSet()])
@@ -76,6 +77,7 @@ class PropertyCollectorFacade(object):
         return select_set
 
     def _getChanges(self, time_in_seconds=0, truncated_version=None):
+        # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.html#waitForUpdatesEx
         property_collector = self._getPropertyCollector()
         update = property_collector.WaitForUpdatesEx(truncated_version or self._version ,
                                                      WaitOptions(self._vim, maxWaitSeconds=time_in_seconds))
@@ -84,25 +86,42 @@ class PropertyCollectorFacade(object):
     def _refToString(self, ref):
         return "{}.{}".format(ref._type, ref.value)
 
+    def _mergeObjectUpdateIntoCache__enter(self, objectUpdate):
+        # Rebuild the properties dict
+        properties = {propertyChange.name:propertyChange.val
+                      for propertyChange in filter(lambda propertyChange:propertyChange.op in ['add', 'assign'],
+                                                   objectUpdate.changeSet)}
+        self._result[self._refToString(objectUpdate.obj)] = properties
+
+    def _mergeObjectUpdateIntoCache__leave(self, objectUpdate):
+        # the object no longer exists, we drop it from the result dictionary
+        _ = self._result.pop(self._refToString(objectUpdate.obj), None)
+
+    def _mergeObjectUpdateIntoCache__modify(self, objectUpdate, properties, propertyChange):
+        properties = self._result[self._refToString(objectUpdate.obj)]
+        for propertyChange in objectUpdate.changeSet:
+            if propertyChange.op in ['add', 'assign']:
+                properties[propertyChange.name] = propertyChange.val
+            else:
+                _ = properties.pop(propertyChange.name, None)
+        for missingSet in objectUpdate.missingSet:
+                _ = properties.pop(missingSet.path, None)
+
+    def _mergeObjectUpdateIntoCache(self, objectUpdate):
+        # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html
+        updateMethods = dict(enter=self._mergeObjectUpdateIntoCache__enter,
+                             leave=self._mergeObjectUpdateIntoCache__leave,
+                             modify=self._mergeObjectUpdateIntoCache__modify)
+        updateMethods[objectUpdate.kind](objectUpdate)
+
     def _mergeChangesIntoCache(self, update):
+        # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.UpdateSet.html
+        # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.FilterUpdate.html
         filterSet = update.filterSet[0]
         for key in map(lambda missingObject: self._refToString(missingObject.obj), filterSet.missingSet):
             _ = self._result.pop(key, None)
         for objectUpdate in filterSet.objectSet:
-            if objectUpdate.kind == 'enter':
-                properties = {propertyChange.name:propertyChange.val for propertyChange in
-                              filter(lambda propertyChange: propertyChange.op in ['add', 'assign'],
-                                     objectUpdate.changeSet)}
-                self._result[self._refToString(objectUpdate.obj)] = properties
-            if objectUpdate.kind == 'leave':
-                _ = self._result.pop(self._refToString(objectUpdate.obj), None)
-            if objectUpdate.kind == 'modify':
-                properties = self._result[self._refToString(objectUpdate.obj)]
-                for propertyChange in objectUpdate.changeSet:
-                    if propertyChange.op in ['add', 'assign']:
-                        properties[propertyChange.name] = propertyChange.val
-                    else:
-                        _ = properties.pop(propertyChange.name, None)
+            self._mergeObjectUpdateIntoCache(objectUpdate)
         if update.truncated:
             self._mergeChangesIntoCache(self._getChanges(0, update.version))
         else:
@@ -135,12 +154,17 @@ class PropertyCollectorFacade(object):
         update = self._getChanges(time_in_seconds)
         return update is not None
 
-class HostPropertyCollectorFacade(PropertyCollectorFacade):
+class HostSystemCachedPropertyCollector(CachedPropertyCollector):
+    """
+    Facade for fetching host attributes by using a faster traversal (e.g no need to traverse inside HostSystem) 
+    """
+
     def __init__(self, vim, hostProperties):
-        super(HostPropertyCollectorFacade, self).__init__(vim, 'HostSystem', hostProperties)
+        super(HostSystemCachedPropertyCollector, self).__init__(vim, 'HostSystem', hostProperties)
 
     @cached_method
     def _getSelectSet(self):
+        #TODO docstring
         select_set = list()
         select_set.append(self._createTraversalSpec("ClusterComputeResource", 'host'))
         select_set.append(self._createTraversalSpec("ComputeResource", 'host'))

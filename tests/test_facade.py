@@ -10,7 +10,7 @@ from pyvisdk.mo.host_system import HostSystem
 from pyvisdk.mo.folder import Folder
 from pyvisdk.mo.datastore import Datastore
 from pyvisdk.mo.cluster_compute_resource import ClusterComputeResource
-from pyvisdk.facade.property_collector import PropertyCollectorFacade, HostPropertyCollectorFacade
+from pyvisdk.facade.property_collector import CachedPropertyCollector, HostSystemCachedPropertyCollector
 from tests.common import get_options
 from time import sleep
 
@@ -26,13 +26,13 @@ class Test_Facades(unittest.TestCase):
         cls.vim.logout()
 
     def test_HostPropertyCollectorFacade(self):
-        facade = HostPropertyCollectorFacade(self.vim, ["config.storageDevice"])
+        facade = HostSystemCachedPropertyCollector(self.vim, ["config.storageDevice"])
         properties = facade.getProperties()
         self.assertGreater(len(properties.keys()), 0)
         self.assertEqual(len(properties.values()[0].keys()), 1)
 
     def test_PropertyCollectorFacade(self):
-        facade = PropertyCollectorFacade(self.vim, "HostSystem", ["summary.quickStats"])
+        facade = CachedPropertyCollector(self.vim, "HostSystem", ["summary.quickStats"])
         properties = facade.getProperties()
         self.assertGreater(len(properties.keys()), 0)
         self.assertEqual(len(properties.values()[0].keys()), 1)
