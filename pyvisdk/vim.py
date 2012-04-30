@@ -19,6 +19,7 @@ class Vim(pyvisdk.core.VimBase):
         self.loggedin = False
         self.username = None
         self.password = None
+        self.facades = dict()
 
     def login(self, username, password, locale=None):
         """
@@ -40,6 +41,7 @@ class Vim(pyvisdk.core.VimBase):
         if self.verbose > 2:
             log.info("Successfully logged into %s" % self.client.url)
         self.loggedin = True
+        self.facades = dict()
 
     def loginByExtensionCertificate(self, extension_key, locale=None):
         """
@@ -59,6 +61,7 @@ class Vim(pyvisdk.core.VimBase):
             log.info("Successfully logged into %s" % self.proxy)
         self.username = session.userName
         self.loggedin = True
+        self.facades = dict()
 
     def logout(self):
         """
@@ -66,6 +69,7 @@ class Vim(pyvisdk.core.VimBase):
         """
         self.session_manager.Logout()
         self.loggedin = False
+        self.facades = dict()
 
     def relogin(self):
         """
