@@ -30,12 +30,14 @@ class Test_Facades(unittest.TestCase):
         properties = facade.getProperties()
         self.assertGreater(len(properties.keys()), 0)
         self.assertEqual(len(properties.values()[0].keys()), 1)
+        self.assertEqual(len(properties.keys()[0].split(':')), 2)
 
     def test_PropertyCollectorFacade(self):
         facade = CachedPropertyCollector(self.vim, "HostSystem", ["summary.quickStats"])
         properties = facade.getProperties()
         self.assertGreater(len(properties.keys()), 0)
         self.assertEqual(len(properties.values()[0].keys()), 1)
+        self.assertEqual(len(properties.keys()[0].split(':')), 2)
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testHosts']

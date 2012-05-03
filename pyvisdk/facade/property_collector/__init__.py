@@ -79,26 +79,29 @@ class CachedPropertyCollector(object):
     def _getChanges(self, time_in_seconds=0, truncated_version=None):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.html#waitForUpdatesEx
         property_collector = self._getPropertyCollector()
-        update = property_collector.WaitForUpdatesEx(truncated_version or self._version ,
-                                                     WaitOptions(self._vim, maxWaitSeconds=time_in_seconds))
+        wait_options = WaitOptions(self._vim, maxWaitSeconds=time_in_seconds)
+        import pdb; pdb.set_trace()
+        update = property_collector.WaitForUpdatesEx(truncated_version or self._version,
+                                                     wait_options)
+
         return update
 
     def _refToString(self, ref):
-        return "{}.{}".format(ref._type, ref.value)
+        return "{}:{}".format(ref._type, ref.value)
 
-    def _mergeObjectUpdateIntoCache__enter(self, objectUpdate):
+    def _mergeObjectUpdateIntoCache__enter(self, key, objectUpdate):
         # Rebuild the properties dict
         properties = {propertyChange.name:propertyChange.val
                       for propertyChange in filter(lambda propertyChange:propertyChange.op in ['add', 'assign'],
                                                    objectUpdate.changeSet)}
-        self._result[self._refToString(objectUpdate.obj)] = properties
+        self._result[key] = properties
 
-    def _mergeObjectUpdateIntoCache__leave(self, objectUpdate):
+    def _mergeObjectUpdateIntoCache__leave(self, key, objectUpdate=None):
         # the object no longer exists, we drop it from the result dictionary
-        _ = self._result.pop(self._refToString(objectUpdate.obj), None)
+        _ = self._result.pop(key, None)
 
-    def _mergeObjectUpdateIntoCache__modify(self, objectUpdate, properties, propertyChange):
-        properties = self._result[self._refToString(objectUpdate.obj)]
+    def _mergeObjectUpdateIntoCache__modify(self, key, objectUpdate, properties, propertyChange):
+        properties = self._result[key]
         for propertyChange in objectUpdate.changeSet:
             if propertyChange.op in ['add', 'assign']:
                 properties[propertyChange.name] = propertyChange.val
@@ -112,7 +115,8 @@ class CachedPropertyCollector(object):
         updateMethods = dict(enter=self._mergeObjectUpdateIntoCache__enter,
                              leave=self._mergeObjectUpdateIntoCache__leave,
                              modify=self._mergeObjectUpdateIntoCache__modify)
-        updateMethods[objectUpdate.kind](objectUpdate)
+        key = self._refToString(objectUpdate.obj)
+        updateMethods[objectUpdate.kind](key, objectUpdate)
 
     def _mergeChangesIntoCache(self, update):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.UpdateSet.html
@@ -138,6 +142,7 @@ class CachedPropertyCollector(object):
         :rtype: a dictionary with MoRefs as keys, and propertyName=propertyValue dictionary as values"""
 
         update = self._getChanges()
+
         if update is not None:
             self._mergeChangesIntoCache(update)
         return self.getPropertiesFromCache()

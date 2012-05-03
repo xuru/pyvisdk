@@ -223,10 +223,8 @@ class VimBase(object):
                 rv.append(self._parse_object_content(obj, parent))
 
         elif hasattr(obj_content, 'value') and hasattr(obj_content, '_type'):
-            name = obj_content._type
-            mod_name = 'pyvisdk.mo.%s' % camel_to_under(name)
-            mo = import_string('%s.%s' % (mod_name, name))
-            rv = mo(self, ref=obj_content)
+            rv = self.getManagedObjectByReference("{}:{}".format(obj_content._type,
+                                                                 obj_content.value))
 
         # TODO: ArrayOf....  ArrayOfManagedObjectReference ArrayOfAlarmState ArrayOfString ArrayOfInt ArrayOfPermission
         # TODO: val datetime datastore  entity host vm key
@@ -256,8 +254,8 @@ class VimBase(object):
         return rv
 
     def _create_mo_obj(self, class_name, obj_content, parent):
-        mo_f = import_string('pyvisdk.mo.%s.%s' % (camel_to_under(obj_content.obj._type), obj_content.obj._type))
-        rv = mo_f(self, ref=obj_content.obj)
+        rv = self.getManagedObjectByReference("{}:{}".format(obj_content._type,
+                                                             obj_content.value))
 
         # now, run through the propSet
         #if hasattr(obj_content, "propSet"):
@@ -429,6 +427,22 @@ class VimBase(object):
             else:
                 status[x.name] = x.op
         return status
+
+
+    def getManagedObjectByReference(self, moref):
+        """
+        Returns the managed object
+        :param moref: moref string. For example: VirtualMachine:vm-16
+        :rtype: :py:class`ManagedEntity`
+        """
+        # http://www.doublecloud.org/2011/03/how-to-get-a-managed-object-with-its-id-like-task-id/
+        class_name, object_id = moref.split(':', 1)
+        ref = ManagedObjectReference(_type=class_name, value=object_id)
+        return self._getManagedObjectType(class_name)(self, ref=ref)
+
+    def _getManagedObjectType(self, class_name):
+        # inspired by pyvisdk.vim
+        return import_string("pyvisdk.mo.{}.{}".format(camel_to_under(class_name), class_name))
 
 
 
