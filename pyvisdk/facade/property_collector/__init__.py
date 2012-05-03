@@ -80,7 +80,6 @@ class CachedPropertyCollector(object):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.html#waitForUpdatesEx
         property_collector = self._getPropertyCollector()
         wait_options = WaitOptions(self._vim, maxWaitSeconds=time_in_seconds)
-        import pdb; pdb.set_trace()
         update = property_collector.WaitForUpdatesEx(truncated_version or self._version,
                                                      wait_options)
 
