@@ -44,7 +44,7 @@ setup(
     url = "https://github.com/xuru/pyvisdk",
     license = "MIT",
     install_requires = install_requires,
-    packages = ["pyvisdk", "pyvisdk.mo", "pyvisdk.base", "pyvisdk.do", "pyvisdk.enums", "pyvisdk.thirdparty"],
+    packages = ["pyvisdk", "pyvisdk.mo", "pyvisdk.base", "pyvisdk.do", "pyvisdk.enums", "pyvisdk.thirdparty", "pyvisdk.facade", "pyvisdk.facade.property_collector", ],
     package_data = {'pyvisdk': ['wsdl/*']},
     
     classifiers = ['Development Status :: 4 - Beta',
