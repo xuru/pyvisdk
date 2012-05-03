@@ -114,7 +114,7 @@ class CachedPropertyCollector(object):
         updateMethods = dict(enter=self._mergeObjectUpdateIntoCache__enter,
                              leave=self._mergeObjectUpdateIntoCache__leave,
                              modify=self._mergeObjectUpdateIntoCache__modify)
-        key = self._refToString(objectUpdate.obj)
+        key = self._refToString(objectUpdate.obj.ref)
         updateMethods[objectUpdate.kind](key, objectUpdate)
 
     def _mergeChangesIntoCache(self, update):
