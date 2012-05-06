@@ -3,8 +3,14 @@ from infi.pyutils.lazy import cached_method
 from pyvisdk.do.traversal_spec import TraversalSpec
 from pyvisdk.do.selection_spec import SelectionSpec
 from pyvisdk.do.wait_options import WaitOptions
+from logging import getLogger
+from re import match, findall
+from bunch import Bunch
+
+logger = getLogger(__name__)
 
 INITIAL_VERSION = ''
+NESTED_PROPERTY_PATTERN = r'(?P<name>.*)\["(?P<key>.*)"\]'
 
 class CachedPropertyCollector(object):
     """
@@ -24,7 +30,7 @@ class CachedPropertyCollector(object):
 
     def __repr__(self):
         args = (self.__class__.__name__, getattr(self, '_managedObjectTypeName', None),
-                getattr(self, '_propertiesList', []), getattr(self, '', repr('')))
+                getattr(self, '_propertiesList', []), getattr(self, '_version', repr('')))
         return "<{}: objectType={!r}, properties={!r}, version={}>".format(*args)
 
     def _guessTraversalSpecName(self, managed_object_type_name, property_name):
@@ -80,9 +86,10 @@ class CachedPropertyCollector(object):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.html#waitForUpdatesEx
         property_collector = self._getPropertyCollector()
         wait_options = WaitOptions(self._vim, maxWaitSeconds=time_in_seconds)
+        logger.debug("Checking for updates on property collector {!r}".format(self))
         update = property_collector.WaitForUpdatesEx(truncated_version or self._version,
                                                      wait_options)
-
+        logger.debug("There is {} pending update".format('no' if update is None else 'indeed an'))
         return update
 
     def _refToString(self, ref):
@@ -93,28 +100,89 @@ class CachedPropertyCollector(object):
         properties = {propertyChange.name:propertyChange.val
                       for propertyChange in filter(lambda propertyChange:propertyChange.op in ['add', 'assign'],
                                                    objectUpdate.changeSet)}
+        logger.debug("Replacing cache for key {}with a dictionary of the following keys {}".format(key, properties.keys()))
         self._result[key] = properties
 
     def _mergeObjectUpdateIntoCache__leave(self, key, objectUpdate=None):
         # the object no longer exists, we drop it from the result dictionary
+        logger.debug("Removing key {} from cache".format(key))
         _ = self._result.pop(key, None)
 
-    def _mergeObjectUpdateIntoCache__modify(self, key, objectUpdate):
-        properties = self._result[key]
-        for propertyChange in objectUpdate.changeSet:
-            if propertyChange.op in ['add', 'assign']:
-                properties[propertyChange.name] = propertyChange.val
+    def _get_list_to_be_merged(self, object_to_update, property_path, stop_before_last=False):
+        list_to_update = []
+        while len(property_path) > (1 if stop_before_last else 0):
+            matched = match(NESTED_PROPERTY_PATTERN, property_path[0])
+            if matched:
+                list_to_update = getattr(object_to_update, matched.group('name'))
+                object_to_update = filter(lambda item: item.key == matched.group('key'), list_to_update)[:1]
+                object_to_update = object_to_update.pop() if object_to_update else None
             else:
-                _ = properties.pop(propertyChange.name, None)
+                object_to_update = getattr(object_to_update, property_path[0])
+            _ = property_path.pop(0)
+        return list_to_update, object_to_update
+
+    def _split_property_path(self, key):
+        return findall(r"[A-Za-z]*\[[^\]]+\]", key)
+
+    def _get_list_and_object_to_update(self, property_dict, key, value, stop_before_last=False):
+        key_to_update = filter(lambda prefix: key.startswith(prefix), property_dict.keys())[0]
+        key = key.replace(key_to_update, '')
+        object_to_update = Bunch(property_dict)
+        property_path = self._split_property_path(key)
+        if property_path[0].startswith('['):
+            property_path[0] = "{}{}".format(key_to_update, property_path[0])
+        else:
+            property_path.insert(0, key_to_update)
+        list_to_update, object_to_update = self._get_list_to_be_merged(object_to_update, property_path, stop_before_last)
+        return list_to_update, object_to_update
+
+    def _mergePropertyChange__add(self, property_dict, key, value):
+        # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html
+        list_to_update, object_to_update = self._get_list_and_object_to_update(property_dict, key, value)
+        logger.debug("Appending {}".format(value.__class__))
+        list_to_update.insert(-1, value)
+
+    def _mergePropertyChange__assign(self, property_dict, key, value):
+        # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html
+        list_to_update, object_to_update = self._get_list_and_object_to_update(property_dict, key, value, True)
+        key = key.split('.')[-1]
+        logger.debug("Assigning {} to {}".format(value.__class__, key))
+        setattr(object_to_update, key, value)
+
+    def _mergePropertyChange__remove(self, property_dict, key, value):
+        # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html
+        list_to_update, object_to_update = self._get_list_and_object_to_update(property_dict, key, value)
+        for index in range(len(list_to_update)):
+            value = list_to_update[index]
+            if value.key == object_to_update.key:
+                break
+        logger.debug("Removing {}".format(value.__class__))
+        list_to_update.remove(value)
+
+    def _mergeObjectUpdateIntoCache__modify(self, key, objectUpdate):
+        # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.ObjectUpdate.html
+        # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html
+        # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.MissingProperty.html
+        properties = self._result[key]
+        logger.debug("Modifying cache for key {}".format(key))
+        updatemethods = dict(add=self._mergePropertyChange__add,
+                             assign=self._mergePropertyChange__assign,
+                             remove=self._mergePropertyChange__remove,
+                             indirectRemove=self._mergePropertyChange__remove)
+        for propertyChange in objectUpdate.changeSet:
+            logger.debug("Modifying property {}, operation {}".format(propertyChange.name, propertyChange.op))
+            updatemethods[propertyChange.op](properties, propertyChange.name, propertyChange.val)
         for missingSet in objectUpdate.missingSet:
-                _ = properties.pop(missingSet.path, None)
+            logger.debug("Removing from cache a property that has gone missing{}".format(missingSet.path))
+            self._mergePropertyChange__remove(properties, missingSet.path, None)
 
     def _mergeObjectUpdateIntoCache(self, objectUpdate):
-        # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html
+        # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.ObjectUpdate.html
         updateMethods = dict(enter=self._mergeObjectUpdateIntoCache__enter,
                              leave=self._mergeObjectUpdateIntoCache__leave,
                              modify=self._mergeObjectUpdateIntoCache__modify)
         key = self._refToString(objectUpdate.obj.ref)
+        logger.debug("Update kind {} on cache key {}".format(objectUpdate.kind, key))
         updateMethods[objectUpdate.kind](key, objectUpdate)
 
     def _mergeChangesIntoCache(self, update):
@@ -122,6 +190,7 @@ class CachedPropertyCollector(object):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.FilterUpdate.html
         filterSet = update.filterSet[0]
         for key in map(lambda missingObject: self._refToString(missingObject.obj), filterSet.missingSet):
+            logger.debug("Removing key {} from cache because it is missing in the filterSet".format(key))
             _ = self._result.pop(key, None)
         for objectUpdate in filterSet.objectSet:
             self._mergeObjectUpdateIntoCache(objectUpdate)
@@ -129,6 +198,7 @@ class CachedPropertyCollector(object):
             self._mergeChangesIntoCache(self._getChanges(0, update.version))
         else:
             self._version = update.version
+            logger.debug("Cache is updated for version {}".format(self._version))
 
     def checkForUpdates(self):
         """:returns: True if the cached data is not up to date"""
@@ -141,7 +211,6 @@ class CachedPropertyCollector(object):
         :rtype: a dictionary with MoRefs as keys, and propertyName=propertyValue dictionary as values"""
 
         update = self._getChanges()
-
         if update is not None:
             self._mergeChangesIntoCache(update)
         return self.getPropertiesFromCache()
