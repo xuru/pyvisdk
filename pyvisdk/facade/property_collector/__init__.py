@@ -99,7 +99,7 @@ class CachedPropertyCollector(object):
         # the object no longer exists, we drop it from the result dictionary
         _ = self._result.pop(key, None)
 
-    def _mergeObjectUpdateIntoCache__modify(self, key, objectUpdate, properties, propertyChange):
+    def _mergeObjectUpdateIntoCache__modify(self, key, objectUpdate):
         properties = self._result[key]
         for propertyChange in objectUpdate.changeSet:
             if propertyChange.op in ['add', 'assign']:
