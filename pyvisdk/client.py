@@ -25,7 +25,8 @@ class SudsClientFactory(object):
     def get_suds_client(cls):
         if cls._client is None:
             wsdl_dir = os.path.abspath(os.path.dirname(__file__))
-            cls._client = suds.client.Client("file://" + os.path.join(wsdl_dir, 'wsdl', 'vimService.wsdl'), plugins=[MyPlugin()])
+            cls._client = suds.client.Client("file://" + os.path.join(wsdl_dir, 'wsdl', 'vimService.wsdl'), plugins=[MyPlugin()],
+                                             cachingpolicy=1, autoblend=True)
         return cls._client.clone()
 
 class Client(object):
