@@ -28,11 +28,17 @@ class FileManager(BaseEntity):
 
     
     
-    def ChangeOwner(self):
+    def ChangeOwner(self, name, datacenter, owner):
         '''Change the owner for a file.Change the owner for a file.
         
+        :param name: 
+        
+        :param datacenter: 
+        
+        :param owner: 
+        
         '''
-        return self.delegate("ChangeOwner")()
+        return self.delegate("ChangeOwner")(name, datacenter, owner)
     
     def CopyDatastoreFile_Task(self, sourceName, sourceDatacenter, destinationName, destinationDatacenter, force):
         '''Copies the source file or folder to the destination.Copies the source file or

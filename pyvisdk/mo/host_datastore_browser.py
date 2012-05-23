@@ -74,28 +74,38 @@ class HostDatastoreBrowser(BaseEntity):
 
     
     
-    def DeleteFile(self):
+    def DeleteFile(self, datastorePath):
         '''<b>Deprecated.</b> <i>As of VI API 2.5, use DeleteDatastoreFile_Task.</i>
         Deletes the specified files from the datastore. If a valid virtual disk file is
         specified, then all the components of the virtual disk are deleted.
         
+        :param datastorePath: 
+        
         '''
-        return self.delegate("DeleteFile")()
+        return self.delegate("DeleteFile")(datastorePath)
     
-    def SearchDatastore_Task(self):
+    def SearchDatastore_Task(self, datastorePath, searchSpec):
         '''Returns the information for the files that match the given search criteria as a
         SearchResults object. Searches only the folder specified by the datastore path.
         The Datastore.Browse privilege must be held on the datastore identified by the
         datastore path.
         
+        :param datastorePath: 
+        
+        :param searchSpec: 
+        
         '''
-        return self.delegate("SearchDatastore_Task")()
+        return self.delegate("SearchDatastore_Task")(datastorePath, searchSpec)
     
-    def SearchDatastoreSubFolders_Task(self):
+    def SearchDatastoreSubFolders_Task(self, datastorePath, searchSpec):
         '''Returns the information for the files that match the given search criteria as a
         SearchResults[] object. Searches the folder specified by the datastore path and
         all subfolders. The Datastore.Browse privilege must be held on the datastore
         identified by the datastore path.
         
+        :param datastorePath: 
+        
+        :param searchSpec: 
+        
         '''
-        return self.delegate("SearchDatastoreSubFolders_Task")()
+        return self.delegate("SearchDatastoreSubFolders_Task")(datastorePath, searchSpec)

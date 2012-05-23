@@ -35,16 +35,20 @@ class HostMemorySystem(ExtensibleManagedObject):
 
     
     
-    def ReconfigureServiceConsoleReservation(self):
+    def ReconfigureServiceConsoleReservation(self, cfgBytes):
         '''Sets the configured service console memory reservation. This change affects
         only the serviceConsoleReservedCfg property. The configuration change
         propagates to the other properties after the next boot.
         
-        '''
-        return self.delegate("ReconfigureServiceConsoleReservation")()
-    
-    def ReconfigureVirtualMachineReservation(self):
-        '''Updates the virtual machine reservation information.
+        :param cfgBytes: 
         
         '''
-        return self.delegate("ReconfigureVirtualMachineReservation")()
+        return self.delegate("ReconfigureServiceConsoleReservation")(cfgBytes)
+    
+    def ReconfigureVirtualMachineReservation(self, spec):
+        '''Updates the virtual machine reservation information.
+        
+        :param spec: 
+        
+        '''
+        return self.delegate("ReconfigureVirtualMachineReservation")(spec)

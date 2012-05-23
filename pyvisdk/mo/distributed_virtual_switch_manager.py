@@ -54,11 +54,13 @@ class DistributedVirtualSwitchManager(BaseEntity):
         '''
         return self.delegate("QueryCompatibleHostForNewDvs")(container, recursive, switchProductSpec)
     
-    def QueryDvsByUuid(self):
+    def QueryDvsByUuid(self, uuid):
         '''This operation returns a DistributedVirtualSwitch given a UUID.
         
+        :param uuid: 
+        
         '''
-        return self.delegate("QueryDvsByUuid")()
+        return self.delegate("QueryDvsByUuid")(uuid)
     
     def QueryDvsCheckCompatibility(self, hostContainer, dvsProductSpec, hostFilterSpec):
         '''This operation returns a list of compatibility results. Each compatibility

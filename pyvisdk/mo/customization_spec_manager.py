@@ -41,35 +41,47 @@ class CustomizationSpecManager(BaseEntity):
         '''
         return self.delegate("CheckCustomizationResources")(guestOs)
     
-    def CreateCustomizationSpec(self):
+    def CreateCustomizationSpec(self, item):
         '''Creates a new specification.
         
+        :param item: 
+        
         '''
-        return self.delegate("CreateCustomizationSpec")()
+        return self.delegate("CreateCustomizationSpec")(item)
     
-    def CustomizationSpecItemToXml(self):
+    def CustomizationSpecItemToXml(self, item):
         '''Converts a specification item to XML text
         
+        :param item: 
+        
         '''
-        return self.delegate("CustomizationSpecItemToXml")()
+        return self.delegate("CustomizationSpecItemToXml")(item)
     
-    def DeleteCustomizationSpec(self):
+    def DeleteCustomizationSpec(self, name):
         '''Deletes a specification.
         
+        :param name: 
+        
         '''
-        return self.delegate("DeleteCustomizationSpec")()
+        return self.delegate("DeleteCustomizationSpec")(name)
     
-    def DoesCustomizationSpecExist(self):
+    def DoesCustomizationSpecExist(self, name):
         '''Whether or not a specification exists.
         
-        '''
-        return self.delegate("DoesCustomizationSpecExist")()
-    
-    def DuplicateCustomizationSpec(self):
-        '''Duplicates a specification.
+        :param name: 
         
         '''
-        return self.delegate("DuplicateCustomizationSpec")()
+        return self.delegate("DoesCustomizationSpecExist")(name)
+    
+    def DuplicateCustomizationSpec(self, name, newName):
+        '''Duplicates a specification.
+        
+        :param name: 
+        
+        :param newName: 
+        
+        '''
+        return self.delegate("DuplicateCustomizationSpec")(name, newName)
     
     def GetCustomizationSpec(self, name):
         '''Obtains a specification for the given name.
@@ -79,24 +91,32 @@ class CustomizationSpecManager(BaseEntity):
         '''
         return self.delegate("GetCustomizationSpec")(name)
     
-    def OverwriteCustomizationSpec(self):
+    def OverwriteCustomizationSpec(self, item):
         '''Overwrites an existing specification, possibly after retrieving (by using
         'get') and editing it. If, based on the item's changeVersion value, the
         overwrite process detects that the specification has changed since its
         retrieval, then the API uses the SpecModified exception to warn the client that
         he might overwrite another client's change.
         
+        :param item: 
+        
         '''
-        return self.delegate("OverwriteCustomizationSpec")()
+        return self.delegate("OverwriteCustomizationSpec")(item)
     
-    def RenameCustomizationSpec(self):
+    def RenameCustomizationSpec(self, name, newName):
         '''Renames a specification.
         
-        '''
-        return self.delegate("RenameCustomizationSpec")()
-    
-    def XmlToCustomizationSpecItem(self):
-        '''Converts an XML string to a specification item
+        :param name: 
+        
+        :param newName: 
         
         '''
-        return self.delegate("XmlToCustomizationSpecItem")()
+        return self.delegate("RenameCustomizationSpec")(name, newName)
+    
+    def XmlToCustomizationSpecItem(self, specItemXml):
+        '''Converts an XML string to a specification item
+        
+        :param specItemXml: 
+        
+        '''
+        return self.delegate("XmlToCustomizationSpecItem")(specItemXml)

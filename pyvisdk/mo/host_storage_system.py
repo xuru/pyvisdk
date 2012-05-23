@@ -138,12 +138,14 @@ class HostStorageSystem(ExtensibleManagedObject):
         '''
         return self.delegate("DisableMultipathPath")(pathName)
     
-    def DiscoverFcoeHbas(self):
+    def DiscoverFcoeHbas(self, fcoeSpec):
         '''Initiates FCoE discovery using the given FcoeSpecification. Upon success,
         discovered VNPorts will have registered with the system as FCoE HBAs.
         
+        :param fcoeSpec: 
+        
         '''
-        return self.delegate("DiscoverFcoeHbas")()
+        return self.delegate("DiscoverFcoeHbas")(fcoeSpec)
     
     def EnableMultipathPath(self, pathName):
         '''Enables a disabled path for a Logical Unit. Use the path name from
@@ -172,15 +174,19 @@ class HostStorageSystem(ExtensibleManagedObject):
         '''
         return self.delegate("FormatVmfs")(createSpec)
     
-    def MarkForRemoval(self):
+    def MarkForRemoval(self, hbaName, remove):
         '''Mark or unmark the given FCoE HBA for removal from the host system. Marking an
         FCoE HBA for removal will result in the HBA not being discovered upon host
         reboot. Until reboot, the HBA remains visible in the storage topology.
         
+        :param hbaName: 
+        
+        :param remove: 
+        
         '''
-        return self.delegate("MarkForRemoval")()
+        return self.delegate("MarkForRemoval")(hbaName, remove)
     
-    def MountVmfsVolume(self):
+    def MountVmfsVolume(self, vmfsUuid):
         '''Mount the unmounted Vmfs volume. A newly discovered vmfs volume will be mounted
         unless, it has been explicitly unmounted. The default mount behavior of Vmfs
         volumes is auto-mount. See UnmountVmfsVolume.Mount the unmounted Vmfs volume. A
@@ -188,8 +194,10 @@ class HostStorageSystem(ExtensibleManagedObject):
         unmounted. The default mount behavior of Vmfs volumes is auto-mount. See
         UnmountVmfsVolume.
         
+        :param vmfsUuid: 
+        
         '''
-        return self.delegate("MountVmfsVolume")()
+        return self.delegate("MountVmfsVolume")(vmfsUuid)
     
     def QueryPathSelectionPolicyOptions(self):
         '''Queries the set of path selection policy options. The set of policy options
@@ -350,7 +358,7 @@ class HostStorageSystem(ExtensibleManagedObject):
         '''
         return self.delegate("SetMultipathLunPolicy")(lunId, policy)
     
-    def UnmountForceMountedVmfsVolume(self):
+    def UnmountForceMountedVmfsVolume(self, vmfsUuid):
         '''Unmount the 'forceMounted' Vmfs volume. When a low level block copy is
         performed to copy or move the VMFS volume, the copied volume is unresolved. For
         the VMFS volume to be usable, a resolution operation is applied. As part of
@@ -358,10 +366,12 @@ class HostStorageSystem(ExtensibleManagedObject):
         resolution is applied, the VMFS volume is mounted on the host for its use. User
         can unmount the VMFS volume if it is not being used by any registered VMs.
         
+        :param vmfsUuid: 
+        
         '''
-        return self.delegate("UnmountForceMountedVmfsVolume")()
+        return self.delegate("UnmountForceMountedVmfsVolume")(vmfsUuid)
     
-    def UnmountVmfsVolume(self):
+    def UnmountVmfsVolume(self, vmfsUuid):
         '''Unmount the Vmfs volume. An unmounted volume cannot be used for any filesystem
         operation requiring I/O. In contrast to removal, this operation does not
         destroy or alter partitions on which vmfs volumes reside. The mountState will
@@ -372,8 +382,10 @@ class HostStorageSystem(ExtensibleManagedObject):
         mountState will be persisted across filesystem rescans and host reboots. See
         MountVmfsVolume.
         
+        :param vmfsUuid: 
+        
         '''
-        return self.delegate("UnmountVmfsVolume")()
+        return self.delegate("UnmountVmfsVolume")(vmfsUuid)
     
     def UpdateDiskPartitions(self, devicePath, spec):
         '''Changes the partitions on the disk by supplying a partition specification and

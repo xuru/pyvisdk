@@ -137,12 +137,16 @@ class ResourcePool(ManagedEntity):
         '''
         return self.delegate("CreateChildVM_Task")(config, host)
     
-    def CreateResourcePool(self):
+    def CreateResourcePool(self, name, spec):
         '''Creates a new resource pool.Creates a new resource pool.Creates a new resource
         pool.
         
+        :param name: 
+        
+        :param spec: 
+        
         '''
-        return self.delegate("CreateResourcePool")()
+        return self.delegate("CreateResourcePool")(name, spec)
     
     def CreateVApp(self, name, resSpec, configSpec, vmFolder):
         '''Creates a new vApp container.Creates a new vApp container.
@@ -238,7 +242,7 @@ class ResourcePool(ManagedEntity):
         '''
         return self.delegate("RegisterChildVM_Task")(path, name, host)
     
-    def UpdateChildResourceConfiguration(self):
+    def UpdateChildResourceConfiguration(self, spec):
         '''Changes resource configuration of a set of children of this resource pool. The
         method allows bulk modifications of the set of the direct children (virtual
         machines and resource pools).Changes resource configuration of a set of
@@ -253,8 +257,10 @@ class ResourcePool(ManagedEntity):
         modifications of the set of the direct children (virtual machines and resource
         pools).
         
+        :param spec: 
+        
         '''
-        return self.delegate("UpdateChildResourceConfiguration")()
+        return self.delegate("UpdateChildResourceConfiguration")(spec)
     
     def UpdateConfig(self, name, config):
         '''Updates the configuration of the resource pool.Updates the configuration of the

@@ -44,8 +44,10 @@ class HostVMotionSystem(ExtensibleManagedObject):
         '''
         return self.delegate("SelectVnic")(device)
     
-    def UpdateIpConfig(self):
+    def UpdateIpConfig(self, ipConfig):
         '''Update the IP configuration of VMotion VirtualNic.
         
+        :param ipConfig: 
+        
         '''
-        return self.delegate("UpdateIpConfig")()
+        return self.delegate("UpdateIpConfig")(ipConfig)

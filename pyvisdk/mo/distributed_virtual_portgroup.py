@@ -35,9 +35,11 @@ class DistributedVirtualPortgroup(Network):
 
     
     
-    def ReconfigureDVPortgroup_Task(self):
+    def ReconfigureDVPortgroup_Task(self, spec):
         '''The DistributedVirtualPortgroups to be reconfiguredThe
         DistributedVirtualPortgroups to be reconfigured
         
+        :param spec: 
+        
         '''
-        return self.delegate("ReconfigureDVPortgroup_Task")()
+        return self.delegate("ReconfigureDVPortgroup_Task")(spec)

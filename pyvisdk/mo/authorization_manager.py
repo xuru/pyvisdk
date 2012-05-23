@@ -107,13 +107,15 @@ class AuthorizationManager(BaseEntity):
         '''
         return self.delegate("MergePermissions")(srcRoleId, dstRoleId)
     
-    def RemoveAuthorizationRole(self, failIfUsed):
+    def RemoveAuthorizationRole(self, roleId, failIfUsed):
         '''Removes a role.
+        
+        :param roleId: 
         
         :param failIfUsed: If true, prevents the role from being removed if any permissions are using it.
         
         '''
-        return self.delegate("RemoveAuthorizationRole")(failIfUsed)
+        return self.delegate("RemoveAuthorizationRole")(roleId, failIfUsed)
     
     def RemoveEntityPermission(self, entity, user, isGroup):
         '''Removes a permission rule from an entity.Removes a permission rule from an
@@ -156,7 +158,7 @@ class AuthorizationManager(BaseEntity):
         '''
         return self.delegate("RetrieveAllPermissions")()
     
-    def RetrieveEntityPermissions(self, inherited):
+    def RetrieveEntityPermissions(self, entity, inherited):
         '''Gets permissions defined on or effective on a managed entity. This returns the
         actual permission objects defined in the system for all users and groups
         relative to the managed entity. The inherited flag specifies whether or not to
@@ -171,17 +173,21 @@ class AuthorizationManager(BaseEntity):
         or not to include permissions defined by the parents of this entity that
         propagate to this entity.
         
+        :param entity: 
+        
         :param inherited: Whether or not to include propagating permissions defined by parent entities.
         
         '''
-        return self.delegate("RetrieveEntityPermissions")(inherited)
+        return self.delegate("RetrieveEntityPermissions")(entity, inherited)
     
-    def RetrieveRolePermissions(self):
+    def RetrieveRolePermissions(self, roleId):
         '''Finds all the permissions that use a particular role. The result is restricted
         to managed entities that are visible to the user making the call.
         
+        :param roleId: 
+        
         '''
-        return self.delegate("RetrieveRolePermissions")()
+        return self.delegate("RetrieveRolePermissions")(roleId)
     
     def SetEntityPermissions(self, entity, permission):
         '''Defines one or more permission rules on an entity or updates rules if already

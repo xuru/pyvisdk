@@ -66,5 +66,11 @@ class CustomFieldsManager(BaseEntity):
     def SetField(self, entity, key, value):
         '''Assigns a value to a custom field on an entity.
         
+        :param entity: 
+        
+        :param key: 
+        
+        :param value: 
+        
         '''
         return self.delegate("SetField")(entity, key, value)

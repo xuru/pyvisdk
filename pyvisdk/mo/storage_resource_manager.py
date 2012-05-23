@@ -98,7 +98,7 @@ class StorageResourceManager(BaseEntity):
         '''
         return self.delegate("QueryIORMConfigOption")(host)
     
-    def RecommendDatastores(self):
+    def RecommendDatastores(self, storageSpec):
         '''This method returns a StoragePlacementResult object. This API is intended to
         replace the following existing APIs for SDRS-enabled pods: CreateVm:
         StoragePlacementSpec::type == create = CreateVM_Task AddDisk:
@@ -208,8 +208,10 @@ class StorageResourceManager(BaseEntity):
         the existing API as determined by StoragePlacementSpec::type. If a parameter is
         optional in the existing API, it will also be optional in the new API.
         
+        :param storageSpec: 
+        
         '''
-        return self.delegate("RecommendDatastores")()
+        return self.delegate("RecommendDatastores")(storageSpec)
     
     def RefreshStorageDrsRecommendation(self, pod):
         '''Make Storage DRS invoke again on the specified pod StoragePod and return a new

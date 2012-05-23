@@ -38,15 +38,17 @@ class VirtualMachineProvisioningChecker(BaseEntity):
         '''
         return self.delegate("CheckMigrate_Task")(vm, host, pool, state, testType)
     
-    def CheckRelocate_Task(self, vm, spec):
+    def CheckRelocate_Task(self, vm, spec, testType):
         '''Tests the feasibility of a proposed RelocateVM_Task operation.
         
         :param vm: The virtual machine we propose to relocate.
         
         :param spec: The specification of where to relocate the virtual machine. In cases where DRS would automatically select a host, all potential hosts are tested against.
         
+        :param testType: 
+        
         '''
-        return self.delegate("CheckRelocate_Task")(vm, spec)
+        return self.delegate("CheckRelocate_Task")(vm, spec, testType)
     
     def QueryVMotionCompatibilityEx_Task(self, vm, host):
         '''Investigates the general VMotion compatibility of a set of virtual machines

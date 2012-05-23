@@ -57,11 +57,13 @@ class HostNetworkSystem(ExtensibleManagedObject):
 
     
     
-    def AddPortGroup(self):
+    def AddPortGroup(self, portgrp):
         '''Adds a port group to the virtual switch.
         
+        :param portgrp: 
+        
         '''
-        return self.delegate("AddPortGroup")()
+        return self.delegate("AddPortGroup")(portgrp)
     
     def AddServiceConsoleVirtualNic(self, portgroup, nic):
         '''Adds a virtual service console network adapter. Returns the device of the
@@ -75,15 +77,17 @@ class HostNetworkSystem(ExtensibleManagedObject):
         '''
         return self.delegate("AddServiceConsoleVirtualNic")(portgroup, nic)
     
-    def AddVirtualNic(self, portgroup):
+    def AddVirtualNic(self, portgroup, nic):
         '''Adds a virtual host/VMkernel network adapter. Returns the device of the virtual
         network adapter.Adds a virtual host/VMkernel network adapter. Returns the
         device of the virtual network adapter.
         
         :param portgroup: Note: Must be the empty string in case nic.distributedVirtualPort is set.
         
+        :param nic: 
+        
         '''
-        return self.delegate("AddVirtualNic")(portgroup)
+        return self.delegate("AddVirtualNic")(portgroup, nic)
     
     def AddVirtualSwitch(self, vswitchName, spec):
         '''Adds a new virtual switch to the system with the given name. The name must be
@@ -117,11 +121,13 @@ class HostNetworkSystem(ExtensibleManagedObject):
         '''
         return self.delegate("RefreshNetworkSystem")()
     
-    def RemovePortGroup(self):
+    def RemovePortGroup(self, pgName):
         '''Removes port group from the virtual switch.
         
+        :param pgName: 
+        
         '''
-        return self.delegate("RemovePortGroup")()
+        return self.delegate("RemovePortGroup")(pgName)
     
     def RemoveServiceConsoleVirtualNic(self, device):
         '''Removes a virtual service console network adapter.See usesServiceConsoleNic
@@ -131,17 +137,21 @@ class HostNetworkSystem(ExtensibleManagedObject):
         '''
         return self.delegate("RemoveServiceConsoleVirtualNic")(device)
     
-    def RemoveVirtualNic(self):
+    def RemoveVirtualNic(self, device):
         '''Removes a virtual host/VMkernel network adapter.
         
-        '''
-        return self.delegate("RemoveVirtualNic")()
-    
-    def RemoveVirtualSwitch(self):
-        '''Removes an existing virtual switch from the system.
+        :param device: 
         
         '''
-        return self.delegate("RemoveVirtualSwitch")()
+        return self.delegate("RemoveVirtualNic")(device)
+    
+    def RemoveVirtualSwitch(self, vswitchName):
+        '''Removes an existing virtual switch from the system.
+        
+        :param vswitchName: 
+        
+        '''
+        return self.delegate("RemoveVirtualSwitch")(vswitchName)
     
     def RestartServiceConsoleVirtualNic(self, device):
         '''Restart the service console virtual network adapter interface. If the service
@@ -154,29 +164,37 @@ class HostNetworkSystem(ExtensibleManagedObject):
         '''
         return self.delegate("RestartServiceConsoleVirtualNic")(device)
     
-    def UpdateConsoleIpRouteConfig(self):
+    def UpdateConsoleIpRouteConfig(self, config):
         '''Applies the IP route configuration for the service console.
         
+        :param config: 
+        
         '''
-        return self.delegate("UpdateConsoleIpRouteConfig")()
+        return self.delegate("UpdateConsoleIpRouteConfig")(config)
     
-    def UpdateDnsConfig(self):
+    def UpdateDnsConfig(self, config):
         '''Applies the client-side DNS configuration for the host.
         
+        :param config: 
+        
         '''
-        return self.delegate("UpdateDnsConfig")()
+        return self.delegate("UpdateDnsConfig")(config)
     
-    def UpdateIpRouteConfig(self):
+    def UpdateIpRouteConfig(self, config):
         '''Applies the IP route configuration for the host.
         
-        '''
-        return self.delegate("UpdateIpRouteConfig")()
-    
-    def UpdateIpRouteTableConfig(self):
-        '''Applies the IP route table configuration for the host.
+        :param config: 
         
         '''
-        return self.delegate("UpdateIpRouteTableConfig")()
+        return self.delegate("UpdateIpRouteConfig")(config)
+    
+    def UpdateIpRouteTableConfig(self, config):
+        '''Applies the IP route table configuration for the host.
+        
+        :param config: 
+        
+        '''
+        return self.delegate("UpdateIpRouteTableConfig")(config)
     
     def UpdateNetworkConfig(self, config, changeMode):
         '''Applies the network configuration. This method operates primarily in two modes:
@@ -200,11 +218,15 @@ class HostNetworkSystem(ExtensibleManagedObject):
         '''
         return self.delegate("UpdatePhysicalNicLinkSpeed")(device, linkSpeed)
     
-    def UpdatePortGroup(self):
+    def UpdatePortGroup(self, pgName, portgrp):
         '''Reconfigures a port group on the virtual switch.
         
+        :param pgName: 
+        
+        :param portgrp: 
+        
         '''
-        return self.delegate("UpdatePortGroup")()
+        return self.delegate("UpdatePortGroup")(pgName, portgrp)
     
     def UpdateServiceConsoleVirtualNic(self, device, nic):
         '''Configures the IP configuration for a virtual service console network
@@ -218,12 +240,16 @@ class HostNetworkSystem(ExtensibleManagedObject):
         '''
         return self.delegate("UpdateServiceConsoleVirtualNic")(device, nic)
     
-    def UpdateVirtualNic(self):
+    def UpdateVirtualNic(self, device, nic):
         '''Configures virtual host/VMkernel network adapter.Configures virtual
         host/VMkernel network adapter.
         
+        :param device: 
+        
+        :param nic: 
+        
         '''
-        return self.delegate("UpdateVirtualNic")()
+        return self.delegate("UpdateVirtualNic")(device, nic)
     
     def UpdateVirtualSwitch(self, vswitchName, spec):
         '''Updates the properties of the virtual switch.Updates the properties of the

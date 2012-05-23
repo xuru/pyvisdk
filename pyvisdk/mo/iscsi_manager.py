@@ -74,12 +74,14 @@ class IscsiManager(BaseEntity):
         '''
         return self.delegate("QueryVnicStatus")(vnicDevice)
     
-    def UnbindVnic(self, iScsiHbaName, vnicDevice):
+    def UnbindVnic(self, iScsiHbaName, vnicDevice, force):
         '''Unbind Virtual NIC binding from an iSCSI adapter.
         
         :param iScsiHbaName: iSCSI adapter name for which the Virtual NIC to be removed.
         
         :param vnicDevice: Virtual NIC that is to be removed from the iSCSI HBA
         
+        :param force: 
+        
         '''
-        return self.delegate("UnbindVnic")(iScsiHbaName, vnicDevice)
+        return self.delegate("UnbindVnic")(iScsiHbaName, vnicDevice, force)

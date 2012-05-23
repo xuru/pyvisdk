@@ -78,8 +78,10 @@ class EventManager(BaseEntity):
         '''
         return self.delegate("QueryEvents")(filter)
     
-    def RetrieveArgumentDescription(self):
+    def RetrieveArgumentDescription(self, eventTypeId):
         '''Retrieves the argument meta-data for a given Event type
         
+        :param eventTypeId: 
+        
         '''
-        return self.delegate("RetrieveArgumentDescription")()
+        return self.delegate("RetrieveArgumentDescription")(eventTypeId)

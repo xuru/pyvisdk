@@ -33,15 +33,17 @@ class OptionManager(BaseEntity):
 
     
     
-    def QueryOptions(self):
+    def QueryOptions(self, name):
         '''Returns a specific node or nodes in the option hierarchy.Returns a specific
         node or nodes in the option hierarchy.Returns a specific node or nodes in the
         option hierarchy.
         
+        :param name: 
+        
         '''
-        return self.delegate("QueryOptions")()
+        return self.delegate("QueryOptions")(name)
     
-    def UpdateOptions(self):
+    def UpdateOptions(self, changedValue):
         '''Updates one or more properties. These properties are changed atomically: either
         all are applied or none are.Updates one or more properties. These properties
         are changed atomically: either all are applied or none are.Updates one or more
@@ -49,5 +51,7 @@ class OptionManager(BaseEntity):
         none are.Updates one or more properties. These properties are changed
         atomically: either all are applied or none are.
         
+        :param changedValue: 
+        
         '''
-        return self.delegate("UpdateOptions")()
+        return self.delegate("UpdateOptions")(changedValue)

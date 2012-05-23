@@ -27,21 +27,25 @@ class HostFirewallSystem(ExtensibleManagedObject):
 
     
     
-    def DisableRuleset(self):
+    def DisableRuleset(self, id):
         '''Blocks the firewall ports belonging to the specified ruleset. If the ruleset
         has a managed service with a policy of 'auto' and all other rulesets used by
         the service are blocked, stops the service.
         
+        :param id: 
+        
         '''
-        return self.delegate("DisableRuleset")()
+        return self.delegate("DisableRuleset")(id)
     
-    def EnableRuleset(self):
+    def EnableRuleset(self, id):
         '''Opens the firewall ports belonging to the specified ruleset. If the ruleset has
         a managed service with a policy of 'auto' that is not running, starts the
         service.
         
+        :param id: 
+        
         '''
-        return self.delegate("EnableRuleset")()
+        return self.delegate("EnableRuleset")(id)
     
     def RefreshFirewall(self):
         '''Refresh the firewall information and settings to pick up any changes made
@@ -50,14 +54,20 @@ class HostFirewallSystem(ExtensibleManagedObject):
         '''
         return self.delegate("RefreshFirewall")()
     
-    def UpdateDefaultPolicy(self):
+    def UpdateDefaultPolicy(self, defaultPolicy):
         '''Updates the default firewall policy; unset fields are left unchanged.
         
-        '''
-        return self.delegate("UpdateDefaultPolicy")()
-    
-    def UpdateRuleset(self):
-        '''Update the firewall ruleset specification.
+        :param defaultPolicy: 
         
         '''
-        return self.delegate("UpdateRuleset")()
+        return self.delegate("UpdateDefaultPolicy")(defaultPolicy)
+    
+    def UpdateRuleset(self, id, spec):
+        '''Update the firewall ruleset specification.
+        
+        :param id: 
+        
+        :param spec: 
+        
+        '''
+        return self.delegate("UpdateRuleset")(id, spec)

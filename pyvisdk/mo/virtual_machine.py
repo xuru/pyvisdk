@@ -473,7 +473,7 @@ class VirtualMachine(ManagedEntity):
         '''
         return self.delegate("RefreshStorageInfo")()
     
-    def reloadVirtualMachineFromPath_Task(self):
+    def reloadVirtualMachineFromPath_Task(self, configurationPath):
         '''Reloads the configuration for this virtual machine from a given datastore path.
         This is equivalent to unregistering and registering the virtual machine from a
         different path. The virtual machine's hardware configuration, snapshots,
@@ -492,8 +492,10 @@ class VirtualMachine(ManagedEntity):
         configuration file. Other information associated with the virtual machine
         object, such as events and permissions, will be preserved.
         
+        :param configurationPath: 
+        
         '''
-        return self.delegate("reloadVirtualMachineFromPath_Task")()
+        return self.delegate("reloadVirtualMachineFromPath_Task")(configurationPath)
     
     def RelocateVM_Task(self, spec, priority):
         '''Relocates a virtual machine's virtual disks to a specific location; optionally

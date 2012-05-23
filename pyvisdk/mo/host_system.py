@@ -297,20 +297,26 @@ class HostSystem(ManagedEntity):
         '''
         return self.delegate("ShutdownHost_Task")(force)
     
-    def UpdateFlags(self):
+    def UpdateFlags(self, flagInfo):
         '''Update flags that are part of the HostFlagInfo object.
         
+        :param flagInfo: 
+        
         '''
-        return self.delegate("UpdateFlags")()
+        return self.delegate("UpdateFlags")(flagInfo)
     
-    def UpdateIpmi(self):
+    def UpdateIpmi(self, ipmiInfo):
         '''Update fields that are part of the HostIpmiInfo object.
         
-        '''
-        return self.delegate("UpdateIpmi")()
-    
-    def UpdateSystemResources(self):
-        '''Update the configuration of the system resource hierarchy.
+        :param ipmiInfo: 
         
         '''
-        return self.delegate("UpdateSystemResources")()
+        return self.delegate("UpdateIpmi")(ipmiInfo)
+    
+    def UpdateSystemResources(self, resourceInfo):
+        '''Update the configuration of the system resource hierarchy.
+        
+        :param resourceInfo: 
+        
+        '''
+        return self.delegate("UpdateSystemResources")(resourceInfo)
