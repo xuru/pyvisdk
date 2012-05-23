@@ -2,6 +2,20 @@
 from ..thirdparty import Enum
 
 DataObjectTypes = Enum(*[
+    "DynamicTypeMgrTypeFilterSpec",
+    "DynamicTypeMgrMoFilterSpec",
+    "DynamicTypeMgrDataTypeInfo",
+    "DynamicTypeEnumTypeInfo",
+    "DynamicTypeMgrAnnotation",
+    "DynamicTypeMgrPropertyTypeInfo",
+    "DynamicTypeMgrManagedTypeInfo",
+    "DynamicTypeMgrMethodTypeInfo",
+    "DynamicTypeMgrParamTypeInfo",
+    "DynamicTypeMgrAllTypeInfo",
+    "DynamicTypeMgrMoInstance",
+    "ReflectManagedMethodExecuterSoapArgument",
+    "ReflectManagedMethodExecuterSoapResult",
+    "ReflectManagedMethodExecuterSoapFault",
     "AboutInfo",
     "AccountCreatedEvent",
     "AccountRemovedEvent",

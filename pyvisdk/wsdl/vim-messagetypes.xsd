@@ -3546,4 +3546,23 @@
          <element name="names" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
       </sequence>
    </complexType>
+   <complexType name="ExecuteSoapRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="moid" type="xsd:string" />
+         <element name="version" type="xsd:string" />
+         <element name="method" type="xsd:string" />
+         <element name="argument" type="vim25:ReflectManagedMethodExecuterSoapArgument" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="RetrieveManagedMethodExecuterRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
+   <complexType name="RetrieveDynamicTypeManagerRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
 </schema>

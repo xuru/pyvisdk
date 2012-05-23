@@ -24944,4 +24944,20 @@
          </extension>
       </complexContent>
    </complexType>
+   <complexType name="ReflectManagedMethodExecuter">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="InternalDynamicTypeManager">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
 </schema>

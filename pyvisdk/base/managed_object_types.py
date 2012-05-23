@@ -2,6 +2,8 @@
 from ..thirdparty import Enum
 
 ManagedObjectTypes = Enum(
+    "ReflectManagedMethodExecuter",
+    "InternalDynamicTypeManager",
     "Alarm",
     "AlarmManager",
     "AuthorizationManager",

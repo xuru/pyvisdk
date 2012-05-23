@@ -4122,6 +4122,46 @@
          <element name="UnexpectedFaultFault" type="vim25:UnexpectedFault"/>
          <element name="MethodFaultFault" type="vim25:MethodFault"/>
          <element name="RuntimeFaultFault" type="vim25:RuntimeFault"/>
+         <element name="ExecuteSoap"  type="vim25:ExecuteSoapRequestType" />
+         <element name="ExecuteSoapResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="vim25:ReflectManagedMethodExecuterSoapResult" />
+               </sequence>
+            </complexType>
+         </element>
+         <element name="RetrieveManagedMethodExecuter"  type="vim25:RetrieveManagedMethodExecuterRequestType" />
+         <element name="RetrieveManagedMethodExecuterResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="vim25:ReflectManagedMethodExecuter" />
+               </sequence>
+            </complexType>
+         </element>
+         <element name="RetrieveDynamicTypeManager"  type="vim25:RetrieveDynamicTypeManagerRequestType" />
+         <element name="RetrieveDynamicTypeManagerResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="vim25:InternalDynamicTypeManager" />
+               </sequence>
+            </complexType>
+         </element>
+         <element name="DynamicTypeMgrQueryMoInstances"  type="vim25:DynamicTypeMgrQueryMoInstancesRequestType" />
+         <element name="DynamicTypeMgrQueryMoInstancesResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="vim25:DynamicTypeMgrMoInstance" minOccurs="0" maxOccurs="unbounded" />
+               </sequence>
+            </complexType>
+         </element>
+         <element name="DynamicTypeMgrQueryTypeInfo"  type="vim25:DynamicTypeMgrQueryTypeInfoRequestType" />
+         <element name="DynamicTypeMgrQueryTypeInfoResponse">
+            <complexType>
+               <sequence>
+                  <element name="returnval" type="vim25:DynamicTypeMgrAllTypeInfo" />
+               </sequence>
+            </complexType>
+         </element>
       </schema>
    </types>
    <message name="HostCommunicationFaultMsg">
@@ -9179,6 +9219,36 @@
    <message name="ReadEnvironmentVariableInGuestResponseMsg">
       <part name="parameters" element="vim25:ReadEnvironmentVariableInGuestResponse" />
    </message>
+   <message name="DynamicTypeMgrQueryMoInstancesRequestMsg">
+      <part name="parameters" element="vim25:DynamicTypeMgrQueryMoInstances" />
+   </message>
+   <message name="DynamicTypeMgrQueryMoInstancesResponseMsg">
+      <part name="parameters" element="vim25:DynamicTypeMgrQueryMoInstancesResponse" />
+   </message>
+   <message name="DynamicTypeMgrQueryTypeInfoRequestMsg">
+      <part name="parameters" element="vim25:DynamicTypeMgrQueryTypeInfo" />
+   </message>
+   <message name="DynamicTypeMgrQueryTypeInfoResponseMsg">
+      <part name="parameters" element="vim25:DynamicTypeMgrQueryTypeInfoResponse" />
+   </message>
+   <message name="ExecuteSoapRequestMsg">
+      <part name="parameters" element="vim25:ExecuteSoap" />
+   </message>
+   <message name="ExecuteSoapResponseMsg">
+      <part name="parameters" element="vim25:ExecuteSoapResponse" />
+   </message>
+   <message name="RetrieveManagedMethodExecuterRequestMsg">
+      <part name="parameters" element="vim25:RetrieveManagedMethodExecuter" />
+   </message>
+   <message name="RetrieveManagedMethodExecuterResponseMsg">
+      <part name="parameters" element="vim25:RetrieveManagedMethodExecuterResponse" />
+   </message>
+   <message name="RetrieveDynamicTypeManagerRequestMsg">
+      <part name="parameters" element="vim25:RetrieveDynamicTypeManager" />
+   </message>
+   <message name="RetrieveDynamicTypeManagerResponseMsg">
+      <part name="parameters" element="vim25:RetrieveDynamicTypeManagerResponse" />
+   </message>
    <portType name="VimPortType">
       <operation name="DestroyPropertyFilter">
          <input message="vim25:DestroyPropertyFilterRequestMsg" />
@@ -12912,6 +12982,33 @@
          <fault name="GuestOperationsFaultFault" message="vim25:GuestOperationsFaultFaultMsg"/>
          <fault name="InvalidStateFault" message="vim25:InvalidStateFaultMsg"/>
          <fault name="TaskInProgressFault" message="vim25:TaskInProgressFaultMsg"/>
+         <fault name="RuntimeFault" message="vim25:RuntimeFaultFaultMsg"/>
+      </operation>
+      <operation name="DynamicTypeMgrQueryMoInstances">
+         <input message="vim25:DynamicTypeMgrQueryMoInstancesRequestMsg" />
+         <output message="vim25:DynamicTypeMgrQueryMoInstancesResponseMsg" />
+         <fault name="InvalidPropertyFault" message="vim25:InvalidPropertyFaultMsg"/>
+         <fault name="RuntimeFault" message="vim25:RuntimeFaultFaultMsg"/>
+      </operation>
+      <operation name="DynamicTypeMgrQueryTypeInfo">
+         <input message="vim25:DynamicTypeMgrQueryTypeInfoRequestMsg" />
+         <output message="vim25:DynamicTypeMgrQueryTypeInfoResponseMsg" />
+         <fault name="InvalidPropertyFault" message="vim25:InvalidPropertyFaultMsg"/>
+         <fault name="RuntimeFault" message="vim25:RuntimeFaultFaultMsg"/>
+      </operation>
+      <operation name="ExecuteSoap">
+         <input message="vim25:ExecuteSoapRequestMsg" />
+         <output message="vim25:ExecuteSoapResponseMsg" />
+         <fault name="RuntimeFault" message="vim25:RuntimeFaultFaultMsg"/>
+      </operation>
+      <operation name="RetrieveManagedMethodExecuter">
+         <input message="vim25:RetrieveManagedMethodExecuterRequestMsg" />
+         <output message="vim25:RetrieveManagedMethodExecuterResponseMsg" />
+         <fault name="RuntimeFault" message="vim25:RuntimeFaultFaultMsg"/>
+      </operation>
+      <operation name="RetrieveDynamicTypeManager">
+         <input message="vim25:RetrieveDynamicTypeManagerRequestMsg" />
+         <output message="vim25:RetrieveDynamicTypeManagerResponseMsg" />
          <fault name="RuntimeFault" message="vim25:RuntimeFaultFaultMsg"/>
       </operation>
    </portType>
@@ -22444,6 +22541,72 @@
          <fault name="TaskInProgressFault">
             <soap:fault name="TaskInProgressFault" use="literal" />
          </fault>
+         <fault name="RuntimeFault">
+            <soap:fault name="RuntimeFault" use="literal" />
+         </fault>
+      </operation>
+      <operation name="DynamicTypeMgrQueryMoInstances">
+         <soap:operation soapAction="urn:vim25/5.0" style="document" />
+         <input>
+            <soap:body use="literal" />
+         </input>
+         <output>
+            <soap:body use="literal" />
+         </output>
+         <fault name="InvalidPropertyFault">
+            <soap:fault name="InvalidPropertyFault" use="literal" />
+         </fault>
+         <fault name="RuntimeFault">
+            <soap:fault name="RuntimeFault" use="literal" />
+         </fault>
+      </operation>
+      <operation name="DynamicTypeMgrQueryTypeInfo">
+         <soap:operation soapAction="urn:vim25/5.0" style="document" />
+         <input>
+            <soap:body use="literal" />
+         </input>
+         <output>
+            <soap:body use="literal" />
+         </output>
+         <fault name="InvalidPropertyFault">
+            <soap:fault name="InvalidPropertyFault" use="literal" />
+         </fault>
+         <fault name="RuntimeFault">
+            <soap:fault name="RuntimeFault" use="literal" />
+         </fault>
+      </operation>
+      <operation name="ExecuteSoap">
+         <soap:operation soapAction="urn:vim25/5.0" style="document" />
+         <input>
+            <soap:body use="literal" />
+         </input>
+         <output>
+            <soap:body use="literal" />
+         </output>
+         <fault name="RuntimeFault">
+            <soap:fault name="RuntimeFault" use="literal" />
+         </fault>
+      </operation>
+      <operation name="RetrieveManagedMethodExecuter">
+         <soap:operation soapAction="urn:vim25/5.0" style="document" />
+         <input>
+            <soap:body use="literal" />
+         </input>
+         <output>
+            <soap:body use="literal" />
+         </output>
+         <fault name="RuntimeFault">
+            <soap:fault name="RuntimeFault" use="literal" />
+         </fault>
+      </operation>
+      <operation name="RetrieveDynamicTypeManager">
+         <soap:operation soapAction="urn:vim25/5.0" style="document" />
+         <input>
+            <soap:body use="literal" />
+         </input>
+         <output>
+            <soap:body use="literal" />
+         </output>
          <fault name="RuntimeFault">
             <soap:fault name="RuntimeFault" use="literal" />
          </fault>

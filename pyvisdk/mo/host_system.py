@@ -22,7 +22,6 @@ class HostSystem(ManagedEntity):
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostSystem):
         super(HostSystem, self).__init__(core, name=name, ref=ref, type=type)
 
-    
     @property
     def capability(self):
         '''Host capabilities. This might not be available for a disconnected host.'''
@@ -77,8 +76,6 @@ class HostSystem(ManagedEntity):
         '''List of virtual machines associated with this host.'''
         return self.update('vm')
 
-    
-    
     def AcquireCimServicesTicket(self):
         '''Creates and returns a one-time credential used to establish a remote connection
         to a CIM interface. The port to connect to is the standard well known port for
@@ -86,13 +83,13 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("AcquireCimServicesTicket")()
-    
+
     def DisconnectHost_Task(self):
         '''Disconnects from a host and instructs the server to stop sending heartbeats.
         
         '''
         return self.delegate("DisconnectHost_Task")()
-    
+
     def EnterLockdownMode(self):
         '''Modifies the permissions on the host, so that it will only be accessible
         through local console or an authorized centralized management application. Any
@@ -106,7 +103,7 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("EnterLockdownMode")()
-    
+
     def EnterMaintenanceMode_Task(self, timeout, evacuatePoweredOffVms):
         '''Puts the host in maintenance mode. While this task is running and when the host
         is in maintenance mode, no virtual machines can be powered on and no
@@ -127,7 +124,7 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("EnterMaintenanceMode_Task")(timeout, evacuatePoweredOffVms)
-    
+
     def ExitLockdownMode(self):
         '''Restores Administrator permission for the local administrative account for the
         host that was removed by prior call to EnterLockdownMode. If the operation is
@@ -137,7 +134,7 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("ExitLockdownMode")()
-    
+
     def ExitMaintenanceMode_Task(self, timeout):
         '''Takes the host out of maintenance mode. This blocks if any concurrent running
         maintenance-only host configurations operations are being performed. For
@@ -150,7 +147,7 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("ExitMaintenanceMode_Task")(timeout)
-    
+
     def PowerDownHostToStandBy_Task(self, timeoutSec, evacuatePoweredOffVms):
         '''Puts the host in standby mode, a mode in which the host is in a standby state
         from which it can be powered up remotely. While this task is running, no
@@ -172,7 +169,7 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("PowerDownHostToStandBy_Task")(timeoutSec, evacuatePoweredOffVms)
-    
+
     def PowerUpHostFromStandBy_Task(self, timeoutSec):
         '''Takes the host out of standby mode. If the command is successful, the host
         wakes up and starts sending heartbeats. This method may be called automatically
@@ -190,13 +187,13 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("PowerUpHostFromStandBy_Task")(timeoutSec)
-    
+
     def QueryHostConnectionInfo(self):
         '''Connection-oriented information about a host.
         
         '''
         return self.delegate("QueryHostConnectionInfo")()
-    
+
     def QueryMemoryOverhead(self, memorySize, videoRamSize, numVcpus):
         '''<b>Deprecated.</b> <i>As of VI API 2.5, use QueryMemoryOverheadEx.</i>
         Determines the amount of memory overhead necessary to power on a virtual
@@ -210,7 +207,7 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("QueryMemoryOverhead")(memorySize, videoRamSize, numVcpus)
-    
+
     def QueryMemoryOverheadEx(self, vmConfigInfo):
         '''Determines the amount of memory overhead necessary to power on a virtual
         machine with the specified characteristics.
@@ -219,7 +216,7 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("QueryMemoryOverheadEx")(vmConfigInfo)
-    
+
     def RebootHost_Task(self, force):
         '''Reboots a host. If the command is successful, then the host has been rebooted.
         If connected directly to the host, the client never receives an indicator of
@@ -233,13 +230,13 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("RebootHost_Task")(force)
-    
+
     def ReconfigureHostForDAS_Task(self):
         '''Reconfigures the host for vSphere HA.Reconfigures the host for vSphere HA.
         
         '''
         return self.delegate("ReconfigureHostForDAS_Task")()
-    
+
     def ReconnectHost_Task(self, cnxSpec, reconnectSpec):
         '''Reconnects to a host. This process reinstalls agents and reconfigures the host,
         if it has gotten out of date with VirtualCenter. The reconnection process goes
@@ -276,7 +273,7 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("ReconnectHost_Task")(cnxSpec, reconnectSpec)
-    
+
     def RetrieveHardwareUptime(self):
         '''Return the hardware uptime of the host in seconds. The harware uptime of a host
         is not affected by NTP and changes to its wall clock time and can be used by
@@ -284,7 +281,7 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("RetrieveHardwareUptime")()
-    
+
     def ShutdownHost_Task(self, force):
         '''Shuts down a host. If the command is successful, then the host has been shut
         down. Thus, the client never receives an indicator of success in the returned
@@ -312,7 +309,7 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("UpdateIpmi")(ipmiInfo)
-    
+
     def UpdateSystemResources(self, resourceInfo):
         '''Update the configuration of the system resource hierarchy.
         
@@ -320,3 +317,9 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("UpdateSystemResources")(resourceInfo)
+
+    def RetrieveManagedMethodExecuter(self):
+        return self.delegate("RetrieveManagedMethodExecuter")()
+
+    def RetrieveDynamicTypeManager(self):
+        return self.delegate("RetrieveDynamicTypeManager")()
