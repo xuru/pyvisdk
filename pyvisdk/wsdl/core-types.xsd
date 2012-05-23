@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-   Copyright 2005-2010 VMware, Inc.  All rights reserved.
+   Copyright 2005-2012 VMware, Inc.  All rights reserved.
 -->
 <schema
    targetNamespace="urn:vim25"
@@ -242,6 +242,11 @@
    <complexType name="ArrayOfManagedObjectReference">
       <sequence>
          <element name="ManagedObjectReference" type="vim25:ManagedObjectReference" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="ArrayOfBoolean">
+      <sequence>
+         <element name="boolean" type="xsd:boolean" minOccurs="0" maxOccurs="unbounded" />
       </sequence>
    </complexType>
    <complexType name="ArrayOfByte">
