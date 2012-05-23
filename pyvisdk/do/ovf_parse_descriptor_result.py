@@ -21,7 +21,7 @@ def OvfParseDescriptorResult(vim, *args, **kwargs):
     optional = [ 'annotatedOst', 'approximateDownloadSize', 'approximateFlatDeploymentSize',
         'approximateSparseDeploymentSize', 'deploymentOption', 'entityName', 'error',
         'eula', 'ipAllocationScheme', 'ipProtocols', 'network', 'productInfo',
-        'property_', 'warning', 'dynamicProperty', 'dynamicType' ]
+        'property', 'warning', 'dynamicProperty', 'dynamicType' ]
 
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)

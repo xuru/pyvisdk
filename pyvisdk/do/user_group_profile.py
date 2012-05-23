@@ -20,7 +20,7 @@ def UserGroupProfile(vim, *args, **kwargs):
         raise IndexError('Expected at least 3 arguments got: %d' % len(args))
 
     required = [ 'key', 'enabled' ]
-    optional = [ 'policy', 'profileTypeName', 'profileVersion', 'property_', 'dynamicProperty',
+    optional = [ 'policy', 'profileTypeName', 'profileVersion', 'property', 'dynamicProperty',
         'dynamicType' ]
 
     for name, arg in zip(required+optional, args):

@@ -18,7 +18,7 @@ def VAppCloneSpec(vim, *args, **kwargs):
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
 
     required = [ 'location' ]
-    optional = [ 'host', 'networkMapping', 'property_', 'provisioning', 'resourceMapping',
+    optional = [ 'host', 'networkMapping', 'property', 'provisioning', 'resourceMapping',
         'resourceSpec', 'vmFolder', 'dynamicProperty', 'dynamicType' ]
 
     for name, arg in zip(required+optional, args):

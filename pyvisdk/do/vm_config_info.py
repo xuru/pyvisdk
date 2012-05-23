@@ -18,7 +18,7 @@ def VmConfigInfo(vim, *args, **kwargs):
         raise IndexError('Expected at least 4 arguments got: %d' % len(args))
 
     required = [ 'installBootRequired', 'installBootStopDelay', 'ipAssignment' ]
-    optional = [ 'eula', 'ovfEnvironmentTransport', 'ovfSection', 'product', 'property_',
+    optional = [ 'eula', 'ovfEnvironmentTransport', 'ovfSection', 'product', 'property',
         'dynamicProperty', 'dynamicType' ]
 
     for name, arg in zip(required+optional, args):

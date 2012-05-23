@@ -21,7 +21,7 @@ def ActiveDirectoryProfile(vim, *args, **kwargs):
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
 
     required = [ 'enabled' ]
-    optional = [ 'policy', 'profileTypeName', 'profileVersion', 'property_', 'dynamicProperty',
+    optional = [ 'policy', 'profileTypeName', 'profileVersion', 'property', 'dynamicProperty',
         'dynamicType' ]
 
     for name, arg in zip(required+optional, args):

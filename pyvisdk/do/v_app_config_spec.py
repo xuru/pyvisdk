@@ -20,7 +20,7 @@ def VAppConfigSpec(vim, *args, **kwargs):
     required = [  ]
     optional = [ 'annotation', 'entityConfig', 'instanceUuid', 'managedBy', 'eula',
         'installBootRequired', 'installBootStopDelay', 'ipAssignment',
-        'ovfEnvironmentTransport', 'ovfSection', 'product', 'property_',
+        'ovfEnvironmentTransport', 'ovfSection', 'product', 'property',
         'dynamicProperty', 'dynamicType' ]
 
     for name, arg in zip(required+optional, args):

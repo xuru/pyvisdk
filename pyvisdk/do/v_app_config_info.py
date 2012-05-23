@@ -19,7 +19,7 @@ def VAppConfigInfo(vim, *args, **kwargs):
 
     required = [ 'annotation', 'installBootRequired', 'installBootStopDelay', 'ipAssignment' ]
     optional = [ 'entityConfig', 'instanceUuid', 'managedBy', 'eula', 'ovfEnvironmentTransport',
-        'ovfSection', 'product', 'property_', 'dynamicProperty', 'dynamicType' ]
+        'ovfSection', 'product', 'property', 'dynamicProperty', 'dynamicType' ]
 
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)

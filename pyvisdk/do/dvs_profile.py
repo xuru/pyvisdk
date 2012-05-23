@@ -20,7 +20,7 @@ def DvsProfile(vim, *args, **kwargs):
         raise IndexError('Expected at least 4 arguments got: %d' % len(args))
 
     required = [ 'key', 'name', 'enabled' ]
-    optional = [ 'uplink', 'policy', 'profileTypeName', 'profileVersion', 'property_',
+    optional = [ 'uplink', 'policy', 'profileTypeName', 'profileVersion', 'property',
         'dynamicProperty', 'dynamicType' ]
 
     for name, arg in zip(required+optional, args):

@@ -17,7 +17,7 @@ def AlarmStatusChangedEvent(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 9:
         raise IndexError('Expected at least 10 arguments got: %d' % len(args))
 
-    required = [ 'entity', 'from_', 'source', 'to', 'alarm', 'chainId', 'createdTime', 'key',
+    required = [ 'entity', 'from', 'source', 'to', 'alarm', 'chainId', 'createdTime', 'key',
         'userName' ]
     optional = [ 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
         'fullFormattedMessage', 'host', 'net', 'vm', 'dynamicProperty', 'dynamicType' ]

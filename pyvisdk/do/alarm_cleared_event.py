@@ -17,7 +17,7 @@ def AlarmClearedEvent(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 8:
         raise IndexError('Expected at least 9 arguments got: %d' % len(args))
 
-    required = [ 'entity', 'from_', 'source', 'alarm', 'chainId', 'createdTime', 'key',
+    required = [ 'entity', 'from', 'source', 'alarm', 'chainId', 'createdTime', 'key',
         'userName' ]
     optional = [ 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
         'fullFormattedMessage', 'host', 'net', 'vm', 'dynamicProperty', 'dynamicType' ]

@@ -17,7 +17,7 @@ def HostStorageOperationalInfo(vim, *args, **kwargs):
     if (len(args) + len(kwargs)) < 2:
         raise IndexError('Expected at least 3 arguments got: %d' % len(args))
 
-    required = [ 'property_', 'value' ]
+    required = [ 'property', 'value' ]
     optional = [ 'dynamicProperty', 'dynamicType' ]
 
     for name, arg in zip(required+optional, args):

@@ -22,7 +22,7 @@ def NetworkProfile(vim, *args, **kwargs):
     optional = [ 'consoleIpRouteConfig', 'dnsConfig', 'dvsHostNic', 'dvsServiceConsoleNic',
         'dvswitch', 'hostPortGroup', 'ipRouteConfig', 'pnic',
         'serviceConsolePortGroup', 'vmPortGroup', 'vswitch', 'policy',
-        'profileTypeName', 'profileVersion', 'property_', 'dynamicProperty',
+        'profileTypeName', 'profileVersion', 'property', 'dynamicProperty',
         'dynamicType' ]
 
     for name, arg in zip(required+optional, args):

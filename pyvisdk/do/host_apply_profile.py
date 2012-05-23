@@ -23,7 +23,7 @@ def HostApplyProfile(vim, *args, **kwargs):
     required = [ 'enabled' ]
     optional = [ 'authentication', 'datetime', 'firewall', 'memory', 'network', 'option',
         'security', 'service', 'storage', 'userAccount', 'usergroupAccount', 'policy',
-        'profileTypeName', 'profileVersion', 'property_', 'dynamicProperty',
+        'profileTypeName', 'profileVersion', 'property', 'dynamicProperty',
         'dynamicType' ]
 
     for name, arg in zip(required+optional, args):
