@@ -13,12 +13,12 @@ log = logging.getLogger(__name__)
 
 class ProfileComplianceManager(BaseEntity):
     '''Interface handling the Compliance aspects of entities.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ProfileComplianceManager):
         super(ProfileComplianceManager, self).__init__(core, name=name, ref=ref, type=type)
+
     
-    
-    
+
     
     
     def CheckCompliance_Task(self, profile, entity):
@@ -52,10 +52,12 @@ class ProfileComplianceManager(BaseEntity):
         '''
         return self.delegate("QueryComplianceStatus")(profile, entity)
     
-    def QueryExpressionMetadata(self, expressionName):
+    def QueryExpressionMetadata(self, expressionName, profile):
         '''Query the metadata for the expressions.
         
         :param expressionName: Names of the Expressions for which metadata is requested. If expressionNames are not specified, metadata for all known expressions is returned
         
+        :param profile: Base profile whose context needs to be used during the operationvSphere API 5.0
+        
         '''
-        return self.delegate("QueryExpressionMetadata")(expressionName)
+        return self.delegate("QueryExpressionMetadata")(expressionName, profile)

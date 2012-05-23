@@ -15,10 +15,10 @@ class VirtualMachineSnapshot(ExtensibleManagedObject):
     '''The Snapshot managed object type specifies the interface to individual
     snapshots of a virtual machine. Although these are managed objects, they are
     subordinate to their virtual machine.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.VirtualMachineSnapshot):
         super(VirtualMachineSnapshot, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def childSnapshot(self):
@@ -29,16 +29,18 @@ class VirtualMachineSnapshot(ExtensibleManagedObject):
         '''Information about the configuration of this virtual machine when this snapshot
         was taken.'''
         return self.update('config')
+
     
     
-    
-    def RemoveSnapshot_Task(self, removeChildren):
+    def RemoveSnapshot_Task(self, removeChildren, consolidate):
         '''Removes this snapshot and deletes any associated storage.
         
         :param removeChildren: Flag to specify removal of the entire snapshot subtree.
         
+        :param consolidate: (optional) If set to true, the virtual disk associated with this snapshot will be merged with other disk if possible. Defaults to true.vSphere API 5.0
+        
         '''
-        return self.delegate("RemoveSnapshot_Task")(removeChildren)
+        return self.delegate("RemoveSnapshot_Task")(removeChildren, consolidate)
     
     def RenameSnapshot(self, name, description):
         '''Rename this snapshot with either a new name or a new description or both. At

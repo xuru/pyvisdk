@@ -23,10 +23,10 @@ class Datacenter(ManagedEntity):
     for Datastore objects.For a visual representation of the organization of
     objects in a vCenter hierarchy, see the description of the ServiceInstance
     object.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.Datacenter):
         super(Datacenter, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def datastore(self):
@@ -59,23 +59,19 @@ class Datacenter(ManagedEntity):
         machine templates (identified by the template property, and VirtualApp objects
         for this datacenter.'''
         return self.update('vmFolder')
-    
+
     
     
     def PowerOnMultiVM_Task(self, vm, option):
         '''Powers on multiple virtual machines in a data center. If the virtual machines
         are suspended, this method resumes execution from the suspend point. The
-        virtual machines can belong to different clusters in the data center.If any
-        virtual machine in the list is manually managed by DRS, or DRS has to migrate
-        any manually managed virtual machine or power on any manually managed host in
-        order to power on these virtual machines, a DRS recommendation will be
-        generated, and the users need to manually apply the recommendation for actually
-        powering on these virtual machines. Otherwise, all the virtual machine will be
-        automatically powered on. The virtual machines on stand alone hosts or DRS
-        disabled will be powered-on on the current host. The DRS automatically managed
-        virtual machines will be powered-on on the recommended hosts.When powering on a
-        virtual machine in a cluster, the system might do an implicit relocation of the
-        virtual machine to another host.
+        virtual machines can belong to different clusters in the data center.Powers on
+        multiple virtual machines in a data center. If the virtual machines are
+        suspended, this method resumes execution from the suspend point. The virtual
+        machines can belong to different clusters in the data center.Powers on multiple
+        virtual machines in a data center. If the virtual machines are suspended, this
+        method resumes execution from the suspend point. The virtual machines can
+        belong to different clusters in the data center.
         
         :param vm: The virtual machines to power on.
         

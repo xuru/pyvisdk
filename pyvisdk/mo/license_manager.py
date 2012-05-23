@@ -36,10 +36,10 @@ class LicenseManager(BaseEntity):
     'cpuPackage' on a two socket server, two licenses would be needed to
     successfully install that edition.Here is a diagram of the unit costs supported
     by this API and their relationships.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.LicenseManager):
         super(LicenseManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def diagnostics(self):
@@ -78,7 +78,7 @@ class LicenseManager(BaseEntity):
         '''Current state of the license source. License sources that are LocalSource are
         always available.'''
         return self.update('sourceAvailable')
-    
+
     
     
     def AddLicense(self, licenseKey, labels):
@@ -92,8 +92,8 @@ class LicenseManager(BaseEntity):
         return self.delegate("AddLicense")(licenseKey, labels)
     
     def CheckLicenseFeature(self, host, featureKey):
-        '''Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Returns
-        whether or not a given feature is enabled.
+        '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use QueryAssignedLicenses
+        instead.</i> Returns whether or not a given feature is enabled.
         
         :param host: Host to act on if LicenseManager is not on a host.
         
@@ -103,8 +103,8 @@ class LicenseManager(BaseEntity):
         return self.delegate("CheckLicenseFeature")(host, featureKey)
     
     def ConfigureLicenseSource(self, host, licenseSource):
-        '''Deprecated. As of vSphere API 4.0, use UpdateLicense instead. Allows for
-        reconfiguration of the License Manager license source.
+        '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use UpdateLicense instead.</i>
+        Allows for reconfiguration of the License Manager license source.
         
         :param host: Host for which the license manager should be reconfigured.
         
@@ -122,8 +122,8 @@ class LicenseManager(BaseEntity):
         return self.delegate("DecodeLicense")(licenseKey)
     
     def DisableFeature(self, host, featureKey):
-        '''Deprecated. As of vSphere API 4.0, use RemoveAssignedLicense instead. Release
-        licenses for an optional feature.
+        '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use RemoveAssignedLicense
+        instead.</i> Release licenses for an optional feature.
         
         :param host: Host to act on if LicenseManager is not on a host.
         
@@ -133,8 +133,8 @@ class LicenseManager(BaseEntity):
         return self.delegate("DisableFeature")(host, featureKey)
     
     def EnableFeature(self, host, featureKey):
-        '''Deprecated. As of vSphere API 4.0, use UpdateAssignedLicense instead. Enable a
-        feature that has an optional state.
+        '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use UpdateAssignedLicense
+        instead.</i> Enable a feature that has an optional state.
         
         :param host: Host to act on if LicenseManager is not on a host.
         
@@ -144,9 +144,9 @@ class LicenseManager(BaseEntity):
         return self.delegate("EnableFeature")(host, featureKey)
     
     def QueryLicenseSourceAvailability(self, host):
-        '''Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Queries
-        the current license source for total and available licenses available for each
-        feature known to this system.
+        '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use QueryAssignedLicenses
+        instead.</i> Queries the current license source for total and available
+        licenses available for each feature known to this system.
         
         :param host: Use the license source of the specified host.
         
@@ -154,9 +154,9 @@ class LicenseManager(BaseEntity):
         return self.delegate("QueryLicenseSourceAvailability")(host)
     
     def QueryLicenseUsage(self, host):
-        '''Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Returns
-        the license usage. The license usage is a list of supported features and the
-        number of licenses that have been reserved.
+        '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use QueryAssignedLicenses
+        instead.</i> Returns the license usage. The license usage is a list of
+        supported features and the number of licenses that have been reserved.
         
         :param host: Host to query for usage. If missing, query the server the LicenseManager is on.
         
@@ -164,9 +164,9 @@ class LicenseManager(BaseEntity):
         return self.delegate("QueryLicenseUsage")(host)
     
     def QuerySupportedFeatures(self, host):
-        '''Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Queries
-        the current license source for a list of available licenses that can be
-        licensed from this system.
+        '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use QueryAssignedLicenses
+        instead.</i> Queries the current license source for a list of available
+        licenses that can be licensed from this system.
         
         :param host: Use the license source of the specified host.
         
@@ -192,10 +192,11 @@ class LicenseManager(BaseEntity):
         return self.delegate("RemoveLicenseLabel")(licenseKey, labelKey)
     
     def SetLicenseEdition(self, host, featureKey):
-        '''Deprecated. As of vSphere API 4.0, use QueryAssignedLicenses instead. Defines
-        the product's license edition. The edition defines which product license the
-        server requires. This, in turn, determines the core set of functionality
-        provided by the product and the additional features that can be licensed.
+        '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use QueryAssignedLicenses
+        instead.</i> Defines the product's license edition. The edition defines which
+        product license the server requires. This, in turn, determines the core set of
+        functionality provided by the product and the additional features that can be
+        licensed.
         
         :param host: Host to act on if LicenseManager is not on a host.
         

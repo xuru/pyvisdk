@@ -14,10 +14,10 @@ log = logging.getLogger(__name__)
 class CustomizationSpecManager(BaseEntity):
     '''The CustomizationSpecManager managed object is used to manage customization
     specifications stored on the VirtualCenter server.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.CustomizationSpecManager):
         super(CustomizationSpecManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def encryptionKey(self):
@@ -28,7 +28,7 @@ class CustomizationSpecManager(BaseEntity):
     def info(self):
         '''Gets a list of information on available specifications.'''
         return self.update('info')
-    
+
     
     
     def CheckCustomizationResources(self, guestOs):

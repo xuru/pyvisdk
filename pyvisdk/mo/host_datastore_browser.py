@@ -42,11 +42,23 @@ class HostDatastoreBrowser(BaseEntity):
     extra details or the use of type specific filters can sometimes only be
     implemented by examining the contents of a file. As a result, the use of these
     conveniences comes with the cost of additional latency in the request and
-    possible side effects on the system as a whole.See FileInfo'''
-    
+    possible side effects on the system as a whole.The DatastoreBrowser is
+    referenced from various objects, including from Datastore, ComputeResource,
+    HostSystem and VirtualMachine. Depending on which object is used, there are
+    different requirements for the accessibility of the browsed datastore from the
+    host (or hosts) associated with the object:* When referenced from the target
+    Datastore, it needs to be accessible from at least one host on which the
+    datastore is mounted. See accessible. * When referenced from a ComputeResource,
+    the target datastore needs to be accessible from at least one host in the
+    ComputeResource. See accessible. * When referenced from a HostSystem, the
+    target datastore needs to be accessible from that host. See accessible. * When
+    referenced from a VirtualMachine, the target datastore needs to be accessible
+    from the host on which the virtual machine is registered. See accessible.See
+    FileInfo'''
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostDatastoreBrowser):
         super(HostDatastoreBrowser, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def datastore(self):
@@ -59,13 +71,13 @@ class HostDatastoreBrowser(BaseEntity):
         list whose dynamic type is one of the types derived from the FileQuery data
         object type. In general, the properties in this query type are not set.'''
         return self.update('supportedType')
-    
+
     
     
     def DeleteFile(self):
-        '''Deprecated. As of VI API 2.5, use DeleteDatastoreFile_Task. Deletes the
-        specified files from the datastore. If a valid virtual disk file is specified,
-        then all the components of the virtual disk are deleted.
+        '''<b>Deprecated.</b> <i>As of VI API 2.5, use DeleteDatastoreFile_Task.</i>
+        Deletes the specified files from the datastore. If a valid virtual disk file is
+        specified, then all the components of the virtual disk are deleted.
         
         '''
         return self.delegate("DeleteFile")()

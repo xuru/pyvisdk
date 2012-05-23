@@ -17,10 +17,10 @@ class Network(ManagedEntity):
     created:* explicitly when configuring a host. * automatically when adding a
     host to VirtualCenter. * automatically when adding a new virtual machine to a
     host or to VirtualCenter.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.Network):
         super(Network, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def host(self):
@@ -38,14 +38,14 @@ class Network(ManagedEntity):
     def vm(self):
         '''Virtual machines using this network.'''
         return self.update('vm')
-    
+
     
     
     def DestroyNetwork(self):
-        '''Deprecated. As of VI API 2.5 do not use this method. This method throws
-        ResourceInUse. Networks are automatically removed when no longer in use, so
-        this method is unnecessary. Removes a network. A network can be removed only if
-        it is not used by any host or virtual machine.
+        '''<b>Deprecated.</b> <i>As of VI API 2.5 do not use this method. This method
+        throws ResourceInUse. Networks are automatically removed when no longer in use,
+        so this method is unnecessary.</i> Removes a network. A network can be removed
+        only if it is not used by any host or virtual machine.
         
         '''
         return self.delegate("DestroyNetwork")()

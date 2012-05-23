@@ -15,10 +15,10 @@ class EventManager(BaseEntity):
     '''This managed object type provides properties and methods for event management
     support. Event objects are used to record significant state changes of managed
     entities.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.EventManager):
         super(EventManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def description(self):
@@ -33,13 +33,13 @@ class EventManager(BaseEntity):
         '''For each client, the maximum number of event collectors that can exist
         simultaneously.'''
         return self.update('maxCollector')
-    
+
     
     
     def CreateCollectorForEvents(self, filter):
         '''Creates an event history collector, which is a specialized history collector
-        that provides Event objects.Event collectors do not persist beyond the current
-        client session.
+        that provides Event objects.Creates an event history collector, which is a
+        specialized history collector that provides Event objects.
         
         :param filter: The event query filter.
         
@@ -57,11 +57,14 @@ class EventManager(BaseEntity):
         return self.delegate("LogUserEvent")(entity, msg)
     
     def PostEvent(self, eventToPost, taskInfo):
-        '''Posts the specified event, optionally associating it with a Task.
+        '''Posts the specified event, optionally associating it with a task.Posts the
+        specified event, optionally associating it with a task.Posts the specified
+        event, optionally associating it with a task.Posts the specified event,
+        optionally associating it with a task.
         
         :param eventToPost: Fully-specified event to post
         
-        :param taskInfo: Task associated with the event
+        :param taskInfo: optional task associated with the event
         
         '''
         return self.delegate("PostEvent")(eventToPost, taskInfo)

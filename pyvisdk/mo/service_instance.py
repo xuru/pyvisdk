@@ -47,10 +47,10 @@ class ServiceInstance(BaseEntity):
     DistributedVirtualSwitch, and/or DistributedVirtualPortgroup objects. * A
     folder for Datastore objects.The host agent hierarchy has the same general form
     as the vCenter hierarchy, but most of the objects are limited to one instance:'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ServiceInstance):
         super(ServiceInstance, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def capability(self):
@@ -69,7 +69,7 @@ class ServiceInstance(BaseEntity):
         notification if some event occurs that changes the server clock time in a non-
         linear fashion.'''
         return self.update('serverClock')
-    
+
     
     
     def CurrentTime(self):
@@ -80,10 +80,11 @@ class ServiceInstance(BaseEntity):
         return self.delegate("CurrentTime")()
     
     def QueryVMotionCompatibility(self, vm, host, compatibility):
-        '''Deprecated. As of vSphere API 4.0, use QueryVMotionCompatibilityEx_Task
-        instead. Investigates the general VMotion compatibility of a virtual machine
-        with a set of hosts. The virtual machine may be in any power state. Hosts may
-        be in any connection state and also may be in maintenance mode.
+        '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use
+        QueryVMotionCompatibilityEx_Task instead.</i> Investigates the general VMotion
+        compatibility of a virtual machine with a set of hosts. The virtual machine may
+        be in any power state. Hosts may be in any connection state and also may be in
+        maintenance mode.
         
         :param vm: The virtual machine that is the designated VMotion candidate.
         
@@ -107,10 +108,11 @@ class ServiceInstance(BaseEntity):
         return self.delegate("RetrieveServiceContent")()
     
     def ValidateMigration(self, vm, state, testType, pool, host):
-        '''Deprecated. As of vSphere API 4.0, use VirtualMachineProvisioningChecker
-        instead. Checks the validity of a set of proposed migrations. A migration is
-        the act of changing the assigned execution host of a virtual machine, which can
-        result from invoking MigrateVM_Task or RelocateVM_Task.
+        '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use
+        VirtualMachineProvisioningChecker instead.</i> Checks the validity of a set of
+        proposed migrations. A migration is the act of changing the assigned execution
+        host of a virtual machine, which can result from invoking MigrateVM_Task or
+        RelocateVM_Task.
         
         :param vm: The set of virtual machines intended for migration.
         

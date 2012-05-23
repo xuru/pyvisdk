@@ -13,17 +13,18 @@ def VirtualHardware(vim, *args, **kwargs):
     hardware in a virtual machine.'''
     
     obj = vim.client.factory.create('ns0:VirtualHardware')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 2:
         raise IndexError('Expected at least 3 arguments got: %d' % len(args))
-        
+
     required = [ 'memoryMB', 'numCPU' ]
-    optional = [ 'device', 'dynamicProperty', 'dynamicType' ]
-    
+    optional = [ 'device', 'numCoresPerSocket', 'virtualICH7MPresent', 'virtualSMCPresent',
+        'dynamicProperty', 'dynamicType' ]
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

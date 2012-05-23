@@ -9,22 +9,23 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def HostProfileCompleteConfigSpec(vim, *args, **kwargs):
-    '''DataObject which specifies the complete configuration of the Profile to be
-    created.'''
+    '''The HostProfileCompleteConfigSpec data object specifies the complete
+    configuration for a host profile.'''
     
     obj = vim.client.factory.create('ns0:HostProfileCompleteConfigSpec')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
-        
+
     required = [ 'disabledExpressionListChanged' ]
-    optional = [ 'applyProfile', 'customComplyProfile', 'disabledExpressionList', 'annotation',
-        'enabled', 'name', 'dynamicProperty', 'dynamicType' ]
-    
+    optional = [ 'applyProfile', 'customComplyProfile', 'disabledExpressionList',
+        'validatorHost', 'annotation', 'enabled', 'name', 'dynamicProperty',
+        'dynamicType' ]
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

@@ -9,20 +9,23 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def IpRouteProfile(vim, *args, **kwargs):
-    '''DataObject representing the Ip Route configuration.'''
+    '''The IpRouteProfile data object represents the host IP route configuration. If a
+    profile plug-in defines policies or subprofiles, use the policy or property
+    list to access the additional configuration data.'''
     
     obj = vim.client.factory.create('ns0:IpRouteProfile')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
-        
+
     required = [ 'enabled' ]
-    optional = [ 'staticRoute', 'policy', 'dynamicProperty', 'dynamicType' ]
-    
+    optional = [ 'staticRoute', 'policy', 'profileTypeName', 'profileVersion', 'property_',
+        'dynamicProperty', 'dynamicType' ]
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

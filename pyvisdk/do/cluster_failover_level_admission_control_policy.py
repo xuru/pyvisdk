@@ -12,7 +12,7 @@ def ClusterFailoverLevelAdmissionControlPolicy(vim, *args, **kwargs):
     '''The ClusterFailoverLevelAdmissionControlPolicy defines the number of host
     failures that should be tolerated and still guarantee enough unfragmented
     resources to failover all powered on virtual machines on those failed
-    hosts.When you use the failover level policy, VMware HA partitions resources
+    hosts.When you use the failover level policy, vSphere HA partitions resources
     into slots. A slot represents the minimum CPU and memory resources that are
     required to support any powered-on virtual machine in the cluster.With the
     failover level policy in place, HA uses the following slot calculations to
@@ -33,17 +33,17 @@ def ClusterFailoverLevelAdmissionControlPolicy(vim, *args, **kwargs):
     results; the lower of the two numbers is the host slot capacity.'''
     
     obj = vim.client.factory.create('ns0:ClusterFailoverLevelAdmissionControlPolicy')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
-        
+
     required = [ 'failoverLevel' ]
     optional = [ 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

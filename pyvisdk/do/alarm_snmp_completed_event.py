@@ -12,18 +12,18 @@ def AlarmSnmpCompletedEvent(vim, *args, **kwargs):
     '''This event records the completion of an alarm SNMP notification.'''
     
     obj = vim.client.factory.create('ns0:AlarmSnmpCompletedEvent')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 6:
         raise IndexError('Expected at least 7 arguments got: %d' % len(args))
-        
+
     required = [ 'entity', 'alarm', 'chainId', 'createdTime', 'key', 'userName' ]
     optional = [ 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
         'fullFormattedMessage', 'host', 'net', 'vm', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

@@ -17,17 +17,17 @@ def ProductComponentInfo(vim, *args, **kwargs):
     example, ESX product may bundle VI Client in its releases.'''
     
     obj = vim.client.factory.create('ns0:ProductComponentInfo')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 4:
         raise IndexError('Expected at least 5 arguments got: %d' % len(args))
-        
+
     required = [ 'id', 'name', 'release', 'version' ]
     optional = [ 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

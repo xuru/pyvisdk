@@ -13,12 +13,12 @@ log = logging.getLogger(__name__)
 
 class LicenseAssignmentManager(BaseEntity):
     ''''''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.LicenseAssignmentManager):
         super(LicenseAssignmentManager, self).__init__(core, name=name, ref=ref, type=type)
+
     
-    
-    
+
     
     
     def QueryAssignedLicenses(self, entityId):

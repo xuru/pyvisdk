@@ -13,17 +13,17 @@ def HostDirectoryStoreInfo(vim, *args, **kwargs):
     about directory-based authentication stores.'''
     
     obj = vim.client.factory.create('ns0:HostDirectoryStoreInfo')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
-        
+
     required = [ 'enabled' ]
     optional = [ 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

@@ -14,12 +14,12 @@ log = logging.getLogger(__name__)
 class VirtualMachineProvisioningChecker(BaseEntity):
     '''A singleton managed object that can answer questions about the feasibility of
     certain provisioning operations.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.VirtualMachineProvisioningChecker):
         super(VirtualMachineProvisioningChecker, self).__init__(core, name=name, ref=ref, type=type)
+
     
-    
-    
+
     
     
     def CheckMigrate_Task(self, vm, host, pool, state, testType):

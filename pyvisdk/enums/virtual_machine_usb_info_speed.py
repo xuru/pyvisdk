@@ -10,6 +10,7 @@ VirtualMachineUsbInfoSpeed = Enum(
     'full',
     'high',
     'low',
+    'superSpeed',
     'unknownSpeed',
 
 )

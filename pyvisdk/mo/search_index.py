@@ -21,12 +21,12 @@ class SearchIndex(BaseEntity):
     SearchIndex find operations only search virtual machines and hosts for which
     the user has read privileges. If the user does not have sufficient privileges
     for an object that matches the search criteria, that object is not returned.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.SearchIndex):
         super(SearchIndex, self).__init__(core, name=name, ref=ref, type=type)
+
     
-    
-    
+
     
     
     def FindAllByDnsName(self, datacenter, dnsName, vmSearch):

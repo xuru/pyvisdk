@@ -16,10 +16,10 @@ class TaskManager(BaseEntity):
     Task managed objects. Many operations are non-blocking, returning a Task
     managed object that can be monitored by a client application. Task managed
     objects may also be accessed through the TaskManager.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.TaskManager):
         super(TaskManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def description(self):
@@ -35,13 +35,13 @@ class TaskManager(BaseEntity):
         '''A list of Task managed objects that completed recently, that are currently
         running, or that are queued to run.'''
         return self.update('recentTask')
-    
+
     
     
     def CreateCollectorForTasks(self, filter):
         '''Creates a TaskHistoryCollector, a specialized HistoryCollector that gathers
-        TaskInfo data objects.A TaskHistoryCollector does not persist beyond the
-        current client session.
+        TaskInfo data objects.Creates a TaskHistoryCollector, a specialized
+        HistoryCollector that gathers TaskInfo data objects.
         
         :param filter: The specification for the task query filter.
         

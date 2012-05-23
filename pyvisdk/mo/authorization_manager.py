@@ -51,10 +51,10 @@ class AuthorizationManager(BaseEntity):
     FT secondary VMs always return the primary VM as the object that defines the
     permissions. Permissions defined on an FT primary VM are always applicable on
     its secondary VMs, but can only be defined or modified on the primary VM.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.AuthorizationManager):
         super(AuthorizationManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def description(self):
@@ -69,7 +69,7 @@ class AuthorizationManager(BaseEntity):
         '''The currently defined roles in the system, including static system-defined
         roles.'''
         return self.update('roleList')
-    
+
     
     
     def AddAuthorizationRole(self, name, privIds):
@@ -83,6 +83,19 @@ class AuthorizationManager(BaseEntity):
         
         '''
         return self.delegate("AddAuthorizationRole")(name, privIds)
+    
+    def HasPrivilegeOnEntity(self, entity, sessionId, privId):
+        '''Check whether a session holds a set of privileges on a managed entity.Check
+        whether a session holds a set of privileges on a managed entity.
+        
+        :param entity: The entity on which the privileges are checked.
+        
+        :param sessionId: The session ID to check privileges for. A sesssion ID can be obtained from key.
+        
+        :param privId: The array of privilege IDs to check.
+        
+        '''
+        return self.delegate("HasPrivilegeOnEntity")(entity, sessionId, privId)
     
     def MergePermissions(self, srcRoleId, dstRoleId):
         '''Reassigns all permissions of a role to another role.
@@ -103,14 +116,8 @@ class AuthorizationManager(BaseEntity):
         return self.delegate("RemoveAuthorizationRole")(failIfUsed)
     
     def RemoveEntityPermission(self, entity, user, isGroup):
-        '''Removes a permission rule from an entity.This will fail with an InvalidArgument
-        fault if called on: the direct child folders of a datacenter managed object,
-        the root resource pool of a ComputeResource or ClusterComputeResource, or a
-        HostSystem that is part of a ComputeResource (Stand-alone Host). These objects
-        always have the same permissions as their parent.This will fail with an
-        InvalidArgument fault if called on a fault-tolerance (FT) secondary
-        VirtualMachine. Such a VirtualMachine always has the same permissions as its FT
-        primary VirtualMachine.
+        '''Removes a permission rule from an entity.Removes a permission rule from an
+        entity.Removes a permission rule from an entity.
         
         :param entity: Entity on which a permission is removed.
         
@@ -123,24 +130,17 @@ class AuthorizationManager(BaseEntity):
     
     def ResetEntityPermissions(self, entity, permission):
         '''Update the entire set of permissions defined on an entity. Any existing
-        permissions on the entity are removed and replaced with the provided set.If a
-        permission is specified multiple times for the same user or group, the last
-        permission specified takes effect.The operation is transactional per permission
-        and could partially fail. The updates are performed in the order of the
-        permission array argument. The first failed update will abort the operation and
-        throw the appropriate exception. When the operation aborts, any permissions
-        that have not yet been removed are left in their original state.After updates
-        are applied, original permissions that are not in the new set are removed. A
-        failure to remove a permission, such as a violation of the minimum
-        administrator permission rule, will abort the operation and could leave
-        remaining original permissions still effective on the entity.This will fail
-        with an InvalidArgument fault if called on: the direct child folders of a
-        datacenter managed object, the root resource pool of a ComputeResource or
-        ClusterComputeResource, or a HostSystem that is part of a ComputeResource
-        (Stand-alone Host). These objects always have the same permissions as their
-        parent.This will fail with an InvalidArgument fault if called on a fault-
-        tolerance (FT) secondary VirtualMachine. Such a VirtualMachine always has the
-        same permissions as its FT primary VirtualMachine.
+        permissions on the entity are removed and replaced with the provided set.Update
+        the entire set of permissions defined on an entity. Any existing permissions on
+        the entity are removed and replaced with the provided set.Update the entire set
+        of permissions defined on an entity. Any existing permissions on the entity are
+        removed and replaced with the provided set.Update the entire set of permissions
+        defined on an entity. Any existing permissions on the entity are removed and
+        replaced with the provided set.Update the entire set of permissions defined on
+        an entity. Any existing permissions on the entity are removed and replaced with
+        the provided set.Update the entire set of permissions defined on an entity. Any
+        existing permissions on the entity are removed and replaced with the provided
+        set.
         
         :param entity: The entity on which permissions are updated.
         
@@ -161,12 +161,15 @@ class AuthorizationManager(BaseEntity):
         actual permission objects defined in the system for all users and groups
         relative to the managed entity. The inherited flag specifies whether or not to
         include permissions defined by the parents of this entity that propagate to
-        this entity.For complex entities, the entity reported as defining the
-        permission may be either the parent or a child entity belonging to the complex
-        entity.The purpose of this method is to discover permissions for administration
-        purposes, not to determine the current permissions. The current user's
-        permissions are found on the effectiveRole property of the user's
-        ManagedEntity.
+        this entity.Gets permissions defined on or effective on a managed entity. This
+        returns the actual permission objects defined in the system for all users and
+        groups relative to the managed entity. The inherited flag specifies whether or
+        not to include permissions defined by the parents of this entity that propagate
+        to this entity.Gets permissions defined on or effective on a managed entity.
+        This returns the actual permission objects defined in the system for all users
+        and groups relative to the managed entity. The inherited flag specifies whether
+        or not to include permissions defined by the parents of this entity that
+        propagate to this entity.
         
         :param inherited: Whether or not to include propagating permissions defined by parent entities.
         
@@ -182,20 +185,14 @@ class AuthorizationManager(BaseEntity):
     
     def SetEntityPermissions(self, entity, permission):
         '''Defines one or more permission rules on an entity or updates rules if already
-        present for the given user or group on the entity.If a permission is specified
-        multiple times for the same user or group, then the last permission specified
-        takes effect.The operation is applied transactionally per permission and is
-        applied to the entity following the order of the elements in the permission
-        array argument. This means that if a failure occurs, the method terminates at
-        that point in the permission array with an exception, leaving at least one and
-        as many as all permissions unapplied.This will fail with an InvalidArgument
-        fault if called on: the direct child folders of a datacenter managed object,
-        the root resource pool of a ComputeResource or ClusterComputeResource, or a
-        HostSystem that is part of a ComputeResource (Stand-alone Host). These objects
-        always have the same permissions as their parent.This will fail with an
-        InvalidArgument fault if called on a fault-tolerance (FT) secondary
-        VirtualMachine. Such a VirtualMachine always has the same permissions as its FT
-        primary VirtualMachine.
+        present for the given user or group on the entity.Defines one or more
+        permission rules on an entity or updates rules if already present for the given
+        user or group on the entity.Defines one or more permission rules on an entity
+        or updates rules if already present for the given user or group on the
+        entity.Defines one or more permission rules on an entity or updates rules if
+        already present for the given user or group on the entity.Defines one or more
+        permission rules on an entity or updates rules if already present for the given
+        user or group on the entity.
         
         :param entity: The entity on which to set permissions.
         

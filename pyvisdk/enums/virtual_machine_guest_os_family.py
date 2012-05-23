@@ -7,6 +7,7 @@
 from pyvisdk.thirdparty import Enum
 
 VirtualMachineGuestOsFamily = Enum(
+    'darwinGuestFamily',
     'linuxGuest',
     'netwareGuest',
     'otherGuestFamily',

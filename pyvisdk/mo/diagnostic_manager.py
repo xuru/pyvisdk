@@ -15,12 +15,12 @@ class DiagnosticManager(BaseEntity):
     '''Provides an interface to get low-level debugging logs or diagnostic bundles for
     a server. For VirtualCenter, this includes the log files for the server daemon.
     For an ESX Server host, this includes detailed log files for the VMkernel.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.DiagnosticManager):
         super(DiagnosticManager, self).__init__(core, name=name, ref=ref, type=type)
+
     
-    
-    
+
     
     
     def BrowseDiagnosticLog(self, host, key, start, lines):

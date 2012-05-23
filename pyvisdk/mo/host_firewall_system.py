@@ -15,16 +15,16 @@ class HostFirewallSystem(ExtensibleManagedObject):
     '''The FirewallSystem managed object describes the firewall configuration of the
     host.The firewall should be configured first by setting the default policy and
     then by making exceptions to the policy to get the desired openness.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostFirewallSystem):
         super(HostFirewallSystem, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def firewallInfo(self):
         '''Firewall configuration.'''
         return self.update('firewallInfo')
-    
+
     
     
     def DisableRuleset(self):
@@ -55,3 +55,9 @@ class HostFirewallSystem(ExtensibleManagedObject):
         
         '''
         return self.delegate("UpdateDefaultPolicy")()
+    
+    def UpdateRuleset(self):
+        '''Update the firewall ruleset specification.
+        
+        '''
+        return self.delegate("UpdateRuleset")()

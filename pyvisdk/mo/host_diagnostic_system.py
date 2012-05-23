@@ -17,16 +17,16 @@ class HostDiagnosticSystem(BaseEntity):
     following concepts:* Notion of an active diagnostic partition that is selected
     from a set of available partitions. * Ability to create a diagnostic partition
     that gets added to the list of available partitions and could be made active.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostDiagnosticSystem):
         super(HostDiagnosticSystem, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def activePartition(self):
         '''The currently active diagnostic partition.'''
         return self.update('activePartition')
-    
+
     
     
     def CreateDiagnosticPartition(self):
@@ -65,8 +65,9 @@ class HostDiagnosticSystem(BaseEntity):
     def QueryPartitionCreateOptions(self):
         '''Retrieves a list of disks that can be used to contain a diagnostic partition.
         This list will contain disks that have sufficient space to contain a diagnostic
-        partition of the specific type.The choices will be returned in the order that
-        is most preferable as determined by the system.
+        partition of the specific type.Retrieves a list of disks that can be used to
+        contain a diagnostic partition. This list will contain disks that have
+        sufficient space to contain a diagnostic partition of the specific type.
         
         '''
         return self.delegate("QueryPartitionCreateOptions")()

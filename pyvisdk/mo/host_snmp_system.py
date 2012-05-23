@@ -12,12 +12,12 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostSnmpSystem(BaseEntity):
-    '''Provision the SNMP Version 1,2c agent. This object is a singleton accessed
-    through the HostConfigManager object.'''
-    
+    '''Provision the SNMP Version 1,2c agent. This object is accessed through the
+    HostConfigManager object.'''
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostSnmpSystem):
         super(HostSnmpSystem, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def configuration(self):
@@ -27,7 +27,7 @@ class HostSnmpSystem(BaseEntity):
     def limits(self):
         '''VI API 2.5'''
         return self.update('limits')
-    
+
     
     
     def ReconfigureSnmpAgent(self):

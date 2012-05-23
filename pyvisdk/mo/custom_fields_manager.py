@@ -17,16 +17,16 @@ class CustomFieldsManager(BaseEntity):
     through the customValue property and through the summary objects for
     VirtualMachine and HostSystem. They are not available directly through this
     managed object.This functionality is only available through VirtualCenter.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.CustomFieldsManager):
         super(CustomFieldsManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def field(self):
         '''List of custom fields defined on this server. The fields are sorted by name.'''
         return self.update('field')
-    
+
     
     
     def AddCustomFieldDef(self, name, moType, fieldDefPolicy, fieldPolicy):

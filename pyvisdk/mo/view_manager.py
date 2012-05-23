@@ -32,17 +32,17 @@ class ViewManager(BaseEntity):
     inventory view as a general mechanism to monitor the inventory or portions of
     the inventory.For example, you might use the following sequence of operations
     to get the names of all the virtual machines on a server:'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ViewManager):
         super(ViewManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def viewList(self):
         '''An array of view references. Each array entry is a managed object reference to
         a view created by this ViewManager.'''
         return self.update('viewList')
-    
+
     
     
     def CreateContainerView(self, container, type, recursive):

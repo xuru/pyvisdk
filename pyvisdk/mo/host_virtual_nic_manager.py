@@ -12,18 +12,18 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostVirtualNicManager(ExtensibleManagedObject):
-    '''The VirtualNicManager managed object describes the special vnic configuration
-    of the host.'''
-    
+    '''The VirtualNicManager managed object describes the special Virtual NIC
+    configuration of the host.'''
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostVirtualNicManager):
         super(HostVirtualNicManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def info(self):
         '''Network configuration.'''
         return self.update('info')
-    
+
     
     
     def DeselectVnicForNicType(self, nicType, device):

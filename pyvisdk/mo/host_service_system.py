@@ -12,19 +12,19 @@ import logging
 log = logging.getLogger(__name__)
 
 class HostServiceSystem(ExtensibleManagedObject):
-    '''The ServiceSystem managed object describes the configuration of host services.
-    This managed object operates in conjunction with the HostFirewallSystem managed
-    object.'''
-    
+    '''The HostServiceSystem managed object describes the configuration of host
+    services. This managed object operates in conjunction with the
+    HostFirewallSystem managed object.'''
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostServiceSystem):
         super(HostServiceSystem, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def serviceInfo(self):
         '''Service configuration.'''
         return self.update('serviceInfo')
-    
+
     
     
     def RefreshServices(self):
@@ -34,33 +34,45 @@ class HostServiceSystem(ExtensibleManagedObject):
         '''
         return self.delegate("RefreshServices")()
     
-    def RestartService(self):
+    def RestartService(self, id):
         '''Restarts the service.
         
+        :param id: Service identifier (serviceInfo.service.key).
+        
         '''
-        return self.delegate("RestartService")()
+        return self.delegate("RestartService")(id)
     
-    def StartService(self):
+    def StartService(self, id):
         '''Starts the service.
         
-        '''
-        return self.delegate("StartService")()
-    
-    def StopService(self):
-        '''Stops the service.
+        :param id: Service identifier (serviceInfo.service.key).
         
         '''
-        return self.delegate("StopService")()
+        return self.delegate("StartService")(id)
     
-    def UninstallService(self):
+    def StopService(self, id):
+        '''Stops the service.
+        
+        :param id: Service identifier (serviceInfo.service.key).
+        
+        '''
+        return self.delegate("StopService")(id)
+    
+    def UninstallService(self, id):
         '''Uninstalls the service. If the service is running, it is stopped before being
         uninstalled.
         
-        '''
-        return self.delegate("UninstallService")()
-    
-    def UpdateServicePolicy(self):
-        '''Updates the activation policy (HostServicePolicy) of the service.
+        :param id: Service identifier (serviceInfo.service.key).
         
         '''
-        return self.delegate("UpdateServicePolicy")()
+        return self.delegate("UninstallService")(id)
+    
+    def UpdateServicePolicy(self, id, policy):
+        '''Updates the activation policy of the service.
+        
+        :param id: Service identifier (serviceInfo.service.key).
+        
+        :param policy: Specifies the condition for service activation. Use one of the HostServicePolicy values.
+        
+        '''
+        return self.delegate("UpdateServicePolicy")(id, policy)

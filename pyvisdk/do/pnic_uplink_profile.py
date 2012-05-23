@@ -9,20 +9,22 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def PnicUplinkProfile(vim, *args, **kwargs):
-    '''DataObject which specifies the mapping between a PNic and an uplink port'''
+    '''The PnicUplinkProfile data object specifies the mapping between a physical NIC
+    and an uplink port. The policy property contains the configuration data values.'''
     
     obj = vim.client.factory.create('ns0:PnicUplinkProfile')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 2:
         raise IndexError('Expected at least 3 arguments got: %d' % len(args))
-        
+
     required = [ 'key', 'enabled' ]
-    optional = [ 'policy', 'dynamicProperty', 'dynamicType' ]
-    
+    optional = [ 'policy', 'profileTypeName', 'profileVersion', 'property_', 'dynamicProperty',
+        'dynamicType' ]
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

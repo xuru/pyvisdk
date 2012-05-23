@@ -14,10 +14,10 @@ log = logging.getLogger(__name__)
 class HostNetworkSystem(ExtensibleManagedObject):
     '''This managed object type describes networking host configuration and serves as
     the top level container for relevant networking data objects.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostNetworkSystem):
         super(HostNetworkSystem, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def capabilities(self):
@@ -54,23 +54,19 @@ class HostNetworkSystem(ExtensibleManagedObject):
     def offloadCapabilities(self):
         '''The offload capabilities available on this server.'''
         return self.update('offloadCapabilities')
+
     
     
-    
-    def AddPortGroup(self, host_port_group_spec):
+    def AddPortGroup(self):
         '''Adds a port group to the virtual switch.
         
         '''
-        return self.delegate("AddPortGroup")(host_port_group_spec)
+        return self.delegate("AddPortGroup")()
     
     def AddServiceConsoleVirtualNic(self, portgroup, nic):
         '''Adds a virtual service console network adapter. Returns the device of the
-        VirtualNic.IP configuration is required although it does not have to be enabled
-        if the host is an ESX Server system. The dynamic privilege check will ensure
-        that users have Host.Config.Network privilege on the host, and Network.Assign
-        privilege on the connecting DVPortGroup, or DVS if connecting to a standalone
-        DVPort. Network.Assign privilege is not required for operations on standard
-        network.See usesServiceConsoleNic
+        VirtualNic.Adds a virtual service console network adapter. Returns the device
+        of the VirtualNic.
         
         :param portgroup: See usesServiceConsoleNic
         
@@ -79,17 +75,15 @@ class HostNetworkSystem(ExtensibleManagedObject):
         '''
         return self.delegate("AddServiceConsoleVirtualNic")(portgroup, nic)
     
-    def AddVirtualNic(self):
+    def AddVirtualNic(self, portgroup):
         '''Adds a virtual host/VMkernel network adapter. Returns the device of the virtual
-        network adapter.IP configuration is required although it does not have to be
-        enabled if the host is an ESX Server system. The dynamic privilege check will
-        ensure that users have Host.Config.Network privilege on the host, and
-        Network.Assign privilege on the connecting DVPortGroup, or DVS if connecting to
-        a standalone DVPort. Network.Assign privilege is not required for operations on
-        standard network.
+        network adapter.Adds a virtual host/VMkernel network adapter. Returns the
+        device of the virtual network adapter.
+        
+        :param portgroup: Note: Must be the empty string in case nic.distributedVirtualPort is set.
         
         '''
-        return self.delegate("AddVirtualNic")()
+        return self.delegate("AddVirtualNic")(portgroup)
     
     def AddVirtualSwitch(self, vswitchName, spec):
         '''Adds a new virtual switch to the system with the given name. The name must be
@@ -186,7 +180,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
     
     def UpdateNetworkConfig(self, config, changeMode):
         '''Applies the network configuration. This method operates primarily in two modes:
-        replace or modify mode.
+        <b>replace</b> or <b>modify</b> mode.
         
         :param config: See HostConfigChangeMode
         
@@ -214,11 +208,8 @@ class HostNetworkSystem(ExtensibleManagedObject):
     
     def UpdateServiceConsoleVirtualNic(self, device, nic):
         '''Configures the IP configuration for a virtual service console network
-        adapter.IP configuration is required although it does not have to be enabled if
-        the host is an ESX Server system. The dynamic privilege check will check that
-        the users have Network.Assign privilege on the DVPortGroup or the DVS if the
-        port resides on a DVPortGroup or is a stand-alone DVS port.See
-        usesServiceConsoleNic
+        adapter.Configures the IP configuration for a virtual service console network
+        adapter.
         
         :param device: See usesServiceConsoleNic
         
@@ -228,25 +219,16 @@ class HostNetworkSystem(ExtensibleManagedObject):
         return self.delegate("UpdateServiceConsoleVirtualNic")(device, nic)
     
     def UpdateVirtualNic(self):
-        '''Configures virtual host/VMkernel network adapter.IP configuration is required
-        although it does not have to be enabled if the host is an ESX Server system.
-        The dynamic privilege check will ensure that users have Host.Config.Network
-        privilege on the host, and Network.Assign privilege on the connecting
-        DVPortGroup, or DVS if connecting to a standalone DVPort. Network.Assign
-        privilege is not required for operations on standard network.
+        '''Configures virtual host/VMkernel network adapter.Configures virtual
+        host/VMkernel network adapter.
         
         '''
         return self.delegate("UpdateVirtualNic")()
     
     def UpdateVirtualSwitch(self, vswitchName, spec):
-        '''Updates the properties of the virtual switch.If the bridge is NULL, the
-        configuration will be unset.If a network adapter is listed in the active or
-        standby list, then changing the set of network adapters to which the physical
-        network adapter is associated may have a side effect of changing the network
-        adapter order policy. If a network adapter is removed from the bridge
-        configuration, then the network adapter is removed from the network adapter
-        teaming order.The BondBridge configuration is the only valid bridge
-        configuration for an ESX Server system.See HostNicOrderPolicy
+        '''Updates the properties of the virtual switch.Updates the properties of the
+        virtual switch.Updates the properties of the virtual switch.Updates the
+        properties of the virtual switch.
         
         :param vswitchName: See HostNicOrderPolicy
         

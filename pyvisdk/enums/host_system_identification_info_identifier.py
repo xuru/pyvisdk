@@ -8,6 +8,7 @@ from pyvisdk.thirdparty import Enum
 
 HostSystemIdentificationInfoIdentifier = Enum(
     'AssetTag',
+    'OemSpecificString',
     'ServiceTag',
 
 )

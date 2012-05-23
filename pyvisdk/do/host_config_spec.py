@@ -13,20 +13,21 @@ def HostConfigSpec(vim, *args, **kwargs):
     configuration changes to be applied to an ESX host.'''
     
     obj = vim.client.factory.create('ns0:HostConfigSpec')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
-        
+
     required = [  ]
     optional = [ 'activeDirectory', 'datastorePrincipal', 'datastorePrincipalPasswd',
-        'datetime', 'firewall', 'license', 'memory', 'nasDatastore', 'network',
-        'nicTypeSelection', 'option', 'security', 'service', 'storageDevice',
-        'userAccount', 'usergroupAccount', 'dynamicProperty', 'dynamicType' ]
-    
+        'datetime', 'firewall', 'genericConfig', 'license', 'memory', 'nasDatastore',
+        'network', 'nicTypeSelection', 'option', 'security', 'service',
+        'storageDevice', 'userAccount', 'usergroupAccount', 'dynamicProperty',
+        'dynamicType' ]
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)
