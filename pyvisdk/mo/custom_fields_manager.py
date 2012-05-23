@@ -63,8 +63,8 @@ class CustomFieldsManager(BaseEntity):
         '''
         return self.delegate("RenameCustomFieldDef")(key, name)
     
-    def SetField(self):
+    def SetField(self, entity, key, value):
         '''Assigns a value to a custom field on an entity.
         
         '''
-        return self.delegate("SetField")()
+        return self.delegate("SetField")(entity, key, value)
