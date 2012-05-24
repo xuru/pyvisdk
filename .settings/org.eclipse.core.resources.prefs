@@ -1,6 +1,6 @@
-#Thu Sep 01 11:45:33 CDT 2011
 eclipse.preferences.version=1
 encoding//docs/source/conf.py=utf-8
+encoding//eggs/Jinja2-2.6-py2.7.egg/jinja2/environment.py=utf-8
 encoding//pyvisdk/do/about_info.py=ascii
 encoding//pyvisdk/do/alarm_action.py=ascii
 encoding//pyvisdk/do/alarm_info.py=ascii
