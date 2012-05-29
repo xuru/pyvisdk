@@ -30,6 +30,11 @@ class TestEsxCLI(unittest.TestCase):
         esxcli = EsxCLI(self.vim, host)
         esxcli.get('storage.core.adapter').list()
 
+    def test_list_devices(self):
+        host = self.vim.getHostSystems()[1]
+        esxcli = EsxCLI(self.vim, host)
+        esxcli.get('storage.core.device').list()
+
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testHosts']
     unittest.main()
