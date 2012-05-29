@@ -269,4 +269,9 @@
          <element name="short" type="xsd:short" minOccurs="0" maxOccurs="unbounded" />
       </sequence>
    </complexType>
+   <complexType name="ArrayOfDataObject">
+      <sequence>
+         <element name="DataObject" type="xsd:anyType" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
 </schema>
