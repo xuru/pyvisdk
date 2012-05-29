@@ -19,6 +19,7 @@
          elementFormDefault="qualified"
       >
          <include schemaLocation="query-messagetypes.xsd" />
+         <include schemaLocation="cli-types.xsd" />
          <include schemaLocation="core-types.xsd" />
          <import namespace="urn:reflect" schemaLocation="reflect-messagetypes.xsd" />
          <include schemaLocation="vim-messagetypes.xsd" />

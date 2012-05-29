@@ -1,0 +1,2024 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<schema xmlns:reflect="urn:reflect" xmlns:vim25="urn:vim25" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:vim25" elementFormDefault="qualified">
+  <include schemaLocation="core-types.xsd"/>
+  <include schemaLocation="vim-types.xsd"/>
+  <complexType name="VimEsxCLIesxclicommandlistEsxCliCommand">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Command" minOccurs="0"/>
+          <element type="xsd:string" name="Namespace" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIfcoeadapterlistFcoeAdapterDevice">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="AdapterName" minOccurs="0"/>
+          <element type="xsd:string" name="FCFMAC" minOccurs="0"/>
+          <element type="xsd:string" name="PhysicalNIC" minOccurs="0"/>
+          <element type="xsd:string" name="SourceMAC" minOccurs="0"/>
+          <element type="xsd:long" name="UserPriority" minOccurs="0"/>
+          <element type="xsd:long" name="VLANid" minOccurs="0"/>
+          <element type="xsd:string" name="VNPortMAC" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIfcoeniclistNicDevice">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="Active" minOccurs="0"/>
+          <element type="xsd:string" name="FCOENICName" minOccurs="0"/>
+          <element type="xsd:boolean" name="PrioritySettable" minOccurs="0"/>
+          <element type="xsd:string" name="SourceMAC" minOccurs="0"/>
+          <element type="xsd:boolean" name="SourceMACSettable" minOccurs="0"/>
+          <element type="xsd:long" name="UserPriority" minOccurs="0"/>
+          <element type="xsd:boolean" name="VLANRangeSettable" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIhardwarebootdevicelistBootDeviceList">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="BootOrder" minOccurs="0"/>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:boolean" name="Enabled" minOccurs="0"/>
+          <element type="xsd:string" name="Type" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIhardwarecpucpuidgetCpuCpuId">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="EAX" minOccurs="0"/>
+          <element type="xsd:long" name="EBX" minOccurs="0"/>
+          <element type="xsd:long" name="ECX" minOccurs="0"/>
+          <element type="xsd:long" name="EDX" minOccurs="0"/>
+          <element type="xsd:long" name="Level" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIhardwarecpuglobalgetCpu">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="CPUCores" minOccurs="0"/>
+          <element type="xsd:long" name="CPUPackages" minOccurs="0"/>
+          <element type="xsd:long" name="CPUThreads" minOccurs="0"/>
+          <element type="xsd:boolean" name="HVReplayCapable" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="HVReplayDisabledReasons" minOccurs="0"/>
+          <element type="xsd:long" name="HVSupport" minOccurs="0"/>
+          <element type="xsd:boolean" name="HyperthreadingActive" minOccurs="0"/>
+          <element type="xsd:boolean" name="HyperthreadingEnabled" minOccurs="0"/>
+          <element type="xsd:boolean" name="HyperthreadingSupported" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIhardwarecpulistCpu">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="APICID" minOccurs="0"/>
+          <element type="xsd:string" name="Brand" minOccurs="0"/>
+          <element type="xsd:long" name="BusSpeed" minOccurs="0"/>
+          <element type="xsd:long" name="CoreSpeed" minOccurs="0"/>
+          <element type="xsd:long" name="Family" minOccurs="0"/>
+          <element type="xsd:long" name="Id" minOccurs="0"/>
+          <element type="xsd:long" name="L2CacheAssociativity" minOccurs="0"/>
+          <element type="xsd:long" name="L2CacheCPUCount" minOccurs="0"/>
+          <element type="xsd:long" name="L2CacheLineSize" minOccurs="0"/>
+          <element type="xsd:long" name="L2CacheSize" minOccurs="0"/>
+          <element type="xsd:long" name="L3CacheAssociativity" minOccurs="0"/>
+          <element type="xsd:long" name="L3CacheCPUCount" minOccurs="0"/>
+          <element type="xsd:long" name="L3CacheLineSize" minOccurs="0"/>
+          <element type="xsd:long" name="L3CacheSize" minOccurs="0"/>
+          <element type="xsd:long" name="Model" minOccurs="0"/>
+          <element type="xsd:long" name="Node" minOccurs="0"/>
+          <element type="xsd:long" name="PackageId" minOccurs="0"/>
+          <element type="xsd:long" name="Stepping" minOccurs="0"/>
+          <element type="xsd:long" name="Type" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIhardwarememorygetMemory">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="NUMANodeCount" minOccurs="0"/>
+          <element type="xsd:long" name="PhysicalMemory" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIhardwarepcilistPciDevice">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Address" minOccurs="0"/>
+          <element type="xsd:long" name="Bus" minOccurs="0"/>
+          <element type="xsd:long" name="Chassis" minOccurs="0"/>
+          <element type="xsd:string" name="ConfiguredOwner" minOccurs="0"/>
+          <element type="xsd:string" name="CurrentOwner" minOccurs="0"/>
+          <element type="xsd:string" name="DependentDevice" minOccurs="0"/>
+          <element type="xsd:long" name="DeviceClass" minOccurs="0"/>
+          <element type="xsd:string" name="DeviceClassName" minOccurs="0"/>
+          <element type="xsd:long" name="DeviceID" minOccurs="0"/>
+          <element type="xsd:string" name="DeviceName" minOccurs="0"/>
+          <element type="xsd:boolean" name="FPTSharable" minOccurs="0"/>
+          <element type="xsd:long" name="Flags" minOccurs="0"/>
+          <element type="xsd:long" name="Function" minOccurs="0"/>
+          <element type="xsd:long" name="IRQ" minOccurs="0"/>
+          <element type="xsd:long" name="InterruptLine" minOccurs="0"/>
+          <element type="xsd:long" name="InterruptVector" minOccurs="0"/>
+          <element type="xsd:long" name="ModuleID" minOccurs="0"/>
+          <element type="xsd:string" name="ModuleName" minOccurs="0"/>
+          <element type="xsd:long" name="PCIPin" minOccurs="0"/>
+          <element type="xsd:string" name="ParentDevice" minOccurs="0"/>
+          <element type="xsd:boolean" name="PassthruCapable" minOccurs="0"/>
+          <element type="xsd:long" name="PhysicalSlot" minOccurs="0"/>
+          <element type="xsd:long" name="ProgrammingInterface" minOccurs="0"/>
+          <element type="xsd:string" name="ResetMethod" minOccurs="0"/>
+          <element type="xsd:long" name="RevisionID" minOccurs="0"/>
+          <element type="xsd:long" name="Segment" minOccurs="0"/>
+          <element type="xsd:long" name="Slot" minOccurs="0"/>
+          <element type="xsd:string" name="SlotDescription" minOccurs="0"/>
+          <element type="xsd:long" name="SpawnedBus" minOccurs="0"/>
+          <element type="xsd:long" name="SubDeviceID" minOccurs="0"/>
+          <element type="xsd:long" name="SubVendorID" minOccurs="0"/>
+          <element type="xsd:string" name="VMkernelName" minOccurs="0"/>
+          <element type="xsd:long" name="VendorID" minOccurs="0"/>
+          <element type="xsd:string" name="VendorName" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIhardwareplatformgetPlatformGet">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="IPMISupported" minOccurs="0"/>
+          <element type="xsd:string" name="ProductName" minOccurs="0"/>
+          <element type="xsd:string" name="SerialNumber" minOccurs="0"/>
+          <element type="xsd:string" name="UUID" minOccurs="0"/>
+          <element type="xsd:string" name="VendorName" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiadapterauthchapgetAdapterChapAuth">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Adapter" minOccurs="0"/>
+          <element type="xsd:string" name="Direction" minOccurs="0"/>
+          <element type="xsd:string" name="Level" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiadaptercapabilitiesgetAdapterCapabilities">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="ARPRedirectSettable" minOccurs="0"/>
+          <element type="xsd:boolean" name="AdapterDataDigestSupported" minOccurs="0"/>
+          <element type="xsd:boolean" name="AdapterHeaderDigestSupported" minOccurs="0"/>
+          <element type="xsd:boolean" name="AuthorizationMethodSettable" minOccurs="0"/>
+          <element type="xsd:boolean" name="CHAPAuthorizationSupported" minOccurs="0"/>
+          <element type="xsd:boolean" name="DNSBasedAddressSupported" minOccurs="0"/>
+          <element type="xsd:boolean" name="DefaultGatewaySettable" minOccurs="0"/>
+          <element type="xsd:boolean" name="DelayedAckSettable" minOccurs="0"/>
+          <element type="xsd:string" name="ID" minOccurs="0"/>
+          <element type="xsd:boolean" name="IPConfigurationMethodSettable" minOccurs="0"/>
+          <element type="xsd:boolean" name="IPv6Supported" minOccurs="0"/>
+          <element type="xsd:boolean" name="ISnSSettable" minOccurs="0"/>
+          <element type="xsd:boolean" name="InheritanceSupported" minOccurs="0"/>
+          <element type="xsd:boolean" name="JumboFrameSettable" minOccurs="0"/>
+          <element type="xsd:boolean" name="KRB5AuthorizationSupported" minOccurs="0"/>
+          <element type="xsd:boolean" name="MutualAuthenticationSupported" minOccurs="0"/>
+          <element type="xsd:boolean" name="NameAndAliasSettable" minOccurs="0"/>
+          <element type="xsd:boolean" name="PrimaryDNSSettable" minOccurs="0"/>
+          <element type="xsd:boolean" name="SLPSettable" minOccurs="0"/>
+          <element type="xsd:boolean" name="SPKM1AuthorizationSupported" minOccurs="0"/>
+          <element type="xsd:boolean" name="SPKM2AuthorizationSupported" minOccurs="0"/>
+          <element type="xsd:boolean" name="SRPAuthorizationSupported" minOccurs="0"/>
+          <element type="xsd:boolean" name="SecondaryDNSSettable" minOccurs="0"/>
+          <element type="xsd:boolean" name="SendtargetDiscoverySettable" minOccurs="0"/>
+          <element type="xsd:boolean" name="StaticDiscoverySettable" minOccurs="0"/>
+          <element type="xsd:boolean" name="SubnetMaskSetttable" minOccurs="0"/>
+          <element type="xsd:boolean" name="TargetLevelAuthenticationSupported" minOccurs="0"/>
+          <element type="xsd:boolean" name="TargetLevelDataDigestSupported" minOccurs="0"/>
+          <element type="xsd:boolean" name="TargetLevelHeaderDigestSupported" minOccurs="0"/>
+          <element type="xsd:boolean" name="TargetLevelMutualAuthenticationSupported" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiadapterdiscoverysendtargetauthchapgetSendtarget">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Direction" minOccurs="0"/>
+          <element type="xsd:boolean" name="Inheritance" minOccurs="0"/>
+          <element type="xsd:string" name="Level" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="Parent" minOccurs="0"/>
+          <element type="xsd:string" name="Sendtarget" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiadapterdiscoverysendtargetlistSendtarget">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Adapter" minOccurs="0"/>
+          <element type="xsd:string" name="Sendtarget" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiadapterdiscoverysendtargetparamgetiScsiParm">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Current" minOccurs="0"/>
+          <element type="xsd:string" name="Default" minOccurs="0"/>
+          <element type="xsd:string" name="ID" minOccurs="0"/>
+          <element type="xsd:boolean" name="Inherit" minOccurs="0"/>
+          <element type="xsd:string" name="Max" minOccurs="0"/>
+          <element type="xsd:string" name="Min" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:boolean" name="Settable" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiadapterdiscoverystatictargetlistStatictarget">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Adapter" minOccurs="0"/>
+          <element type="xsd:string" name="Boot" minOccurs="0"/>
+          <element type="xsd:string" name="TPGT" minOccurs="0"/>
+          <element type="xsd:string" name="TargetAddress" minOccurs="0"/>
+          <element type="xsd:string" name="TargetName" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiadapterfirmwaregetAdapterFirmware">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:string" name="File" minOccurs="0"/>
+          <element type="xsd:boolean" name="Supported" minOccurs="0"/>
+          <element type="xsd:string" name="Type" minOccurs="0"/>
+          <element type="xsd:string" name="Upgrade" minOccurs="0"/>
+          <element type="xsd:string" name="Version" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiadaptergetAdapterInfo">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Alias" minOccurs="0"/>
+          <element type="xsd:string" name="AsicVersion" minOccurs="0"/>
+          <element type="xsd:string" name="BidirectionalTransfersSupported" minOccurs="0"/>
+          <element type="xsd:string" name="CanBeNIC" minOccurs="0"/>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:string" name="DriverName" minOccurs="0"/>
+          <element type="xsd:string" name="DriverVersion" minOccurs="0"/>
+          <element type="xsd:string" name="FirmwareVersion" minOccurs="0"/>
+          <element type="xsd:string" name="HardwareVersion" minOccurs="0"/>
+          <element type="xsd:string" name="ID" minOccurs="0"/>
+          <element type="xsd:string" name="IsInitiator" minOccurs="0"/>
+          <element type="xsd:string" name="IsNIC" minOccurs="0"/>
+          <element type="xsd:string" name="IsTarget" minOccurs="0"/>
+          <element type="xsd:long" name="MaximumCdbLength" minOccurs="0"/>
+          <element type="xsd:string" name="Model" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="OptionRomVersion" minOccurs="0"/>
+          <element type="xsd:string" name="SerialNumber" minOccurs="0"/>
+          <element type="xsd:boolean" name="TCPProtocolSupported" minOccurs="0"/>
+          <element type="xsd:string" name="UsingISCSIOffloadEngine" minOccurs="0"/>
+          <element type="xsd:string" name="UsingTCPOffloadEngine" minOccurs="0"/>
+          <element type="xsd:string" name="Vendor" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiadapterlistiScsiAdapter">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Adapter" minOccurs="0"/>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:string" name="Driver" minOccurs="0"/>
+          <element type="xsd:string" name="State" minOccurs="0"/>
+          <element type="xsd:string" name="UID" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiadapterparamgetiScsiParm">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Current" minOccurs="0"/>
+          <element type="xsd:string" name="Default" minOccurs="0"/>
+          <element type="xsd:string" name="ID" minOccurs="0"/>
+          <element type="xsd:boolean" name="Inherit" minOccurs="0"/>
+          <element type="xsd:string" name="Max" minOccurs="0"/>
+          <element type="xsd:string" name="Min" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:boolean" name="Settable" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiadaptertargetlistTarget">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Adapter" minOccurs="0"/>
+          <element type="xsd:string" name="Alias" minOccurs="0"/>
+          <element type="xsd:string" name="DiscoveryMethod" minOccurs="0"/>
+          <element type="xsd:string" name="ID" minOccurs="0"/>
+          <element type="xsd:string" name="LastError" minOccurs="0"/>
+          <element type="xsd:long" name="MaxConnections" minOccurs="0"/>
+          <element type="xsd:boolean" name="SendTargetsDiscoveryEnabled" minOccurs="0"/>
+          <element type="xsd:boolean" name="SendTargetsDiscoverySettable" minOccurs="0"/>
+          <element type="xsd:string" name="Target" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiadaptertargetportalauthchapgetTargetAuth">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Address" minOccurs="0"/>
+          <element type="xsd:string" name="Direction" minOccurs="0"/>
+          <element type="xsd:boolean" name="Inheritance" minOccurs="0"/>
+          <element type="xsd:string" name="Level" minOccurs="0"/>
+          <element type="xsd:string" name="Method" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="Parent" minOccurs="0"/>
+          <element type="xsd:string" name="TargetName" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiadaptertargetportallistTargetPortal">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Adapter" minOccurs="0"/>
+          <element type="xsd:string" name="ID" minOccurs="0"/>
+          <element type="xsd:string" name="IP" minOccurs="0"/>
+          <element type="xsd:string" name="Port" minOccurs="0"/>
+          <element type="xsd:string" name="Target" minOccurs="0"/>
+          <element type="xsd:string" name="Tpgt" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiadaptertargetportalparamgetiScsiParm">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Current" minOccurs="0"/>
+          <element type="xsd:string" name="Default" minOccurs="0"/>
+          <element type="xsd:string" name="ID" minOccurs="0"/>
+          <element type="xsd:boolean" name="Inherit" minOccurs="0"/>
+          <element type="xsd:string" name="Max" minOccurs="0"/>
+          <element type="xsd:string" name="Min" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:boolean" name="Settable" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiibftbootgetIbftBoot">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="ChapName" minOccurs="0"/>
+          <element type="xsd:long" name="ChapType" minOccurs="0"/>
+          <element type="xsd:boolean" name="Dhcp" minOccurs="0"/>
+          <element type="xsd:boolean" name="Enabled" minOccurs="0"/>
+          <element type="xsd:string" name="Gateway" minOccurs="0"/>
+          <element type="xsd:string" name="IPAddress" minOccurs="0"/>
+          <element type="xsd:string" name="InitiatorAlias" minOccurs="0"/>
+          <element type="xsd:long" name="InitiatorBootFlags" minOccurs="0"/>
+          <element type="xsd:string" name="InitiatorName" minOccurs="0"/>
+          <element type="xsd:long" name="Lun" minOccurs="0"/>
+          <element type="xsd:string" name="MACAddress" minOccurs="0"/>
+          <element type="xsd:string" name="MutualChapName" minOccurs="0"/>
+          <element type="xsd:long" name="NICFlags" minOccurs="0"/>
+          <element type="xsd:string" name="SLPServerIP" minOccurs="0"/>
+          <element type="xsd:string" name="SubnetMask" minOccurs="0"/>
+          <element type="xsd:long" name="TargetBootFlags" minOccurs="0"/>
+          <element type="xsd:string" name="TargetIP" minOccurs="0"/>
+          <element type="xsd:string" name="TargetName" minOccurs="0"/>
+          <element type="xsd:long" name="TargetPort" minOccurs="0"/>
+          <element type="xsd:long" name="Vlan" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsilogicalnetworkportallistLogicalNetworkPortal">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Adapter" minOccurs="0"/>
+          <element type="xsd:boolean" name="Compliant" minOccurs="0"/>
+          <element type="xsd:string" name="MACAddress" minOccurs="0"/>
+          <element type="xsd:boolean" name="MACAddressValid" minOccurs="0"/>
+          <element type="xsd:string" name="Vmknic" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsinetworkportalipconfiggetNetworkPortal">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Gateway" minOccurs="0"/>
+          <element type="xsd:string" name="IPv4" minOccurs="0"/>
+          <element type="xsd:string" name="IPv4SubnetMask" minOccurs="0"/>
+          <element type="xsd:string" name="IPv6" minOccurs="0"/>
+          <element type="xsd:string" name="IscsiAdapter" minOccurs="0"/>
+          <element type="xsd:string" name="PrimaryDNS" minOccurs="0"/>
+          <element type="xsd:string" name="SecondaryDNS" minOccurs="0"/>
+          <element type="xsd:string" name="Vmknic" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsinetworkportallistNetworkPortal">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Adapter" minOccurs="0"/>
+          <element type="xsd:string" name="CompliantStatus" minOccurs="0"/>
+          <element type="xsd:long" name="CurrentSpeed" minOccurs="0"/>
+          <element type="xsd:string" name="Duplex" minOccurs="0"/>
+          <element type="xsd:string" name="IPv4" minOccurs="0"/>
+          <element type="xsd:string" name="IPv4SubnetMask" minOccurs="0"/>
+          <element type="xsd:string" name="IPv6" minOccurs="0"/>
+          <element type="xsd:boolean" name="LinkUp" minOccurs="0"/>
+          <element type="xsd:string" name="MACAddress" minOccurs="0"/>
+          <element type="xsd:boolean" name="MACAddressValid" minOccurs="0"/>
+          <element type="xsd:long" name="MTU" minOccurs="0"/>
+          <element type="xsd:string" name="NICDriver" minOccurs="0"/>
+          <element type="xsd:string" name="NICDriverVersion" minOccurs="0"/>
+          <element type="xsd:string" name="NICFirmwareVersion" minOccurs="0"/>
+          <element type="xsd:string" name="NonCompliantMessage" minOccurs="0"/>
+          <element type="xsd:string" name="NonCompliantRemedy" minOccurs="0"/>
+          <element type="xsd:string" name="PathStatus" minOccurs="0"/>
+          <element type="xsd:string" name="PortGroup" minOccurs="0"/>
+          <element type="xsd:string" name="PortGroupKey" minOccurs="0"/>
+          <element type="xsd:string" name="PortKey" minOccurs="0"/>
+          <element type="xsd:string" name="ReservedPorts" minOccurs="0"/>
+          <element type="xsd:long" name="RxPackets" minOccurs="0"/>
+          <element type="xsd:boolean" name="TCPChecksum" minOccurs="0"/>
+          <element type="xsd:boolean" name="TOE" minOccurs="0"/>
+          <element type="xsd:boolean" name="TSO" minOccurs="0"/>
+          <element type="xsd:long" name="TxPackets" minOccurs="0"/>
+          <element type="xsd:long" name="VlanID" minOccurs="0"/>
+          <element type="xsd:boolean" name="VlanSupported" minOccurs="0"/>
+          <element type="xsd:string" name="Vmknic" minOccurs="0"/>
+          <element type="xsd:string" name="Vswitch" minOccurs="0"/>
+          <element type="xsd:string" name="VswitchUuid" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiphysicalnetworkportallistPhysicalNetworkPortal">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Adapter" minOccurs="0"/>
+          <element type="xsd:long" name="CurrentSpeed" minOccurs="0"/>
+          <element type="xsd:string" name="MACAddress" minOccurs="0"/>
+          <element type="xsd:boolean" name="MACAddressValid" minOccurs="0"/>
+          <element type="xsd:long" name="MaxFrameSize" minOccurs="0"/>
+          <element type="xsd:long" name="MaxSpeed" minOccurs="0"/>
+          <element type="xsd:string" name="Vmnic" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsiphysicalnetworkportalparamgetiScsiNetParm">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="Enabled" minOccurs="0"/>
+          <element type="xsd:string" name="Option" minOccurs="0"/>
+          <element type="xsd:boolean" name="Settable" minOccurs="0"/>
+          <element type="xsd:string" name="Vmnic" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsipluginlistiScsiPlugin">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="AutoPersistenceSupported" minOccurs="0"/>
+          <element type="xsd:string" name="BuildTime" minOccurs="0"/>
+          <element type="xsd:string" name="FileName" minOccurs="0"/>
+          <element type="xsd:string" name="ImplementationVersion" minOccurs="0"/>
+          <element type="xsd:boolean" name="LhbasCanBeCreatedAndDestroyed" minOccurs="0"/>
+          <element type="xsd:long" name="SupportedImaVersion" minOccurs="0"/>
+          <element type="xsd:string" name="Vendor" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsisessionconnectionlistConnection">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Adapter" minOccurs="0"/>
+          <element type="xsd:long" name="CID" minOccurs="0"/>
+          <element type="xsd:string" name="ConnectionAddress" minOccurs="0"/>
+          <element type="xsd:string" name="ConnectionCreateTime" minOccurs="0"/>
+          <element type="xsd:string" name="ConnectionStartTime" minOccurs="0"/>
+          <element type="xsd:string" name="DataDigest" minOccurs="0"/>
+          <element type="xsd:string" name="HeaderDigest" minOccurs="0"/>
+          <element type="xsd:string" name="ID" minOccurs="0"/>
+          <element type="xsd:boolean" name="IFMarker" minOccurs="0"/>
+          <element type="xsd:long" name="IFMarkerInterval" minOccurs="0"/>
+          <element type="xsd:string" name="ISID" minOccurs="0"/>
+          <element type="xsd:string" name="LocalAddress" minOccurs="0"/>
+          <element type="xsd:long" name="MaxRecvDataSegmentLength" minOccurs="0"/>
+          <element type="xsd:long" name="MaxTransmitDataSegmentLength" minOccurs="0"/>
+          <element type="xsd:boolean" name="OFMarker" minOccurs="0"/>
+          <element type="xsd:long" name="OFMarkerInterval" minOccurs="0"/>
+          <element type="xsd:string" name="RemoteAddress" minOccurs="0"/>
+          <element type="xsd:string" name="SessionCreateTime" minOccurs="0"/>
+          <element type="xsd:string" name="State" minOccurs="0"/>
+          <element type="xsd:string" name="Target" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIiscsisessionlistSession">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Adapter" minOccurs="0"/>
+          <element type="xsd:string" name="AuthenticationMethod" minOccurs="0"/>
+          <element type="xsd:boolean" name="DataPduInOrder" minOccurs="0"/>
+          <element type="xsd:boolean" name="DataSequenceInOrder" minOccurs="0"/>
+          <element type="xsd:long" name="DefaultTime2Retain" minOccurs="0"/>
+          <element type="xsd:long" name="DefaultTime2Wait" minOccurs="0"/>
+          <element type="xsd:long" name="ErrorRecoveryLevel" minOccurs="0"/>
+          <element type="xsd:string" name="FirstBurstLength" minOccurs="0"/>
+          <element type="xsd:string" name="ID" minOccurs="0"/>
+          <element type="xsd:string" name="ISID" minOccurs="0"/>
+          <element type="xsd:boolean" name="ImmediateData" minOccurs="0"/>
+          <element type="xsd:boolean" name="InitialR2T" minOccurs="0"/>
+          <element type="xsd:long" name="MaxBurstLength" minOccurs="0"/>
+          <element type="xsd:long" name="MaxConnections" minOccurs="0"/>
+          <element type="xsd:long" name="MaxOutstandingR2T" minOccurs="0"/>
+          <element type="xsd:long" name="TSIH" minOccurs="0"/>
+          <element type="xsd:string" name="Target" minOccurs="0"/>
+          <element type="xsd:long" name="TargetPortalGroupTag" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkfencelistFenceSwitch">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="MTU" minOccurs="0"/>
+          <element type="xsd:long" name="Numberofactivefencednetworks" minOccurs="0"/>
+          <element type="xsd:string" name="VDSName" minOccurs="0"/>
+          <element type="xsd:string" name="VDSSwitchID" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkfencenetworkbtelistFenceBTE">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="InnerMac" minOccurs="0"/>
+          <element type="xsd:string" name="OuterMac" minOccurs="0"/>
+          <element type="xsd:long" name="Vlan" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkfencenetworkbtelistFenceBteList">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element maxOccurs="unbounded" type="vim25:VimEsxCLInetworkfencenetworkbtelistFenceBTE" name="Bridgetableentries" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkfencenetworklistFenceNetwork">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="FenceId" minOccurs="0"/>
+          <element type="xsd:long" name="NumBridgeTableEntries" minOccurs="0"/>
+          <element type="xsd:long" name="NumFencedPorts" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkfencenetworklistFenceNetworkList">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element maxOccurs="unbounded" type="vim25:VimEsxCLInetworkfencenetworklistFenceNetwork" name="FenceNetworks" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkfencenetworkportlistFencePort">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="BcastContainment" minOccurs="0"/>
+          <element type="xsd:string" name="DVPortId" minOccurs="0"/>
+          <element type="xsd:long" name="IOportId" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkfencenetworkportlistFencePortList">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element maxOccurs="unbounded" type="vim25:VimEsxCLInetworkfencenetworkportlistFencePort" name="FencePorts" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkfirewallgetFirewall">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="DefaultAction" minOccurs="0"/>
+          <element type="xsd:boolean" name="Enabled" minOccurs="0"/>
+          <element type="xsd:boolean" name="Loaded" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkfirewallrulesetallowediplistFirewallRulesetAllowedip">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element maxOccurs="unbounded" type="xsd:string" name="AllowedIPAddresses" minOccurs="0"/>
+          <element type="xsd:string" name="Ruleset" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkfirewallrulesetlistRuleset">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="Enabled" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkfirewallrulesetrulelistFirewallPortRule">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Direction" minOccurs="0"/>
+          <element type="xsd:long" name="PortBegin" minOccurs="0"/>
+          <element type="xsd:long" name="PortEnd" minOccurs="0"/>
+          <element type="xsd:string" name="PortType" minOccurs="0"/>
+          <element type="xsd:string" name="Protocol" minOccurs="0"/>
+          <element type="xsd:string" name="Ruleset" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkipconnectionlistIpConnection">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="ForeignAddress" minOccurs="0"/>
+          <element type="xsd:string" name="LocalAddress" minOccurs="0"/>
+          <element type="xsd:string" name="Proto" minOccurs="0"/>
+          <element type="xsd:long" name="RecvQ" minOccurs="0"/>
+          <element type="xsd:long" name="SendQ" minOccurs="0"/>
+          <element type="xsd:string" name="State" minOccurs="0"/>
+          <element type="xsd:long" name="WorldID" minOccurs="0"/>
+          <element type="xsd:string" name="WorldName" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkipdnssearchlistDNSSearchList">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element maxOccurs="unbounded" type="xsd:string" name="DNSSearchDomains" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkipdnsserverlistNameServerList">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element maxOccurs="unbounded" type="xsd:string" name="DNSServers" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkipgetIPInfo">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="IPv6Enabled" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkipinterfaceipv4getIPv4Interface">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="AddressType" minOccurs="0"/>
+          <element type="xsd:boolean" name="DHCPDNS" minOccurs="0"/>
+          <element type="xsd:string" name="IPv4Address" minOccurs="0"/>
+          <element type="xsd:string" name="IPv4Broadcast" minOccurs="0"/>
+          <element type="xsd:string" name="IPv4Netmask" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkipinterfaceipv6addresslistIPv6Interface">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Address" minOccurs="0"/>
+          <element type="xsd:string" name="Interface" minOccurs="0"/>
+          <element type="xsd:long" name="Netmask" minOccurs="0"/>
+          <element type="xsd:string" name="Status" minOccurs="0"/>
+          <element type="xsd:string" name="Type" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkipinterfaceipv6getIPv6Interface">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="DHCPDNS" minOccurs="0"/>
+          <element type="xsd:boolean" name="DHCPv6Enabled" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:boolean" name="RouterAdvEnabled" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkipinterfacelistNetworkInterface">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="Enabled" minOccurs="0"/>
+          <element type="xsd:string" name="MACAddress" minOccurs="0"/>
+          <element type="xsd:long" name="MTU" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:long" name="PortID" minOccurs="0"/>
+          <element type="xsd:string" name="Portgroup" minOccurs="0"/>
+          <element type="xsd:string" name="Portset" minOccurs="0"/>
+          <element type="xsd:long" name="TSOMSS" minOccurs="0"/>
+          <element type="xsd:long" name="VDSConnection" minOccurs="0"/>
+          <element type="xsd:string" name="VDSName" minOccurs="0"/>
+          <element type="xsd:string" name="VDSPort" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkipneighborlistNetworkNeighbor">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="Expiry" minOccurs="0"/>
+          <element type="xsd:string" name="MacAddress" minOccurs="0"/>
+          <element type="xsd:string" name="Neighbor" minOccurs="0"/>
+          <element type="xsd:string" name="State" minOccurs="0"/>
+          <element type="xsd:string" name="Vmknic" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworknicgetNICDriverInfo">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="BusInfo" minOccurs="0"/>
+          <element type="xsd:string" name="Driver" minOccurs="0"/>
+          <element type="xsd:string" name="FirmwareVersion" minOccurs="0"/>
+          <element type="xsd:string" name="Version" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworknicgetNICInfo">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="AdvertisedAutoNegotiation" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="AdvertisedLinkModes" minOccurs="0"/>
+          <element type="xsd:boolean" name="AutoNegotiation" minOccurs="0"/>
+          <element type="xsd:string" name="CableType" minOccurs="0"/>
+          <element type="xsd:long" name="CurrentMessageLevel" minOccurs="0"/>
+          <element type="vim25:VimEsxCLInetworknicgetNICDriverInfo" name="DriverInfo" minOccurs="0"/>
+          <element type="xsd:boolean" name="LinkDetected" minOccurs="0"/>
+          <element type="xsd:string" name="LinkStatus" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:long" name="PHYAddress" minOccurs="0"/>
+          <element type="xsd:boolean" name="PauseAutonegotiate" minOccurs="0"/>
+          <element type="xsd:boolean" name="PauseRX" minOccurs="0"/>
+          <element type="xsd:boolean" name="PauseTX" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="SupportedPorts" minOccurs="0"/>
+          <element type="xsd:boolean" name="SupportsAutoNegotiation" minOccurs="0"/>
+          <element type="xsd:boolean" name="SupportsPause" minOccurs="0"/>
+          <element type="xsd:boolean" name="SupportsWakeon" minOccurs="0"/>
+          <element type="xsd:string" name="Transceiver" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Wakeon" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkniclistNic">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:string" name="Driver" minOccurs="0"/>
+          <element type="xsd:string" name="Duplex" minOccurs="0"/>
+          <element type="xsd:string" name="Link" minOccurs="0"/>
+          <element type="xsd:string" name="MACAddress" minOccurs="0"/>
+          <element type="xsd:long" name="MTU" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="PCIDevice" minOccurs="0"/>
+          <element type="xsd:long" name="Speed" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkvswitchdvsvmwarelistDVPort">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element maxOccurs="unbounded" type="xsd:string" name="Client" minOccurs="0"/>
+          <element type="xsd:string" name="DVPortgroupID" minOccurs="0"/>
+          <element type="xsd:boolean" name="InUse" minOccurs="0"/>
+          <element type="xsd:string" name="PortID" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkvswitchdvsvmwarelistVDS">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="BeaconTimeout" minOccurs="0"/>
+          <element type="xsd:string" name="CDPStatus" minOccurs="0"/>
+          <element type="xsd:string" name="Class" minOccurs="0"/>
+          <element type="xsd:long" name="ConfiguredPorts" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="vim25:VimEsxCLInetworkvswitchdvsvmwarelistDVPort" name="DVPort" minOccurs="0"/>
+          <element type="xsd:long" name="MTU" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:long" name="NumPorts" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Uplinks" minOccurs="0"/>
+          <element type="xsd:long" name="UsedPorts" minOccurs="0"/>
+          <element type="xsd:string" name="VDSID" minOccurs="0"/>
+          <element type="xsd:boolean" name="VMwareBranded" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkvswitchstandardlistVirtualSwitch">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="BeaconEnabled" minOccurs="0"/>
+          <element type="xsd:long" name="BeaconInterval" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="BeaconRequiredBy" minOccurs="0"/>
+          <element type="xsd:long" name="BeaconThreshold" minOccurs="0"/>
+          <element type="xsd:string" name="CDPStatus" minOccurs="0"/>
+          <element type="xsd:string" name="Class" minOccurs="0"/>
+          <element type="xsd:long" name="ConfiguredPorts" minOccurs="0"/>
+          <element type="xsd:long" name="MTU" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:long" name="NumPorts" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Portgroups" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Uplinks" minOccurs="0"/>
+          <element type="xsd:long" name="UsedPorts" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkvswitchstandardpolicyfailovergetVirtualSwitchFailoverPolicy">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element maxOccurs="unbounded" type="xsd:string" name="ActiveAdapters" minOccurs="0"/>
+          <element type="xsd:boolean" name="Failback" minOccurs="0"/>
+          <element type="xsd:string" name="LoadBalancing" minOccurs="0"/>
+          <element type="xsd:string" name="NetworkFailureDetection" minOccurs="0"/>
+          <element type="xsd:boolean" name="NotifySwitches" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="StandbyAdapters" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="UnusedAdapters" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkvswitchstandardpolicysecuritygetVirtualSwitchSecurityPolicy">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="AllowForgedTransmits" minOccurs="0"/>
+          <element type="xsd:boolean" name="AllowMACAddressChange" minOccurs="0"/>
+          <element type="xsd:boolean" name="AllowPromiscuous" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkvswitchstandardpolicyshapinggetVirtualSwitchTrafficShapingPolicy">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="AverageBandwidth" minOccurs="0"/>
+          <element type="xsd:long" name="BurstSize" minOccurs="0"/>
+          <element type="xsd:boolean" name="Enabled" minOccurs="0"/>
+          <element type="xsd:long" name="PeakBandwidth" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkvswitchstandardportgrouplistPortGroup">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="ActiveClients" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:long" name="VLANID" minOccurs="0"/>
+          <element type="xsd:string" name="VirtualSwitch" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkvswitchstandardportgrouppolicyfailovergetPortGroupFailoverPolicy">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element maxOccurs="unbounded" type="xsd:string" name="ActiveAdapters" minOccurs="0"/>
+          <element type="xsd:boolean" name="Failback" minOccurs="0"/>
+          <element type="xsd:string" name="LoadBalancing" minOccurs="0"/>
+          <element type="xsd:string" name="NetworkFailureDetection" minOccurs="0"/>
+          <element type="xsd:boolean" name="NotifySwitches" minOccurs="0"/>
+          <element type="xsd:boolean" name="OverrideVswitchFailback" minOccurs="0"/>
+          <element type="xsd:boolean" name="OverrideVswitchLoadBalancing" minOccurs="0"/>
+          <element type="xsd:boolean" name="OverrideVswitchNetworkFailureDetection" minOccurs="0"/>
+          <element type="xsd:boolean" name="OverrideVswitchNotifySwitches" minOccurs="0"/>
+          <element type="xsd:boolean" name="OverrideVswitchUplinks" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="StandbyAdapters" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="UnusedAdapters" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkvswitchstandardportgrouppolicysecuritygetPortGroupSecurityPolicy">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="AllowForgedTransmits" minOccurs="0"/>
+          <element type="xsd:boolean" name="AllowMACAddressChange" minOccurs="0"/>
+          <element type="xsd:boolean" name="AllowPromiscuous" minOccurs="0"/>
+          <element type="xsd:boolean" name="OverrideVswitchAllowForgedTransmits" minOccurs="0"/>
+          <element type="xsd:boolean" name="OverrideVswitchAllowMACAddressChange" minOccurs="0"/>
+          <element type="xsd:boolean" name="OverrideVswitchAllowPromiscuous" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLInetworkvswitchstandardportgrouppolicyshapinggetPortGroupTrafficShapingPolicy">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="AverageBandwidth" minOccurs="0"/>
+          <element type="xsd:long" name="BurstSize" minOccurs="0"/>
+          <element type="xsd:boolean" name="Enabled" minOccurs="0"/>
+          <element type="xsd:boolean" name="OverrideVswitchAverageBandwidth" minOccurs="0"/>
+          <element type="xsd:boolean" name="OverrideVswitchBurstSize" minOccurs="0"/>
+          <element type="xsd:boolean" name="OverrideVswitchEnabled" minOccurs="0"/>
+          <element type="xsd:boolean" name="OverrideVswitchPeakBandwidth" minOccurs="0"/>
+          <element type="xsd:long" name="PeakBandwidth" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsoftwareprofilegetImageProfile">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="AcceptanceLevel" minOccurs="0"/>
+          <element type="xsd:string" name="CreationTime" minOccurs="0"/>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:string" name="ModificationTime" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="StatelessReady" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBs" minOccurs="0"/>
+          <element type="xsd:string" name="Vendor" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsoftwareprofileinstallInstallationResult">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Message" minOccurs="0"/>
+          <element type="xsd:boolean" name="RebootRequired" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsInstalled" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsRemoved" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsSkipped" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsoftwareprofileupdateInstallationResult">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Message" minOccurs="0"/>
+          <element type="xsd:boolean" name="RebootRequired" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsInstalled" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsRemoved" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsSkipped" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsoftwareprofilevalidateProfileValidationResult">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="Compliant" minOccurs="0"/>
+          <element type="xsd:string" name="HostImageProfile" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsinHostImageProfileOnly" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsinValidationProfileOnly" minOccurs="0"/>
+          <element type="xsd:string" name="ValidationProfile" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsoftwaresourcesprofilegetImageProfile">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="AcceptanceLevel" minOccurs="0"/>
+          <element type="xsd:string" name="CreationTime" minOccurs="0"/>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:string" name="ModificationTime" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="StatelessReady" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBs" minOccurs="0"/>
+          <element type="xsd:string" name="Vendor" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsoftwaresourcesprofilelistImageProfileSummary">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="AcceptanceLevel" minOccurs="0"/>
+          <element type="xsd:string" name="CreationTime" minOccurs="0"/>
+          <element type="xsd:string" name="ModificationTime" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="Vendor" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsoftwaresourcesvibgetVIB">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="AcceptanceLevel" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Conflicts" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Depends" minOccurs="0"/>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="HardwarePlatformsRequired" minOccurs="0"/>
+          <element type="xsd:string" name="ID" minOccurs="0"/>
+          <element type="xsd:string" name="InstallDate" minOccurs="0"/>
+          <element type="xsd:string" name="LiveInstallAllowed" minOccurs="0"/>
+          <element type="xsd:string" name="LiveRemoveAllowed" minOccurs="0"/>
+          <element type="xsd:string" name="MaintenanceModeRequired" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="Overlay" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Payloads" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Provides" minOccurs="0"/>
+          <element type="xsd:string" name="ReleaseDate" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Replaces" minOccurs="0"/>
+          <element type="xsd:string" name="StatelessReady" minOccurs="0"/>
+          <element type="xsd:string" name="Status" minOccurs="0"/>
+          <element type="xsd:string" name="Summary" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Tags" minOccurs="0"/>
+          <element type="xsd:string" name="Type" minOccurs="0"/>
+          <element type="xsd:string" name="Vendor" minOccurs="0"/>
+          <element type="xsd:string" name="Version" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsoftwaresourcesviblistVIBSummary">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="AcceptanceLevel" minOccurs="0"/>
+          <element type="xsd:string" name="ID" minOccurs="0"/>
+          <element type="xsd:string" name="InstallDate" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="ReleaseDate" minOccurs="0"/>
+          <element type="xsd:string" name="Status" minOccurs="0"/>
+          <element type="xsd:string" name="Vendor" minOccurs="0"/>
+          <element type="xsd:string" name="Version" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsoftwarevibgetVIB">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="AcceptanceLevel" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Conflicts" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Depends" minOccurs="0"/>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="HardwarePlatformsRequired" minOccurs="0"/>
+          <element type="xsd:string" name="ID" minOccurs="0"/>
+          <element type="xsd:string" name="InstallDate" minOccurs="0"/>
+          <element type="xsd:string" name="LiveInstallAllowed" minOccurs="0"/>
+          <element type="xsd:string" name="LiveRemoveAllowed" minOccurs="0"/>
+          <element type="xsd:string" name="MaintenanceModeRequired" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="Overlay" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Payloads" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Provides" minOccurs="0"/>
+          <element type="xsd:string" name="ReleaseDate" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Replaces" minOccurs="0"/>
+          <element type="xsd:string" name="StatelessReady" minOccurs="0"/>
+          <element type="xsd:string" name="Status" minOccurs="0"/>
+          <element type="xsd:string" name="Summary" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="Tags" minOccurs="0"/>
+          <element type="xsd:string" name="Type" minOccurs="0"/>
+          <element type="xsd:string" name="Vendor" minOccurs="0"/>
+          <element type="xsd:string" name="Version" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsoftwarevibinstallInstallationResult">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Message" minOccurs="0"/>
+          <element type="xsd:boolean" name="RebootRequired" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsInstalled" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsRemoved" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsSkipped" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsoftwareviblistVIBSummary">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="AcceptanceLevel" minOccurs="0"/>
+          <element type="xsd:string" name="ID" minOccurs="0"/>
+          <element type="xsd:string" name="InstallDate" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="ReleaseDate" minOccurs="0"/>
+          <element type="xsd:string" name="Status" minOccurs="0"/>
+          <element type="xsd:string" name="Vendor" minOccurs="0"/>
+          <element type="xsd:string" name="Version" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsoftwarevibremoveInstallationResult">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Message" minOccurs="0"/>
+          <element type="xsd:boolean" name="RebootRequired" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsInstalled" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsRemoved" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsSkipped" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsoftwarevibupdateInstallationResult">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Message" minOccurs="0"/>
+          <element type="xsd:boolean" name="RebootRequired" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsInstalled" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsRemoved" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="VIBsSkipped" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragecoreadapterlistScsiAdapter">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:string" name="Driver" minOccurs="0"/>
+          <element type="xsd:string" name="HBAName" minOccurs="0"/>
+          <element type="xsd:string" name="LinkState" minOccurs="0"/>
+          <element type="xsd:string" name="UID" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragecoreadapterstatsgetScsiAdapterStats">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="BlocksRead" minOccurs="0"/>
+          <element type="xsd:long" name="BlocksWritten" minOccurs="0"/>
+          <element type="xsd:long" name="FailedBlocksRead" minOccurs="0"/>
+          <element type="xsd:long" name="FailedBlocksWritten" minOccurs="0"/>
+          <element type="xsd:long" name="FailedCommands" minOccurs="0"/>
+          <element type="xsd:long" name="FailedReadOperations" minOccurs="0"/>
+          <element type="xsd:long" name="FailedReserveOperations" minOccurs="0"/>
+          <element type="xsd:long" name="FailedWriteOperations" minOccurs="0"/>
+          <element type="xsd:string" name="HBAName" minOccurs="0"/>
+          <element type="xsd:long" name="PAECommands" minOccurs="0"/>
+          <element type="xsd:long" name="ReadOperations" minOccurs="0"/>
+          <element type="xsd:long" name="ReservationConflicts" minOccurs="0"/>
+          <element type="xsd:long" name="ReserveOperations" minOccurs="0"/>
+          <element type="xsd:long" name="SuccessfulCommands" minOccurs="0"/>
+          <element type="xsd:long" name="TotalSplits" minOccurs="0"/>
+          <element type="xsd:long" name="WriteOperations" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragecoreclaimruleconvertConvertedClaimRule">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="Controller" minOccurs="0"/>
+          <element type="xsd:string" name="HbaName" minOccurs="0"/>
+          <element type="xsd:long" name="LUN" minOccurs="0"/>
+          <element type="xsd:string" name="Plugin" minOccurs="0"/>
+          <element type="xsd:long" name="Rule" minOccurs="0"/>
+          <element type="xsd:long" name="Target" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragecoreclaimrulelistPSAClaimRule">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Class" minOccurs="0"/>
+          <element type="xsd:string" name="Matches" minOccurs="0"/>
+          <element type="xsd:string" name="Plugin" minOccurs="0"/>
+          <element type="xsd:long" name="Rule" minOccurs="0"/>
+          <element type="xsd:string" name="RuleClass" minOccurs="0"/>
+          <element type="xsd:string" name="Type" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragecoredevicedetachedlistScsiDetachedDeviceListMap">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="DeviceUID" minOccurs="0"/>
+          <element type="xsd:string" name="State" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragecoredevicelistScsiDevice">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element maxOccurs="unbounded" type="xsd:string" name="AttachedFilters" minOccurs="0"/>
+          <element type="xsd:string" name="DevfsPath" minOccurs="0"/>
+          <element type="xsd:string" name="Device" minOccurs="0"/>
+          <element type="xsd:string" name="DeviceType" minOccurs="0"/>
+          <element type="xsd:string" name="DisplayName" minOccurs="0"/>
+          <element type="xsd:boolean" name="HasSettableDisplayName" minOccurs="0"/>
+          <element type="xsd:boolean" name="IsLocal" minOccurs="0"/>
+          <element type="xsd:boolean" name="IsOffline" minOccurs="0"/>
+          <element type="xsd:boolean" name="IsPerenniallyReserved" minOccurs="0"/>
+          <element type="xsd:boolean" name="IsPseudo" minOccurs="0"/>
+          <element type="xsd:boolean" name="IsRDMCapable" minOccurs="0"/>
+          <element type="xsd:boolean" name="IsRemovable" minOccurs="0"/>
+          <element type="xsd:boolean" name="IsSSD" minOccurs="0"/>
+          <element type="xsd:string" name="Model" minOccurs="0"/>
+          <element type="xsd:string" name="MultipathPlugin" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="OtherUIDs" minOccurs="0"/>
+          <element type="xsd:string" name="Revision" minOccurs="0"/>
+          <element type="xsd:long" name="SCSILevel" minOccurs="0"/>
+          <element type="xsd:long" name="Size" minOccurs="0"/>
+          <element type="xsd:string" name="Status" minOccurs="0"/>
+          <element type="xsd:string" name="ThinProvisioningStatus" minOccurs="0"/>
+          <element type="xsd:string" name="VAAIStatus" minOccurs="0"/>
+          <element type="xsd:string" name="Vendor" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragecoredevicepartitionlistScsiDevicePartition">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Device" minOccurs="0"/>
+          <element type="xsd:long" name="EndSector" minOccurs="0"/>
+          <element type="xsd:long" name="Partition" minOccurs="0"/>
+          <element type="xsd:string" name="PartitionName" minOccurs="0"/>
+          <element type="xsd:string" name="Path" minOccurs="0"/>
+          <element type="xsd:long" name="Size" minOccurs="0"/>
+          <element type="xsd:long" name="StartSector" minOccurs="0"/>
+          <element type="xsd:long" name="Type" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragecoredevicestatsgetScsiDeviceStats">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="BlocksRead" minOccurs="0"/>
+          <element type="xsd:long" name="BlocksWritten" minOccurs="0"/>
+          <element type="xsd:string" name="Device" minOccurs="0"/>
+          <element type="xsd:long" name="FailedBlocksRead" minOccurs="0"/>
+          <element type="xsd:long" name="FailedBlocksWritten" minOccurs="0"/>
+          <element type="xsd:long" name="FailedCommands" minOccurs="0"/>
+          <element type="xsd:long" name="FailedReadOperations" minOccurs="0"/>
+          <element type="xsd:long" name="FailedReserveOperations" minOccurs="0"/>
+          <element type="xsd:long" name="FailedWriteOperations" minOccurs="0"/>
+          <element type="xsd:long" name="ReadOperations" minOccurs="0"/>
+          <element type="xsd:long" name="ReservationConflicts" minOccurs="0"/>
+          <element type="xsd:long" name="ReserveOperations" minOccurs="0"/>
+          <element type="xsd:long" name="SuccessfulCommands" minOccurs="0"/>
+          <element type="xsd:long" name="WriteOperations" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragecoredevicevaaistatusgetScsiDevice">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="ATSStatus" minOccurs="0"/>
+          <element type="xsd:string" name="CloneStatus" minOccurs="0"/>
+          <element type="xsd:string" name="DeleteStatus" minOccurs="0"/>
+          <element type="xsd:string" name="Device" minOccurs="0"/>
+          <element type="xsd:string" name="VAAIPluginName" minOccurs="0"/>
+          <element type="xsd:string" name="ZeroStatus" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragecoredeviceworldlistScsiDeviceWorld">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Device" minOccurs="0"/>
+          <element type="xsd:long" name="OpenCount" minOccurs="0"/>
+          <element type="xsd:long" name="WorldID" minOccurs="0"/>
+          <element type="xsd:string" name="WorldName" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragecorepathlistScsiPath">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Adapter" minOccurs="0"/>
+          <element type="xsd:string" name="AdapterIdentifier" minOccurs="0"/>
+          <element type="xsd:string" name="AdapterTransportDetails" minOccurs="0"/>
+          <element type="xsd:long" name="Channel" minOccurs="0"/>
+          <element type="xsd:string" name="Device" minOccurs="0"/>
+          <element type="xsd:string" name="DeviceDisplayName" minOccurs="0"/>
+          <element type="xsd:long" name="LUN" minOccurs="0"/>
+          <element type="xsd:string" name="Plugin" minOccurs="0"/>
+          <element type="xsd:string" name="RuntimeName" minOccurs="0"/>
+          <element type="xsd:string" name="State" minOccurs="0"/>
+          <element type="xsd:long" name="Target" minOccurs="0"/>
+          <element type="xsd:string" name="TargetIdentifier" minOccurs="0"/>
+          <element type="xsd:string" name="TargetTransportDetails" minOccurs="0"/>
+          <element type="xsd:string" name="Transport" minOccurs="0"/>
+          <element type="xsd:string" name="UID" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragecorepathstatsgetScsiPathStats">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="BlocksRead" minOccurs="0"/>
+          <element type="xsd:long" name="BlocksWritten" minOccurs="0"/>
+          <element type="xsd:long" name="FailedBlocksRead" minOccurs="0"/>
+          <element type="xsd:long" name="FailedBlocksWritten" minOccurs="0"/>
+          <element type="xsd:long" name="FailedCommands" minOccurs="0"/>
+          <element type="xsd:long" name="FailedReadOperations" minOccurs="0"/>
+          <element type="xsd:long" name="FailedReserveOperations" minOccurs="0"/>
+          <element type="xsd:long" name="FailedWriteOperations" minOccurs="0"/>
+          <element type="xsd:long" name="PAECommands" minOccurs="0"/>
+          <element type="xsd:long" name="ReadOperations" minOccurs="0"/>
+          <element type="xsd:long" name="ReservationConflicts" minOccurs="0"/>
+          <element type="xsd:long" name="ReserveOperations" minOccurs="0"/>
+          <element type="xsd:string" name="RuntimeName" minOccurs="0"/>
+          <element type="xsd:long" name="SuccessfulCommands" minOccurs="0"/>
+          <element type="xsd:long" name="TotalSplits" minOccurs="0"/>
+          <element type="xsd:string" name="UID" minOccurs="0"/>
+          <element type="xsd:long" name="WriteOperations" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragecorepluginlistPsaPlugin">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Pluginclass" minOccurs="0"/>
+          <element type="xsd:string" name="Pluginname" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragecorepluginregistrationlistRegisteredModuleList">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Dependencies" minOccurs="0"/>
+          <element type="xsd:string" name="FullPath" minOccurs="0"/>
+          <element type="xsd:string" name="ModuleName" minOccurs="0"/>
+          <element type="xsd:string" name="PluginClass" minOccurs="0"/>
+          <element type="xsd:string" name="PluginName" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragefilesystemlistFilesystemVolume">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="Free" minOccurs="0"/>
+          <element type="xsd:string" name="MountPoint" minOccurs="0"/>
+          <element type="xsd:boolean" name="Mounted" minOccurs="0"/>
+          <element type="xsd:long" name="Size" minOccurs="0"/>
+          <element type="xsd:string" name="Type" minOccurs="0"/>
+          <element type="xsd:string" name="UUID" minOccurs="0"/>
+          <element type="xsd:string" name="VolumeName" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragenfslistNasMount">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="Accessible" minOccurs="0"/>
+          <element type="xsd:string" name="HardwareAcceleration" minOccurs="0"/>
+          <element type="xsd:string" name="Host" minOccurs="0"/>
+          <element type="xsd:boolean" name="Mounted" minOccurs="0"/>
+          <element type="xsd:string" name="Share" minOccurs="0"/>
+          <element type="xsd:string" name="VolumeName" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragenmpdevicelistNmpDevice">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Device" minOccurs="0"/>
+          <element type="xsd:string" name="DeviceDisplayName" minOccurs="0"/>
+          <element type="xsd:string" name="PathSelectionPolicy" minOccurs="0"/>
+          <element type="xsd:string" name="PathSelectionPolicyDeviceConfig" minOccurs="0"/>
+          <element type="xsd:string" name="PathSelectionPolicyDeviceCustomConfig" minOccurs="0"/>
+          <element type="xsd:string" name="StorageArrayType" minOccurs="0"/>
+          <element type="xsd:string" name="StorageArrayTypeDeviceConfig" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="WorkingPaths" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragenmppathlistScsiPath">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="ArrayPriority" minOccurs="0"/>
+          <element type="xsd:string" name="Device" minOccurs="0"/>
+          <element type="xsd:string" name="DeviceDisplayName" minOccurs="0"/>
+          <element type="xsd:string" name="GroupState" minOccurs="0"/>
+          <element type="xsd:string" name="Path" minOccurs="0"/>
+          <element type="xsd:string" name="PathSelectionPolicyPathConfig" minOccurs="0"/>
+          <element type="xsd:string" name="RuntimeName" minOccurs="0"/>
+          <element type="xsd:string" name="StorageArrayTypePathConfig" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragenmppspfixeddeviceconfiggetFixedDeviceConfiguration">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="ConfiguredPreferredPath" minOccurs="0"/>
+          <element type="xsd:string" name="Device" minOccurs="0"/>
+          <element type="xsd:string" name="PreferredPath" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragenmppsplistPathSelectionPolicy">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragenmppsproundrobindeviceconfiggetRoundRobinDeviceConfiguration">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="ByteLimit" minOccurs="0"/>
+          <element type="xsd:string" name="Device" minOccurs="0"/>
+          <element type="xsd:long" name="IOOperationLimit" minOccurs="0"/>
+          <element type="xsd:string" name="LimitType" minOccurs="0"/>
+          <element type="xsd:boolean" name="UseActiveUnoptimizedPaths" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragenmpsatplistStorageArrayTypePlugin">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="DefaultPSP" minOccurs="0"/>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragenmpsatprulelistStorageArrayTypePluginRule">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="ClaimOptions" minOccurs="0"/>
+          <element type="xsd:string" name="DefaultPSP" minOccurs="0"/>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:string" name="Device" minOccurs="0"/>
+          <element type="xsd:string" name="Driver" minOccurs="0"/>
+          <element type="xsd:string" name="Model" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="Options" minOccurs="0"/>
+          <element type="xsd:string" name="PSPOptions" minOccurs="0"/>
+          <element type="xsd:string" name="RuleGroup" minOccurs="0"/>
+          <element type="xsd:string" name="Transport" minOccurs="0"/>
+          <element type="xsd:string" name="Vendor" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragevmfsextentlistFilesystemVMFSExtents">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="DeviceName" minOccurs="0"/>
+          <element type="xsd:long" name="ExtentNumber" minOccurs="0"/>
+          <element type="xsd:string" name="LVMUUID" minOccurs="0"/>
+          <element type="xsd:long" name="Partition" minOccurs="0"/>
+          <element type="xsd:string" name="VMFSUUID" minOccurs="0"/>
+          <element type="xsd:string" name="VolumeName" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragevmfssnapshotextentlistVMFSSnapshotExtent">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="DeviceName" minOccurs="0"/>
+          <element type="xsd:long" name="End" minOccurs="0"/>
+          <element type="xsd:long" name="ExtentNumber" minOccurs="0"/>
+          <element type="xsd:string" name="LVMUUID" minOccurs="0"/>
+          <element type="xsd:long" name="Partition" minOccurs="0"/>
+          <element type="xsd:long" name="Start" minOccurs="0"/>
+          <element type="xsd:string" name="VMFSUUID" minOccurs="0"/>
+          <element type="xsd:string" name="VolumeName" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIstoragevmfssnapshotlistVMFSSnapshot">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="Canmount" minOccurs="0"/>
+          <element type="xsd:boolean" name="Canresignature" minOccurs="0"/>
+          <element type="xsd:string" name="Reasonfornonresignaturability" minOccurs="0"/>
+          <element type="xsd:string" name="Reasonforunmountability" minOccurs="0"/>
+          <element type="xsd:long" name="UnresolvedExtentCount" minOccurs="0"/>
+          <element type="xsd:string" name="VMFSUUID" minOccurs="0"/>
+          <element type="xsd:string" name="VolumeName" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystembootdevicegetSystemBootDevice">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="BootFilesystemUUID" minOccurs="0"/>
+          <element type="xsd:string" name="BootNIC" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemcoredumpnetworkgetNetworkCoredump">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="Enabled" minOccurs="0"/>
+          <element type="xsd:string" name="HostVNic" minOccurs="0"/>
+          <element type="xsd:string" name="NetworkServerIP" minOccurs="0"/>
+          <element type="xsd:long" name="NetworkServerPort" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemcoredumppartitiongetKernelDumpParition">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Active" minOccurs="0"/>
+          <element type="xsd:string" name="Configured" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemcoredumppartitionlistDumpPartition">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="Active" minOccurs="0"/>
+          <element type="xsd:boolean" name="Configured" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="Path" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemhostnamegetFullyQualifiedHostName">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="DomainName" minOccurs="0"/>
+          <element type="xsd:string" name="FullyQualifiedDomainName" minOccurs="0"/>
+          <element type="xsd:string" name="HostName" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemmodulegetModuleDetails">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="FileVersion" minOccurs="0"/>
+          <element type="xsd:string" name="License" minOccurs="0"/>
+          <element type="xsd:string" name="Module" minOccurs="0"/>
+          <element type="xsd:string" name="ModuleFile" minOccurs="0"/>
+          <element type="xsd:string" name="ProvidedNamespaces" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="RequiredNamespaces" minOccurs="0"/>
+          <element type="xsd:string" name="SignatureDigest" minOccurs="0"/>
+          <element type="xsd:string" name="SignatureFingerPrint" minOccurs="0"/>
+          <element type="xsd:string" name="SignatureIssuer" minOccurs="0"/>
+          <element type="xsd:string" name="SignedStatus" minOccurs="0"/>
+          <element type="xsd:string" name="Version" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemmodulelistModule">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:boolean" name="IsEnabled" minOccurs="0"/>
+          <element type="xsd:boolean" name="IsLoaded" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemmoduleparameterslistModuleParameter">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="Type" minOccurs="0"/>
+          <element type="xsd:string" name="Value" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemprocesslistUserWorld">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="CartelGroupId" minOccurs="0"/>
+          <element type="xsd:long" name="CartelId" minOccurs="0"/>
+          <element type="xsd:string" name="CommandLine" minOccurs="0"/>
+          <element type="xsd:long" name="Id" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:long" name="ParentCartelId" minOccurs="0"/>
+          <element type="xsd:string" name="SecurityDomain" minOccurs="0"/>
+          <element type="xsd:long" name="SessionId" minOccurs="0"/>
+          <element type="xsd:long" name="WorldFlags" minOccurs="0"/>
+          <element type="xsd:long" name="WorldGroupId" minOccurs="0"/>
+          <element type="xsd:string" name="WorldState" minOccurs="0"/>
+          <element type="xsd:string" name="WorldType" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemprocessstatsloadgetProcessStatsLoadGet">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Load1Minute" minOccurs="0"/>
+          <element type="xsd:string" name="Load15Minutes" minOccurs="0"/>
+          <element type="xsd:string" name="Load5Minutes" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemprocessstatsrunninggetProcessStatsRunningGet">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="RunningProcesses" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemsecpolicydomainlistDomainList">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="DomainName" minOccurs="0"/>
+          <element type="xsd:string" name="EnforcementLevel" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemsettingsadvancedlistSettingsAdvancedOption">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="DefaultIntValue" minOccurs="0"/>
+          <element type="xsd:string" name="DefaultStringValue" minOccurs="0"/>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:long" name="IntValue" minOccurs="0"/>
+          <element type="xsd:long" name="MaxValue" minOccurs="0"/>
+          <element type="xsd:long" name="MinValue" minOccurs="0"/>
+          <element type="xsd:string" name="Path" minOccurs="0"/>
+          <element type="xsd:string" name="StringValue" minOccurs="0"/>
+          <element type="xsd:string" name="Type" minOccurs="0"/>
+          <element type="xsd:string" name="ValidCharacters" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemsettingskernellistSettingsKernel">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Configured" minOccurs="0"/>
+          <element type="xsd:string" name="Default" minOccurs="0"/>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:string" name="Name" minOccurs="0"/>
+          <element type="xsd:string" name="Runtime" minOccurs="0"/>
+          <element type="xsd:string" name="Type" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemsettingskeyboardlayoutlistLayout">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Layout" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemsyslogconfiggetSyslogConfiguration">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="DefaultRotationSize" minOccurs="0"/>
+          <element type="xsd:long" name="DefaultRotations" minOccurs="0"/>
+          <element type="xsd:string" name="LogOutput" minOccurs="0"/>
+          <element type="xsd:boolean" name="LogToUniqueSubdirectory" minOccurs="0"/>
+          <element type="xsd:string" name="RemoteHost" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemsyslogconfigloggerlistLoggerConfiguration">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Description" minOccurs="0"/>
+          <element type="xsd:string" name="Destination" minOccurs="0"/>
+          <element type="xsd:string" name="ID" minOccurs="0"/>
+          <element type="xsd:long" name="RotationSize" minOccurs="0"/>
+          <element type="xsd:long" name="Rotations" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemversiongetVersionGet">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="Build" minOccurs="0"/>
+          <element type="xsd:string" name="Product" minOccurs="0"/>
+          <element type="xsd:string" name="Update" minOccurs="0"/>
+          <element type="xsd:string" name="Version" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemvisorfsgetVisorfsStatus">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="FreeInodePercent" minOccurs="0"/>
+          <element type="xsd:long" name="LowestFreeInodePercent" minOccurs="0"/>
+          <element type="xsd:long" name="PeakReservedInodes" minOccurs="0"/>
+          <element type="xsd:long" name="PeakUnlinkedInodes" minOccurs="0"/>
+          <element type="xsd:long" name="PeakUsedInodes" minOccurs="0"/>
+          <element type="xsd:long" name="ReservedInodes" minOccurs="0"/>
+          <element type="xsd:long" name="TotalInodes" minOccurs="0"/>
+          <element type="xsd:long" name="UnlinkedInodes" minOccurs="0"/>
+          <element type="xsd:long" name="UsedInodes" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemvisorfsramdisklistVisorfsRamdisk">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="Free" minOccurs="0"/>
+          <element type="xsd:long" name="Maximum" minOccurs="0"/>
+          <element type="xsd:long" name="PeakUsed" minOccurs="0"/>
+          <element type="xsd:string" name="RamdiskName" minOccurs="0"/>
+          <element type="xsd:long" name="Reserved" minOccurs="0"/>
+          <element type="xsd:long" name="ReservedFree" minOccurs="0"/>
+          <element type="xsd:boolean" name="System" minOccurs="0"/>
+          <element type="xsd:long" name="Used" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIsystemvisorfstardisklistVisorfsTardisk">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:long" name="Size" minOccurs="0"/>
+          <element type="xsd:boolean" name="System" minOccurs="0"/>
+          <element type="xsd:string" name="TardiskName" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLIvmprocesslistVirtualMachine">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="ConfigFile" minOccurs="0"/>
+          <element type="xsd:string" name="DisplayName" minOccurs="0"/>
+          <element type="xsd:long" name="ProcessID" minOccurs="0"/>
+          <element type="xsd:string" name="UUID" minOccurs="0"/>
+          <element type="xsd:long" name="VMXCartelID" minOccurs="0"/>
+          <element type="xsd:long" name="WorldID" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimCLIInfoExample">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="example" minOccurs="0"/>
+          <element type="xsd:string" name="description" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimEsxCLICLIFault">
+    <complexContent>
+      <extension base="vim25:RuntimeFault">
+        <sequence>
+          <element maxOccurs="unbounded" type="xsd:string" name="errMsg" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimCLIInfoInfo">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element maxOccurs="unbounded" type="vim25:VimCLIInfoMethod" name="method" minOccurs="0"/>
+          <element type="xsd:string" name="displayName" minOccurs="0"/>
+          <element type="xsd:string" name="name" minOccurs="0"/>
+          <element type="xsd:string" name="help" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimCLIInfoMethod">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="displayName" minOccurs="0"/>
+          <element type="xsd:string" name="name" minOccurs="0"/>
+          <element type="xsd:string" name="help" minOccurs="0"/>
+          <element type="vim25:VimCLIInfoParam" name="ret" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="vim25:VimCLIInfoExample" name="examples" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="vim25:VimCLIInfoParam" name="param" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="vim25:KeyValue" name="hints" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="VimCLIInfoParam">
+    <complexContent>
+      <extension base="vim25:DynamicData">
+        <sequence>
+          <element type="xsd:string" name="displayName" minOccurs="0"/>
+          <element type="xsd:string" name="help" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="constraint" minOccurs="0"/>
+          <element type="xsd:string" name="default" minOccurs="0"/>
+          <element type="xsd:boolean" name="flag" minOccurs="0"/>
+          <element maxOccurs="unbounded" type="xsd:string" name="aliases" minOccurs="0"/>
+          <element type="xsd:string" name="name" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+</schema>

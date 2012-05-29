@@ -11,13 +11,14 @@ import suds
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
 
+WSDL_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'wsdl')
+
 class SudsClientFactory(object):
     _client = None
     @classmethod
     def get_suds_client(cls):
         if cls._client is None:
-            wsdl_dir = os.path.abspath(os.path.dirname(__file__))
-            cls._client = suds.client.Client("file://" + os.path.join(wsdl_dir, 'wsdl', 'vimService.wsdl'),
+            cls._client = suds.client.Client("file://" + os.path.join(WSDL_DIR, 'vimService.wsdl'),
                                              cachingpolicy=1, autoblend=True)
         return cls._client.clone()
 
