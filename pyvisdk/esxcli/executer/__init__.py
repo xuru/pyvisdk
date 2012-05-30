@@ -24,8 +24,15 @@ def unmarshall_object(vim, obj):
     marshalled_obj = marshaller.process(content)
     return str(marshalled_obj)
 
-def get_xml_from_value(vim, value):
+def get_xml_from_value(vim, key, value):
     from lxml import etree
+    import types
+    BASIC_TYPES = (types.BooleanType, types.FloatType, types.IntType,
+                   types.LongType, types.StringType, types.UnicodeType)
+    if isinstance(value, BASIC_TYPES):
+        element = etree.Element(key)
+        element.text = str(value)
+        return etree.tostring(element)
     if isinstance(value, etree._Element):
         return etree.tostring(value)
     return unmarshall_object(vim, value)
