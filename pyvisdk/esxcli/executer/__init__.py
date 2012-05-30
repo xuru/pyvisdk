@@ -32,8 +32,11 @@ def get_xml_from_value(vim, value):
 
 def generate_arguments(vim, **kwargs):
     from pyvisdk.do.reflect_managed_method_executer_soap_argument import ReflectManagedMethodExecuterSoapArgument
-    return [ReflectManagedMethodExecuterSoapArgument(vim, key, escape(get_xml_from_value(vim, value)))
-            for key, value in kwargs.items() if value is not None]
+    sorted_keys = kwargs.keys()
+    sorted_keys.sort()
+    sorted_kwargs = [(key, kwargs[key]) for key in sorted_keys]
+    return [ReflectManagedMethodExecuterSoapArgument(vim, key, escape(get_xml_from_value(vim, key, value)))
+            for key, value in sorted_kwargs if value is not None]
 
 def _extract_response(response):
     """:param response: `ReflectManagedMethodExecuterSoapResult`"""
