@@ -48,7 +48,6 @@ setup(
     package_data = {'pyvisdk': ['wsdl/*']},
     
     classifiers = ['Development Status :: 4 - Beta',
-                   'Framework :: VMWare',
                    'Intended Audience :: Developers',
                    'License :: OSI Approved :: MIT License',
                    'Operating System :: OS Independent',
