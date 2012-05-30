@@ -12,5 +12,5 @@ class SystemBootDevice(Base):
         Get the systems boot device.
         :returns: vim.EsxCLI.system.boot.device.get.SystemBootDevice
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.boot.device.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.boot.device.Get',
                             )   

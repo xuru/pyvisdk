@@ -14,7 +14,7 @@ class StorageNmpPspGenericPathconfig(Base):
         :param path: string, The path you wish to set PSP configuration for.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.generic.pathconfig.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.generic.pathconfig.Set',
                             config=config,
                             path=path,
                             )
@@ -24,6 +24,6 @@ class StorageNmpPspGenericPathconfig(Base):
         :param path: string, The path you wish to get PSP configuration for.
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.generic.pathconfig.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.generic.pathconfig.Get',
                             path=path,
                             )   

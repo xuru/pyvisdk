@@ -14,7 +14,7 @@ class StorageNmpPath(Base):
         :param path: string, Filter the output of this command to only show a single path.
         :returns: vim.EsxCLI.storage.nmp.path.list.ScsiPath[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.path.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.path.List',
                             device=device,
                             path=path,
                             )   

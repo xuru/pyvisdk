@@ -13,6 +13,6 @@ class StorageCoreDeviceStats(Base):
         :param device: string, Limit the stats output to one specific device. This device name can be any of the UIDs the device reports
         :returns: vim.EsxCLI.storage.core.device.stats.get.ScsiDeviceStats[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.device.stats.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.device.stats.Get',
                             device=device,
                             )   

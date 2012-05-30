@@ -12,5 +12,5 @@ class StorageNmpPsp(Base):
         List the Path Selection Plugins (PSP) that are currently loaded into the NMP system and display information about those PSPs
         :returns: vim.EsxCLI.storage.nmp.psp.list.PathSelectionPolicy[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.List',
                             )   

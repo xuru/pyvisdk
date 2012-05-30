@@ -16,7 +16,7 @@ class IscsiSessionConnection(Base):
         :param name: string, The iSCSI target name.
         :returns: vim.EsxCLI.iscsi.session.connection.list.Connection[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.session.connection.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.session.connection.List',
                             adapter=adapter,
                             cid=cid,
                             isid=isid,

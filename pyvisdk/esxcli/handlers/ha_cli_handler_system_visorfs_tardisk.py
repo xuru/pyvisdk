@@ -12,5 +12,5 @@ class SystemVisorfsTardisk(Base):
         List the tardisks used by the host.
         :returns: vim.EsxCLI.system.visorfs.tardisk.list.VisorfsTardisk[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.visorfs.tardisk.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.visorfs.tardisk.List',
                             )   

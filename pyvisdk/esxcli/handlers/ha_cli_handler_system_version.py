@@ -12,5 +12,5 @@ class SystemVersion(Base):
         Display the product name, version and build information.
         :returns: vim.EsxCLI.system.version.get.VersionGet
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.version.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.version.Get',
                             )   

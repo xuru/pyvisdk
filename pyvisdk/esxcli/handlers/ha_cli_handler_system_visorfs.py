@@ -12,5 +12,5 @@ class SystemVisorfs(Base):
         Obtain status information on the memory filesystem as a whole.
         :returns: vim.EsxCLI.system.visorfs.get.VisorfsStatus
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.visorfs.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.visorfs.Get',
                             )   

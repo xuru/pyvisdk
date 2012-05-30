@@ -15,7 +15,7 @@ class IscsiAdapterDiscoveryStatictarget(Base):
         :param name: string, The iSCSI target name.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.statictarget.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.statictarget.Add',
                             adapter=adapter,
                             address=address,
                             name=name,
@@ -26,7 +26,7 @@ class IscsiAdapterDiscoveryStatictarget(Base):
         :param adapter: string, The iSCSI adapter name.
         :returns: vim.EsxCLI.iscsi.adapter.discovery.statictarget.list.Statictarget[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.statictarget.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.statictarget.List',
                             adapter=adapter,
                             )
     def remove(self, adapter, address, name):
@@ -37,7 +37,7 @@ class IscsiAdapterDiscoveryStatictarget(Base):
         :param name: string, The iSCSI target name.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.statictarget.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.statictarget.Remove',
                             adapter=adapter,
                             address=address,
                             name=name,

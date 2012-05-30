@@ -14,7 +14,7 @@ class IscsiPlugin(Base):
         :param plugin: string, The IMA plugin file name.
         :returns: vim.EsxCLI.iscsi.plugin.list.iScsiPlugin[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.plugin.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.plugin.List',
                             adapter=adapter,
                             plugin=plugin,
                             )   

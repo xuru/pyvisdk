@@ -19,7 +19,7 @@ class IscsiAdapterTargetPortalParam(Base):
         :param value: string, The iSCSI parameter value
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.target.portal.param.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.target.portal.param.Set',
                             adapter=adapter,
                             address=address,
                             default=default,
@@ -36,7 +36,7 @@ class IscsiAdapterTargetPortalParam(Base):
         :param name: string, The iSCSI target name: <iqn/eui>
         :returns: vim.EsxCLI.iscsi.adapter.target.portal.param.get.iScsiParm[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.target.portal.param.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.target.portal.param.Get',
                             adapter=adapter,
                             address=address,
                             name=name,

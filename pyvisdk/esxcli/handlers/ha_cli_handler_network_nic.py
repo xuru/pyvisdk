@@ -13,7 +13,7 @@ class NetworkNic(Base):
         :param nicname: string, The name of the NIC to configured. This must be one of the cards listed in the nic list command.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.nic.down',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.nic.Down',
                             nicname=nicname,
                             )
     def set(self, nicname, auto=None, duplex=None, messagelevel=None, phyaddress=None, port=None, speed=None, transceivertype=None, wakeonlan=None):
@@ -47,7 +47,7 @@ s Enable SecureOn(tm) password for MagicPacket(tm)
 
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.nic.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.nic.Set',
                             auto=auto,
                             duplex=duplex,
                             messagelevel=messagelevel,
@@ -63,7 +63,7 @@ s Enable SecureOn(tm) password for MagicPacket(tm)
         This command will list the Physical NICs currently installed and loaded on the system.
         :returns: vim.EsxCLI.network.nic.list.Nic[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.nic.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.nic.List',
                             )
     def up(self, nicname):
         '''
@@ -71,7 +71,7 @@ s Enable SecureOn(tm) password for MagicPacket(tm)
         :param nicname: string, The name of the NIC to configured. This must be one of the cards listed in the nic list command.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.nic.up',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.nic.Up',
                             nicname=nicname,
                             )
     def get(self, nicname):
@@ -80,6 +80,6 @@ s Enable SecureOn(tm) password for MagicPacket(tm)
         :param nicname: string, The name of the NIC to configured. This must be one of the cards listed in the nic list command.
         :returns: vim.EsxCLI.network.nic.get.NICInfo
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.nic.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.nic.Get',
                             nicname=nicname,
                             )   

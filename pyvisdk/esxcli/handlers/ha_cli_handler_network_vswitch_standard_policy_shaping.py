@@ -17,7 +17,7 @@ class NetworkVswitchStandardPolicyShaping(Base):
         :param vswitchname: string, The name of the virtual switch to use when setting the switch shaping policy.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.policy.shaping.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.policy.shaping.Set',
                             avgbandwidth=avgbandwidth,
                             burstsize=burstsize,
                             enabled=enabled,
@@ -30,6 +30,6 @@ class NetworkVswitchStandardPolicyShaping(Base):
         :param vswitchname: string, The name of the virtual switch to use when fetching the switch shaping policy.
         :returns: vim.EsxCLI.network.vswitch.standard.policy.shaping.get.VirtualSwitchTrafficShapingPolicy
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.policy.shaping.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.policy.shaping.Get',
                             vswitchname=vswitchname,
                             )   

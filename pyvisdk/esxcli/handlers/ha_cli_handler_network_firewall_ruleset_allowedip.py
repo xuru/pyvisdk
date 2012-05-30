@@ -14,7 +14,7 @@ class NetworkFirewallRulesetAllowedip(Base):
         :param rulesetid: string, The label of the ruleset.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.ruleset.allowedip.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.ruleset.allowedip.Add',
                             ipaddress=ipaddress,
                             rulesetid=rulesetid,
                             )
@@ -24,7 +24,7 @@ class NetworkFirewallRulesetAllowedip(Base):
         :param rulesetid: string, The label of the ruleset.
         :returns: vim.EsxCLI.network.firewall.ruleset.allowedip.list.FirewallRulesetAllowedip[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.ruleset.allowedip.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.ruleset.allowedip.List',
                             rulesetid=rulesetid,
                             )
     def remove(self, ipaddress, rulesetid):
@@ -34,7 +34,7 @@ class NetworkFirewallRulesetAllowedip(Base):
         :param rulesetid: string, The label of the ruleset.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.ruleset.allowedip.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.ruleset.allowedip.Remove',
                             ipaddress=ipaddress,
                             rulesetid=rulesetid,
                             )   

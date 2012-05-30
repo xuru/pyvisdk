@@ -21,7 +21,7 @@ class StorageNmpPspRoundrobinDeviceconfig(Base):
         :param useano: boolean, Set useano to true,to also include non-optimizedpaths in the set of active paths used to issue I/Os on this device,otherwise set it to false
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.roundrobin.deviceconfig.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.roundrobin.deviceconfig.Set',
                             bytes=bytes,
                             device=device,
                             iops=iops,
@@ -34,6 +34,6 @@ class StorageNmpPspRoundrobinDeviceconfig(Base):
         :param device: string, The device you wish to get the Round Robin properties for.
         :returns: vim.EsxCLI.storage.nmp.psp.roundrobin.deviceconfig.get.RoundRobinDeviceConfiguration
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.roundrobin.deviceconfig.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.roundrobin.deviceconfig.Get',
                             device=device,
                             )   

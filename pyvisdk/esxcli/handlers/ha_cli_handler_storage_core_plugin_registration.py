@@ -17,7 +17,7 @@ class StorageCorePluginRegistration(Base):
         :param pluginname: string, Select the plugin name to be registered
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.plugin.registration.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.plugin.registration.Add',
                             dependencies=dependencies,
                             fullpath=fullpath,
                             modulename=modulename,
@@ -31,7 +31,7 @@ class StorageCorePluginRegistration(Base):
         :param pluginclass: string, Indicate the class of plugin to list.  Allowed values are MP, VAAI or MPP defined subplugins like PSP, SATP.
         :returns: vim.EsxCLI.storage.core.plugin.registration.list.RegisteredModuleList[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.plugin.registration.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.plugin.registration.List',
                             modulename=modulename,
                             pluginclass=pluginclass,
                             )
@@ -41,6 +41,6 @@ class StorageCorePluginRegistration(Base):
         :param modulename: string, Select the module name to be unregistered
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.plugin.registration.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.plugin.registration.Remove',
                             modulename=modulename,
                             )   

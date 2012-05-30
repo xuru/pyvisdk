@@ -13,7 +13,7 @@ class StorageCoreClaimrule(Base):
         :param claimruleclass: string, Indicate the claim rule class to use in this operation [MP, Filter, VAAI, all].
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claimrule.load',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claimrule.Load',
                             claimruleclass=claimruleclass,
                             )
     def convert(self, commit=None):
@@ -23,7 +23,7 @@ WARNING: This conversion will not work for all input MaskLUNs variations! Please
         :param commit: boolean, Force LUN mask config changes to be saved. If this parameter is omitted, config file changes will not be saved.
         :returns: vim.EsxCLI.storage.core.claimrule.convert.ConvertedClaimRule[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claimrule.convert',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claimrule.Convert',
                             commit=commit,
                             )
     def run(self, adapter=None, channel=None, claimruleclass=None, device=None, lun=None, path=None, target=None, type=None, wait=None):
@@ -40,7 +40,7 @@ WARNING: This conversion will not work for all input MaskLUNs variations! Please
         :param wait: boolean, If the --wait flag is provided then the claim command will wait until device registration has completed to return. This option is only valid when used with the --all option.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claimrule.run',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claimrule.Run',
                             adapter=adapter,
                             channel=channel,
                             claimruleclass=claimruleclass,
@@ -59,7 +59,7 @@ WARNING: This conversion will not work for all input MaskLUNs variations! Please
         :param rule: long, Indicate the rule ID to use for this operation.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claimrule.move',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claimrule.Move',
                             claimruleclass=claimruleclass,
                             newrule=newrule,
                             rule=rule,
@@ -70,7 +70,7 @@ WARNING: This conversion will not work for all input MaskLUNs variations! Please
         :param claimruleclass: string, Indicate the claim rule class to use in this operation [MP, Filter, VAAI, all].
         :returns: vim.EsxCLI.storage.core.claimrule.list.PSAClaimRule[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claimrule.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claimrule.List',
                             claimruleclass=claimruleclass,
                             )
     def remove(self, claimruleclass=None, plugin=None, rule=None):
@@ -81,7 +81,7 @@ WARNING: This conversion will not work for all input MaskLUNs variations! Please
         :param rule: long, Indicate the rule ID to use for this operation.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claimrule.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claimrule.Remove',
                             claimruleclass=claimruleclass,
                             plugin=plugin,
                             rule=rule,
@@ -110,7 +110,7 @@ WARNING: This conversion will not work for all input MaskLUNs variations! Please
         :param wwpn: string, Indicate the World-Wide Port Number for the target to use in this operation.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claimrule.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claimrule.Add',
                             adapter=adapter,
                             autoassign=autoassign,
                             channel=channel,

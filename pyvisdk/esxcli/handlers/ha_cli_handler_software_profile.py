@@ -15,7 +15,7 @@ class SoftwareProfile(Base):
         :param proxy: string, Specifies a proxy server to use for HTTP, FTP, and HTTPS connections. The format is proxy-url:port.
         :returns: vim.EsxCLI.software.profile.validate.ProfileValidationResult
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.profile.validate',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.profile.Validate',
                             depot=depot,
                             profile=profile,
                             proxy=proxy,
@@ -34,7 +34,7 @@ class SoftwareProfile(Base):
         :param proxy: string, Specifies a proxy server to use for HTTP, FTP, and HTTPS connections. The format is proxy-url:port.
         :returns: vim.EsxCLI.software.profile.update.InstallationResult
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.profile.update',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.profile.Update',
                             allowdowngrades=allowdowngrades,
                             depot=depot,
                             dryrun=dryrun,
@@ -59,7 +59,7 @@ class SoftwareProfile(Base):
         :param proxy: string, Specifies a proxy server to use for HTTP, FTP, and HTTPS connections. The format is proxy-url:port.
         :returns: vim.EsxCLI.software.profile.install.InstallationResult
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.profile.install',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.profile.Install',
                             depot=depot,
                             dryrun=dryrun,
                             force=force,
@@ -76,6 +76,6 @@ class SoftwareProfile(Base):
         :param rebootingimage: boolean, Displays information for the ESXi image which becomes active after a reboot, or nothing if the pending-reboot image has not been created yet.  If not specified, information from the current ESXi image in memory will be returned.
         :returns: vim.EsxCLI.software.profile.get.ImageProfile
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.profile.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.profile.Get',
                             rebootingimage=rebootingimage,
                             )   

@@ -14,7 +14,7 @@ class SoftwareSourcesProfile(Base):
         :param proxy: string, Specifies a proxy server to use for HTTP, FTP, and HTTPS connections. The format is proxy-url:port.
         :returns: vim.EsxCLI.software.sources.profile.list.ImageProfileSummary[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.sources.profile.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.sources.profile.List',
                             depot=depot,
                             proxy=proxy,
                             )
@@ -26,7 +26,7 @@ class SoftwareSourcesProfile(Base):
         :param proxy: string, Specifies a proxy server to use for HTTP, FTP, and HTTPS connections. The format is proxy-url:port.
         :returns: vim.EsxCLI.software.sources.profile.get.ImageProfile
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.sources.profile.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.sources.profile.Get',
                             depot=depot,
                             profile=profile,
                             proxy=proxy,

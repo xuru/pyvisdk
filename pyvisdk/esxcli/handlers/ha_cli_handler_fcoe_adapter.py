@@ -12,5 +12,5 @@ class FcoeAdapter(Base):
         List FCOE-capable CNA devices.
         :returns: vim.EsxCLI.fcoe.adapter.list.FcoeAdapterDevice[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.fcoe.adapter.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.fcoe.adapter.List',
                             )   

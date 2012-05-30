@@ -12,7 +12,7 @@ class VmProcess(Base):
         List the virtual machines on this system. This command currently will only list running VMs on the system.
         :returns: vim.EsxCLI.vm.process.list.VirtualMachine[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.vm.process.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.vm.process.List',
                             )
     def kill(self, type, worldid):
         '''
@@ -21,7 +21,7 @@ class VmProcess(Base):
         :param worldid: long, The World ID of the Virtual Machine to kill. This can be obtained from the 'vm process list' command
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.vm.process.kill',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.vm.process.Kill',
                             type=type,
                             worldid=worldid,
                             )   

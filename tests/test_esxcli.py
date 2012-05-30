@@ -35,6 +35,13 @@ class TestEsxCLI(unittest.TestCase):
         esxcli = EsxCLI(self.vim, host)
         esxcli.get('storage.core.device').list()
 
+    def test_add_claiming_rule(self):
+        host = self.vim.getHostSystems()[1]
+        esxcli = EsxCLI(self.vim, host)
+        rule = esxcli.get('storage.nmp.satp.rule')
+        rule.add(model='testModel', satp="VMW_SATP_ALUA", vendor='testVend', description='pyvisdk test')
+
+
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testHosts']
     unittest.main()

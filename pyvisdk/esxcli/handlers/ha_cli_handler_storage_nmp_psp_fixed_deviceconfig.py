@@ -15,7 +15,7 @@ class StorageNmpPspFixedDeviceconfig(Base):
         :param path: string, The path you wish to set as the preferred path for the given device.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.fixed.deviceconfig.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.fixed.deviceconfig.Set',
                             default=default,
                             device=device,
                             path=path,
@@ -26,6 +26,6 @@ class StorageNmpPspFixedDeviceconfig(Base):
         :param device: string, The device you wish to get the Preferred path for.  
         :returns: vim.EsxCLI.storage.nmp.psp.fixed.deviceconfig.get.FixedDeviceConfiguration
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.fixed.deviceconfig.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.fixed.deviceconfig.Get',
                             device=device,
                             )   

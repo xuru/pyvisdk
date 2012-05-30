@@ -12,5 +12,5 @@ class HardwareCpu(Base):
         List all of the CPUs on this host.
         :returns: vim.EsxCLI.hardware.cpu.list.Cpu[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.cpu.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.cpu.List',
                             )   

@@ -17,7 +17,7 @@ class StorageCorePath(Base):
 
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.path.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.path.Set',
                             path=path,
                             state=state,
                             )
@@ -28,7 +28,7 @@ class StorageCorePath(Base):
         :param path: string, Limit the output to a specific path. This  name can be either the UID or the runtime name of the path.
         :returns: vim.EsxCLI.storage.core.path.list.ScsiPath[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.path.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.path.List',
                             device=device,
                             path=path,
                             )   

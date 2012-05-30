@@ -13,7 +13,7 @@ class NetworkIp(Base):
         :param ipv6enabled: boolean, Enable or disable IPv6 (Reboot Required)
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.Set',
                             ipv6enabled=ipv6enabled,
                             )
     def get(self):
@@ -21,5 +21,5 @@ class NetworkIp(Base):
         Get global IP settings
         :returns: vim.EsxCLI.network.ip.get.IPInfo
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.Get',
                             )   

@@ -12,7 +12,7 @@ class StorageFilesystem(Base):
         Request mounting of known datastores not explicitly unmounted.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.filesystem.automount',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.filesystem.Automount',
                             )
     def mount(self, nopersist=None, volumelabel=None, volumeuuid=None):
         '''
@@ -22,7 +22,7 @@ class StorageFilesystem(Base):
         :param volumeuuid: string, The UUID of the VMFS filesystem to mount. This volume must be unmounted for this operation to succeed.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.filesystem.mount',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.filesystem.Mount',
                             nopersist=nopersist,
                             volumelabel=volumelabel,
                             volumeuuid=volumeuuid,
@@ -36,7 +36,7 @@ class StorageFilesystem(Base):
         :param volumeuuid: string, The uuid of the volume to unmount.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.filesystem.unmount',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.filesystem.Unmount',
                             nopersist=nopersist,
                             volumelabel=volumelabel,
                             volumepath=volumepath,
@@ -47,12 +47,12 @@ class StorageFilesystem(Base):
         List the volumes available to the host. This includes VMFS, NAS and VFAT partitions.
         :returns: vim.EsxCLI.storage.filesystem.list.FilesystemVolume[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.filesystem.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.filesystem.List',
                             )
     def rescan(self):
         '''
         Issue a rescan operation to the VMkernel to have is scan storage devices for new mountable filesystems.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.filesystem.rescan',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.filesystem.Rescan',
                             )   

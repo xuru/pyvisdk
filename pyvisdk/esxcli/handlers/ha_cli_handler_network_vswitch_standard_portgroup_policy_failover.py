@@ -28,7 +28,7 @@ class NetworkVswitchStandardPortgroupPolicyFailover(Base):
         :param usevswitch: boolean, Reset all values for this policy to use parent virtual switch's settings instead of overriding the settings for the port group. Using this in conjunction with other settings will first reset all of the fields to use the virtual switch setting and then apply the other options after the reset.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.portgroup.policy.failover.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.portgroup.policy.failover.Set',
                             activeuplinks=activeuplinks,
                             failback=failback,
                             failuredetection=failuredetection,
@@ -44,6 +44,6 @@ class NetworkVswitchStandardPortgroupPolicyFailover(Base):
         :param portgroupname: string, The name of the port group to use when fetching the port group failover policy.
         :returns: vim.EsxCLI.network.vswitch.standard.portgroup.policy.failover.get.PortGroupFailoverPolicy
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.portgroup.policy.failover.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.portgroup.policy.failover.Get',
                             portgroupname=portgroupname,
                             )   

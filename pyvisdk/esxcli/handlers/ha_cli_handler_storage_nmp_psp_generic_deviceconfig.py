@@ -14,7 +14,7 @@ class StorageNmpPspGenericDeviceconfig(Base):
         :param device: string, The device you wish to set PSP configuration for.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.generic.deviceconfig.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.generic.deviceconfig.Set',
                             config=config,
                             device=device,
                             )
@@ -24,6 +24,6 @@ class StorageNmpPspGenericDeviceconfig(Base):
         :param device: string, The device you wish to get PSP configuration for.
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.generic.deviceconfig.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.psp.generic.deviceconfig.Get',
                             device=device,
                             )   

@@ -12,5 +12,5 @@ class NetworkFence(Base):
         Get all fence switch info on the system.
         :returns: vim.EsxCLI.network.fence.list.FenceSwitch[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.fence.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.fence.List',
                             )   

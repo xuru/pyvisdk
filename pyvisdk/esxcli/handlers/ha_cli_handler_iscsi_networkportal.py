@@ -15,7 +15,7 @@ class IscsiNetworkportal(Base):
         :param nic: string, The iSCSI network portal (bound vmknic)
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.networkportal.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.networkportal.Add',
                             adapter=adapter,
                             force=force,
                             nic=nic,
@@ -26,7 +26,7 @@ class IscsiNetworkportal(Base):
         :param adapter: string, The iSCSI adapter name.
         :returns: vim.EsxCLI.iscsi.networkportal.list.NetworkPortal[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.networkportal.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.networkportal.List',
                             adapter=adapter,
                             )
     def remove(self, adapter, nic, force=None):
@@ -37,7 +37,7 @@ class IscsiNetworkportal(Base):
         :param nic: string, The iSCSI network portal (bound vmknic)
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.networkportal.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.networkportal.Remove',
                             adapter=adapter,
                             force=force,
                             nic=nic,

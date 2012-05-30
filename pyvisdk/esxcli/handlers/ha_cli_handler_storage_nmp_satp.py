@@ -15,7 +15,7 @@ class StorageNmpSatp(Base):
         :param satp: string, The SATP name for the Storage Array Type Plugin on which this command will operate.
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.Set',
                             boot=boot,
                             defaultpsp=defaultpsp,
                             satp=satp,
@@ -25,5 +25,5 @@ class StorageNmpSatp(Base):
         List the Storage Array Type Plugins (SATP) that are currently loaded into the NMP system and display information about those SATPs
         :returns: vim.EsxCLI.storage.nmp.satp.list.StorageArrayTypePlugin[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.List',
                             )   

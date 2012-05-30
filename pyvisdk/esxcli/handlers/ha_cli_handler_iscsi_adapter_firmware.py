@@ -14,7 +14,7 @@ class IscsiAdapterFirmware(Base):
         :param file: string, Path to the firmware file to download.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.firmware.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.firmware.Set',
                             adapter=adapter,
                             file=file,
                             )
@@ -25,7 +25,7 @@ class IscsiAdapterFirmware(Base):
         :param file: string, Path to the firmware file to retrieve information from.
         :returns: vim.EsxCLI.iscsi.adapter.firmware.get.AdapterFirmware[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.firmware.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.firmware.Get',
                             adapter=adapter,
                             file=file,
                             )   

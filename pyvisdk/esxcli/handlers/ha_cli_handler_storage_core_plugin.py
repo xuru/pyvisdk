@@ -18,6 +18,6 @@ class StorageCorePlugin(Base):
 
         :returns: vim.EsxCLI.storage.core.plugin.list.PsaPlugin[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.plugin.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.plugin.List',
                             pluginclass=pluginclass,
                             )   

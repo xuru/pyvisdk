@@ -26,7 +26,7 @@ class StorageNmpSatpRule(Base):
         :param vendor: string, Set the vendor string when adding SATP claim rules. Vendor/Model rules are mutually exclusive with driver rules.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.rule.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.rule.Add',
                             boot=boot,
                             claimoption=claimoption,
                             description=description,
@@ -48,7 +48,7 @@ class StorageNmpSatpRule(Base):
         :param satp: string, Filter the SATP rules to a specific SATP
         :returns: vim.EsxCLI.storage.nmp.satp.rule.list.StorageArrayTypePluginRule[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.rule.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.rule.List',
                             satp=satp,
                             )
     def remove(self, satp, boot=None, claimoption=None, description=None, device=None, driver=None, model=None, option=None, psp=None, pspoption=None, transport=None, type=None, vendor=None):
@@ -69,7 +69,7 @@ class StorageNmpSatpRule(Base):
         :param vendor: string, The vendor string for the SATP claim rule to delete
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.rule.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.rule.Remove',
                             boot=boot,
                             claimoption=claimoption,
                             description=description,

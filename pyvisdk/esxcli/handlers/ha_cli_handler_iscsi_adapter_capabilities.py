@@ -13,6 +13,6 @@ class IscsiAdapterCapabilities(Base):
         :param adapter: string, The iSCSI adapter name.
         :returns: vim.EsxCLI.iscsi.adapter.capabilities.get.AdapterCapabilities[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.capabilities.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.capabilities.Get',
                             adapter=adapter,
                             )   

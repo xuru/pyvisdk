@@ -18,7 +18,7 @@ class SystemTime(Base):
         :param year: long, Year
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.time.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.time.Set',
                             day=day,
                             hour=hour,
                             min=min,
@@ -31,5 +31,5 @@ class SystemTime(Base):
         Disply the current system time.
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.time.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.time.Get',
                             )   

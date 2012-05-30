@@ -12,5 +12,5 @@ class SystemUuid(Base):
         Get the system UUID.
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.uuid.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.uuid.Get',
                             )   

@@ -13,6 +13,6 @@ class NetworkIpNeighbor(Base):
         :param version: string, IP version :  [4, 6, all]
         :returns: vim.EsxCLI.network.ip.neighbor.list.NetworkNeighbor[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.neighbor.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.neighbor.List',
                             version=version,
                             )   

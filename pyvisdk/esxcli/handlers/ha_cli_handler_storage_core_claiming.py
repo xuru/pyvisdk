@@ -24,7 +24,7 @@ class StorageCoreClaiming(Base):
         :param vendor: string, If the --type parameter is 'vendor' attempt to unclaim all paths to devices with specific vendor info (for multipathing plugins) or unclaim the device itself (for filter plugins). NOTE. For paths, if there are any active I/O operations on this device, at least 1 path will fail to unclaim.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claiming.unclaim',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claiming.Unclaim',
                             adapter=adapter,
                             channel=channel,
                             claimruleclass=claimruleclass,
@@ -46,7 +46,7 @@ class StorageCoreClaiming(Base):
         :param wait: boolean, If the --wait flag is provided then the autoclaim enable will wait for paths to 'settle' before running the claim operation.  This means that the system is reasonably sure that all paths on the system have appeared before enabling autoclaim.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claiming.autoclaim',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claiming.Autoclaim',
                             claimruleclass=claimruleclass,
                             enabled=enabled,
                             wait=wait,
@@ -57,6 +57,6 @@ class StorageCoreClaiming(Base):
         :param device: string, Reclaim requires the name of a device on which all paths will be unclaimed and then reclaimed.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claiming.reclaim',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.claiming.Reclaim',
                             device=device,
                             )   

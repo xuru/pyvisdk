@@ -12,7 +12,7 @@ class SystemSyslog(Base):
         Reload the log daemon to apply any new configuration options
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.syslog.reload',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.syslog.Reload',
                             )
     def mark(self, message):
         '''
@@ -20,6 +20,6 @@ class SystemSyslog(Base):
         :param message: string, The message to place in the logs
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.syslog.mark',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.syslog.Mark',
                             message=message,
                             )   

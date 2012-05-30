@@ -15,7 +15,7 @@ class IscsiSession(Base):
         :param name: string, The iSCSI target name.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.session.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.session.Add',
                             adapter=adapter,
                             isid=isid,
                             name=name,
@@ -28,7 +28,7 @@ class IscsiSession(Base):
         :param name: string, The iSCSI target name.
         :returns: vim.EsxCLI.iscsi.session.list.Session[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.session.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.session.List',
                             adapter=adapter,
                             isid=isid,
                             name=name,
@@ -41,7 +41,7 @@ class IscsiSession(Base):
         :param name: string, The name of the target to login to.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.session.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.session.Remove',
                             adapter=adapter,
                             isid=isid,
                             name=name,

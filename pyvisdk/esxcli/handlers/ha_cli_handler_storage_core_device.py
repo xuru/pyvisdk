@@ -19,7 +19,7 @@ class StorageCoreDevice(Base):
 
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.device.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.device.Set',
                             device=device,
                             name=name,
                             nopersist=nopersist,
@@ -31,7 +31,7 @@ class StorageCoreDevice(Base):
         :param device: string, Filter the output of this command to only show a single device.
         :returns: vim.EsxCLI.storage.core.device.list.ScsiDevice[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.device.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.device.List',
                             device=device,
                             )
     def setconfig(self, device, detached=None, perenniallyreserved=None):
@@ -42,7 +42,7 @@ class StorageCoreDevice(Base):
         :param perenniallyreserved: boolean, Mark device as perennially reserved.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.device.setconfig',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.device.Setconfig',
                             detached=detached,
                             device=device,
                             perenniallyreserved=perenniallyreserved,

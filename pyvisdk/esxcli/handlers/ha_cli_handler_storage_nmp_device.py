@@ -15,7 +15,7 @@ class StorageNmpDevice(Base):
         :param psp: string, The Path selection policy you wish to assign to the given device.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.device.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.device.Set',
                             default=default,
                             device=device,
                             psp=psp,
@@ -26,6 +26,6 @@ class StorageNmpDevice(Base):
         :param device: string, Filter the output of this command to only show a single device.
         :returns: vim.EsxCLI.storage.nmp.device.list.NmpDevice[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.device.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.device.List',
                             device=device,
                             )   

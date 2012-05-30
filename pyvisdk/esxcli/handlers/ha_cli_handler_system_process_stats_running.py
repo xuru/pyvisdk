@@ -12,5 +12,5 @@ class SystemProcessStatsRunning(Base):
         Number of currently running processes.
         :returns: vim.EsxCLI.system.process.stats.running.get.ProcessStatsRunningGet
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.process.stats.running.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.process.stats.running.Get',
                             )   

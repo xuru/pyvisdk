@@ -13,6 +13,6 @@ class StorageCoreDeviceVaaiStatus(Base):
         :param device: string, Filter the output of this command to only show a single device.
         :returns: vim.EsxCLI.storage.core.device.vaai.status.get.ScsiDevice[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.device.vaai.status.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.device.vaai.status.Get',
                             device=device,
                             )   

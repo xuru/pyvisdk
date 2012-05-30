@@ -13,6 +13,6 @@ class StorageCoreAdapterStats(Base):
         :param adapter: string, Limit the stats output to one adapter
         :returns: vim.EsxCLI.storage.core.adapter.stats.get.ScsiAdapterStats[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.adapter.stats.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.adapter.stats.Get',
                             adapter=adapter,
                             )   

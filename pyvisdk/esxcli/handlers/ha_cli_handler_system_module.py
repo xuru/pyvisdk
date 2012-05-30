@@ -14,7 +14,7 @@ class SystemModule(Base):
         :param module: string, The name of the VMkernel module to load.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.module.load',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.module.Load',
                             force=force,
                             module=module,
                             )
@@ -26,7 +26,7 @@ class SystemModule(Base):
         :param module: string, The name of the VMkernel module to set options for.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.module.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.module.Set',
                             enabled=enabled,
                             force=force,
                             module=module,
@@ -38,7 +38,7 @@ class SystemModule(Base):
         :param loaded: boolean, List the loaded / not loaded VMkernel modules and device drivers.
         :returns: vim.EsxCLI.system.module.list.Module[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.module.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.module.List',
                             enabled=enabled,
                             loaded=loaded,
                             )
@@ -48,6 +48,6 @@ class SystemModule(Base):
         :param module: string, The name of the VMkernel module to get the option string for.
         :returns: vim.EsxCLI.system.module.get.ModuleDetails
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.module.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.module.Get',
                             module=module,
                             )   

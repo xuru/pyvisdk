@@ -18,7 +18,7 @@ class IscsiAdapterAuthChap(Base):
         :param secret: string, The iSCSI CHAP authentication secret
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.auth.chap.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.auth.chap.Set',
                             adapter=adapter,
                             authname=authname,
                             default=default,
@@ -33,7 +33,7 @@ class IscsiAdapterAuthChap(Base):
         :param direction: string, The iSCSI CHAP authentication direction ( [uni, mutual])
         :returns: vim.EsxCLI.iscsi.adapter.auth.chap.get.AdapterChapAuth[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.auth.chap.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.auth.chap.Get',
                             adapter=adapter,
                             direction=direction,
                             )   

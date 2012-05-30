@@ -13,7 +13,7 @@ class FcoeNic(Base):
         :param nicname: string, The CNA adapter name (vmnicX)
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.fcoe.nic.disable',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.fcoe.nic.Disable',
                             nicname=nicname,
                             )
     def list(self):
@@ -21,7 +21,7 @@ class FcoeNic(Base):
         List FCOE-capable CNA devices.
         :returns: vim.EsxCLI.fcoe.nic.list.NicDevice[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.fcoe.nic.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.fcoe.nic.List',
                             )
     def discover(self, nicname):
         '''
@@ -29,6 +29,6 @@ class FcoeNic(Base):
         :param nicname: string, The CNA adapter name (vmnicX)
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.fcoe.nic.discover',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.fcoe.nic.Discover',
                             nicname=nicname,
                             )   

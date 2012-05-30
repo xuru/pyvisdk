@@ -12,5 +12,5 @@ class HardwareMemory(Base):
         Get information about memory.
         :returns: vim.EsxCLI.hardware.memory.get.Memory
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.memory.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.memory.Get',
                             )   

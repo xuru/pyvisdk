@@ -16,7 +16,7 @@ class SystemSyslogConfigLogger(Base):
         :param size: long, Set size of logs before rotation for a specific logger, in KiB (requires --id)
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.syslog.config.logger.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.syslog.config.logger.Set',
                             id=id,
                             reset=reset,
                             rotate=rotate,
@@ -27,5 +27,5 @@ class SystemSyslogConfigLogger(Base):
         Show the currently configured sub-loggers
         :returns: vim.EsxCLI.system.syslog.config.logger.list.LoggerConfiguration[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.syslog.config.logger.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.syslog.config.logger.List',
                             )   

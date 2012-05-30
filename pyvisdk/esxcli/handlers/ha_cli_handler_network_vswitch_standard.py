@@ -14,7 +14,7 @@ class NetworkVswitchStandard(Base):
         :param vswitchname: string, The name of the virtual switch to create.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.Add',
                             ports=ports,
                             vswitchname=vswitchname,
                             )
@@ -26,7 +26,7 @@ class NetworkVswitchStandard(Base):
         :param vswitchname: string, The name of virtual switch to apply the configurations.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.Set',
                             cdpstatus=cdpstatus,
                             mtu=mtu,
                             vswitchname=vswitchname,
@@ -37,7 +37,7 @@ class NetworkVswitchStandard(Base):
         :param vswitchname: string, Limit the output of this command to only virtual switches with the given name.
         :returns: vim.EsxCLI.network.vswitch.standard.list.VirtualSwitch[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.List',
                             vswitchname=vswitchname,
                             )
     def remove(self, vswitchname):
@@ -46,6 +46,6 @@ class NetworkVswitchStandard(Base):
         :param vswitchname: string, The name of the virtual switch to remove.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.Remove',
                             vswitchname=vswitchname,
                             )   

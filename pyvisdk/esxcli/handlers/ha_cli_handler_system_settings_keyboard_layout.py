@@ -14,7 +14,7 @@ class SystemSettingsKeyboardLayout(Base):
         :param nopersist: boolean, Only apply this layout for the current boot
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.settings.keyboard.layout.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.settings.keyboard.layout.Set',
                             layout=layout,
                             nopersist=nopersist,
                             )
@@ -23,12 +23,12 @@ class SystemSettingsKeyboardLayout(Base):
         List the keyboard layout
         :returns: vim.EsxCLI.system.settings.keyboard.layout.list.Layout[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.settings.keyboard.layout.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.settings.keyboard.layout.List',
                             )
     def get(self):
         '''
         Get the keyboard layout
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.settings.keyboard.layout.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.settings.keyboard.layout.Get',
                             )   

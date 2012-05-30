@@ -16,7 +16,7 @@ class NetworkIpInterfaceIpv6(Base):
         :param peerdns: boolean, A boolean value to indicate if the system should use the DNS settings published via DHCPv6 for this interface.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.ipv6.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.ipv6.Set',
                             enabledhcpv6=enabledhcpv6,
                             enablerouteradv=enablerouteradv,
                             interfacename=interfacename,
@@ -28,6 +28,6 @@ class NetworkIpInterfaceIpv6(Base):
         :param interfacename: string, The name of the VMkernel network interface to limit the output of this command to.
         :returns: vim.EsxCLI.network.ip.interface.ipv6.get.IPv6Interface[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.ipv6.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.ipv6.Get',
                             interfacename=interfacename,
                             )   

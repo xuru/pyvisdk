@@ -13,6 +13,6 @@ class NetworkVswitchDvsVmware(Base):
         :param vdsname: string, Limit the output of this command to only vDS with the given name.
         :returns: vim.EsxCLI.network.vswitch.dvs.vmware.list.VDS[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.dvs.vmware.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.dvs.vmware.List',
                             vdsname=vdsname,
                             )   

@@ -13,7 +13,7 @@ class HardwareCpuGlobal(Base):
         :param hyperthreading: boolean, Enable or disable hyperthreading
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.cpu.global.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.cpu.global.Set',
                             hyperthreading=hyperthreading,
                             )
     def get(self):
@@ -21,5 +21,5 @@ class HardwareCpuGlobal(Base):
         Get properties that are global to all CPUs.
         :returns: vim.EsxCLI.hardware.cpu.global.get.Cpu
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.cpu.global.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.cpu.global.Get',
                             )   

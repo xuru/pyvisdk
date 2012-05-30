@@ -13,6 +13,6 @@ class HardwareCpuCpuid(Base):
         :param cpu: long, The ID of the CPU to query for CPUID data
         :returns: vim.EsxCLI.hardware.cpu.cpuid.get.CpuCpuId[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.cpu.cpuid.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.cpu.cpuid.Get',
                             cpu=cpu,
                             )   

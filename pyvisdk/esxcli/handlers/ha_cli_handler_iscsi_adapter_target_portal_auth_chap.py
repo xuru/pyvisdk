@@ -21,7 +21,7 @@ class IscsiAdapterTargetPortalAuthChap(Base):
         :param secret: string, The iSCSI authentication password
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.target.portal.auth.chap.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.target.portal.auth.chap.Set',
                             adapter=adapter,
                             address=address,
                             authname=authname,
@@ -42,7 +42,7 @@ class IscsiAdapterTargetPortalAuthChap(Base):
         :param name: string, The iSCSI target name: <iqn/eui>
         :returns: vim.EsxCLI.iscsi.adapter.target.portal.auth.chap.get.TargetAuth[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.target.portal.auth.chap.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.target.portal.auth.chap.Get',
                             adapter=adapter,
                             address=address,
                             direction=direction,

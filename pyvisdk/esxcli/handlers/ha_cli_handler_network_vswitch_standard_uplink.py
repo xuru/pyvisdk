@@ -14,7 +14,7 @@ class NetworkVswitchStandardUplink(Base):
         :param vswitchname: string, The name of the virtual switch to add an uplink to.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.uplink.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.uplink.Add',
                             uplinkname=uplinkname,
                             vswitchname=vswitchname,
                             )
@@ -25,7 +25,7 @@ class NetworkVswitchStandardUplink(Base):
         :param vswitchname: string, The name of the virtual switch to remove an uplink from.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.uplink.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.uplink.Remove',
                             uplinkname=uplinkname,
                             vswitchname=vswitchname,
                             )   

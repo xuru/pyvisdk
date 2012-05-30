@@ -16,7 +16,7 @@ class NetworkIpInterface(Base):
         :param portgroupname: string, The name of the port group to add this VMkernel network interface to. This option is required.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.Add',
                             interfacename=interfacename,
                             macaddress=macaddress,
                             mtu=mtu,
@@ -30,7 +30,7 @@ class NetworkIpInterface(Base):
         :param mtu: long, The MTU size of the IP interface. 
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.Set',
                             enabled=enabled,
                             interfacename=interfacename,
                             mtu=mtu,
@@ -40,7 +40,7 @@ class NetworkIpInterface(Base):
         This command will list the VMkernel network interfaces currently known to the system.
         :returns: vim.EsxCLI.network.ip.interface.list.NetworkInterface[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.List',
                             )
     def remove(self, interfacename):
         '''
@@ -48,6 +48,6 @@ class NetworkIpInterface(Base):
         :param interfacename: string, The name of the VMkernel network interface to remove. This name must be in the form vmkX, where X is a number 0-99
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.Remove',
                             interfacename=interfacename,
                             )   

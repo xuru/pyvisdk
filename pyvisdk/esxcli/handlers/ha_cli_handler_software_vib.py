@@ -21,7 +21,7 @@ class SoftwareVib(Base):
         :param viburl: string[], Specifies one or more URLs to VIB packages to update to. http:, https:, ftp:, and file: are all supported. VIB packages which are not updates will be skipped.
         :returns: vim.EsxCLI.software.vib.update.InstallationResult
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.vib.update',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.vib.Update',
                             depot=depot,
                             dryrun=dryrun,
                             force=force,
@@ -38,7 +38,7 @@ class SoftwareVib(Base):
         :param rebootingimage: boolean, Displays information for the ESXi image which becomes active after a reboot, or nothing if the pending-reboot image has not been created yet. If not specified, information from the current ESXi image in memory will be returned.
         :returns: vim.EsxCLI.software.vib.list.VIBSummary[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.vib.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.vib.List',
                             rebootingimage=rebootingimage,
                             )
     def remove(self, vibname, dryrun=None, force=None, maintenancemode=None, noliveinstall=None):
@@ -51,7 +51,7 @@ class SoftwareVib(Base):
         :param vibname: string[], Specifies one or more VIBs on the host to remove. Must be one of the following forms: name, name:version, vendor:name, vendor:name:version.
         :returns: vim.EsxCLI.software.vib.remove.InstallationResult
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.vib.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.vib.Remove',
                             dryrun=dryrun,
                             force=force,
                             maintenancemode=maintenancemode,
@@ -72,7 +72,7 @@ class SoftwareVib(Base):
         :param viburl: string[], Specifies one or more URLs to VIB packages to install. http:, https:, ftp:, and file: are all supported.
         :returns: vim.EsxCLI.software.vib.install.InstallationResult
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.vib.install',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.vib.Install',
                             depot=depot,
                             dryrun=dryrun,
                             force=force,
@@ -90,7 +90,7 @@ class SoftwareVib(Base):
         :param vibname: string[], Specifies one or more installed VIBs to display more information about. If this option is not specified, then all of the installed VIBs will be displayed. Must be one of the following forms: name, name:version, vendor:name, or vendor:name:version.
         :returns: vim.EsxCLI.software.vib.get.VIB[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.vib.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.vib.Get',
                             rebootingimage=rebootingimage,
                             vibname=vibname,
                             )   

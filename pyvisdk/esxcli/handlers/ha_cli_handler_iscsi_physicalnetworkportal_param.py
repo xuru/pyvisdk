@@ -16,7 +16,7 @@ class IscsiPhysicalnetworkportalParam(Base):
         :param option: string, The network parameter option
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.physicalnetworkportal.param.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.physicalnetworkportal.param.Set',
                             adapter=adapter,
                             enabled=enabled,
                             nic=nic,
@@ -29,7 +29,7 @@ class IscsiPhysicalnetworkportalParam(Base):
         :param nic: string, The physical network portal name: <vmnic>
         :returns: vim.EsxCLI.iscsi.physicalnetworkportal.param.get.iScsiNetParm[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.physicalnetworkportal.param.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.physicalnetworkportal.param.Get',
                             adapter=adapter,
                             nic=nic,
                             )   

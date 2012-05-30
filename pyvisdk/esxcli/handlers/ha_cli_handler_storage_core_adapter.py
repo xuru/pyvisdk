@@ -22,7 +22,7 @@ class StorageCoreAdapter(Base):
 
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.adapter.rescan',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.adapter.Rescan',
                             adapter=adapter,
                             all=all,
                             skipclaim=skipclaim,
@@ -34,5 +34,5 @@ class StorageCoreAdapter(Base):
         List all the SCSI Host Bus Adapters on the system.
         :returns: vim.EsxCLI.storage.core.adapter.list.ScsiAdapter[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.adapter.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.adapter.List',
                             )   

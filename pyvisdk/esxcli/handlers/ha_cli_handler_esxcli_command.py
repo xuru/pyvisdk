@@ -12,5 +12,5 @@ class EsxcliCommand(Base):
         This command will list all of the esxcli commands with their namespace, object, command name and description.
         :returns: vim.EsxCLI.esxcli.command.list.EsxCliCommand[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.esxcli.command.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.esxcli.command.List',
                             )   

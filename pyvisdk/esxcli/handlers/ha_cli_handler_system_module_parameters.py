@@ -15,7 +15,7 @@ class SystemModuleParameters(Base):
         :param parameterstring: string, The string containing the parameters for this module.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.module.parameters.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.module.parameters.Set',
                             force=force,
                             module=module,
                             parameterstring=parameterstring,
@@ -26,6 +26,6 @@ class SystemModuleParameters(Base):
         :param module: string, The name of the VMkernel module to get the option string for.
         :returns: vim.EsxCLI.system.module.parameters.list.ModuleParameter[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.module.parameters.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.module.parameters.List',
                             module=module,
                             )   

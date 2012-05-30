@@ -13,6 +13,6 @@ class NetworkIpConnection(Base):
         :param type: string, Connection type :  [ip, tcp, udp, all]
         :returns: vim.EsxCLI.network.ip.connection.list.IpConnection[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.connection.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.connection.List',
                             type=type,
                             )   

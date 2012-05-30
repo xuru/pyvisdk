@@ -14,7 +14,7 @@ class IscsiAdapterDiscoverySendtarget(Base):
         :param address: string, The iSCSI sendtarget address: <ip/dns[:port]>
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.sendtarget.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.sendtarget.Add',
                             adapter=adapter,
                             address=address,
                             )
@@ -24,7 +24,7 @@ class IscsiAdapterDiscoverySendtarget(Base):
         :param adapter: string, The iSCSI adapter name.
         :returns: vim.EsxCLI.iscsi.adapter.discovery.sendtarget.list.Sendtarget[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.sendtarget.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.sendtarget.List',
                             adapter=adapter,
                             )
     def remove(self, adapter, address):
@@ -34,7 +34,7 @@ class IscsiAdapterDiscoverySendtarget(Base):
         :param address: string, The iSCSI sendtarget address: <ip/dns[:port]>
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.sendtarget.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.sendtarget.Remove',
                             adapter=adapter,
                             address=address,
                             )   

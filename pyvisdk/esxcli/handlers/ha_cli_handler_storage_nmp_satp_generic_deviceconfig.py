@@ -14,7 +14,7 @@ class StorageNmpSatpGenericDeviceconfig(Base):
         :param device: string, The device you wish to set SATP configuration for.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.generic.deviceconfig.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.generic.deviceconfig.Set',
                             config=config,
                             device=device,
                             )
@@ -24,6 +24,6 @@ class StorageNmpSatpGenericDeviceconfig(Base):
         :param device: string, The device you wish to get SATP configuration for.
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.generic.deviceconfig.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.generic.deviceconfig.Get',
                             device=device,
                             )   

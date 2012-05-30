@@ -12,5 +12,5 @@ class HardwarePlatform(Base):
         Get information about the platform
         :returns: vim.EsxCLI.hardware.platform.get.PlatformGet
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.platform.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.platform.Get',
                             )   

@@ -15,7 +15,7 @@ class SystemHostname(Base):
         :param host: string, The host name to set for the ESX host. This name should not contain the DNS domain name of the host and can only contain letters, numbers and '-'. NOTE this is not the fully qualified name, that can be set with the --fqdn option. This option is mutually exclusive with the --fqdn option.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.hostname.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.hostname.Set',
                             domain=domain,
                             fqdn=fqdn,
                             host=host,
@@ -25,5 +25,5 @@ class SystemHostname(Base):
         Get the host, domain or fully qualified name of the ESX host.
         :returns: vim.EsxCLI.system.hostname.get.FullyQualifiedHostName
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.hostname.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.hostname.Get',
                             )   

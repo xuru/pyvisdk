@@ -15,7 +15,7 @@ class SystemSecpolicyDomain(Base):
         :param name: string, The domain name.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.secpolicy.domain.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.secpolicy.domain.Set',
                             alldomains=alldomains,
                             level=level,
                             name=name,
@@ -25,5 +25,5 @@ class SystemSecpolicyDomain(Base):
         List the enforcement level for each domain.
         :returns: vim.EsxCLI.system.secpolicy.domain.list.DomainList[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.secpolicy.domain.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.secpolicy.domain.List',
                             )   

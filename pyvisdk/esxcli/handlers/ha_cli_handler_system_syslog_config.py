@@ -18,7 +18,7 @@ class SystemSyslogConfig(Base):
         :param reset: string, Reset values to default
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.syslog.config.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.syslog.config.Set',
                             defaultrotate=defaultrotate,
                             defaultsize=defaultsize,
                             logdir=logdir,
@@ -31,5 +31,5 @@ class SystemSyslogConfig(Base):
         Show the current global configuration values
         :returns: vim.EsxCLI.system.syslog.config.get.SyslogConfiguration
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.syslog.config.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.syslog.config.Get',
                             )   

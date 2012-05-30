@@ -13,6 +13,6 @@ class NetworkFirewallRulesetRule(Base):
         :param rulesetid: string, List rules for specfic ruleset
         :returns: vim.EsxCLI.network.firewall.ruleset.rule.list.FirewallPortRule[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.ruleset.rule.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.ruleset.rule.List',
                             rulesetid=rulesetid,
                             )   

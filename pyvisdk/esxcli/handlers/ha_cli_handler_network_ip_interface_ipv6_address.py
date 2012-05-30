@@ -14,7 +14,7 @@ class NetworkIpInterfaceIpv6Address(Base):
         :param ipv6: string, The IPv6 address to add to the given VMkernel network interface. This must be in X:X:X::/X format
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.ipv6.address.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.ipv6.address.Add',
                             interfacename=interfacename,
                             ipv6=ipv6,
                             )
@@ -23,7 +23,7 @@ class NetworkIpInterfaceIpv6Address(Base):
         This command will list all of the IPv6 addresses currently assigned to the system
         :returns: vim.EsxCLI.network.ip.interface.ipv6.address.list.IPv6Interface[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.ipv6.address.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.ipv6.address.List',
                             )
     def remove(self, interfacename, ipv6):
         '''
@@ -32,7 +32,7 @@ class NetworkIpInterfaceIpv6Address(Base):
         :param ipv6: string, The IPv6 address to remove from the given VMkernel network interface. This must be in X:X:X::/X format
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.ipv6.address.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.ipv6.address.Remove',
                             interfacename=interfacename,
                             ipv6=ipv6,
                             )   

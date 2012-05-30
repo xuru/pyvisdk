@@ -12,5 +12,5 @@ class StorageVmfsExtent(Base):
         List the VMFS extents available on the host.
         :returns: vim.EsxCLI.storage.vmfs.extent.list.FilesystemVMFSExtents[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.vmfs.extent.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.vmfs.extent.List',
                             )   

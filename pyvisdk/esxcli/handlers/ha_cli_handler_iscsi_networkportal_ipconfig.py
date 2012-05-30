@@ -19,7 +19,7 @@ class IscsiNetworkportalIpconfig(Base):
         :param subnet: string, The iSCSI network portal subnet mask
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.networkportal.ipconfig.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.networkportal.ipconfig.Set',
                             adapter=adapter,
                             dns1=dns1,
                             dns2=dns2,
@@ -35,7 +35,7 @@ class IscsiNetworkportalIpconfig(Base):
         :param nic: string, The iSCSI network portal (vmknic)
         :returns: vim.EsxCLI.iscsi.networkportal.ipconfig.get.NetworkPortal[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.networkportal.ipconfig.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.networkportal.ipconfig.Get',
                             adapter=adapter,
                             nic=nic,
                             )   

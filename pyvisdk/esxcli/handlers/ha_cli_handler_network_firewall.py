@@ -12,14 +12,14 @@ class NetworkFirewall(Base):
         Load firewall module and rulesets configuration.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.load',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.Load',
                             )
     def unload(self):
         '''
         Allow unload firewall module.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.unload',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.Unload',
                             )
     def set(self, defaultaction=None, enabled=None):
         '''
@@ -28,7 +28,7 @@ class NetworkFirewall(Base):
         :param enabled: boolean, Set to true to enable the firewall, set to false to disable the firewall.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.Set',
                             defaultaction=defaultaction,
                             enabled=enabled,
                             )
@@ -37,12 +37,12 @@ class NetworkFirewall(Base):
         Load ruleset configuration for firewall.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.refresh',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.Refresh',
                             )
     def get(self):
         '''
         Get the firewall status.
         :returns: vim.EsxCLI.network.firewall.get.Firewall
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.Get',
                             )   

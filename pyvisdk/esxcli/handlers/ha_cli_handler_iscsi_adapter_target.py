@@ -14,7 +14,7 @@ class IscsiAdapterTarget(Base):
         :param name: string, The iSCSI target name.
         :returns: vim.EsxCLI.iscsi.adapter.target.list.Target[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.target.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.target.List',
                             adapter=adapter,
                             name=name,
                             )   

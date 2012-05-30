@@ -14,7 +14,7 @@ class SystemSettingsKernel(Base):
         :param value: string, The value to set the setting to.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.settings.kernel.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.settings.kernel.Set',
                             setting=setting,
                             value=value,
                             )
@@ -24,6 +24,6 @@ class SystemSettingsKernel(Base):
         :param option: string, The name of the VMkernel kernel setting to get.
         :returns: vim.EsxCLI.system.settings.kernel.list.SettingsKernel[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.settings.kernel.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.settings.kernel.List',
                             option=option,
                             )   

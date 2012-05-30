@@ -13,7 +13,7 @@ class NetworkIpDnsServer(Base):
         :param server: string, The IP address (v4 or v6) of the DNS server to add to the DNS server list.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.dns.server.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.dns.server.Add',
                             server=server,
                             )
     def list(self):
@@ -21,7 +21,7 @@ class NetworkIpDnsServer(Base):
         Print a list of the DNS server currently configured on the system in the order in which they will be used.
         :returns: vim.EsxCLI.network.ip.dns.server.list.NameServerList
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.dns.server.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.dns.server.List',
                             )
     def remove(self, server, all=None):
         '''
@@ -30,7 +30,7 @@ class NetworkIpDnsServer(Base):
         :param server: string,  
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.dns.server.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.dns.server.Remove',
                             all=all,
                             server=server,
                             )   

@@ -13,6 +13,6 @@ class StorageCoreDeviceWorld(Base):
         :param device: string, Filter the output of the command to limit the output to a specific device.  This device name can be any of the UIDs registered for a device.
         :returns: vim.EsxCLI.storage.core.device.world.list.ScsiDeviceWorld[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.device.world.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.device.world.List',
                             device=device,
                             )   

@@ -16,7 +16,7 @@ class StorageNfs(Base):
         :param volumename: string, The volume name to use for the NAS mount.  This must be a unique volume name and cannot conflict with existing NAS, VMFS or other volume names.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nfs.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nfs.Add',
                             host=host,
                             readonly=readonly,
                             share=share,
@@ -27,7 +27,7 @@ class StorageNfs(Base):
         List the NAS volumes currently known to the ESX host.
         :returns: vim.EsxCLI.storage.nfs.list.NasMount[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nfs.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nfs.List',
                             )
     def remove(self, volumename):
         '''
@@ -35,6 +35,6 @@ class StorageNfs(Base):
         :param volumename: string, The volume name of the NAS volume to remove from the ESX host.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nfs.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nfs.Remove',
                             volumename=volumename,
                             )   

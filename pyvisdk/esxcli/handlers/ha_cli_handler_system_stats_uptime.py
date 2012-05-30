@@ -12,5 +12,5 @@ class SystemStatsUptime(Base):
         Disply the number of microseconds the system has been running.
         :returns: long
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.stats.uptime.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.stats.uptime.Get',
                             )   

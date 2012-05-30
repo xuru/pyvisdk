@@ -16,7 +16,7 @@ class NetworkVswitchStandardPolicySecurity(Base):
         :param vswitchname: string, The name of the virtual switch to use when setting the switch security policy.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.policy.security.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.policy.security.Set',
                             allowforgedtransmits=allowforgedtransmits,
                             allowmacchange=allowmacchange,
                             allowpromiscuous=allowpromiscuous,
@@ -28,6 +28,6 @@ class NetworkVswitchStandardPolicySecurity(Base):
         :param vswitchname: string, The name of the virtual switch to use when fetching the network security policy.
         :returns: vim.EsxCLI.network.vswitch.standard.policy.security.get.VirtualSwitchSecurityPolicy
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.policy.security.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.policy.security.Get',
                             vswitchname=vswitchname,
                             )   

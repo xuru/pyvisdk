@@ -13,6 +13,6 @@ class IscsiLogicalnetworkportal(Base):
         :param adapter: string, The iSCSI adapter name.
         :returns: vim.EsxCLI.iscsi.logicalnetworkportal.list.LogicalNetworkPortal[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.logicalnetworkportal.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.logicalnetworkportal.List',
                             adapter=adapter,
                             )   

@@ -15,7 +15,7 @@ class NetworkFirewallRuleset(Base):
         :param rulesetid: string, The label of the ruleset.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.ruleset.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.ruleset.Set',
                             allowedall=allowedall,
                             enabled=enabled,
                             rulesetid=rulesetid,
@@ -26,6 +26,6 @@ class NetworkFirewallRuleset(Base):
         :param rulesetid: string, List configuration for specfic ruleset
         :returns: vim.EsxCLI.network.firewall.ruleset.list.Ruleset[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.ruleset.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.firewall.ruleset.List',
                             rulesetid=rulesetid,
                             )   

@@ -12,5 +12,5 @@ class HardwarePci(Base):
         List all of the PCI devices on this host.
         :returns: vim.EsxCLI.hardware.pci.list.PciDevice[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.pci.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.pci.List',
                             )   

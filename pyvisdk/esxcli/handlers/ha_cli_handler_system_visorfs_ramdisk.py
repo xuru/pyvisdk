@@ -17,7 +17,7 @@ class SystemVisorfsRamdisk(Base):
         :param target: string, Mountpoint for the ramdisk
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.visorfs.ramdisk.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.visorfs.ramdisk.Add',
                             maxsize=maxsize,
                             minsize=minsize,
                             name=name,
@@ -29,7 +29,7 @@ class SystemVisorfsRamdisk(Base):
         List the RAM disks used by the host.
         :returns: vim.EsxCLI.system.visorfs.ramdisk.list.VisorfsRamdisk[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.visorfs.ramdisk.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.visorfs.ramdisk.List',
                             )
     def remove(self, target):
         '''
@@ -37,6 +37,6 @@ class SystemVisorfsRamdisk(Base):
         :param target: string, Mountpoint for the ramdisk
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.visorfs.ramdisk.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.visorfs.ramdisk.Remove',
                             target=target,
                             )   

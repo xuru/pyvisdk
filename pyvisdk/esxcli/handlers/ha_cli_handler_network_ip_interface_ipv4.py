@@ -21,7 +21,7 @@ class NetworkIpInterfaceIpv4(Base):
 
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.ipv4.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.ipv4.Set',
                             interfacename=interfacename,
                             ipv4=ipv4,
                             netmask=netmask,
@@ -34,6 +34,6 @@ class NetworkIpInterfaceIpv4(Base):
         :param interfacename: string, The name of the VMkernel network interface to limit the output of this command to.
         :returns: vim.EsxCLI.network.ip.interface.ipv4.get.IPv4Interface[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.ipv4.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.ip.interface.ipv4.Get',
                             interfacename=interfacename,
                             )   

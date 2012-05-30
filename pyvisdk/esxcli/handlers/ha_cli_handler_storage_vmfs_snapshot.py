@@ -14,7 +14,7 @@ class StorageVmfsSnapshot(Base):
         :param volumeuuid: string, The VMFS volume uuid of the snapshot to resignature.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.vmfs.snapshot.resignature',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.vmfs.snapshot.Resignature',
                             volumelabel=volumelabel,
                             volumeuuid=volumeuuid,
                             )
@@ -26,7 +26,7 @@ class StorageVmfsSnapshot(Base):
         :param volumeuuid: string, The VMFS volume uuid of the snapshot to mount.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.vmfs.snapshot.mount',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.vmfs.snapshot.Mount',
                             nopersist=nopersist,
                             volumelabel=volumelabel,
                             volumeuuid=volumeuuid,
@@ -38,7 +38,7 @@ class StorageVmfsSnapshot(Base):
         :param volumeuuid: string, The VMFS volume uuid of the snapshot to list.
         :returns: vim.EsxCLI.storage.vmfs.snapshot.list.VMFSSnapshot[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.vmfs.snapshot.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.vmfs.snapshot.List',
                             volumelabel=volumelabel,
                             volumeuuid=volumeuuid,
                             )   

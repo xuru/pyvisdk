@@ -14,7 +14,7 @@ class StorageNmpSatpGenericPathconfig(Base):
         :param path: string, The path you wish to set SATP configuration for.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.generic.pathconfig.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.generic.pathconfig.Set',
                             config=config,
                             path=path,
                             )
@@ -24,6 +24,6 @@ class StorageNmpSatpGenericPathconfig(Base):
         :param path: string, The path you wish to get SATP configuration for.
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.generic.pathconfig.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.nmp.satp.generic.pathconfig.Get',
                             path=path,
                             )   

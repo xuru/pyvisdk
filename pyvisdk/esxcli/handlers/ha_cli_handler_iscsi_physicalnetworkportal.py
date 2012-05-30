@@ -13,6 +13,6 @@ class IscsiPhysicalnetworkportal(Base):
         :param adapter: string, The iSCSI adapter name.
         :returns: vim.EsxCLI.iscsi.physicalnetworkportal.list.PhysicalNetworkPortal[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.physicalnetworkportal.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.physicalnetworkportal.List',
                             adapter=adapter,
                             )   

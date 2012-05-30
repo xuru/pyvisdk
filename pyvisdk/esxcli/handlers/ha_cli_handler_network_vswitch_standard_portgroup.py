@@ -14,7 +14,7 @@ class NetworkVswitchStandardPortgroup(Base):
         :param vswitchname: string, The virtual switch to add the port group to.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.portgroup.add',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.portgroup.Add',
                             portgroupname=portgroupname,
                             vswitchname=vswitchname,
                             )
@@ -25,7 +25,7 @@ class NetworkVswitchStandardPortgroup(Base):
         :param vlanid: long, The vlan id for this port group. This value is in the range (0 - 4095)
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.portgroup.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.portgroup.Set',
                             portgroupname=portgroupname,
                             vlanid=vlanid,
                             )
@@ -34,7 +34,7 @@ class NetworkVswitchStandardPortgroup(Base):
         List all of the port groups currently on the system.
         :returns: vim.EsxCLI.network.vswitch.standard.portgroup.list.PortGroup[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.portgroup.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.portgroup.List',
                             )
     def remove(self, portgroupname, vswitchname):
         '''
@@ -43,7 +43,7 @@ class NetworkVswitchStandardPortgroup(Base):
         :param vswitchname: string,  
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.portgroup.remove',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.portgroup.Remove',
                             portgroupname=portgroupname,
                             vswitchname=vswitchname,
                             )   

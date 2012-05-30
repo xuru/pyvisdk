@@ -228,7 +228,7 @@ class Generator(Base):
                                                                      methods_in_cli_info.get(method.name)['parameters'])
             returns_doc = ', '.join([return_type_info.type for return_type_info in method.returnTypeInfo])
             methods.append(Bunch(name=method.name,
-                                 wsdl_name_repr=repr(".".join([managed_type_name, method.name])),
+                                 wsdl_name_repr=repr(".".join([managed_type_name, method.name.capitalize()])),
                                  doc=methods_in_cli_info.get(method.name).help,
                                  returns_doc=returns_doc,
                                  kwargs=kwargs,

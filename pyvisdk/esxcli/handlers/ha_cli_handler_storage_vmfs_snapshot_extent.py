@@ -14,7 +14,7 @@ class StorageVmfsSnapshotExtent(Base):
         :param volumeuuid: string, The VMFS volume uuid of the target snapshot to enumerate.
         :returns: vim.EsxCLI.storage.vmfs.snapshot.extent.list.VMFSSnapshotExtent[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.vmfs.snapshot.extent.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.vmfs.snapshot.extent.List',
                             volumelabel=volumelabel,
                             volumeuuid=volumeuuid,
                             )   

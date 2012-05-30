@@ -14,7 +14,7 @@ class NetworkFenceNetworkPort(Base):
         :param vdsname: string, The vds name used to retrieve fence info.
         :returns: vim.EsxCLI.network.fence.network.port.list.FencePortList
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.fence.network.port.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.fence.network.port.List',
                             fenceid=fenceid,
                             vdsname=vdsname,
                             )   

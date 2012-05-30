@@ -13,7 +13,7 @@ class SoftwareAcceptance(Base):
         :param level: string, Specifies the acceptance level to set. Should be one of VMwareCertified / VMwareAccepted / PartnerSupported / CommunitySupported.
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.acceptance.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.acceptance.Set',
                             level=level,
                             )
     def get(self):
@@ -21,5 +21,5 @@ class SoftwareAcceptance(Base):
         Gets the host acceptance level. This controls what VIBs will be allowed on a host.
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.acceptance.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.acceptance.Get',
                             )   

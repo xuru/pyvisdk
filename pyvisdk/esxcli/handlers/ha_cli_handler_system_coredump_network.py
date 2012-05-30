@@ -16,7 +16,7 @@ class SystemCoredumpNetwork(Base):
         :param serverport: long, Port on which the core dump server is listening. (Optional)
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.coredump.network.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.coredump.network.Set',
                             enable=enable,
                             interfacename=interfacename,
                             serveripv4=serveripv4,
@@ -27,5 +27,5 @@ class SystemCoredumpNetwork(Base):
         Get the currently configured parameters for network coredump, if enabled.
         :returns: vim.EsxCLI.system.coredump.network.get.NetworkCoredump
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.coredump.network.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.coredump.network.Get',
                             )   

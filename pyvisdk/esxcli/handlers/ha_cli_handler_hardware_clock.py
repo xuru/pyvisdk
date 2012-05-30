@@ -18,7 +18,7 @@ class HardwareClock(Base):
         :param year: long, Year
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.clock.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.clock.Set',
                             day=day,
                             hour=hour,
                             min=min,
@@ -31,5 +31,5 @@ class HardwareClock(Base):
         Disply the current hardware clock time.
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.clock.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.clock.Get',
                             )   

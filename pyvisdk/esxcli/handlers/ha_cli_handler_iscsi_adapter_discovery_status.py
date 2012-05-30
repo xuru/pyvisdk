@@ -13,6 +13,6 @@ class IscsiAdapterDiscoveryStatus(Base):
         :param adapter: string, The iSCSI adapter name.
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.status.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.status.Get',
                             adapter=adapter,
                             )   

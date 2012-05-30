@@ -12,5 +12,5 @@ class HardwareBootdevice(Base):
         List the boot device order, if available, for this host.
         :returns: vim.EsxCLI.hardware.bootdevice.list.BootDeviceList[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.bootdevice.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.hardware.bootdevice.List',
                             )   

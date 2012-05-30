@@ -13,6 +13,6 @@ class StorageCorePathStats(Base):
         :param path: string, Limit the stats output to one specific path. This path name can be the runtime name or the path UID.
         :returns: vim.EsxCLI.storage.core.path.stats.get.ScsiPathStats[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.path.stats.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.path.stats.Get',
                             path=path,
                             )   

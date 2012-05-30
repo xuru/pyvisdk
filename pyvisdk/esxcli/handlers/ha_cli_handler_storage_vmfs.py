@@ -14,7 +14,7 @@ class StorageVmfs(Base):
         :param volumeuuid: string, The uuid of the volume to upgrade.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.vmfs.upgrade',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.vmfs.Upgrade',
                             volumelabel=volumelabel,
                             volumeuuid=volumeuuid,
                             )   

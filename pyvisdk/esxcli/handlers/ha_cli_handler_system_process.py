@@ -12,5 +12,5 @@ class SystemProcess(Base):
         List the VMkernel UserWorld processes currently on the host.
         :returns: vim.EsxCLI.system.process.list.UserWorld[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.process.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.process.List',
                             )   

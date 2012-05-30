@@ -27,7 +27,7 @@ class NetworkVswitchStandardPolicyFailover(Base):
         :param vswitchname: string, The name of the virtual switch to use when configuring the switch failover policy.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.policy.failover.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.policy.failover.Set',
                             activeuplinks=activeuplinks,
                             failback=failback,
                             failuredetection=failuredetection,
@@ -42,6 +42,6 @@ class NetworkVswitchStandardPolicyFailover(Base):
         :param vswitchname: string, The name of the virtual switch to use when fetching the switch failover policy.
         :returns: vim.EsxCLI.network.vswitch.standard.policy.failover.get.VirtualSwitchFailoverPolicy
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.policy.failover.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.network.vswitch.standard.policy.failover.Get',
                             vswitchname=vswitchname,
                             )   

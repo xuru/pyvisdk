@@ -14,7 +14,7 @@ class SoftwareSourcesVib(Base):
         :param proxy: string, Specifies a proxy server to use for HTTP, FTP, and HTTPS connections. The format is proxy-url:port.
         :returns: vim.EsxCLI.software.sources.vib.list.VIBSummary[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.sources.vib.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.sources.vib.List',
                             depot=depot,
                             proxy=proxy,
                             )
@@ -27,7 +27,7 @@ class SoftwareSourcesVib(Base):
         :param viburl: string[], Specifies one or more URLs to VIB packages to display information about. http:, https:, ftp:, and file: are all supported.
         :returns: vim.EsxCLI.software.sources.vib.get.VIB[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.sources.vib.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.software.sources.vib.Get',
                             depot=depot,
                             proxy=proxy,
                             vibname=vibname,

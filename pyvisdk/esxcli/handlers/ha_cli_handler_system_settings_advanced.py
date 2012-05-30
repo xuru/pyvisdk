@@ -16,7 +16,7 @@ class SystemSettingsAdvanced(Base):
         :param stringvalue: string, If the option is a string use this option.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.settings.advanced.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.settings.advanced.Set',
                             default=default,
                             intvalue=intvalue,
                             option=option,
@@ -29,7 +29,7 @@ class SystemSettingsAdvanced(Base):
         :param tree: string, Limit the list of advanced option to a specific sub tree.
         :returns: vim.EsxCLI.system.settings.advanced.list.SettingsAdvancedOption[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.settings.advanced.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.settings.advanced.List',
                             option=option,
                             tree=tree,
                             )   

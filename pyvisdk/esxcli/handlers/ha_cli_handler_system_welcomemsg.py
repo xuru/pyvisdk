@@ -13,7 +13,7 @@ class SystemWelcomemsg(Base):
         :param message: string, Welcome Message String.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.welcomemsg.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.welcomemsg.Set',
                             message=message,
                             )
     def get(self):
@@ -21,5 +21,5 @@ class SystemWelcomemsg(Base):
         Get the Welcome Message for DCUI.
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.welcomemsg.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.system.welcomemsg.Get',
                             )   

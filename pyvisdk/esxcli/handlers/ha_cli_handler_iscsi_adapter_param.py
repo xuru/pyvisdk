@@ -16,7 +16,7 @@ class IscsiAdapterParam(Base):
         :param value: string, The iSCSI initiator parameter value.
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.param.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.param.Set',
                             adapter=adapter,
                             default=default,
                             key=key,
@@ -28,6 +28,6 @@ class IscsiAdapterParam(Base):
         :param adapter: string, The iSCSI adapter name.
         :returns: vim.EsxCLI.iscsi.adapter.param.get.iScsiParm[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.param.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.param.Get',
                             adapter=adapter,
                             )   

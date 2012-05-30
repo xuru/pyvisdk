@@ -20,7 +20,7 @@ class IscsiAdapterDiscoverySendtargetAuthChap(Base):
         :param secret: string, The iSCSI authentication secret
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.sendtarget.auth.chap.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.sendtarget.auth.chap.Set',
                             adapter=adapter,
                             address=address,
                             authname=authname,
@@ -38,7 +38,7 @@ class IscsiAdapterDiscoverySendtargetAuthChap(Base):
         :param direction: string, The iSCSI authentication direction ( [uni, mutual])
         :returns: vim.EsxCLI.iscsi.adapter.discovery.sendtarget.auth.chap.get.Sendtarget[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.sendtarget.auth.chap.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.sendtarget.auth.chap.Get',
                             adapter=adapter,
                             address=address,
                             direction=direction,

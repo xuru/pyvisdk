@@ -13,6 +13,6 @@ class StorageCoreDevicePartition(Base):
         :param device: string, Filter the output to a specific device.
         :returns: vim.EsxCLI.storage.core.device.partition.list.ScsiDevicePartition[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.device.partition.list',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.storage.core.device.partition.List',
                             device=device,
                             )   

@@ -18,7 +18,7 @@ class IscsiAdapterDiscoverySendtargetParam(Base):
         :param value: string, The iSCSI parameter value
         :returns: void
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.sendtarget.param.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.sendtarget.param.Set',
                             adapter=adapter,
                             address=address,
                             default=default,
@@ -33,7 +33,7 @@ class IscsiAdapterDiscoverySendtargetParam(Base):
         :param address: string, The iSCSI sendtarget address: <ip/dns[:port]>
         :returns: vim.EsxCLI.iscsi.adapter.discovery.sendtarget.param.get.iScsiParm[]
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.sendtarget.param.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.sendtarget.param.Get',
                             adapter=adapter,
                             address=address,
                             )   

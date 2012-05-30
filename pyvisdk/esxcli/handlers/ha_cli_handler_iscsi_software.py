@@ -13,7 +13,7 @@ class IscsiSoftware(Base):
         :param enabled: boolean, Enable or disable the module.
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.software.set',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.software.Set',
                             enabled=enabled,
                             )
     def get(self):
@@ -21,5 +21,5 @@ class IscsiSoftware(Base):
         Software iSCSI information.
         :returns: boolean
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.software.get',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.software.Get',
                             )   

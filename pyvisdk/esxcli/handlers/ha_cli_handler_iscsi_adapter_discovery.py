@@ -13,6 +13,6 @@ class IscsiAdapterDiscovery(Base):
         :param adapter: string, The iSCSI adapter name.
         :returns: string
         '''
-        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.rediscover',
+        return execute_soap(self._client, self._host, self.moid, 'vim.EsxCLI.iscsi.adapter.discovery.Rediscover',
                             adapter=adapter,
                             )   
