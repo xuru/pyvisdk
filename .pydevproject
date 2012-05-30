@@ -12,6 +12,7 @@
 <path>/pyvisdk/eggs/Brownie-0.5.1-py2.7.egg</path>
 <path>/pyvisdk/eggs/lxml-2.3.4-py2.7-macosx-10.7-intel.egg</path>
 <path>/pyvisdk/eggs/Jinja2-2.6-py2.7.egg</path>
+<path>/pyvisdk/eggs/dataflake.cache-1.4-py2.7.egg</path>
 </pydev_pathproperty>
 
 </pydev_project>
