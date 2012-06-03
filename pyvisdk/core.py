@@ -218,7 +218,9 @@ class VimBase(object):
         elif "ArrayOf" in class_name:
             rv = []
             _type = class_name[7:]
-            _list = getattr(obj_content, _type, getattr(obj_content, _type.lower()))
+            if not hasattr(obj_content, _type):
+                _type = _type.lower()
+            _list = getattr(obj_content, _type)
             for obj in _list:
                 rv.append(self._parse_object_content(obj, parent))
 
