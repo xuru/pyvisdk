@@ -11,6 +11,7 @@ logger = getLogger(__name__)
 
 INITIAL_VERSION = ''
 NESTED_PROPERTY_PATTERN = r'(?P<name>.*)\["(?P<key>.*)"\]'
+ASSIGNMENT_PATTERN = r'(?P<name>.*)\["(?P<key>.*)"\]\.(?P<property>.*)'
 
 class CachedPropertyCollector(object):
     """
@@ -129,7 +130,7 @@ class CachedPropertyCollector(object):
         key = key.replace(key_to_update, '')
         object_to_update = Bunch(property_dict)
         property_path = self._split_property_path(key)
-        if property_path[0].startswith('['):
+        if key != '' and property_path[0].startswith('['):
             property_path[0] = "{}{}".format(key_to_update, property_path[0])
         else:
             property_path.insert(0, key_to_update)
@@ -141,13 +142,24 @@ class CachedPropertyCollector(object):
         list_to_update, object_to_update = self._get_list_and_object_to_update(property_dict, key, value)
         logger.debug("Appending {}".format(value.__class__))
         list_to_update.insert(-1, value)
+        property_dict.update(object_to_update)
 
     def _mergePropertyChange__assign(self, property_dict, key, value):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html
         list_to_update, object_to_update = self._get_list_and_object_to_update(property_dict, key, value, True)
-        key = key.split('.')[-1]
+        if not hasattr(object_to_update, key):
+            if hasattr(object_to_update, key.split('.')[-1]):
+                key = key.split('.')[-1]
+            else:
+                group = match(ASSIGNMENT_PATTERN, key)
+                if group is None:
+                    import pdb; pdb.set_trace()
+                group = match(ASSIGNMENT_PATTERN, key).groupdict()
+                object_to_update = filter(lambda item: item.key == group['key'], object_to_update[group['name']])[0]
+                key = group['property']
         logger.debug("Assigning {} to {}".format(value.__class__, key))
         setattr(object_to_update, key, value)
+        property_dict.update(object_to_update)
 
     def _mergePropertyChange__remove(self, property_dict, key, value):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html
@@ -158,6 +170,7 @@ class CachedPropertyCollector(object):
                 break
         logger.debug("Removing {}".format(value.__class__))
         list_to_update.remove(value)
+        property_dict.update(object_to_update)
 
     def _mergeObjectUpdateIntoCache__modify(self, key, objectUpdate):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.ObjectUpdate.html
