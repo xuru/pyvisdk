@@ -184,7 +184,7 @@ class Vim(pyvisdk.core.VimBase):
         """
         Returns the managed object
         :param moref: moref string. For example: VirtualMachine:vm-16
-        :rtype: :py:class`ManagedEntity`
+        :rtype: :py:class:`ManagedEntity`
         """
         # http://www.doublecloud.org/2011/03/how-to-get-a-managed-object-with-its-id-like-task-id/
         class_name, object_id = moref.split(':', 1)
@@ -194,4 +194,11 @@ class Vim(pyvisdk.core.VimBase):
     def _getManagedObjectType(self, class_name):
         # inspired by pyvisdk.vim
         return import_string("pyvisdk.mo.{}.{}".format(camel_to_under(class_name), class_name))
+
+    def getTaskManager(self, key):
+        """
+        :rtype: :py:class:`pyvisdk.facade.take.TaskManager`
+        """
+        from pyvisdk.facade.task import TaskManager
+        return TaskManager(self, key)
 

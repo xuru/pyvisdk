@@ -44,7 +44,7 @@ setup(
     url = "https://github.com/Infinidat/pyvisdk",
     license = "MIT",
     install_requires = install_requires,
-    packages = ["pyvisdk", "pyvisdk.mo", "pyvisdk.base", "pyvisdk.do", "pyvisdk.enums", "pyvisdk.thirdparty", "pyvisdk.facade", "pyvisdk.facade.property_collector", "pyvisdk.esxcli", "pyvisdk.esxcli.base", "pyvisdk.esxcli.executer", "pyvisdk.esxcli.generator", "pyvisdk.esxcli.handlers", ],
+    packages = ["pyvisdk", "pyvisdk.mo", "pyvisdk.base", "pyvisdk.do", "pyvisdk.enums", "pyvisdk.thirdparty", "pyvisdk.facade", "pyvisdk.facade.task", "pyvisdk.facade.property_collector", "pyvisdk.esxcli", "pyvisdk.esxcli.base", "pyvisdk.esxcli.executer", "pyvisdk.esxcli.generator", "pyvisdk.esxcli.handlers", ],
     package_data = {'pyvisdk': ['wsdl/*']},
     
     classifiers = ['Development Status :: 4 - Beta',

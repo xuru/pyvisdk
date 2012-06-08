@@ -4,7 +4,6 @@ Created on Mar 8, 2011
 @author: eplaster
 '''
 import suds.sax, logging, types
-from dataflake.cache.timeout import TimeoutCache
 
 from pyvisdk.base.managed_object_types import ManagedObjectTypes
 
@@ -74,9 +73,6 @@ class BaseEntity(object):
         self.ref = ref
         self._type = type
 
-        self.cache = TimeoutCache()
-        self.cache.setTimeout(60) # timeout to one minute
-
         self.client = core.client
         self.service = core.client.service
 
@@ -106,15 +102,9 @@ class BaseEntity(object):
             for x in prop:
                 self.update(x)
 
-        data = self.cache.get(prop, default=None)
-        if not data:
-            data = self.core.getObjectProperties(self.ref, prop, parent=self)
-            if isinstance(data, list) and len(data) == 1:
-                data = data[0]
-            self.cache.set(prop, data)
-
-            if prop == 'name':
-                self._name = data
+        data = self.core.getObjectProperties(self.ref, prop, parent=self)
+        if isinstance(data, list) and len(data) == 1:
+            data = data[0]
         return data
 
     def getDecendants(self, type=getattr(ManagedObjectTypes, "ManagedEntity")):
