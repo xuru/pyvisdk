@@ -90,10 +90,11 @@ class Task(object):
         return data_object.name or ''
 
     def get_id(self):
-        return self._get_info.key
+        return self._get_info().key
 
     def _get_info(self):
         return self._managed_object.info
 
     def __repr__(self):
         return "<Task id={!r}>".format(self.get_id())
+
