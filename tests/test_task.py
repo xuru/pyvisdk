@@ -1,6 +1,7 @@
 import unittest, types
 from pyvisdk import Vim
 from tests.common import get_options
+from pyvisdk.facade.task import TaskManager
 
 def nothing():
     pass
@@ -10,11 +11,9 @@ def random_string(n):
     import string
     return ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(n))
 
-PREFIX = 'pyvisdk.test.test_task.'
-
 TASKS = ['hello world',
          'I hate VMware',
-         'Python 2.7 is awesome',
+         'This is a very long task name, a very very long name',
          'school sucks',
          'one more',
          'last one']
@@ -25,7 +24,7 @@ class Test_Task(unittest.TestCase):
         cls.options = get_options()
         cls.vim = Vim(cls.options.server)
         cls.vim.login(cls.options.username, cls.options.password)
-        cls.manager = cls.vim.getTaskManager(PREFIX)
+        cls.manager = TaskManager(cls.vim)
         cls.obj = cls.vim.getHostSystems()[0]
         cls.cleanUpStaleTasks()
 

@@ -4,7 +4,7 @@ from infi.pyutils.decorators import wraps
 from infi.pyutils.contexts import contextmanager
 from infi.pyutils.lazy import cached_method, clear_cache
 from .errors import CreateTaskException
-from .extension import TaskExtension
+from ..extension import ExtensionFacade
 
 # The only valuable reference for how to use custom tasks is:
 # http://www.doublecloud.org/2010/09/creating-your-own-task-and-event-in-vsphere/
@@ -22,17 +22,17 @@ To create tasks, use the TaskManager:
 logger = getLogger(__name__)
 
 class TaskManager(object):
-    def __init__(self, client, extension_key):
+    def __init__(self, client, extension_key=__name__):
         super(TaskManager, self).__init__()
         self._client = client
         self._managed_object = self._client.service_content.taskManager
-        self._extension = TaskExtension(self._client, extension_key)
+        self._extension = ExtensionFacade(self._client, extension_key)
 
     def task(self, managed_object, name, parent=None):
         if not self._extension.is_registered():
             self._extension.register()
         if not self._extension.is_task_registered(name):
-            self._extension.add_task(name)
+            self._extension.register_task(name)
         task_id = self._extension.get_task_id(name)
         task_managed_object = self._create_task(managed_object, task_id, parent)
         task = Task(self._client, task_managed_object)
