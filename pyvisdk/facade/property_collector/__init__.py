@@ -128,6 +128,7 @@ class CachedPropertyCollector(object):
     def _get_list_and_object_to_update(self, property_dict, key, value, stop_before_last=False):
         key_to_update = filter(lambda prefix: key.startswith(prefix), property_dict.keys())[0]
         key = key.replace(key_to_update, '')
+        key = key.strip('.')
         object_to_update = Bunch(property_dict)
         property_path = self._split_property_path(key)
         if key != '' and property_path[0].startswith('['):
@@ -142,7 +143,8 @@ class CachedPropertyCollector(object):
         list_to_update, object_to_update = self._get_list_and_object_to_update(property_dict, key, value)
         logger.debug("Appending {}".format(value.__class__))
         list_to_update.insert(-1, value)
-        property_dict.update(object_to_update)
+        if object_to_update:
+            property_dict.update(object_to_update)
 
     def _mergePropertyChange__assign(self, property_dict, key, value):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html
