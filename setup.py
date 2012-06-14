@@ -54,9 +54,6 @@ setup(
                    'Programming Language :: Python',
                    'Topic :: Software Development :: Libraries :: Python Modules',
                    ],
-    entry_points = dict(
-        console_scripts = ['vim = pyvisdk.scripts:main', ],
-        gui_scripts = []),
     include_package_data=True,
     )
 
