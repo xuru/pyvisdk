@@ -320,3 +320,10 @@ class HostSystem(ManagedEntity):
         
         '''
         return self.delegate("UpdateSystemResources")(resourceInfo)
+
+    def RetrieveManagedMethodExecuter(self):
+        return self.delegate("RetrieveManagedMethodExecuter")()
+   
+    def RetrieveDynamicTypeManager(self):
+        return self.delegate("RetrieveDynamicTypeManager")()
+
