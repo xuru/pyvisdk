@@ -22,7 +22,7 @@ class GuestProcessManager(BaseEntity):
 
     
     
-    def ListProcessesInGuest(self, vm, auth, pids):
+    def ListProcessesInGuest(self, vm, auth, pids=None):
         '''List the processes running in the guest operating system, plus those started by
         StartProgramInGuest that have recently completed.
         
@@ -35,7 +35,7 @@ class GuestProcessManager(BaseEntity):
         '''
         return self.delegate("ListProcessesInGuest")(vm, auth, pids)
     
-    def ReadEnvironmentVariableInGuest(self, vm, auth, names):
+    def ReadEnvironmentVariableInGuest(self, vm, auth, names=None):
         '''Reads an environment variable from the guest OSReads an environment variable
         from the guest OS
         

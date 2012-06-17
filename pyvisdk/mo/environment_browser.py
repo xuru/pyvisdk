@@ -43,7 +43,7 @@ class EnvironmentBrowser(BaseEntity):
 
     
     
-    def QueryConfigOption(self, key, host):
+    def QueryConfigOption(self, key=None, host=None):
         '''Query for a specific virtual machine configuration option (the
         ConfigOption).Query for a specific virtual machine configuration option (the
         ConfigOption).Query for a specific virtual machine configuration option (the
@@ -62,7 +62,7 @@ class EnvironmentBrowser(BaseEntity):
         '''
         return self.delegate("QueryConfigOptionDescriptor")()
     
-    def QueryConfigTarget(self, host):
+    def QueryConfigTarget(self, host=None):
         '''Queries for information about a specific target, a "physical" device that can
         be used to back virtual devices. The ConfigTarget that is returned specifies
         the set of values that can be used in the device backings to connect the
@@ -80,7 +80,7 @@ class EnvironmentBrowser(BaseEntity):
         '''
         return self.delegate("QueryConfigTarget")(host)
     
-    def QueryTargetCapabilities(self, host):
+    def QueryTargetCapabilities(self, host=None):
         '''Queries for information on the capabilities supported by the ComputeResource
         associated with the EnvironmentBrowser.Queries for information on the
         capabilities supported by the ComputeResource associated with the

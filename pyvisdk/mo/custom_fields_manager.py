@@ -29,7 +29,7 @@ class CustomFieldsManager(BaseEntity):
 
     
     
-    def AddCustomFieldDef(self, name, moType, fieldDefPolicy, fieldPolicy):
+    def AddCustomFieldDef(self, name, moType=None, fieldDefPolicy=None, fieldPolicy=None):
         '''Creates a new custom field. If the moType is specified, the field will only be
         available for that type of managed object.
         

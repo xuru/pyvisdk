@@ -72,7 +72,7 @@ class AuthorizationManager(BaseEntity):
 
     
     
-    def AddAuthorizationRole(self, name, privIds):
+    def AddAuthorizationRole(self, name, privIds=None):
         '''Adds a new role. This method will add a user-defined role with given list of
         privileges and three system-defined privileges, "System.Anonymous",
         "System.View", and "System.Read".
@@ -84,7 +84,7 @@ class AuthorizationManager(BaseEntity):
         '''
         return self.delegate("AddAuthorizationRole")(name, privIds)
     
-    def HasPrivilegeOnEntity(self, entity, sessionId, privId):
+    def HasPrivilegeOnEntity(self, entity, sessionId, privId=None):
         '''Check whether a session holds a set of privileges on a managed entity.Check
         whether a session holds a set of privileges on a managed entity.
         
@@ -130,7 +130,7 @@ class AuthorizationManager(BaseEntity):
         '''
         return self.delegate("RemoveEntityPermission")(entity, user, isGroup)
     
-    def ResetEntityPermissions(self, entity, permission):
+    def ResetEntityPermissions(self, entity, permission=None):
         '''Update the entire set of permissions defined on an entity. Any existing
         permissions on the entity are removed and replaced with the provided set.Update
         the entire set of permissions defined on an entity. Any existing permissions on
@@ -189,7 +189,7 @@ class AuthorizationManager(BaseEntity):
         '''
         return self.delegate("RetrieveRolePermissions")(roleId)
     
-    def SetEntityPermissions(self, entity, permission):
+    def SetEntityPermissions(self, entity, permission=None):
         '''Defines one or more permission rules on an entity or updates rules if already
         present for the given user or group on the entity.Defines one or more
         permission rules on an entity or updates rules if already present for the given
@@ -207,7 +207,7 @@ class AuthorizationManager(BaseEntity):
         '''
         return self.delegate("SetEntityPermissions")(entity, permission)
     
-    def UpdateAuthorizationRole(self, roleId, newName, privIds):
+    def UpdateAuthorizationRole(self, roleId, newName, privIds=None):
         '''Updates a role's name or privileges. If the new set of privileges are assigned
         to the role, the system-defined privileges, "System.Anonymous", "System.View",
         and "System.Read" will be assigned to the role too.

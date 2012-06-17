@@ -23,7 +23,7 @@ class DiagnosticManager(BaseEntity):
 
     
     
-    def BrowseDiagnosticLog(self, host, key, start, lines):
+    def BrowseDiagnosticLog(self, key, host=None, start=None, lines=None):
         '''Returns part of a log file. Log entries are always returned chronologically,
         typically with the newest event last.
         
@@ -38,7 +38,7 @@ class DiagnosticManager(BaseEntity):
         '''
         return self.delegate("BrowseDiagnosticLog")(host, key, start, lines)
     
-    def GenerateLogBundles_Task(self, includeDefault, host):
+    def GenerateLogBundles_Task(self, includeDefault, host=None):
         '''Instructs the server to generate diagnostic bundles. A diagnostic bundle
         includes log files and other configuration information that can be used to
         investigate potential server issues. Virtual machine and guest operation system
@@ -51,7 +51,7 @@ class DiagnosticManager(BaseEntity):
         '''
         return self.delegate("GenerateLogBundles_Task")(includeDefault, host)
     
-    def QueryDescriptions(self, host):
+    def QueryDescriptions(self, host=None):
         '''Returns a list of diagnostic files for a given system.
         
         :param host: Specifies the host. If not specified, then it defaults to the server itself. For example, if called on VirtualCenter, then the value defaults to VirtualCenter logs. When called on an ESX server host, the host should not be specified.

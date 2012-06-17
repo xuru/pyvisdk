@@ -28,7 +28,7 @@ class VirtualDiskManager(BaseEntity):
 
     
     
-    def CopyVirtualDisk_Task(self, sourceName, sourceDatacenter, destName, destDatacenter, destSpec, force):
+    def CopyVirtualDisk_Task(self, sourceName, destName, sourceDatacenter=None, destDatacenter=None, destSpec=None, force=None):
         '''Copy a virtual disk, performing conversions as specified in the spec.Copy a
         virtual disk, performing conversions as specified in the spec.Copy a virtual
         disk, performing conversions as specified in the spec.Copy a virtual disk,
@@ -49,7 +49,7 @@ class VirtualDiskManager(BaseEntity):
         '''
         return self.delegate("CopyVirtualDisk_Task")(sourceName, sourceDatacenter, destName, destDatacenter, destSpec, force)
     
-    def CreateVirtualDisk_Task(self, name, datacenter, spec):
+    def CreateVirtualDisk_Task(self, name, spec, datacenter=None):
         '''Create a virtual disk.Create a virtual disk.Create a virtual disk.
         
         :param name: The name of the disk, either a datastore path or a URL referring to the virtual disk to be created.
@@ -61,7 +61,7 @@ class VirtualDiskManager(BaseEntity):
         '''
         return self.delegate("CreateVirtualDisk_Task")(name, datacenter, spec)
     
-    def DefragmentVirtualDisk_Task(self, name, datacenter):
+    def DefragmentVirtualDisk_Task(self, name, datacenter=None):
         '''Defragment a sparse virtual disk. This is defragmentation of the virtual disk
         file(s) in the host operating system, not defragmentation of the guest
         operating system filesystem inside the virtual disk.Defragment a sparse virtual
@@ -78,7 +78,7 @@ class VirtualDiskManager(BaseEntity):
         '''
         return self.delegate("DefragmentVirtualDisk_Task")(name, datacenter)
     
-    def DeleteVirtualDisk_Task(self, name, datacenter):
+    def DeleteVirtualDisk_Task(self, name, datacenter=None):
         '''Delete a virtual disk. All files relating to the disk will be deleted.Delete a
         virtual disk. All files relating to the disk will be deleted.Delete a virtual
         disk. All files relating to the disk will be deleted.
@@ -90,7 +90,7 @@ class VirtualDiskManager(BaseEntity):
         '''
         return self.delegate("DeleteVirtualDisk_Task")(name, datacenter)
     
-    def EagerZeroVirtualDisk_Task(self, name, datacenter):
+    def EagerZeroVirtualDisk_Task(self, name, datacenter=None):
         '''Explicitly zero out unaccessed parts zeroedthick disk. Effectively a no-op if
         the disk is already eagerZeroedThick. Unlike zeroFillVirtualDisk, which wipes
         the entire disk, this operation only affects previously unaccessed parts of the
@@ -109,7 +109,7 @@ class VirtualDiskManager(BaseEntity):
         '''
         return self.delegate("EagerZeroVirtualDisk_Task")(name, datacenter)
     
-    def ExtendVirtualDisk_Task(self, name, datacenter, newCapacityKb, eagerZero):
+    def ExtendVirtualDisk_Task(self, name, newCapacityKb, datacenter=None, eagerZero=None):
         '''Expand the capacity of a virtual disk to the new capacity. If the eagerZero
         flag is not specified, - the extended disk region of a zerothick disk will be
         zeroedthick - the extended disk region of a eagerzerothick disk will be
@@ -145,7 +145,7 @@ class VirtualDiskManager(BaseEntity):
         '''
         return self.delegate("ExtendVirtualDisk_Task")(name, datacenter, newCapacityKb, eagerZero)
     
-    def InflateVirtualDisk_Task(self, name, datacenter):
+    def InflateVirtualDisk_Task(self, name, datacenter=None):
         '''Inflate a sparse or thin-provisioned virtual disk up to the full size.
         Additional space allocated to the disk as a result of this operation will be
         filled with zeroes.Inflate a sparse or thin-provisioned virtual disk up to the
@@ -161,7 +161,7 @@ class VirtualDiskManager(BaseEntity):
         '''
         return self.delegate("InflateVirtualDisk_Task")(name, datacenter)
     
-    def MoveVirtualDisk_Task(self, sourceName, sourceDatacenter, destName, destDatacenter, force):
+    def MoveVirtualDisk_Task(self, sourceName, destName, sourceDatacenter=None, destDatacenter=None, force=None):
         '''Move a virtual disk and all related files from the source location specified by
         <code>sourceName</code> and <code>sourceDatacenter</code> to the destination
         location specified by <code>destName</code> and <code>destDatacenter</code>.
@@ -179,7 +179,7 @@ class VirtualDiskManager(BaseEntity):
         '''
         return self.delegate("MoveVirtualDisk_Task")(sourceName, sourceDatacenter, destName, destDatacenter, force)
     
-    def QueryVirtualDiskFragmentation(self, name, datacenter):
+    def QueryVirtualDiskFragmentation(self, name, datacenter=None):
         '''Return the percentage of fragmentation of the sparse virtual disk. This is the
         fragmentation of virtual disk file(s) in the host operating system, not the
         fragmentation of the guest operating systemS filesystem inside the virtual
@@ -198,7 +198,7 @@ class VirtualDiskManager(BaseEntity):
         '''
         return self.delegate("QueryVirtualDiskFragmentation")(name, datacenter)
     
-    def QueryVirtualDiskGeometry(self, name, datacenter):
+    def QueryVirtualDiskGeometry(self, name, datacenter=None):
         '''Get the disk geometry information for the virtual disk.Get the disk geometry
         information for the virtual disk.Get the disk geometry information for the
         virtual disk.
@@ -210,7 +210,7 @@ class VirtualDiskManager(BaseEntity):
         '''
         return self.delegate("QueryVirtualDiskGeometry")(name, datacenter)
     
-    def QueryVirtualDiskUuid(self, name, datacenter):
+    def QueryVirtualDiskUuid(self, name, datacenter=None):
         '''Get the virtual disk SCSI inquiry page 0x83 data.Get the virtual disk SCSI
         inquiry page 0x83 data.Get the virtual disk SCSI inquiry page 0x83 data.
         
@@ -221,7 +221,7 @@ class VirtualDiskManager(BaseEntity):
         '''
         return self.delegate("QueryVirtualDiskUuid")(name, datacenter)
     
-    def SetVirtualDiskUuid(self, name, datacenter, uuid):
+    def SetVirtualDiskUuid(self, name, uuid, datacenter=None):
         '''Set the virtual disk SCSI inquiry page 0x83 data.Set the virtual disk SCSI
         inquiry page 0x83 data.Set the virtual disk SCSI inquiry page 0x83 data.
         
@@ -234,7 +234,7 @@ class VirtualDiskManager(BaseEntity):
         '''
         return self.delegate("SetVirtualDiskUuid")(name, datacenter, uuid)
     
-    def ShrinkVirtualDisk_Task(self, name, datacenter, copy):
+    def ShrinkVirtualDisk_Task(self, name, datacenter=None, copy=None):
         '''Shrink a sparse virtual disk.Shrink a sparse virtual disk.Shrink a sparse
         virtual disk.
         
@@ -247,7 +247,7 @@ class VirtualDiskManager(BaseEntity):
         '''
         return self.delegate("ShrinkVirtualDisk_Task")(name, datacenter, copy)
     
-    def ZeroFillVirtualDisk_Task(self, name, datacenter):
+    def ZeroFillVirtualDisk_Task(self, name, datacenter=None):
         '''Overwrite all blocks of the virtual disk with zeros. All data will be
         lost.Overwrite all blocks of the virtual disk with zeros. All data will be
         lost.Overwrite all blocks of the virtual disk with zeros. All data will be

@@ -33,7 +33,7 @@ class OptionManager(BaseEntity):
 
     
     
-    def QueryOptions(self, name):
+    def QueryOptions(self, name=None):
         '''Returns a specific node or nodes in the option hierarchy.Returns a specific
         node or nodes in the option hierarchy.Returns a specific node or nodes in the
         option hierarchy.

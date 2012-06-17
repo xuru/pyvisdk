@@ -42,7 +42,7 @@ class ProfileManager(BaseEntity):
         '''
         return self.delegate("FindAssociatedProfile")(entity)
     
-    def QueryPolicyMetadata(self, policyName, profile):
+    def QueryPolicyMetadata(self, policyName=None, profile=None):
         '''Get the Metadata information for the policyNames. PolicyNames are available
         with the defaultProfile obtained by invoking the method createDefaultProfile.
         

@@ -39,7 +39,7 @@ class UserDirectory(BaseEntity):
 
     
     
-    def RetrieveUserGroups(self, domain, searchStr, belongsToGroup, belongsToUser, exactMatch, findUsers, findGroups):
+    def RetrieveUserGroups(self, searchStr, exactMatch, findUsers, findGroups, domain=None, belongsToGroup=None, belongsToUser=None):
         '''Returns a list of UserSearchResult objects describing the users and groups
         defined for the server.Returns a list of UserSearchResult objects describing
         the users and groups defined for the server.Returns a list of UserSearchResult

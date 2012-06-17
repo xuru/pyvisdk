@@ -124,7 +124,7 @@ class ResourcePool(ManagedEntity):
 
     
     
-    def CreateChildVM_Task(self, config, host):
+    def CreateChildVM_Task(self, config, host=None):
         '''Creates a new virtual machine in a vApp container.Creates a new virtual machine
         in a vApp container.Creates a new virtual machine in a vApp container.Creates a
         new virtual machine in a vApp container.Creates a new virtual machine in a vApp
@@ -148,7 +148,7 @@ class ResourcePool(ManagedEntity):
         '''
         return self.delegate("CreateResourcePool")(name, spec)
     
-    def CreateVApp(self, name, resSpec, configSpec, vmFolder):
+    def CreateVApp(self, name, resSpec, configSpec, vmFolder=None):
         '''Creates a new vApp container.Creates a new vApp container.
         
         :param name: The name of the vApp container in the inventory
@@ -176,7 +176,7 @@ class ResourcePool(ManagedEntity):
         '''
         return self.delegate("DestroyChildren")()
     
-    def ImportVApp(self, spec, folder, host):
+    def ImportVApp(self, spec, folder=None, host=None):
         '''Creates a new entity in this resource pool. The import process consists of two
         steps:
         
@@ -228,7 +228,7 @@ class ResourcePool(ManagedEntity):
         '''
         return self.delegate("RefreshRuntime")()
     
-    def RegisterChildVM_Task(self, path, name, host):
+    def RegisterChildVM_Task(self, path, name=None, host=None):
         '''Adds an existing virtual machine to this resource pool or vApp.Adds an existing
         virtual machine to this resource pool or vApp.Adds an existing virtual machine
         to this resource pool or vApp.
@@ -262,7 +262,7 @@ class ResourcePool(ManagedEntity):
         '''
         return self.delegate("UpdateChildResourceConfiguration")(spec)
     
-    def UpdateConfig(self, name, config):
+    def UpdateConfig(self, name=None, config=None):
         '''Updates the configuration of the resource pool.Updates the configuration of the
         resource pool.Updates the configuration of the resource pool.Updates the
         configuration of the resource pool.

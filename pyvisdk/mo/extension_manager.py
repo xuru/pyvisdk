@@ -62,7 +62,7 @@ class ExtensionManager(BaseEntity):
         '''
         return self.delegate("RegisterExtension")(extension)
     
-    def SetExtensionCertificate(self, extensionKey, certificatePem):
+    def SetExtensionCertificate(self, extensionKey, certificatePem=None):
         '''Update the stored authentication certificate for a specified extension. Updates
         the registration of the specified extension with the thumbprint of the X.509
         client certificate provided over SSL handshake, or by the

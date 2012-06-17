@@ -22,7 +22,7 @@ class VirtualMachineCompatibilityChecker(BaseEntity):
 
     
     
-    def CheckCompatibility_Task(self, vm, host, pool, testType):
+    def CheckCompatibility_Task(self, vm, host=None, pool=None, testType=None):
         '''Tests whether or not a virtual machine could be placed on the given host in the
         given resource pool.
         

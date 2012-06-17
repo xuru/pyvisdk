@@ -59,7 +59,7 @@ class ClusterComputeResource(ComputeResource):
 
     
     
-    def AddHost_Task(self, spec, asConnected, resourcePool, license):
+    def AddHost_Task(self, spec, asConnected, resourcePool=None, license=None):
         '''Adds a host to the cluster. The hostname must be either an IP address, such as
         192.168.0.1, or a DNS resolvable name. DNS names may be fully qualified names,
         such as host1.domain1.com, or a short name such as host1, providing host1
@@ -108,7 +108,7 @@ class ClusterComputeResource(ComputeResource):
         '''
         return self.delegate("CancelRecommendation")(key)
     
-    def ClusterEnterMaintenanceMode(self, host, option):
+    def ClusterEnterMaintenanceMode(self, host, option=None):
         '''The API takes a list of hosts in the cluster as input, and returns a list of
         hosts in "ClusterMaintenanceResult" that the server can successfully evacuate
         given the existing constraints in the cluster, such as HA, FT, Vmotion
@@ -137,7 +137,7 @@ class ClusterComputeResource(ComputeResource):
         '''
         return self.delegate("ClusterEnterMaintenanceMode")(host, option)
     
-    def MoveHostInto_Task(self, host, resourcePool):
+    def MoveHostInto_Task(self, host, resourcePool=None):
         '''Moves an existing host into a cluster. The host must be part of the same
         datacenter, and if the host is part of a cluster, the host must be in
         maintenance mode.Moves an existing host into a cluster. The host must be part
@@ -173,7 +173,7 @@ class ClusterComputeResource(ComputeResource):
         '''
         return self.delegate("MoveInto_Task")(host)
     
-    def RecommendHostsForVm(self, vm, pool):
+    def RecommendHostsForVm(self, vm, pool=None):
         '''<b>Deprecated.</b> <i>As of VI API 2.5, use PowerOnMultiVM_Task.
         RecommendHostsForVm cannot make any recommendations if DRS cannot find the
         specified host in the cluster. With PowerOnMultiVM_Task, DRS attempts to

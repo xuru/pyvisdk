@@ -65,7 +65,7 @@ class Folder(ManagedEntity):
 
     
     
-    def AddStandaloneHost_Task(self, spec, compResSpec, addConnected, license):
+    def AddStandaloneHost_Task(self, spec, addConnected, compResSpec=None, license=None):
         '''Creates a new single-host compute resource. The name provided can be an IP
         address, such as 192.168.0.120, or a string, such as esx120. If a name is
         specified, a DNS lookup is used to resolve it to a fully-qualified name, such
@@ -148,7 +148,7 @@ class Folder(ManagedEntity):
         '''
         return self.delegate("CreateStoragePod")(name)
     
-    def CreateVM_Task(self, config, pool, host):
+    def CreateVM_Task(self, config, pool, host=None):
         '''Creates a new virtual machine in the current folder and attaches it to the
         specified resource pool. This operation creates a virtual machine, instead of
         cloning a virtual machine from an existing one.Creates a new virtual machine in
@@ -181,7 +181,7 @@ class Folder(ManagedEntity):
         '''
         return self.delegate("MoveIntoFolder_Task")(list)
     
-    def RegisterVM_Task(self, path, name, asTemplate, pool, host):
+    def RegisterVM_Task(self, path, asTemplate, name=None, pool=None, host=None):
         '''Adds an existing virtual machine to the folder.Adds an existing virtual machine
         to the folder.Adds an existing virtual machine to the folder.
         

@@ -89,7 +89,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
         '''
         return self.delegate("AddVirtualNic")(portgroup, nic)
     
-    def AddVirtualSwitch(self, vswitchName, spec):
+    def AddVirtualSwitch(self, vswitchName, spec=None):
         '''Adds a new virtual switch to the system with the given name. The name must be
         unique with respect to other virtual switches on the host and is limited to 32
         characters.See UpdateVirtualSwitch
@@ -101,7 +101,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
         '''
         return self.delegate("AddVirtualSwitch")(vswitchName, spec)
     
-    def QueryNetworkHint(self, device):
+    def QueryNetworkHint(self, device=None):
         '''Requests network hint information for a physical network adapter. A network
         hint is some information about the network to which the physical network
         adapter is attached. The method receives in a list of physical network adapter
@@ -207,7 +207,7 @@ class HostNetworkSystem(ExtensibleManagedObject):
         '''
         return self.delegate("UpdateNetworkConfig")(config, changeMode)
     
-    def UpdatePhysicalNicLinkSpeed(self, device, linkSpeed):
+    def UpdatePhysicalNicLinkSpeed(self, device, linkSpeed=None):
         '''Configures link speed and duplexity. If linkSpeed is not specified, physical
         network adapter will be set to autonegotiate.See canSetPhysicalNicLinkSpeed
         

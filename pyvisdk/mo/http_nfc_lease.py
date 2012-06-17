@@ -45,7 +45,7 @@ class HttpNfcLease(BaseEntity):
 
     
     
-    def HttpNfcLeaseAbort(self, fault):
+    def HttpNfcLeaseAbort(self, fault=None):
         '''Aborts the import/export and releases this lease. Operations on the objects
         contained in this lease will no longer be blocked. After calling this method,
         this lease will no longer be valid.Aborts the import/export and releases this

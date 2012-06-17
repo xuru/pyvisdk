@@ -22,7 +22,7 @@ class GuestAuthManager(BaseEntity):
 
     
     
-    def AcquireCredentialsInGuest(self, vm, requestedAuth, sessionID):
+    def AcquireCredentialsInGuest(self, vm, requestedAuth, sessionID=None):
         '''Authenticates in the guest and returns a GuestAuthentication object with the
         acquired credentials for use in subsequent guest operation calls.Authenticates
         in the guest and returns a GuestAuthentication object with the acquired

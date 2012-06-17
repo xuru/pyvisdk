@@ -102,7 +102,7 @@ class SessionManager(BaseEntity):
         '''
         return self.delegate("CloneSession")(cloneTicket)
     
-    def ImpersonateUser(self, userName, locale):
+    def ImpersonateUser(self, userName, locale=None):
         '''Converts current session to impersonate the specified user. The current session
         will take on the identity and authorization level of the user. That user must
         have a currently-active session. If the given userName is an extension key and
@@ -117,7 +117,7 @@ class SessionManager(BaseEntity):
         '''
         return self.delegate("ImpersonateUser")(userName, locale)
     
-    def Login(self, userName, password, locale):
+    def Login(self, userName, password, locale=None):
         '''Log on to the server. This method fails if the user name and password are
         incorrect, or if the user is valid but has no permissions granted.
         
@@ -130,7 +130,7 @@ class SessionManager(BaseEntity):
         '''
         return self.delegate("Login")(userName, password, locale)
     
-    def LoginBySSPI(self, base64Token, locale):
+    def LoginBySSPI(self, base64Token, locale=None):
         '''Log on to the server using SSPI pass-through authentication.Log on to the
         server using SSPI pass-through authentication.Log on to the server using SSPI
         pass-through authentication.Log on to the server using SSPI pass-through
@@ -144,7 +144,7 @@ class SessionManager(BaseEntity):
         '''
         return self.delegate("LoginBySSPI")(base64Token, locale)
     
-    def LoginExtensionByCertificate(self, extensionKey, locale):
+    def LoginExtensionByCertificate(self, extensionKey, locale=None):
         '''Creates a special privileged session that includes the Sessions.ImpersonateUser
         privilege. Requires that the client connect over SSL and provide an X.509
         certificate for which they hold the private key. The certificate must match the
@@ -161,7 +161,7 @@ class SessionManager(BaseEntity):
         '''
         return self.delegate("LoginExtensionByCertificate")(extensionKey, locale)
     
-    def LoginExtensionBySubjectName(self, extensionKey, locale):
+    def LoginExtensionBySubjectName(self, extensionKey, locale=None):
         '''Creates a special privileged session that includes the Sessions.ImpersonateUser
         privilege. Requires that the extension connected using SSL, with a certificate
         that has a subject name that matches the subject name registered for the

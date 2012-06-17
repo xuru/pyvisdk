@@ -86,7 +86,7 @@ class HostProfile(Profile):
 
     
     
-    def ExecuteHostProfile(self, host, deferredParam):
+    def ExecuteHostProfile(self, host, deferredParam=None):
         '''Run the Profile Engine to determine the list of configuration changes needed
         for the specified host. The method generates configuration changes based on the
         host profile.Run the Profile Engine to determine the list of configuration
@@ -108,7 +108,7 @@ class HostProfile(Profile):
         '''
         return self.delegate("UpdateHostProfile")(config)
     
-    def UpdateReferenceHost(self, host):
+    def UpdateReferenceHost(self, host=None):
         '''Sets the HostProfile.referenceHost property.
         
         :param host: Reference host to use. If unset, the referenceHost property is cleared.

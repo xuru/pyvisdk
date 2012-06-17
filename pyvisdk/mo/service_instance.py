@@ -79,7 +79,7 @@ class ServiceInstance(BaseEntity):
         '''
         return self.delegate("CurrentTime")()
     
-    def QueryVMotionCompatibility(self, vm, host, compatibility):
+    def QueryVMotionCompatibility(self, vm, host, compatibility=None):
         '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use
         QueryVMotionCompatibilityEx_Task instead.</i> Investigates the general VMotion
         compatibility of a virtual machine with a set of hosts. The virtual machine may
@@ -107,7 +107,7 @@ class ServiceInstance(BaseEntity):
         '''
         return self.delegate("RetrieveServiceContent")()
     
-    def ValidateMigration(self, vm, state, testType, pool, host):
+    def ValidateMigration(self, vm, state=None, testType=None, pool=None, host=None):
         '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use
         VirtualMachineProvisioningChecker instead.</i> Checks the validity of a set of
         proposed migrations. A migration is the act of changing the assigned execution

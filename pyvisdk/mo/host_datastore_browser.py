@@ -84,7 +84,7 @@ class HostDatastoreBrowser(BaseEntity):
         '''
         return self.delegate("DeleteFile")(datastorePath)
     
-    def SearchDatastore_Task(self, datastorePath, searchSpec):
+    def SearchDatastore_Task(self, datastorePath, searchSpec=None):
         '''Returns the information for the files that match the given search criteria as a
         SearchResults object. Searches only the folder specified by the datastore path.
         The Datastore.Browse privilege must be held on the datastore identified by the
@@ -97,7 +97,7 @@ class HostDatastoreBrowser(BaseEntity):
         '''
         return self.delegate("SearchDatastore_Task")(datastorePath, searchSpec)
     
-    def SearchDatastoreSubFolders_Task(self, datastorePath, searchSpec):
+    def SearchDatastoreSubFolders_Task(self, datastorePath, searchSpec=None):
         '''Returns the information for the files that match the given search criteria as a
         SearchResults[] object. Searches the folder specified by the datastore path and
         all subfolders. The Datastore.Browse privilege must be held on the datastore

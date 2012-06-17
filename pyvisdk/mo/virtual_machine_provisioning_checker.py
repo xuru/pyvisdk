@@ -22,7 +22,7 @@ class VirtualMachineProvisioningChecker(BaseEntity):
 
     
     
-    def CheckMigrate_Task(self, vm, host, pool, state, testType):
+    def CheckMigrate_Task(self, vm, host=None, pool=None, state=None, testType=None):
         '''Tests the feasibility of a proposed MigrateVM_Task operation.
         
         :param vm: The virtual machine we propose to migrate.
@@ -38,7 +38,7 @@ class VirtualMachineProvisioningChecker(BaseEntity):
         '''
         return self.delegate("CheckMigrate_Task")(vm, host, pool, state, testType)
     
-    def CheckRelocate_Task(self, vm, spec, testType):
+    def CheckRelocate_Task(self, vm, spec, testType=None):
         '''Tests the feasibility of a proposed RelocateVM_Task operation.
         
         :param vm: The virtual machine we propose to relocate.

@@ -45,7 +45,7 @@ class ViewManager(BaseEntity):
 
     
     
-    def CreateContainerView(self, container, type, recursive):
+    def CreateContainerView(self, container, recursive, type=None):
         '''Create a ContainerView managed object for this session. The method returns a
         reference to a ContainerView object that has a list of managed object
         references. The list references objects in the container and may include
@@ -70,7 +70,7 @@ class ViewManager(BaseEntity):
         '''
         return self.delegate("CreateInventoryView")()
     
-    def CreateListView(self, obj):
+    def CreateListView(self, obj=None):
         '''Create a ListView object for this session. The method returns a session object
         that has a list of managed object references. The list of references
         corresponds to the input object list. You can modify the resulting list after

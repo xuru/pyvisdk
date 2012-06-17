@@ -81,7 +81,7 @@ class LicenseManager(BaseEntity):
 
     
     
-    def AddLicense(self, licenseKey, labels):
+    def AddLicense(self, licenseKey, labels=None):
         '''Adds a license to the inventory of available licenses.
         
         :param licenseKey: A license. E.g. a serial license.
@@ -91,7 +91,7 @@ class LicenseManager(BaseEntity):
         '''
         return self.delegate("AddLicense")(licenseKey, labels)
     
-    def CheckLicenseFeature(self, host, featureKey):
+    def CheckLicenseFeature(self, featureKey, host=None):
         '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use QueryAssignedLicenses
         instead.</i> Returns whether or not a given feature is enabled.
         
@@ -102,7 +102,7 @@ class LicenseManager(BaseEntity):
         '''
         return self.delegate("CheckLicenseFeature")(host, featureKey)
     
-    def ConfigureLicenseSource(self, host, licenseSource):
+    def ConfigureLicenseSource(self, licenseSource, host=None):
         '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use UpdateLicense instead.</i>
         Allows for reconfiguration of the License Manager license source.
         
@@ -121,7 +121,7 @@ class LicenseManager(BaseEntity):
         '''
         return self.delegate("DecodeLicense")(licenseKey)
     
-    def DisableFeature(self, host, featureKey):
+    def DisableFeature(self, featureKey, host=None):
         '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use RemoveAssignedLicense
         instead.</i> Release licenses for an optional feature.
         
@@ -132,7 +132,7 @@ class LicenseManager(BaseEntity):
         '''
         return self.delegate("DisableFeature")(host, featureKey)
     
-    def EnableFeature(self, host, featureKey):
+    def EnableFeature(self, featureKey, host=None):
         '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use UpdateAssignedLicense
         instead.</i> Enable a feature that has an optional state.
         
@@ -143,7 +143,7 @@ class LicenseManager(BaseEntity):
         '''
         return self.delegate("EnableFeature")(host, featureKey)
     
-    def QueryLicenseSourceAvailability(self, host):
+    def QueryLicenseSourceAvailability(self, host=None):
         '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use QueryAssignedLicenses
         instead.</i> Queries the current license source for total and available
         licenses available for each feature known to this system.
@@ -153,7 +153,7 @@ class LicenseManager(BaseEntity):
         '''
         return self.delegate("QueryLicenseSourceAvailability")(host)
     
-    def QueryLicenseUsage(self, host):
+    def QueryLicenseUsage(self, host=None):
         '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use QueryAssignedLicenses
         instead.</i> Returns the license usage. The license usage is a list of
         supported features and the number of licenses that have been reserved.
@@ -163,7 +163,7 @@ class LicenseManager(BaseEntity):
         '''
         return self.delegate("QueryLicenseUsage")(host)
     
-    def QuerySupportedFeatures(self, host):
+    def QuerySupportedFeatures(self, host=None):
         '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use QueryAssignedLicenses
         instead.</i> Queries the current license source for a list of available
         licenses that can be licensed from this system.
@@ -191,7 +191,7 @@ class LicenseManager(BaseEntity):
         '''
         return self.delegate("RemoveLicenseLabel")(licenseKey, labelKey)
     
-    def SetLicenseEdition(self, host, featureKey):
+    def SetLicenseEdition(self, host=None, featureKey=None):
         '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use QueryAssignedLicenses
         instead.</i> Defines the product's license edition. The edition defines which
         product license the server requires. This, in turn, determines the core set of
@@ -205,7 +205,7 @@ class LicenseManager(BaseEntity):
         '''
         return self.delegate("SetLicenseEdition")(host, featureKey)
     
-    def UpdateLicense(self, licenseKey, labels):
+    def UpdateLicense(self, licenseKey, labels=None):
         '''Updates the available licenses to the one provided in licenseKey. This is the
         same as removing all the licenses using RemoveLicense and adding licenseKey
         using AddLicense If the optional parameter labels is specify this is the same

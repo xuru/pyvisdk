@@ -54,7 +54,7 @@ class PropertyCollector(BaseEntity):
         '''
         return self.delegate("CancelWaitForUpdates")()
     
-    def CheckForUpdates(self, version):
+    def CheckForUpdates(self, version=None):
         '''<b>Deprecated.</b> <i>As of vSphere API 4.1, use WaitForUpdatesEx with a
         maxWaitSeconds of 0.</i> Checks for updates on properties specified by the
         union of all current filters. If no updates are pending, this method returns
@@ -149,7 +149,7 @@ class PropertyCollector(BaseEntity):
         '''
         return self.delegate("RetrievePropertiesEx")(specSet, options)
     
-    def WaitForUpdates(self, version):
+    def WaitForUpdates(self, version=None):
         '''<b>Deprecated.</b> <i>As of vSphere API 4.1, use WaitForUpdatesEx.</i>
         Calculate the set of updates for each existing filter in the session, returning
         when at least one filter has updates.
@@ -159,7 +159,7 @@ class PropertyCollector(BaseEntity):
         '''
         return self.delegate("WaitForUpdates")(version)
     
-    def WaitForUpdatesEx(self, version, options):
+    def WaitForUpdatesEx(self, version=None, options=None):
         '''Calculate the set of updates for each existing filter in the session.Calculate
         the set of updates for each existing filter in the session.Calculate the set of
         updates for each existing filter in the session.

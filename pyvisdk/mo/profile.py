@@ -60,7 +60,7 @@ class Profile(BaseEntity):
         '''
         return self.delegate("AssociateProfile")(entity)
     
-    def CheckProfileCompliance_Task(self, entity):
+    def CheckProfileCompliance_Task(self, entity=None):
         '''Check compliance of an entity against a Profile.
         
         :param entity: If specified, the compliance check is performed on this entity. If the entity is not specified, the vCenter Server runs a compliance check on all the entities associated with the profile. The entity does not have to be associated with the profile.
@@ -74,7 +74,7 @@ class Profile(BaseEntity):
         '''
         return self.delegate("DestroyProfile")()
     
-    def DissociateProfile(self, entity):
+    def DissociateProfile(self, entity=None):
         '''Remove the association between a profile and a managed entity.
         
         :param entity: List of entities. The vCenter Server will remove the associations that the profile has with the entities in the list. If unset, the Server removes all the associations that the profile has with any managed entities in the inventory. If the specified entity is not associated with the profile, the Server does not perform any action.

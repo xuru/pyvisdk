@@ -62,7 +62,7 @@ class Datacenter(ManagedEntity):
 
     
     
-    def PowerOnMultiVM_Task(self, vm, option):
+    def PowerOnMultiVM_Task(self, vm, option=None):
         '''Powers on multiple virtual machines in a data center. If the virtual machines
         are suspended, this method resumes execution from the suspend point. The
         virtual machines can belong to different clusters in the data center.Powers on
@@ -80,7 +80,7 @@ class Datacenter(ManagedEntity):
         '''
         return self.delegate("PowerOnMultiVM_Task")(vm, option)
     
-    def QueryConnectionInfo(self, hostname, port, username, password, sslThumbprint):
+    def QueryConnectionInfo(self, hostname, port, username, password, sslThumbprint=None):
         '''This method provides a way of getting basic information about a host without
         adding it to a datacenter. Connection wizards typically use this method to show
         information about a host so a user can confirm a set of changes before applying

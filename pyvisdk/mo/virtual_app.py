@@ -111,7 +111,7 @@ class VirtualApp(ResourcePool):
         '''
         return self.delegate("unregisterVApp_Task")()
     
-    def UpdateLinkedChildren(self, addChangeSet, removeSet):
+    def UpdateLinkedChildren(self, addChangeSet=None, removeSet=None):
         '''Reconfigure the set of linked children.Reconfigure the set of linked
         children.Reconfigure the set of linked children.Reconfigure the set of linked
         children.Reconfigure the set of linked children.Reconfigure the set of linked

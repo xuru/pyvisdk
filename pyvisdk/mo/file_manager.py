@@ -28,7 +28,7 @@ class FileManager(BaseEntity):
 
     
     
-    def ChangeOwner(self, name, datacenter, owner):
+    def ChangeOwner(self, name, owner, datacenter=None):
         '''Change the owner for a file.Change the owner for a file.
         
         :param name: 
@@ -40,7 +40,7 @@ class FileManager(BaseEntity):
         '''
         return self.delegate("ChangeOwner")(name, datacenter, owner)
     
-    def CopyDatastoreFile_Task(self, sourceName, sourceDatacenter, destinationName, destinationDatacenter, force):
+    def CopyDatastoreFile_Task(self, sourceName, destinationName, sourceDatacenter=None, destinationDatacenter=None, force=None):
         '''Copies the source file or folder to the destination.Copies the source file or
         folder to the destination.Copies the source file or folder to the
         destination.Copies the source file or folder to the destination.Copies the
@@ -62,7 +62,7 @@ class FileManager(BaseEntity):
         '''
         return self.delegate("CopyDatastoreFile_Task")(sourceName, sourceDatacenter, destinationName, destinationDatacenter, force)
     
-    def DeleteDatastoreFile_Task(self, name, datacenter):
+    def DeleteDatastoreFile_Task(self, name, datacenter=None):
         '''Deletes the specified file or folder from the datastore. If a file of a virtual
         machine is deleted, it may corrupt that virtual machine. Folder deletes are
         always recursive. The datacenter parameter may be omitted if a URL is used to
@@ -85,7 +85,7 @@ class FileManager(BaseEntity):
         '''
         return self.delegate("DeleteDatastoreFile_Task")(name, datacenter)
     
-    def MakeDirectory(self, name, datacenter, createParentDirectories):
+    def MakeDirectory(self, name, datacenter=None, createParentDirectories=None):
         '''Create a folder using the specified name. If the parent or intermediate level
         folders do not exist, and the parameter createParentDirectories is false, a
         FileNotFound fault is thrown. If the intermediate level folders do not exist,
@@ -105,7 +105,7 @@ class FileManager(BaseEntity):
         '''
         return self.delegate("MakeDirectory")(name, datacenter, createParentDirectories)
     
-    def MoveDatastoreFile_Task(self, sourceName, sourceDatacenter, destinationName, destinationDatacenter, force):
+    def MoveDatastoreFile_Task(self, sourceName, destinationName, sourceDatacenter=None, destinationDatacenter=None, force=None):
         '''Moves the source file or folder to the destination.Moves the source file or
         folder to the destination.Moves the source file or folder to the
         destination.Moves the source file or folder to the destination.Moves the source

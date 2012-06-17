@@ -36,7 +36,7 @@ class GuestFileManager(BaseEntity):
         '''
         return self.delegate("ChangeFileAttributesInGuest")(vm, auth, guestFilePath, fileAttributes)
     
-    def CreateTemporaryDirectoryInGuest(self, vm, auth, prefix, suffix, directoryPath):
+    def CreateTemporaryDirectoryInGuest(self, vm, auth, prefix, suffix, directoryPath=None):
         '''Creates a temporary directory.Creates a temporary directory.
         
         :param vm: Virtual Machine to perform the operation on.
@@ -52,7 +52,7 @@ class GuestFileManager(BaseEntity):
         '''
         return self.delegate("CreateTemporaryDirectoryInGuest")(vm, auth, prefix, suffix, directoryPath)
     
-    def CreateTemporaryFileInGuest(self, vm, auth, prefix, suffix, directoryPath):
+    def CreateTemporaryFileInGuest(self, vm, auth, prefix, suffix, directoryPath=None):
         '''Creates a temporary file.Creates a temporary file.
         
         :param vm: Virtual Machine to perform the operation on.
@@ -126,7 +126,7 @@ class GuestFileManager(BaseEntity):
         '''
         return self.delegate("InitiateFileTransferToGuest")(vm, auth, guestFilePath, fileAttributes, fileSize, overwrite)
     
-    def ListFilesInGuest(self, vm, auth, filePath, index, maxResults, matchPattern):
+    def ListFilesInGuest(self, vm, auth, filePath, index=None, maxResults=None, matchPattern=None):
         '''Returns information about files or directories in the guest.Returns information
         about files or directories in the guest.
         

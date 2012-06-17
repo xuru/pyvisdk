@@ -85,7 +85,7 @@ class PerformanceManager(BaseEntity):
         '''
         return self.delegate("CreatePerfInterval")(intervalId)
     
-    def QueryAvailablePerfMetric(self, entity, beginTime, endTime, intervalId):
+    def QueryAvailablePerfMetric(self, entity, beginTime=None, endTime=None, intervalId=None):
         '''Retrieves all performance counters for the specified managed object generated
         during a specified period of time. The time period can be specified using
         beginTime, endTime, or by interval ID.

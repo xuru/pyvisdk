@@ -32,7 +32,7 @@ class VirtualMachineSnapshot(ExtensibleManagedObject):
 
     
     
-    def RemoveSnapshot_Task(self, removeChildren, consolidate):
+    def RemoveSnapshot_Task(self, removeChildren, consolidate=None):
         '''Removes this snapshot and deletes any associated storage.
         
         :param removeChildren: Flag to specify removal of the entire snapshot subtree.
@@ -42,7 +42,7 @@ class VirtualMachineSnapshot(ExtensibleManagedObject):
         '''
         return self.delegate("RemoveSnapshot_Task")(removeChildren, consolidate)
     
-    def RenameSnapshot(self, name, description):
+    def RenameSnapshot(self, name=None, description=None):
         '''Rename this snapshot with either a new name or a new description or both. At
         least one of these must be specified when calling the rename method.
         
@@ -53,7 +53,7 @@ class VirtualMachineSnapshot(ExtensibleManagedObject):
         '''
         return self.delegate("RenameSnapshot")(name, description)
     
-    def RevertToSnapshot_Task(self, host, suppressPowerOn):
+    def RevertToSnapshot_Task(self, host=None, suppressPowerOn=None):
         '''Change the execution state of the virtual machine to the state of this
         snapshot.
         

@@ -56,7 +56,7 @@ class EventManager(BaseEntity):
         '''
         return self.delegate("LogUserEvent")(entity, msg)
     
-    def PostEvent(self, eventToPost, taskInfo):
+    def PostEvent(self, eventToPost, taskInfo=None):
         '''Posts the specified event, optionally associating it with a task.Posts the
         specified event, optionally associating it with a task.Posts the specified
         event, optionally associating it with a task.Posts the specified event,

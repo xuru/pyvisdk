@@ -41,7 +41,7 @@ class DistributedVirtualSwitchManager(BaseEntity):
         '''
         return self.delegate("QueryCompatibleHostForExistingDvs")(container, recursive, dvs)
     
-    def QueryCompatibleHostForNewDvs(self, container, recursive, switchProductSpec):
+    def QueryCompatibleHostForNewDvs(self, container, recursive, switchProductSpec=None):
         '''This operation returns a list of hosts that are compatible with the given
         DistributedVirtualSwitch product specification.
         
@@ -62,7 +62,7 @@ class DistributedVirtualSwitchManager(BaseEntity):
         '''
         return self.delegate("QueryDvsByUuid")(uuid)
     
-    def QueryDvsCheckCompatibility(self, hostContainer, dvsProductSpec, hostFilterSpec):
+    def QueryDvsCheckCompatibility(self, hostContainer, dvsProductSpec=None, hostFilterSpec=None):
         '''This operation returns a list of compatibility results. Each compatibility
         result is an object that has a host property and optionally a fault which would
         be populated only if that host is not compatible with a given dvsProductSpec.
@@ -88,7 +88,7 @@ class DistributedVirtualSwitchManager(BaseEntity):
         '''
         return self.delegate("QueryDvsCheckCompatibility")(hostContainer, dvsProductSpec, hostFilterSpec)
     
-    def QueryDvsCompatibleHostSpec(self, switchProductSpec):
+    def QueryDvsCompatibleHostSpec(self, switchProductSpec=None):
         '''This operation returns a list of host product specifications that are
         compatible with the given DistributedVirtualSwitch product specification.
         
@@ -97,7 +97,7 @@ class DistributedVirtualSwitchManager(BaseEntity):
         '''
         return self.delegate("QueryDvsCompatibleHostSpec")(switchProductSpec)
     
-    def QueryDvsConfigTarget(self, host, dvs):
+    def QueryDvsConfigTarget(self, host=None, dvs=None):
         '''This operation returns the DistributedVirtualSwitch or
         DistributedVirtualPortgroup config target on a host.
         
@@ -108,7 +108,7 @@ class DistributedVirtualSwitchManager(BaseEntity):
         '''
         return self.delegate("QueryDvsConfigTarget")(host, dvs)
     
-    def QueryDvsFeatureCapability(self, switchProductSpec):
+    def QueryDvsFeatureCapability(self, switchProductSpec=None):
         '''This operation indicates which version-specific DVS features are available for
         the given DistributedVirtualSwitch product specification.
         

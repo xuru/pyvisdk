@@ -78,7 +78,7 @@ class HostDiagnosticSystem(BaseEntity):
         '''
         return self.delegate("QueryPartitionCreateOptions")(storageType, diagnosticType)
     
-    def SelectActivePartition(self, partition):
+    def SelectActivePartition(self, partition=None):
         '''Changes the active diagnostic partition to a different partition. Setting a
         NULL partition will result in unsetting the diagnostic partition.
         

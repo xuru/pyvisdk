@@ -48,7 +48,7 @@ class TaskManager(BaseEntity):
         '''
         return self.delegate("CreateCollectorForTasks")(filter)
     
-    def CreateTask(self, obj, taskTypeId, initiatedBy, cancelable, parentTaskKey):
+    def CreateTask(self, obj, taskTypeId, cancelable, initiatedBy=None, parentTaskKey=None):
         '''Creates a new Task, specifying the object with which the Task is associated,
         the type of task, and whether the task is cancelable. Use this operation in
         conjunction with the ExtensionManager.
