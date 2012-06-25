@@ -37,21 +37,7 @@ class Test_Facades(unittest.TestCase):
         self.assertEqual(len(properties.keys()[0].split(':')), 2)
         self.assertNotEqual(properties.keys()[0].split(':')[1], '')
 
-    def test_simple_property(self):
-        result = match(PROPERTY_PATTERN, 'foo.bar').groupdict()
-        print result
-        assert result['name'] == "foo.bar"
-
-    def test_nested_property__no_property(self):
-        result = match(PROPERTY_PATTERN, 'foo.bar["moshe"]').groupdict()
-        print result
-        assert result['name'] == "foo" and result['collection'] == "bar" and result['key'] == "moshe"
-
-    def test_nested_property(self):
-        result = match(PROPERTY_PATTERN, 'foo.bar["moshe"].qaz').groupdict()
-        print result
-        assert result['name'] == "foo" and result['collection'] == "bar" and result['key'] == "moshe" and result['property'] == "qaz"
-
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testHosts']
     unittest.main()
+

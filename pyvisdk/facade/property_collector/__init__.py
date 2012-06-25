@@ -14,7 +14,7 @@ INITIAL_VERSION = ''
 # foo.bar
 # foo.arProp["key val"]
 # foo.arProp["key val"].baz
-PROPERTY_PATTERN = r'(?P<name>[^["\[\]]*)(?:\.(?P<collection>[a-zA-z]+)\["(?P<key>.*)"\](?:\.(?P<property>[A-Za-z]+)|$)|$)'
+PROPERTY_NAME_PATTERN = r'\w+|\["[^"\]]+"\]'
 
 class CachedPropertyCollector(object):
     """
@@ -116,48 +116,59 @@ class CachedPropertyCollector(object):
     def _split_property_path(self, key):
         return findall(r"[A-Za-z]*\[[^\]]+\]", key)
 
-    def _get_list_and_object_to_update(self, property_dict, key, value, stop_before_last=False):
-        _property = match(PROPERTY_PATTERN, key).groupdict()
-        if _property.get('attribute'):
-            # assign only
-            list_to_update = property_dict[_property['name']][_property['collection']]
-            object_to_update = [item for item in list_to_update if item.key == key][0]
-        elif _property.get('key'):
-            list_to_update = property_dict[_property['name']][_property['collection']]
-            object_to_update = None
-        else:
-            list_to_update = []
-            object_to_update = Bunch(property_dict)
-        return list_to_update, object_to_update
+    def _walk_on_property_path(self, path):
+        from re import findall
+        matches = [Bunch(value=item) for item in findall(PROPERTY_NAME_PATTERN, path)]
+        for match in matches:
+            if match.value.startswith('['):
+                match.type = "key"
+                match.value = match.value[2:-2]
+            else:
+                match.type = "property"
+        return matches
 
+    def _get_list_and_object_to_update(self, property_dict, path, value, return_parent=False):
+        for key in property_dict.keys():
+            if path.startswith(key):
+                break
+        # key is a prefix of path
+        object_to_update = property_dict[key]
+        path = path.replace(key, '').lstrip('.')
+        for item in self._walk_on_property_path(path)[:-1]:
+            if item.type == "key":
+                object_to_update = [element for element in object_to_update if element.key == item.value][0]
+            else:
+                if isinstance(object_to_update, (dict, Bunch)):
+                    object_to_update = object_to_update.get(item.value)
+                else:
+                    object_to_update = getattr(object_to_update, item.value)
+        return object_to_update
+        
+    def _get_property_name_to_update(self, key):
+        return self._walk_on_property_path(key)[-1].value
+
+    def _get_key_to_remove(self, key):
+        return self._walk_on_property_path(key)[-1].value
+    
     def _mergePropertyChange__add(self, property_dict, key, value):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html
-        list_to_update, object_to_update = self._get_list_and_object_to_update(property_dict, key, value)
+        list_to_update = self._get_list_and_object_to_update(property_dict, key, value)
         logger.debug("Appending {}".format(value.__class__))
         list_to_update.insert(-1, value)
-        if object_to_update:
-            property_dict.update(object_to_update)
 
     def _mergePropertyChange__assign(self, property_dict, key, value):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html
-        list_to_update, object_to_update = self._get_list_and_object_to_update(property_dict, key, value, True)
-        _property = match(PROPERTY_PATTERN, key).groupdict()
-        attribute = _property['attribute']
-        logger.debug("Assigning {} to {}".format(value.__class__, attribute))
-        setattr(object_to_update, attribute, value)
+        object_to_update = self._get_list_and_object_to_update(property_dict, key, value, True)
+        name = self._get_property_name_to_update(key)
+        logger.debug("Assigning {} to {}".format(value.__class__, name))
+        setattr(object_to_update, name, value)
 
     def _mergePropertyChange__remove(self, property_dict, key, value):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html
-        list_to_update, object_to_update = self._get_list_and_object_to_update(property_dict, key, value)
-        _property = match(PROPERTY_PATTERN, key).groupdict()
-        key_item = _property['key']
-        for index in range(len(list_to_update)):
-            value = list_to_update[index]
-            if value.key == key_item:
-                break
-        logger.debug("Removing {}".format(value.__class__))
+        list_to_update = self._get_list_and_object_to_update(property_dict, key, value)
+        key_to_remove = self._get_key_to_remove(key)
+        value = [item for item in list_to_update if item.key == key_to_remove][0]
         list_to_update.remove(value)
-        property_dict.update(object_to_update)
 
     def _mergeObjectUpdateIntoCache__modify(self, object_ref_key, objectUpdate):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.ObjectUpdate.html
