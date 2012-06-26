@@ -311,57 +311,6 @@ class VimBase(object):
 
         return (visitFolders, dcToVmf, dcToHf, crToH, crToRp, rpToRp, HToVm, rpToVm)
 
-
-    #############################################################
-    # untested...
-    #############################################################
-    def callRetrievePropertiesEx(self, maxObjects=0):
-        myPropSpec = PropertySpec(self, all=False, type=ManagedObjectTypes.VirtualMachine, pathSet=["name"]) #@UndefinedVariable
-
-        myObjSpec = ObjectSpec(self, self.root.ref, selectSet=self._buildFullTraversal())
-
-        pSpec = PropertyFilterSpec(self, propSet=[myPropSpec], objectSet=[myObjSpec])
-
-        rOptions = RetrieveOptions(int(maxObjects))
-
-        retrieveResult = self.property_collector.RetrieveProperties([pSpec], rOptions)
-
-        #objContentArrayList = Arrays.asList(retrieveResult.getObjects())
-        #if(retrieveResult.getToken() != null && maxObjects == null) {
-        #   callContinueRetrieveProperties(retrieveResult.getToken())
-        #}            
-        #ObjectContent [] objectContentArray = (ObjectContent [])objContentArrayList.toArray()
-        #for(int i=0; i<objectContentArray.length; i++) {
-        #   System.out.println("VM Managed Object Reference Value: " + objectContentArray[i].getObj().get_value());
-        #}
-        return retrieveResult
-
-    #############################################################
-    #* Illustrating how to create, use and destroy additional property collectors
-    #* This allows multiple modules to create their own property filter and process updates independently.
-    #* Also applow to get time-sensitive updated being monitored on one collector, 
-    #* while a large updatyed being monitored by another.
-    #############################################################
-    def callCreatePropertyCollectorEx(self):
-        collector = self.property_collector.CreatePropertyCollector()
-
-        if self.verbose > 5:
-            log.debug(str(collector))
-
-        pSpec = PropertyFilterSpec(self,
-                propSet=[
-                    PropertySpec(self, type=ManagedObjectTypes.VirtualMachine, all=False, pathSet=["configIssue", "configStatus", "name", "parent"]) #@UndefinedVariable
-                ],
-                objectSet=[
-                    ObjectSpec(self, self.root.ref, selectSet=self._buildFullTraversal())
-                ])
-
-        rOptions = RetrieveOptions(maxObjects=0)
-
-        retrieveResult = collector.RetrievePropertiesEx(pSpec, rOptions)
-        collector.DestroyPropertyCollector()
-        return retrieveResult
-
     def update(self, _type="", root=None, properties=[], version="", wait_time=2):
         if not root:
             root = self.root
