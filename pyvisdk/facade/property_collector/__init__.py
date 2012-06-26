@@ -127,11 +127,13 @@ class CachedPropertyCollector(object):
                 match.type = "property"
         return matches
 
-    def _get_list_and_object_to_update(self, property_dict, path, value, return_parent=False):
+    def _get_list_and_object_to_update(self, property_dict, path, value):
         for key in property_dict.keys():
             if path.startswith(key):
                 break
         # key is a prefix of path
+        if path == key:
+            return property_dict
         object_to_update = property_dict[key]
         path = path.replace(key, '').lstrip('.')
         for item in self._walk_on_property_path(path)[:-1]:
@@ -144,8 +146,11 @@ class CachedPropertyCollector(object):
                     object_to_update = getattr(object_to_update, item.value)
         return object_to_update
         
-    def _get_property_name_to_update(self, key):
-        return self._walk_on_property_path(key)[-1].value
+    def _get_property_name_to_update(self, property_dict, path):
+        for key in property_dict.keys():
+            if path == key:
+                return key
+        return self._walk_on_property_path(path)[-1].value
 
     def _get_key_to_remove(self, key):
         return self._walk_on_property_path(key)[-1].value
@@ -158,10 +163,11 @@ class CachedPropertyCollector(object):
 
     def _mergePropertyChange__assign(self, property_dict, key, value):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html
-        object_to_update = self._get_list_and_object_to_update(property_dict, key, value, True)
-        name = self._get_property_name_to_update(key)
+        object_to_update = self._get_list_and_object_to_update(property_dict, key, value)
+        name = self._get_property_name_to_update(property_dict, key)
         logger.debug("Assigning {} to {}".format(value.__class__, name))
-        setattr(object_to_update, name, value)
+        assignment_method = getattr(object_to_update, "__setitem__", object_to_update.__setattr__)
+        assignment_method(name, value)
 
     def _mergePropertyChange__remove(self, property_dict, key, value):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html

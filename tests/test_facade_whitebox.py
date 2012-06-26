@@ -199,6 +199,14 @@ class ScsiLunsTestCase(unittest.TestCase):
         filter_update = Bunch(filter=None, missingSet=[], objectSet=[object_update])
         return filter_update
 
+    def _get_assignment_filter_update(self):
+        managed_object_reference = Bunch(ref=Bunch(_type="HostSystem", value="host-1"))
+        lun_list = [Bunch(displayName="name", key=LUN_KEY)]
+        property_change = Bunch(name=SCSI_LUNS_PROPERTY_PATH, op="assign", val=lun_list)
+        object_update = Bunch(kind="modify", missingSet=[], changeSet=[property_change], obj=managed_object_reference)
+        filter_update = Bunch(filter=None, missingSet=[], objectSet=[object_update])
+        return filter_update
+
     def test_get_properties__first_time(self):
         vim = mock.Mock()
         filter_update = self._get_initial_filter_update()
@@ -222,6 +230,19 @@ class ScsiLunsTestCase(unittest.TestCase):
         self.assertEquals(properties.keys(), ["HostSystem:host-1"])
         self.assertEquals(properties["HostSystem:host-1"][SCSI_LUNS_PROPERTY_PATH][0].key, LUN_KEY)
         self.assertEquals(properties["HostSystem:host-1"][SCSI_LUNS_PROPERTY_PATH][0].displayName, "NAME")
+
+    def test_get_properties__assign_update(self):
+        vim = mock.Mock()
+        filter_update = self._get_initial_filter_update()
+        fake = self._get_fake_property_collector(vim, [filter_update])
+        facade = HostSystemCachedPropertyCollector(vim, [SCSI_LUNS_PROPERTY_PATH])
+        properties = facade.getProperties()
+        second_update = self._get_assignment_filter_update()
+        self._set_update_on_fake_property_collector(fake, [second_update])
+        properties = facade.getProperties()
+        self.assertEquals(properties.keys(), ["HostSystem:host-1"])
+        self.assertEquals(properties["HostSystem:host-1"][SCSI_LUNS_PROPERTY_PATH][0].key, LUN_KEY)
+        self.assertEquals(properties["HostSystem:host-1"][SCSI_LUNS_PROPERTY_PATH][0].displayName, "name")
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testHosts']
