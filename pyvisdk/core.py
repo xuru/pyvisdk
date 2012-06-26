@@ -24,8 +24,6 @@ from .mo.service_instance import ServiceInstance
 from .utils import camel_to_under
 from brownie.importing import import_string
 
-fmt = "[%(asctime)s][%(levelname)-8s] %(module)s.%(funcName)s:%(lineno)d %(message)s"
-logging.basicConfig(level=logging.INFO, format=fmt)
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
 
