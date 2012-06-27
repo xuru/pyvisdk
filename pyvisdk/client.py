@@ -7,6 +7,7 @@ from suds import MethodNotFound
 import logging
 import os.path
 import suds
+import urllib
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
@@ -18,7 +19,7 @@ class SudsClientFactory(object):
     @classmethod
     def get_suds_client(cls):
         if cls._client is None:
-            cls._client = suds.client.Client("file://" + os.path.join(WSDL_DIR, 'vimService.wsdl'),
+            cls._client = suds.client.Client("file://" + urllib.pathname2url(os.path.join(WSDL_DIR, 'vimService.wsdl')),
                                              cachingpolicy=1, autoblend=True)
         return cls._client.clone()
 
