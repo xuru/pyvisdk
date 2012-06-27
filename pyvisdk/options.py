@@ -1,5 +1,5 @@
 import os.path
-from thirdparty.enum import Enum
+from pyvisdk.thirdparty import Enum
 
 vi_options = Enum(
     "VI_CONFIG", "VI_PASSWORD", "VI_PORTNUMBER", "VI_PROTOCOL", "VI_SERVER", "VI_SERVICEPATH", "VI_SESSIONFILE",
