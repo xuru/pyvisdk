@@ -39,7 +39,6 @@ class TestEsxCLI(unittest.TestCase):
         host = self.vim.getHostSystems()[1]
         esxcli = EsxCLI(self.vim, host)
         rule = esxcli.get('storage.nmp.satp.rule')
-        rule.add(model='testModel', satp="VMW_SATP_ALUA", vendor='testVend', description='pyvisdk test')
 
 
 if __name__ == "__main__":
