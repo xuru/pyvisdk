@@ -5,7 +5,7 @@ from pyvisdk.mo.host_system import HostSystem
 from pyvisdk.mo.folder import Folder
 from pyvisdk.mo.datastore import Datastore
 from pyvisdk.mo.cluster_compute_resource import ClusterComputeResource
-from pyvisdk.facade.property_collector import CachedPropertyCollector, HostSystemCachedPropertyCollector, PROPERTY_PATTERN
+from pyvisdk.facade.property_collector import CachedPropertyCollector, HostSystemCachedPropertyCollector
 from tests.common import get_options
 from time import sleep
 from re import match
