@@ -127,7 +127,7 @@ class CachedPropertyCollector(object):
                 match.type = "property"
         return matches
 
-    def _get_list_and_object_to_update(self, property_dict, path, value):
+    def _get_list_and_object_to_update(self, property_dict, path, value, last=False):
         for key in property_dict.keys():
             if path.startswith(key):
                 break
@@ -136,7 +136,8 @@ class CachedPropertyCollector(object):
             return property_dict
         object_to_update = property_dict[key]
         path = path.replace(key, '').lstrip('.')
-        for item in self._walk_on_property_path(path)[:-1]:
+        walks = self._walk_on_property_path(path)
+        for item in walks if last else walks[:-1]:
             if item.type == "key":
                 object_to_update = [element for element in object_to_update if element.key == item.value][0]
             else:
@@ -163,7 +164,7 @@ class CachedPropertyCollector(object):
 
     def _mergePropertyChange__assign(self, property_dict, key, value):
         # http://vijava.sourceforge.net/vSphereAPIDoc/ver5/ReferenceGuide/vmodl.query.PropertyCollector.Change.html
-        object_to_update = self._get_list_and_object_to_update(property_dict, key, value)
+        object_to_update = self._get_list_and_object_to_update(property_dict, key, value, key.endswith(']'))
         name = self._get_property_name_to_update(property_dict, key)
         logger.debug("Assigning {} to {}".format(value.__class__, name))
         assignment_method = getattr(object_to_update, "__setitem__", object_to_update.__setattr__)

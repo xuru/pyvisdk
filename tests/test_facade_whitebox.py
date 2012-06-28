@@ -72,6 +72,15 @@ class ScsiTopologyTestCase(unittest.TestCase):
         filter_update = Bunch(filter=None, missingSet=[], objectSet=[object_update])
         return filter_update
 
+    def _get_filter_update__target_changed(self):
+        managed_object_reference = Bunch(ref=Bunch(_type="HostSystem", value="host-1"))
+        target = Bunch(key=TARGET_KEY, lun=[], target=0, transport=None)
+        name = """{}["{}"].target["{}"]"""
+        property_change = Bunch(name=name.format(TOPOLOGY_PROPERTY_PATH, HBA_KEY, TARGET_KEY), op="assign", val=target)
+        object_update = Bunch(kind="modify", missingSet=[], changeSet=[property_change], obj=managed_object_reference)
+        filter_update = Bunch(filter=None, missingSet=[], objectSet=[object_update])
+        return filter_update
+
     def _get_filter_update__target_removed(self):
         filter_update = self._get_filter_update__target_added()
         filter_update.objectSet[0].changeSet[0].op = "remove"
@@ -127,6 +136,20 @@ class ScsiTopologyTestCase(unittest.TestCase):
         self._set_update_on_fake_property_collector(fake, [third_update])
         properties = facade.getProperties()
         self.assertEquals(properties["HostSystem:host-1"][TOPOLOGY_PROPERTY_PATH][0].target, [])
+
+    def test_get_properties__target_changed(self):
+        vim = mock.Mock()
+        first_update = self._get_initial_filter_update()
+        fake = self._get_fake_property_collector(vim, [first_update])
+        facade = HostSystemCachedPropertyCollector(vim, [HBAAPI_PROPERTY_PATH, TOPOLOGY_PROPERTY_PATH])
+        properties = facade.getProperties()
+        second_update = self._get_filter_update__target_added()
+        self._set_update_on_fake_property_collector(fake, [second_update])
+        properties = facade.getProperties()
+        third_update = self._get_filter_update__target_changed()
+        self._set_update_on_fake_property_collector(fake, [third_update])
+        properties = facade.getProperties()
+        self.assertEquals(properties["HostSystem:host-1"][TOPOLOGY_PROPERTY_PATH][0].target[0].transport, None)
 
     def test_get_properties__lun_added(self):
         vim = mock.Mock()
