@@ -40,7 +40,7 @@ class TaskDelegate(object):
         else:
             args = (self.cls.ref,)
         rv = self.__target(*args, **kwargs)
-        if self.name[-5:] == '_Task':
+        if self.name[-5:] == '_Task' and self.cls.core.wait_for_task:
             log.debug("Waiting for task to Complete")
             self.cls.core.waitForTask(rv)
         if self.__target.method.name in ["RetrieveProperties", "RetrievePropertiesEx"]:
