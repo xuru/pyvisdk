@@ -14,8 +14,8 @@ import pyvisdk.core
 log = logging.getLogger(__name__)
 
 class Vim(pyvisdk.core.VimBase):
-    def __init__(self, server, connect=True, verbose=3, certfile=None, keyfile=None):
-        super(Vim, self).__init__(server, connect, verbose, certfile, keyfile)
+    def __init__(self, server, connect=True, verbose=3, certfile=None, keyfile=None, wait_for_task=True):
+        super(Vim, self).__init__(server, connect, verbose, certfile, keyfile, wait_for_task=True)
         self.loggedin = False
         self.username = None
         self.password = None

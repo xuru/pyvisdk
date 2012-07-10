@@ -35,7 +35,7 @@ class VimBase(object):
     '''
 
 
-    def __init__(self, server, connect=True, verbose=3, certfile=None, keyfile=None):
+    def __init__(self, server, connect=True, verbose=3, certfile=None, keyfile=None, wait_for_task=True):
         '''
         Constructor
         '''
@@ -45,6 +45,7 @@ class VimBase(object):
         self.certfile = certfile
         self.keyfile = keyfile
         self.proxy = None
+        self.wait_for_task = True
         if certfile and keyfile:
             self.server = HTTP_TUNNEL
             self.proxy = '%s:80' % server
@@ -374,10 +375,4 @@ class VimBase(object):
             else:
                 status[x.name] = x.op
         return status
-
-
-
-
-
-
 
