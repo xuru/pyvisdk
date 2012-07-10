@@ -334,10 +334,6 @@ class VimBase(object):
 
         return changeData, version
 
-    #############################################################
-    # end untested...
-    #############################################################
-
     def waitForTask(self, objmor):
         version = ""
 
