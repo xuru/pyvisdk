@@ -15,7 +15,7 @@ log = logging.getLogger(__name__)
 
 class Vim(pyvisdk.core.VimBase):
     def __init__(self, server, connect=True, verbose=3, certfile=None, keyfile=None, wait_for_task=True):
-        super(Vim, self).__init__(server, connect, verbose, certfile, keyfile, wait_for_task=True)
+        super(Vim, self).__init__(server, connect, verbose, certfile, keyfile, wait_for_task=wait_for_task)
         self.loggedin = False
         self.username = None
         self.password = None

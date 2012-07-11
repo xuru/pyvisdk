@@ -45,7 +45,7 @@ class VimBase(object):
         self.certfile = certfile
         self.keyfile = keyfile
         self.proxy = None
-        self.wait_for_task = True
+        self.wait_for_task = wait_for_task
         if certfile and keyfile:
             self.server = HTTP_TUNNEL
             self.proxy = '%s:80' % server
