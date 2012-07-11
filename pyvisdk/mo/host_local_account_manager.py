@@ -22,12 +22,12 @@ class HostLocalAccountManager(BaseEntity):
     on. In short, all the platform dependent rules and restrictions regarding
     naming of users/groups and password apply here. An InvalidArgument fault is
     thrown if any of these rules are not obeyed.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostLocalAccountManager):
         super(HostLocalAccountManager, self).__init__(core, name=name, ref=ref, type=type)
+
     
-    
-    
+
     
     
     def AssignUserToGroup(self, user, group):

@@ -7,6 +7,7 @@
 from pyvisdk.thirdparty import Enum
 
 OvfCreateImportSpecParamsDiskProvisioningType = Enum(
+    'eagerZeroedThick',
     'flat',
     'monolithicFlat',
     'monolithicSparse',

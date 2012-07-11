@@ -13,16 +13,16 @@ log = logging.getLogger(__name__)
 
 class HostPciPassthruSystem(ExtensibleManagedObject):
     '''This managed object manages the PciPassthru state of the host.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostPciPassthruSystem):
         super(HostPciPassthruSystem, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def pciPassthruInfo(self):
         '''Array of PciPassthru information'''
         return self.update('pciPassthruInfo')
-    
+
     
     
     def Refresh(self):

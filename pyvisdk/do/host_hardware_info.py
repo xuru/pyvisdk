@@ -13,18 +13,18 @@ def HostHardwareInfo(vim, *args, **kwargs):
     host.'''
     
     obj = vim.client.factory.create('ns0:HostHardwareInfo')
-    
+
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 4:
-        raise IndexError('Expected at least 5 arguments got: %d' % len(args))
-        
-    required = [ 'cpuInfo', 'cpuPkg', 'memorySize', 'systemInfo' ]
+    if (len(args) + len(kwargs)) < 5:
+        raise IndexError('Expected at least 6 arguments got: %d' % len(args))
+
+    required = [ 'cpuInfo', 'cpuPkg', 'memorySize', 'smcPresent', 'systemInfo' ]
     optional = [ 'biosInfo', 'cpuFeature', 'cpuPowerManagementInfo', 'numaInfo', 'pciDevice',
         'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

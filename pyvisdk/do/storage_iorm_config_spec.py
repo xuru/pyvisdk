@@ -14,17 +14,18 @@ def StorageIORMConfigSpec(vim, *args, **kwargs):
     property is not changed.'''
     
     obj = vim.client.factory.create('ns0:StorageIORMConfigSpec')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
-        
+
     required = [  ]
-    optional = [ 'congestionThreshold', 'enabled', 'dynamicProperty', 'dynamicType' ]
-    
+    optional = [ 'congestionThreshold', 'enabled', 'statsAggregationDisabled',
+        'statsCollectionEnabled', 'dynamicProperty', 'dynamicType' ]
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

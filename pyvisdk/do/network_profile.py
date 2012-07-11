@@ -9,23 +9,25 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def NetworkProfile(vim, *args, **kwargs):
-    '''DataObject represents a profile for network configuration.'''
+    '''The NetworkProfile data object contains a set of subprofiles for network
+    configuration.'''
     
     obj = vim.client.factory.create('ns0:NetworkProfile')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
-        
+
     required = [ 'enabled' ]
     optional = [ 'consoleIpRouteConfig', 'dnsConfig', 'dvsHostNic', 'dvsServiceConsoleNic',
         'dvswitch', 'hostPortGroup', 'ipRouteConfig', 'pnic',
         'serviceConsolePortGroup', 'vmPortGroup', 'vswitch', 'policy',
-        'dynamicProperty', 'dynamicType' ]
-    
+        'profileTypeName', 'profileVersion', 'property', 'dynamicProperty',
+        'dynamicType' ]
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

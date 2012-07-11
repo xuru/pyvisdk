@@ -9,7 +9,7 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterVmToolsMonitoringSettings(vim, *args, **kwargs):
-    '''VMware HA Virtual Machine Health Monitoring service setting.Virtual Machine
+    '''vSphere HA Virtual Machine Health Monitoring service setting.Virtual Machine
     Health Monitoring service checks the VMware Tools heartbeat of a virtual
     machine. If heartbeats have not been received within a specified time interval,
     Virtual Machine Health Monitoring service declares the virtual machine as
@@ -19,19 +19,19 @@ def ClusterVmToolsMonitoringSettings(vim, *args, **kwargs):
     not changed.'''
     
     obj = vim.client.factory.create('ns0:ClusterVmToolsMonitoringSettings')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
-        
+
     required = [  ]
     optional = [ 'clusterSettings', 'enabled', 'failureInterval', 'maxFailures',
         'maxFailureWindow', 'minUpTime', 'vmMonitoring', 'dynamicProperty',
         'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

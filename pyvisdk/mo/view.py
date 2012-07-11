@@ -23,12 +23,12 @@ class View(BaseEntity):
     obtain notification of changes to the virtual environment. For information
     about using views with the PropertyCollector, see the description of
     ViewManager.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.View):
         super(View, self).__init__(core, name=name, ref=ref, type=type)
+
     
-    
-    
+
     
     
     def DestroyView(self):

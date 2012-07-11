@@ -13,17 +13,17 @@ def VmDiskFileQuery(vim, *args, **kwargs):
     primary file.'''
     
     obj = vim.client.factory.create('ns0:VmDiskFileQuery')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
-        
+
     required = [  ]
     optional = [ 'details', 'filter', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

@@ -16,16 +16,16 @@ class HostDateTimeSystem(BaseEntity):
     host. Information regarding the running status of the NTP daemon and
     functionality to start and stop the daemon is provided by the HostServiceSystem
     object.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostDateTimeSystem):
         super(HostDateTimeSystem, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def dateTimeInfo(self):
         '''The DateTime configuration of the host.'''
         return self.update('dateTimeInfo')
-    
+
     
     
     def QueryAvailableTimeZones(self):

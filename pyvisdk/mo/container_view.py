@@ -23,10 +23,10 @@ class ContainerView(ManagedObjectView):
     ComputeResource * ResourcePool * HostSystemOnce you have created the view, the
     view list always represents the current configuration of the virtual
     environment and reflects any subsequent changes that occur.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ContainerView):
         super(ContainerView, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def container(self):
@@ -45,5 +45,5 @@ class ContainerView(ManagedObjectView):
         list of types indicates objects that are included in the view. If empty, all
         types are included.'''
         return self.update('type')
-    
+
     

@@ -17,14 +17,14 @@ class HostAuthenticationStore(BaseEntity):
     always enabled. The vSphere API does not support local user configuration for a
     host. * Active Directory authentication for ESX hosts relies on an established
     Active Directory account that has the authority to add the host to a domain.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostAuthenticationStore):
         super(HostAuthenticationStore, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def info(self):
         '''Information about the authentication store.'''
         return self.update('info')
-    
+
     

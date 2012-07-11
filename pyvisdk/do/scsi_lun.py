@@ -22,24 +22,24 @@ def ScsiLun(vim, *args, **kwargs):
     the ESX Server creates a ScsiLun object.When the Server creates a HostScsiDisk
     or ScsiLun object, it specifies a valid device name and type:* deviceName - A
     string representing the name of the device that is meaningful to the host. The
-    following are some examples of device names.   * deviceType - A string
-    describing the type of device. The following are some examples of device types.'''
+    following are some examples of device names. * deviceType - A string describing
+    the type of device. The following are some examples of device types.'''
     
     obj = vim.client.factory.create('ns0:ScsiLun')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 5:
         raise IndexError('Expected at least 6 arguments got: %d' % len(args))
-        
+
     required = [ 'lunType', 'operationalState', 'uuid', 'deviceName', 'deviceType' ]
     optional = [ 'alternateName', 'canonicalName', 'capabilities', 'descriptor', 'displayName',
         'durableName', 'key', 'model', 'queueDepth', 'revision', 'scsiLevel',
         'serialNumber', 'standardInquiry', 'vendor', 'vStorageSupport',
         'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

@@ -25,15 +25,15 @@ class TestHosts(unittest.TestCase):
         cls.vim.logout()
 
     def testHosts(self):
-        hosts = self.vim.getHosts()
+        hosts = self.vim.getHostSystems()
         self.assertGreaterEqual(len(hosts), 1, "vcenter has no hosts")
 
     def testHost(self):
-        hosts = self.vim.getHosts()
+        hosts = self.vim.getHostSystems()
         
         host = self.vim.getHostSystem(hosts[0].name)
         self.assertIsNotNone(host, "Couldn't get host: %s" % host.name)
-        self.assertEqual(host.type, ManagedObjectTypes.HostSystem, "Host's type isn't HostSystem...")
+        self.assertEqual(host._type, ManagedObjectTypes.HostSystem, "Host's type isn't HostSystem...")
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testHosts']

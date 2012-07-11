@@ -19,18 +19,18 @@ def HostListSummaryQuickStats(vim, *args, **kwargs):
     represents 1.015. This is because 1.015 is further from 1 than 0.990.'''
     
     obj = vim.client.factory.create('ns0:HostListSummaryQuickStats')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
-        
+
     required = [  ]
     optional = [ 'distributedCpuFairness', 'distributedMemoryFairness', 'overallCpuUsage',
         'overallMemoryUsage', 'uptime', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

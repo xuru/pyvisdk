@@ -17,10 +17,10 @@ class HostCpuSchedulerSystem(ExtensibleManagedObject):
     running virtual machines.: This managed object is useful only on platforms
     where resource management controls are available to optimize the running of
     virtual machines.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostCpuSchedulerSystem):
         super(HostCpuSchedulerSystem, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def hyperthreadInfo(self):
@@ -28,7 +28,7 @@ class HostCpuSchedulerSystem(ExtensibleManagedObject):
         data object type indicates if the CPU scheduler is capable of scheduling
         hyperthreads as resources.'''
         return self.update('hyperthreadInfo')
-    
+
     
     
     def DisableHyperThreading(self):

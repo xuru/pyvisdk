@@ -14,11 +14,11 @@ def HostCapability(vim, *args, **kwargs):
     circumstances an API will throw a NotSupported fault.'''
     
     obj = vim.client.factory.create('ns0:HostCapability')
-    
+
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 35:
-        raise IndexError('Expected at least 36 arguments got: %d' % len(args))
-        
+    if (len(args) + len(kwargs)) < 37:
+        raise IndexError('Expected at least 38 arguments got: %d' % len(args))
+
     required = [ 'backgroundSnapshotsSupported', 'cloneFromSnapshotSupported',
         'cpuMemoryResourceConfigurationSupported', 'datastorePrincipalSupported',
         'deltaDiskBackingsSupported', 'ftSupported', 'highGuestMemSupported',
@@ -28,20 +28,23 @@ def HostCapability(vim, *args, **kwargs):
         'recordReplaySupported', 'recursiveResourcePoolsSupported',
         'restrictedSnapshotRelocateSupported', 'sanSupported',
         'scaledScreenshotSupported', 'screenshotSupported', 'shutdownSupported',
-        'standbySupported', 'storageIORMSupported', 'storageVMotionSupported',
-        'suspendedRelocateSupported', 'tpmSupported', 'unsharedSwapVMotionSupported',
-        'virtualExecUsageSupported', 'vlanTaggingSupported',
-        'vmDirectPathGen2Supported', 'vmotionSupported',
+        'snapshotRelayoutSupported', 'standbySupported', 'storageIORMSupported',
+        'storageVMotionSupported', 'suspendedRelocateSupported', 'tpmSupported',
+        'unsharedSwapVMotionSupported', 'virtualExecUsageSupported',
+        'vlanTaggingSupported', 'vmDirectPathGen2Supported',
+        'vmfsDatastoreMountCapable', 'vmotionSupported',
         'vmotionWithStorageVMotionSupported', 'vStorageCapable' ]
-    optional = [ 'ftCompatibilityIssues', 'ipmiSupported', 'loginBySSLThumbprintSupported',
+    optional = [ 'firewallIpRulesSupported', 'ftCompatibilityIssues', 'ipmiSupported',
+        'loginBySSLThumbprintSupported', 'maxHostRunningVms', 'maxHostSupportedVcpus',
         'maxRunningVMs', 'maxSupportedVcpus', 'maxSupportedVMs',
-        'replayCompatibilityIssues', 'replayUnsupportedReason', 'supportedCpuFeature',
-        'vmDirectPathGen2UnsupportedReason',
+        'replayCompatibilityIssues', 'replayUnsupportedReason',
+        'servicePackageInfoSupported', 'supportedCpuFeature',
+        'supportedVmfsMajorVersion', 'vmDirectPathGen2UnsupportedReason',
         'vmDirectPathGen2UnsupportedReasonExtended', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

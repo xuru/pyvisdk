@@ -34,18 +34,18 @@ def AutoStartPowerInfo(vim, *args, **kwargs):
     are not blocked from starting up since the startDelay eventually elapses.'''
     
     obj = vim.client.factory.create('ns0:AutoStartPowerInfo')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 7:
         raise IndexError('Expected at least 8 arguments got: %d' % len(args))
-        
+
     required = [ 'key', 'startAction', 'startDelay', 'startOrder', 'stopAction', 'stopDelay',
         'waitForHeartbeat' ]
     optional = [ 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

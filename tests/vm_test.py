@@ -33,7 +33,7 @@ class TestVirtualMachines(unittest.TestCase):
         _name = vms[0].name
         vm = self.vim.getVirtualMachine(_name)
         self.assertIsNotNone(vm, "Couldn't get VM: %s" % _name)
-        self.assertEqual(vm.type, ManagedObjectTypes.VirtualMachine, "Virtual machine's type isn't VirtualMachine...")
+        self.assertEqual(vm._type, ManagedObjectTypes.VirtualMachine, "Virtual machine's type isn't VirtualMachine...")
         
         
 if __name__ == "__main__":

@@ -7,6 +7,7 @@
 from pyvisdk.thirdparty import Enum
 
 VmFaultToleranceConfigIssueReasonForIssue = Enum(
+    'esxAgentVm',
     'ftSecondaryVm',
     'ftUnsupportedHardware',
     'ftUnsupportedProduct',
@@ -24,5 +25,6 @@ VmFaultToleranceConfigIssueReasonForIssue = Enum(
     'templateVm',
     'thinDisk',
     'verifySSLCertificateFlagNotSet',
+    'video3dEnabled',
 
 )

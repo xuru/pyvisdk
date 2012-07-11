@@ -15,18 +15,18 @@ def IpPoolIpPoolConfigInfo(vim, *args, **kwargs):
     e.g.: 2001:0db8:85a3::0370:7334'''
     
     obj = vim.client.factory.create('ns0:IpPoolIpPoolConfigInfo')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
-        
+
     required = [  ]
     optional = [ 'dhcpServerAvailable', 'dns', 'gateway', 'ipPoolEnabled', 'netmask', 'range',
         'subnetAddress', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

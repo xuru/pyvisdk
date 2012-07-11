@@ -32,7 +32,7 @@ class TestDatastore(unittest.TestCase):
         datastore = datastores[0]
         
         self.assertIsNotNone(datastore, "Couldn't get datastore: %s" % datastore.name)
-        self.assertEqual(datastore.type, ManagedObjectTypes.Datastore, "Datastore's type isn't Datastore...")
+        self.assertEqual(datastore._type, ManagedObjectTypes.Datastore, "Datastore's type isn't Datastore...")
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testDatastore']

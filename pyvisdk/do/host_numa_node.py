@@ -15,17 +15,17 @@ def HostNumaNode(vim, *args, **kwargs):
     NumaNode object, and the memory range may or may not belong to this NUMA node.'''
     
     obj = vim.client.factory.create('ns0:HostNumaNode')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 4:
         raise IndexError('Expected at least 5 arguments got: %d' % len(args))
-        
+
     required = [ 'cpuID', 'memoryRangeBegin', 'memoryRangeLength', 'typeId' ]
     optional = [ 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

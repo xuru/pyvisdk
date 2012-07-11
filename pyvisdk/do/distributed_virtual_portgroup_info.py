@@ -13,18 +13,18 @@ def DistributedVirtualPortgroupInfo(vim, *args, **kwargs):
     attached to.'''
     
     obj = vim.client.factory.create('ns0:DistributedVirtualPortgroupInfo')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 7:
         raise IndexError('Expected at least 8 arguments got: %d' % len(args))
-        
+
     required = [ 'portgroup', 'portgroupKey', 'portgroupName', 'portgroupType', 'switchName',
         'switchUuid', 'uplinkPortgroup' ]
     optional = [ 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

@@ -16,10 +16,10 @@ class ManagedEntity(ExtensibleManagedObject):
     inventory tree. The base type provides common functionality for traversing the
     tree structure, as well as health monitoring and other basic functions.Most
     Virtual Infrastructure managed object types extend this type.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ManagedEntity):
         super(ManagedEntity, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def alarmActionsEnabled(self):
@@ -73,8 +73,15 @@ class ManagedEntity(ExtensibleManagedObject):
         return self.update('name')
     @property
     def overallStatus(self):
-        '''General health of this managed entity. The value combines the status of all the
-        alarms attached to a managed entity.'''
+        '''General health of this managed entity. The overall status of the managed entity
+        is computed as the worst status among its alarms and the configuration issues
+        detected on the entity. The status is reported as one of the following values:
+        * red: The entity has alarms or configuration issues with a red status. *
+        yellow: The entity does not have alarms or configuration issues with a red
+        status, and has at least one with a yellow status. * green: The entity does not
+        have alarms or configuration issues with a red or yellow status, and has at
+        least one with a green status. * gray: All of the entity's alarms have a gray
+        status and the configuration status of the entity is not being monitored.'''
         return self.update('overallStatus')
     @property
     def parent(self):
@@ -100,16 +107,14 @@ class ManagedEntity(ExtensibleManagedObject):
         '''A set of alarm states for alarms triggered by this entity or by its
         descendants.'''
         return self.update('triggeredAlarmState')
-    
+
     
     
     def Destroy_Task(self):
         '''Destroys this object, deleting its contents and removing it from its parent
-        folder (if any).NOTE: The appropriate privilege must be held on the parent of
-        the destroyed entity as well as the entity itself.This method can throw one of
-        several exceptions. The exact set of exceptions depends on the kind of entity
-        that is being removed. See comments for each entity for more information on
-        destroy behavior.
+        folder (if any).Destroys this object, deleting its contents and removing it
+        from its parent folder (if any).Destroys this object, deleting its contents and
+        removing it from its parent folder (if any).
         
         '''
         return self.delegate("Destroy_Task")()
@@ -128,9 +133,8 @@ class ManagedEntity(ExtensibleManagedObject):
         return self.delegate("Reload")()
     
     def Rename_Task(self, newName):
-        '''Renames this managed entity.Any % (percent) character used in this name
-        parameter must be escaped, unless it is used to start an escape sequence.
-        Clients may also escape any other characters in this name parameter.See name
+        '''Renames this managed entity.Renames this managed entity.Renames this managed
+        entity.
         
         :param newName: See name
         

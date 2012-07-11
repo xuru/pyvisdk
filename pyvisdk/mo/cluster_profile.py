@@ -13,12 +13,12 @@ log = logging.getLogger(__name__)
 
 class ClusterProfile(Profile):
     ''''''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ClusterProfile):
         super(ClusterProfile, self).__init__(core, name=name, ref=ref, type=type)
+
     
-    
-    
+
     
     
     def UpdateClusterProfile(self, config):

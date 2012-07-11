@@ -18,20 +18,20 @@ def PhysicalNicCdpInfo(vim, *args, **kwargs):
     connected to any given virtual switch uplink (PNIC).'''
     
     obj = vim.client.factory.create('ns0:PhysicalNicCdpInfo')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
-        
+
     required = [  ]
     optional = [ 'address', 'cdpVersion', 'deviceCapability', 'devId', 'fullDuplex',
         'hardwarePlatform', 'ipPrefix', 'ipPrefixLen', 'location', 'mgmtAddr', 'mtu',
         'portId', 'samples', 'softwareVersion', 'systemName', 'systemOID', 'timeout',
         'ttl', 'vlan', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

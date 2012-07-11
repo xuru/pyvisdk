@@ -21,15 +21,15 @@ class SearchIndex(BaseEntity):
     SearchIndex find operations only search virtual machines and hosts for which
     the user has read privileges. If the user does not have sufficient privileges
     for an object that matches the search criteria, that object is not returned.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.SearchIndex):
         super(SearchIndex, self).__init__(core, name=name, ref=ref, type=type)
+
+    
+
     
     
-    
-    
-    
-    def FindAllByDnsName(self, datacenter, dnsName, vmSearch):
+    def FindAllByDnsName(self, dnsName, vmSearch, datacenter=None):
         '''Finds all virtual machines or hosts by DNS name. The DNS name for a virtual
         machine is the one returned from VMware tools, hostName.
         
@@ -42,7 +42,7 @@ class SearchIndex(BaseEntity):
         '''
         return self.delegate("FindAllByDnsName")(datacenter, dnsName, vmSearch)
     
-    def FindAllByIp(self, datacenter, ip, vmSearch):
+    def FindAllByIp(self, ip, vmSearch, datacenter=None):
         '''Finds all virtual machines or hosts by IP address, where the IP address is in
         dot-decimal notation. For example, 10.17.12.12. The IP address for a virtual
         machine is the one returned from VMware tools, ipAddress.
@@ -56,7 +56,7 @@ class SearchIndex(BaseEntity):
         '''
         return self.delegate("FindAllByIp")(datacenter, ip, vmSearch)
     
-    def FindAllByUuid(self, datacenter, uuid, vmSearch, instanceUuid):
+    def FindAllByUuid(self, uuid, vmSearch, datacenter=None, instanceUuid=None):
         '''Finds all virtual machines or hosts by UUID.
         
         :param datacenter: If specified, restricts the query to entities in a particular datacenter. If not specified, the entire inventory is searched.
@@ -80,7 +80,7 @@ class SearchIndex(BaseEntity):
         '''
         return self.delegate("FindByDatastorePath")(datacenter, path)
     
-    def FindByDnsName(self, datacenter, dnsName, vmSearch):
+    def FindByDnsName(self, dnsName, vmSearch, datacenter=None):
         '''Finds a virtual machine or host by DNS name. The DNS name for a virtual machine
         is the one returned from VMware tools, hostName.
         
@@ -107,7 +107,7 @@ class SearchIndex(BaseEntity):
         '''
         return self.delegate("FindByInventoryPath")(inventoryPath)
     
-    def FindByIp(self, datacenter, ip, vmSearch):
+    def FindByIp(self, ip, vmSearch, datacenter=None):
         '''Finds a virtual machine or host by IP address, where the IP address is in dot-
         decimal notation. For example, 10.17.12.12. The IP address for a virtual
         machine is the one returned from VMware tools, ipAddress.
@@ -121,7 +121,7 @@ class SearchIndex(BaseEntity):
         '''
         return self.delegate("FindByIp")(datacenter, ip, vmSearch)
     
-    def FindByUuid(self, datacenter, uuid, vmSearch, instanceUuid):
+    def FindByUuid(self, uuid, vmSearch, datacenter=None, instanceUuid=None):
         '''Finds a virtual machine or host by BIOS or instance UUID.
         
         :param datacenter: If specified, restricts the query to entities in a particular datacenter. If not specified, the entire inventory is searched.

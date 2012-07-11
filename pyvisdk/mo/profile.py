@@ -12,79 +12,86 @@ import logging
 log = logging.getLogger(__name__)
 
 class Profile(BaseEntity):
-    ''''''
-    
+    '''The managed object is the base class for host and cluster profiles.'''
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.Profile):
         super(Profile, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def complianceStatus(self):
         '''Overall compliance of entities associated with this profile. If one of the
-        entities is out of compliance, profile is out of compliance. If all entities
-        are in compliance, profile is in compliance. If compliance status of one of the
-        entities is unknown, compliance status of the profile is unknown. See'''
+        entities is out of compliance, the profile is'''
         return self.update('complianceStatus')
     @property
     def config(self):
-        '''Configuration of the profile'''
+        '''Configuration data for the profile.'''
         return self.update('config')
     @property
     def createdTime(self):
-        '''Time at which the profile was created'''
+        '''Time at which the profile was created.'''
         return self.update('createdTime')
     @property
     def description(self):
-        '''Localizeable Description of the Profile'''
+        '''Localizable description of the profile'''
         return self.update('description')
     @property
     def entity(self):
-        '''List of ManagedEntities associated with the Profile'''
+        '''List of managed entities associated with the profile.'''
         return self.update('entity')
     @property
     def modifiedTime(self):
-        '''Time at which the profile was last modified'''
+        '''Time at which the profile was last modified.'''
         return self.update('modifiedTime')
     @property
     def name(self):
-        '''Name of the Profile'''
+        '''Name of the profile.'''
         return self.update('name')
-    
+
     
     
     def AssociateProfile(self, entity):
-        '''Associate a profile with a managed entity.
+        '''Associate a profile with a managed entity. You can check the compliance of
+        entities associated with a profile by calling the CheckProfileCompliance_Task
+        method.
         
-        :param entity: The entity(s) to associate with the profile. If entity is already associted with the profile, association is maintained and operation is treated as a no-op. throws InvalidType If the entity is of an unexpeted type. throws InvalidArgument If the association conflicts with existing association.
+        :param entity: The entity(s) to associate with the profile. If an entity is already associated with the profile, the association is maintained and the vCenter Server does not perform any action.
         
         '''
         return self.delegate("AssociateProfile")(entity)
     
-    def CheckProfileCompliance_Task(self, entity):
+    def CheckProfileCompliance_Task(self, entity=None):
         '''Check compliance of an entity against a Profile.
         
-        :param entity: If specified, the compliance check is done against this entity. If the entity is not specified, a compliance check will be run on all the entities associated with the profile. Entity need not be associated with the profile.
+        :param entity: If specified, the compliance check is performed on this entity. If the entity is not specified, the vCenter Server runs a compliance check on all the entities associated with the profile. The entity does not have to be associated with the profile.
         
         '''
         return self.delegate("CheckProfileCompliance_Task")(entity)
     
     def DestroyProfile(self):
-        '''Destory the Profile
+        '''Destroy the profile.
         
         '''
         return self.delegate("DestroyProfile")()
     
-    def DissociateProfile(self, entity):
-        '''Dissociate a profile from a managed entity.
+    def DissociateProfile(self, entity=None):
+        '''Remove the association between a profile and a managed entity.
         
-        :param entity: Entity(s) from which to dissociate the profile. If unset, the profile is dissociated from all managed entities it is currently associated with. If the specified entity is not associated with the profile, the operation is a no-op. throws InvalidArgument If the dissociation conflicts with existing association.
+        :param entity: List of entities. The vCenter Server will remove the associations that the profile has with the entities in the list. If unset, the Server removes all the associations that the profile has with any managed entities in the inventory. If the specified entity is not associated with the profile, the Server does not perform any action.
         
         '''
         return self.delegate("DissociateProfile")(entity)
     
     def ExportProfile(self):
-        '''Export the profile into a serialized form. The serialized string can then be
-        used to create a profile using SerializedCreateSpec
+        '''Export the profile in a serialized form. To use the serialized string to create
+        a profile, specify a ProfileSerializedCreateSpec when you call the
+        HostProfileManager.CreateProfile method.
         
         '''
         return self.delegate("ExportProfile")()
+    
+    def RetrieveDescription(self):
+        '''Returns the localizable description for the profile.
+        
+        '''
+        return self.delegate("RetrieveDescription")()

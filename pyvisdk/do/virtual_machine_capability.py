@@ -13,15 +13,17 @@ def VirtualMachineCapability(vim, *args, **kwargs):
     a virtual machine'''
     
     obj = vim.client.factory.create('ns0:VirtualMachineCapability')
-    
+
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 28:
-        raise IndexError('Expected at least 29 arguments got: %d' % len(args))
-        
+    if (len(args) + len(kwargs)) < 32:
+        raise IndexError('Expected at least 33 arguments got: %d' % len(args))
+
     required = [ 'bootOptionsSupported', 'bootRetryOptionsSupported', 'changeTrackingSupported',
         'consolePreferencesSupported', 'cpuFeatureMaskSupported',
-        'disableSnapshotsSupported', 'diskSharesSupported', 'lockSnapshotsSupported',
-        'memorySnapshotsSupported', 'multipleSnapshotsSupported',
+        'disableSnapshotsSupported', 'diskSharesSupported', 'guestAutoLockSupported',
+        'hostBasedReplicationSupported', 'lockSnapshotsSupported',
+        'memoryReservationLockSupported', 'memorySnapshotsSupported',
+        'multipleCoresPerSocketSupported', 'multipleSnapshotsSupported',
         'npivWwnOnNonRdmVmSupported', 'poweredOffSnapshotsSupported',
         'quiescedSnapshotsSupported', 'recordReplaySupported',
         'revertToSnapshotSupported', 's1AcpiManagementSupported',
@@ -32,10 +34,10 @@ def VirtualMachineCapability(vim, *args, **kwargs):
         'virtualMmuUsageSupported', 'vmNpivWwnDisableSupported', 'vmNpivWwnSupported',
         'vmNpivWwnUpdateSupported' ]
     optional = [ 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

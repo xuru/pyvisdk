@@ -15,20 +15,28 @@ class HostActiveDirectoryAuthentication(HostDirectoryStore):
     '''The HostActiveDirectoryAuthentication managed object indicates domain
     membership status and provides methods for adding a host to and removing a host
     from a domain.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostActiveDirectoryAuthentication):
         super(HostActiveDirectoryAuthentication, self).__init__(core, name=name, ref=ref, type=type)
+
+    
+
     
     
-    
-    
+    def ImportCertificateForCAM_Task(self, certPath, camServer):
+        '''Import the CAM server's certificate to the local store of vmwauth.Import the
+        CAM server's certificate to the local store of vmwauth.
+        
+        :param certPath: full path of the certificate on ESXi
+        
+        :param camServer: IP of server providing the CAM service.
+        
+        '''
+        return self.delegate("ImportCertificateForCAM_Task")(certPath, camServer)
     
     def JoinDomain_Task(self, domainName, userName, password):
-        '''Adds the host to an Active Directory domain.If the
-        HostAuthenticationStoreInfo.enabled property is True (accessed through the info
-        property), the host has joined a domain. The vSphere API will throw the
-        InvalidState fault if you try to add a host to a domain when the host has
-        already joined a domain.
+        '''Adds the host to an Active Directory domain.Adds the host to an Active
+        Directory domain.
         
         :param domainName: Name of the domain to be joined.
         
@@ -38,6 +46,17 @@ class HostActiveDirectoryAuthentication(HostDirectoryStore):
         
         '''
         return self.delegate("JoinDomain_Task")(domainName, userName, password)
+    
+    def JoinDomainWithCAM_Task(self, domainName, camServer):
+        '''Adds the host to an Active Directory domain through CAM service.Adds the host
+        to an Active Directory domain through CAM service.
+        
+        :param domainName: Name of the domain to be joined.
+        
+        :param camServer: Name of server providing the CAM service.
+        
+        '''
+        return self.delegate("JoinDomainWithCAM_Task")(domainName, camServer)
     
     def LeaveCurrentDomain_Task(self, force):
         '''Removes the host from the Active Directory domain to which it belongs.

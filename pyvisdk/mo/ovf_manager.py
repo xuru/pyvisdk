@@ -49,27 +49,22 @@ class OvfManager(BaseEntity):
     error lists. Warnings do not cause processing to fail, but the caller
     (typically, the user of a GUI client) may choose to reject the result based on
     the warnings issued.Errors cause processing to abort by definition.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.OvfManager):
         super(OvfManager, self).__init__(core, name=name, ref=ref, type=type)
+
     
-    
-    
+
     
     
     def CreateDescriptor(self, obj, cdp):
         '''Create an OVF descriptor for the specified ManagedEntity, which may be a
-        VirtualMachine or a VirtualApp.To create the complete OVF descriptor, the
-        client must already have downloaded the files that are part of the entity,
-        because information about these files (compression, chunking, filename etc.) is
-        part of the descriptor.However, these downloads can be quite time-consuming, so
-        if the descriptor for some reason cannot be generated, the client will want to
-        know this before downloading the files.For this reason, the client may do an
-        initial "dry run" with the ovfFiles parameter unset. Default filenames will
-        then be used in the descriptor, and the client can examine any warnings and/or
-        errors before downloading the files.After the final call to this method, client
-        must release the lock on the entity given to it by VirtualMachine.exportVm or
-        VirtualApp.exportVApp.
+        VirtualMachine or a VirtualApp.Create an OVF descriptor for the specified
+        ManagedEntity, which may be a VirtualMachine or a VirtualApp.Create an OVF
+        descriptor for the specified ManagedEntity, which may be a VirtualMachine or a
+        VirtualApp.Create an OVF descriptor for the specified ManagedEntity, which may
+        be a VirtualMachine or a VirtualApp.Create an OVF descriptor for the specified
+        ManagedEntity, which may be a VirtualMachine or a VirtualApp.
         
         :param obj: The entity to export. Supported types are VirtualMachine and VirtualApp.
         
@@ -80,9 +75,9 @@ class OvfManager(BaseEntity):
     
     def CreateImportSpec(self, ovfDescriptor, resourcePool, datastore, cisp):
         '''Validate the OVF descriptor against the hardware supported by the host system.
-        If the validation succeeds, return a result containing:* An ImportSpec to use
-        when importing the entity. * A list of items to upload (for example disk
-        backing files, ISO images etc.)
+        If the validation succeeds, return a result containing:Validate the OVF
+        descriptor against the hardware supported by the host system. If the validation
+        succeeds, return a result containing:
         
         :param ovfDescriptor: The OVF descriptor of the entity.
         
@@ -97,11 +92,9 @@ class OvfManager(BaseEntity):
     
     def ParseDescriptor(self, ovfDescriptor, pdp):
         '''Parse the OVF descriptor and return as much information about it as possible
-        without knowing the host on which it will be imported.Typically, this method is
-        called once without a deploymentOption parameter to obtain the values for the
-        default deployment option. Part of the result is the list of possible
-        deployment options. To obtain the values for a particular deployment option,
-        call this method again, specifying that option.
+        without knowing the host on which it will be imported.Parse the OVF descriptor
+        and return as much information about it as possible without knowing the host on
+        which it will be imported.
         
         :param ovfDescriptor: The OVF descriptor to examine.
         
@@ -111,9 +104,8 @@ class OvfManager(BaseEntity):
         return self.delegate("ParseDescriptor")(ovfDescriptor, pdp)
     
     def ValidateHost(self, ovfDescriptor, host, vhp):
-        '''Validate that the given OVF can be imported on the host.More specifically, this
-        means whether or not the host supports the virtual hardware required by the OVF
-        descriptor.
+        '''Validate that the given OVF can be imported on the host.Validate that the given
+        OVF can be imported on the host.
         
         :param ovfDescriptor: The OVF descriptor to examine.
         

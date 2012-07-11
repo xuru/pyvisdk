@@ -14,17 +14,17 @@ def HostVmfsSpec(vim, *args, **kwargs):
     changed. There are a few exceptions.'''
     
     obj = vim.client.factory.create('ns0:HostVmfsSpec')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 3:
         raise IndexError('Expected at least 4 arguments got: %d' % len(args))
-        
+
     required = [ 'extent', 'majorVersion', 'volumeName' ]
     optional = [ 'blockSizeMb', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

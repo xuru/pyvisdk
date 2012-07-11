@@ -13,19 +13,20 @@ def ToolsConfigInfo(vim, *args, **kwargs):
     software running in the guest operating system.'''
     
     obj = vim.client.factory.create('ns0:ToolsConfigInfo')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
-        
+
     required = [  ]
     optional = [ 'afterPowerOn', 'afterResume', 'beforeGuestReboot', 'beforeGuestShutdown',
-        'beforeGuestStandby', 'pendingCustomization', 'syncTimeWithHost',
-        'toolsUpgradePolicy', 'toolsVersion', 'dynamicProperty', 'dynamicType' ]
-    
+        'beforeGuestStandby', 'lastInstallInfo', 'pendingCustomization',
+        'syncTimeWithHost', 'toolsUpgradePolicy', 'toolsVersion', 'dynamicProperty',
+        'dynamicType' ]
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

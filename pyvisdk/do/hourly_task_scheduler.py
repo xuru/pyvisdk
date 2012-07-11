@@ -16,17 +16,17 @@ def HourlyTaskScheduler(vim, *args, **kwargs):
     task to execute at the specified minute every 2 hours.)'''
     
     obj = vim.client.factory.create('ns0:HourlyTaskScheduler')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 2:
         raise IndexError('Expected at least 3 arguments got: %d' % len(args))
-        
+
     required = [ 'minute', 'interval' ]
     optional = [ 'activeTime', 'expireTime', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

@@ -24,18 +24,18 @@ def HostNetworkPolicy(vim, *args, **kwargs):
     the virtual switches and the port groups.See HostNetCapabilities'''
     
     obj = vim.client.factory.create('ns0:HostNetworkPolicy')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
-        
+
     required = [  ]
     optional = [ 'nicTeaming', 'offloadPolicy', 'security', 'shapingPolicy', 'dynamicProperty',
         'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

@@ -39,10 +39,10 @@ class Datastore(ManagedEntity):
     level and the datacenter level. Each host is configured explicitly with the set
     of datastores it can access. At the datacenter, a view of the datastores across
     the datacenter is shown.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.Datastore):
         super(Datastore, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def browser(self):
@@ -73,14 +73,35 @@ class Datastore(ManagedEntity):
     def vm(self):
         '''Virtual machines stored on this datastore.'''
         return self.update('vm')
+
     
     
+    def DatastoreEnterMaintenanceMode(self):
+        '''Puts the datastore in maintenance mode. While this task is running and when the
+        datastore is in maintenance mode, no virtual machines can be powered on and no
+        provisioning operations can be performed on the datastore. Once the call
+        completes, it is safe to remove datastore without disrupting any virtual
+        machines.Puts the datastore in maintenance mode. While this task is running and
+        when the datastore is in maintenance mode, no virtual machines can be powered
+        on and no provisioning operations can be performed on the datastore. Once the
+        call completes, it is safe to remove datastore without disrupting any virtual
+        machines.
+        
+        '''
+        return self.delegate("DatastoreEnterMaintenanceMode")()
+    
+    def DatastoreExitMaintenanceMode_Task(self):
+        '''Takes the datastore out of maintenance mode.Takes the datastore out of
+        maintenance mode.Takes the datastore out of maintenance mode.
+        
+        '''
+        return self.delegate("DatastoreExitMaintenanceMode_Task")()
     
     def DestroyDatastore(self):
-        '''Deprecated. As of VI API 2.5 do not use this method. This method throws
-        ResourceInUse. Datastores are automatically removed when no longer in use, so
-        this method is unnecessary. Removes a datastore. A datastore can be removed
-        only if it is not currently used by any host or virtual machine.
+        '''<b>Deprecated.</b> <i>As of VI API 2.5 do not use this method. This method
+        throws ResourceInUse. Datastores are automatically removed when no longer in
+        use, so this method is unnecessary.</i> Removes a datastore. A datastore can be
+        removed only if it is not currently used by any host or virtual machine.
         
         '''
         return self.delegate("DestroyDatastore")()
@@ -100,7 +121,8 @@ class Datastore(ManagedEntity):
         return self.delegate("RefreshDatastoreStorageInfo")()
     
     def RenameDatastore(self, newName):
-        '''Deprecated. As of vSphere API 4.0, use Rename_Task. Renames a datastore.
+        '''<b>Deprecated.</b> <i>As of vSphere API 4.0, use Rename_Task.</i> Renames a
+        datastore.
         
         :param newName: The new name to assign to the datastore.
         
@@ -110,19 +132,19 @@ class Datastore(ManagedEntity):
     def UpdateVirtualMachineFiles_Task(self, mountPathDatastoreMapping):
         '''Update file paths embedded in virtual machine files on the datastore. This can
         be called after the file system corresponding to the datastore has been
-        resignatured or remounted.This method is only supported by vCenter server.While
-        this operation is in progress, it is important that users do not initiate any
-        operations that might read or write to any files on the datastore, such as
-        registering a virtual machine with files residing on the datastore, or
-        performing any virtual disk operations on any files in the datastore. These
-        operations can potentially cause spurious file update failures, while at the
-        same time they can prevent virtual machine files from being updated
-        correctly.If users intend to update multiple datastores using this method, it
-        is strongly advised that the users do not initiate any operations that might
-        read or write to files on any of the datastores, until all of them have been
-        updated. The files of a single virtual machine can reside on multiple
-        datastores, and thus all the involved datastores should be updated, before the
-        virtual machine is considered updated completely.
+        resignatured or remounted. Any MountPathDatastorePairs where the new path is
+        the same as the original file path will be ignored.Update file paths embedded
+        in virtual machine files on the datastore. This can be called after the file
+        system corresponding to the datastore has been resignatured or remounted. Any
+        MountPathDatastorePairs where the new path is the same as the original file
+        path will be ignored.Update file paths embedded in virtual machine files on the
+        datastore. This can be called after the file system corresponding to the
+        datastore has been resignatured or remounted. Any MountPathDatastorePairs where
+        the new path is the same as the original file path will be ignored.Update file
+        paths embedded in virtual machine files on the datastore. This can be called
+        after the file system corresponding to the datastore has been resignatured or
+        remounted. Any MountPathDatastorePairs where the new path is the same as the
+        original file path will be ignored.
         
         :param mountPathDatastoreMapping: Old mount path to datastore mapping.
         

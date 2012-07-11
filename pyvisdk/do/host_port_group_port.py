@@ -15,17 +15,17 @@ def HostPortGroupPort(vim, *args, **kwargs):
     aspects of the network connection. The Port object provides runtime statistics.'''
     
     obj = vim.client.factory.create('ns0:HostPortGroupPort')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
-        
+
     required = [ 'type' ]
     optional = [ 'key', 'mac', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

@@ -13,17 +13,17 @@ def UpdateVirtualMachineFilesResult(vim, *args, **kwargs):
     UpdateVirtualMachineFiles_Task method.'''
     
     obj = vim.client.factory.create('ns0:UpdateVirtualMachineFilesResult')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
-        
+
     required = [  ]
     optional = [ 'failedVmFile', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

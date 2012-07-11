@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-   Copyright 2005-2010 VMware, Inc.  All rights reserved.
+   Copyright 2005-2012 VMware, Inc.  All rights reserved.
 -->
 <schema
    targetNamespace="urn:vim25"
@@ -250,5 +250,186 @@
             </sequence>
          </extension>
       </complexContent>
+   </complexType>
+   <complexType name="DynamicTypeMgrAnnotation">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="name" type="xsd:string" />
+               <element name="parameter" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+               <element name="type" type="xsd:string" />
+               <element name="version" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="DynamicTypeMgrParamTypeInfo">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="annotation" type="vim25:DynamicTypeMgrAnnotation" minOccurs="0" maxOccurs="unbounded" />
+               <element name="name" type="xsd:string" />
+               <element name="privId" type="xsd:string" />
+               <element name="type" type="xsd:string" />
+               <element name="version" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="DynamicTypeMgrPropertyTypeInfo">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="annotation" type="vim25:DynamicTypeMgrAnnotation" minOccurs="0" maxOccurs="unbounded" />
+               <element name="msgIdFormat" type="xsd:string" />
+               <element name="name" type="xsd:string" />
+               <element name="privId" type="xsd:string" />
+               <element name="type" type="xsd:string" />
+               <element name="version" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="DynamicTypeMgrMethodTypeInfo">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="annotation" type="vim25:DynamicTypeMgrAnnotation" minOccurs="0" maxOccurs="unbounded" />
+               <element name="fault" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+               <element name="name" type="xsd:string" />
+               <element name="paramTypeInfo" type="vim25:DynamicTypeMgrParamTypeInfo" minOccurs="0" maxOccurs="unbounded" />
+               <element name="privId" type="xsd:string" />
+               <element name="returnTypeInfo" type="vim25:DynamicTypeMgrParamTypeInfo" minOccurs="0" maxOccurs="unbounded" />
+               <element name="version" type="xsd:string" />
+               <element name="wsdlName" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="DynamicTypeMgrDataTypeInfo">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="annotation" type="vim25:DynamicTypeMgrAnnotation" minOccurs="0" maxOccurs="unbounded" />
+               <element name="base" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+               <element name="name" type="xsd:string" />
+               <element name="property" type="vim25:DynamicTypeMgrPropertyTypeInfo" minOccurs="0" maxOccurs="unbounded" />
+               <element name="version" type="xsd:string" />
+               <element name="wsdlName" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="DynamicTypeEnumTypeInfo">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="annotation" type="vim25:DynamicTypeMgrAnnotation" minOccurs="0" maxOccurs="unbounded" />
+               <element name="name" type="xsd:string" />
+               <element name="property" type="vim25:DynamicTypeMgrPropertyTypeInfo" minOccurs="0" maxOccurs="unbounded" />
+               <element name="value" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+               <element name="version" type="xsd:string" />
+               <element name="wsdlName" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="DynamicTypeMgrManagedTypeInfo">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="annotation" type="vim25:DynamicTypeMgrAnnotation" minOccurs="0" maxOccurs="unbounded" />
+               <element name="base" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+               <element name="method" type="vim25:DynamicTypeMgrMethodTypeInfo" minOccurs="0" maxOccurs="unbounded" />
+               <element name="name" type="xsd:string" />
+               <element name="property" type="vim25:DynamicTypeMgrPropertyTypeInfo" minOccurs="0" maxOccurs="unbounded" />
+               <element name="version" type="xsd:string" />
+               <element name="wsdlName" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="DynamicTypeMgrAllTypeInfo">
+      <sequence>
+         <element name="dataTypeInfo" type="vim25:DynamicTypeMgrDataTypeInfo" minOccurs="0" maxOccurs="unbounded" />
+         <element name="enumTypeInfo" type="vim25:DynamicTypeEnumTypeInfo" minOccurs="0" maxOccurs="unbounded" />
+         <element name="managedTypeInfo" type="vim25:DynamicTypeMgrManagedTypeInfo" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
+   </complexType>
+   <complexType name="DynamicTypeMgrFilterSpecBase">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="typeSubstr" type="xsd:string" />
+               <element name="id" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="DynamicTypeMgrFilterSpec">
+      <complexContent>
+         <extension base="vim25:DynamicTypeMgrFilterSpecBase">
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="DynamicTypeMgrTypeFilterSpecBase">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="typeSubstr" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="DynamicTypeMgrTypeFilterSpec">
+      <complexContent>
+         <extension base="vim25:DynamicTypeMgrTypeFilterSpecBase">
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ReflectManagedMethodExecuterSoapFault">
+      <complexContent>
+         <extension>
+            <sequence>
+               <element name="faultMsg" type="xsd:string" />
+               <element name="faultDetail" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ReflectManagedMethodExecuterSoapResult">
+      <complexContent>
+         <extension>
+            <sequence>
+               <element name="response" type="xsd:string" />
+               <element name="fault" type="vim25:ReflectManagedMethodExecuterSoapFault" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ReflectManagedMethodExecuterSoapArgument">
+      <complexContent>
+         <extension>
+            <sequence>
+               <element name="name" type="xsd:string" />
+               <element name="val" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="DynamicTypeMgrMoInstance">
+      <complexContent>
+         <extension base="vim25:DynamicData">
+            <sequence>
+               <element name="id" type="xsd:string" />
+               <element name="moType" type="xsd:string" />
+            </sequence>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="ArrayOfDynamicTypeMgrMoInstance">
+      <sequence>
+         <element name="returnval" type="vim25:DynamicTypeMgrMoInstance" minOccurs="0" maxOccurs="unbounded" />
+      </sequence>
    </complexType>
 </schema>

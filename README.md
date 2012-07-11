@@ -39,9 +39,19 @@
     
     vm.removeSnapshot(snapshot)
 
+### ESXCLI
+  
+    from pyvisdk.esxcli import Generator, EsxCLI
+    vim = Vim(self.options.server)
+    vim.login(self.options.username, self.options.password)
+    host = self.vim.getHostSystems()[0]
+    esxcli = EsxCLI(self.vim, host)
+    esxcli.get('storage.core.adapter').list()
+
 ## Authors
 
   * Eric Plaster
+  * Guy Rozendorn
 
 
 ## License 

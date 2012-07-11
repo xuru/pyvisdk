@@ -84,10 +84,10 @@ class ResourcePool(ManagedEntity):
     Resource.DeletePool privilege must be held on the pool as well as the parent of
     the resource pool. Also, the Resource.AssignVMToPool privilege must be held on
     the resource pool's parent pool and any virtual machines that are reassigned.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ResourcePool):
         super(ResourcePool, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def childConfiguration(self):
@@ -121,20 +121,14 @@ class ResourcePool(ManagedEntity):
     def vm(self):
         '''The set of virtual machines associated with this resource pool.'''
         return self.update('vm')
+
     
     
-    
-    def CreateChildVM_Task(self, config, host):
-        '''Creates a new virtual machine in a vApp container.This method supports creating
-        a virtual machine directly in a vApp. A virtual machine in a vApp is not
-        associated with a VM folder and therefore cannot be created using the method on
-        a Folder.This method can only be called directly on a vApp or on a resource
-        pool that is a child of a vApp.The privilege VirtualMachine.Inventory.Create is
-        required on this entity. Further, if this is a resource pool, the privilege
-        Resource.AssignVMToPool is required. If this is a vApp, the privilege
-        VApp.AssignVM is required.Depending on the properties of the virtual machine
-        bring created, additional privileges may be required. See CreateVM_Task for a
-        description of these privileges.
+    def CreateChildVM_Task(self, config, host=None):
+        '''Creates a new virtual machine in a vApp container.Creates a new virtual machine
+        in a vApp container.Creates a new virtual machine in a vApp container.Creates a
+        new virtual machine in a vApp container.Creates a new virtual machine in a vApp
+        container.
         
         :param config: The configuration of the virtual machine hardware.
         
@@ -143,20 +137,19 @@ class ResourcePool(ManagedEntity):
         '''
         return self.delegate("CreateChildVM_Task")(config, host)
     
-    def CreateResourcePool(self):
-        '''Creates a new resource pool.In the ResourceConfigSpec, all values in
-        ResourceAllocationInfo must be supplied; they are not optional.Any % (percent)
-        character used in this name parameter must be escaped, unless it is used to
-        start an escape sequence. Clients may also escape any other characters in this
-        name parameter.
+    def CreateResourcePool(self, name, spec):
+        '''Creates a new resource pool.Creates a new resource pool.Creates a new resource
+        pool.
+        
+        :param name: 
+        
+        :param spec: 
         
         '''
-        return self.delegate("CreateResourcePool")()
+        return self.delegate("CreateResourcePool")(name, spec)
     
-    def CreateVApp(self, name, resSpec, configSpec, vmFolder):
-        '''Creates a new vApp container.Any % (percent) character used in this name
-        parameter must be escaped, unless it is used to start an escape sequence.
-        Clients may also escape any other characters in this name parameter.
+    def CreateVApp(self, name, resSpec, configSpec, vmFolder=None):
+        '''Creates a new vApp container.Creates a new vApp container.
         
         :param name: The name of the vApp container in the inventory
         
@@ -172,18 +165,18 @@ class ResourcePool(ManagedEntity):
     def DestroyChildren(self):
         '''Removes all child resource pools recursively. All virtual machines and vApps
         associated with the child resource pools get associated with this resource
-        pool.Note that resource pools contained in child vApps are not affected.The
-        privilege checks performed are the following.* Resource.DeletePool privilege
-        must be held on this object and each of it's immediate children to be
-        destroyed. * If VMs are being moved, the privilege Resource.AssignVMToPool must
-        be held on this resource pool as well as on any virtual machines being moved. *
-        If vApps are being moved, the privilege Resource.AssignVAppToPool must be held
-        on this resource pool as well as on any vApps being moved.
+        pool.Removes all child resource pools recursively. All virtual machines and
+        vApps associated with the child resource pools get associated with this
+        resource pool.Removes all child resource pools recursively. All virtual
+        machines and vApps associated with the child resource pools get associated with
+        this resource pool.Removes all child resource pools recursively. All virtual
+        machines and vApps associated with the child resource pools get associated with
+        this resource pool.
         
         '''
         return self.delegate("DestroyChildren")()
     
-    def ImportVApp(self, spec, folder, host):
+    def ImportVApp(self, spec, folder=None, host=None):
         '''Creates a new entity in this resource pool. The import process consists of two
         steps:
         
@@ -199,25 +192,19 @@ class ResourcePool(ManagedEntity):
     def MoveIntoResourcePool(self, list):
         '''Moves a set of resource pools, vApps or virtual machines into this pool. The
         pools, vApps and virtual machines must be part of the cluster or standalone
-        host that contains this pool.For each entity being moved, the move is subject
-        to the following privilege checks:* If the object being moved is a
-        ResourcePool, then Resource.MovePool must be held on the pool being moved and
-        it's former parent pool or vApp. If the target is a vApp, the privilege
-        VApp.AssignResourcePool must be held on it. If the target is a ResourcePool,
-        Resource.MovePool must be held on it. * If the object being moved is a
-        VirtualApp, VApp.Move must be held on the vApp being moved and it's former
-        parent pool or vApp. If the target entity is a resource pool,
-        Resource.AssignVAppToPool must be held on the target. If the target is a vApp,
-        the privilege VApp.AssignVApp must be held on the target vApp. * If the object
-        being moved is a VirtualMachine, then if the target is a ResourcePool,
-        Resource.AssignVMToPool is required on the VirtualMachine and the target pool.
-        If the target is a vApp, VApp.AssignVM is required on both the VirtualMachine
-        and the target pool.This operation is typically used by clients when they
-        implement a drag-and-drop interface to move a set of objects into a folder.This
-        operation is only transactional with respect to each individual entity. The set
-        of entities is moved sequentially, as specified in the list, and committed one
-        at a time. If a failure is detected, then the method terminates with an
-        exception.The root resource pool cannot be moved.
+        host that contains this pool.Moves a set of resource pools, vApps or virtual
+        machines into this pool. The pools, vApps and virtual machines must be part of
+        the cluster or standalone host that contains this pool.Moves a set of resource
+        pools, vApps or virtual machines into this pool. The pools, vApps and virtual
+        machines must be part of the cluster or standalone host that contains this
+        pool.Moves a set of resource pools, vApps or virtual machines into this pool.
+        The pools, vApps and virtual machines must be part of the cluster or standalone
+        host that contains this pool.Moves a set of resource pools, vApps or virtual
+        machines into this pool. The pools, vApps and virtual machines must be part of
+        the cluster or standalone host that contains this pool.Moves a set of resource
+        pools, vApps or virtual machines into this pool. The pools, vApps and virtual
+        machines must be part of the cluster or standalone host that contains this
+        pool.
         
         :param list: A list of ResourcePool and VirtualMachine objects.
         
@@ -241,12 +228,10 @@ class ResourcePool(ManagedEntity):
         '''
         return self.delegate("RefreshRuntime")()
     
-    def RegisterChildVM_Task(self, path, name, host):
-        '''Adds an existing virtual machine to this resource pool or vApp.This operation
-        only works for vApps or resource pools that are children of vApps. To register
-        a VM in a folder, see RegisterVM_Task.Any % (percent) character used in this
-        name parameter must be escaped, unless it is used to start an escape sequence.
-        Clients may also escape any other characters in this name parameter.
+    def RegisterChildVM_Task(self, path, name=None, host=None):
+        '''Adds an existing virtual machine to this resource pool or vApp.Adds an existing
+        virtual machine to this resource pool or vApp.Adds an existing virtual machine
+        to this resource pool or vApp.
         
         :param path: A datastore path to the virtual machine. If the path ends with ".vmtx", indicating that it refers to a VM template, an InvalidArgument fault is thrown.
         
@@ -257,31 +242,30 @@ class ResourcePool(ManagedEntity):
         '''
         return self.delegate("RegisterChildVM_Task")(path, name, host)
     
-    def UpdateChildResourceConfiguration(self):
+    def UpdateChildResourceConfiguration(self, spec):
         '''Changes resource configuration of a set of children of this resource pool. The
         method allows bulk modifications of the set of the direct children (virtual
-        machines and resource pools).Bulk modifications are not transactional. Each
-        modification is made individually. If a failure is encountered while applying
-        the changes, then the processing stops, meaning at least one and as many as all
-        of the changes are not applied.A set can include a subset of the resources.
-        Children that are not mentioned in the list are not changed.For each
-        ResourceConfigSpec, the following privilege checks apply:* If the
-        ResourceConfigSpec refers to a child resource pool or a child vApp, the
-        privileges required are the same as would be required for calling UpdateConfig
-        on that entity. * If the ResourceConfigSpec refers to a virtual machine,
-        VirtualMachine.Config.Resource must be held on the virtual machine.
+        machines and resource pools).Changes resource configuration of a set of
+        children of this resource pool. The method allows bulk modifications of the set
+        of the direct children (virtual machines and resource pools).Changes resource
+        configuration of a set of children of this resource pool. The method allows
+        bulk modifications of the set of the direct children (virtual machines and
+        resource pools).Changes resource configuration of a set of children of this
+        resource pool. The method allows bulk modifications of the set of the direct
+        children (virtual machines and resource pools).Changes resource configuration
+        of a set of children of this resource pool. The method allows bulk
+        modifications of the set of the direct children (virtual machines and resource
+        pools).
+        
+        :param spec: 
         
         '''
-        return self.delegate("UpdateChildResourceConfiguration")()
+        return self.delegate("UpdateChildResourceConfiguration")(spec)
     
-    def UpdateConfig(self, name, config):
-        '''Updates the configuration of the resource pool.Any % (percent) character used
-        in this name parameter must be escaped, unless it is used to start an escape
-        sequence. Clients may also escape any other characters in this name
-        parameter.The privilege checks for this operation are as follows:* If this is a
-        resource pool, the privilege Resource.EditPool is required on this and on the
-        parent pool or vApp. * If this is a vApp, the privilege VApp.ResourceConfig is
-        required on this and on the parent pool or vApp.
+    def UpdateConfig(self, name=None, config=None):
+        '''Updates the configuration of the resource pool.Updates the configuration of the
+        resource pool.Updates the configuration of the resource pool.Updates the
+        configuration of the resource pool.
         
         :param name: If set, then the new name of the resource pool.
         

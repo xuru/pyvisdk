@@ -14,15 +14,15 @@ log = logging.getLogger(__name__)
 class VirtualMachineCompatibilityChecker(BaseEntity):
     '''A singleton managed object that can answer questions about compatibility of a
     virtual machine with a host.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.VirtualMachineCompatibilityChecker):
         super(VirtualMachineCompatibilityChecker, self).__init__(core, name=name, ref=ref, type=type)
+
+    
+
     
     
-    
-    
-    
-    def CheckCompatibility_Task(self, vm, host, pool, testType):
+    def CheckCompatibility_Task(self, vm, host=None, pool=None, testType=None):
         '''Tests whether or not a virtual machine could be placed on the given host in the
         given resource pool.
         

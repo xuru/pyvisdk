@@ -14,17 +14,17 @@ def HostFirewallRule(vim, *args, **kwargs):
     express what ports they want to permit through the firewall.'''
     
     obj = vim.client.factory.create('ns0:HostFirewallRule')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 3:
         raise IndexError('Expected at least 4 arguments got: %d' % len(args))
-        
+
     required = [ 'direction', 'port', 'protocol' ]
-    optional = [ 'endPort', 'dynamicProperty', 'dynamicType' ]
-    
+    optional = [ 'endPort', 'portType', 'dynamicProperty', 'dynamicType' ]
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

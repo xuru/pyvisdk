@@ -17,27 +17,29 @@ class HostDiagnosticSystem(BaseEntity):
     following concepts:* Notion of an active diagnostic partition that is selected
     from a set of available partitions. * Ability to create a diagnostic partition
     that gets added to the list of available partitions and could be made active.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostDiagnosticSystem):
         super(HostDiagnosticSystem, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def activePartition(self):
         '''The currently active diagnostic partition.'''
         return self.update('activePartition')
+
     
     
-    
-    def CreateDiagnosticPartition(self):
+    def CreateDiagnosticPartition(self, spec):
         '''Creates a diagnostic partition according to the provided create specification.
         On success, this method will create the partition and make the partition the
         active diagnostic partition if specified. On failure, the diagnostic partition
         may exist but may not be active if the partition was supposed to be made
         active.
         
+        :param spec: 
+        
         '''
-        return self.delegate("CreateDiagnosticPartition")()
+        return self.delegate("CreateDiagnosticPartition")(spec)
     
     def QueryAvailablePartition(self):
         '''Retrieves a list of available diagnostic partitions. The server will provide
@@ -62,18 +64,25 @@ class HostDiagnosticSystem(BaseEntity):
         '''
         return self.delegate("QueryPartitionCreateDesc")(diskUuid, diagnosticType)
     
-    def QueryPartitionCreateOptions(self):
+    def QueryPartitionCreateOptions(self, storageType, diagnosticType):
         '''Retrieves a list of disks that can be used to contain a diagnostic partition.
         This list will contain disks that have sufficient space to contain a diagnostic
-        partition of the specific type.The choices will be returned in the order that
-        is most preferable as determined by the system.
+        partition of the specific type.Retrieves a list of disks that can be used to
+        contain a diagnostic partition. This list will contain disks that have
+        sufficient space to contain a diagnostic partition of the specific type.
+        
+        :param storageType: 
+        
+        :param diagnosticType: 
         
         '''
-        return self.delegate("QueryPartitionCreateOptions")()
+        return self.delegate("QueryPartitionCreateOptions")(storageType, diagnosticType)
     
-    def SelectActivePartition(self):
+    def SelectActivePartition(self, partition=None):
         '''Changes the active diagnostic partition to a different partition. Setting a
         NULL partition will result in unsetting the diagnostic partition.
         
+        :param partition: 
+        
         '''
-        return self.delegate("SelectActivePartition")()
+        return self.delegate("SelectActivePartition")(partition)

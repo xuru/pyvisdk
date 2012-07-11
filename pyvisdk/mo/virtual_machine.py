@@ -21,10 +21,10 @@ class VirtualMachine(ManagedEntity):
     machine disposes of all associated storage, including the virtual disks. To
     remove a virtual machine while retaining its virtual disk storage, a client
     must remove the virtual disks from the virtual machine before destroying it.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.VirtualMachine):
         super(VirtualMachine, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def capability(self):
@@ -116,17 +116,18 @@ class VirtualMachine(ManagedEntity):
         '''Basic information about this virtual machine. This includes: * runtimeInfo *
         guest * basic configuration * alarms * performance information'''
         return self.update('summary')
-    
+
     
     
     def AcquireMksTicket(self):
-        '''Deprecated. As of vSphere API 4.1, use AcquireTicket instead. Creates and
-        returns a one-time credential used in establishing a remote mouse-keyboard-
-        screen connection to this virtual machine. The correct function of this method
-        depends on being able to retrieve TCP binding information about the server end
-        of the client connection that is requesting the ticket. If such information is
-        not available, the NotSupported fault is thrown. This method is appropriate for
-        SOAP and authenticated connections, which are both TCP-based connections.
+        '''<b>Deprecated.</b> <i>As of vSphere API 4.1, use AcquireTicket instead.</i>
+        Creates and returns a one-time credential used in establishing a remote mouse-
+        keyboard-screen connection to this virtual machine. The correct function of
+        this method depends on being able to retrieve TCP binding information about the
+        server end of the client connection that is requesting the ticket. If such
+        information is not available, the NotSupported fault is thrown. This method is
+        appropriate for SOAP and authenticated connections, which are both TCP-based
+        connections.
         
         '''
         return self.delegate("AcquireMksTicket")()
@@ -134,15 +135,16 @@ class VirtualMachine(ManagedEntity):
     def AcquireTicket(self, ticketType):
         '''Creates and returns a one-time credential used in establishing a specific
         connection to this virtual machine, for example, a ticket type of mks can be
-        used to establish a remote mouse-keyboard-screen connection.A client using this
-        ticketing mechanism must have network connectivity to the ESX server where the
-        virtual machine is running, and the ESX server must be reachable to the
-        management client from the address made available to the client via the
-        ticket.Acquiring a virtual machine ticket requires different privileges
-        depending on the types of ticket:* VirtualMachine.Interact.DeviceConnection if
-        requesting a device ticket. * VirtualMachine.Interact.GuestControl if
-        requesting a guestControl ticket. * VirtualMachine.Interact.ConsoleInteract if
-        requesting an mks ticket.
+        used to establish a remote mouse-keyboard-screen connection.Creates and returns
+        a one-time credential used in establishing a specific connection to this
+        virtual machine, for example, a ticket type of mks can be used to establish a
+        remote mouse-keyboard-screen connection.Creates and returns a one-time
+        credential used in establishing a specific connection to this virtual machine,
+        for example, a ticket type of mks can be used to establish a remote mouse-
+        keyboard-screen connection.Creates and returns a one-time credential used in
+        establishing a specific connection to this virtual machine, for example, a
+        ticket type of mks can be used to establish a remote mouse-keyboard-screen
+        connection.
         
         :param ticketType: The type of service to acquire, the set of possible values is described in VirtualMachineTicketType.
         
@@ -173,22 +175,16 @@ class VirtualMachine(ManagedEntity):
     
     def CloneVM_Task(self, folder, name, spec):
         '''Creates a clone of this virtual machine. If the virtual machine is used as a
-        template, this method corresponds to the deploy command.Any % (percent)
-        character used in this name parameter must be escaped, unless it is used to
-        start an escape sequence. Clients may also escape any other characters in this
-        name parameter.The privilege required on the source virtual machine depends on
-        the source and destination types:* source is virtual machine, destination is
-        virtual machine - VirtualMachine.Provisioning.Clone * source is virtual
-        machine, destination is template -
-        VirtualMachine.Provisioning.CreateTemplateFromVM * source is template,
-        destination is virtual machine - VirtualMachine.Provisioning.DeployTemplate *
-        source is template, destination is template -
-        VirtualMachine.Provisioning.CloneTemplateIf customization is requested in the
-        CloneSpec, then the VirtualMachine.Provisioning.Customize privilege must also
-        be held on the source virtual machine.The Resource.AssignVMToPool privilege is
-        also required for the resource pool specified in the CloneSpec, if the
-        destination is not a template. The Datastore.AllocateSpace privilege is
-        required on all datastores where the clone is created.
+        template, this method corresponds to the deploy command.Creates a clone of this
+        virtual machine. If the virtual machine is used as a template, this method
+        corresponds to the deploy command.Creates a clone of this virtual machine. If
+        the virtual machine is used as a template, this method corresponds to the
+        deploy command.Creates a clone of this virtual machine. If the virtual machine
+        is used as a template, this method corresponds to the deploy command.Creates a
+        clone of this virtual machine. If the virtual machine is used as a template,
+        this method corresponds to the deploy command.Creates a clone of this virtual
+        machine. If the virtual machine is used as a template, this method corresponds
+        to the deploy command.
         
         :param folder: The location of the new virtual machine.
         
@@ -199,37 +195,42 @@ class VirtualMachine(ManagedEntity):
         '''
         return self.delegate("CloneVM_Task")(folder, name, spec)
     
+    def ConsolidateVMDisks_Task(self):
+        '''Consolidate the virtual disk files of the virtual machine by finding
+        hierarchies of redo logs that can be combined without violating data
+        dependency. The redundant redo logs after merging are then deleted.
+        Consolidation improves I/O performance since less number of virtual disk files
+        need to be traversed; it also reduces the storage usage. However additional
+        space is temporarily required to perform the operation. Use
+        EstimateStorageForConsolidateSnapshots_Task to estimate the temporary space
+        required. Consolidation can be I/O intensive, it is advisable to invoke this
+        operation when guest is not under heavy I/O usage.
+        
+        '''
+        return self.delegate("ConsolidateVMDisks_Task")()
+    
     def CreateScreenshot_Task(self):
         '''Create a screen shot of a virtual machine.
         
         '''
         return self.delegate("CreateScreenshot_Task")()
     
-    def CreateSecondaryVM_Task(self, host):
-        '''Creates a secondary virtual machine to be part of this fault tolerant group.If
-        a host is specified, the secondary virtual machine will be created on it.
-        Otherwise, a host will be selected by the system.If the primary virtual machine
-        (i.e., this virtual machine) is powered on when the secondary is created, an
-        attempt will be made to power on the secondary on a system selected host. If
-        the cluster is a DRS cluster, DRS will be invoked to obtain a placement for the
-        new secondary virtual machine. If the DRS recommendation (see
-        ClusterRecommendation) is automatic, it will be automatically executed.
-        Otherwise, the recommendation will be returned to the caller of this method and
-        the secondary will remain powered off until the recommendation is approved
-        using ApplyRecommendation. Failure to power on the secondary virtual machine
-        will not fail the creation of the secondary.
+    def CreateSecondaryVM_Task(self, host=None):
+        '''Creates a secondary virtual machine to be part of this fault tolerant
+        group.Creates a secondary virtual machine to be part of this fault tolerant
+        group.Creates a secondary virtual machine to be part of this fault tolerant
+        group.
         
         :param host: The host where the secondary virtual machine is to be created and powered on. If no host is specified, a compatible host will be selected by the system. If a host cannot be found for the secondary or the specified host is not suitable, the secondary will not be created and a fault will be returned.
         
         '''
         return self.delegate("CreateSecondaryVM_Task")(host)
     
-    def CreateSnapshot_Task(self, name, description, memory, quiesce):
+    def CreateSnapshot_Task(self, name, memory, quiesce, description=None):
         '''Creates a new snapshot of this virtual machine. As a side effect, this updates
-        the current snapshot.Snapshots are not supported for Fault Tolerance primary
-        and secondary virtual machines.Any % (percent) character used in this name
-        parameter must be escaped, unless it is used to start an escape sequence.
-        Clients may also escape any other characters in this name parameter.
+        the current snapshot.Creates a new snapshot of this virtual machine. As a side
+        effect, this updates the current snapshot.Creates a new snapshot of this
+        virtual machine. As a side effect, this updates the current snapshot.
         
         :param name: The name for this snapshot. The name need not be unique for this virtual machine.
         
@@ -267,21 +268,11 @@ class VirtualMachine(ManagedEntity):
         '''
         return self.delegate("DisableSecondaryVM_Task")(vm)
     
-    def EnableSecondaryVM_Task(self, vm, host):
+    def EnableSecondaryVM_Task(self, vm, host=None):
         '''Enables the specified secondary virtual machine in this fault tolerant
-        group.This operation is used to enable a secondary virtual machine that was
-        previously disabled by the DisableSecondaryVM_Task call. The specified
-        secondary will be automatically started whenever the primary is powered on.If
-        the primary virtual machine (i.e., this virtual machine) is powered on when the
-        secondary is enabled, an attempt will be made to power on the secondary. If a
-        host was specified in the method call, this host will be used. If a host is not
-        specified, one will be selected by the system. In the latter case, if the
-        cluster is a DRS cluster, DRS will be invoked to obtain a placement for the new
-        secondary virtual machine. If the DRS recommendation (see
-        ClusterRecommendation) is automatic, it will be executed. Otherwise, the
-        recommendation will be returned to the caller of this method and the secondary
-        will remain powered off until the recommendation is approved using
-        ApplyRecommendation.
+        group.Enables the specified secondary virtual machine in this fault tolerant
+        group.Enables the specified secondary virtual machine in this fault tolerant
+        group.
         
         :param vm: The secondary virtual machine specified will be enabled. This field must specify a secondary virtual machine that is part of the fault tolerant group that this virtual machine is currently associated with. It can only be invoked from the primary virtual machine in the group.
         
@@ -290,11 +281,27 @@ class VirtualMachine(ManagedEntity):
         '''
         return self.delegate("EnableSecondaryVM_Task")(vm, host)
     
+    def EstimateStorageForConsolidateSnapshots_Task(self):
+        '''Estimate the temporary space required to consolidation disk files. The
+        estimation is a lower bound if the childmost writable disk file will be
+        consolidated for an online virtual machine, it is accurate for all other
+        situations. This is because the space requirement depending on the size of the
+        childmost disk file and how write intensive the guest is.Estimate the temporary
+        space required to consolidation disk files. The estimation is a lower bound if
+        the childmost writable disk file will be consolidated for an online virtual
+        machine, it is accurate for all other situations. This is because the space
+        requirement depending on the size of the childmost disk file and how write
+        intensive the guest is.
+        
+        '''
+        return self.delegate("EstimateStorageForConsolidateSnapshots_Task")()
+    
     def ExportVm(self):
         '''Obtains an export lease on this virtual machine. The export lease contains a
         list of URLs for the virtual disks for this virtual machine, as well as a
-        ticket giving access to the URLs.See HttpNfcLease for information on how to use
-        the lease.
+        ticket giving access to the URLs.Obtains an export lease on this virtual
+        machine. The export lease contains a list of URLs for the virtual disks for
+        this virtual machine, as well as a ticket giving access to the URLs.
         
         '''
         return self.delegate("ExportVm")()
@@ -324,7 +331,7 @@ class VirtualMachine(ManagedEntity):
         '''
         return self.delegate("MarkAsTemplate")()
     
-    def MarkAsVirtualMachine(self, pool, host):
+    def MarkAsVirtualMachine(self, pool, host=None):
         '''Clears the 'isTemplate' flag and reassociates the virtual machine with a
         resource pool and host.
         
@@ -335,11 +342,10 @@ class VirtualMachine(ManagedEntity):
         '''
         return self.delegate("MarkAsVirtualMachine")(pool, host)
     
-    def MigrateVM_Task(self, pool, host, priority, state):
+    def MigrateVM_Task(self, priority, pool=None, host=None, state=None):
         '''Migrates a virtual machine's execution to a specific resource pool or
-        host.Requires Resource.HotMigrate privilege if the virtual machine is powered
-        on or Resource.ColdMigrate privilege if the virtual machine is powered off or
-        suspended.
+        host.Migrates a virtual machine's execution to a specific resource pool or
+        host.
         
         :param pool: The target resource pool for the virtual machine. If the pool parameter is left unset, the virtual machine's current pool is used as the target pool.
         
@@ -370,32 +376,20 @@ class VirtualMachine(ManagedEntity):
     
     def PowerOnVM_Task(self, host=None):
         '''Powers on this virtual machine. If the virtual machine is suspended, this
-        method resumes execution from the suspend point.When powering on a virtual
-        machine in a cluster, the system might implicitly or due to the host argument,
-        do an implicit relocation of the virtual machine to another host. Hence, errors
-        related to this relocation can be thrown. If the cluster is a DRS cluster, DRS
-        will be invoked if the virtual machine can be automatically placed by DRS (see
-        DrsBehavior). Because this method does not return a DRS ClusterRecommendation,
-        no vmotion nor host power operations will be done as part of a DRS-facilitated
-        power on. To have DRS consider such operations use PowerOnMultiVM_Task.If this
-        virtual machine is a fault tolerant primary virtual machine, its secondary
-        virtual machines will be started on system-selected hosts. If the virtual
-        machines are in a VMware DRS enabled cluster, then DRS will be invoked to
-        obtain placements for the secondaries but no vmotion nor host power operations
-        will be considered for these power ons.
+        method resumes execution from the suspend point.Powers on this virtual machine.
+        If the virtual machine is suspended, this method resumes execution from the
+        suspend point.Powers on this virtual machine. If the virtual machine is
+        suspended, this method resumes execution from the suspend point.
         
         :param host: (optional) The host where the virtual machine is to be powered on. If no host is specified, the current associated host is used. This field must specify a host that is part of the same compute resource that the virtual machine is currently associated with. If this host is not compatible, the current host association is used.
         
         '''
         return self.delegate("PowerOnVM_Task")(host)
     
-    def PromoteDisks_Task(self, unlink, disks):
-        '''Promotes disks on this virtual machine that have delta disk backings.A delta
-        disk backing is a way to preserve a virtual disk backing at some point in time.
-        A delta disk backing is a file backing which in turn points to the original
-        virtual disk backing (the parent). After a delta disk backing is added, all
-        writes go to the delta disk backing. All reads first try the delta disk backing
-        and then try the parent backing if needed.Promoting does two things
+    def PromoteDisks_Task(self, unlink, disks=None):
+        '''Promotes disks on this virtual machine that have delta disk backings.Promotes
+        disks on this virtual machine that have delta disk backings.Promotes disks on
+        this virtual machine that have delta disk backings.
         
         :param unlink: If true, then these disks will be unlinked before consolidation.
         
@@ -404,13 +398,14 @@ class VirtualMachine(ManagedEntity):
         '''
         return self.delegate("PromoteDisks_Task")(unlink, disks)
     
-    def QueryChangedDiskAreas(self, snapshot, deviceKey, startOffset, changeId):
+    def QueryChangedDiskAreas(self, deviceKey, startOffset, changeId, snapshot=None):
         '''Get a list of areas of a virtual disk belonging to this VM that have been
         modified since a well-defined point in the past. The beginning of the change
         interval is identified by "changeId", while the end of the change interval is
-        implied by the snapshot ID passed in.Note that the result of this function may
-        contain "false positives" (i.e: flag areas of the disk as modified that are
-        not). However, it is guaranteed that no changes will be missed.
+        implied by the snapshot ID passed in.Get a list of areas of a virtual disk
+        belonging to this VM that have been modified since a well-defined point in the
+        past. The beginning of the change interval is identified by "changeId", while
+        the end of the change interval is implied by the snapshot ID passed in.
         
         :param snapshot: Snapshot for which changes that have been made sine "changeId" should be computed. If not set, changes are computed against the "current" snapshot of the virtual machine. However, using the "current" snapshot will only work for virtual machines that are powered off.
         
@@ -453,45 +448,18 @@ class VirtualMachine(ManagedEntity):
     
     def ReconfigVM_Task(self, spec):
         '''Reconfigures this virtual machine. All the changes in the given configuration
-        are applied to the virtual machine as an atomic operation.Reconfiguring the
-        virtual machine may require any of the following privileges depending on what
-        is being changed:* VirtualMachine.Interact.DeviceConnection if changing the
-        runtime connection state of a device as embodied by the Connectable property. *
-        VirtualMachine.Interact.SetCDMedia if changing the backing of a CD-ROM device *
-        VirtualMachine.Interact.SetFloppyMedia if changing the backing of a floppy
-        device * VirtualMachine.Config.Rename if renaming the virtual machine *
-        VirtualMachine.Config.AddExistingDisk if adding a virtual disk device that is
-        backed by an existing virtual disk file * VirtualMachine.Config.AddNewDisk if
-        adding a virtual disk device for which the backing virtual disk file is to be
-        created * VirtualMachine.Config.RemoveDisk if removing a virtual disk device
-        that refers to a virtual disk file * VirtualMachine.Config.CPUCount if changing
-        the number of CPUs * VirtualMachine.Config.Memory if changing the amount of
-        memory * VirtualMachine.Config.RawDevice if adding, removing or editing a raw
-        device mapping (RDM) or SCSI passthrough device *
-        VirtualMachine.Config.AddRemoveDevice if adding or removing any device other
-        than disk, raw, or USB device * VirtualMachine.Config.EditDevice if changing
-        the settings of any device * VirtualMachine.Config.Settings if changing any
-        basic settings such as those in ToolsConfigInfo, FlagInfo, or
-        DefaultPowerOpInfo * VirtualMachine.Config.Resource if changing resource
-        allocations, affinities, or setting network traffic shaping or virtual disk
-        shares * VirtualMachine.Config.AdvancedConfig if changing values in extraConfig
-        * VirtualMachine.Config.SwapPlacement if changing swapPlacement *
-        VirtualMachine.Config.HostUSBDevice if adding, removing or editing a VirtualUSB
-        device backed by the host USB device. * VirtualMachine.Config.DiskExtend if
-        extending an existing VirtualDisk device. *
-        VirtualMachine.Config.ChangeTracking if enabling/disabling changed block
-        tracking for the virtual machine's disks. * DVSwitch.CanUse if connecting a
-        VirtualEthernetAdapter to a port in a DistributedVirtualSwitch. *
-        DVPortgroup.CanUse if connecting a VirtualEthernetAdapter to a
-        DistributedVirtualPortgroup.Creating a virtual machine may require the
-        following privileges:* VirtualMachine.Config.RawDevice if adding a raw device *
-        VirtualMachine.Config.AddExistingDisk if adding a VirtualDisk and the
-        fileOperation is unset * VirtualMachine.Config.AddNewDisk if adding a
-        VirtualDisk and the fileOperation is set * VirtualMachine.Config.HostUSBDevice
-        if adding a VirtualUSB device backed by the host USB device.In addition, this
-        operation may require the following privileges:* Datastore.AllocateSpace on any
-        datastore where virtual disks will be created or extended. * Network.Assign on
-        any network the virtual machine will be connected to.
+        are applied to the virtual machine as an atomic operation.Reconfigures this
+        virtual machine. All the changes in the given configuration are applied to the
+        virtual machine as an atomic operation.Reconfigures this virtual machine. All
+        the changes in the given configuration are applied to the virtual machine as an
+        atomic operation.Reconfigures this virtual machine. All the changes in the
+        given configuration are applied to the virtual machine as an atomic
+        operation.Reconfigures this virtual machine. All the changes in the given
+        configuration are applied to the virtual machine as an atomic
+        operation.Reconfigures this virtual machine. All the changes in the given
+        configuration are applied to the virtual machine as an atomic
+        operation.Reconfigures this virtual machine. All the changes in the given
+        configuration are applied to the virtual machine as an atomic operation.
         
         :param spec: The new configuration values.
         
@@ -505,29 +473,37 @@ class VirtualMachine(ManagedEntity):
         '''
         return self.delegate("RefreshStorageInfo")()
     
-    def reloadVirtualMachineFromPath_Task(self):
+    def reloadVirtualMachineFromPath_Task(self, configurationPath):
         '''Reloads the configuration for this virtual machine from a given datastore path.
         This is equivalent to unregistering and registering the virtual machine from a
         different path. The virtual machine's hardware configuration, snapshots,
         guestinfo variables etc. will be replaced based on the new configuration file.
         Other information associated with the virtual machine object, such as events
-        and permissions, will be preserved.This method is only supported on vCenter
-        Server. It can be invoked on inaccessible or orphaned virtual machines, but it
-        cannot be invoked on powered on, connected virtual machines.Note: If the
-        referenced configuration path does not refer to a valid virtual machine,
-        configuration information for the virtual machine object may be lost.
+        and permissions, will be preserved.Reloads the configuration for this virtual
+        machine from a given datastore path. This is equivalent to unregistering and
+        registering the virtual machine from a different path. The virtual machine's
+        hardware configuration, snapshots, guestinfo variables etc. will be replaced
+        based on the new configuration file. Other information associated with the
+        virtual machine object, such as events and permissions, will be
+        preserved.Reloads the configuration for this virtual machine from a given
+        datastore path. This is equivalent to unregistering and registering the virtual
+        machine from a different path. The virtual machine's hardware configuration,
+        snapshots, guestinfo variables etc. will be replaced based on the new
+        configuration file. Other information associated with the virtual machine
+        object, such as events and permissions, will be preserved.
+        
+        :param configurationPath: 
         
         '''
-        return self.delegate("reloadVirtualMachineFromPath_Task")()
+        return self.delegate("reloadVirtualMachineFromPath_Task")(configurationPath)
     
-    def RelocateVM_Task(self, spec, priority):
+    def RelocateVM_Task(self, spec, priority=None):
         '''Relocates a virtual machine's virtual disks to a specific location; optionally
-        moves the virtual machine to a different host as well.Additionally requires the
-        Resource.HotMigrate privilege if the virtual machine is powered on (for Storage
-        VMotion), and Datastore.AllocateSpace on any datastore the virtual machine or
-        its disks are relocated to.If the "pool" field of the RelocateSpec is set,
-        additionally requires the Resource.AssignVMToPool privilege held on the
-        specified pool.
+        moves the virtual machine to a different host as well.Relocates a virtual
+        machine's virtual disks to a specific location; optionally moves the virtual
+        machine to a different host as well.Relocates a virtual machine's virtual disks
+        to a specific location; optionally moves the virtual machine to a different
+        host as well.
         
         :param spec: The specification of where to relocate the virtual machine.
         
@@ -536,18 +512,20 @@ class VirtualMachine(ManagedEntity):
         '''
         return self.delegate("RelocateVM_Task")(spec, priority)
     
-    def RemoveAllSnapshots_Task(self):
+    def RemoveAllSnapshots_Task(self, consolidate=None):
         '''Remove all the snapshots associated with this virtual machine. If the virtual
         machine does not have any snapshots, then this operation simply returns
         successfully.
         
+        :param consolidate: (optional) If set to true, the virtual disks of the deleted snapshot will be merged with other disk if possible. Default to true.vSphere API 5.0
+        
         '''
-        return self.delegate("RemoveAllSnapshots_Task")()
+        return self.delegate("RemoveAllSnapshots_Task")(consolidate)
     
     def ResetGuestInformation(self):
         '''Clears cached guest information. Guest information can be cleared only if the
-        virtual machine is powered off.This method can be useful if stale information
-        is cached, preventing an IP address or MAC address from being reused.
+        virtual machine is powered off.Clears cached guest information. Guest
+        information can be cleared only if the virtual machine is powered off.
         
         '''
         return self.delegate("ResetGuestInformation")()
@@ -555,18 +533,18 @@ class VirtualMachine(ManagedEntity):
     def ResetVM_Task(self):
         '''Resets power on this virtual machine. If the current state is poweredOn, then
         this method first performs powerOff(hard). Once the power state is poweredOff,
-        then this method performs powerOn(option).Although this method functions as a
-        powerOff followed by a powerOn, the two operations are atomic with respect to
-        other clients, meaning that other power operations cannot be performed until
-        the reset method completes.
+        then this method performs powerOn(option).Resets power on this virtual machine.
+        If the current state is poweredOn, then this method first performs
+        powerOff(hard). Once the power state is poweredOff, then this method performs
+        powerOn(option).
         
         '''
         return self.delegate("ResetVM_Task")()
     
-    def RevertToCurrentSnapshot_Task(self, host, suppressPowerOn):
+    def RevertToCurrentSnapshot_Task(self, host=None, suppressPowerOn=None):
         '''Reverts the virtual machine to the current snapshot. This is equivalent to
-        doing snapshot.currentSnapshot.revert.If no snapshot exists, then the operation
-        does nothing, and the virtual machine state remains unchanged.
+        doing snapshot.currentSnapshot.revert.Reverts the virtual machine to the
+        current snapshot. This is equivalent to doing snapshot.currentSnapshot.revert.
         
         :param host: (optional) Choice of host for the virtual machine, in case this operation causes the virtual machine to power on.
         
@@ -609,11 +587,12 @@ class VirtualMachine(ManagedEntity):
         '''
         return self.delegate("StandbyGuest")()
     
-    def StartRecording_Task(self, name, description):
+    def StartRecording_Task(self, name, description=None):
         '''Initiates a recording session on this virtual machine. As a side effect, this
         operation creates a snapshot on the virtual machine, which in turn becomes the
-        current snapshot.This is an experimental interface that is not intended for use
-        in production code.
+        current snapshot.Initiates a recording session on this virtual machine. As a
+        side effect, this operation creates a snapshot on the virtual machine, which in
+        turn becomes the current snapshot.
         
         :param name: The name for the snapshot associated with this recording. The name need not be unique for this virtual machine.
         
@@ -624,8 +603,9 @@ class VirtualMachine(ManagedEntity):
     
     def StartReplaying_Task(self, replaySnapshot):
         '''Starts a replay session on this virtual machine. As a side effect, this
-        operation updates the current snapshot of the virtual machine.This is an
-        experimental interface that is not intended for use in production code.
+        operation updates the current snapshot of the virtual machine.Starts a replay
+        session on this virtual machine. As a side effect, this operation updates the
+        current snapshot of the virtual machine.
         
         :param replaySnapshot: The snapshot from which to start the replay. This snapshot must have been created by a record operation on the virtual machine.
         
@@ -633,15 +613,15 @@ class VirtualMachine(ManagedEntity):
         return self.delegate("StartReplaying_Task")(replaySnapshot)
     
     def StopRecording_Task(self):
-        '''Stops a currently active recording session on this virtual machine.This is an
-        experimental interface that is not intended for use in production code.
+        '''Stops a currently active recording session on this virtual machine.Stops a
+        currently active recording session on this virtual machine.
         
         '''
         return self.delegate("StopRecording_Task")()
     
     def StopReplaying_Task(self):
-        '''Stops a replay session on this virtual machine.This is an experimental
-        interface that is not intended for use in production code.
+        '''Stops a replay session on this virtual machine.Stops a replay session on this
+        virtual machine.
         
         '''
         return self.delegate("StopReplaying_Task")()
@@ -652,7 +632,7 @@ class VirtualMachine(ManagedEntity):
         '''
         return self.delegate("SuspendVM_Task")()
     
-    def TerminateFaultTolerantVM_Task(self, vm):
+    def TerminateFaultTolerantVM_Task(self, vm=None):
         '''Terminates the specified secondary virtual machine in a fault tolerant group.
         This can be used to test fault tolerance on a given virtual machine, and should
         be used with care.
@@ -681,16 +661,16 @@ class VirtualMachine(ManagedEntity):
         virtual machine's files on disk. All high-level information stored with the
         management server (ESX Server or VirtualCenter) is removed, including
         information such as statistics, resource pool association, permissions, and
-        alarms.Use the Folder.RegisterVM method to recreate a VirtualMachine object
-        from the set of virtual machine files by passing in the path to the
-        configuration file. However, the VirtualMachine managed object that results
-        typically has different objects ID and may inherit a different set of
-        permissions.
+        alarms.Removes this virtual machine from the inventory without removing any of
+        the virtual machine's files on disk. All high-level information stored with the
+        management server (ESX Server or VirtualCenter) is removed, including
+        information such as statistics, resource pool association, permissions, and
+        alarms.
         
         '''
         return self.delegate("UnregisterVM")()
     
-    def UpgradeTools_Task(self, installerOptions):
+    def UpgradeTools_Task(self, installerOptions=None):
         '''Begins the tools upgrade process. To monitor the status of the tools install,
         clients should check the tools status, toolsVersionStatus and
         toolsRunningStatus.
@@ -700,7 +680,7 @@ class VirtualMachine(ManagedEntity):
         '''
         return self.delegate("UpgradeTools_Task")(installerOptions)
     
-    def UpgradeVM_Task(self, version):
+    def UpgradeVM_Task(self, version=None):
         '''Upgrades this virtual machine's virtual hardware to the latest revision that is
         supported by the virtual machine's current host.
         

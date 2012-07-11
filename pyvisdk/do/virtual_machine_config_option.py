@@ -21,19 +21,19 @@ def VirtualMachineConfigOption(vim, *args, **kwargs):
     on which to run virtual machines.'''
     
     obj = vim.client.factory.create('ns0:VirtualMachineConfigOption')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 8:
         raise IndexError('Expected at least 9 arguments got: %d' % len(args))
-        
+
     required = [ 'capabilities', 'datastore', 'description', 'guestOSDefaultIndex',
         'guestOSDescriptor', 'hardwareOptions', 'supportedMonitorType', 'version' ]
     optional = [ 'defaultDevice', 'supportedOvfEnvironmentTransport',
         'supportedOvfInstallTransport', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

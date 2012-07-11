@@ -14,19 +14,19 @@ def CustomizationSysprepFailed(vim, *args, **kwargs):
     we include the version information in the event.'''
     
     obj = vim.client.factory.create('ns0:CustomizationSysprepFailed')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 7:
         raise IndexError('Expected at least 8 arguments got: %d' % len(args))
-        
+
     required = [ 'sysprepVersion', 'systemVersion', 'template', 'chainId', 'createdTime', 'key',
         'userName' ]
     optional = [ 'logLocation', 'changeTag', 'computeResource', 'datacenter', 'ds', 'dvs',
         'fullFormattedMessage', 'host', 'net', 'vm', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

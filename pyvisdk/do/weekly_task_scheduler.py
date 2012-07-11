@@ -19,18 +19,18 @@ def WeeklyTaskScheduler(vim, *args, **kwargs):
     weeks.)'''
     
     obj = vim.client.factory.create('ns0:WeeklyTaskScheduler')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 10:
         raise IndexError('Expected at least 11 arguments got: %d' % len(args))
-        
+
     required = [ 'friday', 'monday', 'saturday', 'sunday', 'thursday', 'tuesday', 'wednesday',
         'hour', 'minute', 'interval' ]
     optional = [ 'activeTime', 'expireTime', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

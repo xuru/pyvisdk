@@ -30,7 +30,7 @@ class TestDatacenter(unittest.TestCase):
         _name = dcs[0].name
         dc = self.vim.getDatacenter(_name)
         self.assertIsNotNone(dc, "Couldn't get DC: %s" % _name)
-        self.assertEqual(dc.type, ManagedObjectTypes.Datacenter, "Datacenter's type isn't Datacenter...")
+        self.assertEqual(dc._type, ManagedObjectTypes.Datacenter, "Datacenter's type isn't Datacenter...")
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testDatacenter']

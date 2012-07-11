@@ -15,17 +15,17 @@ def DynamicArray(vim, *args, **kwargs):
     client would see the type as T[] where T is known.'''
     
     obj = vim.client.factory.create('ns0:DynamicArray')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
-        
+
     required = [ 'val' ]
     optional = [ 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

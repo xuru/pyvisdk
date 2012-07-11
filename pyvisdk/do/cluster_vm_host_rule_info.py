@@ -20,19 +20,19 @@ def ClusterVmHostRuleInfo(vim, *args, **kwargs):
     you modify a VM-Host rule, only the fields that are specified are set.'''
     
     obj = vim.client.factory.create('ns0:ClusterVmHostRuleInfo')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
-        
+
     required = [  ]
     optional = [ 'affineHostGroupName', 'antiAffineHostGroupName', 'vmGroupName', 'enabled',
         'inCompliance', 'key', 'mandatory', 'name', 'status', 'userCreated',
         'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

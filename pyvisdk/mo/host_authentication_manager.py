@@ -41,10 +41,10 @@ class HostAuthenticationManager(BaseEntity):
     must create the "ESX Admins" group in the Active Directory. The host will
     periodically check the domain controller for the group and will assign the role
     when the group exists.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostAuthenticationManager):
         super(HostAuthenticationManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def info(self):
@@ -55,5 +55,5 @@ class HostAuthenticationManager(BaseEntity):
         '''An array that can contain managed object references to local and Active
         Directory authentication managed objects.'''
         return self.update('supportedStore')
-    
+
     

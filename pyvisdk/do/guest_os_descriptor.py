@@ -13,23 +13,27 @@ def GuestOsDescriptor(vim, *args, **kwargs):
     operating system.'''
     
     obj = vim.client.factory.create('ns0:GuestOsDescriptor')
-    
+
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 18:
-        raise IndexError('Expected at least 19 arguments got: %d' % len(args))
-        
-    required = [ 'family', 'fullName', 'id', 'recommendedColorDepth',
-        'recommendedDiskController', 'recommendedDiskSizeMB', 'recommendedMemMB',
-        'supportedDiskControllerList', 'supportedEthernetCard', 'supportedMaxCPUs',
-        'supportedMaxMemMB', 'supportedMinMemMB', 'supportedNumDisks',
+    if (len(args) + len(kwargs)) < 30:
+        raise IndexError('Expected at least 31 arguments got: %d' % len(args))
+
+    required = [ 'family', 'fullName', 'ich7mRecommended', 'id', 'numSupportedCoresPerSocket',
+        'numSupportedPhysicalSockets', 'recommendedColorDepth',
+        'recommendedDiskController', 'recommendedDiskSizeMB', 'recommendedFirmware',
+        'recommendedMemMB', 'smcRecommended', 'smcRequired',
+        'supportedDiskControllerList', 'supportedEthernetCard', 'supportedFirmware',
+        'supportedForCreate', 'supportedMaxCPUs', 'supportedMaxMemMB',
+        'supportedMinMemMB', 'supportedNumDisks', 'supportLevel', 'supports3D',
         'supportsCpuHotAdd', 'supportsCpuHotRemove', 'supportsMemoryHotAdd',
-        'supportsVMI', 'supportsWakeOnLan' ]
+        'supportsVMI', 'supportsWakeOnLan', 'usbRecommended', 'vRAMSizeInKB' ]
     optional = [ 'cpuFeatureMask', 'recommendedEthernetCard', 'recommendedSCSIController',
-        'supportsSlaveDisk', 'dynamicProperty', 'dynamicType' ]
-    
+        'recommendedUSBController', 'supportedUSBControllerList', 'supportsSlaveDisk',
+        'dynamicProperty', 'dynamicType' ]
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

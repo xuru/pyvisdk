@@ -18,6 +18,7 @@ VirtualMachineDeviceRuntimeInfoVirtualEthernetCardRuntimeStateVmDirectPathGen2In
     'vmNptIncompatibleGuestDriver',
     'vmNptInsufficientMemoryReservation',
     'vmNptMonitorBlocks',
+    'vmNptOutOfIntrVector',
     'vmNptRuntimeError',
 
 )

@@ -19,10 +19,10 @@ class ExtensibleManagedObject(BaseEntity):
     type to which a particular custom field applies by setting its
     managedObjectType. (If you do not set a managed object type for a custom field
     definition, the field applies to all managed objects.)'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ExtensibleManagedObject):
         super(ExtensibleManagedObject, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def availableField(self):
@@ -34,7 +34,7 @@ class ExtensibleManagedObject(BaseEntity):
         '''List of custom field values. Each value uses a key to associate an instance of
         a CustomFieldStringValue with a custom field definition.'''
         return self.update('value')
-    
+
     
     
     def setCustomValue(self, key, value):

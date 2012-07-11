@@ -20,10 +20,10 @@ class ComputeResource(ManagedEntity):
     ComputeResource always has a root ResourcePool associated with it. Certain
     types of clusters such as those with VMware DRS enabled and standalone hosts
     (ESX Server 3) support the creation of ResourcePool hierarchies.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ComputeResource):
         super(ComputeResource, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def configurationEx(self):
@@ -59,7 +59,7 @@ class ComputeResource(ManagedEntity):
         '''Basic runtime information about a compute resource. This information is used on
         summary screens and in list views.'''
         return self.update('summary')
-    
+
     
     
     def ReconfigureComputeResource_Task(self, spec, modify):

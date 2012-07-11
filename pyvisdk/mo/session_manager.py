@@ -15,10 +15,10 @@ class SessionManager(BaseEntity):
     '''This managed object type includes methods for logging on and logging off
     clients, determining which clients are currently logged on, and forcing clients
     to log off.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.SessionManager):
         super(SessionManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def currentSession(self):
@@ -49,7 +49,7 @@ class SessionManager(BaseEntity):
         available. If localized information is not available, the message is returned
         using the system locale.'''
         return self.update('supportedLocaleList')
-    
+
     
     
     def AcquireCloneTicket(self):
@@ -57,30 +57,34 @@ class SessionManager(BaseEntity):
         session. The caller of this operation can pass the ticket value to another
         entity on the client. The recipient can then call CloneSession with the ticket
         string on an unauthenticated session and avoid having to re-enter
-        credentials.The ticket may only be used once and becomes invalid after use. The
-        ticket is also invalidated when the corresponding session is closed or expires.
-        The ticket is only valid on the server which issued it.This sequence of
-        operations is conceptually similar to the functionality provided by
-        AcquireLocalTicket, however the methods can be used by remote clients and do
-        not require a shared filesystem for transport.See CloneSession
+        credentials.Acquire a session-specific ticket string which can be used to clone
+        the current session. The caller of this operation can pass the ticket value to
+        another entity on the client. The recipient can then call CloneSession with the
+        ticket string on an unauthenticated session and avoid having to re-enter
+        credentials.Acquire a session-specific ticket string which can be used to clone
+        the current session. The caller of this operation can pass the ticket value to
+        another entity on the client. The recipient can then call CloneSession with the
+        ticket string on an unauthenticated session and avoid having to re-enter
+        credentials.
         
         '''
         return self.delegate("AcquireCloneTicket")()
     
+    def AcquireGenericServiceTicket(self, spec):
+        '''Creates and returns a one-time credential that may be used to make the
+        specified request.
+        
+        :param spec: specification for the service request which will be invoked with the ticket.
+        
+        '''
+        return self.delegate("AcquireGenericServiceTicket")(spec)
+    
     def AcquireLocalTicket(self, userName):
         '''Acquires a one-time ticket for mutual authentication between a server and
-        client.The caller of this operation can use the user name and file content of
-        the returned object as the userName and password arguments for login operation.
-        The local ticket that is returned becomes invalid either after it is used or
-        after a server-determined ticket expiration time passes. This operation can be
-        used by servers and clients to avoid re-entering user credentials after
-        authentication by the operating system has already happened.For example,
-        service console utilities that connect to a host agent should not require users
-        to re-enter their passwords every time the utilities run. Since the one-time
-        password file is readable only by the given user, the identity of the one-time
-        password user is protected by the operating system file permission.Only local
-        clients are allowed to call this operation. Remote clients receive an
-        InvalidRequest fault upon calling this operation.
+        client.Acquires a one-time ticket for mutual authentication between a server
+        and client.Acquires a one-time ticket for mutual authentication between a
+        server and client.Acquires a one-time ticket for mutual authentication between
+        a server and client.
         
         :param userName: User requesting one-time password.
         
@@ -98,7 +102,7 @@ class SessionManager(BaseEntity):
         '''
         return self.delegate("CloneSession")(cloneTicket)
     
-    def ImpersonateUser(self, userName, locale):
+    def ImpersonateUser(self, userName, locale=None):
         '''Converts current session to impersonate the specified user. The current session
         will take on the identity and authorization level of the user. That user must
         have a currently-active session. If the given userName is an extension key and
@@ -113,7 +117,7 @@ class SessionManager(BaseEntity):
         '''
         return self.delegate("ImpersonateUser")(userName, locale)
     
-    def Login(self, userName, password, locale):
+    def Login(self, userName, password, locale=None):
         '''Log on to the server. This method fails if the user name and password are
         incorrect, or if the user is valid but has no permissions granted.
         
@@ -126,20 +130,12 @@ class SessionManager(BaseEntity):
         '''
         return self.delegate("Login")(userName, password, locale)
     
-    def LoginBySSPI(self, base64Token, locale):
-        '''Log on to the server using SSPI pass-through authentication.This method
-        provides support for passing credentials of the calling process to the server
-        without using a password, by leveraging the Windows Security Support Provider
-        Interface (SSPI) library.If the function is not supported, this throws a
-        NotSupported fault.The client first calls AcquireCredentialsHandle(). If
-        Kerberos is used, this should include the desired credential to pass. The
-        client then calls InitializeSecurityContext(). The resulting partially-formed
-        context is passed in Base-64 encoded form to this method.If the context has
-        been successfully formed, the server proceeds with login and behaves like
-        Login. If further negotiation is needed, the server throws an SSPIChallenge
-        fault with a challenge token, which the client should again pass to
-        InitializeSecurityContext(), followed by calling this method again.For more
-        information, see the MSDN documentation on SSPI.
+    def LoginBySSPI(self, base64Token, locale=None):
+        '''Log on to the server using SSPI pass-through authentication.Log on to the
+        server using SSPI pass-through authentication.Log on to the server using SSPI
+        pass-through authentication.Log on to the server using SSPI pass-through
+        authentication.Log on to the server using SSPI pass-through authentication.Log
+        on to the server using SSPI pass-through authentication.
         
         :param base64Token: The partially formed context returned from InitializeSecurityContext().
         
@@ -148,15 +144,15 @@ class SessionManager(BaseEntity):
         '''
         return self.delegate("LoginBySSPI")(base64Token, locale)
     
-    def LoginExtensionByCertificate(self, extensionKey, locale):
+    def LoginExtensionByCertificate(self, extensionKey, locale=None):
         '''Creates a special privileged session that includes the Sessions.ImpersonateUser
         privilege. Requires that the client connect over SSL and provide an X.509
         certificate for which they hold the private key. The certificate must match the
-        certificate used in an earlier call to SetExtensionCertificate.NOTE:
-        Verification of the received certificate (such as expiry, revocation, and trust
-        chain) is not required for successful authentication using this method. If
-        certificate verification is desired, use the LoginExtensionBySubjectName method
-        instead.
+        certificate used in an earlier call to SetExtensionCertificate.Creates a
+        special privileged session that includes the Sessions.ImpersonateUser
+        privilege. Requires that the client connect over SSL and provide an X.509
+        certificate for which they hold the private key. The certificate must match the
+        certificate used in an earlier call to SetExtensionCertificate.
         
         :param extensionKey: Key of extension that is logging in.
         
@@ -165,12 +161,14 @@ class SessionManager(BaseEntity):
         '''
         return self.delegate("LoginExtensionByCertificate")(extensionKey, locale)
     
-    def LoginExtensionBySubjectName(self, extensionKey, locale):
+    def LoginExtensionBySubjectName(self, extensionKey, locale=None):
         '''Creates a special privileged session that includes the Sessions.ImpersonateUser
         privilege. Requires that the extension connected using SSL, with a certificate
         that has a subject name that matches the subject name registered for the
-        extension.As of vSphere API 4.0, the NotFound fault is no longer thrown.
-        Instead, InvalidLogin is thrown if the specified extension is not registered.
+        extension.Creates a special privileged session that includes the
+        Sessions.ImpersonateUser privilege. Requires that the extension connected using
+        SSL, with a certificate that has a subject name that matches the subject name
+        registered for the extension.
         
         :param extensionKey: Key of extension that is logging in.
         
@@ -205,12 +203,8 @@ class SessionManager(BaseEntity):
         return self.delegate("SetLocale")(locale)
     
     def TerminateSession(self, sessionId):
-        '''Log off and terminate the provided list of sessions.This method is only
-        transactional for each session ID. The set of sessions are terminated
-        sequentially, as specified in the list. If a failure occurs, for example,
-        because of an unknown sessionID, the method aborts with an exception. When the
-        method aborts, any sessions that have not yet been terminated are left in their
-        unterminated state.
+        '''Log off and terminate the provided list of sessions.Log off and terminate the
+        provided list of sessions.
         
         :param sessionId: A list of sessions to terminate.
         
