@@ -19,17 +19,17 @@ def DatabaseSizeParam(vim, *args, **kwargs):
     estimate the database size required by a hypothetical VirtualCenter setup.'''
     
     obj = vim.client.factory.create('ns0:DatabaseSizeParam')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
-        
+
     required = [ 'inventoryDesc' ]
     optional = [ 'perfStatsDesc', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

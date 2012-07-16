@@ -13,10 +13,10 @@ log = logging.getLogger(__name__)
 
 class ScheduledTaskManager(BaseEntity):
     '''Object manager for scheduled tasks.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ScheduledTaskManager):
         super(ScheduledTaskManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def description(self):
@@ -26,7 +26,7 @@ class ScheduledTaskManager(BaseEntity):
     def scheduledTask(self):
         '''All available scheduled tasks.'''
         return self.update('scheduledTask')
-    
+
     
     
     def CreateObjectScheduledTask(self, obj, spec):
@@ -49,7 +49,7 @@ class ScheduledTaskManager(BaseEntity):
         '''
         return self.delegate("CreateScheduledTask")(entity, spec)
     
-    def RetrieveEntityScheduledTask(self, entity):
+    def RetrieveEntityScheduledTask(self, entity=None):
         '''Available scheduled tasks defined on the entity.
         
         :param entity: The entity. If null, all scheduled tasks are returned for visible entities.
@@ -57,7 +57,7 @@ class ScheduledTaskManager(BaseEntity):
         '''
         return self.delegate("RetrieveEntityScheduledTask")(entity)
     
-    def RetrieveObjectScheduledTask(self, obj):
+    def RetrieveObjectScheduledTask(self, obj=None):
         '''Available scheduled tasks defined on the object.
         
         :param obj: The object. If not specified, all scheduled tasks are returned for visible entities and visible ManagedObjects.

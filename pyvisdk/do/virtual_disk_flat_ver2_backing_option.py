@@ -15,18 +15,18 @@ def VirtualDiskFlatVer2BackingOption(vim, *args, **kwargs):
     are grown as needed.'''
     
     obj = vim.client.factory.create('ns0:VirtualDiskFlatVer2BackingOption')
-    
+
     # do some validation checking...
-    if (len(args) + len(kwargs)) < 9:
-        raise IndexError('Expected at least 10 arguments got: %d' % len(args))
-        
-    required = [ 'diskMode', 'eagerlyScrub', 'growable', 'hotGrowable', 'split',
-        'thinProvisioned', 'uuid', 'writeThrough', 'type' ]
+    if (len(args) + len(kwargs)) < 10:
+        raise IndexError('Expected at least 11 arguments got: %d' % len(args))
+
+    required = [ 'deltaDiskFormat', 'diskMode', 'eagerlyScrub', 'growable', 'hotGrowable',
+        'split', 'thinProvisioned', 'uuid', 'writeThrough', 'type' ]
     optional = [ 'fileNameExtensions', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

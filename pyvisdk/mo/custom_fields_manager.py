@@ -17,19 +17,19 @@ class CustomFieldsManager(BaseEntity):
     through the customValue property and through the summary objects for
     VirtualMachine and HostSystem. They are not available directly through this
     managed object.This functionality is only available through VirtualCenter.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.CustomFieldsManager):
         super(CustomFieldsManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def field(self):
         '''List of custom fields defined on this server. The fields are sorted by name.'''
         return self.update('field')
+
     
     
-    
-    def AddCustomFieldDef(self, name, moType, fieldDefPolicy, fieldPolicy):
+    def AddCustomFieldDef(self, name, moType=None, fieldDefPolicy=None, fieldPolicy=None):
         '''Creates a new custom field. If the moType is specified, the field will only be
         available for that type of managed object.
         
@@ -63,8 +63,14 @@ class CustomFieldsManager(BaseEntity):
         '''
         return self.delegate("RenameCustomFieldDef")(key, name)
     
-    def SetField(self):
+    def SetField(self, entity, key, value):
         '''Assigns a value to a custom field on an entity.
         
+        :param entity: 
+        
+        :param key: 
+        
+        :param value: 
+        
         '''
-        return self.delegate("SetField")()
+        return self.delegate("SetField")(entity, key, value)

@@ -15,17 +15,17 @@ def AlarmTriggeringAction(vim, *args, **kwargs):
     the same as a green state, for the purpose of detecting transitions.'''
     
     obj = vim.client.factory.create('ns0:AlarmTriggeringAction')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 5:
         raise IndexError('Expected at least 6 arguments got: %d' % len(args))
-        
+
     required = [ 'action', 'green2yellow', 'red2yellow', 'yellow2green', 'yellow2red' ]
     optional = [ 'transitionSpecs', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

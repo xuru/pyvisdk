@@ -18,10 +18,10 @@ class PropertyFilter(BaseEntity):
     independent lifetimes. A Filter is automatically destroyed when the session on
     which it was created is closed or the PropertyCollector on which it was created
     is destroyed.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.PropertyFilter):
         super(PropertyFilter, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def partialUpdates(self):
@@ -34,12 +34,11 @@ class PropertyFilter(BaseEntity):
     def spec(self):
         '''Specifications for this filter.'''
         return self.update('spec')
-    
+
     
     
     def DestroyPropertyFilter(self):
-        '''Destroys this filter.This operation can be called explicitly, or it can take
-        place implicitly when the session that created the filter is closed.
+        '''Destroys this filter.Destroys this filter.
         
         '''
         return self.delegate("DestroyPropertyFilter")()

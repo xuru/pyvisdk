@@ -15,22 +15,22 @@ def VirtualMachineQuickStats(vim, *args, **kwargs):
     monitor statistics values, use the statistics and alarms modules instead.'''
     
     obj = vim.client.factory.create('ns0:VirtualMachineQuickStats')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
-        
+
     required = [ 'guestHeartbeatStatus' ]
     optional = [ 'balloonedMemory', 'compressedMemory', 'consumedOverheadMemory',
         'distributedCpuEntitlement', 'distributedMemoryEntitlement', 'ftLatencyStatus',
         'ftLogBandwidth', 'ftSecondaryLatency', 'guestMemoryUsage', 'hostMemoryUsage',
         'overallCpuDemand', 'overallCpuUsage', 'privateMemory', 'sharedMemory',
-        'staticCpuEntitlement', 'staticMemoryEntitlement', 'swappedMemory',
-        'uptimeSeconds', 'dynamicProperty', 'dynamicType' ]
-    
+        'ssdSwappedMemory', 'staticCpuEntitlement', 'staticMemoryEntitlement',
+        'swappedMemory', 'uptimeSeconds', 'dynamicProperty', 'dynamicType' ]
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

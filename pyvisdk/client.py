@@ -7,17 +7,21 @@ from suds import MethodNotFound
 import logging
 import os.path
 import suds
-from suds.plugin import MessagePlugin
+import urllib
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
 
-class MyPlugin(MessagePlugin):
-    def addAttributeForValue(self, node):
-        if node.name == 'value':
-            node.set('xsi:type', 'xsd:string')
-    def marshalled(self, context):
-        context.envelope.walk(self.addAttributeForValue)
+WSDL_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'wsdl')
+
+class SudsClientFactory(object):
+    _client = None
+    @classmethod
+    def get_suds_client(cls):
+        if cls._client is None:
+            cls._client = suds.client.Client("file://" + urllib.pathname2url(os.path.join(WSDL_DIR, 'vimService.wsdl')),
+                                             cachingpolicy=1, autoblend=True)
+        return cls._client.clone()
 
 class Client(object):
     '''
@@ -28,9 +32,8 @@ class Client(object):
         '''
         Constructor
         '''
-        wsdl_dir = os.path.abspath(os.path.dirname(__file__))
         url = "https://" + server + '/sdk'
-        client = suds.client.Client("file://" + os.path.join(wsdl_dir, 'wsdl', 'vimService.wsdl'), plugins=[MyPlugin()])
+        client = SudsClientFactory.get_suds_client()
         client.set_options(faults=True)
         client.set_options(location=url)
         client.set_options(timeout=timeout)
@@ -44,7 +47,7 @@ class Client(object):
     #
     def __getattribute__(self, attr):
         service = super(Client, self).__getattribute__("service")
-        
+
         # try the service
         try:
             _attr = getattr(service, attr)
@@ -62,4 +65,3 @@ class Client(object):
             except (AttributeError, MethodNotFound):
                 # if it's a member of this class...
                 return super(Client, self).__getattribute__(attr)
-            

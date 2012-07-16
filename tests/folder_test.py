@@ -27,7 +27,7 @@ class TestFolder(unittest.TestCase):
         folder = self.datacenter.vmFolder
         
         self.assertIsNotNone(folder, "Couldn't get folder: %s" % folder.name)
-        self.assertEqual(folder.type, ManagedObjectTypes.Folder, "Folder's type isn't Folder...")
+        self.assertEqual(folder._type, ManagedObjectTypes.Folder, "Folder's type isn't Folder...")
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testFolder']

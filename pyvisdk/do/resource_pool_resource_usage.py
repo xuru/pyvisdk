@@ -17,18 +17,18 @@ def ResourcePoolResourceUsage(vim, *args, **kwargs):
     on the resource pool is expandable, then the following is true:'''
     
     obj = vim.client.factory.create('ns0:ResourcePoolResourceUsage')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 6:
         raise IndexError('Expected at least 7 arguments got: %d' % len(args))
-        
+
     required = [ 'maxUsage', 'overallUsage', 'reservationUsed', 'reservationUsedForVm',
         'unreservedForPool', 'unreservedForVm' ]
     optional = [ 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

@@ -15,10 +15,10 @@ class DistributedVirtualPortgroup(Network):
     '''The interface to the distributed virtual portgroup objects. This type
     represents both a group of ports that share the common network setting and a
     Network entity in the datacenter.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.DistributedVirtualPortgroup):
         super(DistributedVirtualPortgroup, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def config(self):
@@ -32,13 +32,14 @@ class DistributedVirtualPortgroup(Network):
     def portKeys(self):
         '''The port keys of those ports in the portgroup.'''
         return self.update('portKeys')
+
     
     
-    
-    def ReconfigureDVPortgroup_Task(self):
-        '''The DistributedVirtualPortgroups to be reconfigured* DVPortgroup.PolicyOp if
-        changing the policy of the portgroup. * DVPortgroup.ScopeOp if changing the
-        scope of the portgroup. * DVPortgroup.Modify for anything else.
+    def ReconfigureDVPortgroup_Task(self, spec):
+        '''The DistributedVirtualPortgroups to be reconfiguredThe
+        DistributedVirtualPortgroups to be reconfigured
+        
+        :param spec: 
         
         '''
-        return self.delegate("ReconfigureDVPortgroup_Task")()
+        return self.delegate("ReconfigureDVPortgroup_Task")(spec)

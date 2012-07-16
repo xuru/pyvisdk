@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-   Copyright 2005-2010 VMware, Inc.  All rights reserved.
+   Copyright 2005-2012 VMware, Inc.  All rights reserved.
 -->
 <schema
    targetNamespace="urn:vim25"
@@ -80,6 +80,18 @@
    <complexType name="DestroyPropertyCollectorRequestType">
       <sequence>
          <element name="_this" type="vim25:ManagedObjectReference" />
+      </sequence>
+   </complexType>
+   <complexType name="DynamicTypeMgrQueryMoInstancesRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="filterSpec" type="vim25:DynamicTypeMgrFilterSpecBase" minOccurs="0" />
+      </sequence>
+   </complexType>
+   <complexType name="DynamicTypeMgrQueryTypeInfoRequestType">
+      <sequence>
+         <element name="_this" type="vim25:ManagedObjectReference" />
+         <element name="filterSpec" type="vim25:DynamicTypeMgrTypeFilterSpecBase" minOccurs="0" />
       </sequence>
    </complexType>
 </schema>

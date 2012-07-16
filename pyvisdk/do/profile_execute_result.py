@@ -9,21 +9,22 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ProfileExecuteResult(vim, *args, **kwargs):
-    '''Class describing the result of the Execute operation.'''
+    '''The ProfileExecuteResult data object contains the results from a
+    HostProfile.ExecuteHostProfile operation.'''
     
     obj = vim.client.factory.create('ns0:ProfileExecuteResult')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
-        
+
     required = [ 'status' ]
     optional = [ 'configSpec', 'error', 'inapplicablePath', 'requireInput', 'dynamicProperty',
         'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

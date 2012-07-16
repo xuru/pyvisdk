@@ -14,10 +14,10 @@ log = logging.getLogger(__name__)
 class AlarmManager(BaseEntity):
     '''The alarm manager is a singleton object for managing alarms within a service
     instance.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.AlarmManager):
         super(AlarmManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def defaultExpression(self):
@@ -28,7 +28,7 @@ class AlarmManager(BaseEntity):
     def description(self):
         '''The static descriptive strings used in alarms.'''
         return self.update('description')
-    
+
     
     
     def AcknowledgeAlarm(self, alarm, entity):
@@ -53,9 +53,7 @@ class AlarmManager(BaseEntity):
         return self.delegate("AreAlarmActionsEnabled")(entity)
     
     def CreateAlarm(self, entity, spec):
-        '''Creates an alarm.In addition to the Alarm.Create privilege, may also require
-        the Global.ScriptAction if a RunScriptAction action is specified in the
-        AlarmSpec.
+        '''Creates an alarm.Creates an alarm.
         
         :param entity: The entity with which the alarm is associated.
         
@@ -74,7 +72,7 @@ class AlarmManager(BaseEntity):
         '''
         return self.delegate("EnableAlarmActions")(entity, enabled)
     
-    def GetAlarm(self, entity):
+    def GetAlarm(self, entity=None):
         '''Available alarms defined on the entity. These alarms do not include any
         inherited alarms; that is, alarms associated with parent entities.
         

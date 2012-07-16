@@ -14,17 +14,17 @@ def HostMountInfo(vim, *args, **kwargs):
     system. (See HostFileSystemMountInfo.)'''
     
     obj = vim.client.factory.create('ns0:HostMountInfo')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 1:
         raise IndexError('Expected at least 2 arguments got: %d' % len(args))
-        
+
     required = [ 'accessMode' ]
-    optional = [ 'accessible', 'path', 'dynamicProperty', 'dynamicType' ]
-    
+    optional = [ 'accessible', 'mounted', 'path', 'dynamicProperty', 'dynamicType' ]
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

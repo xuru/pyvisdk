@@ -26,17 +26,17 @@ def HostServiceTicket(vim, *args, **kwargs):
     a server that accepts the ticketed connection and provides the service.'''
     
     obj = vim.client.factory.create('ns0:HostServiceTicket')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 3:
         raise IndexError('Expected at least 4 arguments got: %d' % len(args))
-        
+
     required = [ 'service', 'serviceVersion', 'sessionId' ]
     optional = [ 'host', 'port', 'sslThumbprint', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

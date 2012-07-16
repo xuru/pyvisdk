@@ -13,16 +13,16 @@ log = logging.getLogger(__name__)
 
 class ScheduledTask(ExtensibleManagedObject):
     '''The scheduled task object.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ScheduledTask):
         super(ScheduledTask, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def info(self):
         '''Information about the current scheduled task.'''
         return self.update('info')
-    
+
     
     
     def ReconfigureScheduledTask(self, spec):

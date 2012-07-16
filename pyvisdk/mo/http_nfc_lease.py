@@ -18,10 +18,10 @@ class HttpNfcLease(BaseEntity):
     Examples of blocked operations are PowerOn, Destroy, Migrate, etc.A lease is in
     one of four states:The import/export task corresponding to the lease continues
     running while the lease is held.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HttpNfcLease):
         super(HttpNfcLease, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def error(self):
@@ -42,16 +42,15 @@ class HttpNfcLease(BaseEntity):
     def state(self):
         '''The current state of the lease.'''
         return self.update('state')
+
     
     
-    
-    def HttpNfcLeaseAbort(self, fault):
+    def HttpNfcLeaseAbort(self, fault=None):
         '''Aborts the import/export and releases this lease. Operations on the objects
         contained in this lease will no longer be blocked. After calling this method,
-        this lease will no longer be valid.Clients should call this method if an error
-        occurs while accessing the disks, or if the operation is cancelled. The client
-        can report the cause of the abort to other clients listening on the task with
-        the fault parameter.
+        this lease will no longer be valid.Aborts the import/export and releases this
+        lease. Operations on the objects contained in this lease will no longer be
+        blocked. After calling this method, this lease will no longer be valid.
         
         :param fault: [in] The fault that caused the abort, if any.
         
@@ -61,9 +60,9 @@ class HttpNfcLease(BaseEntity):
     def HttpNfcLeaseComplete(self):
         '''Completes the import/export and releases this lease. Operations on the objects
         contained in this lease will no longer be blocked. After calling this method,
-        this lease will no longer be valid.Clients should call this method when they
-        are done accessing the disks for the VirtualMachines in this lease. The status
-        of the corresponding task will be set to success.
+        this lease will no longer be valid.Completes the import/export and releases
+        this lease. Operations on the objects contained in this lease will no longer be
+        blocked. After calling this method, this lease will no longer be valid.
         
         '''
         return self.delegate("HttpNfcLeaseComplete")()

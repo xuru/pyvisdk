@@ -14,15 +14,15 @@ log = logging.getLogger(__name__)
 class VirtualMachineProvisioningChecker(BaseEntity):
     '''A singleton managed object that can answer questions about the feasibility of
     certain provisioning operations.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.VirtualMachineProvisioningChecker):
         super(VirtualMachineProvisioningChecker, self).__init__(core, name=name, ref=ref, type=type)
+
+    
+
     
     
-    
-    
-    
-    def CheckMigrate_Task(self, vm, host, pool, state, testType):
+    def CheckMigrate_Task(self, vm, host=None, pool=None, state=None, testType=None):
         '''Tests the feasibility of a proposed MigrateVM_Task operation.
         
         :param vm: The virtual machine we propose to migrate.
@@ -38,15 +38,17 @@ class VirtualMachineProvisioningChecker(BaseEntity):
         '''
         return self.delegate("CheckMigrate_Task")(vm, host, pool, state, testType)
     
-    def CheckRelocate_Task(self, vm, spec):
+    def CheckRelocate_Task(self, vm, spec, testType=None):
         '''Tests the feasibility of a proposed RelocateVM_Task operation.
         
         :param vm: The virtual machine we propose to relocate.
         
         :param spec: The specification of where to relocate the virtual machine. In cases where DRS would automatically select a host, all potential hosts are tested against.
         
+        :param testType: 
+        
         '''
-        return self.delegate("CheckRelocate_Task")(vm, spec)
+        return self.delegate("CheckRelocate_Task")(vm, spec, testType)
     
     def QueryVMotionCompatibilityEx_Task(self, vm, host):
         '''Investigates the general VMotion compatibility of a set of virtual machines

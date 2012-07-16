@@ -14,19 +14,19 @@ def LicenseDiagnostics(vim, *args, **kwargs):
     specified as a discontinuity is used to determine when this last occurred.'''
     
     obj = vim.client.factory.create('ns0:LicenseDiagnostics')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 9:
         raise IndexError('Expected at least 10 arguments got: %d' % len(args))
-        
+
     required = [ 'lastStatusUpdate', 'licenseFeatureUnknowns', 'licenseRequestFailures',
         'licenseRequests', 'opFailureMessage', 'opState', 'sourceLastChanged',
         'sourceLatency', 'sourceLost' ]
     optional = [ 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

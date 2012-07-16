@@ -14,20 +14,20 @@ def VirtualMachineFlagInfo(vim, *args, **kwargs):
     change the values during an edit or create operation.'''
     
     obj = vim.client.factory.create('ns0:VirtualMachineFlagInfo')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
-        
+
     required = [  ]
     optional = [ 'disableAcceleration', 'diskUuidEnabled', 'enableLogging', 'htSharing',
         'monitorType', 'recordReplayEnabled', 'runWithDebugInfo', 'snapshotDisabled',
         'snapshotLocked', 'snapshotPowerOffBehavior', 'useToe', 'virtualExecUsage',
         'virtualMmuUsage', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

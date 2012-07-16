@@ -28,8 +28,8 @@ class PerformanceManager(BaseEntity):
     , , , and so on. The links in this list contain documentation for performance
     counters, by group. Each page contains a table that includes data extracted
     from instances of the PerfCounterInfo data object, including the counter name,
-    its Label, Unit, StatsType, RollupType, and Level:* * * * * * * Storage
-    Capacity: * * Storage I/O: * * * * * * *Other performance-counter groups, in
+    its Label, Unit, StatsType, RollupType, and Level:* * * * * * * * * Storage
+    Capacity: * * Storage I/O: * * * * * * * *Other performance-counter groups, in
     addition to those listed here, exist on the system. However, only the counter
     groups listed are considered of possible interest to third-party
     developers.This interface provides these query operations:*
@@ -53,10 +53,10 @@ class PerformanceManager(BaseEntity):
     collect statistics data 10 minutes after system startup, and then hourly
     thereafter.See the Programming Guide for more information about using
     PerformanceManager.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.PerformanceManager):
         super(PerformanceManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def description(self):
@@ -70,21 +70,22 @@ class PerformanceManager(BaseEntity):
     def perfCounter(self):
         '''A list of all supported performance counters in the system.'''
         return self.update('perfCounter')
-    
+
     
     
     def CreatePerfInterval(self, intervalId):
-        '''Deprecated. As of API 2.5, use UpdatePerfInterval. The default historical
-        intervals can be modified, but they cannot be created. Adds a new historical
-        interval. Sampling period for new interval must be a multiple of an existing
-        interval; must comprise a longer period of time; and must be uniquely named.
+        '''<b>Deprecated.</b> <i>As of API 2.5, use UpdatePerfInterval. The default
+        historical intervals can be modified, but they cannot be created.</i> Adds a
+        new historical interval. Sampling period for new interval must be a multiple of
+        an existing interval; must comprise a longer period of time; and must be
+        uniquely named.
         
         :param intervalId: A custom interval, specified as the number of seconds to hold data in the database, a user-specified unique name, and a sampling period (in seconds).
         
         '''
         return self.delegate("CreatePerfInterval")(intervalId)
     
-    def QueryAvailablePerfMetric(self, entity, beginTime, endTime, intervalId):
+    def QueryAvailablePerfMetric(self, entity, beginTime=None, endTime=None, intervalId=None):
         '''Retrieves all performance counters for the specified managed object generated
         during a specified period of time. The time period can be specified using
         beginTime, endTime, or by interval ID.
@@ -102,8 +103,9 @@ class PerformanceManager(BaseEntity):
     
     def QueryPerf(self, querySpec):
         '''Retrieves the performance metrics for the specified entity (or entities) based
-        on the properties specified in the PerfQuerySpec data object.Query Performance
-        for VirtualCenter Server
+        on the properties specified in the PerfQuerySpec data object.Retrieves the
+        performance metrics for the specified entity (or entities) based on the
+        properties specified in the PerfQuerySpec data object.
         
         :param querySpec: An array of PerfQuerySpec objects. Each PerfQuerySpec object specifies a managed object reference for an entity, plus optional criteria for filtering results. Only metrics for entities that can be resolved and that are valid performance providers are returned in any result.
         
@@ -113,11 +115,13 @@ class PerformanceManager(BaseEntity):
     def QueryPerfComposite(self, querySpec):
         '''Retrieves a PerfCompositeMetric data object that comprises statistics for the
         specified entity and its children entities. Only metrics for the first level of
-        descendents are included in the PerfCompositeMetric object.Use this operation
-        to obtain statistics for a host and its associated virtual machines, for
-        example.Requires system.read privilege for every virtual machine on the target
-        host, or the query fails with the NoPermission fault. Suported for HostSystem
-        managed entities only.
+        descendents are included in the PerfCompositeMetric object.Retrieves a
+        PerfCompositeMetric data object that comprises statistics for the specified
+        entity and its children entities. Only metrics for the first level of
+        descendents are included in the PerfCompositeMetric object.Retrieves a
+        PerfCompositeMetric data object that comprises statistics for the specified
+        entity and its children entities. Only metrics for the first level of
+        descendents are included in the PerfCompositeMetric object.
         
         :param querySpec: A PerfQuerySpec object specifying the query parameters. This PerfQuerySpec object specifies a managed object for which composite statistics should be retrieved, with specific optional criteria for filtering the results.
         
@@ -154,17 +158,38 @@ class PerformanceManager(BaseEntity):
         return self.delegate("QueryPerfProviderSummary")(entity)
     
     def RemovePerfInterval(self, samplePeriod):
-        '''Deprecated. As of API 2.5, use UpdatePerfInterval. Historical intervals cannot
-        be removed. Removes an interval from the list.
+        '''<b>Deprecated.</b> <i>As of API 2.5, use UpdatePerfInterval. Historical
+        intervals cannot be removed.</i> Removes an interval from the list.
         
         :param samplePeriod: The sampling period, in seconds, for the specified interval being removed.
         
         '''
         return self.delegate("RemovePerfInterval")(samplePeriod)
     
+    def ResetCounterLevelMapping(self, counters):
+        '''Restores a set of performance counters to the default level of data collection.
+        See the <a href="#counterTables">performance counter tables</a> for the default
+        collection level for individual counters.
+        
+        :param counters: An array of counter ids.
+        
+        '''
+        return self.delegate("ResetCounterLevelMapping")(counters)
+    
+    def UpdateCounterLevelMapping(self, counterLevelMap):
+        '''Changes the level of data collection for a set of performance counters. See the
+        <a href="#counterTables">performance counter tables</a> for the default
+        collection level for individual counters.
+        
+        :param counterLevelMap: An array of PerformanceManagerCounterLevelMapping objects. The levels for the counters passed in are changed to the passed in values. If the optional aggregateLevel field is left unset then only the perDeviceLevel is configured. If the optional perDeviceLevel is left unset then only the aggregateLevel is configured. If there are multiple entries in the passed in array for the same counterId being updated then the last entry containing the counterId takes effect.
+        
+        '''
+        return self.delegate("UpdateCounterLevelMapping")(counterLevelMap)
+    
     def UpdatePerfInterval(self, interval):
         '''Modifies VirtualCenter Server's built-in historical intervals, within certain
-        limits.Supported Modifications
+        limits.Modifies VirtualCenter Server's built-in historical intervals, within
+        certain limits.
         
         :param interval: The historical interval being modified, a complete data object comprising values for enabled, interval ID, length of time to maintain statistics for this interval in the database, level, name, and samplingPeriod properties.
         

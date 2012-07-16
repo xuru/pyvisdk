@@ -17,16 +17,16 @@ class ExtensionManager(BaseEntity):
     ServiceInstance, to access extension objects.While several authentication
     methods are available for extension servers to use (see SessionManager), only
     one authentication method is valid for an extension at any given time.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.ExtensionManager):
         super(ExtensionManager, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def extensionList(self):
         '''The list of currently registered extensions.'''
         return self.update('extensionList')
-    
+
     
     
     def FindExtension(self, extensionKey):
@@ -38,12 +38,21 @@ class ExtensionManager(BaseEntity):
         return self.delegate("FindExtension")(extensionKey)
     
     def GetPublicKey(self):
-        '''Deprecated. As of VI 4.0, use trusted certificates and
+        '''<b>Deprecated.</b> <i>As of VI 4.0, use trusted certificates and
         LoginExtensionBySubjectName or SetExtensionCertificate and
-        LoginExtensionByCertificate. Returns VirtualCenter Server public key.
+        LoginExtensionByCertificate.</i> Returns VirtualCenter Server public key.
         
         '''
         return self.delegate("GetPublicKey")()
+    
+    def QueryManagedBy(self, extensionKey):
+        '''Find entities managed by an extension. These can be either virtual machines or
+        vApps.
+        
+        :param extensionKey: Key of the extension to find managed entities for.
+        
+        '''
+        return self.delegate("QueryManagedBy")(extensionKey)
     
     def RegisterExtension(self, extension):
         '''Registers extension.
@@ -53,15 +62,21 @@ class ExtensionManager(BaseEntity):
         '''
         return self.delegate("RegisterExtension")(extension)
     
-    def SetExtensionCertificate(self, extensionKey, certificatePem):
+    def SetExtensionCertificate(self, extensionKey, certificatePem=None):
         '''Update the stored authentication certificate for a specified extension. Updates
         the registration of the specified extension with the thumbprint of the X.509
         client certificate provided over SSL handshake, or by the
         "certificatePem"argument. The thumbprint will be used to authenticate the
-        extension during invocations of LoginExtensionByCertificate.NOTE: No
-        verification is performed on the received certificate, such as expiry or
-        revocation.This method will unset any public key or subject name associated
-        with the extension.
+        extension during invocations of LoginExtensionByCertificate.Update the stored
+        authentication certificate for a specified extension. Updates the registration
+        of the specified extension with the thumbprint of the X.509 client certificate
+        provided over SSL handshake, or by the "certificatePem"argument. The thumbprint
+        will be used to authenticate the extension during invocations of
+        LoginExtensionByCertificate.Update the stored authentication certificate for a
+        specified extension. Updates the registration of the specified extension with
+        the thumbprint of the X.509 client certificate provided over SSL handshake, or
+        by the "certificatePem"argument. The thumbprint will be used to authenticate
+        the extension during invocations of LoginExtensionByCertificate.
         
         :param extensionKey: Key of extension to update.
         
@@ -71,9 +86,9 @@ class ExtensionManager(BaseEntity):
         return self.delegate("SetExtensionCertificate")(extensionKey, certificatePem)
     
     def SetPublicKey(self, extensionKey, publicKey):
-        '''Deprecated. As of VI 4.0, use trusted certificates and
+        '''<b>Deprecated.</b> <i>As of VI 4.0, use trusted certificates and
         LoginExtensionBySubjectName or SetExtensionCertificate and
-        LoginExtensionByCertificate. Sets extension's public key.
+        LoginExtensionByCertificate.</i> Sets extension's public key.
         
         :param extensionKey: Key of extension to update.
         
@@ -92,9 +107,7 @@ class ExtensionManager(BaseEntity):
     
     def UpdateExtension(self, extension):
         '''If the key specified in the extension exists, the existing record is updated.If
-        the "subjectName" property of the Extension object has a value, and it is
-        different from the existing value, this method will unset any public key or
-        certificate associated with the extension.
+        the key specified in the extension exists, the existing record is updated.
         
         :param extension: Updated extension description.
         

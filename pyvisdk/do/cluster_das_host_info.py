@@ -12,17 +12,17 @@ def ClusterDasHostInfo(vim, *args, **kwargs):
     '''HA specific advanced information pertaining to the hosts in the cluster.'''
     
     obj = vim.client.factory.create('ns0:ClusterDasHostInfo')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
-        
+
     required = [  ]
     optional = [ 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

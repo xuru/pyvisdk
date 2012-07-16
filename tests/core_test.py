@@ -14,16 +14,16 @@ class Test(unittest.TestCase):
 
     def tearDown(self):
         pass
-    
+
     def testConnection(self):
         vim = Vim(self.options.server, verbose=0, connect=False)
         assert(vim.connected == False)
         assert(vim.loggedin == False)
-        
+
         vim.connect()
         assert(vim.connected == True)
         assert(vim.loggedin == False)
-    
+
     def testAbout(self):
         vim = Vim(self.options.server, verbose=0)
         vim.displayAbout()
@@ -33,17 +33,26 @@ class Test(unittest.TestCase):
     def testLogin(self):
         vim = Vim(self.options.server, verbose=0)
         assert(vim.connected == True)
-        
+
         vim.login(self.options.username, self.options.password)
         assert(vim.loggedin == True)
-        
+
         vim.logout()
         assert(vim.loggedin == False)
-    
+
     def testApiType(self):
         vim = Vim(self.options.server, verbose=0)
         assert("VirtualCenter" == vim.getApiType())
-        
+
+    def testLoginExtensionByCertificate(self):
+        vim = Vim(self.options.server, verbose=0, certfile=self.options.certfile, keyfile=self.options.keyfile)
+        assert(vim.connected == True)
+
+        vim.loginByExtensionCertificate(self.options.extension_key)
+        assert(vim.loggedin == True)
+
+        vim.logout()
+        assert(vim.loggedin == False)
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

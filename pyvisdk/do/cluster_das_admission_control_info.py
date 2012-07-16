@@ -9,20 +9,20 @@ from pyvisdk.exceptions import InvalidArgumentError
 log = logging.getLogger(__name__)
 
 def ClusterDasAdmissionControlInfo(vim, *args, **kwargs):
-    '''Base class for admission control related information of a VMware HA cluster.'''
+    '''Base class for admission control related information of a vSphere HA cluster.'''
     
     obj = vim.client.factory.create('ns0:ClusterDasAdmissionControlInfo')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 0:
         raise IndexError('Expected at least 1 arguments got: %d' % len(args))
-        
+
     required = [  ]
     optional = [ 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

@@ -12,17 +12,17 @@ def PerfEntityMetricCSV(vim, *args, **kwargs):
     '''This data object type stores metric values for a specific entity in CSV format.'''
     
     obj = vim.client.factory.create('ns0:PerfEntityMetricCSV')
-    
+
     # do some validation checking...
     if (len(args) + len(kwargs)) < 2:
         raise IndexError('Expected at least 3 arguments got: %d' % len(args))
-        
+
     required = [ 'sampleInfoCSV', 'entity' ]
     optional = [ 'value', 'dynamicProperty', 'dynamicType' ]
-    
+
     for name, arg in zip(required+optional, args):
         setattr(obj, name, arg)
-    
+
     for name, value in kwargs.items():
         if name in required + optional:
             setattr(obj, name, value)

@@ -15,10 +15,10 @@ class HostMemorySystem(ExtensibleManagedObject):
     '''The MemoryManagerSystem managed object provides an interface through which the
     host memory management policies that affect the performance of running virtual
     machines can be gathered and configured.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.HostMemorySystem):
         super(HostMemorySystem, self).__init__(core, name=name, ref=ref, type=type)
-    
+
     
     @property
     def consoleReservationInfo(self):
@@ -32,19 +32,23 @@ class HostMemorySystem(ExtensibleManagedObject):
         of this data object indicates if the virtual machine memory reservation must be
         configured for this host.'''
         return self.update('virtualMachineReservationInfo')
+
     
     
-    
-    def ReconfigureServiceConsoleReservation(self):
+    def ReconfigureServiceConsoleReservation(self, cfgBytes):
         '''Sets the configured service console memory reservation. This change affects
         only the serviceConsoleReservedCfg property. The configuration change
         propagates to the other properties after the next boot.
         
-        '''
-        return self.delegate("ReconfigureServiceConsoleReservation")()
-    
-    def ReconfigureVirtualMachineReservation(self):
-        '''Updates the virtual machine reservation information.
+        :param cfgBytes: 
         
         '''
-        return self.delegate("ReconfigureVirtualMachineReservation")()
+        return self.delegate("ReconfigureServiceConsoleReservation")(cfgBytes)
+    
+    def ReconfigureVirtualMachineReservation(self, spec):
+        '''Updates the virtual machine reservation information.
+        
+        :param spec: 
+        
+        '''
+        return self.delegate("ReconfigureVirtualMachineReservation")(spec)

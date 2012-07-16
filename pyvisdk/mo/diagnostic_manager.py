@@ -15,15 +15,15 @@ class DiagnosticManager(BaseEntity):
     '''Provides an interface to get low-level debugging logs or diagnostic bundles for
     a server. For VirtualCenter, this includes the log files for the server daemon.
     For an ESX Server host, this includes detailed log files for the VMkernel.'''
-    
+
     def __init__(self, core, name=None, ref=None, type=ManagedObjectTypes.DiagnosticManager):
         super(DiagnosticManager, self).__init__(core, name=name, ref=ref, type=type)
+
+    
+
     
     
-    
-    
-    
-    def BrowseDiagnosticLog(self, host, key, start, lines):
+    def BrowseDiagnosticLog(self, key, host=None, start=None, lines=None):
         '''Returns part of a log file. Log entries are always returned chronologically,
         typically with the newest event last.
         
@@ -38,7 +38,7 @@ class DiagnosticManager(BaseEntity):
         '''
         return self.delegate("BrowseDiagnosticLog")(host, key, start, lines)
     
-    def GenerateLogBundles_Task(self, includeDefault, host):
+    def GenerateLogBundles_Task(self, includeDefault, host=None):
         '''Instructs the server to generate diagnostic bundles. A diagnostic bundle
         includes log files and other configuration information that can be used to
         investigate potential server issues. Virtual machine and guest operation system
@@ -51,7 +51,7 @@ class DiagnosticManager(BaseEntity):
         '''
         return self.delegate("GenerateLogBundles_Task")(includeDefault, host)
     
-    def QueryDescriptions(self, host):
+    def QueryDescriptions(self, host=None):
         '''Returns a list of diagnostic files for a given system.
         
         :param host: Specifies the host. If not specified, then it defaults to the server itself. For example, if called on VirtualCenter, then the value defaults to VirtualCenter logs. When called on an ESX server host, the host should not be specified.
