@@ -250,7 +250,7 @@ class VimBase(object):
 
         kwargs = {}
         for attr_name in filter(lambda x: not x.startswith('_'), dir(obj_content)):
-            attr_data = eval('obj_content.%s' % attr_name)
+            attr_data = getattr(obj_content, attr_name)
             kwargs[attr_name] = self._parse_object_content(attr_data, parent=do)
 
         rv = do(self, **kwargs)
