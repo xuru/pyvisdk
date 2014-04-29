@@ -43,7 +43,7 @@ class TaskDelegate(object):
         if self.name[-5:] == '_Task' and self.cls.core.wait_for_task:
             log.debug("Waiting for task to Complete")
             self.cls.core.waitForTask(rv)
-        if self.__target.method.name in ["RetrieveProperties", "RetrievePropertiesEx"]:
+        if self.__target.method.name in ["RetrieveProperties", "RetrievePropertiesEx", "ContinueRetrievePropertiesEx"]:
             return rv
         else:
             return self.cls.core._parse_object_content(rv)
