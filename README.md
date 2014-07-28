@@ -1,14 +1,11 @@
 
 # pyvisdk - vSphere SDK  for Python
 
-* Authors: Eric Plaster
-* Source code: http://github.com/xuru/pyvisdk
 * Download: http://pypi.python.org/pypi/pyvisdk
 * Homepage: http://xuru.github.com/pyvisdk
-* Keywords: python, vmware, virtual, vsphere, virtual machine, visdk
 
-  [pyvisdk](http://xuru.github.com/pyvisdk) is a pure python library to access the [VMware vSphere web services API](http://www.vmware.com/support/developer/vc-sdk/).
-  Thanks to [psphere](http://jkinred.bitbucket.org/psphere/index.html) for giving me some insight into how the API works.
+[pyvisdk](http://xuru.github.com/pyvisdk) is a pure python library to access the [VMware vSphere web services API](http://www.vmware.com/support/developer/vc-sdk/).
+Thanks to [psphere](http://jkinred.bitbucket.org/psphere/index.html) for giving me some insight into how the API works.
 
 ## Note
   I no longer have access to vsphere, and would love it if someone would take over the project.  Barring that, if you submit a pull request, I'll do my best to get it merged in.  Please make sure to include unit tests if possible.
